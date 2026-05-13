@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDFs — Admin de Proyectos I</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/extra.css" />
+  <style>
+    /* Canvas del PDF: sombra suave para que se destaque sobre el fondo */
+    #pdf-canvas {
+      box-shadow: var(--shadow);
+      max-width: 100%;
+      height: auto;
+      background: white;
+    }
+  </style>
+</head>
+<body class="has-bottom-bar md:pb-0">
+  <main class="max-w-5xl mx-auto px-4 py-4">
+    <div id="tabs" class="flex gap-2 overflow-x-auto pb-2 mb-3 md:hidden"></div>
+    <div class="md:flex md:gap-6">
+      <aside id="tabs-desktop" class="hidden md:block md:w-48 shrink-0 space-y-2"></aside>
+      <section class="flex-1 min-w-0">
+        <div class="hidden md:flex justify-between items-center mb-3">
+          <div id="page-info" class="text-sm text-[var(--muted)]"></div>
+          <div class="flex gap-2">
+            <button id="prev" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">◀</button>
+            <button id="next" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">▶</button>
+            <button id="zoom-out" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">−</button>
+            <button id="zoom-in" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">+</button>
+            <a id="open-original-d" href="#" target="_blank" rel="noopener" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)] text-sm">Abrir original</a>
+          </div>
+        </div>
+        <div id="status" class="text-[var(--muted)] text-sm mb-2"></div>
+        <div class="flex justify-center"><canvas id="pdf-canvas"></canvas></div>
+      </section>
+    </div>
+  </main>
+  <!-- Bottom bar mobile -->
+  <div id="bottom-bar-mobile"
+       class="md:hidden fixed bottom-0 left-0 right-0 bg-[var(--surface)] border-t border-[var(--border)] p-3 flex gap-2 z-30">
+    <button id="prev-m" class="touch-target flex-1 px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">◀</button>
+    <div id="page-info-m" class="flex-1 text-center text-sm self-center text-[var(--muted)]"></div>
+    <button id="next-m" class="touch-target flex-1 px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">▶</button>
+    <button id="zoom-out-m" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">−</button>
+    <button id="zoom-in-m" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">+</button>
+    <a id="open-original-m" href="#" target="_blank" rel="noopener" class="touch-target self-center text-sm text-[var(--accent)]">Abrir</a>
+  </div>
+  <script type="module" src="js/pdfs.js"></script>
+</body>
+</html>
