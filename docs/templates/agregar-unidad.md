@@ -11,10 +11,10 @@ Este es el prompt que pegás en una **nueva sesión de Claude Code** cuando quer
    C:\Users\Juan\Desktop\projects\Sistemas y metodos - P2
    ```
 
-2. **Soltá los PDFs de la unidad nueva** en `C:\Users\Juan\Downloads\`. Pueden ser 1, 2 o más PDFs por unidad (igual que la unidad 8.1).
+2. **Soltá los PDFs de la unidad nueva** en `C:\Users\Juan\Downloads\`. Pueden ser 1, 2 o más PDFs por unidad (igual que la primera unidad).
 
-3. **Editá el prompt de abajo** reemplazando los `{{PLACEHOLDERS}}`:
-   - `{{UNIDAD}}`: número de la unidad (ej: `"8.2"`, `"9"`, `"10.1"`)
+3. **Editá SOLO los 3 `{{PLACEHOLDERS}}`** del prompt. El resto del template queda igual — las menciones a unidades específicas (8.1, etc.) son descripción del estado actual de la app y Claude las verifica leyendo `js/content.js` al inicio, no las hardcodea.
+   - `{{UNIDAD}}`: número de la unidad nueva (ej: `"8.2"`, `"9"`, `"10.1"`)
    - `{{TITULO_UNIDAD}}`: nombre largo (ej: `"Administración de Proyectos II"`, `"Gestión del cambio"`)
    - `{{PDFS}}`: paths absolutos a los PDFs separados por coma
 
@@ -47,7 +47,7 @@ Contenido vive en `js/content.js` como `export const SECTIONS = [...]`. Tipos re
 
 1. **Contenido EXCLUSIVAMENTE de los PDFs**. Nada inventado. Los textos del apunte van transcritos (literal o levemente condensados). Quizzes y flashcards basados solo en lo que dice el apunte.
 2. **Criollo en rioplatense argentino**: "vos" no "tú", informal pero claro. Cada título de sección lleva criollo. Cada `h3` interno lleva su criollo opcional. En secciones planas (sin `h3`), poné criollo como `callout` tone `info` después del listado.
-3. **No romper lo existente**. La unidad 8.1 ya está completa con IDs `'1'`..`'7'`. No modifiques esos objetos.
+3. **No romper lo existente**. Las secciones que ya están en `SECTIONS` no se modifican. Vos SOLO agregás objetos nuevos al final del array.
 4. **UTF-8 con tildes correctas**. El archivo es ES.
 5. **No agregues toolchain** (npm, TS, build steps). Mantené vanilla.
 6. **Imágenes**: si los PDFs traen diagramas útiles (no fotos decorativas), extraelos con PyMuPDF a `images/diagrams/<unidad-slug>/`. Pasalos por `figure` blocks en `content.js`.
@@ -64,30 +64,30 @@ Confirmá con un `git status` que el working tree está clean y estás en `main`
 
 ## Paso 2 — Refactor para multi-unit (SOLO la primera vez que se agrega una unidad nueva)
 
-Verificá si las secciones de 8.1 (objetos en `SECTIONS`) ya tienen un campo `unit`. Si NO lo tienen, hay que hacer este refactor chico una sola vez:
+Verificá si los objetos de `SECTIONS` ya tienen un campo `unit`. Si NO lo tienen, hay que hacer este refactor chico una sola vez (esto pasa solamente la primera vez que se extiende el proyecto más allá de la unidad inicial).
 
-### 2a. Agregar campo `unit` a las 7 secciones existentes
+### 2a. Agregar campo `unit` a todas las secciones existentes
 
-A cada uno de los 7 objetos en `SECTIONS` (id `'1'` a `'7'`), agregale el campo:
+A cada objeto en `SECTIONS` que actualmente NO tenga `unit`, agregale el campo:
 ```js
 unit: '8.1',
 ```
-justo después del `id`. Las 7 ya son de la unidad 8.1.
+justo después del `id`. Asumí que todas las secciones pre-existentes son de la unidad 8.1 (porque fue la primera y única hasta este momento). Si no es el caso, paralo y consultame.
 
 ### 2b. Modificar `js/home.js` para agrupar por unidad
 
 Reemplazá la última línea (`grid.innerHTML = SECTIONS.map(sectionCard).join('');`) por una lógica que agrupe las secciones por `section.unit` y renderice un header `<h2>` por grupo antes del grid correspondiente.
 
-Ejemplo del comportamiento esperado:
+Ejemplo del comportamiento esperado (los números varían según las unidades que existan):
 ```
-Unidad 8.1 — Administración de Proyectos I
-[grid de cards de 8.1]
+Unidad <X> — <título de esa unidad>
+[grid de cards de esa unidad]
 
-Unidad 8.2 — {{TITULO_UNIDAD}}
-[grid de cards de 8.2]
+Unidad <Y> — <título de esa unidad>
+[grid de cards de esa unidad]
 ```
 
-Mantené el subtítulo "Sistemas y Métodos — Unidad 8.1" del header principal pero sacalo o cambialo a algo genérico como "Sistemas y Métodos — Apuntes" para que no quede mal con múltiples unidades.
+El subtítulo del header principal (`Sistemas y Métodos — Unidad 8.1` o similar) cambialo a algo genérico como `Sistemas y Métodos — Apuntes` para que sirva con múltiples unidades.
 
 ### 2c. Modificar `js/seccion.js` para mostrar la unidad en el header
 
@@ -147,7 +147,7 @@ for path in [...]:
 Leé el texto extraído. Identificá los **títulos numerados** (1., 2., 3., ...) que marcan secciones grandes del apunte. Esas son las secciones de la unidad nueva.
 
 Para cada sección detectada, decidí:
-- **id**: continuá la numeración global. Si la última sección era `'7'`, la primera nueva es `'8'`, la siguiente `'9'`, etc. Los IDs son strings.
+- **id**: continuá la numeración global a partir del último id que ya existe en `SECTIONS`. Ejemplo: si el último id existente es `'7'`, la primera nueva es `'8'`. Si es `'12'`, la primera nueva es `'13'`. Los IDs son strings.
 - **unit**: `'{{UNIDAD}}'`.
 - **title**: el título tal cual del apunte.
 - **criollo**: 2-3 frases informales rioplatense del título completo.
@@ -210,15 +210,14 @@ node --check js/content.js && echo "PARSED OK"
 grep -c "TBD" js/content.js   # debe dar 0
 ```
 
-Levantá el server y curl-check:
+Levantá el server y curl-check (reemplazá `<id>` por los IDs reales que acabás de agregar):
 ```bash
 python -m http.server 8000 &
 SERVER_PID=$!
 sleep 1
-# Probar las nuevas secciones (reemplazá <id> por los IDs nuevos):
-curl -s -o /dev/null -w "seccion 8: %{http_code}\n" http://localhost:8000/seccion.html?id=8
-curl -s -o /dev/null -w "quiz 8: %{http_code}\n" http://localhost:8000/quiz.html?id=8
-curl -s -o /dev/null -w "flashcards 8: %{http_code}\n" http://localhost:8000/flashcards.html?id=8
+curl -s -o /dev/null -w "seccion <id>: %{http_code}\n" http://localhost:8000/seccion.html?id=<id>
+curl -s -o /dev/null -w "quiz <id>: %{http_code}\n" http://localhost:8000/quiz.html?id=<id>
+curl -s -o /dev/null -w "flashcards <id>: %{http_code}\n" http://localhost:8000/flashcards.html?id=<id>
 kill $SERVER_PID 2>/dev/null || true
 ```
 
