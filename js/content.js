@@ -1105,20 +1105,289 @@ export const SECTIONS = [
   {
     id: '6',
     title: 'Desafíos comunes en la gestión de proyectos',
-    criollo: 'TBD — Task 14',
-    blocks: [],
-    quiz: { tf: [], mc: [] },
-    flashcards: [],
+    criollo:
+      'Acá van las cinco cagadas clásicas que hacen fracasar proyectos: no saber para dónde van, ponerse plazos imposibles, tener al equipo repartido en mil proyectos, cambiar prioridades a cada rato y no comunicarse. Un buen gerente las trabaja desde el inicio, no cuando ya todo explotó.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Todo proyecto enfrenta desafíos que, si no se gestionan proactivamente, pueden llevar al fracaso. El apunte identifica cinco problemas recurrentes que el gerente de proyectos debe anticipar y mitigar desde el inicio.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Objetivos poco claros:</strong> si el equipo no sabe con precisión a dónde va, es muy probable que no llegue a buen puerto.',
+          '<strong>Planes y calendarios irreales:</strong> la presión por terminar rápido puede llevar a cronogramas imposibles de cumplir, lo que genera desmotivación y baja calidad.',
+          '<strong>Recursos saturados:</strong> asignar personas a demasiados proyectos a la vez reduce su productividad y aumenta el riesgo de errores.',
+          '<strong>Prioridades cambiantes:</strong> si la dirección cambia de opinión constantemente, el equipo pierde el foco y el proyecto se estanca.',
+          '<strong>Comunicación deficiente:</strong> la falta de comunicación clara y constante es una de las principales causas de problemas en los proyectos.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'En criollo: si nadie sabe qué se está haciendo, los plazos son una fantasía, todo el mundo está en diez proyectos al mismo tiempo, la dirección cambia de idea cada lunes y nadie se habla — el proyecto está frito. El gerente tiene que atacar estas cinco cosas antes de que se transformen en problema.',
+      },
+      {
+        type: 'p',
+        text:
+          'Un buen gerente de proyectos trabaja proactivamente para mitigar estos desafíos desde el inicio, anticipándose a los problemas en lugar de reaccionar cuando ya ocurrieron.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-6-1',
+          q: 'Los planes y calendarios irreales generan desmotivación y baja calidad en el equipo.',
+          a: true,
+          explain:
+            'Verdadero. El apunte señala que la presión por terminar rápido puede llevar a cronogramas imposibles de cumplir, lo que genera desmotivación y baja calidad.',
+        },
+        {
+          id: 'tf-6-2',
+          q: 'Asignar personas a muchos proyectos simultáneos aumenta la productividad del equipo.',
+          a: false,
+          explain:
+            'Falso. El apunte indica que asignar personas a demasiados proyectos a la vez reduce su productividad y aumenta el riesgo de errores.',
+        },
+        {
+          id: 'tf-6-3',
+          q: 'La comunicación deficiente es una de las principales causas de problemas en los proyectos.',
+          a: true,
+          explain:
+            'Verdadero. El apunte lo menciona explícitamente como uno de los cinco desafíos clave.',
+        },
+        {
+          id: 'tf-6-4',
+          q: 'Un buen gerente de proyectos trabaja reactivamente para resolver los desafíos cuando ya ocurrieron.',
+          a: false,
+          explain:
+            'Falso. El apunte indica que un buen gerente trabaja proactivamente para mitigar los desafíos desde el inicio, no de manera reactiva.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-6-1',
+          q: '¿Cuál de estos NO es un desafío mencionado en el apunte como causa de fracaso de proyectos?',
+          options: [
+            'Objetivos poco claros',
+            'Recursos saturados',
+            'Falta de herramientas tecnológicas',
+            'Prioridades cambiantes',
+          ],
+          correctIndex: 2,
+          explain:
+            'La falta de herramientas tecnológicas no aparece en el apunte. Los cinco desafíos son: objetivos poco claros, planes irreales, recursos saturados, prioridades cambiantes y comunicación deficiente.',
+        },
+        {
+          id: 'mc-6-2',
+          q: '¿Qué consecuencia genera el cambio constante de prioridades por parte de la dirección?',
+          options: [
+            'El equipo se adapta mejor y gana flexibilidad',
+            'El equipo pierde el foco y el proyecto se estanca',
+            'Se generan cronogramas más realistas',
+            'Se reduce el riesgo de scope creep',
+          ],
+          correctIndex: 1,
+          explain:
+            'El apunte señala que si la dirección cambia de opinión constantemente, el equipo pierde el foco y el proyecto se estanca.',
+        },
+        {
+          id: 'mc-6-3',
+          q: '¿Cómo aborda los desafíos un buen gerente de proyectos según el apunte?',
+          options: [
+            'Reactivamente, resolviendo los problemas cuando ya impactaron el proyecto',
+            'Delegando la gestión de problemas al equipo técnico',
+            'Proactivamente, mitigando los desafíos desde el inicio del proyecto',
+            'Documentando los problemas al cierre del proyecto para futura referencia',
+          ],
+          correctIndex: 2,
+          explain:
+            'El apunte concluye la sección indicando que un buen gerente de proyectos trabaja proactivamente para mitigar estos desafíos desde el inicio.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-6-1',
+        front: 'Desafío: Objetivos poco claros',
+        back:
+          'Si el equipo no sabe con precisión a dónde va, es muy probable que el proyecto no llegue a buen puerto. La claridad de objetivos es fundamental para orientar el trabajo.',
+      },
+      {
+        id: 'fc-6-2',
+        front: 'Desafío: Planes y calendarios irreales',
+        back:
+          'La presión por terminar rápido puede llevar a cronogramas imposibles de cumplir, lo que genera desmotivación y baja calidad en el equipo.',
+      },
+      {
+        id: 'fc-6-3',
+        front: 'Desafío: Recursos saturados',
+        back:
+          'Asignar personas a demasiados proyectos a la vez reduce su productividad y aumenta el riesgo de errores. El foco importa.',
+      },
+      {
+        id: 'fc-6-4',
+        front: 'Desafío: Prioridades cambiantes',
+        back:
+          'Si la dirección cambia de opinión constantemente, el equipo pierde el foco y el proyecto se estanca. La estabilidad de prioridades es clave.',
+      },
+      {
+        id: 'fc-6-5',
+        front: 'Desafío: Comunicación deficiente',
+        back:
+          'La falta de comunicación clara y constante es una de las principales causas de problemas en los proyectos. Comunicar bien, siempre.',
+      },
+      {
+        id: 'fc-6-6',
+        front: 'Rol del gerente ante los desafíos del proyecto',
+        back:
+          'Un buen gerente de proyectos trabaja proactivamente para mitigar los cinco desafíos comunes desde el inicio, anticipándose a los problemas antes de que ocurran.',
+      },
+    ],
   },
 
   // ---------- SECCIÓN 7 ----------
   {
     id: '7',
     title: 'Consideraciones generales (proyectos de sistemas)',
-    criollo: 'TBD — Task 14',
-    blocks: [],
-    quiz: { tf: [], mc: [] },
-    flashcards: [],
+    criollo:
+      'Para proyectos de sistemas hay que planificar bien de entrada y arrancar con una investigación seria del sistema a desarrollar. El tiempo lo marcás vos según cuántas personas entrevistás y cuánto dura el desarrollo. Y lo más importante: el project leader tiene que asegurarse de que todo el mundo esté disponible cuando tiene que estar.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Los proyectos de desarrollo de sistemas tienen consideraciones específicas que los distinguen de otros tipos de proyectos. A continuación se enumeran cinco puntos clave que orientan su correcta gestión y planificación.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Los proyectos de sistemas deben estar correctamente planeados, en conformidad con el grupo de usuarios.',
+          'Los requerimientos de tiempo del proyecto se refieren al tiempo necesario para llevar a cabo una investigación clara y profunda del sistema a desarrollar.',
+          'El tiempo de investigación del sistema se determina a partir de la cantidad de personas a entrevistar, la cantidad de tiempo necesaria para el desarrollo y la realización de las interconsultas entre los usuarios.',
+          'El personal afectado al desarrollo debe ser asignado y administrado adecuadamente. Al mismo tiempo, es necesario que el desarrollo cumpla específicamente y siga los lineamientos para asegurar la calidad y efectividad de la aplicación a implementar.',
+          'El desarrollo de sistemas y la actividad de la programación se consideran actividades individuales, pero desde la mirada del project leader es primordial controlar que todas las personas asignadas se encuentren disponibles para la concreción del plan de trabajo.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'En criollo: la coordinación con el usuario es desde el día uno — sin ellos no podés planear ni investigar nada. El tiempo de investigación depende de cuánta gente tenés que entrevistar y cuánto lleva el desarrollo. Y el rol del project leader no es solo asignar tareas: es asegurarse de que cuando alguien tiene que estar, esté.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-7-1',
+          q: 'Los proyectos de sistemas deben planearse en conformidad con el grupo de usuarios.',
+          a: true,
+          explain:
+            'Verdadero. El primer punto del apunte establece que los proyectos de sistemas deben estar correctamente planeados en conformidad con el grupo de usuarios.',
+        },
+        {
+          id: 'tf-7-2',
+          q: 'El tiempo de investigación del sistema se determina exclusivamente por la cantidad de personas a entrevistar.',
+          a: false,
+          explain:
+            'Falso. El apunte indica que el tiempo de investigación se determina a partir de tres factores: la cantidad de personas a entrevistar, el tiempo necesario para el desarrollo y la realización de las interconsultas entre usuarios.',
+        },
+        {
+          id: 'tf-7-3',
+          q: 'El desarrollo de sistemas se considera una actividad puramente colectiva, nunca individual.',
+          a: false,
+          explain:
+            'Falso. El apunte señala que el desarrollo de sistemas y la programación se consideran actividades individuales, aunque el project leader debe controlar la disponibilidad de todo el equipo.',
+        },
+        {
+          id: 'tf-7-4',
+          q: 'El project leader debe controlar que todas las personas asignadas estén disponibles para la concreción del plan de trabajo.',
+          a: true,
+          explain:
+            'Verdadero. El quinto punto del apunte establece que desde la mirada del project leader es primordial controlar que todas las personas asignadas se encuentren disponibles para la concreción del plan de trabajo.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-7-1',
+          q: '¿De qué depende el tiempo de investigación del sistema según el apunte?',
+          options: [
+            'Únicamente de la complejidad técnica del sistema',
+            'De la cantidad de personas a entrevistar, el tiempo de desarrollo y las interconsultas entre usuarios',
+            'Del presupuesto disponible y los plazos del cliente',
+            'Solo de la cantidad de desarrolladores asignados al proyecto',
+          ],
+          correctIndex: 1,
+          explain:
+            'El apunte establece que el tiempo de investigación del sistema se determina a partir de la cantidad de personas a entrevistar, el tiempo necesario para el desarrollo y la realización de las interconsultas entre los usuarios.',
+        },
+        {
+          id: 'mc-7-2',
+          q: '¿Cuál es la responsabilidad primordial del project leader según el quinto punto del apunte?',
+          options: [
+            'Escribir el código de los módulos más complejos',
+            'Definir los requerimientos junto con los usuarios',
+            'Controlar que todas las personas asignadas estén disponibles para el plan de trabajo',
+            'Elaborar el presupuesto y el cronograma del proyecto',
+          ],
+          correctIndex: 2,
+          explain:
+            'El apunte indica que desde la mirada del project leader es primordial controlar que todas las personas asignadas se encuentren disponibles para la concreción del plan de trabajo.',
+        },
+        {
+          id: 'mc-7-3',
+          q: '¿Con quién deben estar en conformidad los proyectos de sistemas al momento de planearlos?',
+          options: [
+            'Con el directorio de la empresa',
+            'Con el grupo de usuarios',
+            'Con el equipo de desarrollo técnico',
+            'Con los proveedores de infraestructura',
+          ],
+          correctIndex: 1,
+          explain:
+            'El primer punto del apunte establece explícitamente que los proyectos de sistemas deben estar correctamente planeados en conformidad con el grupo de usuarios.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-7-1',
+        front: 'Planificación de proyectos de sistemas',
+        back:
+          'Deben estar correctamente planeados en conformidad con el grupo de usuarios. La participación del usuario es clave desde la planificación.',
+      },
+      {
+        id: 'fc-7-2',
+        front: 'Requerimientos de tiempo en proyectos de sistemas',
+        back:
+          'Se refieren al tiempo necesario para llevar a cabo una investigación clara y profunda del sistema a desarrollar, no solo al tiempo de programación.',
+      },
+      {
+        id: 'fc-7-3',
+        front: 'Factores que determinan el tiempo de investigación del sistema',
+        back:
+          'La cantidad de personas a entrevistar, el tiempo necesario para el desarrollo y la realización de las interconsultas entre los usuarios.',
+      },
+      {
+        id: 'fc-7-4',
+        front: 'Gestión del personal en desarrollo de sistemas',
+        back:
+          'El personal debe ser asignado y administrado adecuadamente. El desarrollo debe seguir los lineamientos para asegurar calidad y efectividad de la aplicación.',
+      },
+      {
+        id: 'fc-7-5',
+        front: 'Naturaleza del desarrollo de sistemas como actividad',
+        back:
+          'Se considera una actividad individual (programación), pero el project leader debe controlar que todos los asignados estén disponibles para el plan de trabajo.',
+      },
+      {
+        id: 'fc-7-6',
+        front: 'Rol del project leader en proyectos de sistemas',
+        back:
+          'Es primordial que controle la disponibilidad de todas las personas asignadas para la concreción del plan de trabajo, asegurando la coordinación del equipo.',
+      },
+    ],
   },
 ];
 
