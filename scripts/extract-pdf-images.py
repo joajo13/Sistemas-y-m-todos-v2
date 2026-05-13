@@ -4,7 +4,6 @@ Las imágenes decorativas (stock photos en p.5, p.6, p.16) se descartan.
 Usa PyMuPDF (fitz). Requiere: pip install pymupdf
 """
 import fitz
-import os
 from pathlib import Path
 
 PDF_PATH = Path(__file__).parent.parent / "pdfs" / "presentacion.pdf"
@@ -24,20 +23,21 @@ TARGETS = [
 ]
 
 def main():
-    doc = fitz.open(PDF_PATH)
-    for page_num, img_idx, name in TARGETS:
-        page = doc[page_num - 1]
-        images = page.get_images(full=True)
-        if img_idx >= len(images):
-            print(f"WARN: page {page_num} has no image at index {img_idx}")
-            continue
-        xref = images[img_idx][0]
-        base = doc.extract_image(xref)
-        ext = base["ext"]
-        out_path = OUT_DIR / f"{name}.{ext}"
-        out_path.write_bytes(base["image"])
-        print(f"OK: {out_path.name} ({base['width']}x{base['height']})")
-    doc.close()
+    if not PDF_PATH.exists():
+        raise FileNotFoundError(f"PDF no encontrado: {PDF_PATH}")
+    with fitz.open(PDF_PATH) as doc:
+        for page_num, img_idx, name in TARGETS:
+            page = doc[page_num - 1]
+            images = page.get_images(full=True)
+            if img_idx >= len(images):
+                print(f"WARN: page {page_num} has no image at index {img_idx}")
+                continue
+            xref = images[img_idx][0]
+            base = doc.extract_image(xref)
+            ext = base["ext"]
+            out_path = OUT_DIR / f"{name}.{ext}"
+            out_path.write_bytes(base["image"])
+            print(f"OK: {out_path.name} ({base['width']}x{base['height']})")
 
 if __name__ == "__main__":
     main()
