@@ -1,10 +1,10 @@
 import { renderNav } from './nav.js';
-import { SECTIONS } from './content.js';
+import { SECTIONS, UNITS } from './content.js';
 import { getSectionState } from './storage.js';
 
 renderNav({ active: 'home' });
 
-const grid = document.getElementById('sections-grid');
+const container = document.getElementById('sections-grid');
 
 function sectionCard(section) {
   const state = getSectionState(section.id);
@@ -39,4 +39,32 @@ function sectionCard(section) {
   `;
 }
 
-grid.innerHTML = SECTIONS.map(sectionCard).join('');
+function groupByUnit(sections) {
+  const groups = new Map();
+  for (const s of sections) {
+    const key = s.unit || 'sin-unidad';
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(s);
+  }
+  return groups;
+}
+
+function unitBlock(unit, sections) {
+  const unitTitle = UNITS[unit] || '';
+  const heading = unitTitle
+    ? `Unidad ${unit} — ${unitTitle}`
+    : `Unidad ${unit}`;
+  return `
+    <section>
+      <h2 class="text-xl md:text-2xl font-semibold mb-4">${heading}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        ${sections.map(sectionCard).join('')}
+      </div>
+    </section>
+  `;
+}
+
+const groups = groupByUnit(SECTIONS);
+container.innerHTML = Array.from(groups.entries())
+  .map(([unit, list]) => unitBlock(unit, list))
+  .join('');

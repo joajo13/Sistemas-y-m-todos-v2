@@ -20,10 +20,20 @@
  * Regla: todo el contenido sale de los 3 PDFs. Nada inventado.
  */
 
+/**
+ * Mapa de unidades → título de la unidad (para headers en home).
+ * Cada sección referencia su unidad por la key. Si se agrega una
+ * unidad nueva al array SECTIONS, registrarla acá también.
+ */
+export const UNITS = {
+  '8.1': 'Fundamentos de la Administración de Proyectos',
+};
+
 export const SECTIONS = [
   // ---------- SECCIÓN 1 ----------
   {
     id: '1',
+    unit: '8.1',
     title: '¿Qué es un proyecto y por qué necesita gestión?',
     criollo:
       'Básicamente: un proyecto es algo que arrancás, hacés y terminás, con un objetivo concreto y recursos que tenés que cuidar. No es la rutina del trabajo de todos los días. Y la administración de proyectos es la disciplina que se encarga de que eso salga bien.',
@@ -189,6 +199,7 @@ export const SECTIONS = [
   // ---------- SECCIÓN 2 ----------
   {
     id: '2',
+    unit: '8.1',
     title: 'El nacimiento de un proyecto (fase conceptual)',
     criollo:
       'Básicamente, los proyectos no caen del cielo: alguien tiene una idea, alguien la evalúa y alguien la aprueba antes de arrancar. Hay un filtro con varias etapas —business case, estudio de factibilidad, comités— para que no se gaste plata en proyectos que no convienen. Dale, veamos cómo funciona ese proceso.',
@@ -422,6 +433,7 @@ export const SECTIONS = [
   // ---------- SECCIÓN 3 ----------
   {
     id: '3',
+    unit: '8.1',
     title: 'Ciclo de vida y áreas de conocimiento PMBOK',
     criollo:
       'Todo proyecto, sea grande o chico, pasa por las mismas fases: arranca, se planifica, se ejecuta, se controla y se cierra. Y el PMI —la organización mundial de project management— le puso nombre a eso y lo organizó en áreas de conocimiento en la guía PMBOK. Básicamente, es el "manual de instrucciones" del project manager.',
@@ -646,6 +658,7 @@ export const SECTIONS = [
   // ---------- SECCIÓN 4 ----------
   {
     id: '4',
+    unit: '8.1',
     title: 'Fundamentos de la planificación',
     criollo:
       'Básicamente: planificar no es burocracia, es la razón por la que el proyecto no se te va a las manos. Una planificación sólida mejora la comunicación, evita que repitas tareas, aumenta la predictibilidad y ayuda a entregar algo de calidad a tiempo. Y para que los objetivos sean útiles de verdad, usamos el criterio SMART — porque "mejorar la página web" no le dice nada a nadie. También, ojo: esfuerzo, duración y tiempo calendario no son la misma cosa, dale.',
@@ -879,6 +892,7 @@ export const SECTIONS = [
   // ---------- SECCIÓN 5 ----------
   {
     id: '5',
+    unit: '8.1',
     title: 'Herramientas esenciales de gestión de proyectos',
     criollo:
       'Básicamente: para gestionar un proyecto no alcanza con la buena voluntad. Hay documentos y procesos estandarizados que te dan estructura. El Project Charter es la "partida de nacimiento" del proyecto; el WBS te dice qué hay que hacer; el Gantt te muestra cuándo; el Plan de proyecto es el documento maestro; y la gestión de riesgos y cambios son los procesos que evitan que todo se desborde. Dale que las vemos.',
@@ -1104,6 +1118,7 @@ export const SECTIONS = [
   // ---------- SECCIÓN 6 ----------
   {
     id: '6',
+    unit: '8.1',
     title: 'Desafíos comunes en la gestión de proyectos',
     criollo:
       'Acá van las cinco cagadas clásicas que hacen fracasar proyectos: no saber para dónde van, ponerse plazos imposibles, tener al equipo repartido en mil proyectos, cambiar prioridades a cada rato y no comunicarse. Un buen gerente las trabaja desde el inicio, no cuando ya todo explotó.',
@@ -1251,6 +1266,7 @@ export const SECTIONS = [
   // ---------- SECCIÓN 7 ----------
   {
     id: '7',
+    unit: '8.1',
     title: 'Consideraciones generales (proyectos de sistemas)',
     criollo:
       'Para proyectos de sistemas hay que planificar bien de entrada y arrancar con una investigación seria del sistema a desarrollar. El tiempo lo marcás vos según cuántas personas entrevistás y cuánto dura el desarrollo. Y lo más importante: el project leader tiene que asegurarse de que todo el mundo esté disponible cuando tiene que estar.',

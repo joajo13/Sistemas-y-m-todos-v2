@@ -18,8 +18,9 @@ if (!section) {
 
 function renderSection(s) {
   // Header
+  const unitLabel = s.unit ? `Unidad ${s.unit} · ` : '';
   document.getElementById('section-header').innerHTML = `
-    <p class="text-sm text-[var(--muted)]">Sección ${s.id}</p>
+    <p class="text-sm text-[var(--muted)]">${unitLabel}Sección ${s.id}</p>
     <h1 class="text-2xl md:text-3xl font-semibold mt-1">${s.title}</h1>
   `;
 
