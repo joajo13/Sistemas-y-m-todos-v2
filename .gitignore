@@ -14,5 +14,6 @@ __pycache__/
 .venv/
 venv/
 
-# Inspección temporal
+# Inspección temporal (dirs con prefijo _ dentro de scripts)
 _pdf_images_inspection/
+scripts/_*/

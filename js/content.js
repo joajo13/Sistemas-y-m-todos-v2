@@ -27,6 +27,7 @@
  */
 export const UNITS = {
   '8.1': 'Fundamentos de la Administración de Proyectos',
+  '8.2': 'Herramientas y procesos para la administración de proyectos',
 };
 
 export const SECTIONS = [
@@ -1402,6 +1403,919 @@ export const SECTIONS = [
         front: 'Rol del project leader en proyectos de sistemas',
         back:
           'Es primordial que controle la disponibilidad de todas las personas asignadas para la concreción del plan de trabajo, asegurando la coordinación del equipo.',
+      },
+    ],
+  },
+
+  // ====================================================================
+  // UNIDAD 8.2 — Herramientas y procesos para la administración de proyectos
+  // ====================================================================
+
+  // ---------- SECCIÓN 8 ----------
+  {
+    id: '8',
+    unit: '8.2',
+    title: 'Estructurando el trabajo (WBS y OBS)',
+    criollo:
+      'Antes de planificar tiempo o plata, primero tenés que saber qué hay que hacer y quién lo va a hacer. La WBS es el "qué" descompuesto en pedazos manejables; la OBS es el "quién" (el organigrama del proyecto). Cuando cruzás las dos, cada paquete de trabajo tiene un dueño claro.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Antes de poder planificar el tiempo o el costo, es fundamental definir con precisión todo el trabajo que se debe realizar. Para esto, utilizamos dos herramientas estructurales clave: la WBS y la OBS.',
+      },
+      {
+        type: 'h3',
+        text: 'WBS (Work Breakdown Structure / Estructura de desglose del trabajo)',
+        criollo:
+          'Es como el índice de un libro: rompés el proyecto entero en piezas cada vez más chiquitas hasta llegar a "paquetes de trabajo" que se pueden ejecutar. Tres cosas a tener en cuenta: está orientada al qué (no al cómo ni al cuándo), es jerárquica y tiene que cubrir el 100% del alcance.',
+      },
+      {
+        type: 'p',
+        text:
+          'La WBS es una descomposición jerárquica de todo el alcance del trabajo que el equipo del proyecto debe ejecutar para lograr los objetivos y crear los entregables. Su propósito principal es organizar y definir el alcance total del proyecto, dividir tareas grandes y complejas en partes más pequeñas y manejables, llamadas "paquetes de trabajo".',
+      },
+      {
+        type: 'p',
+        text: 'Características clave:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Orientada a los entregables: se enfoca en "qué" se va a entregar, no en "cómo" o "cuándo".',
+          'Jerárquica: tiene diferentes niveles de detalle, desde el proyecto general en la cima hasta los paquetes de trabajo individuales en la base.',
+          'Regla del 100%: la WBS debe incluir el 100% del trabajo definido en el alcance del proyecto. Ni más, ni menos.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Ejemplo práctico: si el proyecto es "Organizar una conferencia académica", una WBS simplificada podría verse así:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '1.0 Organización de Conferencia',
+          '1.1 Planificación y gestión',
+          '1.2 Logística del evento — 1.2.1 Búsqueda y contratación del lugar; 1.2.2 Gestión de catering',
+          '1.3 Marketing y difusión — 1.3.1 Creación de sitio web; 1.3.2 Campaña en redes sociales',
+          '1.4 Contenido académico — 1.4.1 Selección de oradores; 1.4.2 Agenda del evento',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'OBS (Organization Breakdown Structure / Estructura de desglose de la organización)',
+        criollo:
+          'Mientras la WBS dice qué hay que hacer, la OBS dice quién lo hace. Es el organigrama del proyecto: departamentos, equipos y cómo se relacionan. Sola sirve, pero la magia aparece cuando la cruzás con la WBS.',
+      },
+      {
+        type: 'p',
+        text:
+          'Mientras que la WBS define el "qué", la OBS define el "quién". Es un organigrama del proyecto que muestra las distintas unidades organizativas (departamentos, equipos, etc.) y cómo se relacionan entre sí.',
+      },
+      {
+        type: 'p',
+        text:
+          'La verdadera potencia de estas herramientas se ve cuando se combinan. Al cruzar la WBS con la OBS, podemos asignar la responsabilidad de cada paquete de trabajo a un equipo o departamento específico. Esto crea una matriz de asignación de responsabilidades, lo que asegura que cada parte del proyecto tenga un dueño claro.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-8-1',
+          q: 'La WBS se enfoca en "cómo" se hacen las cosas y "cuándo", no en "qué" se entrega.',
+          a: false,
+          explain:
+            'Falso. Es al revés: la WBS está orientada a los entregables — se enfoca en el "qué" se va a entregar, no en el "cómo" ni el "cuándo".',
+        },
+        {
+          id: 'tf-8-2',
+          q: 'La WBS debe incluir el 100% del trabajo definido en el alcance del proyecto, ni más ni menos.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la "regla del 100%": la WBS abarca todo el alcance, sin agregar ni omitir trabajo.',
+        },
+        {
+          id: 'tf-8-3',
+          q: 'La OBS muestra las unidades organizativas del proyecto (departamentos, equipos) y cómo se relacionan.',
+          a: true,
+          explain:
+            'Verdadero. La OBS define el "quién": es el organigrama del proyecto que ordena equipos y áreas.',
+        },
+        {
+          id: 'tf-8-4',
+          q: 'Cruzar la WBS con la OBS sirve para asignar la responsabilidad de cada paquete de trabajo a un equipo o departamento específico.',
+          a: true,
+          explain:
+            'Verdadero. El cruce arma una matriz de asignación de responsabilidades, así cada paquete tiene un dueño claro.',
+        },
+        {
+          id: 'tf-8-5',
+          q: 'Los "paquetes de trabajo" son los niveles más altos y generales de la WBS.',
+          a: false,
+          explain:
+            'Falso. Son al revés: los paquetes de trabajo son las divisiones más pequeñas y manejables de la WBS, en la base de la jerarquía.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-8-1',
+          q: '¿Qué es la WBS?',
+          options: [
+            'El cronograma con fechas y duraciones del proyecto',
+            'Una descomposición jerárquica del trabajo orientada a entregables',
+            'El organigrama del proyecto con departamentos y equipos',
+            'El plan de comunicación con interesados',
+          ],
+          correctIndex: 1,
+          explain:
+            'La WBS es una descomposición jerárquica de todo el alcance del trabajo, orientada a entregables. El organigrama es la OBS.',
+        },
+        {
+          id: 'mc-8-2',
+          q: 'La "regla del 100%" aplicada a la WBS significa que:',
+          options: [
+            'El equipo debe trabajar al 100% sin descansos',
+            'El presupuesto se debe usar al 100%',
+            'La WBS debe incluir el 100% del trabajo definido en el alcance, ni más ni menos',
+            'El proyecto debe completarse al 100% antes de cerrar',
+          ],
+          correctIndex: 2,
+          explain:
+            'La regla del 100% es una característica de la WBS: debe contener todo el alcance del proyecto, sin agregar trabajo extra ni omitir partes.',
+        },
+        {
+          id: 'mc-8-3',
+          q: 'Cuando se cruzan la WBS y la OBS se obtiene:',
+          options: [
+            'Un diagrama de Gantt',
+            'Una matriz de asignación de responsabilidades',
+            'Un registro de riesgos',
+            'El acta de cierre del proyecto',
+          ],
+          correctIndex: 1,
+          explain:
+            'El cruce de WBS (qué) con OBS (quién) genera una matriz de asignación de responsabilidades, donde cada paquete de trabajo queda asignado a un equipo o departamento.',
+        },
+        {
+          id: 'mc-8-4',
+          q: '¿Cuál de estas NO es una característica clave de la WBS?',
+          options: [
+            'Orientada a los entregables',
+            'Jerárquica',
+            'Regla del 100%',
+            'Asigna fechas y duración a cada tarea',
+          ],
+          correctIndex: 3,
+          explain:
+            'La WBS no asigna fechas ni duraciones: se enfoca en el "qué". Las fechas y duración son parte del cronograma (Gantt), no de la WBS.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-8-1',
+        front: 'WBS (Work Breakdown Structure)',
+        back:
+          'Descomposición jerárquica de todo el alcance del trabajo del proyecto. Divide tareas grandes en partes más pequeñas y manejables llamadas "paquetes de trabajo".',
+      },
+      {
+        id: 'fc-8-2',
+        front: 'Paquete de trabajo',
+        back:
+          'La división más pequeña y manejable de la WBS, en la base de la jerarquía. Es la unidad ejecutable de trabajo.',
+      },
+      {
+        id: 'fc-8-3',
+        front: 'Característica "orientada a entregables" de la WBS',
+        back:
+          'Se enfoca en "qué" se va a entregar, no en "cómo" o "cuándo". Por eso no incluye fechas ni recursos.',
+      },
+      {
+        id: 'fc-8-4',
+        front: 'Regla del 100% (WBS)',
+        back:
+          'La WBS debe incluir el 100% del trabajo definido en el alcance del proyecto. Ni más, ni menos.',
+      },
+      {
+        id: 'fc-8-5',
+        front: 'OBS (Organization Breakdown Structure)',
+        back:
+          'Organigrama del proyecto: muestra las distintas unidades organizativas (departamentos, equipos, etc.) y cómo se relacionan entre sí. Define el "quién".',
+      },
+      {
+        id: 'fc-8-6',
+        front: 'Matriz de asignación de responsabilidades',
+        back:
+          'Resultado de cruzar la WBS con la OBS. Asigna cada paquete de trabajo a un equipo o departamento específico, garantizando que cada parte tenga un dueño claro.',
+      },
+      {
+        id: 'fc-8-7',
+        front: 'WBS vs OBS',
+        back:
+          'La WBS define el "qué" (trabajo descompuesto en entregables). La OBS define el "quién" (estructura organizacional). Su cruce arma la matriz de responsabilidades.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 9 ----------
+  {
+    id: '9',
+    unit: '8.2',
+    title: 'Planificación y gestión del tiempo',
+    criollo:
+      'Una vez que sabés qué hay que hacer, toca planificar cuándo. No mezcles esfuerzo (horas de trabajo), duración (días laborables con los recursos asignados) y tiempo calendario (lo que se ve en el almanaque, con fines de semana incluidos). El Gantt es la herramienta visual estrella, y el camino crítico es la secuencia más larga: si se atrasa una tarea ahí, se atrasa todo el proyecto.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Una vez que sabemos qué hay que hacer, debemos planificar cuándo se hará. La gestión del cronograma es uno de los pilares de la dirección de proyectos.',
+      },
+      {
+        type: 'h3',
+        text: 'Conceptos fundamentales del tiempo',
+        criollo:
+          'Tres cosas que parecen iguales pero NO lo son: esfuerzo es la cantidad total de horas de trabajo que la tarea requiere; duración son los días laborables que toma con los recursos asignados; tiempo calendario es lo que pasa entre el inicio y el fin en el almanaque (con fines de semana y feriados incluidos).',
+      },
+      {
+        type: 'p',
+        text: 'Es crucial no confundir los siguientes términos:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Esfuerzo: es la cantidad total de horas de trabajo que una tarea requiere. Por ejemplo, "diseñar el logo tomará 16 horas de trabajo".',
+          'Duración: es el número de días laborables que tomará completar la tarea, considerando los recursos asignados. Si asignamos a un diseñador que trabaja 8 horas al día, la duración será de 2 días (16 horas / 8 horas/día).',
+          'Tiempo calendario: es el lapso total en el calendario, desde que la tarea comienza hasta que termina, incluyendo los días no laborables. Si la tarea de 2 días de duración comienza un viernes, su tiempo calendario será de 4 días (viernes, sábado, domingo, lunes), y termina el lunes.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Truco para distinguirlos: pensá esfuerzo como "horas hombre", duración como "cuántos días laborables va a llevar con los recursos que tengo", y tiempo calendario como "qué dice el almanaque entre la fecha de inicio y la de fin".',
+      },
+      {
+        type: 'h3',
+        text: 'Diagrama de Gantt',
+        criollo:
+          'El gráfico de barras horizontales que muestra cada tarea a lo largo del tiempo. De un vistazo ves qué tareas hay, cuándo empieza y termina cada una, cuánto dura y cómo se superponen o dependen entre sí.',
+      },
+      {
+        type: 'p',
+        text:
+          'El diagrama de Gantt es la herramienta visual por excelencia para la planificación. Consiste en un gráfico de barras horizontales que muestra las tareas del proyecto a lo largo del tiempo.',
+      },
+      {
+        type: 'p',
+        text: 'Permite ver de un vistazo:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Qué tareas hay que hacer.',
+          'Cuándo comienza y termina cada tarea.',
+          'Cuánto dura cada tarea.',
+          'Cómo se superponen las tareas y si hay dependencias entre ellas.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Camino crítico (critical path)',
+        criollo:
+          'La secuencia de tareas más larga y menos flexible del proyecto. Si una tarea del camino crítico se atrasa, se atrasa TODO el proyecto. Por eso concentra la atención del gerente: si querés acortar el proyecto, la única forma real es acortar tareas del camino crítico.',
+      },
+      {
+        type: 'p',
+        text:
+          'Dentro de un proyecto, algunas tareas no pueden comenzar hasta que otras terminen, lo que crea una secuencia. El camino crítico es la secuencia de tareas más larga y menos flexible de todo el proyecto. Su duración total determina la duración total del proyecto.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '¿Por qué es "crítico"? Porque cualquier retraso en cualquier tarea que forme parte de este camino retrasará inevitablemente la fecha de finalización de todo el proyecto.',
+          'Foco de gestión: por esta razón, el camino crítico concentra la máxima atención de los gerentes de proyecto. Para acortar la duración total del proyecto, es obligatorio acortar la duración de las tareas del camino crítico.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'El apunte resume cuatro puntos clave del camino crítico: (1) es la secuencia más larga y menos flexible; (2) cualquier retraso en él demora el proyecto; (3) la única forma de acortar la programación es acortar el camino crítico; (4) concentra la atención del management.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-9-1',
+          q: 'El esfuerzo y la duración de una tarea siempre tienen el mismo valor.',
+          a: false,
+          explain:
+            'Falso. El esfuerzo son horas de trabajo (ej: 16 horas); la duración son días laborables con los recursos asignados (ej: 2 días si trabaja 8 h/día). Son conceptos distintos.',
+        },
+        {
+          id: 'tf-9-2',
+          q: 'El tiempo calendario incluye los fines de semana y feriados.',
+          a: true,
+          explain:
+            'Verdadero. El tiempo calendario es el lapso total en el almanaque desde el inicio hasta el fin de la tarea, incluyendo días no laborables.',
+        },
+        {
+          id: 'tf-9-3',
+          q: 'El camino crítico es la secuencia de tareas más corta del proyecto.',
+          a: false,
+          explain:
+            'Falso. Es la secuencia más larga y menos flexible. Por eso es la que determina la duración total del proyecto.',
+        },
+        {
+          id: 'tf-9-4',
+          q: 'Cualquier retraso en una tarea del camino crítico retrasa la fecha de finalización de todo el proyecto.',
+          a: true,
+          explain:
+            'Verdadero. Esa es justamente la razón por la que el camino se llama "crítico" y concentra la atención del gerente.',
+        },
+        {
+          id: 'tf-9-5',
+          q: 'El diagrama de Gantt permite ver dependencias entre tareas y cómo se superponen.',
+          a: true,
+          explain:
+            'Verdadero. El apunte lo lista entre las cosas que se ven de un vistazo en un Gantt.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-9-1',
+          q: 'Si una tarea requiere 16 horas de esfuerzo y un recurso trabaja 8 horas al día, su duración es:',
+          options: ['1 día', '2 días', '4 días', 'Depende del calendario laboral'],
+          correctIndex: 1,
+          explain:
+            'La duración resulta de dividir esfuerzo entre la dedicación diaria del recurso: 16 h / 8 h/día = 2 días laborables. Es exactamente el ejemplo del apunte.',
+        },
+        {
+          id: 'mc-9-2',
+          q: 'Si una tarea con 2 días de duración comienza un viernes, su tiempo calendario es:',
+          options: ['2 días', '3 días', '4 días', '5 días'],
+          correctIndex: 2,
+          explain:
+            '4 días: viernes (día 1 laborable), sábado, domingo y lunes (día 2 laborable). Termina el lunes. El sábado y domingo cuentan en el tiempo calendario pero no en la duración.',
+        },
+        {
+          id: 'mc-9-3',
+          q: '¿Por qué el camino crítico concentra la atención del gerente de proyecto?',
+          options: [
+            'Porque tiene los recursos más caros',
+            'Porque cualquier retraso en él demora el proyecto entero',
+            'Porque es la secuencia más corta',
+            'Porque ahí se concentra el presupuesto',
+          ],
+          correctIndex: 1,
+          explain:
+            'Cualquier demora en una tarea del camino crítico retrasa la fecha de fin del proyecto. Por eso el management tiene que vigilarlo de cerca.',
+        },
+        {
+          id: 'mc-9-4',
+          q: 'Para acortar la duración total del proyecto es obligatorio:',
+          options: [
+            'Sumar más gente a cualquier tarea',
+            'Eliminar tareas del Gantt',
+            'Acortar tareas que estén en el camino crítico',
+            'Pedir una extensión de plazo',
+          ],
+          correctIndex: 2,
+          explain:
+            'Como el camino crítico determina la duración total, la única forma efectiva de acortar el proyecto es acortar tareas que estén dentro de él.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-9-1',
+        front: 'Esfuerzo',
+        back:
+          'Cantidad total de horas de trabajo que una tarea requiere. Ej: "diseñar el logo tomará 16 horas".',
+      },
+      {
+        id: 'fc-9-2',
+        front: 'Duración',
+        back:
+          'Número de días laborables que toma completar una tarea, considerando los recursos asignados. Ej: 16 horas con un recurso de 8 h/día = 2 días.',
+      },
+      {
+        id: 'fc-9-3',
+        front: 'Tiempo calendario',
+        back:
+          'Lapso total en el calendario entre inicio y fin de la tarea, incluyendo días no laborables (fines de semana, feriados).',
+      },
+      {
+        id: 'fc-9-4',
+        front: 'Diagrama de Gantt',
+        back:
+          'Gráfico de barras horizontales que muestra las tareas a lo largo del tiempo. Permite ver qué tareas hay, cuándo empieza y termina cada una, cuánto dura y cómo se superponen o dependen entre sí.',
+      },
+      {
+        id: 'fc-9-5',
+        front: 'Camino crítico (definición)',
+        back:
+          'Secuencia de tareas más larga y menos flexible del proyecto. Su duración total determina la duración total del proyecto.',
+      },
+      {
+        id: 'fc-9-6',
+        front: '¿Por qué el camino crítico es "crítico"?',
+        back:
+          'Porque cualquier retraso en cualquier tarea que forme parte de él retrasará inevitablemente la fecha de finalización de todo el proyecto.',
+      },
+      {
+        id: 'fc-9-7',
+        front: 'Foco de gestión del camino crítico',
+        back:
+          'Concentra la máxima atención del gerente de proyecto. Para acortar la duración total del proyecto, es obligatorio acortar tareas del camino crítico.',
+      },
+      {
+        id: 'fc-9-8',
+        front: 'Acortar la duración total del proyecto',
+        back:
+          'La única forma es acortar la duración de tareas que estén en el camino crítico. Acortar tareas fuera del camino crítico no cambia la fecha de fin.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 10 ----------
+  {
+    id: '10',
+    unit: '8.2',
+    title: 'Gestión de incertidumbre y calidad',
+    criollo:
+      'Acá entran tres patas que un buen plan tiene que cubrir: los riesgos (qué puede salir mal y qué hacés al respecto, con cuatro estrategias clásicas), la calidad (planificar estándares + QA en los procesos + QC en los productos) y los cambios (porque sí o sí van a aparecer, mejor tener un proceso formal para manejarlos).',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Un buen plan no solo define el trabajo y el tiempo, sino que también se anticipa a los problemas y asegura que el resultado final sea el esperado.',
+      },
+      {
+        type: 'h3',
+        text: 'Gestión de riesgos',
+        criollo:
+          'Un riesgo es algo incierto que, SI pasa, va a impactar al proyecto (para bien o para mal). La gestión de riesgos no busca eliminar la incertidumbre, sino gestionarla. Para los riesgos negativos hay cuatro estrategias clásicas: evitar, transferir, anticipar (mitigar) y aceptar.',
+      },
+      {
+        type: 'p',
+        text:
+          'Un riesgo es un evento incierto que, si ocurre, tendrá un impacto (positivo o negativo) en el proyecto. La gestión de riesgos no busca eliminar la incertidumbre, sino gestionarla. Las cuatro estrategias básicas para tratar los riesgos negativos son:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Evitar: modificar el plan del proyecto para eliminar la amenaza por completo. Ejemplo: si el riesgo es que un proveedor nuevo no cumpla, se decide contratar a un proveedor conocido y confiable, aunque sea más caro.',
+          'Transferir: trasladar el impacto del riesgo a un tercero. Ejemplo: contratar un seguro para cubrir posibles accidentes en un evento. El riesgo sigue existiendo, pero las consecuencias financieras se transfieren a la aseguradora.',
+          'Anticipar (o mitigar): tomar acciones para reducir la probabilidad de que el riesgo ocurra o el impacto que tendría. Ejemplo: si existe el riesgo de lluvia en un evento al aire libre, se puede mitigar instalando carpas.',
+          'Aceptar: no tomar ninguna acción y asumir las consecuencias si el riesgo se materializa. Generalmente, se hace para riesgos de bajo impacto o probabilidad. Ejemplo: aceptar el riesgo de que un orador se demore 10 minutos en llegar.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/8-2/estrategias-riesgo.png',
+        alt: 'Diagrama con las cuatro estrategias de riesgo: Anticipar, Evitar, Transferir, Aceptar.',
+        caption: 'Las cuatro estrategias clásicas para tratar riesgos negativos.',
+      },
+      {
+        type: 'h3',
+        text: 'Gestión de calidad',
+        criollo:
+          'Asegurar que el proyecto cumpla los requisitos para los que fue creado. Tres procesos: planificación (definir qué estándares aplican y cómo se cumplen), aseguramiento o QA (auditar procesos para prevenir defectos) y control o QC (inspeccionar productos para detectar defectos).',
+      },
+      {
+        type: 'p',
+        text:
+          'La gestión de calidad asegura que el proyecto cumpla con los requisitos para los cuales fue emprendido. Se divide en tres procesos principales:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Planificación de la calidad: definir cuáles son los estándares de calidad relevantes para el proyecto y cómo se van a cumplir. Se utilizan herramientas como el análisis costo/beneficio y el benchmarking (compararse con los mejores).',
+          'Aseguramiento de la calidad (QA): es un proceso enfocado en los procesos. Se realizan auditorías para verificar que el equipo esté siguiendo los procedimientos y estándares definidos en el plan. El objetivo es mejorar los procesos para prevenir defectos.',
+          'Control de calidad (QC): es un proceso enfocado en los productos. Se realiza la inspección y medición de los entregables para identificar defectos. Si se encuentra un producto defectuoso, se decide si se acepta, se rechaza o se debe retrabajar.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Truco para no confundir QA y QC: QA mira los PROCESOS para prevenir defectos. QC mira los PRODUCTOS para detectar defectos. Uno previene, el otro inspecciona.',
+      },
+      {
+        type: 'h3',
+        text: 'Gestión de cambios',
+        criollo:
+          'Los cambios son inevitables. Lo que NO es opcional es tener un proceso formal: alguien solicita, el PM evalúa el impacto, un comité aprueba o rechaza, y si se aprueba se ajusta el plan y se comunica a todos los involucrados.',
+      },
+      {
+        type: 'p',
+        text:
+          'Los cambios son inevitables en cualquier proyecto. La clave no es evitarlos, sino gestionarlos de forma controlada para que no descarrilen el proyecto. Un proceso formal de gestión de cambios es vital y suele seguir estos pasos:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Solicitud del cambio: alguien (un cliente, un miembro del equipo) solicita formalmente un cambio.',
+          'Evaluación del impacto: el gerente de proyecto analiza cómo el cambio afectaría al alcance, cronograma, costo y calidad del proyecto.',
+          'Aprobación del comité: el cambio, junto con su análisis de impacto, se presenta a un comité de control de cambios para su aprobación o rechazo.',
+          'Ajuste del plan y comunicación: si se aprueba, se actualizan formalmente el plan del proyecto y las líneas base, y se notifica a todos los involucrados.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/8-2/cambios-proceso.png',
+        alt: 'Diagrama del proceso de gestión de cambios en pasos secuenciales.',
+        caption: 'Flujo del proceso formal de gestión de cambios.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'El apunte muestra dónde suelen aterrizar los cambios: en la descripción del alcance, en el cronograma o actividades del proyecto, en el presupuesto, en los indicadores de calidad y en los integrantes del proyecto.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/8-2/cambios-categorias.png',
+        alt: 'Diagrama con las categorías donde suelen aplicar los cambios: alcance, cronograma, presupuesto, calidad, integrantes.',
+        caption: 'Las áreas del proyecto que típicamente se ven afectadas por un cambio.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-10-1',
+          q: 'La gestión de riesgos busca eliminar toda la incertidumbre del proyecto.',
+          a: false,
+          explain:
+            'Falso. La gestión de riesgos no busca eliminar la incertidumbre, sino gestionarla con estrategias específicas para cada riesgo.',
+        },
+        {
+          id: 'tf-10-2',
+          q: 'Transferir un riesgo significa trasladar su impacto a un tercero, como contratar un seguro.',
+          a: true,
+          explain:
+            'Verdadero. El ejemplo del apunte es contratar un seguro: el riesgo sigue existiendo, pero las consecuencias financieras se trasladan a la aseguradora.',
+        },
+        {
+          id: 'tf-10-3',
+          q: 'El aseguramiento de la calidad (QA) se enfoca en inspeccionar los productos terminados para detectar defectos.',
+          a: false,
+          explain:
+            'Falso. Esa es la función del Control de Calidad (QC). El QA se enfoca en los procesos, auditando que se sigan los procedimientos para PREVENIR defectos.',
+        },
+        {
+          id: 'tf-10-4',
+          q: 'La estrategia "Aceptar" un riesgo significa no tomar ninguna acción y asumir las consecuencias si se materializa.',
+          a: true,
+          explain:
+            'Verdadero. Aceptar se usa para riesgos de bajo impacto o baja probabilidad, donde no vale la pena gastar recursos en mitigarlos.',
+        },
+        {
+          id: 'tf-10-5',
+          q: 'En el proceso formal de gestión de cambios, los cambios se aplican apenas son solicitados, sin pasar por evaluación ni comité.',
+          a: false,
+          explain:
+            'Falso. El proceso formal incluye solicitud, evaluación del impacto, aprobación por comité y recién después ajuste del plan y comunicación.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-10-1',
+          q: 'Las cuatro estrategias clásicas para tratar riesgos negativos son:',
+          options: [
+            'Eliminar, Reducir, Ignorar, Aceptar',
+            'Evitar, Transferir, Anticipar (mitigar), Aceptar',
+            'Planificar, Ejecutar, Controlar, Cerrar',
+            'Anticipar, Asumir, Resolver, Documentar',
+          ],
+          correctIndex: 1,
+          explain:
+            'Las cuatro estrategias del apunte son: Evitar, Transferir, Anticipar (o mitigar) y Aceptar.',
+        },
+        {
+          id: 'mc-10-2',
+          q: 'Contratar un seguro para cubrir accidentes en un evento es un ejemplo de:',
+          options: ['Evitar', 'Transferir', 'Anticipar', 'Aceptar'],
+          correctIndex: 1,
+          explain:
+            'Es Transferir: el riesgo sigue existiendo, pero las consecuencias financieras se trasladan a la aseguradora.',
+        },
+        {
+          id: 'mc-10-3',
+          q: '¿Cuál es el foco principal del Aseguramiento de la Calidad (QA)?',
+          options: [
+            'Inspeccionar los productos terminados para encontrar defectos',
+            'Aceptar o rechazar entregables',
+            'Mejorar los procesos para prevenir defectos',
+            'Definir los estándares iniciales de calidad',
+          ],
+          correctIndex: 2,
+          explain:
+            'QA mira los procesos: hace auditorías para verificar que el equipo siga los procedimientos definidos, con el objetivo de prevenir defectos. Inspeccionar productos es QC.',
+        },
+        {
+          id: 'mc-10-4',
+          q: '¿Cuál NO es un paso del proceso formal de gestión de cambios?',
+          options: [
+            'Solicitud del cambio',
+            'Evaluación del impacto en alcance, cronograma, costo y calidad',
+            'Aprobación por un comité de control de cambios',
+            'Implementación inmediata sin revisión',
+          ],
+          correctIndex: 3,
+          explain:
+            'Justamente lo opuesto: el proceso formal evita la implementación inmediata. Pasa por solicitud, evaluación del impacto, aprobación del comité y recién después ajuste del plan y comunicación.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-10-1',
+        front: 'Riesgo',
+        back:
+          'Evento incierto que, si ocurre, tendrá un impacto (positivo o negativo) en el proyecto.',
+      },
+      {
+        id: 'fc-10-2',
+        front: 'Objetivo de la gestión de riesgos',
+        back:
+          'No busca eliminar la incertidumbre, sino gestionarla con estrategias específicas para cada riesgo identificado.',
+      },
+      {
+        id: 'fc-10-3',
+        front: 'Estrategia "Evitar"',
+        back:
+          'Modificar el plan del proyecto para eliminar la amenaza por completo. Ej: cambiar a un proveedor conocido y confiable en vez de uno nuevo.',
+      },
+      {
+        id: 'fc-10-4',
+        front: 'Estrategia "Transferir"',
+        back:
+          'Trasladar el impacto del riesgo a un tercero. Ej: contratar un seguro. El riesgo sigue existiendo, pero las consecuencias financieras se transfieren.',
+      },
+      {
+        id: 'fc-10-5',
+        front: 'Estrategia "Anticipar" (o mitigar)',
+        back:
+          'Tomar acciones para reducir la probabilidad de que el riesgo ocurra o el impacto que tendría. Ej: instalar carpas ante el riesgo de lluvia.',
+      },
+      {
+        id: 'fc-10-6',
+        front: 'Estrategia "Aceptar"',
+        back:
+          'No tomar acciones y asumir las consecuencias si el riesgo se materializa. Se usa generalmente para riesgos de bajo impacto o probabilidad.',
+      },
+      {
+        id: 'fc-10-7',
+        front: 'Planificación de la calidad',
+        back:
+          'Definir cuáles son los estándares de calidad relevantes y cómo se van a cumplir. Usa herramientas como análisis costo/beneficio y benchmarking.',
+      },
+      {
+        id: 'fc-10-8',
+        front: 'Aseguramiento de calidad (QA)',
+        back:
+          'Proceso enfocado en los procesos. Auditorías para verificar que el equipo siga los procedimientos. Objetivo: prevenir defectos.',
+      },
+      {
+        id: 'fc-10-9',
+        front: 'Control de calidad (QC)',
+        back:
+          'Proceso enfocado en los productos. Inspección y medición de entregables para identificar defectos. Si hay defecto, se decide aceptar, rechazar o retrabajar.',
+      },
+      {
+        id: 'fc-10-10',
+        front: 'Pasos del proceso formal de gestión de cambios',
+        back:
+          '1) Solicitud del cambio. 2) Evaluación del impacto (alcance, cronograma, costo, calidad). 3) Aprobación del comité. 4) Ajuste del plan y comunicación.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 11 ----------
+  {
+    id: '11',
+    unit: '8.2',
+    title: 'Seguimiento y cierre del proyecto',
+    criollo:
+      'Una vez que el proyecto arrancó, hay que monitorear cómo va e ir comunicando a los interesados con informes y actas. Y cuando termina, no alcanza con decir "listo": hay un cierre formal con cierre administrativo, revisión post-implementación, acta de cierre (donde lo más valioso son las lecciones aprendidas) y reconocimiento al equipo.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Finalmente, es fundamental monitorear el progreso y cerrar el proyecto de manera ordenada.',
+      },
+      {
+        type: 'h3',
+        text: 'Informe de avance',
+        criollo:
+          'El documento principal para comunicar el estado del proyecto a los interesados. Suele tener resumen ejecutivo, estado de actividades, riesgos/problemas y análisis de atrasos vs presupuesto.',
+      },
+      {
+        type: 'p',
+        text:
+          'El informe de avance es el documento principal para comunicar el estado del proyecto a los interesados. Típicamente, incluye:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Resumen ejecutivo: una vista rápida para la alta gerencia.',
+          'Estado de actividades: qué se ha completado y qué está en progreso.',
+          'Riesgos y problemas: actualización sobre los principales riesgos y los problemas que han surgido.',
+          'Atrasos y presupuesto: análisis de las desviaciones respecto al plan original.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/8-2/informe-avance.png',
+        alt: 'Diagrama con los componentes típicos de un informe de avance: resumen ejecutivo, estado de actividades, próximas actividades, riesgos/problemas, atrasos, avances de desembolsos, tablero de control.',
+        caption: 'Componentes típicos de un informe de avance.',
+      },
+      {
+        type: 'h3',
+        text: 'Acta de certificación de hitos',
+        criollo:
+          'Un hito es un punto o evento importante del proyecto. El acta es el documento formal donde el cliente o sponsor firma la aceptación de un entregable o el cierre de una fase. Esa firma habilita al equipo a seguir con la etapa siguiente.',
+      },
+      {
+        type: 'p',
+        text:
+          'Un hito es un punto o evento importante en el proyecto. Esta acta es un documento formal, donde el cliente o sponsor firma la aceptación de un entregable o la finalización de una fase importante, lo que libera al equipo para continuar con la siguiente etapa.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/8-2/acta-hitos.png',
+        alt: 'Ejemplo real de acta de certificación de hitos con campos como ID del entregable, descripción del trabajo, duración, requerimientos de calidad y criterios de aceptación.',
+        caption: 'Ejemplo de acta de certificación de hitos del apunte.',
+      },
+      {
+        type: 'h3',
+        text: 'Proceso de cierre del proyecto',
+        criollo:
+          'Cerrar no es solo decir "terminamos". Es una fase formal con cuatro actividades: cierre administrativo (contratos, facturas, archivo), revisión post-implementación (comparar resultados vs objetivos), acta de cierre (con lecciones aprendidas, lo más valioso) y reconocimiento al equipo (clave para la moral en futuros proyectos).',
+      },
+      {
+        type: 'p',
+        text:
+          'El cierre no es simplemente decir "terminamos". Es una fase formal con actividades clave:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Cierre administrativo: se finalizan los contratos, se pagan las últimas facturas y se archiva toda la documentación del proyecto.',
+          'Revisión post-implementación: se evalúa el éxito del proyecto y se comparan los resultados finales con los objetivos originales.',
+          'Acta de cierre de proyecto: es el documento que formaliza el fin del proyecto. Su sección más valiosa son las lecciones aprendidas, donde el equipo documenta qué salió bien, qué salió mal y qué se podría mejorar en futuros proyectos.',
+          'Reconocimiento y celebración: se reconoce el esfuerzo del equipo y se celebra el trabajo realizado, lo que es crucial para la moral y la motivación futura.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'El apunte enfatiza que la sección más valiosa del acta de cierre son las lecciones aprendidas: qué salió bien, qué salió mal y qué se podría mejorar en futuros proyectos. Por eso el cierre no es trámite: es la fuente para que el próximo proyecto arranque mejor.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-11-1',
+          q: 'El informe de avance solo incluye el resumen ejecutivo.',
+          a: false,
+          explain:
+            'Falso. Típicamente incluye resumen ejecutivo, estado de actividades, riesgos/problemas y análisis de atrasos y presupuesto.',
+        },
+        {
+          id: 'tf-11-2',
+          q: 'Un hito es un punto o evento importante en el proyecto.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la definición textual del apunte. Por eso existe el acta de certificación de hitos.',
+        },
+        {
+          id: 'tf-11-3',
+          q: 'El acta de certificación de hitos la firma el equipo de desarrollo internamente, sin participación del cliente.',
+          a: false,
+          explain:
+            'Falso. El acta la firma el cliente o el sponsor, aceptando formalmente un entregable o el fin de una fase. Eso libera al equipo para seguir.',
+        },
+        {
+          id: 'tf-11-4',
+          q: 'El cierre del proyecto se reduce a comunicar que se terminó, sin actividades formales adicionales.',
+          a: false,
+          explain:
+            'Falso. El cierre es una fase formal con cierre administrativo, revisión post-implementación, acta de cierre y reconocimiento al equipo.',
+        },
+        {
+          id: 'tf-11-5',
+          q: 'Las lecciones aprendidas son la sección más valiosa del acta de cierre del proyecto.',
+          a: true,
+          explain:
+            'Verdadero. El apunte lo dice explícitamente: ahí se documenta qué salió bien, qué salió mal y qué se podría mejorar en proyectos futuros.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-11-1',
+          q: '¿Cuál de estos NO es un componente típico de un informe de avance?',
+          options: [
+            'Resumen ejecutivo',
+            'Estado de actividades',
+            'Cierre administrativo de contratos',
+            'Riesgos y problemas',
+          ],
+          correctIndex: 2,
+          explain:
+            'El cierre administrativo es una actividad del proceso de cierre del proyecto, no parte del informe de avance. El informe de avance reporta estado, no cierra contratos.',
+        },
+        {
+          id: 'mc-11-2',
+          q: 'Una vez firmada el acta de certificación de un hito, ¿qué se habilita?',
+          options: [
+            'Se cierra el proyecto entero',
+            'Se libera al equipo para continuar con la siguiente etapa',
+            'Se renegocian todos los contratos',
+            'Se cambia el alcance del proyecto',
+          ],
+          correctIndex: 1,
+          explain:
+            'La firma del cliente o sponsor en el acta acepta formalmente el entregable o el cierre de fase, y eso libera al equipo para empezar la siguiente etapa.',
+        },
+        {
+          id: 'mc-11-3',
+          q: 'Según el apunte, la sección más valiosa del acta de cierre del proyecto es:',
+          options: [
+            'El presupuesto final ejecutado',
+            'El listado completo de entregables',
+            'Las lecciones aprendidas',
+            'La firma de aceptación del cliente',
+          ],
+          correctIndex: 2,
+          explain:
+            'El apunte lo destaca: las lecciones aprendidas (qué salió bien, qué salió mal, qué mejorar) son lo más valioso porque alimentan los próximos proyectos.',
+        },
+        {
+          id: 'mc-11-4',
+          q: '¿Cuál NO es una actividad típica del cierre formal de un proyecto?',
+          options: [
+            'Cierre administrativo (contratos, facturas, archivo)',
+            'Revisión post-implementación',
+            'Reconocimiento y celebración del equipo',
+            'Re-planificación del alcance del proyecto',
+          ],
+          correctIndex: 3,
+          explain:
+            'Re-planificar el alcance corresponde a la gestión de cambios durante la ejecución, no al cierre. El cierre incluye actividades formales para terminar de forma ordenada.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-11-1',
+        front: 'Informe de avance',
+        back:
+          'Documento principal para comunicar el estado del proyecto a los interesados. Incluye resumen ejecutivo, estado de actividades, riesgos/problemas y análisis de atrasos vs presupuesto.',
+      },
+      {
+        id: 'fc-11-2',
+        front: 'Hito',
+        back: 'Punto o evento importante en el proyecto. Marca el fin de una fase o un entregable clave.',
+      },
+      {
+        id: 'fc-11-3',
+        front: 'Acta de certificación de hitos',
+        back:
+          'Documento formal donde el cliente o sponsor firma la aceptación de un entregable o el fin de una fase. Su firma libera al equipo para continuar con la siguiente etapa.',
+      },
+      {
+        id: 'fc-11-4',
+        front: 'Cierre administrativo',
+        back:
+          'Finalización de contratos, pago de últimas facturas y archivado de toda la documentación del proyecto.',
+      },
+      {
+        id: 'fc-11-5',
+        front: 'Revisión post-implementación',
+        back:
+          'Se evalúa el éxito del proyecto comparando los resultados finales con los objetivos originales.',
+      },
+      {
+        id: 'fc-11-6',
+        front: 'Acta de cierre de proyecto',
+        back:
+          'Documento que formaliza el fin del proyecto. Su sección más valiosa son las lecciones aprendidas.',
+      },
+      {
+        id: 'fc-11-7',
+        front: 'Lecciones aprendidas',
+        back:
+          'Sección más valiosa del acta de cierre. Documenta qué salió bien, qué salió mal y qué se podría mejorar en futuros proyectos.',
+      },
+      {
+        id: 'fc-11-8',
+        front: 'Reconocimiento y celebración (cierre)',
+        back:
+          'Se reconoce el esfuerzo del equipo y se celebra el trabajo realizado. Es crucial para la moral y la motivación de futuros proyectos.',
       },
     ],
   },

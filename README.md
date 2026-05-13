@@ -1,11 +1,11 @@
-# Admin de Proyectos I — App de estudio
+# Admin de Proyectos — App de estudio
 
-App web estática para estudiar la **Unidad 8.1 (Administración de Proyectos I)** de Sistemas y Métodos (Universidad de Palermo).
+App web estática para estudiar las unidades de **Administración de Proyectos** de Sistemas y Métodos (Universidad de Palermo). Actualmente cubre las unidades **8.1** (Fundamentos) y **8.2** (Herramientas y procesos).
 
 ## Qué hay adentro
 
-- **Lectura interactiva** de las 7 secciones del apunte con definiciones "en criollo".
-- **Visor integrado** de los 3 PDFs originales.
+- **Lectura interactiva** de las secciones del apunte con definiciones "en criollo", agrupadas por unidad en la home.
+- **Visor integrado** de los PDFs originales.
 - **Quizzes** de verdadero/falso y multiple choice por sección, con feedback instantáneo.
 - **Flashcards** por sección con flip + cola de repaso.
 - **Progreso** guardado en `localStorage` (lectura, último score de quiz, flashcards sabidas).
@@ -39,8 +39,8 @@ O, en VS Code, el plugin "Live Server" sobre `index.html`.
 ├── flashcards.html         # Flashcards por sección
 ├── css/extra.css           # Tokens + componentes
 ├── js/                     # Lógica vanilla
-├── images/diagrams/        # 8 diagramas del PDF presentación
-├── pdfs/                   # 3 PDFs originales
+├── images/diagrams/        # Diagramas extraídos de los PDFs (organizados por unidad en subcarpetas)
+├── pdfs/                   # PDFs originales del apunte
 ├── scripts/                # Utilidades (extracción de imágenes)
 └── docs/                   # Diseño y plan de implementación
 ```
@@ -53,7 +53,7 @@ O, en VS Code, el plugin "Live Server" sobre `index.html`.
 
 ## Fuentes
 
-Las 3 PDFs del apunte oficial de UP están en `pdfs/`. Todo el contenido textual y los diagramas vienen de ahí — uso académico personal.
+Los PDFs del apunte oficial de UP están en `pdfs/`. Todo el contenido textual y los diagramas vienen de ahí — uso académico personal.
 
 ## Limitaciones conocidas
 
