@@ -1,42 +1,66 @@
 import { renderNav } from './nav.js';
-import { getSection } from './content.js';
+import { getCurrentSubject, getSection } from './content.js';
 import { saveQuizScore } from './storage.js';
 
-renderNav({ active: 'home' });
-
-const id = new URLSearchParams(location.search).get('id');
-const section = getSection(id);
-
-if (!section) {
-  location.replace('index.html');
-}
-
-// Construcción de preguntas: V/F primero, luego MC, orden estable.
-const questions = [
-  ...section.quiz.tf.map((q) => ({ ...q, kind: 'tf' })),
-  ...section.quiz.mc.map((q) => ({ ...q, kind: 'mc' })),
-];
-
+let subject;
+let section;
+let questions;
 let current = 0;
 let correct = 0;
-const wrongAnswers = []; // { question, chosen }
+const wrongAnswers = [];
 
-document.title = `Quiz: ${section.title}`;
-document.getElementById('quiz-header').innerHTML = `
-  <a href="seccion.html?id=${section.id}" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">← Volver a la sección</a>
-  <h1 class="text-2xl mt-2">Quiz — Sección ${section.id}</h1>
-  <p class="text-sm text-[var(--muted)] mt-1" id="progress-text"></p>
-  <div class="w-full bg-[var(--border)] rounded-full h-1.5 mt-2">
-    <div id="progress-bar" class="bg-[var(--accent)] h-1.5 rounded-full transition-all" style="width: 0%"></div>
-  </div>
-`;
+main();
 
-if (questions.length === 0) {
-  document.getElementById('quiz-body').innerHTML = `
-    <div class="info-callout mt-6"><p>Esta sección aún no tiene preguntas cargadas.</p></div>
+function main() {
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id');
+  const subjectParam = params.get('subject');
+
+  if (id && !subjectParam) {
+    location.replace(`quiz.html?subject=sistemas-y-metodos&id=${encodeURIComponent(id)}`);
+    return;
+  }
+
+  subject = getCurrentSubject();
+  if (!subject) {
+    location.replace('index.html');
+    return;
+  }
+
+  section = getSection(subject.id, id);
+  if (!section) {
+    location.replace(`materia.html?subject=${subject.id}`);
+    return;
+  }
+  if (!section.quiz) {
+    location.replace(`seccion.html?subject=${subject.id}&id=${section.id}`);
+    return;
+  }
+
+  renderNav({ active: 'home', subject });
+
+  questions = [
+    ...section.quiz.tf.map((q) => ({ ...q, kind: 'tf' })),
+    ...section.quiz.mc.map((q) => ({ ...q, kind: 'mc' })),
+  ];
+
+  document.title = `Quiz: ${section.title}`;
+  document.getElementById('quiz-header').innerHTML = `
+    <a href="seccion.html?subject=${subject.id}&id=${section.id}" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">← Volver a la sección</a>
+    <h1 class="text-2xl mt-2">Quiz — Sección ${section.id}</h1>
+    <p class="text-sm text-[var(--muted)] mt-1" id="progress-text"></p>
+    <div class="w-full bg-[var(--border)] rounded-full h-1.5 mt-2">
+      <div id="progress-bar" class="bg-[var(--accent)] h-1.5 rounded-full transition-all" style="width: 0%"></div>
+    </div>
   `;
-} else {
-  renderQuestion();
+
+  if (questions.length === 0) {
+    document.getElementById('quiz-body').innerHTML = `
+      <div class="info-callout mt-6"><p>Esta sección aún no tiene preguntas cargadas.</p></div>
+    `;
+  } else {
+    renderQuestion();
+  }
 }
 
 function renderQuestion() {
@@ -81,13 +105,9 @@ function handleAnswer(btn, opts, q) {
   const correctValue = q.kind === 'tf' ? q.a : q.correctIndex;
   const isCorrect = chosen === correctValue;
 
-  // Bloquear todas las opciones
   document.querySelectorAll('#options button').forEach((b) => (b.disabled = true));
-
-  // Marcar elegida
   btn.classList.add(isCorrect ? 'option-correct' : 'option-wrong');
 
-  // Si fue incorrecta, marcar la correcta en verde
   if (!isCorrect) {
     const correctIdx = opts.findIndex((o) => o.value === correctValue);
     document.querySelector(`#options button[data-idx="${correctIdx}"]`).classList.add('option-correct');
@@ -96,12 +116,9 @@ function handleAnswer(btn, opts, q) {
     correct++;
   }
 
-  // Mostrar explicación
   const exp = document.getElementById('explanation');
   exp.innerHTML = `<p>${q.explain}</p>`;
   exp.classList.remove('hidden');
-
-  // Habilitar Siguiente
   document.getElementById('next-btn').disabled = false;
 }
 
@@ -115,12 +132,15 @@ function advance() {
 }
 
 function renderSummary() {
-  saveQuizScore(section.id, { correct, total: questions.length });
+  saveQuizScore(subject.id, section.id, { correct, total: questions.length });
   document.getElementById('quiz-body').classList.add('hidden');
   document.getElementById('quiz-bottom').innerHTML = '';
   const summary = document.getElementById('quiz-summary');
   summary.classList.remove('hidden');
   const pct = Math.round((correct / questions.length) * 100);
+  const seccionLink = `seccion.html?subject=${subject.id}&id=${section.id}`;
+  const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}`;
+  const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}`;
   summary.innerHTML = `
     <div class="surface-card p-6 mt-6 text-center">
       <p class="text-sm text-[var(--muted)]">Resultado</p>
@@ -142,9 +162,9 @@ function renderSummary() {
       </div>
     ` : ''}
     <div class="flex flex-col md:flex-row gap-3 mt-8">
-      <a href="quiz.html?id=${section.id}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] bg-[var(--accent)] text-white">Reintentar</a>
-      <a href="flashcards.html?id=${section.id}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)]">Flashcards</a>
-      <a href="seccion.html?id=${section.id}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)]">Volver a la sección</a>
+      <a href="${quizLink}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] bg-[var(--accent)] text-white">Reintentar</a>
+      <a href="${fcLink}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)]">Flashcards</a>
+      <a href="${seccionLink}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)]">Volver a la sección</a>
     </div>
   `;
 }
