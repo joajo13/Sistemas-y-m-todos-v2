@@ -53,6 +53,9 @@ export function getSection(subjectId, sectionId) {
 /**
  * Lee ?subject=<id> de location.search y devuelve el Subject correspondiente.
  * Devuelve null si falta o no existe.
+ *
+ * Solo para uso en navegador — depende de `location` global. Llamarla desde
+ * Node u otro entorno sin `location` lanza ReferenceError.
  */
 export function getCurrentSubject() {
   const id = new URLSearchParams(location.search).get('subject');
