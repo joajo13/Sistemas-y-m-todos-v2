@@ -125,6 +125,58 @@ export default {
         },
       ],
     },
+    {
+      id: '3',
+      unit: 'derivadas',
+      title: '¿Cuándo una función es derivable?',
+      criollo: 'Para decir que $f$ es derivable en un punto no alcanza con que esté definida ahí. El límite del cociente incremental tiene que existir, y dar lo mismo por izquierda y por derecha. Si hay esquina, salto o tangente vertical, no es derivable.',
+      blocks: [
+        {
+          type: 'p',
+          text: 'La derivabilidad es una propiedad local: una función puede ser derivable en casi todos los puntos de su dominio salvo en uno. En ese punto se dice que tiene un "punto no derivable", no que la función entera no lo sea.',
+        },
+
+        { type: 'h3', text: 'Definición formal' },
+        {
+          type: 'p',
+          text: 'Decimos que $f$ es derivable en $x = a$ cuando existe el siguiente límite y es finito:',
+        },
+        { type: 'math', latex: 'f\'(a) = \\lim_{h \\to 0} \\dfrac{f(a+h) - f(a)}{h}', display: true },
+        {
+          type: 'p',
+          text: 'Para que esta derivada exista en $a$ tienen que cumplirse tres condiciones simultáneamente:',
+        },
+        {
+          type: 'ol',
+          items: [
+            '$f$ está definida en $a$ — el punto pertenece al dominio.',
+            '$f$ es continua en $a$ — si hay un salto, agujero o asíntota vertical, no hay derivada.',
+            'El límite del cociente incremental existe y es finito, y los límites laterales coinciden: $\\lim_{h \\to 0^-} \\dfrac{f(a+h) - f(a)}{h} = \\lim_{h \\to 0^+} \\dfrac{f(a+h) - f(a)}{h}$. Si los laterales dan distinto, hay esquina. Si dan $\\pm \\infty$, hay tangente vertical.',
+          ],
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'Continua NO implica derivable: $f(x) = |x|$ es continua en $0$ pero no derivable ahí (el límite lateral izquierdo da $-1$ y el derecho da $+1$).',
+        },
+
+        { type: 'h3', text: 'Casos típicos donde NO es derivable' },
+        {
+          type: 'ul',
+          items: [
+            '**Esquina o pico**: los límites laterales del cociente incremental existen pero son distintos. Ejemplo: $f(x) = |x|$ en $x = 0$.',
+            '**Salto o discontinuidad**: la función no es continua en el punto, así que la condición 2 falla. Ejemplo: $f(x) = \\lfloor x \\rfloor$ (parte entera) en cualquier $x$ entero.',
+            '**Tangente vertical**: el límite del cociente incremental da $\\pm\\infty$. Ejemplo: $f(x) = \\sqrt[3]{x}$ en $x = 0$ — la pendiente tiende a infinito.',
+            '**Oscilación**: la función oscila infinitamente cerca del punto y ni siquiera es continua. Ejemplo: $f(x) = \\sin(1/x)$ no extendida a $x = 0$.',
+          ],
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Truco para detectar: si podés dibujar la función sin levantar el lápiz Y sin tener que cambiar bruscamente la dirección, suele ser derivable. Esquinas y tangentes verticales son las dos cosas que rompen la "suavidad".',
+        },
+      ],
+    },
   ],
   pdfs: [],
 };
