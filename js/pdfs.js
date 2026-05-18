@@ -36,6 +36,7 @@ function main() {
   }
 
   renderNav({ active: 'pdfs', subject });
+  document.title = `PDFs — ${subject.title}`;
 
   pdfjs.GlobalWorkerOptions.workerSrc =
     'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.mjs';

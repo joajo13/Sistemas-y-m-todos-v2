@@ -34,6 +34,7 @@ function main() {
   renderNav({ active: 'home', subject });
 
   document.title = `${section.title} — ${subject.title}`;
+  document.getElementById('section-back').href = `materia.html?subject=${subject.id}`;
   renderSection(subject, section);
   markRead(subject.id, section.id);
 }
