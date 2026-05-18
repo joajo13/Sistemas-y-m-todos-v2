@@ -417,7 +417,7 @@ markFlashcard(subjectId, sectionId, fcId, known)
         - `['$\\operatorname{sech} x$', '$-\\operatorname{sech} x \\cdot \\tanh x$']`
         - `['$\\operatorname{csch} x$', '$-\\operatorname{csch} x \\cdot \\coth x$']`
 
-    > **Nota de implementación**: las agrupaciones (negritas con encabezado) **no** se renderizan en la tabla — son organización conceptual del spec. La tabla final es una secuencia plana de 23 filas en el mismo orden. Si más adelante se quiere visualizar los grupos, se puede extender el block `table` con un campo opcional `groups: { label, rowCount }[]` o se hacen tres tablas separadas. Por ahora, una sola tabla plana.
+    > **Nota de implementación**: las agrupaciones (negritas con encabezado) **no** se renderizan en la tabla — son organización conceptual del spec. La tabla final es una secuencia plana de 22 filas en el mismo orden (3 básicas + 4 exp/log + 6 trig + 3 inversas + 6 hiperbólicas). Si más adelante se quiere visualizar los grupos, se puede extender el block `table` con un campo opcional `groups: { label, rowCount }[]` o se hacen varias tablas separadas. Por ahora, una sola tabla plana.
   - `callout` (tone `criollo`): consejo de uso ("Si tu función es una de estas exactas, listo. Si es una combinación de varias, mirá la sección de reglas.")
 
 ### 8.3 Sección 2 — Reglas de derivación
