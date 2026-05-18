@@ -37,8 +37,9 @@
  */
 
 import sistemasYMetodos from './subjects/sistemas-y-metodos.js';
+import analisisMatematico from './subjects/analisis-matematico.js';
 
-export const SUBJECTS = [sistemasYMetodos];
+export const SUBJECTS = [sistemasYMetodos, analisisMatematico];
 
 export function getSubject(subjectId) {
   return SUBJECTS.find((s) => s.id === subjectId) || null;
