@@ -1,25 +1,73 @@
 /**
  * Wrapper sobre localStorage con un solo key (study-app-state).
- * Schema:
+ *
+ * Schema v2:
  *   {
- *     sections: {
- *       "1": { read: bool, lastQuizScore: { correct, total, at }, knownFlashcards: [fcId, ...] },
+ *     schemaVersion: 2,
+ *     subjects: {
+ *       "<subjectId>": {
+ *         sections: {
+ *           "<sectionId>": {
+ *             read: bool,
+ *             lastQuizScore: { correct, total, at } | null,
+ *             knownFlashcards: [fcId, ...]
+ *           },
+ *           ...
+ *         }
+ *       },
  *       ...
  *     }
  *   }
+ *
+ * Migración v1 → v2: si encontramos { sections: {...} } sin `subjects`,
+ * lo movemos a `subjects['sistemas-y-metodos'].sections` y seteamos
+ * schemaVersion: 2. La key v1 NO se borra hasta que setState() pisa
+ * el valor (que es lo que ocurre en el primer write).
  */
 
 const KEY = 'study-app-state';
+const LEGACY_SUBJECT_ID = 'sistemas-y-metodos';
 
 function defaultState() {
-  return { sections: {} };
+  return { schemaVersion: 2, subjects: {} };
 }
 
-function ensureSection(state, id) {
-  if (!state.sections[id]) {
-    state.sections[id] = { read: false, lastQuizScore: null, knownFlashcards: [] };
+function defaultSectionState() {
+  return { read: false, lastQuizScore: null, knownFlashcards: [] };
+}
+
+function migrate(raw) {
+  if (!raw || typeof raw !== 'object') return defaultState();
+  // Ya v2
+  if (raw.schemaVersion === 2 && raw.subjects && typeof raw.subjects === 'object') {
+    return raw;
   }
-  return state.sections[id];
+  // v1: { sections: {...} } sin subjects
+  if (raw.sections && typeof raw.sections === 'object' && !raw.subjects) {
+    return {
+      schemaVersion: 2,
+      subjects: {
+        [LEGACY_SUBJECT_ID]: { sections: raw.sections },
+      },
+    };
+  }
+  // formato desconocido → default vacío (no se pierde nada porque no había nada usable)
+  return defaultState();
+}
+
+function ensureSubject(state, subjectId) {
+  if (!state.subjects[subjectId]) {
+    state.subjects[subjectId] = { sections: {} };
+  }
+  return state.subjects[subjectId];
+}
+
+function ensureSection(state, subjectId, sectionId) {
+  const subj = ensureSubject(state, subjectId);
+  if (!subj.sections[sectionId]) {
+    subj.sections[sectionId] = defaultSectionState();
+  }
+  return subj.sections[sectionId];
 }
 
 export function getState() {
@@ -27,9 +75,7 @@ export function getState() {
     const raw = localStorage.getItem(KEY);
     if (!raw) return defaultState();
     const parsed = JSON.parse(raw);
-    if (!parsed || typeof parsed !== 'object') return defaultState();
-    if (!parsed.sections) parsed.sections = {};
-    return parsed;
+    return migrate(parsed);
   } catch {
     return defaultState();
   }
@@ -39,20 +85,22 @@ export function setState(state) {
   localStorage.setItem(KEY, JSON.stringify(state));
 }
 
-export function getSectionState(id) {
+export function getSectionState(subjectId, sectionId) {
   const state = getState();
-  return state.sections[id] || { read: false, lastQuizScore: null, knownFlashcards: [] };
+  const subj = state.subjects[subjectId];
+  if (!subj || !subj.sections[sectionId]) return defaultSectionState();
+  return subj.sections[sectionId];
 }
 
-export function markRead(id) {
+export function markRead(subjectId, sectionId) {
   const state = getState();
-  ensureSection(state, id).read = true;
+  ensureSection(state, subjectId, sectionId).read = true;
   setState(state);
 }
 
-export function saveQuizScore(id, { correct, total }) {
+export function saveQuizScore(subjectId, sectionId, { correct, total }) {
   const state = getState();
-  ensureSection(state, id).lastQuizScore = {
+  ensureSection(state, subjectId, sectionId).lastQuizScore = {
     correct,
     total,
     at: new Date().toISOString(),
@@ -60,9 +108,9 @@ export function saveQuizScore(id, { correct, total }) {
   setState(state);
 }
 
-export function markFlashcard(sectionId, fcId, known) {
+export function markFlashcard(subjectId, sectionId, fcId, known) {
   const state = getState();
-  const section = ensureSection(state, sectionId);
+  const section = ensureSection(state, subjectId, sectionId);
   const set = new Set(section.knownFlashcards);
   if (known) set.add(fcId);
   else set.delete(fcId);
