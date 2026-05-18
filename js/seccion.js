@@ -1,33 +1,43 @@
 import { renderNav } from './nav.js';
-import { getSubject, getCurrentSubject, getSection } from './content.js';
+import { getCurrentSubject, getSection } from './content.js';
 import { markRead } from './storage.js';
 
-const params = new URLSearchParams(location.search);
-const id = params.get('id');
-const subjectParam = params.get('subject');
+// Entrypoint envuelto en una función para que cada redirect pueda detener
+// el flujo con return — location.replace() no halt sincrónico, así que sin
+// returns el script seguiría ejecutando y accediendo a subject/section null.
+main();
 
-// Compat: URL legacy sin ?subject= → asumir sistemas-y-metodos
-if (id && !subjectParam) {
-  location.replace(`seccion.html?subject=sistemas-y-metodos&id=${encodeURIComponent(id)}`);
+function main() {
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id');
+  const subjectParam = params.get('subject');
+
+  // Compat: URL legacy sin ?subject= → asumir sistemas-y-metodos
+  if (id && !subjectParam) {
+    location.replace(`seccion.html?subject=sistemas-y-metodos&id=${encodeURIComponent(id)}`);
+    return;
+  }
+
+  const subject = getCurrentSubject();
+  if (!subject) {
+    location.replace('index.html');
+    return;
+  }
+
+  const section = getSection(subject.id, id);
+  if (!section) {
+    location.replace(`materia.html?subject=${subject.id}`);
+    return;
+  }
+
+  renderNav({ active: 'home', subject });
+
+  document.title = `${section.title} — ${subject.title}`;
+  renderSection(subject, section);
+  markRead(subject.id, section.id);
 }
 
-const subject = getCurrentSubject();
-if (!subject) {
-  location.replace('index.html');
-}
-
-const section = getSection(subject.id, id);
-if (!section) {
-  location.replace(`materia.html?subject=${subject.id}`);
-}
-
-renderNav({ active: 'home', subject });
-
-document.title = `${section.title} — ${subject.title}`;
-renderSection(section);
-markRead(subject.id, section.id);
-
-function renderSection(s) {
+function renderSection(subject, s) {
   // Header
   const unitLabel = s.unit ? `Unidad ${s.unit} · ` : '';
   document.getElementById('section-header').innerHTML = `
