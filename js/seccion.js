@@ -1,20 +1,31 @@
 import { renderNav } from './nav.js';
-import { SECTIONS, getSection } from './content.js';
+import { getSubject, getCurrentSubject, getSection } from './content.js';
 import { markRead } from './storage.js';
-
-renderNav({ active: 'home' });
 
 const params = new URLSearchParams(location.search);
 const id = params.get('id');
-const section = getSection(id);
+const subjectParam = params.get('subject');
 
-if (!section) {
-  location.replace('index.html');
-} else {
-  document.title = `${section.title} — Admin de Proyectos I`;
-  renderSection(section);
-  markRead(section.id);
+// Compat: URL legacy sin ?subject= → asumir sistemas-y-metodos
+if (id && !subjectParam) {
+  location.replace(`seccion.html?subject=sistemas-y-metodos&id=${encodeURIComponent(id)}`);
 }
+
+const subject = getCurrentSubject();
+if (!subject) {
+  location.replace('index.html');
+}
+
+const section = getSection(subject.id, id);
+if (!section) {
+  location.replace(`materia.html?subject=${subject.id}`);
+}
+
+renderNav({ active: 'home', subject });
+
+document.title = `${section.title} — ${subject.title}`;
+renderSection(section);
+markRead(subject.id, section.id);
 
 function renderSection(s) {
   // Header
@@ -24,18 +35,24 @@ function renderSection(s) {
     <h1 class="text-2xl md:text-3xl font-semibold mt-1">${s.title}</h1>
   `;
 
-  // Criollo principal
-  document.getElementById('section-criollo').innerHTML = `
-    <div class="criollo-callout">
-      <p class="text-xs font-semibold text-[var(--muted)] uppercase tracking-wide mb-1">En criollo</p>
-      <p>${s.criollo}</p>
-    </div>
-  `;
+  // Criollo principal (opcional)
+  const criolloEl = document.getElementById('section-criollo');
+  if (s.criollo) {
+    criolloEl.innerHTML = `
+      <div class="criollo-callout">
+        <p class="text-xs font-semibold text-[var(--muted)] uppercase tracking-wide mb-1">En criollo</p>
+        <p>${s.criollo}</p>
+      </div>
+    `;
+  } else {
+    criolloEl.innerHTML = '';
+  }
 
   // Blocks
   const article = document.getElementById('section-content');
   article.innerHTML = s.blocks.map(renderBlock).join('');
-  // Activar toggles de criollo en h3
+
+  // Toggles de criollo
   article.querySelectorAll('[data-criollo-toggle]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const body = btn.nextElementSibling;
@@ -43,36 +60,50 @@ function renderSection(s) {
       btn.querySelector('[data-arrow]').textContent = open ? '▸' : '▾';
     });
   });
-  // Activar lightbox en imágenes (lazy: lo manejamos en Task 8)
+
+  // Lightbox
   article.querySelectorAll('img[data-lightbox]').forEach((img) => {
     img.addEventListener('click', () => window.openLightbox?.(img.src, img.alt));
   });
 
-  // Nav entre secciones
-  const total = SECTIONS.length;
-  const idx = SECTIONS.findIndex((x) => x.id === s.id);
-  const prev = idx > 0 ? SECTIONS[idx - 1] : null;
-  const next = idx < total - 1 ? SECTIONS[idx + 1] : null;
+  // Nav entre secciones (dentro del mismo subject)
+  const list = subject.sections;
+  const idx = list.findIndex((x) => x.id === s.id);
+  const prev = idx > 0 ? list[idx - 1] : null;
+  const next = idx < list.length - 1 ? list[idx + 1] : null;
+  const linkTo = (sec) => `seccion.html?subject=${subject.id}&id=${sec.id}`;
   document.getElementById('section-nav').innerHTML = `
-    ${prev
-      ? `<a href="seccion.html?id=${prev.id}" class="text-[var(--accent)]">← Sección ${prev.id}</a>`
-      : '<span></span>'}
-    ${next
-      ? `<a href="seccion.html?id=${next.id}" class="text-[var(--accent)]">Sección ${next.id} →</a>`
-      : '<span></span>'}
+    ${prev ? `<a href="${linkTo(prev)}" class="text-[var(--accent)]">← Sección ${prev.id}</a>` : '<span></span>'}
+    ${next ? `<a href="${linkTo(next)}" class="text-[var(--accent)]">Sección ${next.id} →</a>` : '<span></span>'}
   `;
 
-  // Bottom bar: quiz + flashcards
-  document.getElementById('bottom-bar').innerHTML = `
-    <a href="quiz.html?id=${s.id}"
-       class="touch-target inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] bg-[var(--accent)] text-white font-medium">
-      Hacer quiz
-    </a>
-    <a href="flashcards.html?id=${s.id}"
-       class="touch-target inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)] text-[var(--text)] font-medium">
-      Flashcards
-    </a>
-  `;
+  // Bottom bar: quiz + flashcards condicional
+  const bottomBar = document.getElementById('bottom-bar');
+  const buttons = [];
+  if (s.quiz) {
+    buttons.push(`
+      <a href="quiz.html?subject=${subject.id}&id=${s.id}"
+         class="touch-target inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] bg-[var(--accent)] text-white font-medium">
+        Hacer quiz
+      </a>
+    `);
+  }
+  if (s.flashcards) {
+    buttons.push(`
+      <a href="flashcards.html?subject=${subject.id}&id=${s.id}"
+         class="touch-target inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)] text-[var(--text)] font-medium">
+        Flashcards
+      </a>
+    `);
+  }
+  if (buttons.length === 0) {
+    bottomBar.remove();
+    document.body.classList.remove('has-bottom-bar');
+  } else {
+    bottomBar.className = bottomBar.className
+      .replace(/grid-cols-\d+/, `grid-cols-${buttons.length}`);
+    bottomBar.innerHTML = buttons.join('');
+  }
 }
 
 function renderBlock(b) {
@@ -116,6 +147,11 @@ function renderBlock(b) {
           <figcaption class="text-sm text-[var(--muted)] mt-2 text-center">${b.caption}</figcaption>
         </figure>
       `;
+    // math y table se renderizan en Task 11/12 (acá devolvemos string vacío para
+    // que la app no se rompa si aparecen antes de tiempo).
+    case 'math':
+    case 'table':
+      return '';
     default:
       return '';
   }
