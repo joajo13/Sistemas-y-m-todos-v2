@@ -1,14 +1,19 @@
-# Admin de Proyectos — App de estudio
+# Apuntes — App de estudio
 
-App web estática para estudiar las unidades de **Administración de Proyectos** de Sistemas y Métodos (Universidad de Palermo). Actualmente cubre las unidades **8.1** (Fundamentos) y **8.2** (Herramientas y procesos).
+App web estática para estudiar apuntes de varias materias de la Universidad de Palermo. Actualmente cubre:
+
+- **Administración de Proyectos** (Sistemas y Métodos) — unidades 8.1 y 8.2.
+- **Análisis Matemático** — Derivadas (tabla, reglas, derivabilidad).
 
 ## Qué hay adentro
 
-- **Lectura interactiva** de las secciones del apunte con definiciones "en criollo", agrupadas por unidad en la home.
-- **Visor integrado** de los PDFs originales.
-- **Quizzes** de verdadero/falso y multiple choice por sección, con feedback instantáneo.
-- **Flashcards** por sección con flip + cola de repaso.
-- **Progreso** guardado en `localStorage` (lectura, último score de quiz, flashcards sabidas).
+- **Selector de materias** en la home raíz.
+- **Lectura interactiva** de las secciones con definiciones "en criollo", agrupadas por unidad.
+- **Visor integrado** de los PDFs originales (cuando la materia los tiene).
+- **Quizzes** de verdadero/falso y multiple choice por sección (cuando la sección los tiene).
+- **Flashcards** por sección con flip + cola de repaso (cuando la sección las tiene).
+- **Fórmulas matemáticas** renderizadas con KaTeX (LaTeX inline `$...$` y display `$$...$$`).
+- **Progreso** guardado en `localStorage` namespaced por materia (lectura, último score de quiz, flashcards sabidas).
 
 ## Cómo correrlo
 
@@ -32,17 +37,22 @@ O, en VS Code, el plugin "Live Server" sobre `index.html`.
 
 ```
 .
-├── index.html              # Home
+├── index.html              # Selector de materias
+├── materia.html            # Home de la materia activa (?subject=<id>)
 ├── seccion.html            # Lectura de una sección
-├── pdfs.html               # Visor de los 3 PDFs
+├── pdfs.html               # Visor de PDFs (cuando la materia los tiene)
 ├── quiz.html               # Quiz por sección
 ├── flashcards.html         # Flashcards por sección
-├── css/extra.css           # Tokens + componentes
-├── js/                     # Lógica vanilla
-├── images/diagrams/        # Diagramas extraídos de los PDFs (organizados por unidad en subcarpetas)
-├── pdfs/                   # PDFs originales del apunte
+├── css/extra.css           # Tokens + componentes (incluye estilos de tabla y math)
+├── js/
+│   ├── content.js          # Índice de materias (SUBJECTS, helpers)
+│   ├── subjects/           # Una materia por archivo
+│   ├── katex-init.js       # Helper para correr KaTeX sobre un contenedor
+│   └── ...                 # Lógica por vista (inicio, materia, seccion, quiz, flashcards, pdfs, nav, storage, lightbox)
+├── images/diagrams/        # Diagramas extraídos de los PDFs (por unidad)
+├── pdfs/                   # PDFs originales (solo Administración de Proyectos)
 ├── scripts/                # Utilidades (extracción de imágenes)
-└── docs/                   # Diseño y plan de implementación
+└── docs/                   # Diseños y planes de implementación
 ```
 
 ## Deploy a GitHub Pages
