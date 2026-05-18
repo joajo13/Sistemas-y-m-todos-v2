@@ -1,6 +1,7 @@
 import { renderNav } from './nav.js';
 import { getCurrentSubject, getSection } from './content.js';
 import { markRead } from './storage.js';
+import { renderMath } from './katex-init.js';
 
 // Entrypoint envuelto en una función para que cada redirect pueda detener
 // el flujo con return — location.replace() no halt sincrónico, así que sin
@@ -114,6 +115,15 @@ function renderSection(subject, s) {
       .replace(/grid-cols-\d+/, `grid-cols-${buttons.length}`);
     bottomBar.innerHTML = buttons.join('');
   }
+
+  // Render KaTeX en todo el contenido inyectado (incluye p/ul/ol/callout/table/math)
+  // Esperar a que KaTeX cargue (los scripts son `defer`).
+  if (typeof window.renderMathInElement === 'function') {
+    renderMath(article);
+  } else {
+    // Si todavía no cargó, esperar a 'load' una sola vez.
+    window.addEventListener('load', () => renderMath(article), { once: true });
+  }
 }
 
 function renderBlock(b) {
@@ -157,11 +167,27 @@ function renderBlock(b) {
           <figcaption class="text-sm text-[var(--muted)] mt-2 text-center">${b.caption}</figcaption>
         </figure>
       `;
-    // math y table se renderizan en Task 11/12 (acá devolvemos string vacío para
-    // que la app no se rompa si aparecen antes de tiempo).
-    case 'math':
-    case 'table':
-      return '';
+    case 'math': {
+      const display = b.display ? '$$' : '$';
+      const cls = b.display ? 'math-display' : 'math-inline';
+      return `<div class="${cls}">${display}${b.latex}${display}</div>`;
+    }
+    case 'table': {
+      const caption = b.caption ? `<caption>${b.caption}</caption>` : '';
+      const headers = b.headers.map((h) => `<th>${h}</th>`).join('');
+      const rows = b.rows.map((row) => `
+        <tr>${row.map((cell) => `<td>${cell}</td>`).join('')}</tr>
+      `).join('');
+      return `
+        <div class="table-wrap">
+          <table class="content-table">
+            ${caption}
+            <thead><tr>${headers}</tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
+      `;
+    }
     default:
       return '';
   }

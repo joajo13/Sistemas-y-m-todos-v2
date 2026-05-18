@@ -124,3 +124,47 @@ body.has-bottom-bar { padding-bottom: 88px; }
 @media (min-width: 768px) {
   body.has-bottom-bar { padding-bottom: 0; }
 }
+
+/* === Tablas de contenido (block 'table') === */
+.table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.content-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.content-table caption {
+  text-align: left;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  caption-side: top;
+  color: var(--text);
+  padding: 0 0.25rem;
+}
+.content-table th,
+.content-table td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: middle;
+}
+.content-table thead th {
+  background: var(--surface-2);
+  font-weight: 600;
+}
+.content-table tbody tr:last-child td { border-bottom: none; }
+.content-table .katex { font-size: inherit; }
+
+/* === Fórmulas KaTeX === */
+.math-display {
+  display: block;
+  text-align: center;
+  margin: 1.25rem 0;
+  overflow-x: auto;
+}
+.math-inline { display: inline; }
