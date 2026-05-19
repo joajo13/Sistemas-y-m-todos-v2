@@ -5,15 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Materia — Apuntes</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="css/extra.css" />
 </head>
 <body>
-  <main class="max-w-5xl mx-auto px-4 py-6">
-    <header class="mb-8">
-      <h1 id="materia-title" class="text-3xl md:text-4xl font-semibold"></h1>
-      <p id="materia-subtitle" class="text-[var(--muted)] mt-1"></p>
+  <main class="max-w-6xl mx-auto px-5 md:px-8 pt-10 md:pt-14 pb-20">
+    <header class="mb-12 md:mb-16">
+      <p class="eyebrow mb-5" id="materia-eyebrow">
+        <span>Materia</span>
+      </p>
+      <div class="grid md:grid-cols-[1.45fr_1fr] gap-x-10 gap-y-4 items-end">
+        <h1 id="materia-title" class="display-title" style="font-size:clamp(2.5rem,7vw,5rem);"></h1>
+        <p id="materia-subtitle" class="display-subtitle"></p>
+      </div>
+      <hr class="hairline-strong mt-10 md:mt-14" />
     </header>
-    <section id="sections-grid" class="space-y-10">
+
+    <section id="sections-grid" class="space-y-14">
       <!-- grupos por unidad inyectados por materia.js -->
     </section>
   </main>

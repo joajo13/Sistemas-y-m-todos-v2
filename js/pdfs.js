@@ -47,6 +47,9 @@ function main() {
   canvas = document.getElementById('pdf-canvas');
   ctx = canvas.getContext('2d');
 
+  const labelEl = document.getElementById('pdf-subject-label');
+  if (labelEl) labelEl.textContent = subject.title;
+
   renderTabs();
   loadDoc(activeKey);
 
@@ -66,21 +69,13 @@ function tabHref(d) {
 
 function renderTabs() {
   const tabHtml = (d) => `
-    <a href="${tabHref(d)}"
-       class="touch-target inline-flex items-center justify-center px-3 py-2 rounded-[var(--radius-sm)] text-sm whitespace-nowrap
-              ${d.key === activeKey
-                ? 'bg-[var(--accent)] text-white'
-                : 'border border-[var(--border-strong)] text-[var(--text)] hover:bg-[var(--surface-2)]'}">
+    <a href="${tabHref(d)}" class="pdf-tab touch-target ${d.key === activeKey ? 'is-active' : ''}">
       ${d.label}
     </a>
   `;
   document.getElementById('tabs').innerHTML = DOCS.map(tabHtml).join('');
   document.getElementById('tabs-desktop').innerHTML = DOCS.map((d) => `
-    <a href="${tabHref(d)}"
-       class="touch-target block px-3 py-2 rounded-[var(--radius-sm)] text-sm
-              ${d.key === activeKey
-                ? 'bg-[var(--accent)] text-white'
-                : 'hover:bg-[var(--surface-2)] text-[var(--text)]'}">
+    <a href="${tabHref(d)}" class="pdf-tab-aside touch-target ${d.key === activeKey ? 'is-active' : ''}">
       ${d.label}
     </a>
   `).join('');

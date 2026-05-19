@@ -5,21 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sección — Apuntes</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="css/extra.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
 </head>
 <body class="has-bottom-bar">
-  <main class="max-w-3xl mx-auto px-4 py-6">
-    <a id="section-back" href="index.html" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">← Volver a la materia</a>
-    <header id="section-header" class="mt-2 mb-4"></header>
-    <div id="section-criollo" class="mb-6"></div>
-    <article id="section-content" class="read-width space-y-4"></article>
-    <nav id="section-nav" class="mt-10 pt-6 border-t border-[var(--border)] flex justify-between"></nav>
+  <main class="max-w-3xl mx-auto px-5 md:px-6 pt-8 md:pt-12 pb-16">
+    <a id="section-back" href="index.html" class="masthead-back">← Volver a la materia</a>
+    <header id="section-header" class="section-header"></header>
+    <div id="section-criollo" class="mb-8"></div>
+    <article id="section-content" class="article"></article>
+    <nav id="section-nav" class="section-nav"></nav>
   </main>
-  <div id="bottom-bar"
-       class="fixed bottom-0 left-0 right-0 md:static md:max-w-3xl md:mx-auto bg-[var(--surface)] border-t md:border-0 border-[var(--border)] p-3 md:p-0 md:mt-6 md:pb-10 grid grid-cols-2 gap-3 z-30"></div>
+  <div id="bottom-bar" class="action-bar md:grid-cols-2"></div>
   <script type="module" src="js/lightbox.js"></script>
   <script type="module" src="js/seccion.js"></script>
 </body>

@@ -46,11 +46,17 @@ function main() {
 
   document.title = `Quiz: ${section.title}`;
   document.getElementById('quiz-header').innerHTML = `
-    <a href="seccion.html?subject=${subject.id}&id=${section.id}" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">← Volver a la sección</a>
-    <h1 class="text-2xl mt-2">Quiz — Sección ${section.id}</h1>
-    <p class="text-sm text-[var(--muted)] mt-1" id="progress-text"></p>
-    <div class="w-full bg-[var(--border)] rounded-full h-1.5 mt-2">
-      <div id="progress-bar" class="bg-[var(--accent)] h-1.5 rounded-full transition-all" style="width: 0%"></div>
+    <a href="seccion.html?subject=${subject.id}&id=${section.id}" class="masthead-back">← Volver a la sección</a>
+    <div class="section-header" style="margin-bottom:1.5rem;">
+      <div class="section-header-eyebrow">
+        <span class="num">${section.id}</span>
+        <span>Examinación</span>
+      </div>
+      <h1 class="section-header-title" style="font-size:clamp(1.8rem,4.5vw,2.6rem);">${section.title}</h1>
+      <div class="quiz-progress">
+        <span class="count" id="progress-text"></span>
+        <div class="bar" id="progress-bar" style="--progress:0%"></div>
+      </div>
     </div>
   `;
 
@@ -65,25 +71,30 @@ function main() {
 
 function renderQuestion() {
   const q = questions[current];
-  document.getElementById('progress-text').textContent = `Pregunta ${current + 1} de ${questions.length}`;
-  document.getElementById('progress-bar').style.width = `${(current / questions.length) * 100}%`;
+  document.getElementById('progress-text').textContent =
+    `Pregunta ${current + 1} de ${questions.length}`;
+  document.getElementById('progress-bar').style
+    .setProperty('--progress', `${(current / questions.length) * 100}%`);
 
   const opts = q.kind === 'tf'
     ? [{ text: 'Verdadero', value: true }, { text: 'Falso', value: false }]
     : q.options.map((text, i) => ({ text, value: i }));
 
   document.getElementById('quiz-body').innerHTML = `
-    <div class="surface-card p-5 mt-4">
-      <p class="font-medium mb-4">${q.q}</p>
-      <div id="options" class="space-y-2"></div>
-      <div id="explanation" class="hidden mt-4 info-callout"></div>
+    <div class="question-card fade-in">
+      <p class="eyebrow no-rule" style="margin-bottom:0.85rem;">
+        <span style="background:none;width:0;height:0;"></span>
+        Pregunta N.º ${String(current + 1).padStart(2, '0')}
+      </p>
+      <p class="question-stem">${q.q}</p>
+      <div id="options"></div>
+      <div id="explanation" class="hidden info-callout" style="margin-top:1.1rem;"></div>
     </div>
   `;
   const optsContainer = document.getElementById('options');
   optsContainer.innerHTML = opts
     .map((o, i) => `
-      <button data-idx="${i}"
-              class="touch-target w-full text-left px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)] hover:bg-[var(--surface-2)] transition-colors">
+      <button data-idx="${i}" class="quiz-option touch-target">
         ${o.text}
       </button>
     `).join('');
@@ -93,9 +104,8 @@ function renderQuestion() {
   });
 
   document.getElementById('quiz-bottom').innerHTML = `
-    <button id="next-btn"
-            class="touch-target w-full px-4 py-3 rounded-[var(--radius)] bg-[var(--accent)] text-white font-medium disabled:opacity-40"
-            disabled>Siguiente</button>
+    <button id="next-btn" class="btn btn-accent touch-target" disabled
+            style="opacity:0.4;">Siguiente</button>
   `;
   document.getElementById('next-btn').addEventListener('click', advance);
 }
@@ -117,9 +127,17 @@ function handleAnswer(btn, opts, q) {
   }
 
   const exp = document.getElementById('explanation');
-  exp.innerHTML = `<p>${q.explain}</p>`;
+  exp.innerHTML = `
+    <span class="eyebrow no-rule" style="display:block;margin-bottom:0.4em;">
+      ${isCorrect ? 'Bien · explicación' : 'Por qué fallaste'}
+    </span>
+    <p>${q.explain}</p>
+  `;
   exp.classList.remove('hidden');
-  document.getElementById('next-btn').disabled = false;
+
+  const nextBtn = document.getElementById('next-btn');
+  nextBtn.disabled = false;
+  nextBtn.style.opacity = '1';
 }
 
 function advance() {
@@ -141,30 +159,42 @@ function renderSummary() {
   const seccionLink = `seccion.html?subject=${subject.id}&id=${section.id}`;
   const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}`;
   const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}`;
+
+  let verdict = '';
+  if (pct === 100) verdict = 'Impecable';
+  else if (pct >= 80) verdict = 'Muy bien';
+  else if (pct >= 60) verdict = 'Aceptable';
+  else if (pct >= 40) verdict = 'A revisar';
+  else verdict = 'A leer otra vez';
+
   summary.innerHTML = `
-    <div class="surface-card p-6 mt-6 text-center">
-      <p class="text-sm text-[var(--muted)]">Resultado</p>
-      <p class="text-4xl font-semibold mt-2">${correct}/${questions.length}</p>
-      <p class="text-[var(--muted)] mt-1">${pct}% correctas</p>
+    <div class="result-card fade-in">
+      <p class="result-card-label">Resultado</p>
+      <p class="result-card-score">${correct}<span style="color:var(--muted);font-style:normal;font-size:0.55em;letter-spacing:-0.02em;"> ⁄ </span>${questions.length}</p>
+      <p class="result-card-meta">${pct}% correctas · <em>${verdict}</em></p>
     </div>
     ${wrongAnswers.length > 0 ? `
-      <div class="mt-6">
-        <h2 class="text-lg font-semibold mb-3">Preguntas erradas</h2>
-        <div class="space-y-3">
+      <section class="mt-12">
+        <div class="unit-header">
+          <span class="unit-header-num">!</span>
+          <span class="unit-header-title">Preguntas erradas</span>
+          <span class="unit-header-meta">${wrongAnswers.length} ${wrongAnswers.length === 1 ? 'item' : 'items'}</span>
+        </div>
+        <div class="grid grid-cols-1 gap-4 stagger-rise">
           ${wrongAnswers.map((w) => `
-            <div class="surface-card p-4">
-              <p class="font-medium mb-1">${w.question.q}</p>
-              <p class="text-sm text-[var(--error)]">Elegiste: ${w.chosenText}</p>
-              <p class="text-sm mt-2 text-[var(--muted)]">${w.question.explain}</p>
+            <div class="surface-card" style="padding:1.25rem 1.4rem;">
+              <p class="font-medium mb-2" style="font-family:var(--font-reading);font-size:1.05rem;color:var(--ink);">${w.question.q}</p>
+              <p class="meta" style="color:var(--error);">Elegiste: ${w.chosenText}</p>
+              <p class="meta" style="margin-top:0.55em;color:var(--ink-2);font-style:italic;font-family:var(--font-reading);">${w.question.explain}</p>
             </div>
           `).join('')}
         </div>
-      </div>
+      </section>
     ` : ''}
-    <div class="flex flex-col md:flex-row gap-3 mt-8">
-      <a href="${quizLink}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] bg-[var(--accent)] text-white">Reintentar</a>
-      <a href="${fcLink}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)]">Flashcards</a>
-      <a href="${seccionLink}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)]">Volver a la sección</a>
+    <div class="flex flex-col md:flex-row gap-3 mt-10">
+      <a href="${quizLink}" class="btn btn-accent touch-target md:flex-1">Reintentar</a>
+      <a href="${fcLink}" class="btn-ghost touch-target md:flex-1">Flashcards</a>
+      <a href="${seccionLink}" class="btn-ghost touch-target md:flex-1">Volver a la sección</a>
     </div>
   `;
 }

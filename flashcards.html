@@ -3,40 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Flashcards — Admin de Proyectos I</title>
+  <title>Flashcards — Apuntes</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="css/extra.css" />
-  <style>
-    /* Flip animation usando 3D transforms */
-    .flashcard { perspective: 1200px; }
-    .flashcard-inner {
-      position: relative;
-      width: 100%;
-      transform-style: preserve-3d;
-      transition: transform 0.5s;
-    }
-    .flashcard.is-flipped .flashcard-inner { transform: rotateY(180deg); }
-    .flashcard-face {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      text-align: center;
-    }
-    .flashcard-back { transform: rotateY(180deg); }
-  </style>
 </head>
 <body class="has-bottom-bar">
-  <main class="max-w-2xl mx-auto px-4 py-6">
-    <div id="fc-header" class="mb-4"></div>
+  <main class="max-w-2xl mx-auto px-5 md:px-6 pt-8 md:pt-12 pb-16">
+    <div id="fc-header" class="mb-6"></div>
     <div id="fc-stage" class="min-h-[55vh] flex items-center justify-center"></div>
     <div id="fc-summary" class="hidden"></div>
   </main>
-  <div id="fc-bottom"
-       class="fixed bottom-0 left-0 right-0 md:static md:max-w-2xl md:mx-auto bg-[var(--surface)] border-t md:border-0 border-[var(--border)] p-3 md:p-0 md:mt-6 md:pb-10 grid grid-cols-2 gap-3 z-30"></div>
+  <div id="fc-bottom" class="action-bar md:grid-cols-2"></div>
   <script type="module" src="js/flashcards.js"></script>
 </body>
 </html>

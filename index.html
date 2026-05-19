@@ -5,15 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Apuntes — Universidad de Palermo</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="css/extra.css" />
 </head>
 <body>
-  <main class="max-w-5xl mx-auto px-4 py-6">
-    <header class="mb-8">
-      <h1 class="text-3xl md:text-4xl font-semibold">Apuntes</h1>
-      <p class="text-[var(--muted)] mt-1">Material de estudio por materia</p>
+  <main class="max-w-6xl mx-auto px-5 md:px-8 pt-10 md:pt-16 pb-20">
+    <header class="mb-12 md:mb-16">
+      <p class="eyebrow mb-5">
+        <span>Vol. II</span> · <span>Apuntes de cátedra</span> · <span>2026</span>
+      </p>
+      <div class="grid md:grid-cols-[1.4fr_1fr] gap-x-10 gap-y-4 items-end">
+        <h1 class="display-title">
+          Apunte<em>s</em>.
+        </h1>
+        <p class="display-subtitle">
+          Material de estudio compilado, por materia. Lectura, fórmulas,
+          quizzes y flashcards — todo en un lugar.
+        </p>
+      </div>
+      <hr class="hairline-strong mt-10 md:mt-14" />
     </header>
-    <section id="subjects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+    <section class="mb-6 flex items-baseline justify-between">
+      <h2 class="text-2xl md:text-3xl" style="font-variation-settings:'opsz' 48,'SOFT' 50;font-weight:500;letter-spacing:-0.02em;">
+        En esta edición
+      </h2>
+      <p class="meta" id="subjects-count"></p>
+    </section>
+
+    <section id="subjects-grid"
+             class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-rise">
       <!-- cards de materias inyectadas por inicio.js -->
     </section>
   </main>

@@ -41,9 +41,15 @@ function main() {
 
   document.title = `Flashcards: ${section.title}`;
   document.getElementById('fc-header').innerHTML = `
-    <a href="seccion.html?subject=${subject.id}&id=${section.id}" class="text-sm text-[var(--muted)] hover:text-[var(--text)]">← Volver a la sección</a>
-    <h1 class="text-2xl mt-2">Flashcards — Sección ${section.id}</h1>
-    <p id="fc-progress" class="text-sm text-[var(--muted)] mt-1"></p>
+    <a href="seccion.html?subject=${subject.id}&id=${section.id}" class="masthead-back">← Volver a la sección</a>
+    <div class="section-header" style="margin-bottom:0;">
+      <div class="section-header-eyebrow">
+        <span class="num">${section.id}</span>
+        <span>Tarjetas de repaso</span>
+      </div>
+      <h1 class="section-header-title" style="font-size:clamp(1.8rem,4.5vw,2.6rem);">${section.title}</h1>
+      <p id="fc-progress" class="meta" style="margin-top:1rem;letter-spacing:0.06em;text-transform:uppercase;font-size:0.74rem;"></p>
+    </div>
   `;
 
   queue = [...section.flashcards];
@@ -56,10 +62,12 @@ function main() {
   } else {
     renderCard();
     document.getElementById('fc-bottom').innerHTML = `
-      <button id="repaso-btn"
-              class="touch-target px-4 py-4 rounded-[var(--radius)] border border-[var(--border-strong)] font-medium">↻ Repasar</button>
-      <button id="sabia-btn"
-              class="touch-target px-4 py-4 rounded-[var(--radius)] bg-[var(--ok)] text-white font-medium">✓ La sabía</button>
+      <button id="repaso-btn" class="btn-ghost touch-target" style="padding:0.95rem 1.25rem;">
+        ↻ Repasar
+      </button>
+      <button id="sabia-btn" class="btn btn-accent touch-target" style="padding:0.95rem 1.25rem;background:var(--forest);border-color:var(--forest);">
+        ✓ La sabía
+      </button>
     `;
     document.getElementById('repaso-btn').addEventListener('click', () => answer(false));
     document.getElementById('sabia-btn').addEventListener('click', () => answer(true));
@@ -78,17 +86,21 @@ function renderCard() {
     `Quedan ${queue.length} · ${knownThisSession} sabidas`;
   const card = queue[0];
   document.getElementById('fc-stage').innerHTML = `
-    <div id="flashcard" class="flashcard w-full h-72 cursor-pointer">
-      <div class="flashcard-inner h-full">
-        <div class="flashcard-face surface-card">
-          <p class="text-xl font-medium">${card.front}</p>
-        </div>
-        <div class="flashcard-face flashcard-back surface-card">
-          <p class="text-base">${card.back}</p>
+    <div class="w-full">
+      <div id="flashcard" class="flashcard w-full h-80 cursor-pointer fade-in">
+        <div class="flashcard-inner h-full">
+          <div class="flashcard-face front">
+            <p class="flashcard-front-text">${card.front}</p>
+          </div>
+          <div class="flashcard-face back">
+            <p class="flashcard-back-text">${card.back}</p>
+          </div>
         </div>
       </div>
+      <p class="meta text-center mt-4" style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;">
+        Tocá la tarjeta · espacio para dar vuelta
+      </p>
     </div>
-    <p class="text-xs text-[var(--muted)] text-center mt-3">Tocá la tarjeta para dar vuelta</p>
   `;
   document.getElementById('flashcard').addEventListener('click', flipCurrent);
 }
@@ -121,16 +133,17 @@ function renderSummary() {
   const seccionLink = `seccion.html?subject=${subject.id}&id=${section.id}`;
   const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}`;
   const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}`;
+  const pct = Math.round((knownThisSession / total) * 100);
   s.innerHTML = `
-    <div class="surface-card p-6 mt-6 text-center">
-      <p class="text-sm text-[var(--muted)]">Resultado de esta sesión</p>
-      <p class="text-4xl font-semibold mt-2">${knownThisSession}/${total}</p>
-      <p class="text-[var(--muted)] mt-1">marcadas como sabidas</p>
+    <div class="result-card fade-in">
+      <p class="result-card-label">Sesión cerrada</p>
+      <p class="result-card-score">${knownThisSession}<span style="color:var(--muted);font-style:normal;font-size:0.55em;letter-spacing:-0.02em;"> ⁄ </span>${total}</p>
+      <p class="result-card-meta"><em>${pct}% sabidas</em></p>
     </div>
-    <div class="flex flex-col md:flex-row gap-3 mt-8">
-      <a href="${fcLink}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] bg-[var(--accent)] text-white">Reiniciar</a>
-      <a href="${quizLink}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)]">Hacer quiz</a>
-      <a href="${seccionLink}" class="touch-target flex-1 inline-flex items-center justify-center px-4 py-3 rounded-[var(--radius)] border border-[var(--border-strong)]">Volver a la sección</a>
+    <div class="flex flex-col md:flex-row gap-3 mt-10">
+      <a href="${fcLink}" class="btn btn-accent touch-target md:flex-1">Reiniciar</a>
+      <a href="${quizLink}" class="btn-ghost touch-target md:flex-1">Hacer quiz</a>
+      <a href="${seccionLink}" class="btn-ghost touch-target md:flex-1">Volver a la sección</a>
     </div>
   `;
 }

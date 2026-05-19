@@ -11,6 +11,19 @@ if (!subject) {
   renderNav({ active: 'home', subject });
   document.getElementById('materia-title').textContent = subject.title;
   document.getElementById('materia-subtitle').textContent = subject.subtitle || '';
+
+  const eyebrow = document.getElementById('materia-eyebrow');
+  if (eyebrow) {
+    const totalSecs = subject.sections.length;
+    const totalUnits = Object.keys(subject.units || {}).length;
+    const bits = [
+      'Materia',
+      totalUnits > 0 ? `${totalUnits} unidad${totalUnits === 1 ? '' : 'es'}` : null,
+      `${totalSecs} secci${totalSecs === 1 ? 'ón' : 'ones'}`,
+    ].filter(Boolean);
+    eyebrow.innerHTML = bits.map((b) => `<span>${b}</span>`).join(' · ');
+  }
+
   renderSections();
 }
 
@@ -19,39 +32,35 @@ function sectionCard(section) {
   const hasQuiz = !!section.quiz;
   const hasFc = !!section.flashcards;
 
-  const readBadge = state.read
-    ? '<span class="text-[var(--ok)]">✓ Leída</span>'
-    : '<span class="text-[var(--muted)]">Sin leer</span>';
+  const meta = [];
+  meta.push(state.read
+    ? '<span class="read">✓ Leída</span>'
+    : '<span class="unread">Sin leer</span>');
 
   const score = state.lastQuizScore;
-  const quizBadge = hasQuiz
-    ? (score
-        ? `<span class="text-[var(--muted)]">Quiz: ${score.correct}/${score.total}</span>`
-        : '<span class="text-[var(--muted)]">Sin quiz</span>')
-    : '';
+  if (hasQuiz) {
+    meta.push(score
+      ? `<span class="quiz">Quiz · ${score.correct}/${score.total}</span>`
+      : '<span class="quiz">Quiz</span>');
+  }
+  if (hasFc) {
+    const total = section.flashcards.length;
+    const known = state.knownFlashcards.length;
+    meta.push(`<span class="fc">Flashcards · ${known}/${total}</span>`);
+  }
 
-  const fcBadge = hasFc
-    ? (() => {
-        const total = section.flashcards.length;
-        const known = state.knownFlashcards.length;
-        return `<span class="text-[var(--muted)]">Flashcards: ${known}/${total}</span>`;
-      })()
-    : '';
+  const dek = section.criollo
+    ? `<p class="folio-card-dek">${section.criollo}</p>`
+    : '<p class="folio-card-dek">&nbsp;</p>';
 
   return `
     <a href="seccion.html?subject=${subject.id}&id=${section.id}"
-       class="surface-card block p-5 transition-shadow">
-      <div class="flex items-start gap-3 mb-3">
-        <span class="text-3xl font-semibold text-[var(--muted)] leading-none">${section.id}</span>
-        <h2 class="text-lg leading-tight">${section.title}</h2>
-      </div>
-      ${section.criollo
-        ? `<p class="text-sm text-[var(--muted)] mb-4 line-clamp-3">${section.criollo}</p>`
-        : '<p class="text-sm text-[var(--muted)] mb-4">&nbsp;</p>'}
-      <div class="flex flex-wrap gap-x-3 gap-y-1 text-xs">
-        ${readBadge}
-        ${quizBadge}
-        ${fcBadge}
+       class="folio-card">
+      <div class="folio-card-num">${section.id}</div>
+      <div class="folio-card-body">
+        <h3 class="folio-card-title">${section.title}</h3>
+        ${dek}
+        <div class="folio-card-meta">${meta.join('')}</div>
       </div>
     </a>
   `;
@@ -69,13 +78,23 @@ function groupByUnit(sections) {
 
 function unitBlock(unit, sections) {
   const unitTitle = subject.units[unit] || '';
-  const heading = unit === 'sin-unidad'
-    ? ''
-    : (unitTitle ? `Unidad ${unit} — ${unitTitle}` : `Unidad ${unit}`);
+  const isOrphan = unit === 'sin-unidad';
+  const heading = isOrphan
+    ? `<div class="unit-header">
+         <span class="unit-header-num">·</span>
+         <span class="unit-header-title">Secciones</span>
+         <span class="unit-header-meta">${sections.length} ${sections.length === 1 ? 'item' : 'items'}</span>
+       </div>`
+    : `<div class="unit-header">
+         <span class="unit-header-num">${unit}</span>
+         <span class="unit-header-title">${unitTitle}</span>
+         <span class="unit-header-meta">${sections.length} ${sections.length === 1 ? 'item' : 'items'}</span>
+       </div>`;
+
   return `
     <section>
-      ${heading ? `<h2 class="text-xl md:text-2xl font-semibold mb-4">${heading}</h2>` : ''}
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      ${heading}
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 stagger-rise">
         ${sections.map(sectionCard).join('')}
       </div>
     </section>

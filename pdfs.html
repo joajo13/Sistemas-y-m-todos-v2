@@ -3,49 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PDFs — Admin de Proyectos I</title>
+  <title>PDFs — Apuntes</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="css/extra.css" />
-  <style>
-    /* Canvas del PDF: sombra suave para que se destaque sobre el fondo */
-    #pdf-canvas {
-      box-shadow: var(--shadow);
-      max-width: 100%;
-      height: auto;
-      background: white;
-    }
-  </style>
 </head>
 <body class="has-bottom-bar md:pb-0">
-  <main class="max-w-5xl mx-auto px-4 py-4">
-    <div id="tabs" class="flex gap-2 overflow-x-auto pb-2 mb-3 md:hidden"></div>
-    <div class="md:flex md:gap-6">
-      <aside id="tabs-desktop" class="hidden md:block md:w-48 shrink-0 space-y-2"></aside>
+  <main class="max-w-6xl mx-auto px-5 md:px-8 pt-8 md:pt-10 pb-6">
+    <p class="eyebrow mb-4"><span>Archivo</span> · <span id="pdf-subject-label">Material original</span></p>
+    <div id="tabs" class="pdf-tabs md:hidden"></div>
+    <div class="md:flex md:gap-8">
+      <aside id="tabs-desktop" class="hidden md:block md:w-56 shrink-0 pdf-tabs-aside"></aside>
       <section class="flex-1 min-w-0">
-        <div class="hidden md:flex justify-between items-center mb-3">
-          <div id="page-info" class="text-sm text-[var(--muted)]"></div>
-          <div class="flex gap-2">
-            <button id="prev" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">◀</button>
-            <button id="next" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">▶</button>
-            <button id="zoom-out" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">−</button>
-            <button id="zoom-in" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">+</button>
-            <a id="open-original-d" href="#" target="_blank" rel="noopener" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)] text-sm">Abrir original</a>
+        <div class="hidden md:flex justify-between items-center mb-4 pb-4" style="border-bottom:1px solid var(--rule);">
+          <div id="page-info" class="meta" style="font-size:0.78rem;letter-spacing:0.08em;text-transform:uppercase;"></div>
+          <div class="flex gap-2 items-center">
+            <button id="prev" class="btn-icon touch-target">◀</button>
+            <button id="next" class="btn-icon touch-target">▶</button>
+            <span style="width:1px;height:24px;background:var(--rule);margin:0 0.4rem;"></span>
+            <button id="zoom-out" class="btn-icon touch-target">−</button>
+            <button id="zoom-in" class="btn-icon touch-target">+</button>
+            <span style="width:1px;height:24px;background:var(--rule);margin:0 0.4rem;"></span>
+            <a id="open-original-d" href="#" target="_blank" rel="noopener" class="btn-ghost touch-target" style="padding:0.4rem 0.9rem;font-size:.78rem;">Abrir original ↗</a>
           </div>
         </div>
-        <div id="status" class="text-[var(--muted)] text-sm mb-2"></div>
+        <div id="status" class="meta mb-3"></div>
         <div class="flex justify-center"><canvas id="pdf-canvas"></canvas></div>
       </section>
     </div>
   </main>
-  <!-- Bottom bar mobile -->
-  <div id="bottom-bar-mobile"
-       class="md:hidden fixed bottom-0 left-0 right-0 bg-[var(--surface)] border-t border-[var(--border)] p-3 flex gap-2 z-30">
-    <button id="prev-m" class="touch-target flex-1 px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">◀</button>
-    <div id="page-info-m" class="flex-1 text-center text-sm self-center text-[var(--muted)]"></div>
-    <button id="next-m" class="touch-target flex-1 px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">▶</button>
-    <button id="zoom-out-m" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">−</button>
-    <button id="zoom-in-m" class="touch-target px-3 py-2 rounded-[var(--radius-sm)] border border-[var(--border-strong)]">+</button>
-    <a id="open-original-m" href="#" target="_blank" rel="noopener" class="touch-target self-center text-sm text-[var(--accent)]">Abrir</a>
+  <div id="bottom-bar-mobile" class="md:hidden action-bar" style="display:flex;gap:0.5rem;">
+    <button id="prev-m" class="btn-icon touch-target flex-1">◀</button>
+    <div id="page-info-m" class="flex-1 text-center text-sm self-center meta"></div>
+    <button id="next-m" class="btn-icon touch-target flex-1">▶</button>
+    <button id="zoom-out-m" class="btn-icon touch-target">−</button>
+    <button id="zoom-in-m" class="btn-icon touch-target">+</button>
+    <a id="open-original-m" href="#" target="_blank" rel="noopener" class="meta self-center text-sm" style="color:var(--accent);text-decoration:underline;">Abrir</a>
   </div>
   <script type="module" src="js/pdfs.js"></script>
 </body>
