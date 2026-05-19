@@ -128,10 +128,14 @@ function renderSection(subject, s) {
     bottomBar.innerHTML = buttons.join('');
   }
 
-  if (typeof window.renderMathInElement === 'function') {
+  const renderAll = () => {
+    renderMath(criolloEl);
     renderMath(article);
+  };
+  if (typeof window.renderMathInElement === 'function') {
+    renderAll();
   } else {
-    window.addEventListener('load', () => renderMath(article), { once: true });
+    window.addEventListener('load', renderAll, { once: true });
   }
 }
 
