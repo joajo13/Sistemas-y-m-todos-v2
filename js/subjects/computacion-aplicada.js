@@ -40,25 +40,25 @@ export default {
         headers: ['Sistema', 'Características', 'Ventajas', 'Desventajas'],
         rows: [
           [
-            'ext4',
+            '<code>ext4</code>',
             'Journalizado, soporte para archivos grandes, comprobación de errores',
             'Rápido, confiable',
             'No es compatible con Windows sin software adicional',
           ],
           [
-            'XFS',
+            '<code>XFS</code>',
             'Journalizado, alta eficiencia con archivos grandes',
             'Escalabilidad y rendimiento en grandes volúmenes',
             'Operaciones de redimensionado más complejas',
           ],
           [
-            'Btrfs',
+            '<code>Btrfs</code>',
             'Journalizado, snapshots, compresión',
             'Ideal para copias de seguridad y versiones',
             'Aún en fase de optimización',
           ],
           [
-            'NTFS',
+            '<code>NTFS</code>',
             'Compatible con Windows, soporte para archivos grandes',
             'Interoperabilidad entre Linux y Windows',
             'Rendimiento menor en Linux comparado con otros FS nativos',
@@ -364,7 +364,7 @@ export default {
         type: 'callout',
         tone: 'warning',
         text:
-          'El casillero "pre-allocate Full Size" debe quedar <strong>destildado</strong> al crear el disco. Si lo dejás marcado, el VDI ocupa el tamaño total desde el principio en lugar de crecer a demanda.',
+          'El casillero <strong>"pre-allocate Full Size"</strong> debe quedar <strong>destildado</strong> al crear el disco. Si lo dejás marcado, el VDI ocupa el tamaño total desde el principio en lugar de crecer a demanda.',
       },
       {
         type: 'callout',
@@ -453,12 +453,12 @@ export default {
     unit: '1',
     title: 'Inicializar y particionar el disco (lsblk, fdisk)',
     criollo:
-      'Después de enchufar el disco a la VM, hay que decirle a Linux que se entere. Con <strong>lsblk</strong> chequeás que el kernel lo vea. Después, con <strong>fdisk</strong>, le creás una partición primaria respondiendo unas pocas preguntas del menú: n (nueva), p (primaria), 1 (la primera), Enter en el sector inicial, +10G en el final, y w para escribir. Listo, el disco está particionado.',
+      'Después de enchufar el disco a la VM, hay que decirle a Linux que se entere. Con <code>lsblk</code> chequeás que el kernel lo vea. Después, con <code>fdisk</code>, le creás una partición primaria respondiendo unas pocas preguntas del menú: <code>n</code> (nueva), <code>p</code> (primaria), <code>1</code> (la primera), Enter en el sector inicial, <code>+10G</code> en el final, y <code>w</code> para escribir. Listo, el disco está particionado.',
     blocks: [
       {
         type: 'p',
         text:
-          'Una vez incorporado el disco a la máquina, hay que confirmar que el kernel lo reconoció y lo incorporó como dispositivo. Para eso se utiliza el comando <strong>lsblk</strong>, que lista todos los discos disponibles.',
+          'Una vez incorporado el disco a la máquina, hay que confirmar que el kernel lo reconoció y lo incorporó como dispositivo. Para eso se utiliza el comando <code>lsblk</code>, que lista todos los discos disponibles.',
       },
       {
         type: 'h3',
@@ -469,25 +469,31 @@ export default {
       {
         type: 'p',
         text:
-          'El comando <strong>lsblk</strong> lista los dispositivos de bloque conectados al sistema, como discos, unidades SSD, particiones y otros dispositivos de almacenamiento. Al ejecutarlo aparecen estas columnas:',
+          'El comando <code>lsblk</code> lista los dispositivos de bloque conectados al sistema, como discos, unidades SSD, particiones y otros dispositivos de almacenamiento. Al ejecutarlo aparecen estas columnas:',
       },
       {
         type: 'ul',
         items: [
-          '<strong>NAME</strong>: nombre del dispositivo, como sda, sdb, nvme0n1, etc.',
-          '<strong>MAJ</strong>: identificador del dispositivo.',
-          '<strong>RM</strong>: indica si el dispositivo es removible (1 = removible, 0 = no removible).',
-          '<strong>SIZE</strong>: tamaño del dispositivo o la partición.',
-          '<strong>RO</strong>: indica si es de solo lectura.',
-          '<strong>TYPE</strong>: tipo de dispositivo.',
-          '<strong>MOUNTPOINT</strong>: punto de montado (el directorio al que está asociado).',
+          '<code>NAME</code>: nombre del dispositivo, como <code>sda</code>, <code>sdb</code>, <code>nvme0n1</code>, etc.',
+          '<code>MAJ</code>: identificador del dispositivo.',
+          '<code>RM</code>: indica si el dispositivo es removible (<code>1</code> = removible, <code>0</code> = no removible).',
+          '<code>SIZE</code>: tamaño del dispositivo o la partición.',
+          '<code>RO</code>: indica si es de solo lectura.',
+          '<code>TYPE</code>: tipo de dispositivo.',
+          '<code>MOUNTPOINT</code>: punto de montado (el directorio al que está asociado).',
         ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/computacion-aplicada/lsblk-output.png',
+        alt: 'Salida del comando lsblk mostrando el disco sda y sus 6 particiones.',
+        caption: 'Salida de lsblk: el disco sda con 6 particiones (sda1, sda2, sda5–sda8) y sus tamaños, tipos y puntos de montaje.',
       },
       {
         type: 'callout',
         tone: 'info',
         text:
-          'El prefijo <strong>sd*</strong> proviene de "SCSI DISK", aunque hoy se aplica también a otros dispositivos de almacenamiento. El asterisco corresponde a una letra asignada en orden (a, b, c, ...) según el número de dispositivos detectados en el sistema. En el apunte de ejemplo aparece <strong>sda</strong> con 6 particiones: sda1, sda2, sda5, sda6, sda7 y sda8.',
+          'El prefijo <code>sd*</code> proviene de "SCSI DISK", aunque hoy se aplica también a otros dispositivos de almacenamiento. El asterisco corresponde a una letra asignada en orden (a, b, c, ...) según el número de dispositivos detectados en el sistema. En el apunte de ejemplo aparece <code>sda</code> con 6 particiones: <code>sda1</code>, <code>sda2</code>, <code>sda5</code>, <code>sda6</code>, <code>sda7</code> y <code>sda8</code>.',
       },
       {
         type: 'h3',
@@ -498,10 +504,10 @@ export default {
       {
         type: 'ol',
         items: [
-          'Inicializarlo (crear la partición con fdisk).',
-          'Formatearlo (darle un filesystem con mkfs).',
-          'Montarlo (asociarlo a un directorio con mount).',
-          'Agregarlo al <strong>/etc/fstab</strong> para que persista al reiniciar.',
+          'Inicializarlo (crear la partición con <code>fdisk</code>).',
+          'Formatearlo (darle un filesystem con <code>mkfs</code>).',
+          'Montarlo (asociarlo a un directorio con <code>mount</code>).',
+          'Agregarlo al <code>/etc/fstab</code> para que persista al reiniciar.',
         ],
       },
       {
@@ -513,11 +519,11 @@ export default {
       {
         type: 'p',
         text:
-          'Para inicializar el disco se utiliza el comando <strong>fdisk</strong>, que es la herramienta de particionado de discos. En el ejemplo se trabaja sobre un disco denominado "sdd" por su orden:',
+          'Para inicializar el disco se utiliza el comando <code>fdisk</code>, que es la herramienta de particionado de discos. En el ejemplo se trabaja sobre un disco denominado <code>sdd</code> por su orden:',
       },
       {
-        type: 'p',
-        text: '<strong>fdisk /dev/sdd</strong>',
+        type: 'code',
+        code: 'fdisk /dev/sdd',
       },
       {
         type: 'p',
@@ -526,18 +532,35 @@ export default {
       {
         type: 'ol',
         items: [
-          'Presionar <strong>n</strong> para indicar que se va a generar una partición nueva.',
-          'Presionar <strong>p</strong> para indicar que la partición es del tipo <strong>primaria</strong>.',
-          'Presionar <strong>1</strong> para indicar que se crea una sola partición.',
-          'Indicar el sector inicial: lo normal es presionar <strong>Enter</strong> para tomar el valor que ofrece fdisk por default (por ejemplo "2048"), ya que el comando conoce a partir de dónde hay disponibilidad.',
-          'Indicar el sector final. Conviene hacerlo en unidades (Kbyte, Megabyte, Gigabyte, Terabyte o Petabyte) en lugar de sectores. En el ejemplo se asignan <strong>10 GB</strong> escribiendo <strong>+10G</strong>.',
-          'Presionar <strong>w</strong> (Write) para guardar los cambios.',
+          'Presionar <code>n</code> para indicar que se va a generar una partición nueva.',
+          'Presionar <code>p</code> para indicar que la partición es del tipo <strong>primaria</strong>.',
+          'Presionar <code>1</code> para indicar que se crea una sola partición.',
+          'Indicar el sector inicial: lo normal es presionar <strong>Enter</strong> para tomar el valor que ofrece fdisk por default (por ejemplo <code>2048</code>), ya que el comando conoce a partir de dónde hay disponibilidad.',
+          'Indicar el sector final. Conviene hacerlo en unidades (Kbyte, Megabyte, Gigabyte, Terabyte o Petabyte) en lugar de sectores. En el ejemplo se asignan 10 GB escribiendo <code>+10G</code>.',
+          'Presionar <code>w</code> (Write) para guardar los cambios.',
         ],
       },
       {
         type: 'p',
         text:
-          'Si se desea confirmar que la partición está creada, se puede volver a entrar con <strong>fdisk /dev/sdd</strong> y presionar <strong>p</strong>, que imprime por pantalla un resumen. También se puede ejecutar <strong>lsblk</strong> nuevamente para ver la nueva partición listada.',
+          'Si se desea confirmar que la partición está creada, se puede volver a entrar con <code>fdisk /dev/sdd</code> y presionar <code>p</code>, que imprime por pantalla un resumen:',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/computacion-aplicada/fdisk-print-summary.png',
+        alt: 'Salida de fdisk al presionar p: resumen del disco con la partición sdd1 de 10 GB.',
+        caption: 'Resumen impreso por fdisk con la opción p: confirma la creación de /dev/sdd1 (10 GB, tipo Linux).',
+      },
+      {
+        type: 'p',
+        text:
+          'También se puede ejecutar <code>lsblk</code> nuevamente para ver la nueva partición listada bajo el disco:',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/computacion-aplicada/lsblk-after-partition.png',
+        alt: 'Salida de lsblk /dev/sdd mostrando el disco sdd con la partición sdd1 de 10 GB.',
+        caption: 'lsblk /dev/sdd después del particionado: el disco sdd (20G) ya tiene la partición sdd1 (10G) colgando debajo.',
       },
     ],
     quiz: {
@@ -666,62 +689,98 @@ export default {
     unit: '1',
     title: 'Formatear, montar y persistir (mkfs, mount, /etc/fstab)',
     criollo:
-      'Una vez que tenés la partición creada, hay que darle un filesystem con <strong>mkfs</strong>, montarla en un directorio con <strong>mount</strong>, y dejar la línea anotada en <strong>/etc/fstab</strong> para que se monte sola en cada arranque. Si te saltás el último paso, al reiniciar la VM perdés el montaje.',
+      'Una vez que tenés la partición creada, hay que darle un filesystem con <code>mkfs</code>, montarla en un directorio con <code>mount</code>, y dejar la línea anotada en <code>/etc/fstab</code> para que se monte sola en cada arranque. Si te saltás el último paso, al reiniciar la VM perdés el montaje.',
     blocks: [
       {
         type: 'h3',
         text: 'Formateo con mkfs',
         criollo:
-          'mkfs le da al disco un filesystem para que pueda recibir datos. La opción <strong>-t</strong> dice qué tipo (ext4 en el ejemplo).',
+          'mkfs le da al disco un filesystem para que pueda recibir datos. La opción -t dice qué tipo (ext4 en el ejemplo).',
       },
       {
         type: 'p',
         text:
-          'Ahora que el disco tiene una partición del tamaño deseado, hay que crear su filesystem para que pueda recibir datos. Para darle formato se utiliza el comando <strong>mkfs</strong> con la opción <strong>-t</strong> para indicar el filesystem. En el ejemplo se usa <strong>ext4</strong>, que es uno de los más utilizados:',
+          'Ahora que el disco tiene una partición del tamaño deseado, hay que crear su filesystem para que pueda recibir datos. Para darle formato se utiliza el comando <code>mkfs</code> con la opción <code>-t</code> para indicar el filesystem. En el ejemplo se usa <code>ext4</code>, que es uno de los más utilizados:',
       },
       {
-        type: 'p',
-        text: '<strong>mkfs -t ext4 /dev/sdd1</strong>',
+        type: 'code',
+        code: 'mkfs -t ext4 /dev/sdd1',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/computacion-aplicada/mkfs-output.png',
+        alt: 'Salida del comando mkfs creando el filesystem ext4 sobre /dev/sdd1.',
+        caption: 'Salida típica de mkfs: crea bloques, inodos, journal y escribe el superblock — al final, el filesystem queda listo para recibir datos.',
       },
       {
         type: 'h3',
         text: 'Montar el disco',
         criollo:
-          'Montar es enganchar el disco a un directorio del árbol "/". A partir de ahí, todo lo que escribís en ese directorio va al disco nuevo. Se usa <strong>mount</strong>.',
+          'Montar es enganchar el disco a un directorio del árbol "/". A partir de ahí, todo lo que escribís en ese directorio va al disco nuevo. Se usa el comando mount.',
       },
       {
         type: 'p',
         text:
-          'La máquina ya tiene el disco agregado, inicializado y formateado. Ahora viene la etapa de montarlo para incluirlo al sistema de archivos. Todos los archivos y directorios están organizados en una estructura jerárquica única, denominada sistema de archivos, con raíz en el directorio <strong>"/"</strong>. Cuando se monta un disco en un directorio, se conecta el dispositivo de almacenamiento (un disco rígido o una partición) a una ubicación dentro del sistema de archivos, permitiendo que el contenido del disco sea accesible a través de ese directorio. La acción se realiza con el comando <strong>mount</strong>.',
-      },
-      {
-        type: 'ol',
-        items: [
-          'Crear un directorio nuevo donde se va a montar la partición (no siempre es necesario: también se podría migrar un directorio existente). En el ejemplo, se llama <strong>VENTAS</strong> y se crea en el "/": <strong>mkdir VENTAS</strong>.',
-          'El comando <strong>df</strong> muestra el uso de espacio en disco en el sistema por cada partición. Agregando <strong>-h</strong> (human-readable) se ve el consumo y en qué partición está montado cada cosa.',
-          'Montar <strong>VENTAS</strong> en la partición <strong>/dev/sdd1</strong> con: <strong>mount /dev/sdd1 /VENTAS/</strong>.',
-        ],
+          'La máquina ya tiene el disco agregado, inicializado y formateado. Ahora viene la etapa de montarlo para incluirlo al sistema de archivos. Todos los archivos y directorios están organizados en una estructura jerárquica única, denominada sistema de archivos, con raíz en el directorio <code>/</code>. Cuando se monta un disco en un directorio, se conecta el dispositivo de almacenamiento (un disco rígido o una partición) a una ubicación dentro del sistema de archivos, permitiendo que el contenido del disco sea accesible a través de ese directorio. La acción se realiza con el comando <code>mount</code>.',
       },
       {
         type: 'p',
         text:
-          'Si se vuelve a ejecutar <strong>df -h</strong>, ya se ve que el directorio creado está "montado" sobre <strong>/dev/sdd1</strong>.',
+          'Para esta práctica, primero se crea un directorio nuevo donde se va a montar la partición (no siempre es necesario: también se podría migrar un directorio existente). En el ejemplo se llama <code>VENTAS</code> y se crea en la raíz:',
+      },
+      {
+        type: 'code',
+        code: 'root@debian11-CA:/# mkdir VENTAS',
+      },
+      {
+        type: 'p',
+        text:
+          'El comando <code>df</code> muestra el uso de espacio en disco en el sistema por cada partición. Agregando <code>-h</code> (human-readable) se ve el consumo y en qué partición está montado cada cosa:',
+      },
+      {
+        type: 'code',
+        code: 'df -h',
+      },
+      {
+        type: 'p',
+        text: 'Para montar <code>VENTAS</code> en la partición <code>/dev/sdd1</code>:',
+      },
+      {
+        type: 'code',
+        code: 'mount /dev/sdd1 /VENTAS/',
+      },
+      {
+        type: 'p',
+        text:
+          'Si se vuelve a ejecutar <code>df -h</code>, ya se ve que el directorio creado está "montado" sobre <code>/dev/sdd1</code>:',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/computacion-aplicada/df-h-after-mount.png',
+        alt: 'Salida de df -h mostrando la partición /dev/sdd1 montada en /VENTAS al final de la lista.',
+        caption: 'df -h después del mount: la última línea muestra /dev/sdd1 (9.8G) montada en /VENTAS — el disco quedó disponible.',
       },
       {
         type: 'h3',
         text: 'Persistir con /etc/fstab',
         criollo:
-          'El montaje hecho con <strong>mount</strong> dura hasta que reinicies la VM. Si querés que se monte solo en cada arranque, hay que dejar la línea en <strong>/etc/fstab</strong>. Los comandos mount y umount leen ese archivo.',
+          'El montaje hecho con mount dura hasta que reinicies la VM. Si querés que se monte solo en cada arranque, hay que dejar la línea en /etc/fstab. Los comandos mount y umount leen ese archivo.',
       },
       {
         type: 'p',
         text:
-          'El archivo <strong>fstab</strong> se encuentra en el directorio <strong>/etc</strong> y se utiliza para configurar la lista de discos y puntos de montaje del sistema operativo, entre otras configuraciones. También se pueden declarar montajes hacia otros servidores que interese tener disponibles de forma local o a través de la red.',
+          'El archivo <code>fstab</code> se encuentra en el directorio <code>/etc</code> y se utiliza para configurar la lista de discos y puntos de montaje del sistema operativo, entre otras configuraciones. También se pueden declarar montajes hacia otros servidores que interese tener disponibles de forma local o a través de la red.',
       },
       {
         type: 'p',
         text:
-          'Los comandos <strong>mount</strong> (para montar directorios en particiones) y <strong>umount</strong> (la acción contraria) leen este archivo para determinar qué opciones utilizar al momento del montaje.',
+          'Los comandos <code>mount</code> (para montar directorios en particiones) y <code>umount</code> (la acción contraria) leen este archivo para determinar qué opciones utilizar al momento del montaje.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/computacion-aplicada/fstab-default.png',
+        alt: 'Contenido por defecto del archivo /etc/fstab con las particiones del sistema declaradas por UUID.',
+        caption: 'Aspecto típico de /etc/fstab: cada partición declarada en una línea con sus seis columnas (file system, mount point, type, options, dump, pass).',
       },
       {
         type: 'h3',
@@ -732,12 +791,12 @@ export default {
       {
         type: 'ul',
         items: [
-          '<strong>filesystem</strong>: directorio lógico que hace referencia a una partición o recurso. Se puede declarar el path (/dev/sd*) o el UUID (identificador del disco).',
-          '<strong>mount point</strong>: carpeta en la que se proyectarán los datos del sistema de archivos (cualquier directorio).',
-          '<strong>type</strong>: tipo de filesystem en el que se formateó la partición (ext2, ext3, ext4, xfs, etc.).',
-          '<strong>options</strong>: parámetros que mount utilizará al montar (noauto, user, password, etc.).',
-          '<strong>dump-freq</strong>: parámetro que utiliza <strong>dump</strong> para hacer backup del sistema de archivos. Si es 0, no se toma en cuenta para backup.',
-          '<strong>pass-num</strong>: indica el orden en que <strong>fsck</strong> revisará la partición en busca de errores durante el inicio. Si es 0, el dispositivo no se revisa.',
+          '<code>filesystem</code>: directorio lógico que hace referencia a una partición o recurso. Se puede declarar el path (<code>/dev/sd*</code>) o el UUID (identificador del disco).',
+          '<code>mount point</code>: carpeta en la que se proyectarán los datos del sistema de archivos (cualquier directorio).',
+          '<code>type</code>: tipo de filesystem en el que se formateó la partición (<code>ext2</code>, <code>ext3</code>, <code>ext4</code>, <code>xfs</code>, etc.).',
+          '<code>options</code>: parámetros que <code>mount</code> utilizará al montar (<code>noauto</code>, <code>user</code>, <code>password</code>, etc.).',
+          '<code>dump-freq</code>: parámetro que utiliza <code>dump</code> para hacer backup del sistema de archivos. Si es <code>0</code>, no se toma en cuenta para backup.',
+          '<code>pass-num</code>: indica el orden en que <code>fsck</code> revisará la partición en busca de errores durante el inicio. Si es <code>0</code>, el dispositivo no se revisa.',
         ],
       },
       {
@@ -749,19 +808,25 @@ export default {
       {
         type: 'ul',
         items: [
-          '<strong>defaults</strong>: usa las opciones predeterminadas para el montaje.',
-          '<strong>ro / rw</strong>: monta el sistema de archivos en modo solo lectura o en lectura y escritura (son excluyentes).',
-          '<strong>noauto</strong>: evita que el sistema de archivos se monte automáticamente al inicio.',
-          '<strong>user</strong>: permite a usuarios normales montar el sistema de archivos.',
-          '<strong>exec / noexec</strong>: permite o bloquea la ejecución de archivos binarios.',
-          '<strong>nosuid</strong>: ignora los bits de permisos especiales suid y sgid en el filesystem.',
+          '<code>defaults</code>: usa las opciones predeterminadas para el montaje.',
+          '<code>ro</code> / <code>rw</code>: monta el sistema de archivos en modo solo lectura o en lectura y escritura (son excluyentes).',
+          '<code>noauto</code>: evita que el sistema de archivos se monte automáticamente al inicio.',
+          '<code>user</code>: permite a usuarios normales montar el sistema de archivos.',
+          '<code>exec</code> / <code>noexec</code>: permite o bloquea la ejecución de archivos binarios.',
+          '<code>nosuid</code>: ignora los bits de permisos especiales <code>suid</code> y <code>sgid</code> en el filesystem.',
         ],
       },
       {
         type: 'callout',
         tone: 'info',
         text:
-          'Para que la partición se monte sola en cada inicio, hay que editar <strong>/etc/fstab</strong> y agregar al final la línea que corresponde a la nueva partición y al directorio creado.',
+          'Para que la partición se monte sola en cada inicio, hay que editar <code>/etc/fstab</code> y agregar al final la línea que corresponde a la nueva partición y al directorio creado.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/computacion-aplicada/fstab-edited.png',
+        alt: 'Archivo /etc/fstab editado con la línea agregada para montar /dev/sdd1 en /VENTAS como ext4 con defaults.',
+        caption: 'fstab editado: al final aparece la línea nueva — <code>/dev/sdd1 /VENTAS ext4 defaults 0 2</code> — para que el montaje persista en cada arranque.',
       },
     ],
     quiz: {
@@ -931,7 +996,7 @@ export default {
         type: 'h3',
         text: 'Qué es un hard link',
         criollo:
-          'Un link duro es una referencia directa al dato físico del archivo. Lo identifica un número único llamado <strong>inodo</strong> — no por el nombre.',
+          'Un link duro es una referencia directa al dato físico del archivo. Lo identifica un número único llamado inodo — no por el nombre.',
       },
       {
         type: 'p',
@@ -947,16 +1012,16 @@ export default {
       {
         type: 'p',
         text:
-          'Un <strong>inodo</strong> es una estructura de datos que contiene la información esencial sobre un archivo, como el propietario, los permisos, el tamaño, y más; aunque <strong>no almacena el nombre del archivo</strong>. Cada archivo en el sistema tiene un número de inodo único que permite al sistema localizar y gestionar sus datos en el disco. Para ver el número de inodo se puede ejecutar el comando <strong>ls</strong> agregando las opciones <strong>-li</strong>:',
+          'Un <strong>inodo</strong> es una estructura de datos que contiene la información esencial sobre un archivo, como el propietario, los permisos, el tamaño, y más; aunque <strong>no almacena el nombre del archivo</strong>. Cada archivo en el sistema tiene un número de inodo único que permite al sistema localizar y gestionar sus datos en el disco. Para ver el número de inodo se puede ejecutar el comando <code>ls</code> agregando las opciones <code>-li</code>:',
       },
       {
-        type: 'p',
-        text: '<strong>ls -li</strong> &nbsp;&nbsp;→&nbsp;&nbsp; <strong>1970</strong> -rw-r--r-- 1 root root 0 Oct 17 21:01 archivo.txt',
+        type: 'code',
+        code: 'ls -li\n1970 -rw-r--r-- 1 root root 0 Oct 17 21:01 archivo.txt',
       },
       {
         type: 'p',
         text:
-          'El número en la primera columna (<strong>1970</strong>) corresponde al inodo.',
+          'El número en la primera columna (<code>1970</code>) corresponde al inodo.',
       },
       {
         type: 'figure',
@@ -987,38 +1052,30 @@ export default {
         type: 'h3',
         text: 'Cómo crear un hard link',
         criollo:
-          'Con el comando <strong>ln</strong> seguido del archivo origen y del nombre del link. Después, con ls -li, vas a ver que los dos tienen el mismo número de inodo.',
+          'Con el comando ln seguido del archivo origen y del nombre del link. Después, con ls -li, vas a ver que los dos tienen el mismo número de inodo.',
       },
       {
         type: 'p',
         text:
-          'Para crear un hard link se utiliza el comando <strong>ln</strong>:',
+          'Para crear un hard link se utiliza el comando <code>ln</code>:',
       },
       {
-        type: 'p',
-        text: '<strong>ln</strong> "archivo al que apunto" "nombre del hard link"',
-      },
-      {
-        type: 'p',
-        text:
-          'Ejemplo: <strong>ln archivo.txt hl_archivo.txt</strong>',
-      },
-      {
-        type: 'p',
-        text: 'Si luego se ejecuta <strong>ls -li</strong>:',
-      },
-      {
-        type: 'p',
-        text: '<strong>1970</strong> -rw-r--r-- 2 root root 0 Oct 17 21:01 archivo.txt',
-      },
-      {
-        type: 'p',
-        text: '<strong>1970</strong> -rw-r--r-- 2 root root 0 Oct 17 21:01 hl_archivo.txt',
+        type: 'code',
+        code: 'ln "archivo al que apunto" "nombre del hard link"',
       },
       {
         type: 'p',
         text:
-          'Tanto el archivo preexistente como el hard link (denominado <strong>hl_archivo.txt</strong>) tienen el mismo número de inodo. También cambia el contador de links (la columna después de los permisos): pasa de 1 a 2.',
+          'Ejemplo:',
+      },
+      {
+        type: 'code',
+        code: 'ln archivo.txt hl_archivo.txt\n\nls -li\n1970 -rw-r--r-- 2 root root 0 Oct 17 21:01 archivo.txt\n1970 -rw-r--r-- 2 root root 0 Oct 17 21:01 hl_archivo.txt',
+      },
+      {
+        type: 'p',
+        text:
+          'Tanto el archivo preexistente como el hard link (<code>hl_archivo.txt</code>) tienen el mismo número de inodo (<code>1970</code>). También cambia el contador de links (la columna después de los permisos): pasa de <code>1</code> a <code>2</code>.',
       },
     ],
     quiz: {
@@ -1199,62 +1256,45 @@ export default {
         type: 'h3',
         text: 'Cómo crear un soft link',
         criollo:
-          'Mismo comando <strong>ln</strong> pero con la opción <strong>-s</strong>. En el ls vas a ver una "l" como primer carácter y la flecha "->" mostrando a dónde apunta.',
+          'Mismo comando ln pero con la opción -s. En el ls vas a ver una "l" como primer carácter y la flecha "->" mostrando a dónde apunta.',
       },
       {
         type: 'p',
         text:
-          'Para crear un soft link se utiliza el comando <strong>ln</strong> con la opción <strong>-s</strong>:',
+          'Para crear un soft link se utiliza el comando <code>ln</code> con la opción <code>-s</code>:',
+      },
+      {
+        type: 'code',
+        code: 'ln -s "archivo al que apunto" "nombre del soft link"',
       },
       {
         type: 'p',
-        text: '<strong>ln -s</strong> "archivo al que apunto" "nombre del soft link"',
+        text: 'Ejemplo:',
       },
       {
-        type: 'p',
-        text:
-          'Ejemplo: <strong>ln -s archivo.txt sl_archivo.txt</strong>',
-      },
-      {
-        type: 'p',
-        text: 'Al ejecutar <strong>ls -l</strong>:',
-      },
-      {
-        type: 'p',
-        text: '-rw-r--r-- 2 root root &nbsp; 0 Oct 17 21:01 archivo.txt',
-      },
-      {
-        type: 'p',
-        text: '<strong>l</strong>rwxrwxrwx 1 root root 14 Nov 6 13:00 sl_archivo.txt <strong>-&gt;</strong> archivo.txt',
+        type: 'code',
+        code: 'ln -s archivo.txt sl_archivo.txt\n\nls -l\n-rw-r--r-- 2 root root  0 Oct 17 21:01 archivo.txt\nlrwxrwxrwx 1 root root 14 Nov  6 13:00 sl_archivo.txt -> archivo.txt',
       },
       {
         type: 'p',
         text:
-          'La creación del soft link se identifica por el primer carácter, que pasa a ser <strong>"l"</strong> (link). En la descripción del nombre aparece la referencia de redirección <strong>"-&gt;"</strong> hacia el archivo físico (archivo.txt).',
+          'La creación del soft link se identifica por el primer carácter, que pasa a ser <code>l</code> (link). En la descripción del nombre aparece la referencia de redirección <code>-&gt;</code> hacia el archivo físico (<code>archivo.txt</code>).',
       },
       {
         type: 'p',
         text:
-          'Al comparar con <strong>ls -li</strong> se observa que el link simbólico y el archivo original <strong>tienen distinto inodo</strong>, mientras que el hard link comparte el inodo con el archivo:',
+          'Al comparar con <code>ls -li</code> se observa que el link simbólico y el archivo original <strong>tienen distinto inodo</strong>, mientras que el hard link comparte el inodo con el archivo:',
       },
       {
-        type: 'p',
-        text: '<strong>1970</strong> -rw-r--r-- 2 root root 25 Nov 6 13:05 archivo',
-      },
-      {
-        type: 'p',
-        text: '<strong>1970</strong> -rw-r--r-- 2 root root 25 Nov 6 13:05 hl_archivo',
-      },
-      {
-        type: 'p',
-        text: '<strong>1931</strong> lrwxrwxrwx 1 root root &nbsp;7 Nov 6 13:04 sl_archivo.txt -&gt; archivo',
+        type: 'code',
+        code: 'ls -li\n1970 -rw-r--r-- 2 root root 25 Nov  6 13:05 archivo\n1970 -rw-r--r-- 2 root root 25 Nov  6 13:05 hl_archivo\n1931 lrwxrwxrwx 1 root root  7 Nov  6 13:04 sl_archivo.txt -> archivo',
       },
       {
         type: 'ul',
         items: [
           'La <strong>primera línea</strong> es el archivo original.',
-          'La <strong>segunda línea</strong> es el hard link que apunta al archivo original (mismo inodo 1970).',
-          'La <strong>tercera línea</strong> es el soft link que apunta al archivo original (distinto inodo, 1931).',
+          'La <strong>segunda línea</strong> es el hard link que apunta al archivo original (mismo inodo <code>1970</code>).',
+          'La <strong>tercera línea</strong> es el soft link que apunta al archivo original (distinto inodo, <code>1931</code>).',
         ],
       },
       {

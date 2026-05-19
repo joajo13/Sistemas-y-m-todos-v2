@@ -186,6 +186,14 @@ function renderBlock(b, i) {
       const cls = b.display ? 'math-display' : 'math-inline';
       return `<div class="${cls}">${display}${b.latex}${display}</div>`;
     }
+    case 'code': {
+      // Bloque de código / comando. Preserva whitespace, monospace, scroll horizontal.
+      const escaped = String(b.code)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+      return `<pre class="code-block"><code>${escaped}</code></pre>`;
+    }
     case 'table': {
       const caption = b.caption ? `<caption>${b.caption}</caption>` : '';
       const headers = b.headers.map((h) => `<th>${h}</th>`).join('');

@@ -31,9 +31,14 @@
  *   | { type: 'figure', src: string, alt: string, caption: string }
  *   | { type: 'math', latex: string, display?: boolean }
  *   | { type: 'table', caption?: string, headers: string[], rows: string[][] }
+ *   | { type: 'code', code: string }
  *
  * En strings de p/ul/ol/callout y celdas de table se acepta LaTeX inline
  * entre $...$ y display entre $$...$$. h3.text NO se procesa.
+ *
+ * Para código inline (un comando, path, flag o filename dentro de un párrafo),
+ * usar el tag HTML <code>...</code> directamente en el string. Para bloques de
+ * código (comandos multilínea, output de ejemplo), usar el block type 'code'.
  */
 
 import sistemasYMetodos from './subjects/sistemas-y-metodos.js';
