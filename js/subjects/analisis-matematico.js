@@ -10,7 +10,7 @@ export default {
   id: 'analisis-matematico',
   title: 'Análisis Matemático',
   subtitle: 'Apuntes y fórmulas',
-  tagline: 'Derivadas — tabla, reglas y derivabilidad',
+  tagline: 'Derivadas — tabla, reglas, derivabilidad y rectas tangente/normal',
   units: { 'derivadas': 'Derivadas' },
   sections: [
     {
@@ -177,6 +177,159 @@ export default {
         },
       ],
     },
+    {
+      id: '4',
+      unit: 'derivadas',
+      title: 'Recta tangente y recta normal',
+      criollo: 'La derivada en un punto no es un número abstracto: es la pendiente de la recta que "toca" a la curva ahí. Con esa pendiente y el punto armás la recta tangente, y girándola 90° sacás la normal. Esta sección une todo lo anterior con la geometría.',
+      blocks: [
+        {
+          type: 'p',
+          text: 'Arrancá pensando en la recta <strong>secante</strong> al gráfico de $f$ que pasa por los puntos $(a;\\, f(a))$ y $(x;\\, f(x))$. Su pendiente es el <strong>cociente incremental</strong>:',
+        },
+        { type: 'math', latex: '\\dfrac{f(x) - f(a)}{x - a}', display: true },
+        {
+          type: 'p',
+          text: 'Si a ese cociente le aplicás el límite cuando $x$ tiende a $a$, gráficamente hacés que el punto $(x;\\, f(x))$ se acerque tanto como pueda al punto $(a;\\, f(a))$, y la recta secante se transforma en <strong>recta tangente</strong>. La palabra tangente viene del latín <strong>“tangens”</strong>, que significa <strong>“tocar”</strong> al gráfico de la función en el punto $(a;\\, f(a))$. La pendiente de la recta tangente es entonces:',
+        },
+        { type: 'math', latex: 'm = \\lim_{x \\to a} \\dfrac{f(x) - f(a)}{x - a} = f\'(a)', display: true },
+        {
+          type: 'p',
+          text: 'Es decir, la pendiente de la tangente es igual a la derivada de la función en $x = a$.',
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'El estudio de la pendiente de la recta tangente surgió como respuesta al problema de describir la velocidad de un cuerpo en movimiento (problema de la velocidad instantánea). La dirección del movimiento de un objeto a lo largo de una curva en cada instante se define en términos de la dirección de la recta tangente: así se estudian, por ejemplo, las órbitas de los satélites o el diseño del ascenso y descenso de una montaña rusa.',
+        },
+
+        {
+          type: 'h3',
+          text: 'Recta tangente',
+          criollo: 'Es la recta que pasa por el punto y "sigue" la dirección de la curva ahí. Su pendiente es la derivada en ese punto. Necesitás dos cosas: la pendiente $f\'(x_0)$ y el punto $(x_0;\\, y_0)$.',
+        },
+        {
+          type: 'p',
+          text: 'La recta tangente a una curva en un punto $x_0$ <strong>no anguloso</strong> (donde la curva no cambia repentinamente de dirección) es la recta que, al pasar por dicho punto, conserva la misma dirección que la curva. La derivada en un punto representa la pendiente de la recta tangente en dicho punto, por lo que su ecuación es:',
+        },
+        { type: 'math', latex: 'y = f\'(x_0)\\,x + b', display: true },
+        {
+          type: 'p',
+          text: 'o bien, en su forma punto-pendiente:',
+        },
+        { type: 'math', latex: 'y - y_0 = f\'(x_0)\\,(x - x_0)', display: true },
+
+        {
+          type: 'h3',
+          text: 'Recta normal',
+          criollo: 'Es la perpendicular a la tangente en el mismo punto. Si la tangente tiene pendiente $m$, la normal tiene pendiente $-1/m$: la das vuelta y le cambiás el signo. Por eso se dice "opuesta e inversa".',
+        },
+        {
+          type: 'p',
+          text: 'Se denomina recta normal a la curva en un punto $x_0$ no anguloso a la recta <strong>perpendicular</strong> a la recta tangente en dicho punto $x_0$. Por eso su pendiente es la <strong>opuesta e inversa</strong> de la pendiente de la recta tangente. Su ecuación es:',
+        },
+        { type: 'math', latex: 'y = -\\dfrac{1}{f\'(x_0)}\\,x + b', display: true },
+        {
+          type: 'p',
+          text: 'o bien, en su forma punto-pendiente:',
+        },
+        { type: 'math', latex: 'y - y_0 = -\\dfrac{1}{f\'(x_0)}\\,(x - x_0)', display: true },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Que sean perpendiculares se traduce en que el producto de sus pendientes es $-1$: $f\'(x_0) \\cdot \\left(-\\dfrac{1}{f\'(x_0)}\\right) = -1$. Ojo: si $f\'(x_0) = 0$ la tangente es horizontal y la normal es vertical (pendiente indefinida).',
+        },
+
+        {
+          type: 'h3',
+          text: 'Ejemplo resuelto',
+          criollo: 'Seguí los cuatro pasos en orden: derivás, evaluás la derivada en el punto (eso es la pendiente), buscás el punto de tangencia, y recién ahí armás la recta. Si te apurás y te salteás el punto, no vas a tener el $b$.',
+        },
+        {
+          type: 'p',
+          text: 'Hallar la ecuación de la recta tangente a la gráfica de $f(x)$ en el punto de abscisa $x = 0$ para la siguiente función:',
+        },
+        { type: 'math', latex: 'f(x) = \\dfrac{e^{-2x} + 5x^3}{\\cos x}', display: true },
+        {
+          type: 'p',
+          text: 'Para hallar la ecuación de la recta tangente seguimos estos pasos:',
+        },
+        {
+          type: 'ol',
+          items: [
+            'La derivada de la función.',
+            'La derivada de la función en el punto, que será la pendiente de la recta tangente.',
+            'El punto de tangencia entre la recta y la función.',
+            'La ecuación de la recta tangente.',
+          ],
+        },
+        {
+          type: 'p',
+          text: '<strong>1)</strong> Calculamos $f\'(x)$ aplicando la regla del cociente:',
+        },
+        { type: 'math', latex: 'f\'(x) = \\dfrac{(-2e^{-2x} + 15x^2)\\cos x - (e^{-2x} + 5x^3)(-\\sin x)}{(\\cos x)^2}', display: true },
+        {
+          type: 'p',
+          text: '<strong>2)</strong> Calculamos $f\'(0)$ reemplazando $x = 0$:',
+        },
+        { type: 'math', latex: 'f\'(0) = \\dfrac{(-2e^{0} + 15 \\cdot 0^2)\\cos 0 - (e^{0} + 5 \\cdot 0^3)(-\\sin 0)}{(\\cos 0)^2} = \\dfrac{-2 + 0}{1} = -2', display: true },
+        {
+          type: 'p',
+          text: 'Si $f\'(0) = -2$, la pendiente de la recta tangente es $-2$, así que $y_t = -2x + b$.',
+        },
+        {
+          type: 'p',
+          text: '<strong>3)</strong> Calculamos $f(0)$ para hallar el punto de tangencia:',
+        },
+        { type: 'math', latex: 'f(0) = \\dfrac{e^{0} + 5 \\cdot 0^3}{\\cos 0} = \\dfrac{1 + 0}{1} = 1', display: true },
+        {
+          type: 'p',
+          text: 'El punto de tangencia se da en $(0;\\, 1)$.',
+        },
+        {
+          type: 'p',
+          text: '<strong>4)</strong> Reemplazamos el punto en $y_t = -2x + b$ para despejar $b$:',
+        },
+        { type: 'math', latex: '1 = -2 \\cdot 0 + b \\;\\Rightarrow\\; b = 1', display: true },
+        {
+          type: 'p',
+          text: 'Entonces, la ecuación de la recta tangente es:',
+        },
+        { type: 'math', latex: 'y_t = -2x + 1', display: true },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'El apunte plantea hallar también la recta normal en este ejemplo, pero en la resolución solo desarrolla la tangente. Aplicando la fórmula de la normal con $f\'(0) = -2$, su pendiente sería $-\\dfrac{1}{-2} = \\dfrac{1}{2}$ y, pasando por $(0;\\,1)$, daría $y_n = \\dfrac{1}{2}x + 1$ — pero esa cuenta no está en el apunte original.',
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-4-1', q: 'La pendiente de la recta tangente en un punto es igual a la derivada de la función en ese punto.', a: true, explain: 'Exacto: $m = \\lim_{x \\to a} \\frac{f(x) - f(a)}{x - a} = f\'(a)$.' },
+          { id: 'tf-4-2', q: 'La recta normal es paralela a la recta tangente.', a: false, explain: 'Al revés: la normal es perpendicular a la tangente en ese punto.' },
+          { id: 'tf-4-3', q: 'La pendiente de la recta normal es la opuesta e inversa de la pendiente de la tangente.', a: true, explain: 'Si la tangente tiene pendiente $f\'(x_0)$, la normal tiene $-1/f\'(x_0)$.' },
+          { id: 'tf-4-4', q: 'La palabra "tangente" viene del latín "tangens", que significa "tocar".', a: true, explain: 'Justamente: la tangente "toca" al gráfico de la función en el punto.' },
+          { id: 'tf-4-5', q: 'La recta tangente se obtiene aplicando el límite al cociente incremental cuando x tiende a a, transformando la secante.', a: true, explain: 'Al acercar $(x; f(x))$ a $(a; f(a))$, la secante se transforma en tangente.' },
+        ],
+        mc: [
+          { id: 'mc-4-1', q: '¿Cuál es la forma punto-pendiente de la ecuación de la recta tangente?', options: ['$y - y_0 = f\'(x_0)(x - x_0)$', '$y - y_0 = -\\frac{1}{f\'(x_0)}(x - x_0)$', '$y = f(x_0)\\,x + b$', '$y - y_0 = f(x_0)(x - x_0)$'], correctIndex: 0, explain: 'La tangente usa la derivada $f\'(x_0)$ como pendiente y pasa por $(x_0; y_0)$.' },
+          { id: 'mc-4-2', q: 'Si $f\'(x_0) = -2$, ¿cuál es la pendiente de la recta normal en ese punto?', options: ['$-2$', '$2$', '$\\frac{1}{2}$', '$-\\frac{1}{2}$'], correctIndex: 2, explain: 'La normal es opuesta e inversa: $-\\frac{1}{-2} = \\frac{1}{2}$.' },
+          { id: 'mc-4-3', q: '¿Qué cociente define la pendiente de la recta secante entre $(a; f(a))$ y $(x; f(x))$?', options: ['$\\frac{f(x) - f(a)}{x - a}$', '$\\frac{x - a}{f(x) - f(a)}$', '$\\frac{f(x) + f(a)}{x + a}$', '$f(x) - f(a)$'], correctIndex: 0, explain: 'Es el cociente incremental: variación de $y$ sobre variación de $x$.' },
+          { id: 'mc-4-4', q: 'En el ejemplo resuelto, ¿cuál es la pendiente de la tangente y el punto de tangencia?', options: ['Pendiente $-2$ y punto $(0; 1)$', 'Pendiente $1$ y punto $(0; -2)$', 'Pendiente $\\frac{1}{2}$ y punto $(1; 0)$', 'Pendiente $-2$ y punto $(1; 0)$'], correctIndex: 0, explain: '$f\'(0) = -2$ es la pendiente y $f(0) = 1$ da el punto $(0; 1)$.' },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-4-1', front: 'Cociente incremental', back: 'La pendiente de la recta secante: $\\frac{f(x) - f(a)}{x - a}$.' },
+        { id: 'fc-4-2', front: 'Pendiente de la recta tangente', back: 'Es la derivada de la función en el punto: $m = f\'(x_0)$.' },
+        { id: 'fc-4-3', front: 'Ecuación de la recta tangente', back: '$y - y_0 = f\'(x_0)(x - x_0)$, o bien $y = f\'(x_0)x + b$.' },
+        { id: 'fc-4-4', front: 'Recta normal', back: 'La recta perpendicular a la tangente en el punto $x_0$ no anguloso.' },
+        { id: 'fc-4-5', front: 'Pendiente de la recta normal', back: 'La opuesta e inversa de la de la tangente: $-\\frac{1}{f\'(x_0)}$.' },
+        { id: 'fc-4-6', front: 'Ecuación de la recta normal', back: '$y - y_0 = -\\frac{1}{f\'(x_0)}(x - x_0)$.' },
+        { id: 'fc-4-7', front: '¿De dónde viene "tangente"?', back: 'Del latín "tangens", que significa "tocar" al gráfico en el punto.' },
+        { id: 'fc-4-8', front: 'Punto no anguloso', back: 'Un punto donde la curva no cambia repentinamente de dirección (no hay esquina).' },
+      ],
+    },
   ],
-  pdfs: [],
+  pdfs: [
+    { key: 'recta-tangente-normal', label: 'Recta tangente y recta normal', path: 'pdfs/analisis-matematico/derivadas-recta-tangente-normal.pdf' },
+  ],
 };
