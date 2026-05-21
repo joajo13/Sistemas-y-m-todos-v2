@@ -1,7 +1,7 @@
 /**
  * Materia: Introducción a la Ingeniería de Software (UP).
  * Módulos 8 — Modelado de requerimientos, 9 — Pruebas de los requerimientos,
- * 10 — Diagramas de secuencia.
+ * 10 — Diagramas de secuencia, 12 — Tipos de sistemas (Unidad 11).
  *
  * Tipos conceptuales (ver js/content.js para Subject/Section/ContentBlock).
  */
@@ -9,12 +9,13 @@
 export default {
   id: 'introduccion-ing-software',
   title: 'Introducción a la Ingeniería de Software',
-  subtitle: 'Módulos 8, 9 y 10 — Apuntes',
-  tagline: 'Modelado de requerimientos · Pruebas de requerimientos · Diagramas de secuencia',
+  subtitle: 'Módulos 8, 9, 10 y 12 — Apuntes',
+  tagline: 'Modelado de requerimientos · Pruebas de requerimientos · Diagramas de secuencia · Tipos de sistemas',
   units: {
     '8': 'Modelado de requerimientos',
     '9': 'Pruebas de los requerimientos',
     '10': 'Diagramas de secuencia',
+    '11': 'Tipos de sistemas',
   },
   sections: [
   // ---------- SECCIÓN 1 ----------
@@ -2414,6 +2415,686 @@ export default {
       },
     ],
   },
+  // ---------- SECCIÓN 11 ----------
+  {
+    id: '11',
+    unit: '11',
+    title: 'Definiciones y tipos de sistemas',
+    criollo:
+      'Antes de meternos con los tipos de sistemas, fijemos dos definiciones: qué es un sistema (cualquier conjunto de cosas que laburan juntas para un fin) y qué es un sistema de información (el que le da un resultado al negocio). Después, el apunte arranca con tres tipos puntuales: tiempo real, distribuidos y embebidos.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Definición de sistema',
+        criollo:
+          'La más amplia que hay: cosas relacionadas que apuntan a un mismo objetivo. Nada más, nada menos.',
+      },
+      {
+        type: 'p',
+        text:
+          'Un sistema es un <strong>conjunto de elementos que se relacionan para alcanzar un fin</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Definición de sistema de información',
+        criollo:
+          'Acá ya hablamos de software al servicio del negocio: junta datos, los procesa, los guarda y arma reportes para que la empresa pueda manejar sus operaciones.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          '"Un sistema de información es aquel que logra un resultado empresarial. Dicho con más detalle, un sistema de información recopila, manipula, almacena y crea reportes de información respecto de las actividades de negocio de una empresa, con el fin de ayudar a la administración de esa empresa en el manejo de las operaciones de negocios." — Schach, S. Análisis y diseño orientado a objetos con UML y el proceso unificado.',
+      },
+      {
+        type: 'h3',
+        text: 'Tipos de sistemas',
+        criollo:
+          'Hay un montón de clasificaciones posibles; el apunte agarra tres y se concentra en esas.',
+      },
+      {
+        type: 'p',
+        text:
+          'Existen diversas clasificaciones de sistemas, pero nos enfocaremos en las siguientes:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Sistemas de tiempo real',
+          'Sistemas distribuidos',
+          'Sistemas embebidos',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-11-1',
+          q: 'Un sistema es un conjunto de elementos que se relacionan para alcanzar un fin.',
+          a: true,
+          explain:
+            'Verdadero. Es la definición general de sistema que da el apunte.',
+        },
+        {
+          id: 'tf-11-2',
+          q: 'Un sistema de información solo almacena datos: no los manipula ni genera reportes.',
+          a: false,
+          explain:
+            'Falso. Según Schach, recopila, manipula, almacena y crea reportes de la información de las actividades de negocio.',
+        },
+        {
+          id: 'tf-11-3',
+          q: 'El apunte se enfoca en tres tipos de sistemas: de tiempo real, distribuidos y embebidos.',
+          a: true,
+          explain:
+            'Verdadero. Existen otras clasificaciones, pero el material trabaja esas tres.',
+        },
+        {
+          id: 'tf-11-4',
+          q: 'El fin de un sistema de información es ayudar a la administración de la empresa en el manejo de las operaciones de negocios.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la finalidad que plantea la definición de Schach.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-11-1',
+          q: '¿Cuál es la definición de sistema según el apunte?',
+          options: [
+            'Un programa que automatiza una tarea de negocio',
+            'Un conjunto de elementos que se relacionan para alcanzar un fin',
+            'Una red de computadoras conectadas físicamente',
+            'Un conjunto de datos almacenados para generar reportes',
+          ],
+          correctIndex: 1,
+          explain:
+            'La definición es amplia: elementos relacionados que persiguen un fin común.',
+        },
+        {
+          id: 'mc-11-2',
+          q: 'Según Schach, ¿qué hace un sistema de información con la información de las actividades de negocio?',
+          options: [
+            'Solo la almacena',
+            'Solo la muestra en pantalla',
+            'La recopila, manipula, almacena y crea reportes',
+            'La transmite a otros sistemas de tiempo real',
+          ],
+          correctIndex: 2,
+          explain:
+            'La definición enumera esas cuatro acciones, con el fin de ayudar a administrar la empresa.',
+        },
+        {
+          id: 'mc-11-3',
+          q: '¿En qué tres tipos de sistemas se enfoca el apunte?',
+          options: [
+            'Operativos, de aplicación y de red',
+            'De tiempo real, distribuidos y embebidos',
+            'Centralizados, cliente-servidor y en la nube',
+            'Transaccionales, de soporte y expertos',
+          ],
+          correctIndex: 1,
+          explain:
+            'El material aclara que hay diversas clasificaciones, pero trabaja tiempo real, distribuidos y embebidos.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-11-1',
+        front: 'Sistema',
+        back: 'Conjunto de elementos que se relacionan para alcanzar un fin.',
+      },
+      {
+        id: 'fc-11-2',
+        front: 'Sistema de información',
+        back:
+          'Sistema que logra un resultado empresarial: recopila, manipula, almacena y crea reportes de la información de las actividades de negocio para ayudar a administrar la empresa (Schach).',
+      },
+      {
+        id: 'fc-11-3',
+        front: 'Tipos de sistemas (apunte)',
+        back: 'De tiempo real, distribuidos y embebidos.',
+      },
+      {
+        id: 'fc-11-4',
+        front: 'Fin de un sistema de información',
+        back: 'Ayudar a la administración de la empresa en el manejo de las operaciones de negocios.',
+      },
+      {
+        id: 'fc-11-5',
+        front: '¿Quién define "sistema de información" en el apunte?',
+        back: 'Schach, en "Análisis y diseño orientado a objetos con UML y el proceso unificado".',
+      },
+    ],
+  },
+  // ---------- SECCIÓN 12 ----------
+  {
+    id: '12',
+    unit: '11',
+    title: 'Sistemas de tiempo real',
+    criollo:
+      'Un sistema de tiempo real tiene que responder dentro de un plazo sí o sí: no alcanza con que el resultado sea correcto, tiene que llegar a tiempo. Por eso la predictibilidad es lo más importante. Y ojo, son más complejos de lo que parecen: cualquier cambio puede romper los tiempos sin que te des cuenta.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Qué es un sistema de tiempo real',
+        criollo:
+          'Interactúa con el entorno y tiene que responder en el tiempo que le exige el problema. La ventana entre la entrada y la salida suele ser chiquita.',
+      },
+      {
+        type: 'p',
+        text:
+          'Los sistemas de tiempo real son sistemas informáticos cuya capacidad de interactuar con el entorno debe ser rápida y debe responder en ese ámbito del problema en el tiempo dictado o especificado. Una característica es que el intervalo de tiempo que se requiere entre la entrada y la salida suele ser muy pequeño para ser aceptable.',
+      },
+      {
+        type: 'p',
+        text:
+          'La eficiencia de estos sistemas no se basa solo en la exactitud de los resultados de cómputo, sino también en el momento en que los entrega. La <strong>predictibilidad</strong> es una característica principal de este tipo de sistemas.',
+      },
+      {
+        type: 'h3',
+        text: 'Más complejos de lo que parecen',
+        criollo:
+          'Hay que tener la cabeza en todas las interacciones entre componentes, porque cualquier cambio puede generar alteraciones impensadas en los tiempos.',
+      },
+      {
+        type: 'p',
+        text:
+          'Es importante destacar que un sistema de tiempo real suele ser más complejo de lo que se cree. Hay que tener presente todas las interacciones entre componentes, porque esto puede afectar el resultado temporal, así como cualquier cambio también puede generar alteraciones impensadas.',
+      },
+      {
+        type: 'h3',
+        text: 'Fases del diseño de un sistema de tiempo real',
+        criollo:
+          'Primero entendés qué hay que hacer y con qué límites de tiempo, después lo programás, y al final medís cuánto tarda cada tarea y planificás.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Identificar todas las tareas que se tienen que realizar, así como las restricciones temporales impuestas que se deben cumplir.',
+          'Codificar los programas que ejecutarán las tareas.',
+          'Medir el tiempo de cómputo de cada tarea y realizar un análisis de la planificación.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Generalidades',
+        criollo:
+          'Se acoplan al mundo de afuera, corren bajo exigencias duras de rendimiento y dependen de un montón de factores a la vez.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Requiere técnicas de análisis, diseño y prueba que no suelen emplearse en otras áreas de aplicación.',
+          'Se acopla al mundo externo.',
+          'Opera en condiciones de rendimiento muy rigurosas.',
+          'Se ve afectado por diversos aspectos: hardware, software, sistema operativo, requisitos de aplicación y aspectos del diseño realizado.',
+          'Su uso más habitual fue para el control de entornos, a veces con sensores que generan un procesamiento de la información y una salida en respuesta a dicha entrada.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Elementos que componen un sistema de tiempo real (STR)',
+        criollo:
+          'Son las piezas que hacen que el sistema cumpla con los tiempos: desde el manejo de interrupciones hasta el sistema operativo y los lenguajes pensados para tiempo real.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Aspectos de integración y de rendimiento.',
+          'Manejo de interrupciones.',
+          'Bases de datos de tiempo real.',
+          'Sistemas operativos de tiempo real.',
+          'Lenguajes de tiempo real.',
+          'Sincronización y comunicación de tareas.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Los sistemas operativos de tiempo real (SOTR) son la plataforma para establecer un sistema de tiempo real: en ellos no tiene importancia el usuario, sino los procesos. Algunos ejemplos son VxWorks, Solaris, Lynx OS y Spectra.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-12-1',
+          q: 'En un sistema de tiempo real alcanza con que el resultado sea correcto, sin importar cuándo se entrega.',
+          a: false,
+          explain:
+            'Falso. La eficiencia depende de la exactitud y también del momento en que se entrega el resultado.',
+        },
+        {
+          id: 'tf-12-2',
+          q: 'La predictibilidad es una característica principal de los sistemas de tiempo real.',
+          a: true,
+          explain:
+            'Verdadero. Poder anticipar el comportamiento temporal es clave en estos sistemas.',
+        },
+        {
+          id: 'tf-12-3',
+          q: 'El intervalo de tiempo entre la entrada y la salida en un sistema de tiempo real suele ser muy pequeño.',
+          a: true,
+          explain:
+            'Verdadero. Esa ventana chica para ser aceptable es una de sus características.',
+        },
+        {
+          id: 'tf-12-4',
+          q: 'En un sistema operativo de tiempo real (SOTR) lo importante es el usuario, no los procesos.',
+          a: false,
+          explain:
+            'Falso. Es al revés: en los SOTR no importa el usuario, sino los procesos.',
+        },
+        {
+          id: 'tf-12-5',
+          q: 'VxWorks y Solaris son ejemplos de sistemas operativos de tiempo real.',
+          a: true,
+          explain:
+            'Verdadero. El apunte los menciona junto con Lynx OS y Spectra.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-12-1',
+          q: '¿En qué se basa la eficiencia de un sistema de tiempo real?',
+          options: [
+            'Solo en la exactitud de los resultados de cómputo',
+            'En la exactitud de los resultados y también en el momento en que los entrega',
+            'En la cantidad de usuarios que puede atender',
+            'En el tamaño de la memoria disponible',
+          ],
+          correctIndex: 1,
+          explain:
+            'No alcanza con que el resultado sea correcto: también importa cuándo se entrega.',
+        },
+        {
+          id: 'mc-12-2',
+          q: '¿Cuál es la primera fase en el diseño de un sistema de tiempo real?',
+          options: [
+            'Codificar los programas que ejecutarán las tareas',
+            'Medir el tiempo de cómputo de cada tarea',
+            'Identificar las tareas y las restricciones temporales que se deben cumplir',
+            'Elegir el sistema operativo de tiempo real',
+          ],
+          correctIndex: 2,
+          explain:
+            'Primero se identifican las tareas y sus restricciones temporales; recién después se codifica y se mide.',
+        },
+        {
+          id: 'mc-12-3',
+          q: '¿Cuál de los siguientes es un elemento que compone un sistema de tiempo real?',
+          options: [
+            'El manejo de interrupciones',
+            'La interfaz gráfica de usuario',
+            'El modelo entidad-relación',
+            'El diagrama de casos de uso',
+          ],
+          correctIndex: 0,
+          explain:
+            'Entre sus elementos están el manejo de interrupciones, las bases de datos y los SOTR, los lenguajes de tiempo real y la sincronización de tareas.',
+        },
+        {
+          id: 'mc-12-4',
+          q: '¿Cuál fue el uso más habitual de los sistemas de tiempo real?',
+          options: [
+            'La gestión contable de empresas',
+            'El control de entornos, a veces mediante sensores',
+            'El procesamiento de texto',
+            'El alojamiento de páginas web',
+          ],
+          correctIndex: 1,
+          explain:
+            'Se usaron sobre todo para controlar entornos, con sensores que procesan la información y generan una salida en respuesta.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-12-1',
+        front: 'Sistema de tiempo real',
+        back:
+          'Sistema informático que interactúa con el entorno y debe responder dentro del tiempo dictado por el problema; el intervalo entre entrada y salida suele ser muy pequeño.',
+      },
+      {
+        id: 'fc-12-2',
+        front: 'Predictibilidad',
+        back: 'Característica principal de un sistema de tiempo real: poder anticipar su comportamiento temporal.',
+      },
+      {
+        id: 'fc-12-3',
+        front: 'Eficiencia de un STR',
+        back: 'No depende solo de la exactitud del cómputo, sino también del momento en que entrega los resultados.',
+      },
+      {
+        id: 'fc-12-4',
+        front: 'Fases de diseño de un STR',
+        back:
+          '1) Identificar tareas y restricciones temporales; 2) codificar los programas; 3) medir el tiempo de cómputo y analizar la planificación.',
+      },
+      {
+        id: 'fc-12-5',
+        front: 'Elementos de un STR',
+        back:
+          'Integración y rendimiento, manejo de interrupciones, bases de datos de tiempo real, SOTR, lenguajes de tiempo real, y sincronización y comunicación de tareas.',
+      },
+      {
+        id: 'fc-12-6',
+        front: 'SOTR',
+        back:
+          'Sistema operativo de tiempo real: la plataforma del STR donde importan los procesos, no el usuario. Ej: VxWorks, Solaris, Lynx OS, Spectra.',
+      },
+      {
+        id: 'fc-12-7',
+        front: 'Uso habitual de un STR',
+        back: 'El control de entornos, muchas veces con sensores que procesan la información y generan una salida en respuesta.',
+      },
+    ],
+  },
+  // ---------- SECCIÓN 13 ----------
+  {
+    id: '13',
+    unit: '11',
+    title: 'Sistemas distribuidos',
+    criollo:
+      'Un sistema distribuido reparte el laburo entre varias computadoras conectadas por red, en vez de meter todo en una sola máquina. Desde afuera lo ves como un solo sistema. La gracia: si se cae una máquina, el resto sigue andando (capaz medio degradado, pero anda).',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Qué es un sistema distribuido',
+        criollo:
+          'El procesamiento no vive en una sola máquina: se reparte entre varias computadoras conectadas por una red. Sommerville dice que hoy casi todos los sistemas grandes son así.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          '"Un sistema distribuido es un sistema en el que el procesamiento de información se distribuye sobre varias computadoras en vez de estar confinado en una única máquina. En la actualidad, prácticamente todos los grandes sistemas informáticos son sistemas distribuidos." — Sommerville, I. (2005). Ingeniería del software. Madrid: Pearson Educación.',
+      },
+      {
+        type: 'p',
+        text:
+          'Básicamente, los sistemas distribuidos se conforman a través de la conexión de un grupo de computadoras que, aunque se encuentren separadas físicamente, cada una contiene software y hardware individual, pero se cuenta con una red de comunicaciones que las conecta a la vez. En el diseño se evalúa como un sistema único, pero con múltiples destinatarios.',
+      },
+      {
+        type: 'p',
+        text:
+          'Los sistemas distribuidos tienen la particularidad de que, al ser una única red con varias computadoras conectadas, <strong>el fallo de una no implica el fallo del sistema completo</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Ventajas',
+        criollo:
+          'Compartís recursos, combinás equipos de distintos fabricantes, escalás y te bancás mejor las caídas.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Permite compartir hardware y software, como impresoras o discos, de las máquinas de la red.',
+          'Están basados en sistemas abiertos, es decir, emplean protocolos estándares que facilitan combinar equipos y software de diferentes proveedores.',
+          'Permite ejecutar procesos concurrentes sobre la misma computadora de la red.',
+          'Suelen ser escalables, lo que permite sumar nuevos recursos, aunque esto dependerá de las posibilidades de la red que las conecte.',
+          'La tolerancia a fallos suele ser mayor, porque el fallo en una computadora de la red no implica la caída de toda la red, aun brindando un servicio un poco degradado.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-13-1',
+          q: 'En un sistema distribuido, el procesamiento de la información se concentra en una única máquina.',
+          a: false,
+          explain:
+            'Falso. Justamente se distribuye sobre varias computadoras en vez de estar confinado en una sola.',
+        },
+        {
+          id: 'tf-13-2',
+          q: 'Si falla una computadora de un sistema distribuido, se cae todo el sistema.',
+          a: false,
+          explain:
+            'Falso. El fallo de una no implica la caída de toda la red; a lo sumo el servicio queda un poco degradado.',
+        },
+        {
+          id: 'tf-13-3',
+          q: 'Los sistemas distribuidos suelen estar basados en sistemas abiertos, con protocolos estándares.',
+          a: true,
+          explain:
+            'Verdadero. Eso facilita combinar equipos y software de distintos proveedores.',
+        },
+        {
+          id: 'tf-13-4',
+          q: 'Según Sommerville (2005), prácticamente todos los grandes sistemas informáticos son distribuidos.',
+          a: true,
+          explain:
+            'Verdadero. Es parte de la definición que cita el apunte.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-13-1',
+          q: '¿Cómo se evalúa un sistema distribuido durante su diseño?',
+          options: [
+            'Como varios sistemas independientes entre sí',
+            'Como un sistema único, pero con múltiples destinatarios',
+            'Como una única computadora con mucha memoria',
+            'Como un sistema embebido de gran escala',
+          ],
+          correctIndex: 1,
+          explain:
+            'Aunque las computadoras estén separadas físicamente, en el diseño se lo trata como un sistema único con múltiples destinatarios.',
+        },
+        {
+          id: 'mc-13-2',
+          q: '¿Cuál de las siguientes es una ventaja de los sistemas distribuidos?',
+          options: [
+            'Eliminan la necesidad de una red de comunicaciones',
+            'Garantizan que nunca se degrade el servicio',
+            'Permiten compartir hardware y software entre las máquinas de la red',
+            'Concentran todo el procesamiento para simplificar el diseño',
+          ],
+          correctIndex: 2,
+          explain:
+            'Entre sus ventajas está compartir recursos como impresoras o discos de las máquinas de la red.',
+        },
+        {
+          id: 'mc-13-3',
+          q: '¿Por qué los sistemas distribuidos tienen mayor tolerancia a fallos?',
+          options: [
+            'Porque no dependen de ninguna red',
+            'Porque el fallo de una computadora no implica la caída de toda la red',
+            'Porque usan un único procesador muy confiable',
+            'Porque no procesan información sensible',
+          ],
+          correctIndex: 1,
+          explain:
+            'Al estar el procesamiento repartido, si una computadora falla el sistema sigue funcionando, aunque sea con servicio degradado.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-13-1',
+        front: 'Sistema distribuido',
+        back:
+          'Sistema en el que el procesamiento de información se distribuye sobre varias computadoras en vez de estar confinado en una única máquina (Sommerville, 2005).',
+      },
+      {
+        id: 'fc-13-2',
+        front: '¿Cómo se conforma?',
+        back:
+          'Un grupo de computadoras separadas físicamente, cada una con su hardware y software, conectadas por una red; en el diseño se lo trata como un sistema único con múltiples destinatarios.',
+      },
+      {
+        id: 'fc-13-3',
+        front: 'Tolerancia a fallos',
+        back: 'El fallo de una computadora no tira abajo toda la red; a lo sumo el servicio queda un poco degradado.',
+      },
+      {
+        id: 'fc-13-4',
+        front: 'Sistemas abiertos',
+        back: 'Usan protocolos estándares que facilitan combinar equipos y software de diferentes proveedores.',
+      },
+      {
+        id: 'fc-13-5',
+        front: 'Escalabilidad',
+        back: 'Permiten sumar nuevos recursos, aunque depende de las posibilidades de la red que los conecta.',
+      },
+      {
+        id: 'fc-13-6',
+        front: 'Ventajas (resumen)',
+        back:
+          'Compartir hardware y software, sistemas abiertos, procesos concurrentes, escalabilidad y mayor tolerancia a fallos.',
+      },
+    ],
+  },
+  // ---------- SECCIÓN 14 ----------
+  {
+    id: '14',
+    unit: '11',
+    title: 'Sistemas embebidos',
+    criollo:
+      'Los sistemas embebidos (o empotrados) están metidos adentro de un aparato y hacen una o dos funciones puntuales, casi siempre en tiempo real. Ni los ves: están en el microondas, en el reloj del taxi. Se fabrican en masa, con poco procesador y poca memoria, y si se rompe algo, fuiste: hay que cambiar la placa entera.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Qué es un sistema embebido',
+        criollo:
+          'El software no está a la vista del usuario y hace pocas cosas, muy específicas. Casi siempre corre como un sistema de tiempo real.',
+      },
+      {
+        type: 'p',
+        text:
+          'En los sistemas embebidos o empotrados, las funciones del software no suelen estar a la vista del usuario. Estos sistemas son diseñados para realizar una o algunas pocas funciones, generalmente dentro de un sistema de tiempo real.',
+      },
+      {
+        type: 'p',
+        text:
+          'Los sistemas embebidos son empleados para propósitos diferentes, pero sus componentes suelen estar incluidos en una placa base y pueden no verse como computadoras; por ejemplo, los relojes que utilizan los taxis o el microondas. Generalmente, estos sistemas se programan en lenguaje ensamblador sobre el microprocesador.',
+      },
+      {
+        type: 'h3',
+        text: 'Características',
+        criollo:
+          'Producción masiva para abaratar, hardware chico, y si falla un elemento se cambia la placa completa.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Suelen fabricarse en forma masiva porque se busca reducir el coste en su producción.',
+          'Suelen emplear un procesador relativamente pequeño, así como una memoria también pequeña.',
+          'Un fallo en un elemento implica que debe repararse o reemplazarse la placa íntegramente.',
+          'En busca de la reducción de costos, puede que los controladores sean más lentos que los de las computadoras personales.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-14-1',
+          q: 'En los sistemas embebidos, las funciones del software suelen estar bien a la vista del usuario.',
+          a: false,
+          explain:
+            'Falso. En los sistemas embebidos las funciones del software no suelen estar a la vista del usuario.',
+        },
+        {
+          id: 'tf-14-2',
+          q: 'Los sistemas embebidos se diseñan para realizar una o pocas funciones.',
+          a: true,
+          explain:
+            'Verdadero. Están pensados para una o algunas pocas funciones, generalmente en tiempo real.',
+        },
+        {
+          id: 'tf-14-3',
+          q: 'El reloj de un taxi y el microondas son ejemplos de sistemas embebidos.',
+          a: true,
+          explain:
+            'Verdadero. Son los ejemplos que da el apunte de componentes incluidos en una placa base.',
+        },
+        {
+          id: 'tf-14-4',
+          q: 'Si falla un elemento de un sistema embebido, normalmente alcanza con reemplazar solo ese elemento sin tocar la placa.',
+          a: false,
+          explain:
+            'Falso. Un fallo en un elemento implica reparar o reemplazar la placa íntegramente.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-14-1',
+          q: '¿En qué lenguaje se programan generalmente los sistemas embebidos?',
+          options: [
+            'En un lenguaje de alto nivel orientado a objetos',
+            'En lenguaje ensamblador sobre el microprocesador',
+            'En lenguaje de consultas SQL',
+            'En código de máquina de un sistema distribuido',
+          ],
+          correctIndex: 1,
+          explain:
+            'El apunte indica que generalmente se programan en ensamblador sobre el microprocesador.',
+        },
+        {
+          id: 'mc-14-2',
+          q: '¿Por qué los sistemas embebidos suelen fabricarse en forma masiva?',
+          options: [
+            'Para aumentar la potencia de cálculo',
+            'Para reducir el coste en su producción',
+            'Para que sean visibles al usuario',
+            'Para soportar más usuarios concurrentes',
+          ],
+          correctIndex: 1,
+          explain:
+            'La fabricación masiva busca reducir el coste de producción.',
+        },
+        {
+          id: 'mc-14-3',
+          q: '¿Qué relación suelen tener los sistemas embebidos con los de tiempo real?',
+          options: [
+            'Ninguna: son conceptos opuestos',
+            'Los embebidos reemplazan a los de tiempo real',
+            'Generalmente funcionan dentro de un sistema de tiempo real',
+            'Los de tiempo real son un caso particular de los embebidos',
+          ],
+          correctIndex: 2,
+          explain:
+            'El apunte señala que los sistemas embebidos realizan sus funciones generalmente dentro de un sistema de tiempo real.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-14-1',
+        front: 'Sistema embebido',
+        back:
+          'Sistema diseñado para una o pocas funciones, con el software no visible al usuario y operando generalmente dentro de un sistema de tiempo real.',
+      },
+      {
+        id: 'fc-14-2',
+        front: 'Otro nombre',
+        back: 'Sistemas empotrados.',
+      },
+      {
+        id: 'fc-14-3',
+        front: 'Ejemplos',
+        back: 'El reloj de los taxis y el microondas: componentes en una placa base que no parece una computadora.',
+      },
+      {
+        id: 'fc-14-4',
+        front: 'Lenguaje habitual',
+        back: 'Lenguaje ensamblador, sobre el microprocesador.',
+      },
+      {
+        id: 'fc-14-5',
+        front: 'Fabricación de un embebido',
+        back: 'Masiva, para reducir costos; usan procesador y memoria pequeños.',
+      },
+      {
+        id: 'fc-14-6',
+        front: 'Fallo en un embebido',
+        back: 'Si falla un elemento, hay que reparar o reemplazar la placa íntegramente.',
+      },
+    ],
+  },
   ],
   pdfs: [
     {
@@ -2430,6 +3111,11 @@ export default {
       key: 'modulo-10',
       label: 'Módulo 10 — Diagramas de secuencia',
       path: 'pdfs/introduccion-ing-software/10-diagramas-secuencia.pdf',
+    },
+    {
+      key: 'modulo-12',
+      label: 'Módulo 12 — Tipos de sistemas',
+      path: 'pdfs/introduccion-ing-software/12-tipos-de-sistemas.pdf',
     },
   ],
 };
