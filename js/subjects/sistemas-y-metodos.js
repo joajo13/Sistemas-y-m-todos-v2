@@ -1,18 +1,19 @@
 /**
- * Materia: Sistemas y Métodos — Administración de Proyectos I (UP).
- * Unidades 8.1 y 8.2.
+ * Materia: Sistemas y Métodos (UP).
+ * Unidades 8.1 y 8.2 (Administración de Proyectos) y 9 (Sistemas de Información).
  *
  * Tipos conceptuales (ver js/content.js para Subject/Section/ContentBlock).
  */
 
 export default {
   id: 'sistemas-y-metodos',
-  title: 'Administración de Proyectos',
-  subtitle: 'Sistemas y Métodos — Apuntes',
-  tagline: 'Unidades 8.1 y 8.2 — Fundamentos y herramientas',
+  title: 'Sistemas y Métodos',
+  subtitle: 'Unidades 8 y 9 — Apuntes',
+  tagline: 'Administración de proyectos · Sistemas de información',
   units: {
     '8.1': 'Fundamentos de la Administración de Proyectos',
     '8.2': 'Herramientas y procesos para la administración de proyectos',
+    '9': 'Sistemas de Información',
   },
   sections: [
   // ---------- SECCIÓN 1 ----------
@@ -2303,10 +2304,951 @@ export default {
       },
     ],
   },
+
+  // ========== UNIDAD 9 — SISTEMAS DE INFORMACIÓN ==========
+
+  // ---------- SECCIÓN 12 ----------
+  {
+    id: '12',
+    unit: '9',
+    title: 'Conceptos fundamentales',
+    criollo:
+      'Antes de hablar de sistemas de información, hay que tener claros los ladrillos: qué es un dato y en qué se diferencia de la información, qué es un método y qué un procedimiento, y qué es un sistema. Con esas piezas en la mano, lo demás se entiende solo.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Para comprender qué es un sistema de información, primero debemos dominar una serie de términos básicos que constituyen sus cimientos.',
+      },
+      {
+        type: 'h3',
+        text: 'El área de organización y métodos',
+        criollo:
+          'Es el área que mira cómo está organizada la empresa y cómo hace las cosas, para acomodar la estructura y los procedimientos de modo que todo apunte a los objetivos. De ahí el nombre de la materia: sistemas y métodos.',
+      },
+      {
+        type: 'p',
+        text:
+          'El área de organización y métodos de las TIC se encarga de analizar los problemas de estructura y procedimientos de una empresa, con el fin de optimizar la infraestructura organizativa y el logro de los objetivos definidos.',
+      },
+      {
+        type: 'h3',
+        text: 'Dato vs. Información',
+        criollo:
+          'El dato es el ladrillo suelto; la información es la pared ya construida. Un número solo no te dice nada; ese mismo número con contexto te sirve para decidir.',
+      },
+      {
+        type: 'p',
+        text:
+          '<strong>Dato</strong>: es la materia prima. Son hechos en bruto, símbolos o registros discretos que describen un evento, pero sin un contexto que les dé sentido. Por sí solos, no son útiles para tomar decisiones. Por ejemplo, el número “150”: sin contexto, podría ser un precio, una cantidad o una medida.',
+      },
+      {
+        type: 'p',
+        text:
+          '<strong>Información</strong>: es el resultado de procesar, organizar y estructurar los datos de una manera que les otorgue significado y relevancia para quien la recibe. La información reduce la incertidumbre y sirve de base para la toma de decisiones. Siguiendo el ejemplo: “Se vendieron 150 unidades del producto X en la sucursal de Palermo durante el mes de agosto”. Acá el dato “150” se contextualizó y se convirtió en información valiosa para un gerente de ventas.',
+      },
+      {
+        type: 'h3',
+        text: 'Método y Procedimiento',
+        criollo:
+          'El método es el plan general (qué hacer y cómo, a grandes rasgos); el procedimiento es el paso a paso detallado para ejecutarlo siempre igual.',
+      },
+      {
+        type: 'p',
+        text:
+          '<strong>Método</strong>: es una forma ordenada y sistemática de realizar una acción o alcanzar un fin. Es el “qué hacer” y “cómo hacerlo” a un nivel general. Por ejemplo, el método para calcular la nota final de un curso podría ser “promediar las calificaciones de los parciales y el trabajo práctico”.',
+      },
+      {
+        type: 'p',
+        text:
+          '<strong>Procedimiento</strong>: es la implementación detallada de un método. Consiste en una serie de pasos o instrucciones explícitas que deben seguirse para completar una tarea de manera estandarizada. Siguiendo el método anterior, el procedimiento sería:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Ingresar al sistema de gestión académica.',
+          'Seleccionar el curso “Sistemas de Información”.',
+          'Sumar la nota del “Parcial 1”, la del “Parcial 2” y la del “Trabajo Práctico”.',
+          'Dividir el resultado por 3.',
+          'Registrar el valor obtenido en la casilla “Nota final”.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Sistema',
+        criollo:
+          'Un sistema es un conjunto de partes que laburan juntas para un objetivo. Siempre tiene lo mismo: entra algo, se transforma, sale algo, y hay un control que avisa si hay que ajustar.',
+      },
+      {
+        type: 'p',
+        text:
+          'Un <strong>sistema</strong> es un conjunto de componentes o elementos que se interrelacionan entre sí para lograr un objetivo común, operando dentro de un entorno específico. Todo sistema tiene una entrada (input), un proceso de transformación, una salida (output) y un mecanismo de retroalimentación (feedback) que permite el control y el ajuste.',
+      },
+      {
+        type: 'p',
+        text: 'Por ejemplo, un sistema de calefacción:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Entrada</strong>: el gas o la electricidad, y la temperatura deseada en el termostato.',
+          '<strong>Proceso</strong>: la caldera quema el gas para calentar el agua.',
+          '<strong>Salida</strong>: el calor emitido por los radiadores.',
+          '<strong>Retroalimentación</strong>: el termostato mide la temperatura ambiente; si es inferior a la deseada, envía una señal para que la caldera siga funcionando; si la alcanza, la apaga.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-12-1',
+          q: 'Un dato, por sí solo y sin contexto, ya constituye información útil para tomar decisiones.',
+          a: false,
+          explain:
+            'Falso. El dato es la materia prima (hechos en bruto). Recién cuando se procesa y se contextualiza se convierte en información.',
+        },
+        {
+          id: 'tf-12-2',
+          q: 'El procedimiento es la implementación detallada y paso a paso de un método.',
+          a: true,
+          explain:
+            'Verdadero. El método es el “qué/cómo” general; el procedimiento son los pasos explícitos para ejecutarlo de forma estandarizada.',
+        },
+        {
+          id: 'tf-12-3',
+          q: 'Todo sistema tiene entrada, proceso de transformación, salida y un mecanismo de retroalimentación.',
+          a: true,
+          explain:
+            'Verdadero. Esos cuatro elementos (input, proceso, output y feedback) están presentes en cualquier sistema.',
+        },
+        {
+          id: 'tf-12-4',
+          q: 'La retroalimentación (feedback) de un sistema sirve para permitir el control y el ajuste.',
+          a: true,
+          explain:
+            'Verdadero. El feedback compara la salida con lo deseado y permite corregir; en la calefacción, el termostato prende o apaga la caldera.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-12-1',
+          q: '¿Cuál es la diferencia entre dato e información?',
+          options: [
+            'No hay diferencia: son sinónimos',
+            'El dato es un hecho en bruto sin contexto; la información es el dato procesado y con significado',
+            'La información es más antigua que el dato',
+            'El dato sirve para decidir y la información no',
+          ],
+          correctIndex: 1,
+          explain:
+            'El dato es la materia prima sin contexto; al procesarlo y contextualizarlo se vuelve información, que sí sirve para decidir.',
+        },
+        {
+          id: 'mc-12-2',
+          q: '“Promediar las calificaciones de los parciales y el trabajo práctico” es un ejemplo de:',
+          options: ['Un dato', 'Un procedimiento', 'Un método', 'Una salida (output)'],
+          correctIndex: 2,
+          explain:
+            'Es un método: el “qué hacer / cómo” a nivel general. El procedimiento serían los pasos detallados para ejecutarlo.',
+        },
+        {
+          id: 'mc-12-3',
+          q: 'En un sistema de calefacción, el termostato que mide la temperatura y prende o apaga la caldera cumple la función de:',
+          options: ['Entrada', 'Proceso', 'Salida', 'Retroalimentación'],
+          correctIndex: 3,
+          explain:
+            'Es la retroalimentación (feedback): compara la temperatura real con la deseada y ajusta el funcionamiento del sistema.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-12-1',
+        front: 'Dato',
+        back:
+          'Materia prima: hechos en bruto, símbolos o registros sin contexto. Por sí solos no sirven para decidir (ej.: el número “150”).',
+      },
+      {
+        id: 'fc-12-2',
+        front: 'Información',
+        back:
+          'Datos procesados, organizados y estructurados de forma que tengan significado y relevancia. Reduce la incertidumbre y permite decidir.',
+      },
+      {
+        id: 'fc-12-3',
+        front: 'Método',
+        back:
+          'Forma ordenada y sistemática de realizar una acción o alcanzar un fin: el “qué hacer” y “cómo” a nivel general.',
+      },
+      {
+        id: 'fc-12-4',
+        front: 'Procedimiento',
+        back:
+          'Implementación detallada de un método: serie de pasos explícitos que se siguen para hacer una tarea de forma estandarizada.',
+      },
+      {
+        id: 'fc-12-5',
+        front: 'Sistema',
+        back:
+          'Conjunto de componentes interrelacionados que operan en un entorno para lograr un objetivo común. Tiene entrada, proceso, salida y retroalimentación.',
+      },
+      {
+        id: 'fc-12-6',
+        front: 'Área de organización y métodos',
+        back:
+          'Analiza los problemas de estructura y procedimientos de una empresa para optimizar la infraestructura organizativa y el logro de los objetivos.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 13 ----------
+  {
+    id: '13',
+    unit: '9',
+    title: 'El sistema de información (SI)',
+    criollo:
+      'Ahora juntamos todo: un sistema de información es gente, máquinas, software, redes y datos trabajando juntos para que la información llegue a donde tiene que llegar. Y, como todo sistema, vive metido en un entorno con el que intercambia entradas y salidas.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Definición de sistema de información',
+        criollo:
+          'No es solo “la computadora”. Es todo el combo —personas, hardware, software, redes y datos— funcionando para recolectar, procesar, guardar y repartir información que sirva para operar y decidir.',
+      },
+      {
+        type: 'p',
+        text:
+          'Un <strong>sistema de información (SI)</strong> es un conjunto organizado de componentes (personas, hardware, software, redes de comunicación y datos) que interactúan para recolectar, procesar, almacenar y distribuir información. Su propósito fundamental es apoyar las operaciones, la gestión (coordinación y control) y la toma de decisiones dentro de una organización.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Otra forma de definirlo (Laudon y Laudon): “Es un conjunto de componentes interrelacionados que recolectan (o recuperan), procesan, almacenan y distribuyen información para apoyar los procesos de toma de decisión, coordinación y control de la organización.”',
+      },
+      {
+        type: 'h3',
+        text: 'Componentes clave de un SI',
+        criollo:
+          'Cinco patas: el fierro (hardware), los programas (software), los datos, la gente y los procesos. Si falta una, el sistema cojea.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Hardware</strong>: equipos físicos (computadoras, servidores, periféricos).',
+          '<strong>Software</strong>: programas y aplicaciones que dirigen el funcionamiento del hardware.',
+          '<strong>Datos</strong>: los hechos en bruto que el sistema procesará.',
+          '<strong>Personas</strong>: usuarios, operadores, analistas y administradores del sistema.',
+          '<strong>Procesos</strong>: los procedimientos y reglas de negocio que gobiernan el funcionamiento del sistema.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Sistemas abiertos y su entorno',
+        criollo:
+          'Ningún sistema vive aislado. Recibe cosas de afuera y devuelve cosas afuera; eso lo hace un sistema abierto. Y anda mejor cuando se mantiene dentro de niveles de desempeño tolerables.',
+      },
+      {
+        type: 'p',
+        text:
+          'La <strong>finalidad</strong> de un sistema es la razón de su existencia. Para alcanzar sus objetivos, los sistemas interaccionan con su medioambiente, que está formado por todos los objetos que se encuentran fuera de las fronteras del sistema. Los sistemas que interactúan con su medioambiente (reciben entradas y producen salidas) se denominan <strong>sistemas abiertos</strong>.',
+      },
+      {
+        type: 'p',
+        text:
+          'Los sistemas trabajan mejor cuando operan dentro de niveles de desempeño tolerables. Las organizaciones están formadas por muchos sistemas, cada uno con las características propias del sistema general.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Las finalidades de los sistemas de información son procesar entradas, mantener archivos de datos relacionados con la organización y producir información, reportes y otras salidas.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-13-1',
+          q: 'Un sistema de información se compone únicamente de hardware y software.',
+          a: false,
+          explain:
+            'Falso. Sus componentes clave son hardware, software, datos, personas y procesos. La gente y los procesos también son parte del SI.',
+        },
+        {
+          id: 'tf-13-2',
+          q: 'El propósito de un SI es apoyar las operaciones, la gestión y la toma de decisiones de la organización.',
+          a: true,
+          explain:
+            'Verdadero. Recolecta, procesa, almacena y distribuye información justamente con ese fin.',
+        },
+        {
+          id: 'tf-13-3',
+          q: 'Un sistema abierto es el que interactúa con su medioambiente recibiendo entradas y produciendo salidas.',
+          a: true,
+          explain:
+            'Verdadero. El medioambiente son los objetos fuera de las fronteras del sistema; el sistema abierto intercambia con él.',
+        },
+        {
+          id: 'tf-13-4',
+          q: 'Las personas (usuarios, operadores, analistas) no se consideran un componente del sistema de información.',
+          a: false,
+          explain:
+            'Falso. Las personas son uno de los cinco componentes clave, junto con hardware, software, datos y procesos.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-13-1',
+          q: '¿Cuáles son los cinco componentes clave de un sistema de información?',
+          options: [
+            'Hardware, software, datos, personas y procesos',
+            'Entrada, proceso, salida, feedback y entorno',
+            'TPS, MIS, DSS, ERP y CRM',
+            'Gerentes, empleados, clientes, proveedores y Estado',
+          ],
+          correctIndex: 0,
+          explain:
+            'El apunte los enumera así: hardware, software, datos, personas y procesos.',
+        },
+        {
+          id: 'mc-13-2',
+          q: 'El “medioambiente” de un sistema se define como:',
+          options: [
+            'El conjunto de datos que procesa',
+            'Todos los objetos que están fuera de las fronteras del sistema',
+            'Las personas que lo operan',
+            'El hardware y el software',
+          ],
+          correctIndex: 1,
+          explain:
+            'El medioambiente está formado por todos los objetos que se encuentran fuera de las fronteras del sistema; los sistemas abiertos interactúan con él.',
+        },
+        {
+          id: 'mc-13-3',
+          q: '¿Cuál NO es una finalidad de un sistema de información según el apunte?',
+          options: [
+            'Procesar entradas',
+            'Mantener archivos de datos de la organización',
+            'Producir información, reportes y otras salidas',
+            'Reemplazar por completo a las personas de la organización',
+          ],
+          correctIndex: 3,
+          explain:
+            'Las finalidades son procesar entradas, mantener archivos de datos y producir información/reportes/salidas. Reemplazar a las personas no es una finalidad del SI.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-13-1',
+        front: 'Sistema de información (SI)',
+        back:
+          'Conjunto organizado de personas, hardware, software, redes y datos que interactúan para recolectar, procesar, almacenar y distribuir información.',
+      },
+      {
+        id: 'fc-13-2',
+        front: 'Propósito de un SI',
+        back:
+          'Apoyar las operaciones, la gestión (coordinación y control) y la toma de decisiones de la organización.',
+      },
+      {
+        id: 'fc-13-3',
+        front: 'Componentes clave de un SI',
+        back: 'Hardware, software, datos, personas y procesos.',
+      },
+      {
+        id: 'fc-13-4',
+        front: 'Sistema abierto',
+        back: 'Sistema que interactúa con su medioambiente: recibe entradas y produce salidas.',
+      },
+      {
+        id: 'fc-13-5',
+        front: 'Medioambiente de un sistema',
+        back: 'Todos los objetos que se encuentran fuera de las fronteras del sistema.',
+      },
+      {
+        id: 'fc-13-6',
+        front: 'Finalidades de un SI',
+        back:
+          'Procesar entradas, mantener archivos de datos de la organización y producir información, reportes y otras salidas.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 14 ----------
+  {
+    id: '14',
+    unit: '9',
+    title: 'Beneficios de los sistemas de información',
+    criollo:
+      '¿Para qué le sirve un SI a una empresa? Básicamente para tres cosas: hacer más con menos (eficiencia), decidir mejor (soporte a decisiones) y diferenciarse de la competencia (ventaja estratégica).',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Más allá de los puntos vistos en clase, los beneficios de los sistemas de información se pueden agrupar en tres grandes áreas.',
+      },
+      {
+        type: 'h3',
+        text: 'Eficiencia operativa',
+        criollo:
+          'Menos laburo repetitivo y a mano, menos errores y menos costos. La máquina se encarga de lo rutinario y la gente se dedica a lo que vale.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Aumento de la productividad</strong>: automatizan tareas repetitivas y permiten que los empleados se centren en actividades de mayor valor.',
+          '<strong>Reducción de costos operacionales</strong>: optimizan el uso de recursos, minimizan errores y reducen la necesidad de mano de obra para ciertas tareas.',
+          '<strong>Control de gastos</strong>: permiten un seguimiento más preciso de los costos y evitan desviaciones presupuestarias.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Soporte a la toma de decisiones',
+        criollo:
+          'Te dan los números a tiempo y bien, y te dejan ver patrones que a ojo no se ven. Decidís con data, no con corazonada.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Mejora en la calidad de las decisiones</strong>: proporcionan información oportuna, precisa y relevante a los gerentes.',
+          '<strong>Análisis de tendencias</strong>: permiten analizar grandes volúmenes de datos para identificar patrones de mercado, comportamiento de clientes o problemas internos.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Ventaja estratégica',
+        criollo:
+          'Acá el SI no solo te ahorra plata: te abre negocios nuevos y te acerca al cliente. Pensá en Netflix o en el home banking.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Nuevos productos y servicios</strong>: facilitan la creación de nuevos modelos de negocio basados en la información (por ejemplo, servicios de streaming o banca online).',
+          '<strong>Mejora de la relación con el cliente</strong>: sistemas como los CRM (Customer Relationship Management) permiten personalizar la atención y fidelizar a los clientes.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-14-1',
+          q: 'Los beneficios de los SI se agrupan en eficiencia operativa, soporte a la toma de decisiones y ventaja estratégica.',
+          a: true,
+          explain:
+            'Verdadero. Esas son las tres grandes áreas de beneficios que plantea el apunte.',
+        },
+        {
+          id: 'tf-14-2',
+          q: 'Un CRM es un ejemplo de sistema que ayuda a mejorar la relación con el cliente.',
+          a: true,
+          explain:
+            'Verdadero. El CRM (Customer Relationship Management) permite personalizar la atención y fidelizar clientes; es parte de la ventaja estratégica.',
+        },
+        {
+          id: 'tf-14-3',
+          q: 'El “análisis de tendencias” pertenece al área de eficiencia operativa.',
+          a: false,
+          explain:
+            'Falso. El análisis de tendencias es parte del soporte a la toma de decisiones (identificar patrones en grandes volúmenes de datos).',
+        },
+        {
+          id: 'tf-14-4',
+          q: 'La automatización de tareas repetitivas contribuye al aumento de la productividad.',
+          a: true,
+          explain:
+            'Verdadero. Al automatizar lo rutinario, los empleados se enfocan en actividades de mayor valor.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-14-1',
+          q: 'Los servicios de streaming y la banca online se mencionan como ejemplo de:',
+          options: [
+            'Eficiencia operativa',
+            'Reducción de costos',
+            'Nuevos productos y servicios (ventaja estratégica)',
+            'Análisis de tendencias',
+          ],
+          correctIndex: 2,
+          explain:
+            'Son nuevos modelos de negocio basados en la información: parte de la ventaja estratégica.',
+        },
+        {
+          id: 'mc-14-2',
+          q: '¿Cuál de estos es un beneficio dentro de la “eficiencia operativa”?',
+          options: [
+            'Mejora de la relación con el cliente',
+            'Reducción de costos operacionales',
+            'Creación de nuevos modelos de negocio',
+            'Análisis de tendencias de mercado',
+          ],
+          correctIndex: 1,
+          explain:
+            'La eficiencia operativa incluye aumento de productividad, reducción de costos operacionales y control de gastos.',
+        },
+        {
+          id: 'mc-14-3',
+          q: 'El aporte principal del SI al “soporte a la toma de decisiones” es:',
+          options: [
+            'Eliminar la necesidad de gerentes',
+            'Proporcionar información oportuna, precisa y relevante, y permitir analizar tendencias',
+            'Reducir el presupuesto a cero',
+            'Reemplazar a los clientes',
+          ],
+          correctIndex: 1,
+          explain:
+            'Mejora la calidad de las decisiones con información oportuna y precisa, y permite el análisis de tendencias.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-14-1',
+        front: 'Tres áreas de beneficios de un SI',
+        back: 'Eficiencia operativa, soporte a la toma de decisiones y ventaja estratégica.',
+      },
+      {
+        id: 'fc-14-2',
+        front: 'Eficiencia operativa',
+        back:
+          'Aumento de productividad, reducción de costos operacionales y control de gastos (automatizando tareas repetitivas).',
+      },
+      {
+        id: 'fc-14-3',
+        front: 'Soporte a la toma de decisiones',
+        back:
+          'Información oportuna y precisa para los gerentes, y análisis de tendencias sobre grandes volúmenes de datos.',
+      },
+      {
+        id: 'fc-14-4',
+        front: 'Ventaja estratégica',
+        back:
+          'Nuevos productos y servicios basados en información (streaming, banca online) y mejora de la relación con el cliente (CRM).',
+      },
+      {
+        id: 'fc-14-5',
+        front: 'CRM (Customer Relationship Management)',
+        back:
+          'Sistema que permite personalizar la atención y fidelizar a los clientes. Ejemplo de ventaja estratégica.',
+      },
+      {
+        id: 'fc-14-6',
+        front: 'Análisis de tendencias',
+        back:
+          'Análisis de grandes volúmenes de datos para identificar patrones de mercado, comportamiento de clientes o problemas internos.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 15 ----------
+  {
+    id: '15',
+    unit: '9',
+    title: 'Clasificación de los sistemas de información',
+    criollo:
+      'Los SI se ordenan según a quién sirven y qué tipo de decisiones ayudan a tomar. De abajo hacia arriba: TPS (lo operativo, el día a día), MIS (informes para los jefes) y DSS (análisis para la alta gerencia). Cada uno se alimenta del de abajo.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Los sistemas de información se pueden clasificar según el nivel jerárquico de la organización al que sirven y el tipo de problemas que resuelven. Se presentan tres tipos principales.',
+      },
+      {
+        type: 'h3',
+        text: 'TPS — Sistema de procesamiento de transacciones',
+        criollo:
+          'Es el que registra el movimiento diario: cada venta, cada retiro, cada sueldo. Tiene que ser rápido y no perder un dato. Es la base que alimenta a todos los demás.',
+      },
+      {
+        type: 'p',
+        text:
+          '<strong>Nivel organizacional</strong>: operativo. Atiende a los trabajadores de primera línea (cajeros, operarios, administrativos). <strong>Objetivo</strong>: registrar y procesar el gran volumen de transacciones diarias necesarias para que la empresa funcione, sustituyendo procedimientos manuales por procesos computarizados en tareas rutinarias y bien estructuradas.',
+      },
+      {
+        type: 'p',
+        text: 'Características clave:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Alta velocidad: deben procesar miles de transacciones en poco tiempo.',
+          'Confiabilidad y consistencia: la pérdida de un dato transaccional puede ser crítica; los procesos son estandarizados para garantizar la integridad.',
+          'Eficiencia: diseñados para ser rápidos y eficaces en la captura de datos.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Ejemplos:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Sistema de punto de venta (POS): cada artículo escaneado registra la venta, actualiza el inventario y procesa el pago.',
+          'Cajeros automáticos (ATM): cada retiro, depósito o consulta es una transacción procesada en tiempo real.',
+          'Sistema de nómina: procesa los pagos a empleados (horas trabajadas, ausencias, impuestos) para generar los recibos de sueldo.',
+          'Sistema de reservas de vuelos: gestiona la compra de boletos, la asignación de asientos y el check-in.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'MIS — Sistema de información administrativa',
+        criollo:
+          'Agarra los datos que generó el TPS y los convierte en informes resumidos para los gerentes de nivel medio. Sirve para situaciones de decisión bien estructuradas y previsibles.',
+      },
+      {
+        type: 'p',
+        text:
+          '<strong>Nivel organizacional</strong>: táctico. Sirve a los gerentes de nivel medio (jefes de departamento, gerentes regionales). <strong>Objetivo</strong>: proporcionar informes y resúmenes sobre el desempeño actual e histórico de la organización, para apoyar el control y la toma de decisiones a mediano plazo. Usa los datos generados por los TPS como su principal fuente de entrada.',
+      },
+      {
+        type: 'p',
+        text: 'Características clave:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Orientado a informes: su salida principal son informes predefinidos (diarios, semanales, mensuales).',
+          'Poca flexibilidad analítica: los usuarios no suelen crear nuevas consultas o informes complejos por sí mismos.',
+          'Apoyo a decisiones estructuradas: ayuda a resolver problemas rutinarios, donde los criterios de decisión están claros.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Ejemplos:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Informe mensual de ventas: compara las ventas actuales con las del mes anterior y con las del mismo mes del año pasado.',
+          'Sistema de control de inventario: alerta al jefe de almacén cuando el stock cae por debajo del nivel mínimo.',
+          'Informe de desempeño de empleados: analiza asistencia, productividad y horas extras para un gerente de RR. HH.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'DSS — Sistema de soporte a decisiones',
+        criollo:
+          'Es el que usa la alta gerencia para problemas raros y complejos, donde no hay receta. Te deja jugar con los datos y los modelos: “¿qué pasaría si...?”.',
+      },
+      {
+        type: 'p',
+        text:
+          '<strong>Nivel organizacional</strong>: estratégico. Apoya a la alta gerencia (directores, CEO) en decisiones complejas. <strong>Objetivo</strong>: ayudar a los directivos a tomar decisiones únicas, complejas y no estructuradas, donde no existen procedimientos claros para llegar a una solución.',
+      },
+      {
+        type: 'p',
+        text: 'Características clave:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Interactividad: el usuario puede manipular datos y modelos para explorar escenarios (“¿qué pasaría si...?”).',
+          'Flexibilidad: permite definir las propias consultas y análisis, en lugar de depender de informes predefinidos.',
+          'Uso de modelos analíticos: incorpora modelos estadísticos, de optimización o de simulación.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Ejemplos:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Análisis de rentabilidad de un nuevo pozo petrolero: combina datos geológicos, costos y precios del petróleo para simular dónde conviene perforar.',
+          'Planificación financiera: simula el impacto de distintos escenarios económicos (inflación, tipo de cambio) en los resultados.',
+          'Evaluación de riesgo crediticio: analiza variables del cliente para sugerir si aprobar un préstamo y bajo qué condiciones.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Cuadro comparativo',
+        criollo:
+          'Para tenerlo de un vistazo: en qué se diferencian TPS, MIS y DSS según usuarios, tipo de decisión, entradas, procesamiento, salida y horizonte temporal.',
+      },
+      {
+        type: 'table',
+        caption: 'Comparación entre TPS, MIS y DSS',
+        headers: ['Característica', 'TPS', 'MIS', 'DSS'],
+        rows: [
+          ['Usuarios principales', 'Personal operativo', 'Gerentes de nivel medio', 'Alta gerencia, analistas'],
+          ['Tipo de decisión', 'Ninguna (registra datos)', 'Estructurada', 'No estructurada o semiestructurada'],
+          ['Entrada de datos', 'Transacciones diarias', 'Resúmenes de datos del TPS', 'Datos internos y externos, modelos'],
+          ['Procesamiento', 'Clasificación, listado, actualización', 'Informes de rutina, resúmenes', 'Interactivo, simulaciones, análisis'],
+          ['Salida de información', 'Registros detallados', 'Informes resumidos', 'Análisis de escenarios, proyecciones'],
+          ['Horizonte temporal', 'Pasado y presente inmediato', 'Pasado y presente', 'Futuro'],
+          ['Ejemplo clave', 'Sistema de facturación', 'Informe semanal de ventas', 'Simulador de lanzamiento de producto'],
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-15-1',
+          q: 'El TPS (sistema de procesamiento de transacciones) opera a nivel estratégico, sirviendo a la alta gerencia.',
+          a: false,
+          explain:
+            'Falso. El TPS opera a nivel operativo (cajeros, operarios). El que sirve a la alta gerencia es el DSS.',
+        },
+        {
+          id: 'tf-15-2',
+          q: 'El MIS utiliza como principal fuente de entrada los datos generados por el TPS.',
+          a: true,
+          explain:
+            'Verdadero. El MIS toma los datos del TPS y genera informes y resúmenes para los gerentes de nivel medio.',
+        },
+        {
+          id: 'tf-15-3',
+          q: 'El DSS genera informes predefinidos y no permite al usuario explorar escenarios.',
+          a: false,
+          explain:
+            'Falso. Al revés: el DSS es interactivo y flexible; permite manipular datos y modelos para simular “¿qué pasaría si...?”. Los informes predefinidos son del MIS.',
+        },
+        {
+          id: 'tf-15-4',
+          q: 'Un cajero automático (ATM) es un ejemplo de TPS.',
+          a: true,
+          explain:
+            'Verdadero. Cada retiro, depósito o consulta es una transacción que el TPS procesa en tiempo real.',
+        },
+        {
+          id: 'tf-15-5',
+          q: 'El MIS apoya decisiones bien estructuradas y rutinarias; el DSS apoya decisiones no estructuradas y complejas.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la diferencia central: el MIS para lo estructurado y previsible, el DSS para lo complejo y sin procedimiento claro.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-15-1',
+          q: '¿Qué tipo de sistema usaría un gerente regional para ver un informe mensual de ventas comparado con el año anterior?',
+          options: ['TPS', 'MIS', 'DSS', 'Ninguno: eso no lo hace un SI'],
+          correctIndex: 1,
+          explain:
+            'Es un MIS: genera informes resumidos y predefinidos para gerentes de nivel medio, a partir de los datos del TPS.',
+        },
+        {
+          id: 'mc-15-2',
+          q: 'El sistema que ayuda a una petrolera a decidir dónde perforar combinando datos geológicos, costos y modelos de riesgo es un:',
+          options: ['TPS', 'MIS', 'DSS', 'POS'],
+          correctIndex: 2,
+          explain:
+            'Es un DSS: apoya decisiones complejas y no estructuradas mediante modelos y simulación de escenarios.',
+        },
+        {
+          id: 'mc-15-3',
+          q: 'Según el cuadro comparativo, el horizonte temporal del DSS es:',
+          options: [
+            'Pasado y presente inmediato',
+            'Pasado y presente',
+            'Futuro',
+            'No tiene horizonte temporal',
+          ],
+          correctIndex: 2,
+          explain:
+            'El DSS se orienta al futuro (proyecciones, escenarios). El TPS al presente inmediato y el MIS al pasado y presente.',
+        },
+        {
+          id: 'mc-15-4',
+          q: '¿Qué criterio usa el apunte para clasificar los SI en TPS, MIS y DSS?',
+          options: [
+            'El precio del software',
+            'El nivel jerárquico al que sirven y el tipo de problemas que resuelven',
+            'La marca del fabricante',
+            'La cantidad de usuarios conectados',
+          ],
+          correctIndex: 1,
+          explain:
+            'Se clasifican según el nivel jerárquico de la organización al que sirven y el tipo de problemas/decisiones que resuelven.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-15-1',
+        front: 'TPS (Transaction Processing System)',
+        back:
+          'Sistema de nivel operativo que registra y procesa el gran volumen de transacciones diarias. Rápido, confiable y eficiente.',
+      },
+      {
+        id: 'fc-15-2',
+        front: 'MIS (Management Information System)',
+        back:
+          'Sistema de nivel táctico que genera informes y resúmenes (a partir de los datos del TPS) para los gerentes de nivel medio.',
+      },
+      {
+        id: 'fc-15-3',
+        front: 'DSS (Decision Support System)',
+        back:
+          'Sistema de nivel estratégico, interactivo y flexible, que ayuda a la alta gerencia a tomar decisiones complejas y no estructuradas con modelos.',
+      },
+      {
+        id: 'fc-15-4',
+        front: 'Criterio de clasificación de los SI',
+        back: 'El nivel jerárquico de la organización al que sirven y el tipo de problemas/decisiones que resuelven.',
+      },
+      {
+        id: 'fc-15-5',
+        front: 'Fuente de datos del MIS',
+        back: 'Los datos generados por el TPS (más otras fuentes), que el MIS resume en informes.',
+      },
+      {
+        id: 'fc-15-6',
+        front: 'Ejemplos de TPS',
+        back: 'Punto de venta (POS), cajero automático (ATM), sistema de nómina, reservas de vuelos.',
+      },
+      {
+        id: 'fc-15-7',
+        front: 'Decisiones que apoya el DSS',
+        back:
+          'Únicas, complejas y no estructuradas, donde no hay procedimiento claro. Permite simular escenarios “¿qué pasaría si...?”.',
+      },
+      {
+        id: 'fc-15-8',
+        front: 'Tipo de decisión por sistema',
+        back: 'TPS: ninguna (registra datos). MIS: estructurada. DSS: no estructurada o semiestructurada.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 16 ----------
+  {
+    id: '16',
+    unit: '9',
+    title: 'Para reflexionar',
+    criollo:
+      'Cierre para pensar: la tecnología sola no hace la diferencia; la hacen las empresas que aprenden a usarla. Las que dominan sus sistemas de información se comen el mercado.',
+    blocks: [
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          '“Las empresas exitosas son las que aprenden cómo usar las tecnologías, para sacar provecho en sus negocios.” — Laudon y Laudon (2012)',
+      },
+      {
+        type: 'h3',
+        text: '¿Qué hace la diferencia?',
+        criollo:
+          'No es solo tener un buen producto: es saber usar los datos para entender al cliente, afinar la logística y decidir con cabeza.',
+      },
+      {
+        type: 'p',
+        text:
+          '¿Qué diferencia a empresas como Mercado Libre, Netflix o Amazon del resto? No es solo su producto, sino su dominio magistral de los sistemas de información para entender al cliente, optimizar su logística y tomar decisiones estratégicas basadas en datos.',
+      },
+      {
+        type: 'p',
+        text:
+          'Una pregunta para llevarse: ¿cómo podría un sistema de información transformar un negocio tradicional que conozcas, como un restaurante de barrio o un taller mecánico?',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Referencia: Laudon, K. C. y Laudon, J. P. (2012). <strong>Sistemas de información gerencial: Administración de la empresa digital</strong> (12.ª ed.). México: Pearson Educación.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-16-1',
+          q: 'Según Laudon y Laudon, las empresas exitosas son las que aprenden a usar las tecnologías para sacar provecho en sus negocios.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la frase que cierra el apunte y resume su idea central.',
+        },
+        {
+          id: 'tf-16-2',
+          q: 'Lo que distingue a empresas como Mercado Libre, Netflix o Amazon es exclusivamente su producto, no su uso de los sistemas de información.',
+          a: false,
+          explain:
+            'Falso. El apunte remarca que la diferencia está en su dominio de los SI para entender al cliente, optimizar la logística y decidir con datos.',
+        },
+        {
+          id: 'tf-16-3',
+          q: 'Un sistema de información solo sirve para grandes empresas tecnológicas, no para un negocio tradicional.',
+          a: false,
+          explain:
+            'Falso. El apunte invita justamente a pensar cómo un SI podría transformar un negocio tradicional (un restaurante de barrio, un taller mecánico).',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-16-1',
+          q: 'Según el apunte, ¿qué tienen en común Mercado Libre, Netflix y Amazon?',
+          options: [
+            'Venden el mismo producto',
+            'Su dominio de los sistemas de información para entender al cliente y decidir con datos',
+            'Son empresas pequeñas',
+            'No usan tecnología',
+          ],
+          correctIndex: 1,
+          explain:
+            'Su diferencial es el dominio magistral de los SI: entender al cliente, optimizar la logística y tomar decisiones basadas en datos.',
+        },
+        {
+          id: 'mc-16-2',
+          q: 'La frase “las empresas exitosas son las que aprenden cómo usar las tecnologías…” pertenece a:',
+          options: ['Bill Gates', 'Laudon y Laudon (2012)', 'Steve Jobs', 'Henry Ford'],
+          correctIndex: 1,
+          explain: 'Es de Laudon y Laudon (2012), los autores de referencia del apunte.',
+        },
+        {
+          id: 'mc-16-3',
+          q: 'La obra de referencia citada en el apunte es:',
+          options: [
+            '“Sistemas de información gerencial: Administración de la empresa digital” (Laudon y Laudon, 2012)',
+            '“El arte de la guerra” (Sun Tzu)',
+            '“Reingeniería” (Hammer y Champy)',
+            '“El método Lean Startup” (Ries)',
+          ],
+          correctIndex: 0,
+          explain:
+            'La referencia bibliográfica es Laudon y Laudon (2012), Sistemas de información gerencial: Administración de la empresa digital, Pearson.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-16-1',
+        front: 'Frase central (Laudon y Laudon, 2012)',
+        back:
+          '“Las empresas exitosas son las que aprenden cómo usar las tecnologías, para sacar provecho en sus negocios.”',
+      },
+      {
+        id: 'fc-16-2',
+        front: '¿Qué diferencia a Mercado Libre, Netflix o Amazon?',
+        back:
+          'Su dominio de los sistemas de información para entender al cliente, optimizar la logística y tomar decisiones estratégicas basadas en datos.',
+      },
+      {
+        id: 'fc-16-3',
+        front: 'Pregunta de reflexión del apunte',
+        back:
+          '¿Cómo podría un sistema de información transformar un negocio tradicional, como un restaurante de barrio o un taller mecánico?',
+      },
+      {
+        id: 'fc-16-4',
+        front: 'Obra de referencia',
+        back:
+          'Laudon, K. C. y Laudon, J. P. (2012). Sistemas de información gerencial: Administración de la empresa digital (12.ª ed.). Pearson.',
+      },
+      {
+        id: 'fc-16-5',
+        front: 'Idea de cierre de la unidad',
+        back:
+          'La tecnología sola no da ventaja; la dan las organizaciones que aprenden a usar sus sistemas de información.',
+      },
+    ],
+  },
   ],
   pdfs: [
     { key: 'fundamentos', label: 'Fundamentos', path: 'pdfs/fundamentos.pdf' },
     { key: 'consideraciones', label: 'Consideraciones', path: 'pdfs/consideraciones.pdf' },
     { key: 'presentacion', label: 'Presentación', path: 'pdfs/presentacion.pdf' },
+    { key: 'si-introduccion', label: 'Sistemas de información (apunte)', path: 'pdfs/si-introduccion.pdf' },
+    { key: 'si-presentacion', label: 'Sistemas de información (presentación)', path: 'pdfs/si-presentacion.pdf' },
+    { key: 'si-definiciones', label: 'Sistemas de información (definiciones)', path: 'pdfs/si-definiciones.pdf' },
   ],
 };
