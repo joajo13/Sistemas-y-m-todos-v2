@@ -1,5 +1,5 @@
 import { renderNav } from './nav.js';
-import { getCurrentSubject, getSection } from './content.js';
+import { getCurrentSubject, getSection, getNextSectionWith } from './content.js';
 import { saveQuizScore } from './storage.js';
 
 let subject;
@@ -159,6 +159,10 @@ function renderSummary() {
   const seccionLink = `seccion.html?subject=${subject.id}&id=${section.id}`;
   const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}`;
   const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}`;
+  const nextSection = getNextSectionWith(subject.id, section.id, 'quiz');
+  const nextLink = nextSection
+    ? `quiz.html?subject=${subject.id}&id=${nextSection.id}`
+    : null;
 
   let verdict = '';
   if (pct === 100) verdict = 'Impecable';
@@ -191,8 +195,13 @@ function renderSummary() {
         </div>
       </section>
     ` : ''}
-    <div class="flex flex-col md:flex-row gap-3 mt-10">
-      <a href="${quizLink}" class="btn btn-accent touch-target md:flex-1">Reintentar</a>
+    ${nextSection ? `
+      <a href="${nextLink}" class="btn btn-accent touch-target" style="display:block;margin-top:2.5rem;">
+        Siguiente quiz: ${nextSection.id}. ${nextSection.title} →
+      </a>
+    ` : ''}
+    <div class="flex flex-col md:flex-row gap-3 ${nextSection ? 'mt-3' : 'mt-10'}">
+      <a href="${quizLink}" class="${nextSection ? 'btn-ghost' : 'btn btn-accent'} touch-target md:flex-1">Reintentar</a>
       <a href="${fcLink}" class="btn-ghost touch-target md:flex-1">Flashcards</a>
       <a href="${seccionLink}" class="btn-ghost touch-target md:flex-1">Volver a la sección</a>
     </div>

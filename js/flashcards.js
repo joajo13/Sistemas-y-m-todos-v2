@@ -1,5 +1,5 @@
 import { renderNav } from './nav.js';
-import { getCurrentSubject, getSection } from './content.js';
+import { getCurrentSubject, getSection, getNextSectionWith } from './content.js';
 import { markFlashcard } from './storage.js';
 
 let subject;
@@ -133,6 +133,10 @@ function renderSummary() {
   const seccionLink = `seccion.html?subject=${subject.id}&id=${section.id}`;
   const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}`;
   const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}`;
+  const nextSection = getNextSectionWith(subject.id, section.id, 'flashcards');
+  const nextLink = nextSection
+    ? `flashcards.html?subject=${subject.id}&id=${nextSection.id}`
+    : null;
   const pct = Math.round((knownThisSession / total) * 100);
   s.innerHTML = `
     <div class="result-card fade-in">
@@ -140,8 +144,13 @@ function renderSummary() {
       <p class="result-card-score">${knownThisSession}<span style="color:var(--muted);font-style:normal;font-size:0.55em;letter-spacing:-0.02em;"> ⁄ </span>${total}</p>
       <p class="result-card-meta"><em>${pct}% sabidas</em></p>
     </div>
-    <div class="flex flex-col md:flex-row gap-3 mt-10">
-      <a href="${fcLink}" class="btn btn-accent touch-target md:flex-1">Reiniciar</a>
+    ${nextSection ? `
+      <a href="${nextLink}" class="btn btn-accent touch-target" style="display:block;margin-top:2.5rem;">
+        Siguientes flashcards: ${nextSection.id}. ${nextSection.title} →
+      </a>
+    ` : ''}
+    <div class="flex flex-col md:flex-row gap-3 ${nextSection ? 'mt-3' : 'mt-10'}">
+      <a href="${fcLink}" class="${nextSection ? 'btn-ghost' : 'btn btn-accent'} touch-target md:flex-1">Reiniciar</a>
       <a href="${quizLink}" class="btn-ghost touch-target md:flex-1">Hacer quiz</a>
       <a href="${seccionLink}" class="btn-ghost touch-target md:flex-1">Volver a la sección</a>
     </div>

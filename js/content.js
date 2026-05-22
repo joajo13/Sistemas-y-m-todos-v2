@@ -59,6 +59,22 @@ export function getSection(subjectId, sectionId) {
 }
 
 /**
+ * Devuelve la primera sección posterior a `currentSectionId` (en orden del
+ * array) que tenga la feature pedida ('quiz' o 'flashcards'). Salta secciones
+ * que no la tengan. Devuelve null si no hay ninguna más adelante.
+ */
+export function getNextSectionWith(subjectId, currentSectionId, feature) {
+  const subject = getSubject(subjectId);
+  if (!subject) return null;
+  const idx = subject.sections.findIndex((s) => s.id === currentSectionId);
+  if (idx === -1) return null;
+  for (let i = idx + 1; i < subject.sections.length; i++) {
+    if (subject.sections[i][feature]) return subject.sections[i];
+  }
+  return null;
+}
+
+/**
  * Lee ?subject=<id> de location.search y devuelve el Subject correspondiente.
  * Devuelve null si falta o no existe.
  *
