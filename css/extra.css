@@ -1072,9 +1072,13 @@ body.has-bottom-bar { padding-bottom: 96px; }
   gap: 0;
   border-bottom: 1px solid var(--rule);
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
   margin-bottom: 1.25rem;
 }
+.pdf-tabs::-webkit-scrollbar { display: none; }
 .pdf-tab {
+  flex: 0 0 auto;
   padding: 0.7rem 1.1rem;
   font-family: var(--font-ui);
   font-size: 0.85rem;
