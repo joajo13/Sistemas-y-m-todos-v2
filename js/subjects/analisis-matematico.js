@@ -642,6 +642,64 @@ export default {
           { id: 'mc-5-2', q: 'Resolvé $\\lim_{x \\to 0} \\frac{x}{\\ln(x+1)}$ con L\'Hôpital.', options: ['$1$', '$0$', '$\\infty$', '$\\frac{1}{2}$'], correctIndex: 0, explain: 'Derivando: $\\frac{1}{1/(x+1)} \\to \\frac{1}{1} = 1$.' },
           { id: 'mc-5-3', q: '¿Cuál NO es una condición para aplicar la regla?', options: ['Que $f$ y $g$ sean polinomios', 'Que $f$ y $g$ sean derivables en un entorno reducido de $a$', 'Que $g\'(x) \\ne 0$ en el entorno reducido', 'Que exista y sea finito $\\lim \\frac{f\'(x)}{g\'(x)}$'], correctIndex: 0, explain: 'No se exige que sean polinomios; sí derivabilidad, $g\' \\ne 0$ y que exista el límite de las derivadas.' },
         ],
+        ms: [
+          {
+            id: 'ms-5-1',
+            q: '¿Cuáles son condiciones para aplicar la regla de L\'Hôpital en $\\lim_{x \\to a}\\frac{f(x)}{g(x)}$?',
+            options: [
+              '$f$ y $g$ derivables en un entorno reducido de $a$',
+              '$g\'(x) \\ne 0$ en todo punto del entorno reducido',
+              '$\\lim_{x \\to a} f(x) = 0$ y $\\lim_{x \\to a} g(x) = 0$',
+              'Existe $\\lim_{x \\to a}\\frac{f\'(x)}{g\'(x)} = l$ finito',
+              'Que $f$ y $g$ sean polinomios',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales del apunte. Las funciones NO necesitan ser polinomios — pueden ser cualquiera que cumpla las condiciones.',
+          },
+          {
+            id: 'ms-5-2',
+            q: '¿Qué afirmaciones sobre la regla de L\'Hôpital son correctas?',
+            options: [
+              'Si se cumplen las condiciones, $\\lim \\frac{f}{g} = \\lim \\frac{f\'}{g\'}$',
+              'Permite salvar la indeterminación derivando numerador y denominador',
+              'Se aplica derivando arriba y abajo cada uno por separado, no es la regla del cociente',
+              'En el caso básico, $f$ y $g$ son infinitésimos en $a$',
+              'Es la regla del cociente aplicada al límite',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. L\'Hôpital NO es la regla del cociente: deriva arriba y abajo cada uno por separado, no aplica $(f/g)\'$.',
+          },
+          {
+            id: 'ms-5-3',
+            q: '¿Qué afirmaciones sobre la validez del recíproco son correctas?',
+            options: [
+              'El recíproco del teorema NO es válido',
+              'Puede existir $\\lim \\frac{f(x)}{g(x)}$ y no existir $\\lim \\frac{f\'(x)}{g\'(x)}$',
+              'Si existe el límite del cociente original, existe el de las derivadas',
+              'Si existe el límite de las derivadas (y las condiciones), existe el límite del cociente',
+              'La implicación va en ambos sentidos',
+            ],
+            correctIndexes: [0, 1, 3],
+            explain:
+              'Las opciones 1, 2 y 4 son correctas. Las opciones 3 y 5 contradicen explícitamente lo que afirma el apunte: el recíproco NO vale.',
+          },
+          {
+            id: 'ms-5-4',
+            q: 'Sobre los ejemplos resueltos en la sección, ¿qué es correcto?',
+            options: [
+              '$\\lim_{x \\to 0}\\frac{x}{\\ln(x+1)} = 1$',
+              '$\\lim_{x \\to 3}\\frac{x^2-9}{x-3} = 6$',
+              'En el segundo ejemplo, derivando se llega a $\\lim_{x \\to 3}\\frac{2x}{1}$',
+              '$\\lim_{x \\to 0}\\frac{x}{\\ln(x+1)}$ es una indeterminación $0/0$',
+              '$\\lim_{x \\to 3}\\frac{x^2-9}{x-3}$ es una forma $\\infty/\\infty$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. El segundo ejemplo es $0/0$ (no $\\infty/\\infty$): en $x = 3$ tanto $x^2 - 9$ como $x - 3$ se anulan.',
+          },
+        ],
       },
       flashcards: [
         { id: 'fc-5-1', front: '¿Qué es la regla de L\'Hôpital?', back: 'Un método para salvar indeterminaciones de un límite derivando numerador y denominador por separado.' },
@@ -704,6 +762,64 @@ export default {
           { id: 'mc-6-1', q: '¿Cuánto vale $\\lim_{x \\to 0} \\frac{x^2 - x^3}{e^x - x - 1}$?', options: ['$2$', '$0$', '$1$', '$\\infty$'], correctIndex: 0, explain: 'Aplicando L\'Hôpital dos veces se llega a $\\frac{2 - 6x}{e^x} \\to 2$.' },
           { id: 'mc-6-2', q: 'Al derivar $2^x - 1$ respecto de $x$ se obtiene:', options: ['$2^x \\ln 2$', '$2^x$', '$x \\cdot 2^{x-1}$', '$\\ln 2$'], correctIndex: 0, explain: 'La derivada de $a^x$ es $a^x \\ln a$.' },
           { id: 'mc-6-3', q: '¿Cuánto vale $\\lim_{x \\to +\\infty} \\frac{5x}{e^{2x-1}}$?', options: ['$0$', '$\\infty$', '$5$', '$\\frac{5}{2}$'], correctIndex: 0, explain: 'Por L\'Hôpital queda $\\frac{5}{2e^{2x-1}} \\to 0$ porque el denominador crece sin límite.' },
+        ],
+        ms: [
+          {
+            id: 'ms-6-1',
+            q: '¿Qué afirmaciones sobre la aplicación reiterada de la regla son correctas?',
+            options: [
+              'Si tras derivar una vez sigue la indeterminación, se vuelve a aplicar',
+              'Puede aplicarse hasta el orden $n$ de derivación',
+              'Se aplica mientras se sigan cumpliendo las condiciones',
+              'Cada nueva aplicación deriva numerador y denominador por separado',
+              'Se aplica un número ilimitado de veces sin validar las condiciones',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. Las condiciones deben seguir cumpliéndose en cada paso — no es un comodín ilimitado.',
+          },
+          {
+            id: 'ms-6-2',
+            q: 'En $\\lim_{x \\to 0}\\frac{x^2 - x^3}{e^x - x - 1}$, ¿qué pasos se siguen?',
+            options: [
+              'Primera derivación: $\\frac{2x - 3x^2}{e^x - 1}$ (sigue siendo $0/0$)',
+              'Segunda derivación: $\\frac{2 - 6x}{e^x}$',
+              'El resultado final es $2$',
+              'La regla se aplica dos veces',
+              'La regla se aplica una sola vez y ya da el resultado',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. Una sola aplicación deja $\\frac{2x - 3x^2}{e^x - 1}$, que sigue siendo $0/0$.',
+          },
+          {
+            id: 'ms-6-3',
+            q: '¿En qué situaciones puede aplicarse la regla según esta sección?',
+            options: [
+              'Cuando $f\'$ y $g\'$ son infinitésimos en $a$ y se cumplen las hipótesis',
+              'Cuando $\\lim f\'(x) \\ne 0$ y $\\lim g\'(x) = 0$',
+              'Para $x \\to +\\infty$',
+              'Para $x \\to -\\infty$',
+              'Únicamente cuando $x$ tiende a un número finito',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales del apunte. La regla se extiende a límites en $\\pm\\infty$, no se limita a $x \\to a$ finito.',
+          },
+          {
+            id: 'ms-6-4',
+            q: 'Sobre $\\lim_{x \\to +\\infty}\\frac{5x}{e^{2x-1}}$, ¿qué es correcto?',
+            options: [
+              'Es una indeterminación $\\frac{\\infty}{\\infty}$',
+              'Aplicando L\'Hôpital queda $\\frac{5}{e^{2x-1} \\cdot 2}$',
+              'El denominador crece sin límite',
+              'El valor del límite es $0$',
+              'El valor del límite es $\\infty$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. El exponencial domina a la potencia lineal, así que el cociente tiende a 0, no a infinito.',
+          },
         ],
       },
       flashcards: [
@@ -774,6 +890,64 @@ export default {
           { id: 'mc-7-1', q: '¿Cuánto vale $\\lim_{x \\to +\\infty} \\frac{\\ln(1 + e^x)}{2x}$?', options: ['$\\frac{1}{2}$', '$0$', '$1$', '$\\infty$'], correctIndex: 0, explain: 'Aplicando L\'Hôpital dos veces y simplificando queda $\\frac{e^x}{2e^x} = \\frac{1}{2}$.' },
           { id: 'mc-7-2', q: 'Para resolver una indeterminación $0 \\cdot \\infty$, el primer paso es:', options: ['Transformar el producto en un cociente', 'Derivar el producto directamente', 'Aplicar logaritmo', 'Factorizar y simplificar'], correctIndex: 0, explain: 'Primero se reescribe como cociente para obtener $\\frac{0}{0}$ o $\\frac{\\infty}{\\infty}$, después se aplica la regla y por último se factoriza y simplifica.' },
           { id: 'mc-7-3', q: '¿Cuánto vale $\\lim_{x \\to 1} (x^2 - 1)\\ln(x-1)$?', options: ['$0$', '$1$', '$-1$', '$\\infty$'], correctIndex: 0, explain: 'Reescribiéndolo como cociente y aplicando L\'Hôpital da $0$.' },
+        ],
+        ms: [
+          {
+            id: 'ms-7-1',
+            q: '¿Qué condiciones hacen falta para aplicar L\'Hôpital al caso $\\frac{\\infty}{\\infty}$?',
+            options: [
+              '$\\lim f(x) = \\infty$ y $\\lim g(x) = \\infty$',
+              '$f$ y $g$ derivables en todo entorno reducido de $a$',
+              '$g\'(x) \\ne 0$',
+              'Existe $\\lim \\frac{f\'(x)}{g\'(x)} = l$',
+              '$f$ y $g$ son infinitésimos en $a$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. La última condición describe el caso $0/0$, no $\\infty/\\infty$.',
+          },
+          {
+            id: 'ms-7-2',
+            q: '¿Cuáles son los pasos para resolver una indeterminación $0 \\cdot \\infty$?',
+            options: [
+              'Transformar el producto en cociente',
+              'Aplicar la regla de L\'Hôpital',
+              'Factorizar y simplificar para llegar al valor del límite',
+              'Derivar directamente el producto sin transformarlo',
+              'Aplicar logaritmo a ambos miembros',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain:
+              'Los tres pasos textuales son transformar en cociente, aplicar la regla y factorizar/simplificar. Aplicar logaritmo es para formas exponenciales, no para $0 \\cdot \\infty$.',
+          },
+          {
+            id: 'ms-7-3',
+            q: 'Para llevar $0 \\cdot \\infty$ a un cociente, ¿qué reescrituras son válidas según el apunte?',
+            options: [
+              '$f(x) \\cdot g(x) = \\dfrac{f(x)}{1/g(x)}$ (queda $0/0$)',
+              'Reescribir como $\\dfrac{g(x)}{1/f(x)}$ (queda $\\infty/\\infty$)',
+              'Conservar el producto y derivar cada factor',
+              'Sumarle un infinitésimo para forzar el cociente',
+              'Restar $1$ al numerador',
+            ],
+            correctIndexes: [0, 1],
+            explain:
+              'Las dos reescrituras del apunte son esas. No se conserva el producto ni se inventan operaciones ad hoc.',
+          },
+          {
+            id: 'ms-7-4',
+            q: 'Sobre los ejemplos resueltos en la sección, ¿qué es correcto?',
+            options: [
+              '$\\lim_{x \\to 0^+}\\frac{\\ln x}{1/x} = 0$',
+              '$\\lim_{x \\to +\\infty}\\frac{\\ln(1+e^x)}{2x} = \\frac{1}{2}$',
+              '$\\lim_{x \\to 1}(x^2 - 1)\\ln(x-1) = 0$',
+              'El último ejemplo requiere reescribir el producto como cociente antes de aplicar L\'Hôpital',
+              'El segundo ejemplo solo requiere una aplicación de L\'Hôpital',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. El segundo ejemplo se resuelve con DOS aplicaciones de L\'Hôpital antes de simplificar.',
+          },
         ],
       },
       flashcards: [
@@ -862,6 +1036,64 @@ export default {
           { id: 'mc-8-2', q: '¿Cuánto vale $\\lim_{x \\to 0^+} x^x$?', options: ['$1$', '$0$', '$e$', '$\\infty$'], correctIndex: 0, explain: 'Se obtiene $\\ln l = 0$, entonces $l = 1$.' },
           { id: 'mc-8-3', q: '¿Cuánto vale $\\lim_{x \\to \\infty} \\left(\\frac{2x+1}{2x+3}\\right)^{x+2}$?', options: ['$e^{1/2}$', '$1$', '$e$', '$e^{-1}$'], correctIndex: 0, explain: 'Se llega a $\\ln l = \\frac{1}{2}$, por lo tanto $l = e^{1/2}$.' },
           { id: 'mc-8-4', q: 'En el ejemplo a) de ∞−∞, $\\lim_{x \\to +\\infty}(e^x - x^2)$ da:', options: ['$\\infty$', '$0$', '$1$', '$-\\infty$'], correctIndex: 0, explain: 'El numerador tiende a $1$ y el denominador ($e^{-x}$) a $0$, así que el límite es infinito.' },
+        ],
+        ms: [
+          {
+            id: 'ms-8-1',
+            q: '¿Qué estrategias propone el apunte para resolver $\\infty - \\infty$?',
+            options: [
+              'Sacar común denominador y transformar en un cociente',
+              'Sacar factor común para llevarla a $0 \\cdot \\infty$',
+              'Luego transformar el $0 \\cdot \\infty$ en un cociente y aplicar la regla',
+              'Aplicar L\'Hôpital directamente sobre la resta sin transformar',
+              'Aplicar logaritmo a la resta de infinitos',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain:
+              'Las primeras tres son textuales. No se aplica la regla directamente sobre la resta ni se usa logaritmo para esta forma.',
+          },
+          {
+            id: 'ms-8-2',
+            q: 'Sobre las indeterminaciones exponenciales $0^0$, $\\infty^0$ y $1^\\infty$, ¿qué es correcto?',
+            options: [
+              'Se aplica logaritmo a ambos miembros',
+              'El logaritmo baja el exponente como factor: $\\ln l = \\lim g(x) \\cdot \\ln[f(x)]$',
+              'Después se transforma en cociente y se aplica L\'Hôpital',
+              'Al final se vuelve con $l = e^{\\ln l}$',
+              'Se aplica L\'Hôpital directamente a $[f(x)]^{g(x)}$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. NO se aplica L\'Hôpital directamente a la potencia: hay que pasar por el logaritmo.',
+          },
+          {
+            id: 'ms-8-3',
+            q: 'Sobre los ejemplos resueltos en esta sección, ¿qué es correcto?',
+            options: [
+              '$\\lim_{x \\to +\\infty}(e^x - x^2) = \\infty$',
+              '$\\lim_{x \\to 3}\\left(\\frac{1}{x-3} - \\frac{1}{\\ln(x-2)}\\right) = -\\frac{1}{2}$',
+              '$\\lim_{x \\to 0^+} x^x = 1$',
+              '$\\lim_{x \\to \\infty}\\left(\\frac{2x+1}{2x+3}\\right)^{x+2} = e^{1/2}$',
+              '$\\lim_{x \\to 0^+} x^x = 0$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. En $x^x$ se obtiene $\\ln l = 0$, por lo que $l = e^0 = 1$, no 0.',
+          },
+          {
+            id: 'ms-8-4',
+            q: 'Sobre el procedimiento para $\\lim_{x \\to 0^+} x^x$, ¿qué pasos son correctos?',
+            options: [
+              'Aplicar $\\ln$ a ambos miembros: $\\ln l = \\lim x \\cdot \\ln x$',
+              'Reescribir como cociente: $\\lim \\dfrac{\\ln x}{x^{-1}}$',
+              'Aplicar L\'Hôpital y simplificar: $\\dfrac{x^2}{-x} \\to 0$',
+              'Concluir $\\ln l = 0$ y por tanto $l = 1$',
+              'Derivar directamente $x^x$ sin pasar por el logaritmo',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son los pasos textuales del cuadro a). Derivar $x^x$ directamente sin logaritmo no es viable porque hay variable en exponente y base.',
+          },
         ],
       },
       flashcards: [
