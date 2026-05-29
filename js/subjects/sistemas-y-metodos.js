@@ -3098,6 +3098,64 @@ export default {
             'Es la retroalimentación (feedback): compara la temperatura real con la deseada y ajusta el funcionamiento del sistema.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-12-1',
+          q: '¿Qué elementos posee todo sistema según el apunte?',
+          options: [
+            'Entrada (input)',
+            'Proceso de transformación',
+            'Salida (output)',
+            'Mecanismo de retroalimentación (feedback)',
+            'Stakeholders externos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro elementos canónicos del sistema son input, proceso, output y feedback. Los stakeholders están fuera del sistema, en el medioambiente.',
+        },
+        {
+          id: 'ms-12-2',
+          q: '¿Qué afirmaciones sobre dato e información son correctas?',
+          options: [
+            'El dato es la materia prima: hechos en bruto sin contexto',
+            'La información es el resultado de procesar y estructurar datos para darles significado',
+            'La información reduce la incertidumbre',
+            'La información sirve de base para la toma de decisiones',
+            'El dato por sí solo es información útil',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El dato AISLADO no es información: necesita procesamiento y contexto.',
+        },
+        {
+          id: 'ms-12-3',
+          q: '¿Qué afirmaciones sobre método y procedimiento son correctas?',
+          options: [
+            'El método es una forma ordenada y sistemática de realizar una acción',
+            'El método responde a "qué hacer" y "cómo" a nivel general',
+            'El procedimiento es la implementación detallada de un método',
+            'El procedimiento es una serie de pasos explícitos para una tarea estandarizada',
+            'Método y procedimiento son sinónimos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Justamente el apunte los distingue: método es general, procedimiento es detallado.',
+        },
+        {
+          id: 'ms-12-4',
+          q: '¿Qué afirmaciones sobre el área de organización y métodos son correctas?',
+          options: [
+            'Se encarga de analizar problemas de estructura y procedimientos de una empresa',
+            'Busca optimizar la infraestructura organizativa',
+            'Apoya el logro de los objetivos definidos',
+            'Solo se ocupa del hardware del sistema',
+            'Es parte de las TIC (Tecnologías de la Información y la Comunicación)',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las primeras dos, la tercera y la quinta son textuales. El área no se limita al hardware — analiza estructura y procedimientos.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -3275,6 +3333,64 @@ export default {
             'Las finalidades son procesar entradas, mantener archivos de datos y producir información/reportes/salidas. Reemplazar a las personas no es una finalidad del SI.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-13-1',
+          q: '¿Cuáles son los cinco componentes clave de un sistema de información?',
+          options: [
+            'Hardware',
+            'Software',
+            'Datos',
+            'Personas',
+            'Procesos',
+          ],
+          correctIndexes: [0, 1, 2, 3, 4],
+          explain:
+            'Los cinco componentes textuales son hardware, software, datos, personas y procesos. Todos son correctos.',
+        },
+        {
+          id: 'ms-13-2',
+          q: '¿Qué actividades realiza un sistema de información según el apunte y Laudon & Laudon?',
+          options: [
+            'Recolectar (o recuperar)',
+            'Procesar',
+            'Almacenar',
+            'Distribuir información',
+            'Reemplazar a la alta gerencia en la decisión final',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El SI apoya la toma de decisiones, no la reemplaza.',
+        },
+        {
+          id: 'ms-13-3',
+          q: '¿Qué afirmaciones sobre sistemas abiertos y entorno son correctas?',
+          options: [
+            'Los sistemas abiertos interactúan con su medioambiente',
+            'Los sistemas abiertos reciben entradas y producen salidas',
+            'El medioambiente está formado por todos los objetos fuera de las fronteras del sistema',
+            'Los sistemas trabajan mejor dentro de niveles de desempeño tolerables',
+            'Un sistema cerrado interactúa libremente con el entorno',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Un sistema CERRADO es justamente lo opuesto a uno abierto — no interactúa con el entorno.',
+        },
+        {
+          id: 'ms-13-4',
+          q: '¿Cuáles son finalidades de un sistema de información según el apunte?',
+          options: [
+            'Procesar entradas',
+            'Mantener archivos de datos relacionados con la organización',
+            'Producir información, reportes y otras salidas',
+            'Apoyar las operaciones, la gestión y la toma de decisiones',
+            'Reemplazar a los stakeholders externos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El SI no reemplaza stakeholders — interactúa con ellos.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -3437,6 +3553,64 @@ export default {
           correctIndex: 1,
           explain:
             'Mejora la calidad de las decisiones con información oportuna y precisa, y permite el análisis de tendencias.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-14-1',
+          q: '¿Cuáles son las tres grandes áreas de beneficios de los SI?',
+          options: [
+            'Eficiencia operativa',
+            'Soporte a la toma de decisiones',
+            'Ventaja estratégica',
+            'Reducción del horizonte temporal',
+            'Eliminación total de la incertidumbre',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las tres áreas son eficiencia operativa, soporte a la toma de decisiones y ventaja estratégica. Las otras opciones no son áreas que el apunte mencione.',
+        },
+        {
+          id: 'ms-14-2',
+          q: '¿Cuáles beneficios pertenecen a la eficiencia operativa?',
+          options: [
+            'Aumento de la productividad',
+            'Reducción de costos operacionales',
+            'Control de gastos',
+            'Mejora de la relación con el cliente',
+            'Creación de nuevos productos y servicios',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Productividad, reducción de costos y control de gastos pertenecen a la eficiencia operativa. La relación con el cliente y los nuevos productos son ventaja estratégica.',
+        },
+        {
+          id: 'ms-14-3',
+          q: '¿Qué afirmaciones sobre el soporte a la toma de decisiones son correctas?',
+          options: [
+            'Proporciona información oportuna, precisa y relevante a los gerentes',
+            'Permite el análisis de tendencias',
+            'Permite identificar patrones de mercado, comportamiento de clientes o problemas internos',
+            'Reemplaza por completo el juicio de los gerentes',
+            'Trabaja sobre grandes volúmenes de datos',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las primeras dos, la tercera y la quinta son textuales. El SI APOYA la decisión gerencial, no la reemplaza.',
+        },
+        {
+          id: 'ms-14-4',
+          q: '¿Qué ejemplos o componentes pertenecen a la ventaja estratégica?',
+          options: [
+            'Nuevos modelos de negocio basados en información (streaming, banca online)',
+            'CRM para personalizar la atención y fidelizar clientes',
+            'Mejora de la relación con el cliente',
+            'Optimización del uso de recursos minimizando errores',
+            'Automatización de tareas rutinarias',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son ventaja estratégica. Optimización de recursos y automatización pertenecen a eficiencia operativa.',
         },
       ],
     },
@@ -3701,6 +3875,64 @@ export default {
             'Se clasifican según el nivel jerárquico de la organización al que sirven y el tipo de problemas/decisiones que resuelven.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-15-1',
+          q: '¿Qué afirmaciones sobre el TPS (Transaction Processing System) son correctas?',
+          options: [
+            'Opera a nivel operativo',
+            'Atiende a los trabajadores de primera línea',
+            'Tiene alta velocidad: procesa miles de transacciones en poco tiempo',
+            'Es confiable y consistente',
+            'Apoya decisiones no estructuradas de la alta gerencia',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El TPS no toma decisiones — registra transacciones. La alta gerencia y las decisiones no estructuradas son del DSS.',
+        },
+        {
+          id: 'ms-15-2',
+          q: '¿Qué afirmaciones sobre el MIS (Management Information System) son correctas?',
+          options: [
+            'Opera a nivel táctico',
+            'Sirve a gerentes de nivel medio',
+            'Su salida principal son informes predefinidos',
+            'Apoya decisiones estructuradas',
+            'Usa los datos generados por los TPS como principal fuente de entrada',
+          ],
+          correctIndexes: [0, 1, 2, 3, 4],
+          explain:
+            'Las cinco son textuales del apunte. El MIS es la capa intermedia que consume datos del TPS para informar a gerentes medios.',
+        },
+        {
+          id: 'ms-15-3',
+          q: '¿Qué afirmaciones sobre el DSS (Decision Support System) son correctas?',
+          options: [
+            'Opera a nivel estratégico',
+            'Es interactivo: el usuario puede manipular datos y modelos',
+            'Es flexible: permite definir las propias consultas y análisis',
+            'Usa modelos analíticos (estadísticos, optimización, simulación)',
+            'Su horizonte temporal es el pasado y presente inmediato',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El horizonte del DSS es el FUTURO; el del TPS es el presente inmediato.',
+        },
+        {
+          id: 'ms-15-4',
+          q: 'Según el cuadro comparativo, ¿qué correspondencias son correctas?',
+          options: [
+            'TPS · horizonte: pasado y presente inmediato',
+            'MIS · horizonte: pasado y presente',
+            'DSS · horizonte: futuro',
+            'TPS · tipo de decisión: ninguna (registra datos)',
+            'MIS · tipo de decisión: no estructurada',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del cuadro. El MIS apoya decisiones ESTRUCTURADAS; las NO estructuradas son del DSS.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -3844,6 +4076,64 @@ export default {
           correctIndex: 0,
           explain:
             'La referencia bibliográfica es Laudon y Laudon (2012), Sistemas de información gerencial: Administración de la empresa digital, Pearson.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-16-1',
+          q: '¿Qué diferencia, según el apunte, a empresas como Mercado Libre, Netflix o Amazon?',
+          options: [
+            'Su dominio magistral de los sistemas de información',
+            'Su capacidad de entender al cliente',
+            'La optimización de su logística',
+            'La toma de decisiones estratégicas basada en datos',
+            'El hecho de no usar tecnología',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El apunte plantea exactamente lo opuesto a "no usar tecnología".',
+        },
+        {
+          id: 'ms-16-2',
+          q: '¿Qué afirmaciones derivadas de Laudon y Laudon (2012) son correctas según el apunte?',
+          options: [
+            'Las empresas exitosas son las que aprenden cómo usar las tecnologías',
+            'El propósito es sacar provecho de la tecnología en sus negocios',
+            'La obra es "Sistemas de información gerencial: Administración de la empresa digital"',
+            'Es la 12.ª edición publicada por Pearson Educación',
+            'Postula que la tecnología por sí sola garantiza el éxito empresarial',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La idea de cierre es justamente la opuesta: la tecnología sola NO da ventaja; la dan las organizaciones que aprenden a usarla.',
+        },
+        {
+          id: 'ms-16-3',
+          q: '¿Qué reflexiones plantea el apunte como cierre de la unidad?',
+          options: [
+            'Pensar cómo un SI podría transformar un negocio tradicional',
+            'Considerar ejemplos como un restaurante de barrio o un taller mecánico',
+            'Reconocer que el dominio de los SI marca la diferencia competitiva',
+            'Asumir que los SI solo aplican a grandes corporaciones',
+            'Concluir que la tecnología vuelve irrelevantes a las personas',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales. El apunte rechaza las dos últimas: invita a pensar SI en negocios chicos y NO afirma que la tecnología desplace a las personas.',
+        },
+        {
+          id: 'ms-16-4',
+          q: '¿Qué afirmaciones sobre el rol estratégico de los SI son correctas según el cierre?',
+          options: [
+            'Permiten entender al cliente',
+            'Permiten optimizar la logística',
+            'Permiten tomar decisiones basadas en datos',
+            'Son útiles tanto para grandes empresas como para negocios tradicionales',
+            'Por sí solos garantizan ventaja competitiva sin esfuerzo organizacional',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El apunte enfatiza que la ventaja la dan las organizaciones que aprenden a usar los SI, no la mera tenencia de tecnología.',
         },
       ],
     },
