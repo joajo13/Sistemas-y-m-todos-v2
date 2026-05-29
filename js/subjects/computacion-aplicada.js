@@ -3219,6 +3219,64 @@ export default {
           explain: '<code>/etc/environment</code> aplica variables de entorno para todo el sistema (usuarios y procesos).',
         },
       ],
+      ms: [
+        {
+          id: 'ms-12-1',
+          q: '¿Cuáles son ventajas de usar alias según el apunte?',
+          options: [
+            'Ahorra tiempo y simplifica comandos largos',
+            'Minimiza errores tipográficos',
+            'Permite personalizar comandos predeterminados',
+            'Reemplaza la necesidad de aprender bash',
+            'Mejora el throughput de I/O del disco',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales. Los alias no reemplazan bash ni cambian el rendimiento de I/O.',
+        },
+        {
+          id: 'ms-12-2',
+          q: '¿Qué afirmaciones sobre alias temporales vs permanentes son correctas?',
+          options: [
+            'Un alias definido en la terminal es temporal: dura hasta cerrar la sesión',
+            'Para que sea permanente hay que ponerlo en un archivo de configuración',
+            '~/.bashrc es el lugar habitual para alias personales',
+            'source ~/.bashrc recarga la configuración sin reabrir terminal',
+            'Los alias definidos en la terminal sobreviven al cierre de sesión',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El último es justamente lo que el apunte advierte contra.',
+        },
+        {
+          id: 'ms-12-3',
+          q: '¿Qué archivos de configuración de USUARIO menciona el apunte?',
+          options: [
+            '.bashrc',
+            '.profile',
+            '.bash_profile',
+            '/etc/profile',
+            '/etc/environment',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales de usuario. /etc/profile y /etc/environment son globales del SISTEMA.',
+        },
+        {
+          id: 'ms-12-4',
+          q: '¿Qué afirmaciones sobre archivos del sistema son correctas?',
+          options: [
+            'Afectan a todos los usuarios',
+            'Generalmente están en /etc',
+            '/etc/bash.bashrc es equivalente global a .bashrc',
+            '/etc/environment solo define variables, no ejecuta comandos',
+            '/etc/environment puede correr scripts complejos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. /etc/environment NO ejecuta scripts: es la diferencia con .profile y .bashrc.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -3512,6 +3570,64 @@ export default {
           ],
           correctIndex: 1,
           explain: 'SIGSTOP no puede ser ignorada ni bloqueada. SIGTSTP es la señal que manda la terminal con Ctrl+Z y sí puede ser atrapada por el programa.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-13-1',
+          q: '¿Qué afirmaciones sobre las señales SIGTERM, SIGKILL y SIGHUP son correctas?',
+          options: [
+            'SIGTERM (15) pide al proceso que termine ordenadamente',
+            'SIGTERM es la señal predeterminada de kill',
+            'SIGKILL (9) fuerza la finalización inmediata sin chance de limpieza',
+            'SIGHUP (1) hace que el proceso recargue su configuración',
+            'SIGKILL es la señal default si no se especifica',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La default es SIGTERM, no SIGKILL.',
+        },
+        {
+          id: 'ms-13-2',
+          q: '¿Qué afirmaciones sobre SIGSTOP, SIGTSTP y SIGCONT son correctas?',
+          options: [
+            'SIGSTOP (19) suspende el proceso sin terminarlo',
+            'SIGSTOP libera CPU pero el proceso sigue en memoria',
+            'SIGSTOP no puede ignorarse ni bloquearse',
+            'SIGTSTP (20) es el equivalente a Ctrl+Z',
+            'SIGCONT (18) termina el proceso',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. SIGCONT REANUDA un proceso pausado — no lo termina.',
+        },
+        {
+          id: 'ms-13-3',
+          q: 'Sobre los comandos kill y killall, ¿qué es correcto?',
+          options: [
+            'kill envía señales a un PID específico',
+            'killall envía señales a todos los procesos con un nombre dado',
+            'kill -9 PID envía SIGKILL',
+            'killall -9 chrome mata todos los procesos llamados "chrome"',
+            'killall opera por PID, no por nombre',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. killall opera por NOMBRE, esa es justamente la diferencia con kill.',
+        },
+        {
+          id: 'ms-13-4',
+          q: '¿Qué afirmaciones del cuadro de señales más usadas son correctas?',
+          options: [
+            'SIGHUP = 1',
+            'SIGKILL = 9',
+            'SIGTERM = 15',
+            'SIGSTOP = 19',
+            'kill cuenta con un total de 16 señales',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del cuadro. El apunte indica 64 señales en total, no 16.',
         },
       ],
     },
