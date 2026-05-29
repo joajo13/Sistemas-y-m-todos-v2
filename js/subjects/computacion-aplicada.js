@@ -3955,6 +3955,64 @@ export default {
           explain: 'Sin <code>./</code>, la shell busca el ejecutable en los directorios listados en <code>$PATH</code>. Con <code>./</code> le decís que lo busque en el directorio actual.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-14-1',
+          q: '¿Qué afirmaciones sobre scripts y shebang son correctas?',
+          options: [
+            'Un script es un archivo con sucesión de comandos de Shell',
+            'Bash ejecuta el código en el orden en que se escribe',
+            'El shebang son los 2 primeros bytes (#!) seguidos del intérprete',
+            'La extensión .sh es una convención, no requerida por Linux',
+            'Linux usa la extensión del archivo para identificar el tipo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Linux clasifica por los primeros 2 bytes, no por la extensión.',
+        },
+        {
+          id: 'ms-14-2',
+          q: '¿Qué formas de ejecutar un script lista el apunte?',
+          options: [
+            '/home/alumno/control.sh (ruta absoluta)',
+            'control.sh (si está en el $PATH)',
+            'bash control.sh (invocar al intérprete)',
+            './control.sh (desde el directorio actual)',
+            'run control.sh',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. "run" no es una forma estándar.',
+        },
+        {
+          id: 'ms-14-3',
+          q: 'Sobre variables en bash, ¿qué es correcto?',
+          options: [
+            'Son dinámicas: no es necesario declarar su tipo',
+            'Las definidas por el programador se recomienda nombrarlas en MAYÚSCULAS',
+            'Se invocan con $ antepuesto al nombre',
+            'La salida de un comando se puede capturar con `comando` o $(comando)',
+            'Hay que declarar el tipo (int, string) antes de asignar',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Bash es de tipado dinámico — sin declaración previa.',
+        },
+        {
+          id: 'ms-14-4',
+          q: '¿Qué afirmaciones sobre variables especiales y caracteres son correctas?',
+          options: [
+            '$0 es el nombre del script',
+            '$# es el total de argumentos',
+            '$? es el return code del comando anterior',
+            'Las comillas dobles permiten expansión de variables',
+            'Las comillas simples también expanden variables',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Las comillas SIMPLES desactivan caracteres especiales — no expanden variables.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -4426,6 +4484,64 @@ export default {
           explain: 'Se invoca simplemente por el nombre, sin paréntesis: <code>saludar</code>.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-15-1',
+          q: '¿Qué palabras clave forman parte de la estructura if en bash?',
+          options: [
+            'if',
+            'elif',
+            'else',
+            'then',
+            'fi',
+          ],
+          correctIndexes: [0, 1, 2, 3, 4],
+          explain:
+            'Las cinco palabras clave de la estructura condicional son textuales del apunte. Todas correctas.',
+        },
+        {
+          id: 'ms-15-2',
+          q: '¿Qué afirmaciones sobre while, until y for son correctas?',
+          options: [
+            'while ejecuta el bloque mientras la condición sea verdadera',
+            'until ejecuta el bloque hasta que la condición sea verdadera',
+            'for recorre listas o rangos',
+            'for {1..10..2} recorre el rango de 1 a 10 con paso 2',
+            'until se ejecuta mientras la condición sea verdadera',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. until es justo lo OPUESTO de while.',
+        },
+        {
+          id: 'ms-15-3',
+          q: '¿Qué operadores de comparación están correctos?',
+          options: [
+            '-eq: igual a (numérico)',
+            '-ne: no igual a',
+            '-gt: mayor que',
+            '-e: el archivo o directorio existe',
+            '-eq: cadenas iguales',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Para cadenas iguales se usa = o ==, no -eq.',
+        },
+        {
+          id: 'ms-15-4',
+          q: '¿Qué afirmaciones sobre vectores y funciones son correctas?',
+          options: [
+            'Los índices de los vectores arrancan en 0',
+            'Se define con: VEC=("a" "b" "c")',
+            '${VEC[0]} accede al primer elemento',
+            '${VEC[@]} o ${VEC[*]} representan todo el contenido',
+            'Los índices arrancan en 1',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Los índices arrancan en 0, no en 1.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -4783,6 +4899,64 @@ export default {
           ],
           correctIndex: 2,
           explain: 'minuto=00, hora=5, día=*, mes=*, día-semana=0 (domingo). Es decir: 5 a.m. los domingos.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-16-1',
+          q: '¿Qué afirmaciones sobre cron y crond son correctas?',
+          options: [
+            'Cron es un demonio para programar la ejecución automática de tareas',
+            'Sirve para backups, reportes y depuración',
+            'El servicio se llama crond (cron daemon)',
+            'En la mayoría de las distros se instala automáticamente',
+            'Cron se ejecuta una sola vez al instalarlo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Cron es un demonio que corre siempre, no una sola vez.',
+        },
+        {
+          id: 'ms-16-2',
+          q: '¿Cuáles son los 5 campos del crontab antes del comando?',
+          options: [
+            'Minuto (0-59)',
+            'Hora (0-23)',
+            'Día del mes (1-31)',
+            'Mes (1-12)',
+            'Año (4 dígitos)',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cinco campos son: minuto, hora, día del mes, mes y día de la semana. El año NO es uno de los campos.',
+        },
+        {
+          id: 'ms-16-3',
+          q: '¿Qué afirmaciones sobre los caracteres especiales del crontab son correctas?',
+          options: [
+            '* significa cualquier valor (todo)',
+            '- define un rango (ej.: 1-5)',
+            ', define una lista (ej.: 1,15)',
+            '/ define incremento (ej.: */15 = cada 15)',
+            '0 y 7 representan ambos al domingo en día de la semana',
+          ],
+          correctIndexes: [0, 1, 2, 3, 4],
+          explain:
+            'Las cinco son textuales del apunte. Todas correctas.',
+        },
+        {
+          id: 'ms-16-4',
+          q: '¿Qué directorios predefinidos usa cron para ejecución periódica?',
+          options: [
+            '/etc/cron.hourly',
+            '/etc/cron.daily',
+            '/etc/cron.weekly',
+            '/etc/cron.monthly',
+            '/etc/cron.yearly',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro directorios textuales son hourly, daily, weekly y monthly. /etc/cron.yearly no aparece en el apunte.',
         },
       ],
     },
