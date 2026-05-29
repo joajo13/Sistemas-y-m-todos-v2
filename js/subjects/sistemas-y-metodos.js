@@ -137,6 +137,64 @@ export default {
             'Su importancia radica en que aumenta las probabilidades de éxito, optimiza el uso de recursos y da un marco claro al equipo.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-1-1',
+          q: '¿Cuáles son las características clave de un proyecto según el apunte?',
+          options: [
+            'Temporal: comienzo y final definidos',
+            'Único: el producto o resultado es diferente de otros',
+            'Recursos definidos: presupuesto, personal y equipamiento específicos',
+            'Resultado específico: busca alcanzar un objetivo claro y tangible',
+            'Continuo: actividad rutinaria sostenida en el tiempo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Lo continuo y rutinario es propio de una operación, no de un proyecto.',
+        },
+        {
+          id: 'ms-1-2',
+          q: '¿Cuáles son las restricciones dentro de las cuales la administración de proyectos cumple sus objetivos?',
+          options: [
+            'Alcance',
+            'Tiempo',
+            'Costo',
+            'Calidad del equipo',
+            'Estrategia corporativa',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'El apunte menciona explícitamente alcance, tiempo y costo. Calidad del equipo y estrategia corporativa no son las restricciones definitorias.',
+        },
+        {
+          id: 'ms-1-3',
+          q: '¿Qué afirmaciones diferencian un proyecto de una operación?',
+          options: [
+            'Construir un nuevo edificio es proyecto; mantenerlo a diario es operación',
+            'El proyecto tiene fechas de inicio y fin acotadas',
+            'El proyecto entrega un producto, servicio o resultado específico',
+            'La operación es repetitiva y continua',
+            'La operación tiene la misma naturaleza finita que el proyecto',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La quinta es lo opuesto: la operación NO es finita, justamente eso la distingue del proyecto.',
+        },
+        {
+          id: 'ms-1-4',
+          q: '¿Por qué importa la administración de proyectos según el apunte?',
+          options: [
+            'Aumenta las probabilidades de éxito',
+            'Optimiza el uso de recursos',
+            'Proporciona un marco de trabajo claro al equipo',
+            'Garantiza el éxito al 100%',
+            'Elimina la necesidad de planificación',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales. No garantiza éxito al 100% ni reemplaza la planificación: es la disciplina que planifica.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -360,6 +418,64 @@ export default {
             'El comité directivo, compuesto por altos ejecutivos, se enfoca en la alineación estratégica y la aprobación de grandes presupuestos.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-2-1',
+          q: '¿Cuáles son fuentes de proyectos mencionadas en el apunte?',
+          options: [
+            'Oportunidades de negocio',
+            'Requerimientos del cliente',
+            'Cambios regulatorios',
+            'Plan estratégico de la alta dirección',
+            'Análisis exhaustivo de la competencia directa',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'El apunte lista oportunidades, requerimientos, cambios regulatorios, plan estratégico e ideas innovadoras. El análisis de la competencia directa no es una de las cinco fuentes.',
+        },
+        {
+          id: 'ms-2-2',
+          q: 'Sobre el proceso de selección y aprobación de un proyecto, ¿qué etapas se incluyen?',
+          options: [
+            'Business case (caso de negocio)',
+            'Estudio de factibilidad',
+            'Comités de revisión',
+            'Auditoría externa obligatoria',
+            'Aprobación automática si excede cierto presupuesto',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las tres etapas formales son business case, estudio de factibilidad y comités. Las otras dos no figuran en el apunte.',
+        },
+        {
+          id: 'ms-2-3',
+          q: '¿Cuáles son las dimensiones del estudio de factibilidad?',
+          options: [
+            'Factibilidad técnica (tecnología y conocimientos)',
+            'Factibilidad económica (beneficios vs costos, rentabilidad)',
+            'Factibilidad operativa (integración con las operaciones actuales)',
+            'Factibilidad jurídica (cumplimiento legal absoluto)',
+            'Factibilidad ambiental (impacto ecológico)',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las tres dimensiones son técnica, económica y operativa. Las otras dos no aparecen como dimensiones del estudio.',
+        },
+        {
+          id: 'ms-2-4',
+          q: '¿Qué afirmaciones sobre los comités de revisión son correctas?',
+          options: [
+            'El comité directivo está compuesto por altos ejecutivos',
+            'El comité directivo se enfoca en la alineación estratégica y los grandes presupuestos',
+            'El comité de sistemas de información evalúa la factibilidad técnica y la integración',
+            'El comité del grupo de usuarios aporta la visión del "cliente" final',
+            'Todos los comités son obligatoriamente externos a la empresa',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. Los comités son internos a la empresa — el apunte no menciona ningún comité externo obligatorio.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -580,6 +696,64 @@ export default {
           correctIndex: 2,
           explain:
             'La planificación es la fase más intensiva y su resultado es el plan de proyecto, que detalla alcance, cronograma, presupuesto, riesgos, recursos y comunicaciones.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-3-1',
+          q: '¿Cuáles son las cinco fases del ciclo de vida del proyecto?',
+          options: [
+            'Inicio',
+            'Planificación',
+            'Ejecución',
+            'Monitoreo y control',
+            'Cierre',
+          ],
+          correctIndexes: [0, 1, 2, 3, 4],
+          explain:
+            'Las cinco fases son justamente esas. Recordá que monitoreo y control va EN PARALELO a la ejecución, no después.',
+        },
+        {
+          id: 'ms-3-2',
+          q: '¿Qué afirmaciones sobre las fases del ciclo de vida son correctas?',
+          options: [
+            'En el inicio se elabora el project charter y se identifican los stakeholders',
+            'La planificación es la fase más intensiva',
+            'La ejecución consume la mayor parte del tiempo y del presupuesto',
+            'El monitoreo y control se realiza después del cierre',
+            'En el cierre se documentan las lecciones aprendidas',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las primeras cuatro afirmaciones correctas son textuales. El monitoreo y control va en paralelo a la ejecución, no después del cierre.',
+        },
+        {
+          id: 'ms-3-3',
+          q: '¿Cuáles de las siguientes son áreas de conocimiento del PMBOK®?',
+          options: [
+            'Gestión de la integración',
+            'Gestión del alcance',
+            'Gestión de los riesgos',
+            'Gestión de las adquisiciones',
+            'Gestión del marketing del proyecto',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las nueve áreas son integración, alcance, tiempo, costos, calidad, recursos humanos, comunicaciones, riesgos y adquisiciones. El marketing del proyecto no es un área del PMBOK®.',
+        },
+        {
+          id: 'ms-3-4',
+          q: '¿Qué afirmaciones sobre el PMI y la Guía del PMBOK® son correctas?',
+          options: [
+            'El PMI es la organización líder mundial en dirección de proyectos',
+            'La Guía del PMBOK® recopila las mejores prácticas reconocidas en la industria',
+            'Las áreas de conocimiento se gestionan de forma integrada a lo largo de todo el ciclo de vida',
+            'Las áreas de conocimiento son fases del proyecto',
+            'La Guía del PMBOK® es publicada por una agencia gubernamental',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las áreas de conocimiento son DIMENSIONES, no fases. La Guía la publica el PMI, no una agencia gubernamental.',
         },
       ],
     },
@@ -816,6 +990,64 @@ export default {
             'La "T" es Oportuno/Limitado en el Tiempo (Timely/Time-bound): debe tener una fecha límite. Ejemplo del apunte: "operativo antes del 30 de noviembre para la campaña navideña".',
         },
       ],
+      ms: [
+        {
+          id: 'ms-4-1',
+          q: '¿Qué letras componen el acrónimo SMART para definir objetivos?',
+          options: [
+            'S — Específico',
+            'M — Medible',
+            'A — Alcanzable',
+            'R — Realista/Relevante',
+            'P — Productivo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'SMART es Específico, Medible, Alcanzable, Realista/Relevante y Oportuno (Time-bound). La P no es parte del acrónimo.',
+        },
+        {
+          id: 'ms-4-2',
+          q: '¿Qué beneficios atribuye el apunte a una planificación sólida?',
+          options: [
+            'Mejora la comunicación',
+            'Minimiza la repetición de tareas',
+            'Aumenta la predictibilidad',
+            'Ayuda a entregar productos de calidad a tiempo',
+            'Garantiza la satisfacción de todos los stakeholders sin excepción',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Garantizar satisfacción universal no es un beneficio que el apunte atribuya a la planificación.',
+        },
+        {
+          id: 'ms-4-3',
+          q: '¿Qué afirmaciones sobre esfuerzo, duración y tiempo calendario son correctas?',
+          options: [
+            'El esfuerzo se mide en horas de trabajo (tiempo/persona)',
+            'La duración se mide en días hábiles considerando la disponibilidad de recursos',
+            'El tiempo calendario incluye fines de semana y feriados',
+            'Una tarea de 16 hs con 1 programador a 8 hs/día tiene 2 días de duración',
+            'El esfuerzo, la duración y el tiempo calendario siempre son iguales',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. Los tres conceptos están relacionados, pero rara vez coinciden — esa es justamente la confusión que el apunte busca evitar.',
+        },
+        {
+          id: 'ms-4-4',
+          q: '¿Qué factores influyen en cómo el esfuerzo se traduce en duración?',
+          options: [
+            'La disponibilidad de la persona',
+            'La naturaleza del trabajo (si requiere colaboración de otros)',
+            'El tamaño del equipo',
+            'El color del logo del cliente',
+            'El nombre del project manager',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales del apunte. Color y nombre no son factores: son detalles cosméticos sin relación con la conversión esfuerzo→duración.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -1048,6 +1280,64 @@ export default {
             'El apunte indica que el procedimiento formal de gestión de cambios busca evitar el "scope creep" (corrupción del alcance), que ocurre cuando se van incorporando cambios sin control al alcance original.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-5-1',
+          q: '¿Qué elementos forman parte del Project Charter según el apunte?',
+          options: [
+            'Los objetivos del proyecto',
+            'El gerente del proyecto asignado',
+            'Los stakeholders clave',
+            'El presupuesto preliminar',
+            'El código fuente de los entregables',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los primeros cuatro están textualmente listados (junto con los entregables principales). El código fuente no es contenido del Project Charter — pertenece a la ejecución.',
+        },
+        {
+          id: 'ms-5-2',
+          q: '¿Qué afirmaciones sobre el WBS son correctas?',
+          options: [
+            'Es una descomposición jerárquica del alcance total del trabajo',
+            'Desglosa los grandes entregables en paquetes de trabajo más pequeños',
+            'Indica qué hay que hacer, no cuándo',
+            'Sus paquetes de trabajo son manejables',
+            'Su función principal es mostrar las dependencias en una línea de tiempo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La línea de tiempo con dependencias es función del cronograma Gantt, no del WBS.',
+        },
+        {
+          id: 'ms-5-3',
+          q: '¿Qué afirmaciones sobre el plan de proyecto y el cronograma Gantt son correctas?',
+          options: [
+            'El plan de proyecto es el documento maestro y formal',
+            'El plan de proyecto integra planes secundarios (alcance, cronograma, costos, calidad, etc.)',
+            'El Gantt es la herramienta visual por excelencia para representar el cronograma',
+            'El Gantt muestra tareas, duraciones, dependencias y progreso',
+            'El plan de proyecto y el Gantt son sinónimos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. El Gantt es UNA herramienta dentro del plan; no es el plan completo.',
+        },
+        {
+          id: 'ms-5-4',
+          q: 'Sobre la gestión de riesgos y cambios, ¿qué es correcto?',
+          options: [
+            'Son procesos, no documentos únicos',
+            'Se debe tener un plan para identificar y mitigar riesgos',
+            'Se debe contar con un procedimiento formal para gestionar cambios al alcance original',
+            'Buscan evitar el scope creep (corrupción del alcance)',
+            'Se ejecutan una sola vez al inicio del proyecto',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. Justamente porque son procesos (no documentos únicos), se aplican a lo largo del proyecto — no una sola vez.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -1208,6 +1498,64 @@ export default {
             'El apunte concluye la sección indicando que un buen gerente de proyectos trabaja proactivamente para mitigar estos desafíos desde el inicio.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-6-1',
+          q: '¿Cuáles son los cinco desafíos comunes que el apunte identifica como causas de fracaso?',
+          options: [
+            'Objetivos poco claros',
+            'Planes y calendarios irreales',
+            'Recursos saturados',
+            'Prioridades cambiantes',
+            'Falta de herramientas tecnológicas',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cinco son: objetivos poco claros, planes irreales, recursos saturados, prioridades cambiantes y comunicación deficiente. La falta de herramientas tecnológicas no figura en el apunte.',
+        },
+        {
+          id: 'ms-6-2',
+          q: '¿Qué afirmaciones sobre el desafío de recursos saturados son correctas?',
+          options: [
+            'Ocurre al asignar personas a demasiados proyectos a la vez',
+            'Reduce la productividad de las personas',
+            'Aumenta el riesgo de errores',
+            'Mejora la flexibilidad del equipo',
+            'Es positivo porque diversifica el conocimiento',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales. La saturación es un problema, no una ventaja: el apunte la identifica como uno de los cinco desafíos críticos.',
+        },
+        {
+          id: 'ms-6-3',
+          q: '¿Qué consecuencias tienen los planes y calendarios irreales según el apunte?',
+          options: [
+            'Generan desmotivación en el equipo',
+            'Generan baja calidad de los entregables',
+            'Surgen de la presión por terminar rápido',
+            'Mejoran la predictibilidad de la entrega',
+            'Reducen el costo del proyecto',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales. La predictibilidad y la reducción de costos son lo opuesto: cronogramas irreales rompen ambas.',
+        },
+        {
+          id: 'ms-6-4',
+          q: '¿Qué afirmaciones sobre el rol del gerente ante los desafíos son correctas?',
+          options: [
+            'Trabaja proactivamente desde el inicio del proyecto',
+            'Anticipa los problemas en lugar de reaccionar cuando ya ocurrieron',
+            'La comunicación deficiente es una de las principales causas de problemas',
+            'Las prioridades cambiantes hacen que el equipo pierda el foco y el proyecto se estanque',
+            'Resuelve los problemas únicamente al cierre del proyecto, documentándolos como lecciones aprendidas',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Resolver solo al cierre es lo opuesto al enfoque proactivo que pide el apunte.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -1349,6 +1697,64 @@ export default {
           correctIndex: 1,
           explain:
             'El primer punto del apunte establece explícitamente que los proyectos de sistemas deben estar correctamente planeados en conformidad con el grupo de usuarios.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-7-1',
+          q: '¿Qué factores determinan el tiempo de investigación del sistema?',
+          options: [
+            'La cantidad de personas a entrevistar',
+            'El tiempo necesario para el desarrollo',
+            'La realización de las interconsultas entre los usuarios',
+            'La cantidad de líneas de código estimadas',
+            'El presupuesto del cliente',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Los tres primeros están explícitamente listados en el apunte. Líneas de código y presupuesto no son factores que el apunte mencione para determinar el tiempo de investigación.',
+        },
+        {
+          id: 'ms-7-2',
+          q: '¿Qué afirmaciones sobre los proyectos de sistemas son correctas?',
+          options: [
+            'Deben estar correctamente planeados en conformidad con el grupo de usuarios',
+            'El personal afectado debe ser asignado y administrado adecuadamente',
+            'El desarrollo debe seguir los lineamientos para asegurar calidad y efectividad',
+            'El project leader debe controlar la disponibilidad de las personas asignadas',
+            'El project leader se ocupa principalmente de codificar los módulos críticos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El project leader coordina y controla disponibilidad — no se ocupa de codificar.',
+        },
+        {
+          id: 'ms-7-3',
+          q: '¿Qué afirmaciones sobre el desarrollo de sistemas como actividad son correctas según el apunte?',
+          options: [
+            'El desarrollo de sistemas y la programación se consideran actividades individuales',
+            'Desde la mirada del project leader, es primordial controlar la disponibilidad de todo el equipo',
+            'El proyecto no requiere coordinación entre las actividades individuales',
+            'La disponibilidad de las personas asignadas es clave para concretar el plan de trabajo',
+            'Las interconsultas entre usuarios no son parte del proceso',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las primeras dos y la cuarta son textuales. La coordinación sí es necesaria (la actividad individual coexiste con la coordinación), y las interconsultas son parte del tiempo de investigación.',
+        },
+        {
+          id: 'ms-7-4',
+          q: '¿Qué se busca con los lineamientos del desarrollo según el apunte?',
+          options: [
+            'Asegurar la calidad de la aplicación',
+            'Asegurar la efectividad de la aplicación a implementar',
+            'Permitir que cada programador trabaje sin reglas',
+            'Que el personal sea asignado y administrado adecuadamente',
+            'Sustituir la participación de los usuarios',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las primeras dos y la cuarta son textuales del apunte. Los lineamientos justamente apuntan a lo opuesto del trabajo sin reglas, y no sustituyen la conformidad con los usuarios.',
         },
       ],
     },
