@@ -1401,6 +1401,64 @@ export default {
             'La hacia atrás hasta los requerimientos: cada comportamiento del software refiere explícitamente a los requerimientos satisfechos.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-5-1',
+          q: '¿Cuáles de los siguientes son tipos de trazabilidad mencionados en el apunte?',
+          options: [
+            'Trazabilidad hacia atrás desde los requerimientos',
+            'Trazabilidad hacia adelante hasta los requerimientos',
+            'Trazabilidad hacia atrás hasta los requerimientos',
+            'Trazabilidad hacia adelante desde los requerimientos',
+            'Trazabilidad lateral entre requerimientos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro tipos canónicos son los dos pares: hacia atrás/hacia adelante combinados con desde/hasta los requerimientos. La "lateral" no aparece en el apunte.',
+        },
+        {
+          id: 'ms-5-2',
+          q: '¿Qué afirmaciones sobre trazabilidad remota y futura son correctas?',
+          options: [
+            'La remota referencia el origen o fuente del requerimiento',
+            'La futura apunta a las fases posteriores del desarrollo',
+            'Para la trazabilidad futura, cada requerimiento necesita una referencia o nombre único',
+            'La remota pierde importancia cuando el sistema entra en operación y mantenimiento',
+            'Ambas parten del SRS como documento de referencia',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'La remota GANA importancia en operación y mantenimiento, no la pierde — porque al modificar diseño o código hay que identificar los requerimientos afectados.',
+        },
+        {
+          id: 'ms-5-3',
+          q: '¿Cuáles de estas correspondencias entre tipo de trazabilidad y lo que permite son correctas?',
+          options: [
+            'Hacia atrás desde los requerimientos → conocer por qué cada requerimiento existe',
+            'Hacia adelante hasta los requerimientos → los documentos previos al SRS pueden referenciarse al SRS',
+            'Hacia atrás hasta los requerimientos → cada comportamiento del software refiere explícitamente los requerimientos que satisface',
+            'Hacia adelante desde los requerimientos → entender qué componentes del software satisfacen cada requerimiento',
+            'Hacia adelante desde los requerimientos → conocer el origen del requerimiento',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. La última es falsa: conocer el origen lo permite la hacia atrás DESDE los requerimientos.',
+        },
+        {
+          id: 'ms-5-4',
+          q: '¿Qué cosas son ciertas sobre el SRS y su rol en la trazabilidad?',
+          options: [
+            'Es el Software Requirement Specification',
+            'Es el punto de partida de la trazabilidad',
+            'Permite referenciar requerimientos en futuras etapas del desarrollo',
+            'Sirve para identificar requerimientos afectados ante cambios en diseño o código',
+            'Es opcional y solo se usa en proyectos chicos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'El SRS es la base de la trazabilidad y se vuelve fundamental para mantenimiento; no es opcional ni depende del tamaño del proyecto.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -1634,6 +1692,64 @@ export default {
           correctIndex: 3,
           explain:
             'El apunte sugiere las tres primeras. Cambiar el motor de base de datos es otra discusión técnica, no una prueba del requerimiento.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-6-1',
+          q: '¿Cuáles de los siguientes son pasos del proceso de prueba de aceptación según el apunte?',
+          options: [
+            'Determinar el rol del usuario',
+            'Definir los criterios de aceptación',
+            'Desarrollar un plan de aceptación',
+            'Ejecutar el plan de aceptación',
+            'Refactorizar el código del módulo más crítico',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los pasos son: determinar rol del usuario, definir criterios, desarrollar plan, ejecutar plan y determinar decisiones de aceptación. Refactorizar código no es parte del proceso.',
+        },
+        {
+          id: 'ms-6-2',
+          q: '¿Qué afirmaciones sobre validación y verificación (Boehm) son correctas?',
+          options: [
+            'Validación responde a "¿estamos construyendo el producto correcto?"',
+            'Verificación responde a "¿estamos construyendo el producto correctamente?"',
+            'La validación demuestra que la especificación se corresponde con lo que el cliente necesita',
+            'La verificación comprueba que el software cumple con la especificación de requerimientos',
+            'V&V solo se aplica al producto final terminado',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro primeras son textuales de Boehm. V&V se aplica en cada etapa: requerimientos, diseño, código y producto final — no solo al final.',
+        },
+        {
+          id: 'ms-6-3',
+          q: '¿Qué afirmaciones sobre la prueba de aceptación son correctas?',
+          options: [
+            'La realizan los usuarios',
+            'Verifica que el sistema se ajusta a sus requerimientos',
+            'Los casos de prueba se basan en la especificación de requerimientos',
+            'Es una técnica de caja negra',
+            'Se ejecuta con datos ficticios en un ambiente de laboratorio',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'La aceptación trabaja con datos REALES del cliente, no ficticios — eso puede revelar errores del sistema o de los requerimientos que no se vieron antes.',
+        },
+        {
+          id: 'ms-6-4',
+          q: 'Sobre las pruebas de aceptación basadas en los requerimientos (ISTQB), ¿qué es correcto?',
+          options: [
+            'Son pruebas formales contra las necesidades del usuario y los procesos comerciales',
+            'Determinan si el sistema cumple o no con los criterios de aceptación',
+            'Permiten que el usuario o cliente decida si acepta o no el sistema',
+            'Son pruebas de validación, no de búsqueda de defectos',
+            'Son pruebas de caja blanca centradas en la cobertura de código',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Son pruebas de validación, formales, basadas en requerimientos y orientadas a la aceptación. Son caja NEGRA, no caja blanca.',
         },
       ],
     },
@@ -1908,6 +2024,64 @@ export default {
           correctIndex: 1,
           explain:
             'La rotación de roles busca eliminar la dependencia entre individuos y promover principios de calidad en las actividades diarias.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-7-1',
+          q: '¿Cuáles de los siguientes son tipos de prueba listados en el apunte?',
+          options: [
+            'De recuperación',
+            'De seguridad',
+            'De resistencia o stress',
+            'De rendimiento',
+            'De refactor',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'La lista textual del apunte: recuperación, seguridad, resistencia/stress, rendimiento, aceptación y regresión. "De refactor" no aparece.',
+        },
+        {
+          id: 'ms-7-2',
+          q: '¿Cuáles son las fases de prueba según el apunte?',
+          options: [
+            'De unidad',
+            'De integración',
+            'De compilación',
+            'De sistema',
+            'De despliegue',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las fases canónicas son unidad, integración y sistema. Compilación y despliegue no son fases de prueba en el apunte.',
+        },
+        {
+          id: 'ms-7-3',
+          q: '¿Qué características tiene el testing ágil según el ISTQB y el apunte?',
+          options: [
+            'Incorpora técnicas como la programación extrema (XP)',
+            'Enfatiza el paradigma de diseño de prueba primero',
+            'Las pruebas se diseñan durante el análisis, por el equipo de desarrollo',
+            'Todos los miembros del equipo poseen habilidades de probadores',
+            'Mantiene una fase de pruebas tradicional separada al final del proyecto',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'En testing ágil la fase de pruebas tradicional desaparece — todos son probadores y las pruebas se integran al desarrollo, no se separan al final.',
+        },
+        {
+          id: 'ms-7-4',
+          q: 'Sobre los roles del testing ágil, ¿qué afirmaciones son correctas?',
+          options: [
+            'El tester es una persona del equipo con habilidades para desarrollar y ejecutar pruebas',
+            'El interesado se apoya en un analista para proponer una solución a un problema',
+            'El equipo ágil trabaja en pequeños ciclos de tiempo llamados iteraciones',
+            'El factor de éxito del testing ágil es automatizar las pruebas de regresión',
+            'El probador ágil solo se ocupa de habilidades técnicas y evita las necesidades del interesado',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'El probador ágil hace exactamente LO OPUESTO de la última opción: integra las necesidades del interesado al equipo y traduce historias de usuario en parámetros de prueba.',
         },
       ],
     },
