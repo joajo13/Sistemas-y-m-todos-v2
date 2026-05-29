@@ -3120,6 +3120,64 @@ export default {
             'El material aclara que hay diversas clasificaciones, pero trabaja tiempo real, distribuidos y embebidos.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-11-1',
+          q: '¿Qué acciones realiza un sistema de información sobre la información del negocio, según Schach?',
+          options: [
+            'Recopila',
+            'Manipula',
+            'Almacena',
+            'Crea reportes',
+            'Compila código fuente',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales de Schach. Compilar código no es una acción del sistema de información — es propia del entorno de desarrollo.',
+        },
+        {
+          id: 'ms-11-2',
+          q: '¿Cuáles de estos tipos de sistemas son los que enfoca el apunte?',
+          options: [
+            'De tiempo real',
+            'Distribuidos',
+            'Embebidos',
+            'En la nube',
+            'Cliente-servidor',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'El apunte se concentra en tiempo real, distribuidos y embebidos. Existen otras clasificaciones, pero no se trabajan en este material.',
+        },
+        {
+          id: 'ms-11-3',
+          q: '¿Qué afirmaciones sobre la definición de sistema y sistema de información son correctas?',
+          options: [
+            'Un sistema es un conjunto de elementos que se relacionan para alcanzar un fin',
+            'Un sistema de información logra un resultado empresarial',
+            'Un sistema de información ayuda a la administración a manejar las operaciones de negocios',
+            'La definición de sistema de información usada en el apunte es de Schach',
+            'La definición de sistema requiere que los elementos sean computadoras',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'La definición de sistema es amplia: nunca exige que los elementos sean computadoras. Las otras cuatro son textuales del apunte.',
+        },
+        {
+          id: 'ms-11-4',
+          q: 'Sobre la información que maneja un sistema de información, ¿qué es correcto?',
+          options: [
+            'Refiere a las actividades de negocio de la empresa',
+            'Sirve al fin de manejar las operaciones del negocio',
+            'Es presentada en forma de reportes para administrar',
+            'Permite que el sistema responda a su entorno en tiempo dictado',
+            'Es generada solo en sistemas distribuidos',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Responder al entorno en tiempo dictado es propio de los sistemas de tiempo real; ser exclusiva de sistemas distribuidos no tiene sustento en el apunte. Las primeras tres son textuales.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -3331,6 +3389,64 @@ export default {
             'Se usaron sobre todo para controlar entornos, con sensores que procesan la información y generan una salida en respuesta.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-12-1',
+          q: '¿Qué afirmaciones sobre los sistemas de tiempo real son correctas?',
+          options: [
+            'Su interacción con el entorno debe ser rápida y responder en el tiempo dictado',
+            'El intervalo entre entrada y salida suele ser muy pequeño',
+            'La predictibilidad es una de sus características principales',
+            'Su eficiencia depende de la exactitud y del momento en que entrega los resultados',
+            'Suelen ser más simples de diseñar de lo que se cree',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Son MÁS COMPLEJOS de lo que se cree: cualquier cambio puede generar alteraciones impensadas en los tiempos. Las otras cuatro son textuales.',
+        },
+        {
+          id: 'ms-12-2',
+          q: '¿Cuáles son las fases del diseño de un sistema de tiempo real según el apunte?',
+          options: [
+            'Identificar las tareas y las restricciones temporales impuestas',
+            'Codificar los programas que ejecutarán las tareas',
+            'Medir el tiempo de cómputo de cada tarea y analizar la planificación',
+            'Elegir el sistema operativo de tiempo real antes que cualquier otra cosa',
+            'Auditar la interfaz gráfica con el cliente',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las tres fases son: identificar tareas + restricciones, codificar y medir/planificar. Elegir SOTR no se menciona como una fase, y la auditoría de interfaz no aplica a STR.',
+        },
+        {
+          id: 'ms-12-3',
+          q: '¿Cuáles de los siguientes son elementos que componen un sistema de tiempo real?',
+          options: [
+            'Manejo de interrupciones',
+            'Bases de datos de tiempo real',
+            'Sistemas operativos de tiempo real',
+            'Lenguajes de tiempo real',
+            'Diagramas de casos de uso',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los elementos textuales son: integración y rendimiento, interrupciones, bases de datos, SOTR, lenguajes y sincronización/comunicación de tareas. Los diagramas de casos de uso son herramientas de modelado, no componentes del STR.',
+        },
+        {
+          id: 'ms-12-4',
+          q: '¿Qué afirmaciones sobre los SOTR (sistemas operativos de tiempo real) son correctas?',
+          options: [
+            'Son la plataforma para establecer un sistema de tiempo real',
+            'En ellos no tiene importancia el usuario, sino los procesos',
+            'VxWorks, Solaris, Lynx OS y Spectra son ejemplos del apunte',
+            'Comparten estructura con los SO de escritorio enfocados en el usuario',
+            'Su prioridad es maximizar la experiencia gráfica del usuario',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'En SOTR mandan los procesos, no el usuario. Compartir estructura con SO de escritorio o priorizar UX gráfica va en contra de la definición.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -3493,6 +3609,64 @@ export default {
             'Al estar el procesamiento repartido, si una computadora falla el sistema sigue funcionando, aunque sea con servicio degradado.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-13-1',
+          q: '¿Qué afirmaciones sobre la definición de Sommerville (2005) son correctas?',
+          options: [
+            'El procesamiento de información se distribuye sobre varias computadoras',
+            'No está confinado a una única máquina',
+            'Prácticamente todos los grandes sistemas informáticos actuales son distribuidos',
+            'En el diseño se evalúa como un sistema único con múltiples destinatarios',
+            'Solo aplica a sistemas chicos sin red',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'La definición es textual de Sommerville. La quinta opción es lo opuesto: cuanto más grande el sistema, más probable que sea distribuido.',
+        },
+        {
+          id: 'ms-13-2',
+          q: '¿Cuáles de las siguientes son ventajas listadas de los sistemas distribuidos?',
+          options: [
+            'Permiten compartir hardware y software (impresoras, discos)',
+            'Están basados en sistemas abiertos con protocolos estándares',
+            'Permiten ejecutar procesos concurrentes sobre la misma computadora de la red',
+            'Suelen ser escalables (sumar nuevos recursos)',
+            'Garantizan disponibilidad del 100% sin importar fallos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La tolerancia a fallos es mayor (no del 100%): aun con caídas, el servicio puede quedar un poco degradado.',
+        },
+        {
+          id: 'ms-13-3',
+          q: '¿Qué afirmaciones sobre la tolerancia a fallos en distribuidos son correctas?',
+          options: [
+            'El fallo de una computadora no implica la caída del sistema completo',
+            'El servicio puede quedar un poco degradado en caso de fallo',
+            'Si falla una máquina, se cae el sistema entero',
+            'La tolerancia a fallos suele ser mayor que en sistemas centralizados',
+            'El sistema deja de procesar información sensible al detectar un fallo',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las primeras dos son textuales y la cuarta se sigue del razonamiento del apunte. Las otras dos contradicen la definición.',
+        },
+        {
+          id: 'ms-13-4',
+          q: 'Sobre la escalabilidad y los sistemas abiertos en distribuidos, ¿qué es correcto?',
+          options: [
+            'Los sistemas abiertos usan protocolos estándares',
+            'Eso facilita combinar equipos y software de distintos proveedores',
+            'La escalabilidad permite sumar nuevos recursos a la red',
+            'La capacidad de escalar depende de las posibilidades de la red que conecta las máquinas',
+            'Los sistemas distribuidos eliminan la necesidad de una red de comunicaciones',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Los sistemas distribuidos DEPENDEN de la red de comunicaciones: sin red, no hay sistema distribuido.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -3640,6 +3814,64 @@ export default {
           correctIndex: 2,
           explain:
             'El apunte señala que los sistemas embebidos realizan sus funciones generalmente dentro de un sistema de tiempo real.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-14-1',
+          q: '¿Qué afirmaciones sobre los sistemas embebidos (empotrados) son correctas?',
+          options: [
+            'Las funciones del software no suelen estar a la vista del usuario',
+            'Están diseñados para realizar una o algunas pocas funciones',
+            'Generalmente funcionan dentro de un sistema de tiempo real',
+            'Suelen estar incluidos en una placa base y no parecen computadoras',
+            'Su software suele exponer una interfaz gráfica completa al usuario',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. El software no exponiendo interfaz gráfica al usuario es justamente parte de su definición.',
+        },
+        {
+          id: 'ms-14-2',
+          q: 'Sobre ejemplos y lenguaje de programación de los embebidos, ¿qué es correcto?',
+          options: [
+            'El reloj de los taxis es un ejemplo',
+            'El microondas es un ejemplo',
+            'Se programan generalmente en lenguaje ensamblador sobre el microprocesador',
+            'Sus componentes suelen estar incluidos en una placa base',
+            'Se programan generalmente en lenguajes de consulta como SQL',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. SQL es un lenguaje de consultas: no tiene relación con la programación de embebidos.',
+        },
+        {
+          id: 'ms-14-3',
+          q: '¿Qué afirmaciones sobre la fabricación y características de hardware de los embebidos son correctas?',
+          options: [
+            'Suelen fabricarse en forma masiva para reducir el coste',
+            'Suelen emplear un procesador relativamente pequeño',
+            'Suelen tener una memoria también pequeña',
+            'Sus controladores pueden ser más lentos que los de las PCs por la reducción de costos',
+            'Usan los procesadores más potentes del mercado para garantizar rendimiento máximo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. La quinta contradice abiertamente la lógica de reducir costos.',
+        },
+        {
+          id: 'ms-14-4',
+          q: 'Sobre el mantenimiento de un sistema embebido ante una falla, ¿qué es correcto?',
+          options: [
+            'Un fallo en un elemento implica reparar la placa íntegramente',
+            'Un fallo puede implicar reemplazar la placa entera',
+            'Alcanza con cambiar solo el elemento que falló sin tocar la placa',
+            'La placa se desensambla y se cambian componentes uno por uno con SMD en campo',
+            'No requiere ningún tipo de intervención ya que son sistemas autorreparables',
+          ],
+          correctIndexes: [0, 1],
+          explain:
+            'El apunte es claro: si falla un elemento, hay que reparar o reemplazar la placa íntegramente. No se cambian componentes sueltos ni hay autorreparación.',
         },
       ],
     },
