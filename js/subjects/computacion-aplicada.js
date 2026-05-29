@@ -2076,6 +2076,64 @@ export default {
           explain: 'El MBR limita el disco a 2 TB (direcciones de 32 bits) y a 4 particiones primarias. Por eso GPT lo está reemplazando.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-8-1',
+          q: 'Sobre la estructura del MBR (Master Boot Record), ¿qué es correcto?',
+          options: [
+            'Vive en el sector 0 del disco',
+            'Tiene 512 bytes en total',
+            '446 bytes son para el código del gestor de arranque',
+            '64 bytes son para la tabla de particiones',
+            'Los últimos 2 bytes guardan el filesystem activo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Los últimos 2 bytes son la firma de arranque, no el filesystem.',
+        },
+        {
+          id: 'ms-8-2',
+          q: '¿Cuáles son las etapas de GRUB sobre el MBR?',
+          options: [
+            'Etapa 1 en los primeros 446 bytes del MBR',
+            'Etapa 1.5 en el espacio libre entre MBR y la primera partición',
+            'Etapa 2 en el filesystem (típicamente /boot/grub)',
+            'Una etapa 0 ejecutada por la BIOS',
+            'Una etapa 3 cargada por el kernel',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las tres etapas textuales son 1, 1.5 y 2. No existen etapas 0 ni 3 en el modelo del apunte.',
+        },
+        {
+          id: 'ms-8-3',
+          q: '¿Qué características tiene GRUB II según el apunte?',
+          options: [
+            'Soporta ext2/3/4, btrfs, xfs, zfs',
+            'Compatibilidad con tablas de particiones GPT (>2TB)',
+            'Configuración dinámica sin reiniciar',
+            'Arranque desde discos encriptados, LVM y RAID',
+            'Único bootloader compatible con Linux moderno',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Existen otros bootloaders (LILO histórico, systemd-boot, rEFInd, etc.) — GRUB no es exclusivo.',
+        },
+        {
+          id: 'ms-8-4',
+          q: '¿Qué afirmaciones sobre LILO, GRUB y archivos de configuración son correctas?',
+          options: [
+            'LILO era ligero y rápido pero requería reinstalarlo ante cualquier cambio',
+            'GRUB es compatible con múltiples sistemas operativos',
+            '/etc/default/grub es la configuración principal editable',
+            '/boot/grub/grub.cfg reemplaza al viejo menu.lst',
+            'update-grub instala GRUB en el MBR',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. update-grub REGENERA grub.cfg; quien INSTALA en el MBR es grub-install.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -2308,6 +2366,64 @@ export default {
           explain: 'Runlevel 5 es multiusuario con GUI, que se mapea a <code>graphical.target</code>.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-9-1',
+          q: '¿Cuáles son los 8 pasos del booteo según el apunte?',
+          options: [
+            'POST (Power-On Self-Test)',
+            'Carga del gestor de arranque (GRUB)',
+            'Kernel + initramfs',
+            'Proceso Init o systemd',
+            'Compilación del kernel desde el disco',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son los primeros pasos textuales del booteo. El kernel ya viene compilado: no se compila en el arranque.',
+        },
+        {
+          id: 'ms-9-2',
+          q: '¿Qué afirmaciones sobre el proceso Init/systemd son correctas?',
+          options: [
+            'Es el primer proceso del sistema (PID 1)',
+            'Lo lanza el kernel',
+            'Comienza a ejecutar scripts de arranque',
+            'Configura runlevels (Init) o targets (systemd)',
+            'Es el proceso de menor prioridad del sistema',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Es el ANCESTRO de todos los procesos, no el de menor prioridad.',
+        },
+        {
+          id: 'ms-9-3',
+          q: '¿Qué correspondencias entre runlevel y target son correctas según el cuadro?',
+          options: [
+            'Runlevel 0 → poweroff.target',
+            'Runlevel 1 → rescue.target',
+            'Runlevel 5 → graphical.target',
+            'Runlevel 6 → reboot.target',
+            'Runlevel 5 → poweroff.target',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del cuadro. Runlevel 5 es GUI (graphical.target), no poweroff.',
+        },
+        {
+          id: 'ms-9-4',
+          q: '¿Qué afirmaciones sobre los pasos finales del booteo son correctas?',
+          options: [
+            'El montaje del FS (read-write) se hace según /etc/fstab',
+            'agetty se lanza en consola para el inicio de sesión',
+            'gdm o lightdm se lanzan en entorno gráfico',
+            'El usuario entra a un shell como bash o al entorno gráfico',
+            'Las particiones adicionales se montan ANTES de los servicios y demonios',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Primero arrancan servicios y demonios, DESPUÉS se monta el FS adicional.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -2497,6 +2613,64 @@ export default {
           options: ['<code>/etc/inittab</code>', '<code>/etc/init.d/</code>', '<code>/lib/systemd/system/</code>', '<code>/etc/grub.d/</code>'],
           correctIndex: 1,
           explain: '<code>/etc/init.d/</code> contiene los scripts; <code>/etc/rcX.d/</code> tiene los enlaces simbólicos por runlevel.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-10-1',
+          q: '¿Qué afirmaciones sobre Init (System V) son correctas?',
+          options: [
+            'Es el primer proceso del sistema (PID 1)',
+            'Nació con UNIX bajo el diseño de System V',
+            'Ejecuta scripts de inicio de forma secuencial',
+            'Cada nivel de ejecución se llama runlevel',
+            'Su PID es siempre el más alto del sistema',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Init tiene el PID más BAJO (1), no el más alto.',
+        },
+        {
+          id: 'ms-10-2',
+          q: '¿Cuáles son los runlevels y qué describen?',
+          options: [
+            '0 = Apagado del sistema',
+            '1 = Monousuario',
+            '2 = Multiusuario sin red (predeterminado en Debian)',
+            '5 = Multiusuario con red y GUI',
+            '6 = Modo gráfico minimalista',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Runlevel 6 es REINICIO, no GUI.',
+        },
+        {
+          id: 'ms-10-3',
+          q: '¿Qué archivos/directorios importantes hay en sistemas Init?',
+          options: [
+            '/etc/inittab',
+            '/etc/init.d/',
+            '/etc/rcX.d/',
+            '/etc/systemd/system/',
+            '/etc/grub.d/',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son las rutas textuales de SysV Init. /etc/systemd/system/ es de systemd y /etc/grub.d/ es de GRUB.',
+        },
+        {
+          id: 'ms-10-4',
+          q: '¿Qué opciones acepta el comando service?',
+          options: [
+            'status',
+            'start',
+            'stop',
+            'restart',
+            'compile',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro están listadas en el apunte (junto con enable y disable). "compile" no es una opción.',
         },
       ],
     },
@@ -2730,6 +2904,64 @@ export default {
           ],
           correctIndex: 1,
           explain: 'Los targets agrupan servicios y resuelven sus dependencias, lo que los hace más flexibles que los runlevels tradicionales.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-11-1',
+          q: '¿Qué afirmaciones sobre systemd son correctas?',
+          options: [
+            'Es un daemon de gestión del sistema',
+            'Es el padre directo o indirecto de todos los procesos',
+            'Se le asigna PID = 1',
+            'Reemplaza a init desde Debian 8 "Jessie" (2015)',
+            'Es propio exclusivamente de distribuciones gráficas',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. systemd está en distros minimalistas también, no solo gráficas.',
+        },
+        {
+          id: 'ms-11-2',
+          q: '¿Qué targets de systemd existen según el apunte?',
+          options: [
+            'multi-user.target (modo texto multiusuario)',
+            'graphical.target (modo gráfico)',
+            'rescue.target (rescate/mantenimiento)',
+            'emergency.target (consola raíz sin servicios)',
+            'compile.target (compilar paquetes)',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales (junto con basic, poweroff, reboot y default). "compile.target" no existe.',
+        },
+        {
+          id: 'ms-11-3',
+          q: '¿Qué opciones de systemctl menciona el apunte?',
+          options: [
+            'status',
+            'start / stop',
+            'restart',
+            'enable / disable',
+            'rebuild',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. "rebuild" no es una opción de systemctl.',
+        },
+        {
+          id: 'ms-11-4',
+          q: '¿Qué opciones de journalctl describe el apunte?',
+          options: [
+            '-u: ver registros de un servicio específico',
+            '-b: ver el registro del arranque actual',
+            '-f: ver registros en tiempo real (follow)',
+            '-n: limitar la cantidad de líneas mostradas',
+            '-z: comprimir los logs',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales. -n y -z no se mencionan en el apunte.',
         },
       ],
     },
