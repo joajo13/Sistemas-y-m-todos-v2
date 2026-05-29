@@ -40,8 +40,8 @@ function main() {
   renderNav({ active: 'home', subject });
 
   questions = [
-    ...section.quiz.tf.map((q) => ({ ...q, kind: 'tf' })),
-    ...section.quiz.mc.map((q) => ({ ...q, kind: 'mc' })),
+    ...((section.quiz.tf ?? []).map((q) => ({ ...q, kind: 'tf' }))),
+    ...((section.quiz.mc ?? []).map((q) => ({ ...q, kind: 'mc' }))),
     ...((section.quiz.ms ?? []).map((q) => ({ ...q, kind: 'ms' }))),
   ];
 

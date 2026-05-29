@@ -59,6 +59,68 @@ export default {
           text: 'Si tu función combina varias de estas (suma, producto, cociente o composición), no derives cada parte por separado a lo loco — hay reglas. Mirá la sección 2.',
         },
       ],
+      quiz: {
+        tf: [],
+        mc: [],
+        ms: [
+          {
+            id: 'ms-1-1',
+            q: '¿Cuáles de las siguientes derivadas elementales son correctas?',
+            options: [
+              '$\\dfrac{d}{dx}(c) = 0$ con $c$ constante',
+              '$\\dfrac{d}{dx}(x^n) = n \\cdot x^{n-1}$',
+              '$\\dfrac{d}{dx}(e^x) = e^x$',
+              '$\\dfrac{d}{dx}(\\ln x) = \\dfrac{1}{x}$',
+              '$\\dfrac{d}{dx}(x^n) = n \\cdot x^{n+1}$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales de la tabla. El exponente de la derivada de $x^n$ baja en uno (queda $n-1$), no sube.',
+          },
+          {
+            id: 'ms-1-2',
+            q: '¿Cuáles de las siguientes derivadas trigonométricas son correctas?',
+            options: [
+              '$\\dfrac{d}{dx}(\\sin x) = \\cos x$',
+              '$\\dfrac{d}{dx}(\\cos x) = -\\sin x$',
+              '$\\dfrac{d}{dx}(\\tan x) = \\sec^2 x$',
+              '$\\dfrac{d}{dx}(\\cos x) = \\sin x$',
+              '$\\dfrac{d}{dx}(\\cot x) = -\\csc^2 x$',
+            ],
+            correctIndexes: [0, 1, 2, 4],
+            explain:
+              'Las cuatro correctas son textuales. Cuidado con la derivada del coseno: lleva signo negativo.',
+          },
+          {
+            id: 'ms-1-3',
+            q: '¿Cuáles de las siguientes derivadas exponenciales y logarítmicas son correctas?',
+            options: [
+              '$\\dfrac{d}{dx}(a^x) = a^x \\cdot \\ln a$',
+              '$\\dfrac{d}{dx}(\\log_a x) = \\dfrac{1}{x \\ln a}$',
+              '$\\dfrac{d}{dx}(e^x) = e^x$',
+              '$\\dfrac{d}{dx}(\\ln x) = \\dfrac{1}{x}$',
+              '$\\dfrac{d}{dx}(a^x) = x \\cdot a^{x-1}$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. La derivada de $a^x$ NO es como la potencia con base variable: aparece $\\ln a$ multiplicando.',
+          },
+          {
+            id: 'ms-1-4',
+            q: '¿Cuáles de estas derivadas de funciones inversas e hiperbólicas son correctas según la tabla?',
+            options: [
+              '$\\dfrac{d}{dx}(\\arcsin x) = \\dfrac{1}{\\sqrt{1-x^2}}$',
+              '$\\dfrac{d}{dx}(\\arctan x) = \\dfrac{1}{1+x^2}$',
+              '$\\dfrac{d}{dx}(\\sinh x) = \\cosh x$',
+              '$\\dfrac{d}{dx}(\\cosh x) = \\sinh x$',
+              '$\\dfrac{d}{dx}(\\arccos x) = \\dfrac{1}{\\sqrt{1-x^2}}$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. $\\arccos$ tiene signo NEGATIVO: $-\\dfrac{1}{\\sqrt{1-x^2}}$.',
+          },
+        ],
+      },
     },
     {
       id: '2',
@@ -125,6 +187,68 @@ export default {
           text: 'Truco mental: leé la función "de afuera para adentro", derivá de afuera para adentro, y multiplicá cada paso por la derivada de la siguiente capa interna.',
         },
       ],
+      quiz: {
+        tf: [],
+        mc: [],
+        ms: [
+          {
+            id: 'ms-2-1',
+            q: '¿Cuáles de las siguientes fórmulas de reglas de derivación son correctas?',
+            options: [
+              '$(f+g)\'(x) = f\'(x) + g\'(x)$',
+              '$(f \\cdot g)\'(x) = f\'(x) \\cdot g(x) + f(x) \\cdot g\'(x)$',
+              '$(f \\cdot g)\'(x) = f\'(x) \\cdot g\'(x)$',
+              '$\\left(\\dfrac{f}{g}\\right)\'(x) = \\dfrac{f\'(x)g(x) - f(x)g\'(x)}{[g(x)]^2}$',
+              '$(f \\circ g)\'(x) = f\'(g(x)) \\cdot g\'(x)$',
+            ],
+            correctIndexes: [0, 1, 3, 4],
+            explain:
+              'Las cuatro reglas correctas son textuales. La derivada de un producto NO es el producto de las derivadas — ese es el error clásico que el apunte advierte.',
+          },
+          {
+            id: 'ms-2-2',
+            q: 'Sobre la regla del producto, ¿qué afirmaciones son correctas?',
+            options: [
+              'Se aplica cuando la función es un producto de dos funciones',
+              'Es: derivada del primero por el segundo, más el primero por la derivada del segundo',
+              'Para $f(x) = x^2 \\cdot \\sin x$ da $f\'(x) = 2x \\cdot \\sin x + x^2 \\cdot \\cos x$',
+              'Para un producto, alcanza con derivar cada factor por separado y multiplicar',
+              'Se simplifica a $f\'(x) \\cdot g\'(x)$ cuando los factores son polinomios',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain:
+              'Las primeras tres son textuales. El producto requiere la regla completa: derivar cada factor por separado y multiplicar es justamente el error a evitar.',
+          },
+          {
+            id: 'ms-2-3',
+            q: 'Sobre la regla del cociente, ¿qué es correcto?',
+            options: [
+              'Es válida solo si $g(x) \\ne 0$',
+              'Su numerador es $f\'(x) \\cdot g(x) - f(x) \\cdot g\'(x)$',
+              'Su denominador es $[g(x)]^2$',
+              'En los puntos donde el denominador se anula, la función no está definida ni es derivable',
+              'Su numerador es $f\'(x) \\cdot g\'(x) - f(x) \\cdot g(x)$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. El numerador es derivada-del-numerador por denominador MENOS numerador por derivada-del-denominador.',
+          },
+          {
+            id: 'ms-2-4',
+            q: 'Sobre la regla de la cadena (composición), ¿qué afirmaciones son correctas?',
+            options: [
+              'Se aplica cuando hay una función dentro de otra (composición)',
+              'Derivás de afuera hacia adentro',
+              'Multiplicás por la derivada de la función interna',
+              'Para $f(x) = \\sin(x^2)$ da $f\'(x) = \\cos(x^2) \\cdot 2x$',
+              'No requiere multiplicar por la derivada de la función interna',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. La multiplicación por la derivada interna es justamente la clave de la regla de la cadena — sin eso, no funciona.',
+          },
+        ],
+      },
     },
     {
       id: '3',
@@ -177,6 +301,68 @@ export default {
           text: 'Truco para detectar: si podés dibujar la función sin levantar el lápiz Y sin tener que cambiar bruscamente la dirección, suele ser derivable. Esquinas y tangentes verticales son las dos cosas que rompen la "suavidad".',
         },
       ],
+      quiz: {
+        tf: [],
+        mc: [],
+        ms: [
+          {
+            id: 'ms-3-1',
+            q: '¿Qué condiciones tienen que cumplirse simultáneamente para que $f$ sea derivable en $x = a$?',
+            options: [
+              '$f$ está definida en $a$',
+              '$f$ es continua en $a$',
+              'El límite del cociente incremental existe y es finito',
+              'Los límites laterales del cociente incremental coinciden',
+              'La función es polinómica',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son las condiciones del apunte. La función NO necesita ser polinómica para ser derivable — basta con esas cuatro condiciones.',
+          },
+          {
+            id: 'ms-3-2',
+            q: '¿En cuáles de estos casos típicos una función NO es derivable en un punto?',
+            options: [
+              'Esquina o pico (límites laterales del cociente incremental distintos)',
+              'Salto o discontinuidad en el punto',
+              'Tangente vertical (cociente incremental tendiendo a $\\pm\\infty$)',
+              'Oscilación infinita cerca del punto',
+              'Función definida y continua con derivada finita en el punto',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son los casos típicos del apunte. Una función continua con derivada finita SÍ es derivable — es justamente la condición de derivabilidad.',
+          },
+          {
+            id: 'ms-3-3',
+            q: '¿Qué afirmaciones sobre la definición formal de derivada son correctas?',
+            options: [
+              '$f\'(a) = \\lim_{h \\to 0} \\dfrac{f(a+h) - f(a)}{h}$',
+              'Para que la derivada exista, el límite debe ser finito',
+              'Si los límites laterales dan distintos, hay esquina',
+              'Si los límites laterales dan $\\pm\\infty$, hay tangente vertical',
+              'Una función continua en $a$ es automáticamente derivable en $a$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales del apunte. Justamente $f(x) = |x|$ muestra que continua NO implica derivable.',
+          },
+          {
+            id: 'ms-3-4',
+            q: 'Sobre los ejemplos clásicos de no-derivabilidad, ¿qué es correcto?',
+            options: [
+              '$f(x) = |x|$ no es derivable en $x = 0$ (esquina)',
+              '$f(x) = \\lfloor x \\rfloor$ no es derivable en los enteros (salto)',
+              '$f(x) = \\sqrt[3]{x}$ tiene tangente vertical en $x = 0$',
+              'En $f(x) = |x|$, el límite lateral izquierdo del cociente da $-1$ y el derecho $+1$',
+              '$f(x) = |x|$ es derivable en $x = 0$ porque es continua ahí',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Los primeros cuatro son textuales. La última opción es el malentendido que el apunte advierte explícitamente: continua no implica derivable.',
+          },
+        ],
+      },
     },
     {
       id: '4',
@@ -316,6 +502,64 @@ export default {
           { id: 'mc-4-2', q: 'Si $f\'(x_0) = -2$, ¿cuál es la pendiente de la recta normal en ese punto?', options: ['$-2$', '$2$', '$\\frac{1}{2}$', '$-\\frac{1}{2}$'], correctIndex: 2, explain: 'La normal es opuesta e inversa: $-\\frac{1}{-2} = \\frac{1}{2}$.' },
           { id: 'mc-4-3', q: '¿Qué cociente define la pendiente de la recta secante entre $(a; f(a))$ y $(x; f(x))$?', options: ['$\\frac{f(x) - f(a)}{x - a}$', '$\\frac{x - a}{f(x) - f(a)}$', '$\\frac{f(x) + f(a)}{x + a}$', '$f(x) - f(a)$'], correctIndex: 0, explain: 'Es el cociente incremental: variación de $y$ sobre variación de $x$.' },
           { id: 'mc-4-4', q: 'En el ejemplo resuelto, ¿cuál es la pendiente de la tangente y el punto de tangencia?', options: ['Pendiente $-2$ y punto $(0; 1)$', 'Pendiente $1$ y punto $(0; -2)$', 'Pendiente $\\frac{1}{2}$ y punto $(1; 0)$', 'Pendiente $-2$ y punto $(1; 0)$'], correctIndex: 0, explain: '$f\'(0) = -2$ es la pendiente y $f(0) = 1$ da el punto $(0; 1)$.' },
+        ],
+        ms: [
+          {
+            id: 'ms-4-1',
+            q: '¿Qué afirmaciones sobre la recta tangente son correctas?',
+            options: [
+              'Su pendiente es la derivada de $f$ en el punto: $m = f\'(x_0)$',
+              'Surge del límite del cociente incremental cuando $x \\to a$',
+              'Su forma punto-pendiente es $y - y_0 = f\'(x_0)(x - x_0)$',
+              '"Tangente" viene del latín "tangens" (tocar)',
+              'Su pendiente siempre es positiva',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. La pendiente puede ser positiva, negativa o cero según el comportamiento de la función.',
+          },
+          {
+            id: 'ms-4-2',
+            q: '¿Qué afirmaciones sobre la recta normal son correctas?',
+            options: [
+              'Es perpendicular a la recta tangente en el mismo punto',
+              'Su pendiente es la opuesta e inversa de la de la tangente',
+              'Si la pendiente de la tangente es $m$, la de la normal es $-\\dfrac{1}{m}$',
+              'El producto de las pendientes de tangente y normal es $-1$',
+              'La normal es paralela a la tangente',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. La normal es perpendicular, NUNCA paralela: por eso su pendiente es la opuesta e inversa.',
+          },
+          {
+            id: 'ms-4-3',
+            q: 'Sobre los pasos para hallar la recta tangente en el ejemplo resuelto, ¿qué corresponde?',
+            options: [
+              'Calcular $f\'(x)$',
+              'Evaluar $f\'(x_0)$ para obtener la pendiente',
+              'Calcular $f(x_0)$ para obtener el punto de tangencia',
+              'Armar la ecuación de la recta',
+              'Tomar la derivada del numerador del límite incremental sin aplicar regla del cociente',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Los primeros cuatro son los pasos textuales del ejemplo. El cálculo de $f\'(x)$ requiere la regla del cociente porque hay un cociente.',
+          },
+          {
+            id: 'ms-4-4',
+            q: 'Sobre la relación entre derivada y rectas en un punto, ¿qué es correcto?',
+            options: [
+              'La derivada en el punto es la pendiente de la recta tangente',
+              'Si $f\'(x_0) = 0$, la tangente es horizontal',
+              'Si $f\'(x_0) = 0$, la normal es vertical (pendiente indefinida)',
+              'El cociente incremental de la secante con $\\lim_{x \\to a}$ se convierte en pendiente de la tangente',
+              'Si $f\'(x_0) = 0$, la normal también tiene pendiente cero',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain:
+              'Las primeras cuatro son textuales. Cuando la tangente es horizontal ($m = 0$), la normal es vertical, no horizontal.',
+          },
         ],
       },
       flashcards: [
