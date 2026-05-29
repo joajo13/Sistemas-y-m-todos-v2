@@ -142,6 +142,64 @@ export default {
             'Es una estructura que organiza el almacenamiento y permite las operaciones básicas sobre archivos.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-1-1',
+          q: '¿Qué operaciones permite un filesystem según el apunte?',
+          options: [
+            'Leer archivos',
+            'Escribir archivos',
+            'Modificar archivos',
+            'Eliminar archivos',
+            'Compilar el kernel del SO',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro primeras son textuales. Compilar el kernel no es función del filesystem.',
+        },
+        {
+          id: 'ms-1-2',
+          q: '¿Qué filesystems del cuadro son journalizados?',
+          options: [
+            'ext4',
+            'XFS',
+            'Btrfs',
+            'NTFS',
+            'tmpfs (RAM disk)',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro del cuadro comparativo son journalizados. tmpfs es un FS en RAM y no aparece en el apunte.',
+        },
+        {
+          id: 'ms-1-3',
+          q: '¿Qué afirmaciones sobre los filesystems del cuadro son correctas?',
+          options: [
+            'ext4 es rápido y confiable',
+            'XFS es muy eficiente con archivos grandes',
+            'Btrfs ofrece snapshots y compresión',
+            'NTFS permite interoperabilidad Linux-Windows',
+            'ext4 es nativo de Windows',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. ext4 es nativo de Linux y NO es compatible con Windows sin software adicional.',
+        },
+        {
+          id: 'ms-1-4',
+          q: '¿Qué desventajas menciona el apunte para los filesystems del cuadro?',
+          options: [
+            'ext4: no es compatible con Windows sin software adicional',
+            'XFS: operaciones de redimensionado más complejas',
+            'Btrfs: aún en fase de optimización',
+            'NTFS: rendimiento menor en Linux comparado con FS nativos',
+            'ext4: no es journalizado',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del cuadro. ext4 SÍ es journalizado.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -298,6 +356,64 @@ export default {
             'Es la decisión de cuándo escribir al journal: priorizando la integridad de los datos o la velocidad de escritura.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-2-1',
+          q: '¿Cuáles son los tres tipos de journaling descritos en el apunte?',
+          options: [
+            'Journaling completo',
+            'Journaling de metadatos',
+            'Journaling asíncrono/sincrónico',
+            'Journaling cifrado',
+            'Journaling sin retorno',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Los tres tipos textuales son completo, de metadatos y asíncrono/sincrónico. Los otros no aparecen en el apunte.',
+        },
+        {
+          id: 'ms-2-2',
+          q: '¿Qué afirmaciones sobre cómo trabaja el journal son correctas?',
+          options: [
+            'Primero se registra la operación en el journal',
+            'Después se aplica al filesystem principal',
+            'La acción completa solo se aplica si se asegura el registro',
+            'Tras un fallo, el journal permite reconstruir los cambios pendientes',
+            'Primero se aplica al filesystem y después se registra en el journal',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El último orden es justamente el opuesto al que describe el apunte.',
+        },
+        {
+          id: 'ms-2-3',
+          q: 'Sobre el journaling completo, ¿qué afirmaciones son correctas?',
+          options: [
+            'Registra datos + metadatos',
+            'Es el que más recursos consume',
+            'Es el más lento de los tres tipos',
+            'Es el más rápido porque registra menos información',
+            'Da más garantía de integridad',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las primeras tres y la quinta son textuales. Justamente es el MÁS LENTO, no el más rápido.',
+        },
+        {
+          id: 'ms-2-4',
+          q: 'Sobre el journaling de metadatos, ¿qué es correcto?',
+          options: [
+            'Solo registra cambios en los metadatos (ubicación, nombre, etc.)',
+            'Es más rápido que el completo',
+            'Es menos seguro para los datos de los archivos en sí',
+            'Registra también los datos del archivo',
+            'Su finalidad principal es proteger la integridad de los datos del archivo',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales. NO registra los datos del archivo — eso es justamente lo que lo hace más rápido pero menos seguro.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -421,6 +537,64 @@ export default {
           correctIndex: 1,
           explain:
             'Es el flujo descripto: apagar, entrar a Settings → Storage, agregar nuevo disco desde el Controller, crear VDI, seleccionar y confirmar con OK.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-3-1',
+          q: '¿Qué pasos forman parte del procedimiento para incorporar un disco a la VM en VirtualBox?',
+          options: [
+            'Tener la máquina apagada',
+            'Entrar a Settings → Storage',
+            'Pararse sobre el Controller y "Agregar nuevo disco"',
+            'Crear el disco con extensión VDI',
+            'Modificar el archivo /etc/fstab desde el host',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. /etc/fstab pertenece al SO invitado y se modifica recién al final del flujo, no al agregar el disco al virtualizador.',
+        },
+        {
+          id: 'ms-3-2',
+          q: '¿Qué afirmaciones sobre la configuración del disco virtual son correctas?',
+          options: [
+            'El tipo de extensión por defecto es VDI',
+            'Se debe indicar el path por defecto y el tamaño',
+            'El casillero "pre-allocate Full Size" debe quedar destildado',
+            'Se confirma con OK desde el diálogo final',
+            'Pre-allocate Full Size debe quedar marcado para que funcione',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El apunte advierte explícitamente: pre-allocate Full Size va DESTILDADO.',
+        },
+        {
+          id: 'ms-3-3',
+          q: 'Sobre el flujo desde el Selector de Discos, ¿qué pasos corresponden?',
+          options: [
+            'Quedar parados sobre el disco recién generado',
+            'Hacer clic en Choose (Seleccionar)',
+            'Ver el disco agregado y confirmar con OK',
+            'Encender la máquina nuevamente',
+            'Reiniciar el host (la PC física) antes de Choose',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. No hace falta reiniciar el host: alcanza con confirmar y encender la VM.',
+        },
+        {
+          id: 'ms-3-4',
+          q: '¿Qué afirmaciones sobre el estado del disco recién incorporado son correctas?',
+          options: [
+            'El kernel del SO invitado lo va a ver al iniciar la VM',
+            'Antes de poder guardar datos hay que inicializarlo',
+            'Luego hay que formatearlo',
+            'Luego hay que montarlo',
+            'Recién agregado ya tiene un filesystem listo para escribir',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del callout en criollo. Un disco recién agregado está VACÍO: hay que inicializarlo, formatearlo y montarlo.',
         },
       ],
     },
@@ -638,6 +812,64 @@ export default {
           correctIndex: 1,
           explain:
             'Los 4 pasos: (1) inicializar con fdisk, (2) formatear con mkfs, (3) montar con mount, (4) agregar al /etc/fstab para que persista.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-4-1',
+          q: '¿Cuáles son los 4 pasos para disponibilizar un disco nuevo en Linux?',
+          options: [
+            'Inicializarlo (crear la partición con fdisk)',
+            'Formatearlo (con mkfs)',
+            'Montarlo (con mount)',
+            'Agregarlo al /etc/fstab para que persista al reiniciar',
+            'Compilar el kernel con soporte para el FS',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro pasos son textuales. Recompilar el kernel no es parte del flujo: los FS comunes ya vienen soportados.',
+        },
+        {
+          id: 'ms-4-2',
+          q: '¿Qué columnas devuelve lsblk según el apunte?',
+          options: [
+            'NAME',
+            'SIZE',
+            'TYPE',
+            'MOUNTPOINT',
+            'INODE',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'NAME, MAJ, RM, SIZE, RO, TYPE y MOUNTPOINT son las columnas textuales. INODE no es una columna de lsblk.',
+        },
+        {
+          id: 'ms-4-3',
+          q: 'Sobre el menú interactivo de fdisk para crear una partición primaria, ¿qué teclas corresponden?',
+          options: [
+            'n para indicar partición nueva',
+            'p para indicar primaria',
+            '1 para una sola partición (número)',
+            'w para escribir y guardar los cambios',
+            'q para borrar el disco',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. q es quit (sale sin escribir) — no borra el disco.',
+        },
+        {
+          id: 'ms-4-4',
+          q: '¿Qué afirmaciones sobre lsblk y los nombres de dispositivos son correctas?',
+          options: [
+            'El prefijo sd* proviene de "SCSI DISK"',
+            'La letra final se asigna en orden (a, b, c...)',
+            'lsblk muestra el punto de montaje si lo tiene',
+            'lsblk lista discos, SSDs, particiones y dispositivos removibles',
+            'sda es siempre el disco más nuevo agregado al sistema',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. sda es el PRIMER disco detectado, no el más nuevo — la letra avanza con cada nuevo dispositivo.',
         },
       ],
     },
@@ -912,6 +1144,64 @@ export default {
           correctIndex: 2,
           explain:
             'nosuid ignora los bits suid y sgid en el filesystem montado, por seguridad.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-5-1',
+          q: '¿Cuáles son las columnas de /etc/fstab?',
+          options: [
+            'filesystem',
+            'mount point',
+            'type',
+            'options',
+            'dump-freq y pass-num',
+          ],
+          correctIndexes: [0, 1, 2, 3, 4],
+          explain:
+            'Las seis columnas son: filesystem, mount point, type, options, dump-freq y pass-num. La última opción engloba las dos finales.',
+        },
+        {
+          id: 'ms-5-2',
+          q: '¿Qué opciones existen en la columna options de /etc/fstab?',
+          options: [
+            'defaults',
+            'noauto',
+            'nosuid',
+            'ro y rw (excluyentes)',
+            'precompile',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son opciones reales. "precompile" no existe en fstab.',
+        },
+        {
+          id: 'ms-5-3',
+          q: 'Sobre el flujo formatear/montar/persistir, ¿qué es correcto?',
+          options: [
+            'mkfs -t ext4 /dev/sdd1 crea el filesystem en la partición',
+            'mount /dev/sdd1 /VENTAS engancha la partición al directorio',
+            'El montaje hecho con mount NO persiste al reinicio',
+            'Para que persista hay que agregar la línea en /etc/fstab',
+            'mount es suficiente para que el disco se monte solo en cada arranque',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. mount solo monta para la sesión actual: sin /etc/fstab, el reinicio pierde el montaje.',
+        },
+        {
+          id: 'ms-5-4',
+          q: '¿Qué afirmaciones sobre dump-freq y pass-num son correctas?',
+          options: [
+            'dump-freq en 0 indica que el FS no se considera para backup con dump',
+            'pass-num define el orden en que fsck revisa el dispositivo al iniciar',
+            'pass-num en 0 indica que fsck NO revisa el dispositivo',
+            'ro y rw son excluyentes',
+            'pass-num define el tamaño del journal',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. pass-num NO tiene relación con el tamaño del journal.',
         },
       ],
     },
