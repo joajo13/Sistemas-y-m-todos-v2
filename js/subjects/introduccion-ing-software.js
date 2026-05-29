@@ -2344,6 +2344,64 @@ export default {
             'El control opera sobre objetos entidad y retorna el resultado a un objeto de interfaz, según el apunte.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-8-1',
+          q: '¿Qué afirmaciones sobre el diagrama de secuencia son correctas?',
+          options: [
+            'Muestra la interacción entre los objetos desde un punto de vista temporal',
+            'Describe cómo colaboran un grupo de objetos para realizar una actividad',
+            'Generalmente atrapa el comportamiento descripto por un caso de uso particular',
+            'Representa la secuencia de mensajes incluyendo emisor y receptor',
+            'Muestra la distribución de hardware del sistema',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. La distribución de hardware es propia del diagrama de despliegue, no del de secuencia.',
+        },
+        {
+          id: 'ms-8-2',
+          q: '¿Cuáles son los tres tipos de objetos del modelo de análisis usados en el diagrama de secuencia?',
+          options: [
+            'Objetos de interfaz',
+            'Objetos de entidad',
+            'Objetos de control',
+            'Objetos de presentación',
+            'Objetos de persistencia',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'En el modelo de análisis se usan tres tipos: interfaz, entidad y control. Presentación y persistencia son conceptos posteriores, propios del diseño.',
+        },
+        {
+          id: 'ms-8-3',
+          q: '¿Qué afirmaciones sobre los objetos de interfaz son correctas?',
+          options: [
+            'Permiten la comunicación entre los actores y el sistema, y viceversa',
+            'Surgen de la interacción del sistema con su ambiente, especificada en los casos de uso',
+            'Se identifican fácilmente leyendo la descripción del caso de uso',
+            'Modelan información que sobrevive a los casos de uso',
+            'Modelan funcionalidad que no encaja naturalmente en otros objetos',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales. Sobrevivir a los casos de uso es propio de las entidades; modelar funcionalidad inubicable es propio del control.',
+        },
+        {
+          id: 'ms-8-4',
+          q: '¿Qué afirmaciones sobre los objetos de control son correctas?',
+          options: [
+            'Modelan funcionalidad que no se asigna naturalmente a otros objetos',
+            'No forman parte de la interfaz ni de la información a ser utilizada',
+            'Operan sobre varios objetos entidad',
+            'Retornan el resultado de sus operaciones a un objeto de interfaz',
+            'Persisten en disco la información que manejan',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. La persistencia es responsabilidad de las entidades, no del control.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -2613,6 +2671,64 @@ export default {
             'Es exactamente el tiempo que el objeto se mantiene activo ejecutando una acción.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-9-1',
+          q: '¿Qué afirmaciones sobre los mensajes son correctas?',
+          options: [
+            'Se representan con una flecha desde el emisor al receptor',
+            'El orden temporal está dado por la altura: más alto, más temprano',
+            'Cada flecha debe llevar el nombre del mensaje',
+            'Pueden incluir parámetros, restricciones y valor de retorno',
+            'El orden se determina con una numeración explícita sobre cada flecha',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. La numeración explícita es propia del diagrama de colaboración, no del de secuencia.',
+        },
+        {
+          id: 'ms-9-2',
+          q: '¿Qué afirmaciones sobre el período de actividad son correctas?',
+          options: [
+            'Es el tiempo que tarda un objeto en ejecutar una acción',
+            'Se representa con espacios rectangulares sobre la línea de vida',
+            'Cada objeto tiene su línea de vida propia',
+            'La línea de vida es una línea vertical por debajo del objeto',
+            'Se grafica con un círculo sobre el nombre del objeto',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La actividad se grafica con rectángulos sobre la línea de vida, no con círculos sobre el nombre.',
+        },
+        {
+          id: 'ms-9-3',
+          q: '¿Qué afirmaciones sobre condición e iteración son correctas?',
+          options: [
+            'Una condición se escribe entre corchetes antes del nombre del mensaje',
+            'La condición puede escribirse en lenguaje coloquial (ej.: <code>[hay producto]</code>)',
+            'Solo si la condición es verdadera se ejecuta el mensaje',
+            'La iteración se nota con el símbolo <code>*</code> previo a la condición',
+            'La iteración se nota con el símbolo <code>+</code> al final del mensaje',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El símbolo de iteración es <code>*</code> antes de la condición, no <code>+</code>.',
+        },
+        {
+          id: 'ms-9-4',
+          q: '¿Qué afirmaciones sobre los mensajes recursivos son correctas?',
+          options: [
+            'Son mensajes que un objeto se manda a sí mismo',
+            'Se representan duplicando un rectángulo de actividad',
+            'Visualmente, el objeto aparece como si estuviera varias veces activado',
+            'Requieren una numeración especial separada',
+            'Se grafican con una nube sobre la línea de vida',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales del apunte. No hay numeración especial ni nubes; la recursión se ve por el rectángulo duplicado.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -2787,6 +2903,64 @@ export default {
           correctIndex: 2,
           explain:
             'Ambos son diagramas de interacción. El usuario elige cuál emplear según le resulte más conveniente.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-10-1',
+          q: '¿Qué afirmaciones sobre el diagrama de colaboración son correctas?',
+          options: [
+            'Muestra la misma información que un diagrama de secuencia',
+            'Los objetos se representan únicos',
+            'Los objetos se conectan mediante links',
+            'Sobre los links se colocan los mensajes',
+            'No es necesario numerar los mensajes porque el orden se infiere de la altura',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. SÍ es necesario numerar los mensajes en colaboración: como no hay eje temporal por altura, la numeración indica la secuencia.',
+        },
+        {
+          id: 'ms-10-2',
+          q: 'Sobre la diferencia entre el diagrama de secuencia y el de colaboración, ¿qué es correcto?',
+          options: [
+            'Ambos muestran la misma información',
+            'La diferencia es gráfica, no de contenido',
+            'En secuencia, el orden está dado por la altura de las flechas',
+            'En colaboración, los mensajes se numeran sobre los links',
+            'En colaboración cambian las notaciones de condición e iteración',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La selección (condición) y la iteración se denotan de la misma manera en ambos diagramas.',
+        },
+        {
+          id: 'ms-10-3',
+          q: '¿Qué afirmaciones sobre los diagramas de interacción en UML son correctas?',
+          options: [
+            'Son dos tipos: secuencia y colaboración',
+            'El usuario elige cuál desea emplear',
+            'Ambos describen la interacción entre objetos',
+            'Secuencia enfatiza el tiempo y colaboración enfatiza la estructura con links',
+            'Solo el de secuencia puede usarse para casos de uso',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Ambos diagramas pueden usarse para modelar interacciones de cualquier caso de uso — son intercambiables.',
+        },
+        {
+          id: 'ms-10-4',
+          q: '¿Por qué es necesario numerar los mensajes en el diagrama de colaboración?',
+          options: [
+            'Porque los objetos aparecen una sola vez (no se repiten por mensaje)',
+            'Porque no hay eje temporal dado por la altura de las flechas',
+            'Para indicar la secuencia de ejecución de los mensajes',
+            'Para indicar la cantidad de parámetros que recibe cada uno',
+            'Para indicar el nivel de prioridad del mensaje',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'La numeración existe porque al no haber tiempo en la altura, hay que codificar la secuencia explícitamente. No tiene relación con parámetros ni con prioridad.',
         },
       ],
     },
