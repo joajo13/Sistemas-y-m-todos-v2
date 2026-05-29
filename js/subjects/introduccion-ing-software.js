@@ -4089,6 +4089,64 @@ export default {
             'Reducir el riesgo en sistemas críticos donde la empresa depende del sistema es la primera ventaja que cita el apunte.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-15-1',
+          q: 'Según Sommerville, ¿qué acciones puede implicar la reingeniería de software?',
+          options: [
+            'Redocumentar el sistema',
+            'Organizar y reestructurar el sistema',
+            'Traducir el sistema a un lenguaje de programación más moderno',
+            'Modificar y actualizar la estructura y valores de los datos',
+            'Cambiar la funcionalidad y la arquitectura del sistema',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales de Sommerville. La reingeniería se realiza generalmente SIN cambiar la funcionalidad ni la arquitectura.',
+        },
+        {
+          id: 'ms-15-2',
+          q: '¿Qué afirmaciones sobre el mantenimiento y la evolución del software son correctas?',
+          options: [
+            'Un sistema entregado inevitablemente sufre modificaciones para adaptarse al entorno',
+            'Adaptarse al entorno cambiante degrada paulatinamente la estructura del sistema',
+            'El mantenimiento puede ir desde corregir un error en una línea hasta sumar nuevos requerimientos',
+            'Introducir cambios o nuevas funcionalidades inevitablemente introduce defectos',
+            'Mantener funcionalidades nuevas con el sistema funcionando suele costar menos que durante el desarrollo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La última invierte la realidad: incorporar funcionalidad en mantenimiento cuesta MÁS que en desarrollo.',
+        },
+        {
+          id: 'ms-15-3',
+          q: '¿Qué ventajas tiene la reingeniería frente a desarrollar un sistema desde cero?',
+          options: [
+            'Disminuye el riesgo, especialmente en sistemas críticos',
+            'Un retraso en un sistema nuevo puede causar daños severos a la empresa',
+            'El costo de la reingeniería siempre será menor que el de desarrollar un sistema nuevo',
+            'Elimina por completo la necesidad de mantenimiento futuro',
+            'Permite cambiar arquitectura y funcionalidad simultáneamente sin esfuerzo',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales del apunte. Las dos últimas son inventos: la reingeniería no elimina el mantenimiento ni habilita cambios libres de arquitectura.',
+        },
+        {
+          id: 'ms-15-4',
+          q: '¿Qué afirmaciones sobre el alcance de la reingeniería son correctas?',
+          options: [
+            'Generalmente NO cambia la funcionalidad del sistema',
+            'Generalmente NO cambia la arquitectura del sistema',
+            'Busca mejorar un software existente',
+            'Mejora la estructura y la comprensión del sistema deteriorado por modificaciones sucesivas',
+            'Implica siempre reescribir todo el sistema desde cero',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Reingeniería es exactamente lo opuesto a reescribir desde cero — esa es justamente la alternativa a la que sustituye.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -4339,6 +4397,64 @@ export default {
           correctIndex: 2,
           explain:
             'CSP y redes de Petri son los lenguajes basados en modelos para sistemas concurrentes según el cuadro del apunte.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-16-1',
+          q: '¿Cuáles son razones que da el apunte para la poca adopción de las especificaciones formales?',
+          options: [
+            'Aparecieron otras herramientas que mejoraron la calidad (OO, nuevas metodologías, administración de configuraciones)',
+            'No son aptas para interfaces de usuario',
+            'No son aptas para desarrollos rápidos',
+            'No son escalables: se descontrolan al aumentar el tamaño',
+            'Requieren hardware especializado de altísimo costo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. El costo de hardware especializado no se menciona como motivo.',
+        },
+        {
+          id: 'ms-16-2',
+          q: '¿Qué afirmaciones sobre las dos aproximaciones de especificación formal son correctas?',
+          options: [
+            'La algebraica describe el sistema con operaciones y sus relaciones',
+            'La basada en modelos construye un modelo con conjuntos y sucesiones',
+            'En la basada en modelos, las operaciones se establecen indicando cómo modifican el estado',
+            'La algebraica define precondiciones y postcondiciones sobre el estado del sistema',
+            'Las dos aproximaciones son alternativas pensadas para sistemas industriales',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las precondiciones y postcondiciones son propias de la aproximación BASADA EN MODELOS, no de la algebraica.',
+        },
+        {
+          id: 'ms-16-3',
+          q: 'Según el cuadro del apunte, ¿qué lenguajes son correctos para cada combinación?',
+          options: [
+            'Algebraica · secuencial → Larch, OBJ',
+            'Algebraica · concurrente → Lotos, Brinksma',
+            'Basada en modelos · secuencial → Z, VDM, B',
+            'Basada en modelos · concurrente → CSP, redes de Petri',
+            'Basada en modelos · secuencial → Larch, OBJ',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del cuadro. Larch y OBJ son algebraicos, no basados en modelos.',
+        },
+        {
+          id: 'ms-16-4',
+          q: '¿Qué puntos clave atribuye el apunte a los métodos formales?',
+          options: [
+            'Complementan las especificaciones informales por ser precisos y no ambiguos',
+            'Eliminan dudas y evitan problemas de interpretación',
+            'Fuerzan un análisis temprano de requerimientos, donde corregir es menos costoso',
+            'Son excelentes para sistemas críticos con prioridad en seguridad y confiabilidad',
+            'Reemplazan por completo a cualquier otro tipo de especificación',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El apunte los presenta como complemento (no reemplazo) de las especificaciones informales.',
         },
       ],
     },
