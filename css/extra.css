@@ -1018,6 +1018,65 @@ body.has-bottom-bar { padding-bottom: 74px; }
   font-weight: 500;
 }
 
+.quiz-option-ms {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+}
+.quiz-option-ms .ms-marker {
+  flex: 0 0 auto;
+  width: 1.05rem;
+  height: 1.05rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 4px;
+  margin-top: 0.15rem;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.18s, border-color 0.18s;
+}
+.quiz-option-ms .ms-text { flex: 1 1 auto; }
+.quiz-option-ms.option-selected {
+  background: var(--ivory-warm);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.quiz-option-ms.option-selected .ms-marker {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+.quiz-option-ms.option-selected .ms-marker::after {
+  content: '';
+  width: 0.32rem;
+  height: 0.6rem;
+  border-right: 2px solid var(--ivory);
+  border-bottom: 2px solid var(--ivory);
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+.quiz-option-ms.option-correct .ms-marker {
+  background: var(--ok);
+  border-color: var(--ok);
+}
+.quiz-option-ms.option-correct .ms-marker::after {
+  content: '';
+  width: 0.32rem;
+  height: 0.6rem;
+  border-right: 2px solid var(--ivory);
+  border-bottom: 2px solid var(--ivory);
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+.quiz-option-ms.option-wrong .ms-marker {
+  background: var(--error);
+  border-color: var(--error);
+}
+.quiz-option-ms.option-wrong .ms-marker::after {
+  content: '×';
+  color: var(--ivory);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
 /* === Flashcards === */
 .flashcard { perspective: 1400px; }
 .flashcard-inner {

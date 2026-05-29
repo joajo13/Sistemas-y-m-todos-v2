@@ -18,9 +18,14 @@
  *   title: string,
  *   criollo?: string,
  *   blocks: ContentBlock[],
- *   quiz?: { tf: TFQuestion[], mc: MCQuestion[] },
+ *   quiz?: { tf: TFQuestion[], mc: MCQuestion[], ms?: MSQuestion[] },
  *   flashcards?: Flashcard[]
  * }
+ *
+ * TFQuestion = { id, q, a: boolean, explain }
+ * MCQuestion = { id, q, options: string[], correctIndex: number, explain }
+ * MSQuestion = { id, q, options: string[5], correctIndexes: number[], explain }
+ *   Multi-select: 5 opciones, 1+ correctas, scoring all-or-nothing.
  *
  * ContentBlock =
  *   | { type: 'h3', text: string, criollo?: string }

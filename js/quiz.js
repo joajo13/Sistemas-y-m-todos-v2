@@ -42,6 +42,7 @@ function main() {
   questions = [
     ...section.quiz.tf.map((q) => ({ ...q, kind: 'tf' })),
     ...section.quiz.mc.map((q) => ({ ...q, kind: 'mc' })),
+    ...((section.quiz.ms ?? []).map((q) => ({ ...q, kind: 'ms' }))),
   ];
 
   document.title = `Quiz: ${section.title}`;
@@ -80,6 +81,10 @@ function renderQuestion() {
     ? [{ text: 'Verdadero', value: true }, { text: 'Falso', value: false }]
     : q.options.map((text, i) => ({ text, value: i }));
 
+  const helpText = q.kind === 'ms'
+    ? `<p class="meta" style="margin:0.4rem 0 1rem;letter-spacing:.06em;text-transform:uppercase;font-size:.72rem;">Marcá <strong>una o más</strong> opciones · 5 posibles</p>`
+    : '';
+
   document.getElementById('quiz-body').innerHTML = `
     <div class="question-card fade-in">
       <p class="eyebrow no-rule" style="margin-bottom:0.85rem;">
@@ -87,11 +92,21 @@ function renderQuestion() {
         Pregunta N.º ${String(current + 1).padStart(2, '0')}
       </p>
       <p class="question-stem">${q.q}</p>
+      ${helpText}
       <div id="options"></div>
       <div id="explanation" class="hidden info-callout" style="margin-top:1.1rem;"></div>
     </div>
   `;
   const optsContainer = document.getElementById('options');
+
+  if (q.kind === 'ms') {
+    renderMultiSelect(optsContainer, opts, q);
+  } else {
+    renderSingleSelect(optsContainer, opts, q);
+  }
+}
+
+function renderSingleSelect(optsContainer, opts, q) {
   optsContainer.innerHTML = opts
     .map((o, i) => `
       <button data-idx="${i}" class="quiz-option touch-target">
@@ -107,6 +122,33 @@ function renderQuestion() {
     <button id="next-btn" class="btn btn-accent touch-target" disabled
             style="opacity:0.4;">Siguiente</button>
   `;
+  document.getElementById('next-btn').addEventListener('click', advance);
+}
+
+function renderMultiSelect(optsContainer, opts, q) {
+  optsContainer.innerHTML = opts
+    .map((o, i) => `
+      <button data-idx="${i}" class="quiz-option quiz-option-ms touch-target" aria-pressed="false">
+        <span class="ms-marker" aria-hidden="true"></span>
+        <span class="ms-text">${o.text}</span>
+      </button>
+    `).join('');
+
+  optsContainer.querySelectorAll('button').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const pressed = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', String(!pressed));
+      btn.classList.toggle('option-selected', !pressed);
+    });
+  });
+
+  document.getElementById('quiz-bottom').innerHTML = `
+    <button id="check-btn" class="btn btn-accent touch-target">Comprobar</button>
+    <button id="next-btn" class="btn btn-accent touch-target hidden"
+            style="margin-left:0.5rem;">Siguiente</button>
+  `;
+  document.getElementById('check-btn').addEventListener('click',
+    () => handleMultiAnswer(optsContainer, opts, q));
   document.getElementById('next-btn').addEventListener('click', advance);
 }
 
@@ -138,6 +180,55 @@ function handleAnswer(btn, opts, q) {
   const nextBtn = document.getElementById('next-btn');
   nextBtn.disabled = false;
   nextBtn.style.opacity = '1';
+}
+
+function handleMultiAnswer(optsContainer, opts, q) {
+  const buttons = Array.from(optsContainer.querySelectorAll('button'));
+  const chosenIdx = buttons
+    .map((b, i) => (b.getAttribute('aria-pressed') === 'true' ? i : -1))
+    .filter((i) => i !== -1);
+  const correctSet = new Set(q.correctIndexes);
+  const chosenSet = new Set(chosenIdx);
+  const isCorrect =
+    chosenSet.size === correctSet.size &&
+    [...chosenSet].every((i) => correctSet.has(i));
+
+  buttons.forEach((btn, i) => {
+    btn.disabled = true;
+    const wasChosen = chosenSet.has(i);
+    const isRight = correctSet.has(i);
+    btn.classList.remove('option-selected');
+    if (isRight) {
+      btn.classList.add('option-correct');
+    } else if (wasChosen) {
+      btn.classList.add('option-wrong');
+    }
+  });
+
+  if (isCorrect) {
+    correct++;
+  } else {
+    const chosenText = chosenIdx.length === 0
+      ? '(no marcaste ninguna)'
+      : chosenIdx.map((i) => opts[i].text).join(' · ');
+    wrongAnswers.push({ question: q, chosenText });
+  }
+
+  const exp = document.getElementById('explanation');
+  const correctText = q.correctIndexes.map((i) => opts[i].text).join(' · ');
+  exp.innerHTML = `
+    <span class="eyebrow no-rule" style="display:block;margin-bottom:0.4em;">
+      ${isCorrect ? 'Bien · explicación' : 'Por qué fallaste'}
+    </span>
+    <p style="margin-bottom:0.55em;"><strong>Correctas:</strong> ${correctText}</p>
+    <p>${q.explain}</p>
+  `;
+  exp.classList.remove('hidden');
+
+  const checkBtn = document.getElementById('check-btn');
+  const nextBtn = document.getElementById('next-btn');
+  checkBtn.classList.add('hidden');
+  nextBtn.classList.remove('hidden');
 }
 
 function advance() {

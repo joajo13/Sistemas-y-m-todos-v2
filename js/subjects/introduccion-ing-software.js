@@ -229,6 +229,64 @@ export default {
             'El mockup es una representación <strong>estática</strong> que muestra cómo se estructura la información y las funciones básicas, pero no simula la interacción como sí lo hace un prototipo funcional.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-1-1',
+          q: '¿Cuáles de las siguientes son pautas para desarrollar un prototipo según el apunte?',
+          options: [
+            'Emplear términos familiares para los usuarios',
+            'Mantener la coherencia con otros sistemas existentes',
+            'Agrupar las funciones de forma lógica',
+            'Maximizar la cantidad de diálogos para ofrecer más control al usuario',
+            'Obstaculizar la selección de acciones destructivas de datos',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'El apunte pide <em>generar diálogos eficientes</em>, no maximizar cantidad. Las otras cuatro están textualmente en la lista de pautas.',
+        },
+        {
+          id: 'ms-1-2',
+          q: 'Según Gordon y Bieman (1995), ¿cuáles fueron beneficios del uso de prototipado?',
+          options: [
+            'Perfeccionamiento en la usabilidad del nuevo sistema',
+            'Mayor coherencia entre las necesidades de los usuarios y el sistema',
+            'Eliminación total de los errores en producción',
+            'Mejorar el proceso de mantenimiento',
+            'Disminución del esfuerzo requerido en el desarrollo',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'Los cuatro beneficios mencionados están en la lista del estudio. El prototipado no "elimina" errores — los baja, pero no totalmente. El quinto beneficio del estudio (no listado aquí) es el diseño de mejor calidad.',
+        },
+        {
+          id: 'ms-1-3',
+          q: '¿En cuáles de estos escenarios el apunte indica que el prototipo es ESPECIALMENTE útil?',
+          options: [
+            'Cuando los requerimientos están perfectamente cerrados y firmados',
+            'Cuando los requerimientos van cambiando rápidamente',
+            'Cuando el cliente está poco abierto a entregar una lista completa de requerimientos',
+            'Cuando ni el cliente ni nosotros conocemos bien el área de aplicación',
+            'Cuando el sistema no tiene interfaz visual',
+          ],
+          correctIndexes: [1, 2, 3],
+          explain:
+            'El apunte lista exactamente esas tres situaciones. Un sistema sin interfaz visual ni un set de requerimientos cerrados son justamente los escenarios donde el prototipo aporta menos.',
+        },
+        {
+          id: 'ms-1-4',
+          q: '¿Cuáles de estas afirmaciones sobre el mockup son correctas según el apunte?',
+          options: [
+            'Es una representación visual estática de un diseño',
+            'Simula la interactividad real del sistema con el usuario',
+            'Muestra estructura, contenidos y funciones básicas que estarán disponibles',
+            'Es útil para que el equipo y el cliente visualicen el diseño y den feedback',
+            'Reemplaza por completo al prototipo funcional',
+          ],
+          correctIndexes: [0, 2, 3],
+          explain:
+            'El mockup es estático: no simula interactividad real (esa es la diferencia con el prototipo funcional) y no lo reemplaza — es una herramienta complementaria.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -476,6 +534,64 @@ export default {
           correctIndex: 2,
           explain:
             'El apunte indica explícitamente: usar una relación de herencia entre actores. Cada caso de uso puede iniciarse por UN único actor.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-2-1',
+          q: '¿Qué cosas pueden ser un actor según el apunte?',
+          options: [
+            'Una persona',
+            'Una organización',
+            'Una unidad dentro de una organización',
+            'Otro sistema o aplicación',
+            'Una tabla de la base de datos del propio sistema',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Un actor puede ser persona, organización, unidad o sistema externo. Una tabla del sistema no es un actor — es estructura interna, no entorno.',
+        },
+        {
+          id: 'ms-2-2',
+          q: '¿Cuáles de estas preguntas sirven para identificar actores según el apunte?',
+          options: [
+            '¿Quién usa el sistema?',
+            '¿Quién necesita que el sistema le brinde información?',
+            '¿Quién provee al sistema de información?',
+            '¿Qué otros sistemas interactúan o utilizan el sistema?',
+            '¿Cuántas líneas de código tendrá el sistema?',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro están textuales en la lista del apunte (también está "¿Quién instala, prepara y mantiene el sistema?"). La cantidad de código no tiene nada que ver con identificar actores.',
+        },
+        {
+          id: 'ms-2-3',
+          q: '¿Cuáles de estas afirmaciones sobre actores y casos de uso son correctas?',
+          options: [
+            'Si el actor es una persona, se modela el rol y no el nombre',
+            'Un actor representa un conjunto coherente de roles',
+            'Un actor primario inicia el caso de uso para lograr un objetivo',
+            'Un actor secundario es requerido por el caso (por ejemplo, para notificarlo) pero no lo inicia',
+            'Un caso de uso puede ser iniciado por varios actores sin ningún mecanismo especial',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. La última es falsa: cada caso de uso puede ser iniciado por UN único actor; si hay más, se usa herencia entre actores.',
+        },
+        {
+          id: 'ms-2-4',
+          q: 'Sobre el nombre y representación gráfica del caso de uso, ¿qué es correcto?',
+          options: [
+            'Se representa con una elipse con el nombre adentro',
+            'El nombre comienza con verbo en infinitivo',
+            'El nombre va seguido del principal objeto o entidad afectado',
+            'El nombre se expresa desde el punto de vista de quien lo realiza',
+            'El nombre debe ser un código numérico que indique el orden de ejecución',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Ejemplo del apunte: <em>Registrar préstamo</em>. La elipse con verbo + entidad, desde el punto de vista de quien la realiza. No se usan códigos numéricos para nombrarlos.',
         },
       ],
     },
@@ -743,6 +859,64 @@ export default {
             'El apunte sugiere emplear cajas rectangulares más pequeñas para agrupar los casos de uso por subsistemas dentro del rectángulo principal del sistema.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-3-1',
+          q: '¿Cuáles de los siguientes campos aparecen en el cuadro descriptivo básico de un caso de uso?',
+          options: [
+            'Nombre del caso de uso',
+            'Actor que inicia el caso',
+            'Precondición',
+            'Curso normal numerado',
+            'Código fuente de implementación del caso',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro primeros forman el cuadro básico (más el curso alternativo en la segunda columna). El código fuente no se documenta en el cuadro descriptivo — es lo opuesto al nivel de abstracción del caso de uso.',
+        },
+        {
+          id: 'ms-3-2',
+          q: '¿Qué campos suma el cuadro descriptivo EXTENDIDO respecto del básico?',
+          options: [
+            'Identificador del requerimiento',
+            'Postcondición',
+            'Excepciones paso a paso',
+            'Importancia',
+            'Pseudocódigo de implementación',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'El extendido suma identificador, postcondición, excepciones, importancia (y comentarios). El pseudocódigo no entra — el cuadro describe interacciones, no implementación.',
+        },
+        {
+          id: 'ms-3-3',
+          q: '¿Cuáles de estas afirmaciones sobre las relaciones de extensión y uso son correctas?',
+          options: [
+            'Se presentan únicamente entre casos de uso',
+            'En la relación de uso, la parte incluida debe cumplir con la definición de caso de uso',
+            'En la relación de extensión, ambas partes deben ser casos de uso por sí mismas',
+            'Pueden darse entre actores y casos de uso indistintamente',
+            'Suelen aparecer al refinar el modelo después de haber identificado los casos principales',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Estas relaciones se dan SOLO entre casos de uso (no con actores), y todas las partes deben cumplir con la definición de caso de uso. Aparecen al refinar el modelo, cuando ves funcionalidad común o extendible.',
+        },
+        {
+          id: 'ms-3-4',
+          q: 'Sobre el diagrama de casos de uso, ¿qué afirmaciones son correctas?',
+          options: [
+            'Muestra el conjunto de casos de uso, los actores y las relaciones',
+            'Se puede emplear un rectángulo para indicar la frontera entre sistema y entorno',
+            'El nombre del sistema se indica en un borde interno del rectángulo',
+            'Se pueden usar cajas rectangulares más pequeñas para agrupar casos por subsistemas',
+            'El rectángulo grande del diagrama representa al actor principal',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. El rectángulo NO es el actor — el actor se representa como un muñeco de palo; el rectángulo delimita el sistema.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -983,6 +1157,64 @@ export default {
           correctIndex: 2,
           explain:
             'El apunte indica explícitamente: cuando es difícil implementarla en una sola iteración, es necesario desagregarla en historias de usuario menores.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-4-1',
+          q: '¿Cuáles de los siguientes atributos forman parte del criterio INVEST de Bill Wake (2003)?',
+          options: [
+            'Independiente',
+            'Negociable',
+            'Iterativa',
+            'Estimable',
+            'Comprobable (Testable)',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'INVEST = Independiente, Negociable, Valorable, Estimable, Pequeña (Small) y Comprobable (Testable). "Iterativa" no es una letra del criterio.',
+        },
+        {
+          id: 'ms-4-2',
+          q: '¿Qué preguntas debe responder una historia de usuario?',
+          options: [
+            '¿Quién es el beneficiario?',
+            '¿Qué se quiere hacer?',
+            '¿Cuál es el beneficio (valor de negocio)?',
+            '¿Qué tecnología se va a usar?',
+            '¿Cuántos sprints requiere?',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las historias responden tres preguntas: quién, qué y para qué (beneficio). La tecnología y la estimación de sprints son decisiones posteriores, fuera del formato narrativo.',
+        },
+        {
+          id: 'ms-4-3',
+          q: '¿Cuáles de estas afirmaciones sobre los casos de uso 2.0 de Jacobson son correctas?',
+          options: [
+            'Fueron diseñados con la intención de alivianar el proceso',
+            'Sugieren narrativas más ligeras que las clásicas',
+            'Las historias se pueden describir en tarjetas pequeñas',
+            'Se baja a detalle solo en los casos de uso que lo requieran',
+            'Reemplazan por completo a los casos de uso clásicos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los casos de uso 2.0 son una propuesta para hacerlos más livianos y compatibles con historias de usuario, no para reemplazar a los clásicos.',
+        },
+        {
+          id: 'ms-4-4',
+          q: '¿Qué afirmaciones sobre los épicos son correctas según el apunte?',
+          options: [
+            'Son historias de usuario tan grandes que no pueden implementarse en una única iteración',
+            'Deben desagregarse en historias de usuario menores',
+            'Son historias chicas que se implementan en pocos minutos',
+            'Reemplazan al caso de uso original',
+            'Son sinónimos de criterio de aceptación',
+          ],
+          correctIndexes: [0, 1],
+          explain:
+            'Un épico es lo contrario de chico: una historia grande que no entra en una iteración. La acción canónica es desagregarlo, no reemplazar nada ni confundirlo con criterios de aceptación.',
         },
       ],
     },
