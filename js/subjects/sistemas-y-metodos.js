@@ -1961,6 +1961,64 @@ export default {
             'La WBS no asigna fechas ni duraciones: se enfoca en el "qué". Las fechas y duración son parte del cronograma (Gantt), no de la WBS.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-8-1',
+          q: '¿Cuáles son características clave de la WBS según el apunte?',
+          options: [
+            'Orientada a los entregables',
+            'Jerárquica',
+            'Cumple la regla del 100%',
+            'Define el "qué", no el "cómo" ni el "cuándo"',
+            'Asigna fechas y duración a cada paquete de trabajo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Fechas y duración son del Gantt, no de la WBS.',
+        },
+        {
+          id: 'ms-8-2',
+          q: '¿Qué afirmaciones sobre la OBS son correctas?',
+          options: [
+            'Es un organigrama del proyecto',
+            'Muestra las distintas unidades organizativas (departamentos, equipos)',
+            'Define el "quién"',
+            'Sus unidades se relacionan entre sí',
+            'Reemplaza a la WBS',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La OBS no reemplaza a la WBS: son complementarias y su cruce arma la matriz de responsabilidades.',
+        },
+        {
+          id: 'ms-8-3',
+          q: '¿Qué se obtiene al cruzar la WBS con la OBS?',
+          options: [
+            'Una matriz de asignación de responsabilidades',
+            'Cada paquete de trabajo queda asignado a un equipo o departamento',
+            'Garantiza que cada parte del proyecto tenga un dueño claro',
+            'Un cronograma con fechas y dependencias',
+            'El registro de riesgos del proyecto',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son textuales del apunte. Cronograma y registro de riesgos son otros artefactos distintos.',
+        },
+        {
+          id: 'ms-8-4',
+          q: '¿Qué afirmaciones sobre los paquetes de trabajo y la jerarquía de la WBS son correctas?',
+          options: [
+            'Los paquetes de trabajo son las divisiones más pequeñas y manejables',
+            'En la cima de la jerarquía está el proyecto general',
+            'En la base están los paquetes de trabajo individuales',
+            'La WBS se enfoca en organizar y definir el alcance total del proyecto',
+            'Los paquetes de trabajo son los niveles más altos y generales',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Los paquetes están en la BASE, no en la cima — son las unidades ejecutables más chicas.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -2174,6 +2232,64 @@ export default {
           correctIndex: 2,
           explain:
             'Como el camino crítico determina la duración total, la única forma efectiva de acortar el proyecto es acortar tareas que estén dentro de él.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-9-1',
+          q: 'Sobre esfuerzo, duración y tiempo calendario, ¿qué es correcto?',
+          options: [
+            'Esfuerzo: cantidad total de horas de trabajo que la tarea requiere',
+            'Duración: días laborables que toma la tarea con los recursos asignados',
+            'Tiempo calendario: lapso total en el almanaque, incluye fines de semana y feriados',
+            'Una tarea de 16 hs con 1 recurso a 8 hs/día tiene duración de 2 días',
+            'Esfuerzo, duración y tiempo calendario son siempre iguales',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La quinta es el error clásico que el apunte advierte explícitamente.',
+        },
+        {
+          id: 'ms-9-2',
+          q: '¿Qué permite ver de un vistazo el diagrama de Gantt?',
+          options: [
+            'Qué tareas hay que hacer',
+            'Cuándo comienza y termina cada tarea',
+            'Cuánto dura cada tarea',
+            'Cómo se superponen las tareas y si hay dependencias',
+            'El presupuesto detallado de cada paquete',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El presupuesto detallado no se representa en el Gantt — se gestiona en costos.',
+        },
+        {
+          id: 'ms-9-3',
+          q: '¿Qué afirmaciones sobre el camino crítico son correctas?',
+          options: [
+            'Es la secuencia de tareas más larga y menos flexible del proyecto',
+            'Su duración total determina la duración total del proyecto',
+            'Cualquier retraso en una tarea del camino crítico retrasa todo el proyecto',
+            'Concentra la máxima atención del gerente de proyecto',
+            'Es la secuencia más corta del proyecto',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Justamente por ser la MÁS LARGA, es crítico.',
+        },
+        {
+          id: 'ms-9-4',
+          q: '¿Qué es necesario para acortar la duración total del proyecto?',
+          options: [
+            'Acortar la duración de tareas que estén en el camino crítico',
+            'Reducir tareas que NO están en el camino crítico',
+            'Eliminar dependencias entre tareas no críticas',
+            'Atacar las tareas con holgura',
+            'No hay otra forma efectiva: hay que tocar el camino crítico',
+          ],
+          correctIndexes: [0, 4],
+          explain:
+            'Para acortar la duración total HAY que acortar tareas del camino crítico. Las otras opciones no mueven la duración total porque las tareas no críticas tienen holgura.',
         },
       ],
     },
@@ -2419,6 +2535,64 @@ export default {
             'Justamente lo opuesto: el proceso formal evita la implementación inmediata. Pasa por solicitud, evaluación del impacto, aprobación del comité y recién después ajuste del plan y comunicación.',
         },
       ],
+      ms: [
+        {
+          id: 'ms-10-1',
+          q: '¿Cuáles son las cuatro estrategias clásicas para tratar riesgos negativos?',
+          options: [
+            'Evitar',
+            'Transferir',
+            'Anticipar (mitigar)',
+            'Aceptar',
+            'Ignorar permanentemente',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro estrategias son Evitar, Transferir, Anticipar y Aceptar. Ignorar no es una estrategia válida del apunte — Aceptar implica reconocer el riesgo, no ignorarlo.',
+        },
+        {
+          id: 'ms-10-2',
+          q: '¿Qué afirmaciones sobre la gestión de riesgos son correctas?',
+          options: [
+            'Un riesgo es un evento incierto con impacto positivo o negativo si ocurre',
+            'La gestión no busca eliminar la incertidumbre, sino gestionarla',
+            'Transferir un riesgo traslada las consecuencias a un tercero (ej.: seguro)',
+            'Aceptar se usa generalmente para riesgos de bajo impacto o probabilidad',
+            'Evitar significa simplemente no hablar del riesgo en las reuniones',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Evitar significa MODIFICAR el plan para eliminar la amenaza, no esconder el problema.',
+        },
+        {
+          id: 'ms-10-3',
+          q: '¿Qué afirmaciones sobre QA vs QC son correctas?',
+          options: [
+            'QA está enfocado en los procesos',
+            'QC está enfocado en los productos',
+            'QA busca prevenir defectos mediante auditorías',
+            'QC busca detectar defectos mediante inspección',
+            'QA inspecciona productos terminados',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. Inspeccionar productos terminados es función del QC, no del QA.',
+        },
+        {
+          id: 'ms-10-4',
+          q: '¿Cuáles son los pasos del proceso formal de gestión de cambios según el apunte?',
+          options: [
+            'Solicitud del cambio',
+            'Evaluación del impacto en alcance, cronograma, costo y calidad',
+            'Aprobación por un comité de control de cambios',
+            'Ajuste del plan y comunicación a todos los involucrados',
+            'Implementación inmediata sin revisión',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son los pasos formales. La implementación inmediata es exactamente lo que el proceso busca evitar.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -2657,6 +2831,64 @@ export default {
           correctIndex: 3,
           explain:
             'Re-planificar el alcance corresponde a la gestión de cambios durante la ejecución, no al cierre. El cierre incluye actividades formales para terminar de forma ordenada.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-11-1',
+          q: '¿Qué componentes típicos incluye un informe de avance según el apunte?',
+          options: [
+            'Resumen ejecutivo',
+            'Estado de actividades (completadas y en progreso)',
+            'Riesgos y problemas',
+            'Atrasos y análisis de presupuesto',
+            'Pseudocódigo de los módulos pendientes',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El pseudocódigo no forma parte del informe de avance.',
+        },
+        {
+          id: 'ms-11-2',
+          q: '¿Qué afirmaciones sobre el acta de certificación de hitos son correctas?',
+          options: [
+            'Un hito es un punto o evento importante del proyecto',
+            'Es un documento formal donde el cliente o sponsor firma la aceptación',
+            'Puede aceptar un entregable o el fin de una fase importante',
+            'Su firma libera al equipo para continuar con la siguiente etapa',
+            'Se firma una sola vez al inicio del proyecto',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El acta de hitos se firma cada vez que se acepta un entregable o se cierra una fase, no una sola vez al inicio.',
+        },
+        {
+          id: 'ms-11-3',
+          q: '¿Cuáles son actividades del cierre formal del proyecto?',
+          options: [
+            'Cierre administrativo (contratos, facturas, archivo)',
+            'Revisión post-implementación',
+            'Acta de cierre con lecciones aprendidas',
+            'Reconocimiento y celebración del equipo',
+            'Re-planificación del alcance del proyecto',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro primeras son las actividades del cierre. Re-planificar el alcance pertenece a la gestión de cambios durante la ejecución, no al cierre.',
+        },
+        {
+          id: 'ms-11-4',
+          q: '¿Qué afirmaciones sobre las lecciones aprendidas son correctas?',
+          options: [
+            'Son la sección más valiosa del acta de cierre',
+            'Documentan qué salió bien',
+            'Documentan qué salió mal',
+            'Documentan qué se podría mejorar en futuros proyectos',
+            'Se elaboran únicamente cuando el proyecto fracasa',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Se documentan SIEMPRE — tanto éxitos como fallos sirven a futuros proyectos.',
         },
       ],
     },
