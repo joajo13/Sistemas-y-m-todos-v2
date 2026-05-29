@@ -1,7 +1,8 @@
 /**
  * Materia: Introducción a la Ingeniería de Software (UP).
  * Módulos 8 — Modelado de requerimientos, 9 — Pruebas de los requerimientos,
- * 10 — Diagramas de secuencia, 12 — Tipos de sistemas (Unidad 11).
+ * 10 — Diagramas de secuencia, 12 — Tipos de sistemas (Unidad 11),
+ * 11 — Reingeniería y métodos formales (Unidad 12).
  *
  * Tipos conceptuales (ver js/content.js para Subject/Section/ContentBlock).
  */
@@ -9,13 +10,14 @@
 export default {
   id: 'introduccion-ing-software',
   title: 'Introducción a la Ingeniería de Software',
-  subtitle: 'Módulos 8, 9, 10 y 12 — Apuntes',
-  tagline: 'Modelado de requerimientos · Pruebas de requerimientos · Diagramas de secuencia · Tipos de sistemas',
+  subtitle: 'Módulos 8, 9, 10, 11 y 12 — Apuntes',
+  tagline: 'Modelado de requerimientos · Pruebas de requerimientos · Diagramas de secuencia · Tipos de sistemas · Reingeniería y métodos formales',
   units: {
     '8': 'Modelado de requerimientos',
     '9': 'Pruebas de los requerimientos',
     '10': 'Diagramas de secuencia',
     '11': 'Tipos de sistemas',
+    '12': 'Reingeniería y métodos formales',
   },
   sections: [
   // ---------- SECCIÓN 1 ----------
@@ -3095,6 +3097,494 @@ export default {
       },
     ],
   },
+  // ---------- SECCIÓN 15 ----------
+  {
+    id: '15',
+    unit: '12',
+    title: 'Reingeniería de software',
+    criollo:
+      'Los sistemas no se quedan quietos: el entorno cambia y los tenés que adaptar, así que con el tiempo se les rompe la estructura. La reingeniería es mejorar lo que ya hay sin tirarlo a la basura — redocumentar, reestructurar, modernizar el lenguaje — pero manteniendo la misma funcionalidad y arquitectura. Conviene cuando no querés bancar el riesgo ni el costo de empezar de cero.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Evolución de los sistemas de software',
+        criollo:
+          'Los sistemas se modifican para seguir siendo útiles, pero cada modificación les va comiendo la estructura. Y la empresa depende de seguir bancando esa inversión.',
+      },
+      {
+        type: 'p',
+        text:
+          'Una vez desarrollado un sistema de software, inevitablemente suele sufrir modificaciones para adaptarse a cambios en el entorno que le permita seguir siendo de utilidad para la organización.',
+      },
+      {
+        type: 'p',
+        text:
+          'La evolución del software es un punto relevante para una organización, ya que muchas veces su operatoria depende de esos sistemas, que requieren una inversión. Esto significa que las organizaciones necesitan seguir invirtiendo para mantenerlos o evolucionarlos.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Uno de los problemas que se presentan es que si el sistema es de utilidad se le pedirá que se adapte a ese entorno cambiante, pero esa adaptación implica que su estructura se va <strong>degradando en forma paulatina</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Mantenimiento',
+        criollo:
+          'Cambiar cosas del sistema una vez que ya está entregado. Va desde fixear una línea hasta meter requerimientos nuevos. Y siempre es más caro hacerlo acá que en el desarrollo original.',
+      },
+      {
+        type: 'p',
+        text:
+          'El mantenimiento refiere a cambiar algo en el sistema en forma posterior a haber sido entregado al cliente. Los cambios pueden ser muy variados, e ir desde simples, como corregir un error en una línea de código, hasta más complejos, como corregir errores cometidos en el diseño o la incorporación de nuevos requerimientos.',
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text:
+          'Los costos de mantenimiento son altos porque es mucho más costoso incorporar una nueva funcionalidad en esta etapa con el sistema funcionando, que llevarlo a cabo durante el desarrollo. Además, introducir cambios o nuevas funcionalidades a un sistema <strong>inevitablemente introduce defectos</strong> en él.',
+      },
+      {
+        type: 'h3',
+        text: 'Qué es la reingeniería',
+        criollo:
+          'No es rehacer todo: es agarrar el sistema que tenés, redocumentarlo, reestructurarlo, llevarlo a un lenguaje más moderno, y ajustar la estructura y los valores de los datos. Pero la funcionalidad y la arquitectura no se tocan.',
+      },
+      {
+        type: 'p',
+        text:
+          'La reingeniería debe entenderse como un proceso mediante el cual se busca la mejora de un software existente.',
+      },
+      {
+        type: 'p',
+        text:
+          'Las sucesivas modificaciones hacen estragos en los programas que, originalmente, puede que hayan sido pensados en optimizar los recursos utilizados. Para mejorar esa estructura y la comprensión del sistema puede emplearse reingeniería.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Según Sommerville: «La reingeniería de software puede implicar redocumentar el sistema, organizar y reestructurar el sistema, traducir el sistema a un lenguaje de programación más moderno, y modificar y actualizar la estructura y valores de los datos del sistema». Generalmente, esto se realiza <strong>sin cambiar su funcionalidad ni arquitectura</strong>.',
+      },
+      {
+        type: 'h3',
+        text: '¿Por qué hacer reingeniería?',
+        criollo:
+          'Dos motivos pesados: bajás el riesgo (sobre todo en sistemas críticos donde la empresa muere si no funcionan) y te sale más barato que arrancar de cero.',
+      },
+      {
+        type: 'p',
+        text:
+          'La reingeniería presenta algunas ventajas ante la posibilidad de cambiar a un nuevo sistema desarrollado en forma completa:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Disminuir el riesgo</strong> que significa desarrollar un sistema desde cero, sobre todo en sistemas críticos donde la empresa depende de ellos para mantenerse operativa. Un retraso en la disponibilidad del nuevo sistema puede causar daños severos.',
+          '<strong>Menor costo</strong>: aunque la reingeniería tiene un costo, siempre será menor que el requerido para desarrollar un sistema completamente nuevo.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-15-1',
+          q: 'Una vez entregado un sistema de software, raramente recibe modificaciones para adaptarse al entorno.',
+          a: false,
+          explain:
+            'Falso. El apunte dice que inevitablemente suele sufrir modificaciones para adaptarse a cambios en el entorno.',
+        },
+        {
+          id: 'tf-15-2',
+          q: 'Adaptar un sistema a un entorno cambiante implica que su estructura se va degradando paulatinamente.',
+          a: true,
+          explain:
+            'Verdadero. Esa degradación paulatina es el problema que justifica aplicar reingeniería.',
+        },
+        {
+          id: 'tf-15-3',
+          q: 'Introducir cambios o nuevas funcionalidades a un sistema en mantenimiento nunca introduce defectos nuevos.',
+          a: false,
+          explain:
+            'Falso. El apunte dice que introducir cambios inevitablemente introduce defectos en el sistema.',
+        },
+        {
+          id: 'tf-15-4',
+          q: 'La reingeniería de software generalmente cambia la funcionalidad y la arquitectura del sistema.',
+          a: false,
+          explain:
+            'Falso. Según Sommerville, generalmente se realiza sin cambiar su funcionalidad ni arquitectura.',
+        },
+        {
+          id: 'tf-15-5',
+          q: 'La reingeniería siempre tiene un costo mayor que desarrollar un sistema completamente nuevo.',
+          a: false,
+          explain:
+            'Falso. El apunte dice exactamente lo contrario: el costo de la reingeniería siempre será menor que desarrollar uno nuevo.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-15-1',
+          q: 'Según el apunte, ¿cuál es uno de los principales problemas al adaptar un sistema a un entorno cambiante?',
+          options: [
+            'Aumenta automáticamente la performance del sistema',
+            'Su estructura se va degradando en forma paulatina',
+            'Reduce el costo de las próximas modificaciones',
+            'Elimina los defectos heredados del diseño',
+          ],
+          correctIndex: 1,
+          explain:
+            'La adaptación al entorno cambiante degrada paulatinamente la estructura del sistema.',
+        },
+        {
+          id: 'mc-15-2',
+          q: 'El mantenimiento puede incluir cambios como…',
+          options: [
+            'Solo corregir errores de una sola línea de código',
+            'Solo agregar nuevos requerimientos',
+            'Desde corregir un error simple hasta incorporar nuevos requerimientos o corregir errores de diseño',
+            'Únicamente cambiar la base de datos del sistema',
+          ],
+          correctIndex: 2,
+          explain:
+            'El apunte describe el mantenimiento como un espectro amplio: desde correcciones simples hasta cambios de diseño y nuevos requerimientos.',
+        },
+        {
+          id: 'mc-15-3',
+          q: 'Según Sommerville, la reingeniería de software puede implicar…',
+          options: [
+            'Cambiar la arquitectura y la funcionalidad del sistema',
+            'Reescribir totalmente el sistema bajo una nueva metodología',
+            'Redocumentar, organizar/reestructurar, traducir a un lenguaje más moderno y actualizar la estructura y valores de los datos',
+            'Reemplazar el sistema por un nuevo desarrollo completo',
+          ],
+          correctIndex: 2,
+          explain:
+            'Esa es la cita textual de Sommerville en el apunte, y se hace sin cambiar funcionalidad ni arquitectura.',
+        },
+        {
+          id: 'mc-15-4',
+          q: 'Una ventaja clave de la reingeniería frente a un desarrollo nuevo es…',
+          options: [
+            'Permitir cambiar la arquitectura completa con menor esfuerzo',
+            'Disminuir el riesgo, especialmente en sistemas críticos de los que depende la operatoria',
+            'Eliminar por completo la necesidad de mantenimiento futuro',
+            'Acelerar la incorporación de tecnologías que requieren cambios de funcionalidad',
+          ],
+          correctIndex: 1,
+          explain:
+            'Reducir el riesgo en sistemas críticos donde la empresa depende del sistema es la primera ventaja que cita el apunte.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-15-1',
+        front: 'Evolución del software',
+        back:
+          'Modificaciones inevitables a lo largo del tiempo para adaptar el sistema a los cambios del entorno y mantener su utilidad.',
+      },
+      {
+        id: 'fc-15-2',
+        front: 'Problema de adaptarse al entorno',
+        back: 'La estructura del sistema se va degradando en forma paulatina con cada adaptación.',
+      },
+      {
+        id: 'fc-15-3',
+        front: 'Mantenimiento',
+        back:
+          'Cambiar algo en el sistema después de haberlo entregado al cliente. Va desde corregir un error simple hasta sumar requerimientos o corregir errores de diseño.',
+      },
+      {
+        id: 'fc-15-4',
+        front: '¿Por qué es caro mantener?',
+        back:
+          'Porque incorporar funcionalidad con el sistema ya funcionando cuesta más que hacerlo durante el desarrollo, y además los cambios introducen defectos nuevos.',
+      },
+      {
+        id: 'fc-15-5',
+        front: 'Reingeniería',
+        back:
+          'Proceso para mejorar un software existente: redocumentar, organizar/reestructurar, traducir a un lenguaje más moderno y actualizar la estructura y valores de los datos.',
+      },
+      {
+        id: 'fc-15-6',
+        front: 'Reingeniería vs. funcionalidad/arquitectura',
+        back: 'Generalmente se realiza sin cambiar la funcionalidad ni la arquitectura del sistema.',
+      },
+      {
+        id: 'fc-15-7',
+        front: 'Definición de Sommerville',
+        back:
+          'Implica redocumentar el sistema, organizar y reestructurarlo, traducirlo a un lenguaje más moderno y modificar/actualizar la estructura y valores de los datos.',
+      },
+      {
+        id: 'fc-15-8',
+        front: 'Ventaja 1 — riesgo',
+        back:
+          'Disminuye el riesgo de partir desde cero, sobre todo en sistemas críticos donde la empresa depende de ellos para operar.',
+      },
+      {
+        id: 'fc-15-9',
+        front: 'Ventaja 2 — costo',
+        back: 'Aunque tiene un costo, siempre será menor que desarrollar un sistema completamente nuevo.',
+      },
+    ],
+  },
+  // ---------- SECCIÓN 16 ----------
+  {
+    id: '16',
+    unit: '12',
+    title: 'Métodos formales',
+    criollo:
+      'Los métodos formales son técnicas con base matemática para describir y verificar sistemas. La idea linda: especificás sin ambigüedad y atrapás errores temprano. La idea fea: no escalan, no sirven para interfaces de usuario ni para desarrollos rápidos, y por eso nunca se popularizaron pese a que varios autores los marcaron como el único camino para mejorar la calidad desde los 80.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Qué son',
+        criollo:
+          'Técnicas con base matemática para describir cómo se comporta un sistema. Sirven para especificar, desarrollar y verificar de forma menos ad hoc.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          '«Los métodos formales utilizados para desarrollar sistemas de cómputo son técnicas con bases matemáticas para describir las propiedades del sistema. Tales métodos formales proporcionan marcos conceptuales dentro de los cuales las personas pueden especificar, desarrollar y verificar los sistemas más que ad hoc». — <em>The Encyclopedia of Software Engineering</em>',
+      },
+      {
+        type: 'h3',
+        text: 'Por qué no se incorporaron en todos los desarrollos',
+        criollo:
+          'En otras ingenierías (electrónica, civil) se usan técnicas matemáticas de cajón. En software no pegó, aunque desde los 80 se viene diciendo que es el camino para la calidad. Hay tres razones puntuales.',
+      },
+      {
+        type: 'p',
+        text:
+          'En algunas ingenierías, como la electrónica o la civil, el desarrollo emplea técnicas matemáticas. Sin embargo, la ingeniería de software se ha resistido pese a que varios autores lo marcaron como el único camino para mejorar la calidad, desde los 80. Existen algunas razones para no haber incorporado las especificaciones formales en todos los desarrollos de software:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'En estos años se han incorporado otras herramientas y técnicas que han logrado avances en la búsqueda de la calidad, como nuevas metodologías de desarrollo, la incorporación de lenguajes orientados a objetos, la administración de configuraciones, etc.',
+          'En el mercado actual, un aspecto crítico es la <strong>interfaz con el usuario</strong> y los <strong>desarrollos rápidos</strong>, y las especificaciones formales no son aptas para ninguna de las dos cosas.',
+          'Los métodos formales <strong>no son escalables</strong>. Si bien son exitosos para aplicaciones críticas, se mantienen bajo control si las mismas son pequeñas; en cambio, si su tamaño aumenta, se descontrola su realización.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Aproximaciones para redactar especificaciones',
+        criollo:
+          'Dos caminos para escribir especificaciones formales de sistemas industriales: el algebraico (operaciones y relaciones) y el basado en modelos (conjuntos y sucesiones, con operaciones que cambian el estado).',
+      },
+      {
+        type: 'p',
+        text:
+          'Hay dos aproximaciones pensadas para realizar la redacción de las especificaciones para sistemas de software industriales:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Algebraica</strong>: se basa en que el sistema se describirá empleando operaciones y sus relaciones.',
+          '<strong>Basada en modelos</strong>: se basa en la construcción de un modelo del sistema que emplea construcciones matemáticas, como los conjuntos y las sucesiones, y las operaciones del sistema se deben establecer indicando cómo se lleva a cabo la modificación del estado del sistema.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Lenguajes de especificación formal',
+        criollo:
+          'Cada aproximación tiene sus lenguajes, y dentro de cada uno se separa entre sistemas secuenciales y concurrentes.',
+      },
+      {
+        type: 'p',
+        text:
+          'Existen algunos lenguajes que pueden emplearse para llevar a cabo especificaciones formales, de acuerdo a la aproximación que se aplique y al tipo de sistemas que se requiera:',
+      },
+      {
+        type: 'table',
+        caption: 'Lenguajes según aproximación y tipo de sistema',
+        headers: ['Aproximación', 'Sistema secuencial', 'Sistema concurrente'],
+        rows: [
+          ['Algebraica', 'Larch, OBJ', 'Lotos, Brinksma'],
+          ['Basada en modelos', 'Z, VDM, B', 'CSP, redes de Petri'],
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Puntos clave',
+        criollo:
+          'Tres ventajas: complementan a las especificaciones informales, te fuerzan a analizar requerimientos temprano (donde corregir es barato) y son una herramienta excelente para sistemas críticos donde mandan la seguridad y la confiabilidad.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Los métodos de especificación formal sirven de <strong>complemento para las especificaciones informales</strong> por ser precisas y no ambiguas. Eliminan dudas y evitan problemas de interpretación.',
+          'Fuerzan a llevar a cabo un análisis de los requerimientos del sistema en una etapa inicial, donde es <strong>menos costoso corregir un error</strong> en los requerimientos.',
+          'Son una excelente herramienta para sistemas críticos donde se prioriza la <strong>seguridad y la confiabilidad</strong>.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: '¿Qué técnica usar?',
+        criollo:
+          'Si lo que querés especificar son interfaces (clases u tipos abstractos de datos), tirá por el camino algebraico. Si querés mostrar el estado del sistema y el comportamiento con precondiciones y postcondiciones, andá por el basado en modelos.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Las especificaciones formales basadas en <strong>técnicas algebraicas</strong> son útiles para especificar las interfaces, definida como un conjunto de clases de objetos o tipos abstractos de datos, porque se oculta el estado del sistema y se especifica en base a las relaciones entre las operaciones de la interfaz.',
+          'Las especificaciones formales basadas en <strong>modelos</strong> emplean construcciones matemáticas, como los conjuntos y las funciones, por lo que pueden mostrar el estado del sistema y sirven para simplificar la especificación del comportamiento. Estas especificaciones se basan en definir las precondiciones y postcondiciones sobre el estado del sistema.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-16-1',
+          q: 'Los métodos formales son técnicas con bases matemáticas para describir las propiedades del sistema.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la definición de The Encyclopedia of Software Engineering que cita el apunte.',
+        },
+        {
+          id: 'tf-16-2',
+          q: 'Las especificaciones formales son adecuadas para diseñar interfaces de usuario y desarrollos rápidos.',
+          a: false,
+          explain:
+            'Falso. El apunte indica que no son aptas para ninguna de las dos cosas, lo que explica parte de su poca adopción.',
+        },
+        {
+          id: 'tf-16-3',
+          q: 'Los métodos formales son altamente escalables: a más tamaño, mejor desempeño.',
+          a: false,
+          explain:
+            'Falso. Son exitosos en aplicaciones críticas pequeñas, pero se descontrola su realización al aumentar el tamaño.',
+        },
+        {
+          id: 'tf-16-4',
+          q: 'La aproximación basada en modelos emplea construcciones matemáticas como conjuntos y sucesiones para modelar el sistema.',
+          a: true,
+          explain:
+            'Verdadero. La aproximación basada en modelos construye un modelo con conjuntos y sucesiones, y describe las operaciones por cómo cambian el estado.',
+        },
+        {
+          id: 'tf-16-5',
+          q: 'Z, VDM y B son lenguajes de aproximación algebraica para sistemas concurrentes.',
+          a: false,
+          explain:
+            'Falso. Z, VDM y B son lenguajes basados en modelos para sistemas secuenciales.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-16-1',
+          q: '¿Cuál NO es una de las razones que da el apunte para que las especificaciones formales no se hayan adoptado masivamente?',
+          options: [
+            'Aparecieron otras herramientas y técnicas que mejoraron la calidad (OO, nuevas metodologías, administración de configuraciones)',
+            'No son aptas para interfaces de usuario ni desarrollos rápidos',
+            'No son escalables: se descontrolan cuando el tamaño aumenta',
+            'Requieren hardware especializado de altísimo costo',
+          ],
+          correctIndex: 3,
+          explain:
+            'El apunte da las primeras tres razones. El costo de hardware no es uno de los motivos mencionados.',
+        },
+        {
+          id: 'mc-16-2',
+          q: 'En la aproximación algebraica, ¿cómo se describe el sistema?',
+          options: [
+            'Con conjuntos, sucesiones y operaciones que modifican el estado',
+            'Con operaciones y sus relaciones',
+            'Con precondiciones y postcondiciones sobre el estado del sistema',
+            'Mediante un diagrama de secuencia ejecutable',
+          ],
+          correctIndex: 1,
+          explain:
+            'La aproximación algebraica describe el sistema empleando operaciones y sus relaciones.',
+        },
+        {
+          id: 'mc-16-3',
+          q: 'Para especificar interfaces (clases u tipos abstractos de datos), el apunte recomienda…',
+          options: [
+            'Aproximación basada en modelos con CSP',
+            'Aproximación algebraica',
+            'Especificaciones informales con prototipos',
+            'Diagramas de secuencia en UML',
+          ],
+          correctIndex: 1,
+          explain:
+            'Las técnicas algebraicas son útiles para interfaces porque ocultan el estado y se basan en las relaciones entre operaciones.',
+        },
+        {
+          id: 'mc-16-4',
+          q: '¿Qué lenguajes lista el apunte para la aproximación basada en modelos en sistemas concurrentes?',
+          options: [
+            'Z, VDM, B',
+            'Larch, OBJ',
+            'CSP y redes de Petri',
+            'Lotos y Brinksma',
+          ],
+          correctIndex: 2,
+          explain:
+            'CSP y redes de Petri son los lenguajes basados en modelos para sistemas concurrentes según el cuadro del apunte.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-16-1',
+        front: 'Método formal',
+        back:
+          'Técnica con base matemática para describir las propiedades de un sistema y especificar, desarrollar y verificarlo de forma menos ad hoc.',
+      },
+      {
+        id: 'fc-16-2',
+        front: 'Razón 1 de poca adopción',
+        back:
+          'Otras herramientas mejoraron la calidad: nuevas metodologías, lenguajes OO, administración de configuraciones, etc.',
+      },
+      {
+        id: 'fc-16-3',
+        front: 'Razón 2 de poca adopción',
+        back:
+          'No son aptas para interfaces de usuario ni para desarrollos rápidos, dos aspectos críticos del mercado actual.',
+      },
+      {
+        id: 'fc-16-4',
+        front: 'Razón 3 de poca adopción',
+        back:
+          'No son escalables: funcionan bien en aplicaciones críticas pequeñas, pero se descontrolan cuando el tamaño aumenta.',
+      },
+      {
+        id: 'fc-16-5',
+        front: 'Aproximación algebraica',
+        back:
+          'Describe el sistema con operaciones y sus relaciones. Sirve para especificar interfaces porque oculta el estado interno.',
+      },
+      {
+        id: 'fc-16-6',
+        front: 'Aproximación basada en modelos',
+        back:
+          'Construye un modelo con conjuntos y sucesiones, y describe las operaciones indicando cómo modifican el estado. Define precondiciones y postcondiciones.',
+      },
+      {
+        id: 'fc-16-7',
+        front: 'Lenguajes algebraicos',
+        back: 'Secuencial: Larch, OBJ. Concurrente: Lotos, Brinksma.',
+      },
+      {
+        id: 'fc-16-8',
+        front: 'Lenguajes basados en modelos',
+        back: 'Secuencial: Z, VDM, B. Concurrente: CSP, redes de Petri.',
+      },
+      {
+        id: 'fc-16-9',
+        front: 'Tres puntos clave',
+        back:
+          'Complementan especificaciones informales (precisión, sin ambigüedad), fuerzan análisis temprano de requerimientos (barato corregir) y son excelentes para sistemas críticos donde mandan seguridad y confiabilidad.',
+      },
+    ],
+  },
   ],
   pdfs: [
     {
@@ -3111,6 +3601,11 @@ export default {
       key: 'modulo-10',
       label: 'Módulo 10 — Diagramas de secuencia',
       path: 'pdfs/introduccion-ing-software/10-diagramas-secuencia.pdf',
+    },
+    {
+      key: 'modulo-11',
+      label: 'Módulo 11 — Reingeniería y métodos formales',
+      path: 'pdfs/introduccion-ing-software/11-reingenieria-metodos-formales.pdf',
     },
     {
       key: 'modulo-12',
