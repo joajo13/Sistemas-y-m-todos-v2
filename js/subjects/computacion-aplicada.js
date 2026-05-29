@@ -1458,6 +1458,64 @@ export default {
             'Esa NO es una limitación: el hard link sigue funcionando aunque se borre el original. Las otras tres sí son limitaciones (o características).',
         },
       ],
+      ms: [
+        {
+          id: 'ms-6-1',
+          q: '¿Qué afirmaciones sobre el inodo son correctas?',
+          options: [
+            'Contiene metadata: propietario, permisos, tamaño',
+            'NO almacena el nombre del archivo',
+            'Cada archivo tiene un número de inodo único',
+            'Se puede ver con ls -li',
+            'Almacena el nombre del archivo además de la metadata',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El nombre del archivo NO vive en el inodo — vive en la estructura del directorio.',
+        },
+        {
+          id: 'ms-6-2',
+          q: '¿Qué afirmaciones sobre los hard links son correctas?',
+          options: [
+            'Crean una referencia directa a los datos físicos del archivo',
+            'Comparten inodo con el archivo apuntado',
+            'No pueden cruzar filesystems',
+            'No pueden apuntar a directorios',
+            'Se rompen al eliminar el archivo original',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El hard link SOBREVIVE al borrado del original — esa es justamente una de sus ventajas.',
+        },
+        {
+          id: 'ms-6-3',
+          q: 'Sobre el comando ln para crear un hard link, ¿qué es correcto?',
+          options: [
+            'Sintaxis: ln archivo-origen nombre-del-link',
+            'No requiere ninguna opción',
+            'Crea un link con el mismo inodo que el archivo origen',
+            'Aumenta el contador de links en la columna después de los permisos',
+            'Requiere la opción -s',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. La opción -s es justamente para soft links, no para hard.',
+        },
+        {
+          id: 'ms-6-4',
+          q: 'Sobre el comportamiento de los archivos enlazados, ¿qué es correcto?',
+          options: [
+            'Cualquier cambio en uno afecta al mismo archivo (mismo inodo)',
+            'El archivo sobrevive mientras quede al menos un link apuntando al inodo',
+            'Los datos se eliminan recién cuando no quedan links',
+            'El nombre asociado vive en la estructura del directorio',
+            'Cada hard link tiene su propio inodo independiente',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Los hard links COMPARTEN inodo — no tienen uno propio.',
+        },
+      ],
     },
     flashcards: [
       {
@@ -1700,6 +1758,64 @@ export default {
           correctIndex: 1,
           explain:
             'Eliminar el soft link no afecta al archivo original. Solo se borra la referencia simbólica.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-7-1',
+          q: '¿Qué afirmaciones sobre los soft links (links simbólicos) son correctas?',
+          options: [
+            'Apuntan al nombre del archivo, no al inodo',
+            'Son similares a un "acceso directo"',
+            'Pueden apuntar a directorios',
+            'Pueden apuntar fuera del filesystem',
+            'Comparten inodo con el archivo apuntado',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Soft link y archivo original tienen DISTINTO inodo.',
+        },
+        {
+          id: 'ms-7-2',
+          q: '¿Qué pasa con los soft links según la operación que se haga?',
+          options: [
+            'Si se elimina el archivo original, el soft link queda huérfano',
+            'Si se elimina el soft link, el archivo original sigue existiendo',
+            'Si se modifica vía el soft link, afecta al archivo en el filesystem',
+            'El soft link queda como un acceso "roto" si pierde su referencia',
+            'Si se elimina el archivo original, el soft link sigue apuntando a datos válidos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. El soft link sí se rompe al borrar el original — esa es su gran debilidad.',
+        },
+        {
+          id: 'ms-7-3',
+          q: 'Sobre el comando ln -s y la identificación del soft link en ls, ¿qué es correcto?',
+          options: [
+            'Sintaxis: ln -s archivo-origen nombre-del-soft-link',
+            'En ls -l, el primer carácter es "l" (link)',
+            'En la descripción aparece la flecha "-> archivo" indicando a dónde apunta',
+            'En ls -li tiene inodo distinto del archivo original',
+            'Sin la opción -s también se crea un soft link',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales. Sin -s, ln crea un HARD link, no un soft link.',
+        },
+        {
+          id: 'ms-7-4',
+          q: 'Según la tabla comparativa hard vs soft, ¿qué correspondencias son correctas?',
+          options: [
+            'Hard link: inodo compartido = SÍ; soft link: inodo compartido = NO',
+            'Hard link: puede apuntar a directorios = NO; soft link: SÍ',
+            'Hard link: soporte entre filesystems = NO; soft link: SÍ',
+            'Hard link: sobrevive al borrado del original = SÍ; soft link: NO',
+            'Hard link: puede apuntar a directorios = SÍ',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del cuadro comparativo. El hard link NO puede apuntar a directorios.',
         },
       ],
     },
