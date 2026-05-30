@@ -5885,4 +5885,267 @@ export default {
       path: 'pdfs/introduccion-ing-software/12-tipos-de-sistemas.pdf',
     },
   ],
+  partials: [
+    // ---------- PARCIAL 1 ----------
+    {
+      id: '1',
+      title: 'Parcial de práctica N.º 1',
+      blurb: 'Requerimientos y V&V: prototipos, actores, casos de uso, INVEST, validación/verificación, aceptación y trazabilidad.',
+      questions: [
+        {
+          kind: 'mc',
+          q: '¿Cuál de las siguientes afirmaciones describe correctamente un mockup (prototipo de pantalla)?',
+          options: [
+            'Es una representación visual estática que muestra estructura, contenidos y funciones básicas, pero sin interactividad real.',
+            'Es un modelo que simula la interactividad completa del sistema final.',
+            'Es la versión final del sistema entregada al cliente para realizar las pruebas de aceptación.',
+            'Es un documento textual que lista exhaustivamente los requerimientos funcionales del sistema.',
+          ],
+          correctIndex: 0,
+          explain: 'El mockup es una representación visual estática (estructura, contenidos y funciones básicas) pero sin interactividad real. Simular la interactividad es propio del prototipo funcional: ese es el contraste clave.',
+        },
+        {
+          kind: 'tf',
+          q: 'Cuando un actor es una persona, en el diagrama de casos de uso se debe colocar el nombre de la persona que interactúa con el sistema.',
+          a: false,
+          explain: 'Falso. Si el actor es una persona, nunca se coloca su nombre, sino el rol que representa, porque la misma persona puede interactuar con el sistema desde roles diferentes (por ejemplo, "empleado" y "bibliotecario").',
+        },
+        {
+          kind: 'mc',
+          q: 'Según el apunte, ¿cuántos actores pueden iniciar un mismo caso de uso?',
+          options: [
+            'Únicamente uno; si más de un actor puede iniciarlo, se resuelve mediante una relación de herencia entre actores.',
+            'Tantos como sea necesario, sin ninguna restricción.',
+            'Exactamente dos: un actor primario y un actor secundario.',
+            'Solo los actores secundarios pueden iniciarlo.',
+          ],
+          correctIndex: 0,
+          explain: 'Cada caso de uso puede ser iniciado por un único actor. Si más de un actor puede iniciarlo, se resuelve mediante una relación de herencia entre actores.',
+        },
+        {
+          kind: 'mc',
+          q: 'En el criterio INVEST, ¿qué significa que una historia de usuario sea "Negociable"?',
+          options: [
+            'Que puede ser cambiada hasta tanto sea parte de una iteración.',
+            'Que su precio debe acordarse con el cliente antes de implementarla.',
+            'Que siempre debe poder estimarse el esfuerzo que demanda.',
+            'Que debe entregar valor al cliente o usuario final.',
+          ],
+          correctIndex: 0,
+          explain: 'Negociable significa que las historias pueden cambiarse hasta tanto sean parte de una iteración. Poder estimar el esfuerzo es "Estimable"; entregar valor es "Valorable".',
+        },
+        {
+          kind: 'open',
+          q: 'Describí qué es un prototipo de requerimientos y explicá en qué situaciones resulta especialmente útil. Mencioná además su principal desventaja.',
+          model: 'Se espera: un prototipo es un modelo o maqueta que muestra las interfaces entre el sistema y el usuario; simula los aspectos más visuales (entradas/salidas, componentes gráficos) buscando similitud con el sistema final. Es especialmente útil cuando los requerimientos cambian rápidamente, cuando el cliente no entrega una lista completa de requerimientos, o cuando ni el cliente ni el equipo conocen bien el área de aplicación. Principal desventaja: desde el comienzo es imposible saber cuánto tiempo tomará lograr un producto aceptable.',
+        },
+        {
+          kind: 'mc',
+          q: 'La pregunta «¿estamos construyendo el producto correcto?» corresponde a:',
+          options: [
+            'La validación.',
+            'La verificación.',
+            'La prueba de regresión.',
+            'La prueba de unidad.',
+          ],
+          correctIndex: 0,
+          explain: '"¿Estamos construyendo el producto correcto?" es validación. La verificación responde a "¿estamos construyendo el producto correctamente?".',
+        },
+        {
+          kind: 'open',
+          q: 'Explicá qué es una prueba de aceptación, indicá de qué tipo de técnica se trata (caja negra o caja blanca) y por qué es importante que se realice con datos reales del cliente.',
+          model: 'Se espera: la prueba de aceptación la realizan los usuarios para verificar que el sistema se ajusta a sus requerimientos. Es una técnica de caja negra (no mira el interior del código); los casos de prueba se basan en la especificación de requerimientos. Se trabaja con datos reales del cliente, no ficticios, porque los datos reales pueden disparar errores que no aparecieron antes (en el sistema o en los propios requerimientos). Es una prueba de validación, no de búsqueda de defectos.',
+        },
+        {
+          kind: 'open',
+          q: 'Una historia de usuario debe responder tres preguntas. Enumeralas, indicá el formato recomendado para redactarla y dá un ejemplo aplicado.',
+          model: 'Se espera, las tres preguntas: ¿quién es el beneficiario? (interesados/actores que se benefician), ¿qué se quiere hacer? (descripción de alto nivel de la funcionalidad) y ¿cuál es el beneficio? (el "por qué" / valor de negocio). Formato recomendado: "Como (rol) yo quiero (algo) para (beneficiarme)". Ejemplo del apunte: "Como bibliotecario de la institución, yo quiero revisar el historial de préstamos para identificar los libros con mayor demanda para reponer.".',
+        },
+        {
+          kind: 'open',
+          q: 'Explicá por qué es importante la trazabilidad de requerimientos y describí la diferencia entre trazabilidad remota y trazabilidad futura.',
+          model: 'Se espera: ante un cambio (o al modificar diseño/código) hay que saber qué requerimientos se ven afectados y dónde tocar; sin trazabilidad no se puede actualizar de forma consistente. Trazabilidad remota: refiere a las fases previas al desarrollo, al origen o fuente del requerimiento; cobra más importancia cuando el producto pasa a operación y mantenimiento. Trazabilidad futura: apunta a las fases posteriores; para que funcione, cada requerimiento necesita un nombre o referencia única.',
+        },
+        {
+          kind: 'open',
+          q: 'Describí las relaciones de extensión y de uso entre casos de uso. Para cada una, dá un ejemplo (puede ser uno del apunte).',
+          model: 'Se espera: relación de extensión: un caso extiende a otro cuando agrega una parte de funcionalidad que no siempre ocurre (podría darse o no); no es un error ni una excepción. Ejemplo del apunte (Jacobson): "Cenar" extiende a "Tomar café". Relación de uso: un caso de uso está incluido en otro porque es funcionalidad común a varios casos, y lo incluido debe ser un caso de uso en sí mismo. Ejemplo: "Registrar préstamo" y "Registrar devolución" usan ambos "Consultar socio". Ambas relaciones se dan únicamente entre casos de uso, no con actores.',
+        },
+      ],
+    },
+    // ---------- PARCIAL 2 ----------
+    {
+      id: '2',
+      title: 'Parcial de práctica N.º 2',
+      blurb: 'UML y testing: testing ágil, fases de prueba, diagramas de secuencia y colaboración, objetos del modelo de análisis y reingeniería.',
+      questions: [
+        {
+          kind: 'tf',
+          q: 'En el testing ágil se mantiene la fase de pruebas tradicional separada al final del desarrollo, igual que en los métodos tradicionales.',
+          a: false,
+          explain: 'Falso. En el testing ágil desaparece la fase de pruebas tradicional que existía en los métodos tradicionales; las pruebas se diseñan durante el análisis y todos los individuos tienen habilidades de probadores.',
+        },
+        {
+          kind: 'mc',
+          q: '¿Cuál de las siguientes describe correctamente la prueba de integración?',
+          options: [
+            'Prueba las respuestas de grupos de módulos interconectados, detectando fallos en la interacción entre los componentes.',
+            'Prueba un único módulo o componente, y generalmente la realiza quien lo construyó.',
+            'Prueba el sistema completo en un ambiente similar al real.',
+            'Verifica que el sistema cumple los requerimientos del usuario utilizando datos reales del cliente.',
+          ],
+          correctIndex: 0,
+          explain: 'La prueba de integración evalúa las respuestas de grupos de módulos interconectados y detecta fallos en la interacción entre componentes. La opción B describe la prueba de unidad; la C, la de sistema; la D, la de aceptación.',
+        },
+        {
+          kind: 'mc',
+          q: '¿Qué tipo de objeto del modelo de análisis se emplea para modelar la información que el sistema debe manejar a lo largo del tiempo y que sobrevive a los casos de uso?',
+          options: [
+            'Objeto de entidad.',
+            'Objeto de interfaz.',
+            'Objeto de control.',
+            'Objeto de frontera temporal.',
+          ],
+          correctIndex: 0,
+          explain: 'El objeto de entidad modela la información que el sistema maneja a lo largo del tiempo y que sobrevive a los casos de uso. El "objeto de frontera temporal" no existe en el apunte.',
+        },
+        {
+          kind: 'open',
+          q: 'Describí qué representa un diagrama de secuencia y explicá cómo se determina el orden temporal de los mensajes en él.',
+          model: 'Se espera: un diagrama de secuencia muestra la interacción entre los objetos desde un punto de vista temporal; describe cómo colaboran un grupo de objetos para realizar una actividad y suele capturar el comportamiento de un caso de uso (incluye emisor y receptor de cada mensaje). El orden temporal está dado por cuán arriba está la flecha: las flechas más altas se ejecutan antes que las que están debajo (se lee de arriba hacia abajo).',
+        },
+        {
+          kind: 'mc',
+          q: 'En un diagrama de secuencia, ¿cómo se denota que una acción se repite mientras se cumpla una condición (iteración)?',
+          options: [
+            'Con el símbolo * (asterisco) previo a la condición entre corchetes: *[condición].',
+            'Con la condición entre corchetes, sin ningún símbolo adicional: [condición].',
+            'Con una flecha que sale y vuelve al mismo objeto sobre su línea de vida.',
+            'Duplicando el rectángulo del período de actividad.',
+          ],
+          correctIndex: 0,
+          explain: 'La iteración se denota con el símbolo * previo a la condición entre corchetes: *[condición] Nombre_Mensaje. La opción B es una condición simple; la D corresponde a la representación de un mensaje recursivo.',
+        },
+        {
+          kind: 'open',
+          q: 'Describí los tres tipos de objetos del modelo de análisis (interfaz, entidad y control), indicando la función de cada uno.',
+          model: 'Se espera los tres tipos: interfaz: permiten la comunicación entre los actores y el sistema (donde un actor habla con el sistema hay una interfaz); entidad: modelan la información que el sistema maneja a lo largo del tiempo, que sobrevive a los casos de uso (suelen corresponder a conceptos del mundo real, aunque no siempre); control: modelan la funcionalidad que no se asigna naturalmente a ningún otro objeto (no son interfaz ni información), operan sobre varios objetos entidad y retornan el resultado a un objeto de interfaz.',
+        },
+        {
+          kind: 'mc',
+          q: '¿Cuál de las siguientes es una diferencia entre el diagrama de colaboración y el de secuencia?',
+          options: [
+            'En el de colaboración los objetos aparecen únicos, conectados por links, y es necesario numerar los mensajes para indicar la secuencia de ejecución.',
+            'El de colaboración muestra información distinta a la del diagrama de secuencia.',
+            'En el de colaboración el orden temporal se infiere de la altura de las flechas.',
+            'El de colaboración no permite representar condiciones ni iteraciones.',
+          ],
+          correctIndex: 0,
+          explain: 'En el diagrama de colaboración los objetos aparecen únicos, conectados por links, y es necesario numerar los mensajes para indicar la secuencia. Muestra la misma información que el de secuencia, sí permite condición e iteración (misma notación) y el orden no se infiere de la altura sino de la numeración.',
+        },
+        {
+          kind: 'open',
+          q: 'Explicá qué es la reingeniería de software según el apunte y mencioná al menos dos ventajas frente a desarrollar un sistema desde cero.',
+          model: 'Se espera: la reingeniería es un proceso mediante el cual se busca la mejora de un software existente: puede implicar redocumentarlo, reestructurarlo, traducirlo a un lenguaje más moderno y actualizar la estructura y valores de los datos, generalmente sin cambiar su funcionalidad ni arquitectura. Ventajas (al menos dos): disminuye el riesgo frente a desarrollar desde cero (sobre todo en sistemas críticos de los que depende la operatoria); y menor costo, ya que siempre será menor que desarrollar un sistema completamente nuevo.',
+        },
+        {
+          kind: 'open',
+          q: 'Explicá qué representa la línea de vida de un objeto y el período de actividad en un diagrama de secuencia. Describí además cómo se representa un mensaje recursivo.',
+          model: 'Se espera: línea de vida: línea vertical (punteada) por debajo de cada objeto que representa su existencia en el tiempo dentro del diagrama. Período de actividad: el tiempo que tarda un objeto en ejecutar una acción; se representa con un rectángulo vertical sobre la línea de vida. Mensaje recursivo: ocurre cuando un objeto se manda un mensaje a sí mismo; se representa por la duplicación del rectángulo de período de actividad (el objeto aparece como auto-activado).',
+        },
+        {
+          kind: 'open',
+          q: 'Los diagramas de interacción en UML son de dos tipos. Indicá cuáles son, qué tienen en común y qué enfatiza cada uno.',
+          model: 'Se espera: los dos tipos son diagrama de secuencia y diagrama de colaboración. En común: ambos describen la interacción entre objetos (la misma información) y el usuario elige cuál usar según le convenga. Énfasis: el de secuencia enfatiza el tiempo (altura de las flechas); el de colaboración enfatiza la estructura (links entre objetos).',
+        },
+      ],
+    },
+    // ---------- PARCIAL 3 ----------
+    {
+      id: '3',
+      title: 'Parcial de práctica N.º 3',
+      blurb: 'Tipos de sistemas: tiempo real, distribuidos y embebidos, sistemas de información (Schach), reingeniería/mantenimiento y métodos formales.',
+      questions: [
+        {
+          kind: 'mc',
+          q: '¿Cuál de las siguientes es una característica de los sistemas de tiempo real, según el apunte?',
+          options: [
+            'Su eficiencia no se basa solo en la exactitud de los resultados de cómputo, sino también en el momento en que los entrega.',
+            'En ellos el usuario es más importante que los procesos.',
+            'El intervalo de tiempo entre la entrada y la salida suele ser muy grande.',
+            'La predictibilidad es irrelevante para su funcionamiento.',
+          ],
+          correctIndex: 0,
+          explain: 'En un sistema de tiempo real la eficiencia no se basa solo en la exactitud de los resultados, sino también en el momento en que los entrega. Lo contrario de las otras opciones: en los SOTR importan los procesos (no el usuario), el intervalo entrada-salida suele ser muy pequeño y la predictibilidad es una característica principal.',
+        },
+        {
+          kind: 'mc',
+          q: '¿Cuál de las siguientes afirmaciones sobre sistemas distribuidos es correcta?',
+          options: [
+            'El fallo de una computadora no implica el fallo del sistema completo, aunque el servicio puede quedar un poco degradado.',
+            'El procesamiento de la información se confina en una única máquina central.',
+            'No pueden basarse en sistemas abiertos ni emplear protocolos estándares.',
+            'El fallo de cualquier computadora provoca la caída total de la red.',
+          ],
+          correctIndex: 0,
+          explain: 'En un sistema distribuido el fallo de una computadora no implica el fallo del sistema completo, aunque el servicio puede quedar un poco degradado. Las demás opciones contradicen al apunte: el procesamiento se distribuye, se basan en sistemas abiertos y protocolos estándares, y toleran fallos.',
+        },
+        {
+          kind: 'tf',
+          q: 'La reingeniería de software generalmente se realiza cambiando la funcionalidad y la arquitectura del sistema.',
+          a: false,
+          explain: 'Falso. La reingeniería generalmente se realiza sin cambiar la funcionalidad ni la arquitectura; los cambios son de redocumentación, reestructuración, traducción a un lenguaje más moderno y actualización de la estructura/valores de los datos.',
+        },
+        {
+          kind: 'mc',
+          q: '¿Por cuál de las siguientes razones, según el apunte, los métodos formales no se incorporaron masivamente a la ingeniería de software?',
+          options: [
+            'No son escalables: se controlan bien en aplicaciones críticas pequeñas, pero se descontrolan al aumentar su tamaño.',
+            'Carecen de una base matemática para describir las propiedades del sistema.',
+            'No sirven para sistemas críticos donde se prioriza la seguridad y la confiabilidad.',
+            'Generan especificaciones ambiguas y poco precisas.',
+          ],
+          correctIndex: 0,
+          explain: 'Una razón es que los métodos formales no son escalables: son exitosos en aplicaciones críticas pequeñas, pero al aumentar su tamaño se descontrola su realización. Las demás opciones contradicen el apunte (sí tienen base matemática, sí sirven para sistemas críticos y producen especificaciones precisas y no ambiguas).',
+        },
+        {
+          kind: 'open',
+          q: 'Describí qué es un sistema embebido (o empotrado) y mencioná al menos tres de sus características. Dá un ejemplo.',
+          model: 'Se espera: un sistema embebido (o empotrado) es aquel en el que las funciones del software no suelen estar a la vista del usuario; está diseñado para realizar una o pocas funciones, generalmente dentro de un sistema de tiempo real. Sus componentes suelen estar en una placa base y pueden no verse como computadoras. Características (al menos tres): se fabrican en forma masiva para reducir costos; usan procesador y memoria relativamente pequeños; un fallo en un elemento implica reparar o reemplazar la placa íntegra; los controladores pueden ser más lentos que los de una PC; suelen programarse en lenguaje ensamblador. Ejemplos: el reloj de los taxis, el microondas.',
+        },
+        {
+          kind: 'mc',
+          q: 'Según la definición de Schach, un sistema de información:',
+          options: [
+            'Recopila, manipula, almacena y crea reportes de información respecto de las actividades de negocio de una empresa, con el fin de ayudar a su administración en el manejo de las operaciones.',
+            'Es un conjunto de elementos sin relación entre sí que cumplen funciones independientes.',
+            'Es un sistema cuya capacidad de respuesta debe darse en el tiempo dictado o especificado por el problema.',
+            'Es un sistema diseñado para realizar una o pocas funciones, generalmente dentro de un sistema de tiempo real.',
+          ],
+          correctIndex: 0,
+          explain: 'Es la definición de Schach. La opción C describe un sistema de tiempo real; la D, un sistema embebido.',
+        },
+        {
+          kind: 'open',
+          q: 'Enumerá y explicá las tres fases del diseño de un sistema de tiempo real.',
+          model: 'Se espera las tres fases del diseño de un sistema de tiempo real: 1) identificar todas las tareas a realizar, junto con las restricciones temporales impuestas que se deben cumplir; 2) codificar los programas que ejecutarán las tareas; 3) medir el tiempo de cómputo de cada tarea y realizar un análisis de la planificación.',
+        },
+        {
+          kind: 'open',
+          q: 'Explicá qué son los métodos formales y mencioná al menos dos de sus ventajas o puntos clave según el apunte.',
+          model: 'Se espera: los métodos formales son técnicas con bases matemáticas para describir las propiedades del sistema; proporcionan marcos conceptuales para especificar, desarrollar y verificar sistemas de forma más rigurosa que ad hoc. Ventajas (al menos dos): complementan las especificaciones informales por ser precisas y no ambiguas (eliminan dudas y problemas de interpretación); fuerzan un análisis temprano de los requerimientos, cuando es menos costoso corregir un error; y son excelentes para sistemas críticos donde se prioriza la seguridad y la confiabilidad.',
+        },
+        {
+          kind: 'open',
+          q: 'Explicá por qué un sistema de software requiere mantenimiento y por qué su estructura tiende a degradarse con el tiempo. Justificá por qué los costos de mantenimiento son altos.',
+          model: 'Se espera: un sistema requiere mantenimiento porque, tras ser entregado, sufre modificaciones para adaptarse a un entorno cambiante y seguir siendo útil. Su estructura se degrada paulatinamente porque, al ser útil, se le pide adaptarse a ese entorno, y cada adaptación deteriora su estructura. Los costos son altos porque es mucho más costoso incorporar nueva funcionalidad con el sistema ya funcionando que durante el desarrollo; además, introducir cambios inevitablemente introduce defectos.',
+        },
+        {
+          kind: 'open',
+          q: 'Describí los campos del cuadro descriptivo básico de un caso de uso (nombre, actor, precondición, curso normal y curso alternativo) y explicá cómo se numera un curso alternativo.',
+          model: 'Se espera los campos del cuadro descriptivo básico: nombre del caso de uso (coincide con el del diagrama), actor (el que inicia el caso), precondición (lo que debe ser cierto antes de ejecutarlo), curso normal (secuencia numerada de lo que hacen actor y sistema cuando todo sale bien) y curso alternativo (variantes ubicadas en una segunda columna, numeradas según el paso donde se desvían, por ejemplo 3.1).',
+        },
+      ],
+    },
+  ],
 };

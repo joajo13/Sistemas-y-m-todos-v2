@@ -9,8 +9,21 @@
  *     tagline?: string,
  *     units: Record<string, string>,
  *     sections: Section[],
- *     pdfs: { key, label, path }[]
+ *     pdfs: { key, label, path }[],
+ *     partials?: Partial[]               // parciales de práctica (transversales)
  *   }
+ *
+ * Partial = {
+ *   id: string,                          // único dentro del subject
+ *   title: string,
+ *   blurb?: string,                      // descripción corta para el índice
+ *   questions: PartialQuestion[]         // ORDENADAS (preserva el orden mixto)
+ * }
+ *
+ * PartialQuestion (discriminada por `kind`) =
+ *   | { kind: 'tf', q, a: boolean, explain }
+ *   | { kind: 'mc', q, options: string[], correctIndex: number, explain }
+ *   | { kind: 'open', q, model }         // desarrollo: se revela respuesta modelo, no se puntúa
  *
  * Section = {
  *   id: string,                          // único dentro del subject
@@ -77,6 +90,15 @@ export function getNextSectionWith(subjectId, currentSectionId, feature) {
     if (subject.sections[i][feature]) return subject.sections[i];
   }
   return null;
+}
+
+/**
+ * Devuelve el parcial de práctica con `partialId` dentro del subject, o null.
+ */
+export function getPartial(subjectId, partialId) {
+  const subject = getSubject(subjectId);
+  if (!subject || !subject.partials) return null;
+  return subject.partials.find((p) => p.id === partialId) || null;
 }
 
 /**

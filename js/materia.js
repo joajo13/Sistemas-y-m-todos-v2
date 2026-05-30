@@ -24,7 +24,30 @@ if (!subject) {
     eyebrow.innerHTML = bits.map((b) => `<span>${b}</span>`).join(' · ');
   }
 
+  renderPartialsEntry();
   renderSections();
+}
+
+function renderPartialsEntry() {
+  const host = document.getElementById('materia-parciales');
+  if (!host) return;
+  const partials = subject.partials || [];
+  if (partials.length === 0) {
+    host.remove();
+    return;
+  }
+  const n = partials.length;
+  host.innerHTML = `
+    <a href="parciales.html?subject=${subject.id}" class="folio-card" style="display:block;">
+      <div class="folio-card-body">
+        <div class="folio-card-meta" style="margin-bottom:0.5rem;">
+          <span class="quiz">Parciales de práctica</span>
+        </div>
+        <h3 class="folio-card-title">${n} ${n === 1 ? 'parcial' : 'parciales'} de práctica</h3>
+        <p class="folio-card-dek">Exámenes que cruzan todos los temas de la materia. Cerradas autocorregidas y desarrollo con respuesta modelo.</p>
+      </div>
+    </a>
+  `;
 }
 
 function sectionCard(section) {
