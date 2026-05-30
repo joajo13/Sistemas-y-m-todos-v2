@@ -286,6 +286,90 @@ export default {
           explain:
             'El mockup es estático: no simula interactividad real (esa es la diferencia con el prototipo funcional) y no lo reemplaza — es una herramienta complementaria.',
         },
+        {
+          id: 'ms-1-5',
+          q: 'Según el apunte, ¿cuáles de estas afirmaciones describen correctamente los <strong>problemas habituales en la comprensión de los requerimientos</strong>?',
+          options: [
+            'Los requerimientos pueden estar incompletos en su definición',
+            'Los requerimientos pueden presentar ambigüedades',
+            'Los requerimientos son siempre inconsistentes entre sí pero correctos en su totalidad',
+            'Los requerimientos incorrectos no definen las reales necesidades de los usuarios',
+            'Los problemas de comprensión se deben exclusivamente a errores del analista, no del usuario',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'El apunte enumera tres problemas: requerimientos <em>incompletos</em>, con <em>ambigüedades</em> o <em>inconsistentes entre ellos</em>, y aclara que por eso son \'incorrectos, ya que no definen las reales necesidades de los usuarios\'. La opción 2 invierte la relación: la inconsistencia hace que sean <strong>incorrectos</strong>, no correctos. La opción 4 atribuye la culpa solo al analista, pero el apunte habla de \'comunicación deficiente entre el usuario y el analista\', es decir, ambas partes.',
+        },
+        {
+          id: 'ms-1-6',
+          q: '¿Cuáles de las siguientes son características de lo que simula o muestra un prototipo, según la definición del apunte?',
+          options: [
+            'Las interfaces entre el sistema y el usuario',
+            'Los aspectos más visuales del sistema (entradas y salidas)',
+            'El código fuente y la arquitectura interna del sistema',
+            'Los componentes o elementos gráficos participantes',
+            'Los conceptos a tratar en el sistema',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'El apunte define el prototipo como un modelo que \'muestra las interfaces entre el sistema y el usuario\', que \'simulará los aspectos más visuales, es decir, entradas y salidas, los componentes o elementos gráficos participantes, y los conceptos a tratar\'. El código fuente y la arquitectura interna no están mencionados como parte de lo que simula un prototipo — justamente, el prototipo es una <em>maqueta</em>, no la implementación real.',
+        },
+        {
+          id: 'ms-1-7',
+          q: 'Sobre los errores que provienen de la comunicación deficiente entre usuario y analista, ¿cuáles de estas afirmaciones son correctas según el apunte?',
+          options: [
+            'Son de los tipos más caros de corregir',
+            'Se visualizan en forma tardía',
+            'Su costo de corrección es siempre idéntico al costo que hubiera tenido corregirlos desde el inicio',
+            'Pueden multiplicar varias veces lo que hubiera sido el costo inicial de corrección',
+            'Una buena gestión del proceso de requerimientos es la forma de evitar estos problemas a posteriori',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'El apunte afirma que estos errores \'se transforman en uno de los tipos más caros de corregir porque se visualizan en forma tardía y pueden multiplicar varias veces lo que hubiera sido el costo inicial de su corrección\'. Además, el callout criollo dice que \'la forma de evitar problemas a posteriori se basa en una buena gestión del proceso de requerimientos\'. La opción 2 es falsa: el costo <strong>se multiplica</strong>, no es idéntico al costo inicial.',
+        },
+        {
+          id: 'ms-1-8',
+          q: '¿Cuáles de estas afirmaciones son correctas sobre el estudio de <strong>Gordon y Bieman (1995)</strong> según el apunte?',
+          options: [
+            'Fue publicado en la revista IEEE Software',
+            'Se basó en el estudio de 39 proyectos de prototipado',
+            'El título de la publicación es «Rapid prototyping: lesson learned»',
+            'Determinó que el prototipado aumenta el esfuerzo requerido en el desarrollo',
+            'Identificó la mejora del proceso de mantenimiento como uno de los beneficios',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'El apunte cita textualmente: publicado en <em>Rapid prototyping: lesson learned</em> (IEEE Software), sobre 39 proyectos. Entre los beneficios figura \'mejorar el proceso de mantenimiento\'. La opción 3 es falsa: uno de los beneficios es precisamente la <strong>disminución</strong> del esfuerzo requerido en el desarrollo, no su aumento.',
+        },
+        {
+          id: 'ms-1-9',
+          q: 'Sobre el <strong>diseño centrado en el usuario</strong> en el proceso de determinación de requerimientos, ¿cuáles de estas afirmaciones son correctas según el apunte?',
+          options: [
+            'Al iniciar el proceso se tiende a revisar primero los aspectos más visibles del sistema',
+            'La colaboración de los usuarios durante el desarrollo es muy importante',
+            'El diseño centrado en el usuario permite prescindir del feedback del cliente una vez iniciado el proyecto',
+            'El prototipo es la herramienta que permite obtener un feedback para acordar cuáles son los requerimientos',
+            'En esta etapa se determina lo que el cliente verá y las interacciones que tendrá con el sistema',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'El apunte dice que \'primero se tiende a revisar los aspectos más visibles del sistema y se trabaja con los usuarios\', que \'es muy importante su colaboración durante el desarrollo\', y que el prototipo \'será la herramienta que nos permita obtener un feedback para acordar cuáles son los requerimientos y cómo tratarlos\' y que se determina \'lo que el cliente verá y las interacciones que tendrá con el sistema\'. La opción 2 contradice al apunte: el feedback del cliente es justamente el motor del proceso, no algo de lo que se pueda prescindir.',
+        },
+        {
+          id: 'ms-1-10',
+          q: '¿Cuáles de estas afirmaciones sobre la <strong>relación entre el prototipo, el mockup y los requerimientos</strong> son correctas según el apunte?',
+          options: [
+            'El prototipo es una herramienta de gestión de requerimientos, no una solución mágica por sí sola',
+            'Un mockup puede emplearse para buscar feedback en revisiones con participación del cliente o usuarios',
+            'El mockup reemplaza al prototipo funcional cuando el proyecto es de alta complejidad',
+            'Las interacciones del prototipo con los usuarios deben desarrollarse buscando la mayor similitud al sistema final',
+            'El mockup representa de forma estática cómo se estructura la información y cómo se visualizan los contenidos',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'El apunte afirma que el prototipo \'es una herramienta más de esa gestión, no la solución mágica\'; que los mockups sirven \'para la búsqueda de feedback en las posibles revisiones con participación del cliente o usuarios\'; que las interacciones del prototipo \'deben desarrollarse con cuidado, buscando la mayor similitud al sistema final\'; y que el mockup \'representa de una forma estática cómo se estructura la información y cómo se visualizan los contenidos\'. La opción 2 no tiene sustento en el apunte: el mockup es una herramienta <em>complementaria</em> y no reemplaza al prototipo funcional.',
+        },
       ],
     },
     flashcards: [
@@ -592,6 +676,90 @@ export default {
           correctIndexes: [0, 1, 2, 3],
           explain:
             'Ejemplo del apunte: <em>Registrar préstamo</em>. La elipse con verbo + entidad, desde el punto de vista de quien la realiza. No se usan códigos numéricos para nombrarlos.',
+        },
+        {
+          id: 'ms-2-5',
+          q: '¿Cuáles de estas afirmaciones sobre el <strong>origen y propósito</strong> de los casos de uso son correctas según el apunte?',
+          options: [
+            'Fueron presentados por Jacobson en 1987 con el método OOSE',
+            'Se emplean para conducir el desarrollo de sistemas de software',
+            'Son parte de los diagramas incluidos en UML',
+            'Su idea central es estudiar las interacciones entre el sistema y su entorno',
+            'Fueron creados originalmente para modelar bases de datos relacionales',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son afirmaciones textuales o directamente inferibles del apunte: Jacobson los presentó en 1987 con OOSE, se usan para conducir el desarrollo, son parte de UML, y su idea es estudiar interacciones con el entorno. La última es falsa: el apunte no dice nada de bases de datos relacionales — OOSE es para modelado orientado a objetos, no para modelado de datos.',
+        },
+        {
+          id: 'ms-2-6',
+          q: 'Según la definición canónica de Jacobson, Rumbaugh y Booch, ¿qué elementos están explícitamente presentes en la descripción de un caso de uso?',
+          options: [
+            'Un conjunto de secuencias de acciones',
+            'Variantes de esas secuencias',
+            'La ejecución de esas acciones por el sistema',
+            'Un resultado observable de valor para un actor',
+            'La descripción del algoritmo interno que implementa el sistema',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'La cita textual del apunte dice: \'descripción de un conjunto de secuencias de acciones <em>incluyendo variantes</em>, que ejecuta un sistema para producir un resultado observable de valor para un actor\'. Los cuatro primeros están presentes literalmente. El quinto es un distractor plausible pero incorrecto: la definición no menciona ni implica la descripción del algoritmo interno — los casos de uso modelan comportamiento externo observable, no implementación.',
+        },
+        {
+          id: 'ms-2-7',
+          q: 'Sobre la distinción entre <strong>actor primario</strong> y <strong>actor secundario</strong>, ¿cuáles afirmaciones son correctas según el apunte?',
+          options: [
+            'El actor primario inicia el caso de uso',
+            'El actor primario lo utiliza para lograr un objetivo',
+            'El actor secundario no inicia el caso de uso',
+            'El actor secundario puede ser notificado o recibir información como resultado del caso',
+            'El actor secundario también puede iniciar el mismo caso de uso en paralelo al primario',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'El apunte define al actor primario como el que \'inicia el caso de uso y lo utiliza para lograr un objetivo\' (opciones 0 y 1). Al secundario lo define como aquel que \'es requerido por el caso de uso\' y al que se puede \'notificar o enviarle información\' sin que lo haya iniciado (opciones 2 y 3). La última es falsa: el apunte es explícito en que cada caso puede ser iniciado por UN único actor; el secundario no lo inicia.',
+        },
+        {
+          id: 'ms-2-8',
+          q: 'Considerá la siguiente situación: <em>«La misma persona, según la tarea que realice, puede registrar entrada/salida de libros (como empleado) o cargar libros nuevos al catálogo (como bibliotecario).»</em> ¿Qué afirmaciones del apunte aplican directamente a este caso?',
+          options: [
+            'Si el actor es una persona, nunca se coloca su nombre en el modelo',
+            'Se coloca en el modelo el rol que la persona representa',
+            'La misma persona puede interactuar con el sistema desde roles diferentes',
+            'Cada uno de esos roles es un actor distinto en el modelo',
+            'Para unificarlos basta con crear un único caso de uso que agrupe ambas tareas',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'El apunte dice textualmente: \'nunca colocamos el nombre, sino el rol que representa, porque la misma persona puede interactuar con el sistema desde roles diferentes\'. El ejemplo del apunte es exactamente el del bibliotecario/empleado (opciones 0, 1, 2 y 3 se deducen directamente). La última opción es falsa: el apunte no propone agrupar tareas distintas en un solo caso de uso — de hecho, \'registrar entrada/salida\' y \'cargar libros nuevos\' son casos de uso separados con actores distintos.',
+        },
+        {
+          id: 'ms-2-9',
+          q: '¿Cuáles de estas preguntas están listadas <strong>textualmente</strong> en el apunte como herramientas para identificar actores?',
+          options: [
+            '¿Quién instala, prepara y mantiene el sistema?',
+            '¿Quién provee al sistema de información?',
+            '¿Qué otros sistemas interactúan o utilizan el sistema?',
+            '¿Cuántos usuarios concurrentes soportará el sistema?',
+            '¿Quién necesita que el sistema le brinde información?',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'El apunte lista exactamente cinco preguntas para identificar actores: \'¿Quién usa el sistema?\', \'¿Quién necesita que el sistema le brinde información?\', \'¿Quién provee al sistema de información?\', \'¿Qué otros sistemas interactúan o utilizan el sistema?\' y \'¿Quién instala, prepara y mantiene el sistema?\'. Las opciones 0, 1, 2 y 4 están en esa lista. La opción 3 (\'¿Cuántos usuarios concurrentes?\') es un requerimiento no funcional de rendimiento, no una pregunta para identificar actores.',
+        },
+        {
+          id: 'ms-2-10',
+          q: '¿Cuáles de estas afirmaciones sintetizan correctamente <strong>varias ideas</strong> de la sección sobre casos de uso y actores?',
+          options: [
+            'Un caso de uso deja claro tanto lo que el sistema hará como, por omisión intencional, lo que no hará',
+            'Un actor representa un conjunto coherente de roles y puede ser una persona, sistema u organización',
+            'El nombre del caso de uso se expresa desde el punto de vista del actor que lo realiza, con verbo en infinitivo',
+            'Si más de un actor puede iniciar un caso de uso, se resuelve con herencia entre actores',
+            'Los casos de uso reemplazan a UML como método de modelado independiente',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Opción 0: el apunte dice explícitamente que los casos de uso dejan claro \'qué hará el sistema y, por omisión intencional, también lo que no hará\'. Opción 1: la cita de Jacobson/Rumbaugh/Booch define al actor como \'conjunto coherente de roles\' y el texto enumera personas, sistemas y organizaciones. Opción 2: el apunte indica que el nombre va \'desde el punto de vista de quien lo realiza\' con \'verbo en infinitivo + entidad\'. Opción 3: el apunte lo dice textualmente en el callout sobre herencia. La opción 4 es falsa: los casos de uso son parte de UML, no lo reemplazan — el propio apunte lo aclara.',
         },
       ],
     },
@@ -916,6 +1084,90 @@ export default {
           explain:
             'Las primeras cuatro son textuales del apunte. El rectángulo NO es el actor — el actor se representa como un muñeco de palo; el rectángulo delimita el sistema.',
         },
+        {
+          id: 'ms-3-5',
+          q: 'En el cuadro descriptivo básico, ¿cuáles de las siguientes afirmaciones sobre el <strong>curso alternativo</strong> son correctas según el apunte?',
+          options: [
+            'Se numera haciendo referencia al paso del curso normal donde ocurre la desviación (ej.: <code>3.1</code>)',
+            'Se documenta en una segunda columna, separada del curso normal',
+            'Describe lo que ocurre cuando algún paso del curso normal no se puede completar o surge una variante',
+            'Siempre comienza en el paso 1 del curso normal, independientemente de dónde surja la alternativa',
+            'Reemplaza al curso normal cuando el actor decide no completar el caso de uso',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las opciones 0, 1 y 2 son correctas: el curso alternativo se numera indicando el paso donde se desvía (ej.: <code>3.1</code>), va en la segunda columna del cuadro, y describe las variantes respecto del curso normal. La opción 3 es falsa: no siempre comienza en el paso 1, sino en el paso donde se produce la alternativa. La opción 4 es falsa: el curso alternativo es una variante del curso normal, no lo reemplaza completamente ni implica abandono del caso.',
+        },
+        {
+          id: 'ms-3-6',
+          q: '¿Cuáles de estas diferencias entre el cuadro descriptivo <strong>básico</strong> y el <strong>extendido</strong> son correctas según el apunte?',
+          options: [
+            'El extendido incluye un campo de <em>Postcondición</em> que el básico no tiene',
+            'El extendido distingue entre actor principal y actor secundario; el básico solo menciona \'el actor que inicia\'',
+            'El extendido incluye un campo de <em>Importancia</em> que el básico no contempla',
+            'El básico incluye <em>Excepciones</em> paso a paso igual que el extendido',
+            'El extendido incorpora un <em>Identificador</em> del requerimiento que el básico no tiene',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las opciones 0, 1, 2 y 4 son correctas: el extendido agrega Postcondición, diferencia actor principal de secundario, incluye Importancia e Identificador del requerimiento. La opción 3 es falsa: las Excepciones paso a paso son exclusivas del cuadro extendido; el básico solo contempla Curso alternativo, no Excepciones con esa estructura formal.',
+        },
+        {
+          id: 'ms-3-7',
+          q: 'Según el apunte, ¿cuáles de las siguientes afirmaciones sobre la <strong>relación de extensión</strong> son precisas?',
+          options: [
+            'La funcionalidad que extiende puede o no ocurrir; no es obligatoria en cada ejecución del caso base',
+            'Ambas partes de la relación deben ser casos de uso en sí mismos',
+            'La relación de extensión es apropiada para modelar comportamientos que siempre ocurren como parte del flujo principal',
+            'El ejemplo de Jacobson usa <em>Cenar</em> extendido por <em>Tomar café</em>',
+            'La extensión representa una excepción o un error dentro del caso base',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son correctas según el apunte: la extensión modela algo que <em>podría o no darse</em>, ambas partes deben cumplir la definición de caso de uso, y el ejemplo de Jacobson es exactamente Cenar/Tomar café. La opción 2 es falsa: si la funcionalidad ocurre siempre en el flujo, no es extensión sino parte del curso normal o, eventualmente, una relación de uso. La opción 4 es falsa: el apunte aclara explícitamente que la extensión no es un error ni una excepción.',
+        },
+        {
+          id: 'ms-3-8',
+          q: 'Sobre la <strong>relación de uso</strong> (<em>include</em>) según el apunte, ¿cuáles son afirmaciones correctas?',
+          options: [
+            'La parte incluida debe ser un caso de uso en sí misma',
+            'Surge cuando se identifica funcionalidad común a más de un caso de uso',
+            'Suele descubrirse al inicio del modelado, antes de especificar los casos principales',
+            'El ejemplo del apunte es <em>Consultar socio</em>, usado tanto por <em>Registrar préstamo</em> como por <em>Registrar devolución</em>',
+            'La relación de uso puede darse entre un actor y un caso de uso cuando el actor participa en varios casos',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son correctas: la parte incluida debe cumplir la definición de caso de uso, aparece cuando hay funcionalidad compartida, y el ejemplo textual del apunte es Consultar socio usado por Registrar préstamo y Registrar devolución. La opción 2 es falsa: el apunte dice que estas relaciones <em>suelen aparecer después de haber especificado varios casos de uso</em>, no al inicio. La opción 4 es falsa: las relaciones de extensión y uso se dan únicamente entre casos de uso, no entre actores y casos de uso.',
+        },
+        {
+          id: 'ms-3-9',
+          q: 'En el cuadro descriptivo extendido, ¿cuáles de los siguientes campos describen con exactitud su contenido según el apunte?',
+          options: [
+            'El campo <em>Excepciones</em> especifica la condición de excepción, la acción a realizar y si el caso continúa o aborta',
+            'El campo <em>Actor secundario</em> es aquel que siendo actor, no inicia el caso de uso',
+            'El campo <em>Descripción</em> indica que \'el sistema deberá comportarse tal como se describe\'',
+            'El campo <em>Secuencia Normal</em> solo registra las acciones del actor, omitiendo las del sistema',
+            'El campo <em>Postcondición</em> especifica lo que debe ser cierto antes de que comience el caso de uso',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las opciones 0, 1 y 2 son correctas y textuales del apunte. La opción 3 es falsa: la Secuencia Normal incluye tanto lo que realiza el actor como lo que realiza el sistema, igual que en el básico. La opción 4 es falsa e invierte los conceptos: la <em>Precondición</em> es lo que debe ser cierto antes de ejecutar el caso; la <em>Postcondición</em> describe el estado resultante después de su ejecución.',
+        },
+        {
+          id: 'ms-3-10',
+          q: '¿Cuáles de estas afirmaciones sobre la construcción del modelo de casos de uso (cuadro + relaciones + diagrama) reflejan correctamente lo que plantea el apunte?',
+          options: [
+            'El cuadro descriptivo es necesario porque la vista gráfica sola no muestra cómo se desarrolla la secuencia de interacciones',
+            'Las relaciones de extensión y uso sirven para refinar el modelo a partir de los casos de uso ya identificados',
+            'En el diagrama, el nombre del sistema se coloca en un borde interno del rectángulo que delimita la frontera',
+            'El curso normal se documenta primero y los cursos alternativos después, nunca al revés',
+            'Los cursos alternativos se documentan en la misma columna que el curso normal, usando sangría para diferenciarlos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las opciones 0, 1, 2 y 3 son correctas según el apunte: la necesidad del cuadro descriptivo se justifica porque la vista gráfica no alcanza; la extensión y el uso refinan el modelo; el nombre del sistema va en el borde interno del rectángulo; y el orden de documentación es siempre curso normal primero, alternativas después. La opción 4 es falsa: el apunte indica que los cursos alternativos se documentan en una <strong>segunda columna</strong> separada, no en la misma columna que el curso normal.',
+        },
       ],
     },
     flashcards: [
@@ -1216,6 +1468,90 @@ export default {
           explain:
             'Un épico es lo contrario de chico: una historia grande que no entra en una iteración. La acción canónica es desagregarlo, no reemplazar nada ni confundirlo con criterios de aceptación.',
         },
+        {
+          id: 'ms-4-5',
+          q: 'Según el apunte, ¿cuáles de las siguientes afirmaciones sobre el atributo <strong>Negociable</strong> del criterio INVEST son correctas?',
+          options: [
+            'Las historias pueden cambiarse hasta que se vuelvan parte de una iteración',
+            'Negociable implica que la historia puede modificarse en cualquier momento, incluso durante su implementación en la iteración',
+            'Si una historia ya fue incluida en una iteración, deja de ser negociable',
+            'Negociable significa que el cliente puede rechazar la historia sin ninguna consecuencia',
+            'El atributo Negociable es parte del criterio INVEST creado por Bill Wake en 2003',
+          ],
+          correctIndexes: [0, 2, 4],
+          explain:
+            'Según el apunte, las historias <strong>pueden ser cambiadas hasta tanto sean parte de una iteración</strong> — eso implica directamente que una vez dentro de la iteración ya no son negociables (opción 2 correcta). La opción 0 reproduce el texto casi literalmente. La opción 4 es correcta porque INVEST sí fue creado por Bill Wake en 2003. La opción 1 es un distractor plausible pero contradice el apunte: la negociabilidad tiene un límite temporal (hasta entrar a la iteración). La opción 3 inventa una consecuencia que el texto no menciona.',
+        },
+        {
+          id: 'ms-4-6',
+          q: '¿Cuáles de estas características corresponden <em>exactamente</em> a la definición de <strong>historia de usuario</strong> según el apunte, y <em>no</em> al concepto de épico?',
+          options: [
+            'Es la descripción de una funcionalidad desde el punto de vista del usuario o cliente',
+            'Se expresa en párrafos breves, idealmente hasta dos oraciones, cargados en tarjetas',
+            'Es una historia tan grande que difícilmente pueda implementarse en una única iteración',
+            'Responde tres preguntas: quién, qué y para qué',
+            'Debe desagregarse en unidades menores para poder planificarse',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son la definición textual de historia de usuario del apunte: descripción de funcionalidad desde la perspectiva del usuario, expresada en hasta dos oraciones en tarjeta, respondiendo quién/qué/para qué. Las opciones 2 y 4 describen al <strong>épico</strong>, no a la historia de usuario en general.',
+        },
+        {
+          id: 'ms-4-7',
+          q: 'Bill Wake diseñó el criterio INVEST con seis atributos. ¿Cuáles de las siguientes <em>descripciones de atributo</em> son correctas <em>según el apunte</em>?',
+          options: [
+            'Independiente: la historia debe ser autosuficiente para no presentar dependencia de ninguna otra historia',
+            'Valorable: debe entregar valor solo al equipo de desarrollo, no necesariamente al cliente',
+            'Pequeña (Small): nunca debe ser tan grande como para resultar imposible de planificarse o priorizarse',
+            'Estimable: siempre debería poder estimarse cuál es el esfuerzo de la historia',
+            'Comprobable (Testable): la historia debe brindar la información necesaria para probar su desarrollo efectivo',
+          ],
+          correctIndexes: [0, 2, 3, 4],
+          explain:
+            'Las opciones 0, 2, 3 y 4 reproducen fielmente las definiciones del apunte para I, S, E y T del criterio INVEST. La opción 1 es el distractor: el atributo <strong>Valorable</strong> exige que la historia entregue valor al <strong>cliente o usuario final</strong>, no al equipo de desarrollo; esa formulación contradice el texto.',
+        },
+        {
+          id: 'ms-4-8',
+          q: 'Sobre los <strong>casos de uso 2.0</strong> de Ivar Jacobson y su relación con las historias de usuario, ¿cuáles de estas afirmaciones son respaldadas por el apunte?',
+          options: [
+            'Jacobson los desarrolló con la intención de alivianar el proceso frente a los casos de uso clásicos',
+            'Sugiere escribir narrativas más ligeras que capturen solo lo estrictamente necesario para generar historias de usuario',
+            'Las historias se describen en tarjetas pequeñas y se baja detalle únicamente en los casos que lo requieran',
+            'En los casos de uso 2.0, la narrativa de las historias es independiente de la narrativa del caso de uso',
+            'Permiten implementar el caso de uso porción por porción en lugar de describirlo todo de una sola vez',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las opciones 0, 1, 2 y 4 están respaldadas textualmente: Jacobson buscó alivianar el proceso, propone narrativas ligeras que capturen lo estrictamente necesario, las historias van en tarjetas y se profundiza donde se requiera, y el objetivo es implementar por porciones. La opción 3 es falsa: el apunte dice explícitamente que «tomamos la narración de las historias como parte de la narrativa del caso de uso», no como algo independiente.',
+        },
+        {
+          id: 'ms-4-9',
+          q: 'Una historia de usuario es un <strong>épico</strong> y el equipo decide desagregarla. Según el apunte, ¿cuáles de las siguientes afirmaciones justifican esa decisión y son coherentes con el texto?',
+          options: [
+            'La historia es tan grande que difícilmente pueda implementarse en una única iteración',
+            'Al desagregarla se obtienen historias de usuario menores, implementables individualmente',
+            'Un épico debe convertirse en un caso de uso formal antes de desagregarse',
+            'La desagregación es la acción canónica ante un épico según el apunte',
+            'Un épico es equivalente a varias tarjetas de historia concatenadas sin necesidad de ruptura',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 reflejan exactamente lo que dice el apunte sobre épicos: son historias grandes que no caben en una iteración, y la solución es desagregarlas en historias menores — esa es la acción canónica. La opción 2 inventa un paso intermedio (convertir en caso de uso formal) que el texto no menciona. La opción 4 contradice la premisa: un épico <em>requiere</em> ruptura, no es simplemente tarjetas concatenadas.',
+        },
+        {
+          id: 'ms-4-10',
+          q: '¿Cuáles de estas combinaciones <em>atributo INVEST — descripción</em> están <strong>mal emparejadas</strong> según el apunte? (Marcá las que son incorrectas.)',
+          options: [
+            'Estimable — la historia debe ser autosuficiente y no depender de otras',
+            'Negociable — puede cambiarse hasta que forme parte de una iteración',
+            'Valorable — siempre debería poder estimarse su esfuerzo',
+            'Pequeña (Small) — nunca debe ser tan grande que resulte imposible planificarla',
+            'Comprobable — es sinónimo de \'Independiente\' dentro del criterio',
+          ],
+          correctIndexes: [0, 2, 4],
+          explain:
+            'La pregunta pide identificar los pares <em>mal emparejados</em>. La opción 0 asigna la descripción de <strong>Independiente</strong> a <strong>Estimable</strong> — incorrecto. La opción 2 asigna la descripción de <strong>Estimable</strong> a <strong>Valorable</strong> — incorrecto; Valorable debe entregar valor al cliente. La opción 4 afirma que Comprobable es sinónimo de Independiente — falso, son atributos distintos. Las opciones 1 y 3 están bien emparejadas según el texto y por eso no se marcan.',
+        },
       ],
     },
     flashcards: [
@@ -1457,6 +1793,90 @@ export default {
           correctIndexes: [0, 1, 2, 3],
           explain:
             'El SRS es la base de la trazabilidad y se vuelve fundamental para mantenimiento; no es opcional ni depende del tamaño del proyecto.',
+        },
+        {
+          id: 'ms-5-5',
+          q: 'Según la tabla de tipos de trazabilidad del apunte, ¿cuáles afirmaciones sobre el eje <strong>hacia atrás</strong> son correctas?',
+          options: [
+            'La trazabilidad hacia atrás <em>desde</em> los requerimientos permite conocer por qué cada requerimiento del SRS existe',
+            'La trazabilidad hacia atrás <em>hasta</em> los requerimientos implica que cada comportamiento del software refiere explícitamente a los requerimientos que satisface',
+            'Ambas variantes \'hacia atrás\' apuntan a fases posteriores al SRS',
+            'La trazabilidad hacia atrás <em>desde</em> los requerimientos permite entender qué componentes del software satisfacen cada requerimiento',
+            'La trazabilidad hacia atrás <em>hasta</em> los requerimientos permite referenciar documentos previos al SRS desde el propio SRS',
+          ],
+          correctIndexes: [0, 1],
+          explain:
+            'Según la tabla: la <strong>hacia atrás desde los requerimientos</strong> (opción 0) sirve para conocer por qué existe cada requerimiento; la <strong>hacia atrás hasta los requerimientos</strong> (opción 1) garantiza que cada comportamiento del software referencie los requerimientos que satisface. La opción 2 es falsa: ambas variantes \'hacia atrás\' se mueven hacia fases <em>previas</em>, no posteriores. La opción 3 corresponde a la \'hacia adelante desde los requerimientos\', no a la hacia atrás. La opción 4 mezcla definiciones: los documentos previos referenciándose al SRS corresponde a \'hacia adelante <em>hasta</em> los requerimientos\'.',
+        },
+        {
+          id: 'ms-5-6',
+          q: '¿Cuáles de estas afirmaciones sobre el momento y las condiciones en que la trazabilidad es más relevante son correctas según el apunte?',
+          options: [
+            'La trazabilidad remota cobra más importancia cuando el producto pasa a ser operado y mantenido',
+            'Para que la trazabilidad futura sea viable, cada requerimiento debe tener un nombre o referencia única',
+            'La trazabilidad se vuelve fundamental al llevar a cabo modificaciones en el diseño o el código, para identificar los requerimientos afectados',
+            'La trazabilidad solo es relevante durante la fase de elicitación de requerimientos, antes de redactar el SRS',
+            'La trazabilidad futura es la que permite referenciar el origen o fuente del requerimiento',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las opciones 0, 1 y 2 son afirmaciones textuales del apunte: la remota gana peso en operación/mantenimiento; la futura requiere identificador único por requerimiento; y la trazabilidad es clave al modificar diseño o código para localizar los requerimientos impactados. La opción 3 es falsa: la relevancia no se limita a la elicitación, es transversal a todo el ciclo. La opción 4 invierte las definiciones: la que referencia el <em>origen</em> es la trazabilidad <strong>remota</strong>, no la futura.',
+        },
+        {
+          id: 'ms-5-7',
+          q: '¿Cuáles tipos de trazabilidad implican que algo externo al SRS <strong>apunta hacia</strong> el SRS o hacia los requerimientos como destino?',
+          options: [
+            'Trazabilidad hacia adelante <em>hasta</em> los requerimientos',
+            'Trazabilidad hacia atrás <em>hasta</em> los requerimientos',
+            'Trazabilidad hacia adelante <em>desde</em> los requerimientos',
+            'Trazabilidad hacia atrás <em>desde</em> los requerimientos',
+            'Trazabilidad remota',
+          ],
+          correctIndexes: [0, 1],
+          explain:
+            'El eje \'hasta los requerimientos\' indica que el destino de la referencia son los requerimientos: en la <strong>hacia adelante hasta</strong> (opción 0), los documentos que preceden al SRS pueden referenciarse <em>al</em> SRS; en la <strong>hacia atrás hasta</strong> (opción 1), cada comportamiento del software refiere explícitamente los requerimientos que satisface. En los tipos \'desde los requerimientos\' (opciones 2 y 3), el punto de partida es el requerimiento mismo, no el destino. La trazabilidad remota (opción 4) es una categoría distinta que el apunte no ubica dentro de los cuatro tipos de la tabla.',
+        },
+        {
+          id: 'ms-5-8',
+          q: 'Sobre la trazabilidad <strong>hacia adelante</strong> en sus dos variantes, ¿cuáles afirmaciones son correctas según el apunte?',
+          options: [
+            'La \'hacia adelante desde los requerimientos\' permite entender cuáles componentes del software satisfacen cada requerimiento',
+            'La \'hacia adelante hasta los requerimientos\' permite que todos los documentos que preceden al SRS puedan referenciarse al SRS',
+            'Ambas variantes \'hacia adelante\' se orientan hacia fases posteriores al SRS',
+            'La \'hacia adelante desde los requerimientos\' apunta hacia las fases previas para trazar el origen del requerimiento',
+            'La \'hacia adelante hasta los requerimientos\' requiere que cada requerimiento tenga una referencia única para funcionar',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las opciones 0 y 1 son definiciones textuales de la tabla. La opción 2 es correcta: \'hacia adelante\' en ambas variantes implica moverse hacia fases posteriores al SRS. La opción 3 es falsa: apuntar hacia fases previas para trazar el origen corresponde a la \'hacia atrás <em>desde</em> los requerimientos\', no a la hacia adelante. La opción 4 es incorrecta según el apunte: la condición de referencia única se menciona para la <strong>trazabilidad futura</strong> en general, no exclusivamente para el tipo \'hasta los requerimientos\'.',
+        },
+        {
+          id: 'ms-5-9',
+          q: '¿Cuáles de estas afirmaciones cruzan correctamente los conceptos de trazabilidad remota/futura con los cuatro tipos de la tabla?',
+          options: [
+            'La trazabilidad remota y la \'hacia atrás desde los requerimientos\' comparten la idea de mirar hacia las fases previas al SRS',
+            'La trazabilidad futura se relaciona con los tipos \'hacia adelante\', dado que ambos apuntan a fases posteriores al desarrollo',
+            'La \'hacia adelante hasta los requerimientos\' es equivalente a la trazabilidad remota porque los dos referencian el SRS',
+            'La \'hacia atrás hasta los requerimientos\' garantiza que el código o diseño explícitamente referencie los requerimientos que satisface',
+            'La trazabilidad futura y la \'hacia atrás hasta los requerimientos\' son sinónimos exactos según el apunte',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Opción 0: correcta, ambas miran hacia atrás del SRS. Opción 1: correcta, la futura apunta a fases posteriores y los tipos \'hacia adelante\' también. Opción 3: correcta, esa es la definición textual de la tabla. La opción 2 es falsa: la \'hacia adelante hasta los requerimientos\' permite que documentos <em>previos</em> al SRS se referencien <em>hacia</em> el SRS, lo cual es lo opuesto a la trazabilidad remota (que parte del SRS hacia atrás). La opción 5 es falsa: la futura y la \'hacia atrás hasta\' no son sinónimos; la futura requiere identificador único y abarca fases posteriores, mientras que la \'hasta\' es uno de los cuatro tipos estructurales de la tabla.',
+        },
+        {
+          id: 'ms-5-10',
+          q: 'Al modificar el diseño de un módulo ya operativo, el equipo quiere saber qué requerimientos del SRS se ven impactados. ¿Cuáles tipos de trazabilidad del apunte les sirven <strong>directamente</strong> para eso?',
+          options: [
+            'Trazabilidad hacia atrás <em>hasta</em> los requerimientos, porque cada comportamiento del software refiere explícitamente los requerimientos que satisface',
+            'Trazabilidad remota, porque en operación y mantenimiento cobra importancia para identificar requerimientos afectados ante cambios',
+            'Trazabilidad hacia adelante <em>hasta</em> los requerimientos, porque permite que los documentos previos se referencien al SRS',
+            'Trazabilidad hacia adelante <em>desde</em> los requerimientos, porque muestra qué componentes del software satisfacen cada requerimiento',
+            'Trazabilidad hacia atrás <em>desde</em> los requerimientos, porque permite conocer por qué cada requerimiento existe',
+          ],
+          correctIndexes: [0, 1],
+          explain:
+            'Para identificar qué requerimientos afecta un cambio en el diseño o código, necesitás poder ir <em>desde</em> el comportamiento/componente modificado <em>hasta</em> los requerimientos: eso lo cubre la <strong>hacia atrás hasta los requerimientos</strong> (opción 0). Además, el apunte dice explícitamente que la <strong>trazabilidad remota</strong> (opción 1) cobra más importancia en operación y mantenimiento, justamente por ese escenario. La opción 2 es incorrecta para este caso: \'hacia adelante hasta\' trata documentos previos que apuntan al SRS, no el proceso inverso. La opción 3 (\'hacia adelante desde\') muestra qué componentes satisfacen un requerimiento, útil en dirección contraria. La opción 4 (\'hacia atrás desde\') explica el origen del requerimiento, no qué componentes lo implementan.',
         },
       ],
     },
@@ -1750,6 +2170,90 @@ export default {
           correctIndexes: [0, 1, 2, 3],
           explain:
             'Son pruebas de validación, formales, basadas en requerimientos y orientadas a la aceptación. Son caja NEGRA, no caja blanca.',
+        },
+        {
+          id: 'ms-6-5',
+          q: 'Según el apunte, ¿cuáles de las siguientes afirmaciones describen <strong>correctamente</strong> la naturaleza de las pruebas de aceptación basadas en los requerimientos (definición ISTQB)?',
+          options: [
+            'Son pruebas formales respecto a las necesidades del usuario y los procesos comerciales',
+            'Su objetivo principal es buscar y documentar defectos del sistema',
+            'Permiten que el usuario, el cliente u otra entidad autorizada decida si acepta o no el sistema',
+            'Se diseñan a partir de los requerimientos documentados para comprobar si el sistema los cumple',
+            'Son pruebas de caja blanca centradas en la cobertura de ramas del código',
+          ],
+          correctIndexes: [0, 2, 3],
+          explain:
+            'Correctas: (0) es la definición textual del ISTQB en el apunte; (2) el apunte indica que su fin es \'permitir que el usuario, los clientes u otra entidad autorizada determinen si aceptan o no el sistema\'; (3) el apunte afirma que \'basándose en dichos requerimientos, se diseñarán las pruebas correspondientes\'. Incorrectas: (1) el apunte es explícito — son <em>pruebas de validación</em>, no de búsqueda de defectos; (5) son caja <em>negra</em>, no caja blanca.',
+        },
+        {
+          id: 'ms-6-6',
+          q: 'V&amp;V (verificación y validación) se aplica en varias etapas del proceso de desarrollo. ¿En cuáles de las siguientes etapas indica el apunte que se lleva a cabo?',
+          options: [
+            'Comprobación de los requerimientos',
+            'El diseño',
+            'Definición del modelo de negocios de la empresa',
+            'El código',
+            'El producto final',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'El apunte dice textualmente que V&amp;V \'iniciará con la comprobación de los requerimientos, luego en el diseño, el código, y finalmente en el producto final\'. La definición del modelo de negocios no es una etapa de V&amp;V según el texto.',
+        },
+        {
+          id: 'ms-6-7',
+          q: 'En el ejemplo del apunte sobre el requerimiento \'el usuario podrá consultar los datos de un producto indicando un dato del mismo\', ¿cuáles pruebas de aceptación se mencionan <strong>explícitamente</strong>?',
+          options: [
+            'Buscar un producto que exista en el sistema',
+            'Buscar un producto que no exista en el sistema',
+            'Verificar que la base de datos devuelva resultados en menos de 200 ms',
+            'Buscar con un dato que coincida con varios productos',
+            'Ingresar un dato nulo para testear la robustez del motor de base de datos',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'El apunte lista exactamente tres pruebas para ese requerimiento: buscar un producto existente, buscar uno inexistente, y buscar con un dato que coincida con varios productos. Los tiempos de respuesta (opción 2) y los datos nulos (opción 4) no se mencionan en el ejemplo; son distractores plausibles pero ajenos al texto.',
+        },
+        {
+          id: 'ms-6-8',
+          q: 'Sobre la relación entre <strong>validación</strong> y la <em>especificación de requerimientos</em>, ¿qué afirmaciones del apunte son correctas?',
+          options: [
+            'La validación busca demostrar que la definición de requerimientos se corresponde con lo que el usuario necesita',
+            'Es importante que el <em>cliente</em> valide la especificación de requerimientos para corroborar que no contenga errores ni inconsistencias',
+            'La validación comprueba que el producto de software está de acuerdo a la especificación previamente generada',
+            'La validación puede revelar errores en los requerimientos al usar datos reales del cliente',
+            'La validación aplica técnicas de caja blanca para analizar la estructura interna del código',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Correctas: (0) el apunte define validación como \'demostrar que la definición de los requerimientos que hemos generado realmente se corresponda con el sistema que el usuario o el cliente necesitan\'; (1) el texto dice explícitamente \'es muy importante que el cliente valide esa especificación... corroborando que no contenga errores o inconsistencias\'; (3) el callout de aceptación indica que los datos reales \'pueden disparar errores... tanto en el sistema como en los requerimientos\'. Incorrecta: (2) esa es la definición de <strong>verificación</strong>, no de validación; (4) la técnica de caja blanca no aparece en ninguna parte de la sección.',
+        },
+        {
+          id: 'ms-6-9',
+          q: '¿Cuáles de las siguientes afirmaciones permiten distinguir <strong>correctamente</strong> la verificación de la validación según Boehm y el apunte?',
+          options: [
+            'La verificación comprueba que el software cumple con la <em>especificación de requerimientos</em> generada previamente',
+            'La validación determina si el sistema está construido de forma técnicamente correcta',
+            'La verificación responde a \'¿estamos construyendo el producto <em>correctamente</em>?\'',
+            'Tanto verificación como validación son actividades que se ejecutan <em>únicamente</em> al finalizar el producto',
+            'La validación responde a \'¿estamos construyendo el <em>producto correcto</em>?\'',
+          ],
+          correctIndexes: [0, 2, 4],
+          explain:
+            'Correctas: (0) el apunte define verificación como \'comprobar que el producto de software está de acuerdo a la especificación\'; (2) y (4) son las frases canónicas de Boehm 1979. Incorrectas: (1) esa descripción corresponde a la verificación, no a la validación — la validación apunta al \'producto correcto\', no a la corrección técnica; (3) el apunte es claro en que V&amp;V se lleva a cabo en <em>cada etapa</em> del proceso, no solo al final.',
+        },
+        {
+          id: 'ms-6-10',
+          q: '¿Cuáles de las siguientes características corresponden <strong>específicamente</strong> a la prueba de aceptación tal como la describe el apunte?',
+          options: [
+            'La realizan los <em>usuarios</em> del sistema',
+            'Sus casos de prueba se basan en la especificación de requerimientos',
+            'Se ejecuta con datos ficticios generados por el equipo de QA para evitar riesgos de privacidad',
+            'Es una técnica de <strong>caja negra</strong>',
+            'Uno de sus pasos es determinar las decisiones de aceptación',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'Correctas: (0) \'es realizada por los usuarios\'; (1) \'los casos de prueba se basan en la especificación de requerimientos\'; (3) \'es una técnica de caja negra\'; (4) \'determinar decisiones de aceptación\' es el quinto paso explícito del proceso. Incorrecta: (2) el apunte dice lo opuesto — se trabaja con <strong>datos reales del cliente</strong>, no ficticios, precisamente porque eso puede revelar errores que las pruebas anteriores no detectaron.',
         },
       ],
     },
@@ -2083,6 +2587,90 @@ export default {
           explain:
             'El probador ágil hace exactamente LO OPUESTO de la última opción: integra las necesidades del interesado al equipo y traduce historias de usuario en parámetros de prueba.',
         },
+        {
+          id: 'ms-7-5',
+          q: '¿Qué elementos <strong>debe incluir</strong> la definición de una estrategia de prueba según el apunte?',
+          options: [
+            'Las fases de prueba que se deben seguir',
+            'Las clases de prueba que se realizarán en cada fase',
+            'Los criterios de satisfacción y finalización que se emplearán',
+            'El diagrama de clases del sistema a probar',
+            'Las técnicas y herramientas de prueba que se van a utilizar',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'El apunte dice textualmente que la estrategia debe incluir: las fases de prueba, las clases de prueba por fase, las técnicas y herramientas a utilizar, y los criterios de satisfacción y finalización. El diagrama de clases es un artefacto de diseño, no un componente de la estrategia de prueba según el texto.',
+        },
+        {
+          id: 'ms-7-6',
+          q: 'Sobre la <strong>prueba de sistema</strong>, ¿qué afirmaciones son correctas según el apunte?',
+          options: [
+            'Evalúa el sistema completo en un ambiente similar al real',
+            'Debe contemplar que el sistema desarrollado puede ser parte de un sistema mayor',
+            'Detecta fallos en la interacción entre componentes de distintos módulos',
+            'Su objetivo principal es asegurarse de que el sistema cumpla con todos los requerimientos definidos',
+            'Generalmente la realiza quien construyó cada módulo de forma aislada',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'La prueba de sistema evalúa el sistema completo en un ambiente similar al real (opción 0) y debe contemplar que puede ser parte de un sistema mayor (opción 1). La fase de prueba en general apunta a asegurar que el sistema cumpla todos los requerimientos (opción 3). La opción 2 describe la prueba de <em>integración</em>, no de sistema. La opción 4 describe la prueba de <em>unidad</em>.',
+        },
+        {
+          id: 'ms-7-7',
+          q: '¿Cuáles de las siguientes afirmaciones sobre el <strong>probador ágil</strong> son correctas según el apunte?',
+          options: [
+            'Tiene habilidades técnicas en testing',
+            'Integra las necesidades del interesado al equipo desarrollador',
+            'Define las historias del usuario en requisitos y las transforma en parámetros de prueba',
+            'Es el único integrante del equipo con responsabilidad sobre la calidad',
+            'Colabora con todos los integrantes del equipo',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'El apunte describe al probador ágil con habilidades técnicas (0), capacidad para integrar necesidades del interesado (1), transformar historias en parámetros de prueba (2) y colaborar con todos (4). La opción 3 es falsa: en el equipo ágil <em>todos</em> tienen habilidades de probadores, no hay un responsable único de calidad.',
+        },
+        {
+          id: 'ms-7-8',
+          q: '¿Cuáles de las siguientes diferencias entre testing <strong>ágil y tradicional</strong> se desprenden del apunte?',
+          options: [
+            'En el enfoque ágil la fase de pruebas tradicional desaparece',
+            'En el enfoque ágil las pruebas se diseñan conjuntamente durante el análisis',
+            'En el enfoque tradicional todos los miembros del equipo son probadores',
+            'En el enfoque ágil se mantiene comunicación continua entre los integrantes del equipo',
+            'En el enfoque ágil el equipo define requisitos, pruebas y comportamiento esperado del producto en conjunto',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'El callout del apunte afirma que en el ágil desaparece la fase de pruebas tradicional (0). El párrafo de testing ágil indica que las pruebas se diseñan durante el análisis (1), que se mantiene comunicación continua (3) y que el equipo define conjuntamente requisitos, pruebas y comportamiento esperado (4). La opción 2 es exactamente al revés: en el <em>ágil</em> todos son probadores, no en el tradicional.',
+        },
+        {
+          id: 'ms-7-9',
+          q: 'Según el apunte, ¿qué aspectos son <strong>centrales en la planeación y diseño de pruebas</strong> dentro del testing ágil?',
+          options: [
+            'Distribuir el tiempo en testing particular',
+            'Arreglar bugs detectados',
+            'Realizar pruebas de aceptación y de regresión',
+            'Reemplazar al equipo ágil por un equipo dedicado exclusivamente a QA',
+            'Usar herramientas adecuadas para asegurar el principio de calidad',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'El apunte menciona explícitamente que la planeación importa para distribuir tiempo en testing particular (0), arreglar bugs (1), realizar pruebas de aceptación y regresión entre otras (2), y que el diseño de pruebas y las herramientas adecuadas son vitales para asegurar la calidad (4). La opción 3 es contraria al espíritu ágil: el apunte dice que todos los miembros del equipo son probadores, no que haya un equipo QA separado.',
+        },
+        {
+          id: 'ms-7-10',
+          q: 'En el contexto del testing ágil, ¿qué afirmaciones sobre la <strong>automatización</strong> son correctas según el apunte?',
+          options: [
+            'El factor de éxito del testing ágil es automatizar las pruebas de regresión',
+            'Las pruebas de regresión aseguran calidad y precisión en todo el comportamiento del sistema',
+            'Se deberían automatizar también las pruebas de aceptación',
+            'Las pruebas de aceptación automatizadas aseguran al cliente la funcionalidad que requirió en un principio',
+            'La automatización reemplaza la necesidad de criterios de satisfacción y finalización en la estrategia',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'El callout final del apunte es textual en las opciones 0, 1, 2 y 3: el factor de éxito es automatizar regresión, las pruebas de regresión aseguran calidad en todo el comportamiento, se deben automatizar las de aceptación, y estas últimas aseguran al cliente la funcionalidad requerida. La opción 4 es falsa: la automatización no reemplaza los criterios de satisfacción y finalización; el apunte trata ambos como elementos separados y necesarios de la estrategia.',
+        },
       ],
     },
     flashcards: [
@@ -2400,6 +2988,90 @@ export default {
           correctIndexes: [0, 1, 2, 3],
           explain:
             'Las primeras cuatro son textuales del apunte. La persistencia es responsabilidad de las entidades, no del control.',
+        },
+        {
+          id: 'ms-8-5',
+          q: '¿Cuáles de las siguientes afirmaciones caracterizan <strong>correctamente</strong> al modelo de análisis según el apunte?',
+          options: [
+            'Se empieza a desarrollar una vez preparado y aprobado el modelo de requerimientos',
+            'Estructura el sistema independientemente del ambiente de implementación actual',
+            'Se enfoca en la estructura lógica del sistema',
+            'Describe el sistema mediante tres tipos de objetos usados en el diagrama de secuencia',
+            'Puede iniciarse en paralelo con el relevamiento de requerimientos para ganar tiempo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las opciones 0, 1, 2 y 3 son afirmaciones textuales del apunte: el modelo arranca <em>después</em> de que el modelo de requerimientos está aprobado, es independiente del ambiente de implementación, se foca en la estructura lógica y usa tres tipos de objetos. La opción 4 es un distractor plausible pero contradice el apunte: el modelo de análisis requiere que el modelo de requerimientos esté <strong>preparado y aprobado</strong> primero.',
+        },
+        {
+          id: 'ms-8-6',
+          q: 'Sobre los <strong>objetos de entidad</strong>, ¿cuáles afirmaciones están respaldadas por el apunte?',
+          options: [
+            'Se emplean para modelar la información que el sistema debe manejar a lo largo del tiempo',
+            'Son información que sobrevive a los casos de uso',
+            'Siempre se corresponden a conceptos del mundo real sin excepción',
+            'Son identificados rápidamente y suelen ser obvios',
+            'Permiten la comunicación entre los actores y el sistema',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son correctas según el apunte. La opción 2 es un distractor: el texto dice \'generalmente se corresponden a conceptos del mundo real, <em>aunque no siempre sucede</em>\', por lo que afirmar que es sin excepción es falso. La opción 4 describe a los objetos de <strong>interfaz</strong>, no de entidad.',
+        },
+        {
+          id: 'ms-8-7',
+          q: 'Un arquitecto sostiene que el diagrama de secuencia \'captura el comportamiento de un caso de uso y representa a quién le llegan los mensajes\'. ¿Cuáles puntos de esa afirmación están <strong>explícitamente</strong> respaldados por el apunte de la sección?',
+          options: [
+            'Generalmente atrapa el comportamiento descripto por un caso de uso en particular',
+            'Representa la secuencia de mensajes incluyendo objeto emisor y receptor',
+            'Modela la información persistente del sistema',
+            'Muestra la interacción entre los objetos desde un punto de vista temporal',
+            'Describe la distribución física de los componentes del sistema',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 están en el apunte de forma textual. La opción 2 es responsabilidad de los <strong>objetos de entidad</strong>, no del diagrama de secuencia en sí. La opción 4 pertenece al diagrama de despliegue; no aparece en esta sección.',
+        },
+        {
+          id: 'ms-8-8',
+          q: 'Al leer la descripción de un caso de uso para construir el diagrama de secuencia, ¿qué tipos de objeto podés identificar «fácilmente» o «rápidamente» según el apunte?',
+          options: [
+            'Objetos de interfaz, porque se identifican fácilmente por la descripción del caso de uso',
+            'Objetos de entidad, porque son identificados rápidamente y suelen ser obvios',
+            'Objetos de control, porque el apunte los marca como los más simples de detectar',
+            'Objetos de interfaz, porque el caso de uso especifica la interacción del sistema con su ambiente',
+            'Objetos de control, porque toda funcionalidad residual queda expuesta en el texto del caso de uso',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'El apunte dice que los objetos de interfaz \'se pueden identificar fácilmente por la descripción del caso de uso\' y que los casos de uso especifican la interacción con el ambiente (opciones 0 y 3). Los objetos de entidad \'son identificados rápidamente y suelen ser obvios\' (opción 1). El apunte <strong>no</strong> dice que los objetos de control sean los más fáciles de detectar (opción 2 falsa); de hecho los define como lo que no encaja en los otros dos. La opción 4 también es falsa: el control se infiere por exclusión, no porque quede expuesto en el texto.',
+        },
+        {
+          id: 'ms-8-9',
+          q: 'Respecto a los <strong>objetos de control</strong>, ¿cuáles afirmaciones son consistentes con el apunte?',
+          options: [
+            'Modelan funcionalidad que no es asignada naturalmente a ningún otro objeto',
+            'No forman parte de la interfaz ni de la información a ser utilizada',
+            'Su comportamiento consiste en operaciones sobre varios objetos entidad',
+            'Retornan el resultado de sus operaciones directamente al actor externo sin pasar por un objeto de interfaz',
+            'Retornan el resultado a un objeto de interfaz',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las opciones 0, 1, 2 y 4 son afirmaciones textuales del apunte. La opción 3 es el distractor clave: el apunte indica que el resultado se retorna a un <strong>objeto de interfaz</strong>, no directamente al actor. El actor interactúa con el sistema a través de los objetos de interfaz, no de control.',
+        },
+        {
+          id: 'ms-8-10',
+          q: '¿Cuáles de estas afirmaciones representan <strong>diferencias reales</strong> entre los tres tipos de objetos del modelo de análisis, según el apunte?',
+          options: [
+            'Solo los objetos de interfaz median la comunicación entre actores y el sistema',
+            'Solo los objetos de entidad modelan información que persiste más allá de un caso de uso',
+            'Los objetos de control pueden modelar información persistente cuando no hay entidades disponibles',
+            'Los objetos de control operan sobre entidades y devuelven resultado a una interfaz, nunca al revés',
+            'Los objetos de interfaz y de entidad cubren toda la funcionalidad del sistema; el control es opcional',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Opción 0: correcto, la comunicación con actores es exclusiva de los objetos de interfaz. Opción 1: correcto, la información persistente es exclusiva de las entidades (\'sobrevive a los casos de uso\'). Opción 3: correcto, el flujo del apunte es entidades → control → interfaz; el apunte nunca invierte ese flujo. Opción 2 es falsa: el control <em>no</em> modela información persistente; eso lo hacen las entidades. Opción 4 es falsa: el control modela funcionalidad que no encaja en los otros dos, por lo que no es opcional, y el apunte no dice que interfaz + entidad cubran toda la funcionalidad.',
         },
       ],
     },
@@ -2728,6 +3400,90 @@ export default {
           explain:
             'Las primeras tres son textuales del apunte. No hay numeración especial ni nubes; la recursión se ve por el rectángulo duplicado.',
         },
+        {
+          id: 'ms-9-5',
+          q: 'Sobre la <strong>línea de vida</strong> en un diagrama de secuencia, ¿cuáles afirmaciones son correctas según el apunte?',
+          options: [
+            'Es una línea vertical punteada que corre por debajo de cada objeto',
+            'Representa la existencia del objeto en el tiempo dentro del diagrama',
+            'Es compartida entre varios objetos cuando colaboran en un mismo mensaje',
+            'Cada objeto posee su propia línea de vida independiente',
+            'Es una línea horizontal que conecta al actor con los objetos del modelo',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'El apunte establece que la línea de vida es la \'línea vertical por debajo\' de cada objeto (opción 0), que representa su existencia en el tiempo (opción 1), y que \'cada objeto posee una línea de vida\' propia (opción 3). La opción 2 es incorrecta: cada objeto tiene su línea individual, no se comparten. La opción 4 invierte la orientación: es vertical, no horizontal.',
+        },
+        {
+          id: 'ms-9-6',
+          q: 'Un diseñador afirma varias cosas sobre los <strong>períodos de actividad</strong>. ¿Cuáles son correctas según el apunte?',
+          options: [
+            'Representan el tiempo que tarda un objeto en ejecutar una acción',
+            'Se grafican como espacios rectangulares sobre la línea de vida',
+            'Se grafican como flechas bidireccionales entre objetos activos',
+            'Los diagramas de secuencia permiten representar períodos de actividad',
+            'Un objeto puede tener a lo sumo un único período de actividad por diagrama',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son textuales del apunte: el período de actividad es \'el tiempo que tarda un objeto para ejecutar una acción\', se representa con \'espacios rectangulares sobre la línea de vida\' y los diagramas de secuencia \'permiten representar períodos de actividad\'. La opción 2 describe mensajes, no períodos. La opción 4 es falsa: un objeto puede tener múltiples períodos de actividad (incluso duplicados en el caso recursivo).',
+        },
+        {
+          id: 'ms-9-7',
+          q: 'Sobre la notación de <strong>condición</strong> en el diagrama de secuencia, ¿cuáles afirmaciones son correctas?',
+          options: [
+            'La condición se escribe entre corchetes antes del nombre del mensaje',
+            'El mensaje solo se ejecuta si la condición entre corchetes es verdadera',
+            'La condición debe escribirse en pseudocódigo formal, nunca en lenguaje coloquial',
+            'Un mismo objeto de control puede emitir mensajes con condiciones diferentes hacia distintos receptores',
+            'La condición puede expresarse en lenguaje coloquial, como <code>[hay producto]</code>',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'Las opciones 0, 1 y 4 son textuales: corchetes antes del mensaje, ejecución solo si verdadera, y el propio ejemplo del apunte es <code>[hay producto]</code> en lenguaje coloquial. La opción 3 es correcta y se infiere del diagrama de la figura: de un objeto de control salen dos flechas con condiciones <em>[hay producto]</em> y <em>[no hay producto]</em> hacia receptores distintos. La opción 2 es el distractor: el apunte dice explícitamente que \'puede escribirse en lenguaje coloquial\'.',
+        },
+        {
+          id: 'ms-9-8',
+          q: 'Comparando la notación de <strong>iteración</strong> con la de <strong>condición</strong>, ¿cuáles afirmaciones son correctas según el apunte?',
+          options: [
+            'En la iteración, el símbolo <code>*</code> va <em>antes</em> de la condición entre corchetes',
+            'En la condición simple, el mensaje se ejecuta solo si la condición es verdadera',
+            'En la iteración, la acción se repite mientras la condición sea verdadera',
+            'En la condición simple, el símbolo <code>*</code> también es obligatorio para marcar el inicio',
+            'La notación completa de iteración es <code>*[condición] Mensaje</code>',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las opciones 0, 1, 2 y 4 son textuales del apunte. El símbolo <code>*</code> va previo a la condición (0), indica repetición mientras sea verdadera (2), y la notación es <code>*[condición] Mensaje</code> (4); la condición simple ejecuta solo si verdadera (1). La opción 3 es el distractor: el <code>*</code> es exclusivo de la iteración; la condición simple no lo lleva.',
+        },
+        {
+          id: 'ms-9-9',
+          q: 'Sobre los <strong>mensajes recursivos</strong> y su representación visual, ¿cuáles afirmaciones son correctas según el apunte?',
+          options: [
+            'Se representan duplicando el rectángulo de actividad sobre la línea de vida del objeto',
+            'Visualmente, el objeto aparece como si estuviera varias veces activado',
+            'La duplicación del rectángulo implica que interviene un segundo objeto distinto',
+            'Es un objeto que se manda un mensaje a sí mismo',
+            'La notación <code>*</code> antes de la condición es la forma canónica de graficar recursión',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son textuales: duplicación del rectángulo (0), objeto \'varias veces activado\' (1), y el mensaje lo envía el objeto a sí mismo (3). La opción 2 es falsa: no interviene otro objeto, es auto-mensaje. La opción 4 confunde iteración con recursión: <code>*[condición]</code> es para iteración, no para mensajes recursivos.',
+        },
+        {
+          id: 'ms-9-10',
+          q: 'En el <strong>ejemplo completo</strong> de la Sección 9 (Conallen, 1999), ¿cuáles afirmaciones son correctas según el apunte?',
+          options: [
+            'El diagrama corresponde a un caso de uso de checkout en una tienda online',
+            'Participan objetos como Shopping Cart, Checkout, Cart Item y Order Summary',
+            'El ejemplo fue extraído de la obra de J. Conallen, <em>Building Web Applications with UML</em>',
+            'El diagrama no incluye ningún actor humano, solo objetos del sistema',
+            'El ejemplo integra actores, interfaces, control, entidades, mensajes y períodos de actividad',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las opciones 0, 1 y 2 son textuales de la figura: checkout en tienda online, objetos Shopping Cart/Checkout/Cart Item/Order Summary, y la referencia bibliográfica a Conallen (1999). La opción 4 es correcta: el criollo de la sección menciona explícitamente que el ejemplo muestra \'actores, interfaces, control, entidades, mensajes con orden, períodos de actividad e iteración\'. La opción 3 es el distractor: el diagrama incluye el actor <em>Online Customer</em>.',
+        },
       ],
     },
     flashcards: [
@@ -2962,6 +3718,90 @@ export default {
           explain:
             'La numeración existe porque al no haber tiempo en la altura, hay que codificar la secuencia explícitamente. No tiene relación con parámetros ni con prioridad.',
         },
+        {
+          id: 'ms-10-5',
+          q: 'Un colega afirma que en el diagrama de colaboración \'el orden de los mensajes se deduce de su posición espacial en el diagrama, igual que la altura en el de secuencia\'. ¿Cuáles de las siguientes refutaciones son correctas según el apunte?',
+          options: [
+            'Es incorrecto: en colaboración no hay eje temporal dado por la altura, por lo que la secuencia se expresa numerando los mensajes',
+            'Es incorrecto: los mensajes van sobre los links y su orden solo puede inferirse a partir de esa numeración explícita',
+            'Es correcto parcialmente: la posición espacial de los objetos sí codifica el orden cronológico en colaboración',
+            'Es incorrecto: la posición espacial de los objetos en colaboración no refleja orden cronológico alguno',
+            'Es correcto: ambos diagramas usan la posición espacial para indicar el tiempo, solo cambia el eje utilizado',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Según el apunte, en el diagrama de colaboración <strong>no existe eje temporal por altura</strong>; por eso es <em>necesario numerar los mensajes</em> para indicar la secuencia de ejecución. Los mensajes se ubican sobre los links sin que su posición espacial transmita orden cronológico. Las opciones 2 y 4 son distractores: la primera invierte la lógica (sería parcialmente correcta pero confunde \'posición\' con \'numeración\'), y la última afirma una equivalencia inexistente entre ambos diagramas.',
+        },
+        {
+          id: 'ms-10-6',
+          q: '¿Cuáles de las siguientes afirmaciones describen con precisión la relación entre los diagramas de secuencia y de colaboración, según el apunte de la Sección 10?',
+          options: [
+            'Ambos pertenecen a la categoría \'diagramas de interacción\' en UML',
+            'El diagrama de secuencia enfatiza el tiempo mediante la altura de las flechas; el de colaboración enfatiza la estructura con links entre objetos',
+            'La elección entre uno y otro cambia la información que se modela sobre el sistema',
+            'Son intercambiables: el usuario elige cuál emplear según le resulte conveniente',
+            'El diagrama de colaboración solo puede usarse cuando hay más de dos objetos participantes',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'El apunte establece explícitamente que ambos son <strong>diagramas de interacción</strong>, que el de secuencia enfatiza el tiempo por altura y el de colaboración enfatiza la estructura via links, y que <em>el usuario elige cuál desea emplear</em>. La opción C es falsa: la diferencia es gráfica, no de contenido. La opción E es un distractor inventado sin respaldo en el texto.',
+        },
+        {
+          id: 'ms-10-7',
+          q: 'En el ejemplo de diagrama de colaboración de la Sección 10 (OnlineCustomer, ShoppingCart, Checkout, etc.), ¿cuáles de las siguientes características son consistentes con lo que el apunte describe para este tipo de diagrama?',
+          options: [
+            'Cada objeto aparece una única vez en el diagrama, sin repetirse por cada mensaje que envía o recibe',
+            'Los mensajes están numerados (1, 2, 3...) para indicar el orden de ejecución',
+            'Los mensajes se ubican sobre los links que conectan los objetos',
+            'La altura a la que aparece cada objeto en el diagrama indica en qué momento del flujo participa',
+            'Los links representan las relaciones estructurales o de uso entre los objetos participantes',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'El apunte indica que los objetos se representan <strong>únicos</strong> (opción A), que los mensajes se <strong>numeran</strong> para indicar la secuencia (opción B) y que van <strong>sobre los links</strong> (opción C). La opción D describe una característica del diagrama de <em>secuencia</em>, no del de colaboración. La opción E, aunque intuitiva, no está respaldada textualmente por el apunte de esta sección.',
+        },
+        {
+          id: 'ms-10-8',
+          q: '¿Cuáles de las siguientes diferencias entre el diagrama de secuencia y el de colaboración son <em>reales</em> según el apunte, y cuál es una diferencia <em>falsa</em> que actúa como distractor? Marcá solo las diferencias reales.',
+          options: [
+            'En secuencia el orden temporal se expresa por la altura de las flechas; en colaboración, por la numeración de los mensajes',
+            'En secuencia los objetos pueden aparecer repetidos (líneas de vida); en colaboración cada objeto aparece una sola vez',
+            'En colaboración la condición y la iteración se expresan con una notación distinta que en secuencia',
+            'En secuencia los mensajes van sobre flechas en el eje vertical; en colaboración van sobre links entre objetos',
+            'El diagrama de colaboración puede modelar interacciones que el de secuencia no puede representar',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones A, B y D reflejan diferencias explícitas del apunte: la altura vs. numeración para el orden, los objetos únicos en colaboración vs. líneas de vida en secuencia, y la ubicación de los mensajes. La opción C es <strong>falsa</strong>: el apunte dice textualmente que \'la selección (condición) y la iteración se denotan de igual manera que en el diagrama de secuencia\'. La opción E es un distractor sin respaldo: ambos son intercambiables y no hay interacciones que uno modele y el otro no.',
+        },
+        {
+          id: 'ms-10-9',
+          q: 'Según el apunte, ¿cuáles de los siguientes enunciados sobre la numeración de mensajes en el diagrama de colaboración son correctos?',
+          options: [
+            'La numeración es necesaria porque sin ella no habría forma de conocer el orden de ejecución de los mensajes',
+            'La numeración reemplaza la función que cumple el eje temporal por altura en el diagrama de secuencia',
+            'La numeración indica la cantidad de veces que un mensaje se envía durante la iteración',
+            'La numeración se coloca junto al mensaje que va sobre el link entre los objetos',
+            'La numeración es opcional si los links están dibujados en orden de izquierda a derecha',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones A, B y D son correctas: sin numeración no hay forma de inferir el orden (A), la numeración reemplaza al eje temporal (B), y los mensajes —con su número— van sobre los links (D). La opción C confunde numeración con notación de iteración: el apunte no dice que el número exprese cantidad de repeticiones. La opción E es falsa: el apunte no habilita ese mecanismo alternativo; la numeración es siempre necesaria.',
+        },
+        {
+          id: 'ms-10-10',
+          q: 'Un estudiante elabora las siguientes conclusiones sobre los diagramas de interacción. ¿Cuáles son correctas según el apunte de la Sección 10?',
+          options: [
+            '\'Puedo modelar la misma interacción con cualquiera de los dos diagramas y el resultado semántico es equivalente\'',
+            '\'Si prefiero ver claramente qué objetos se relacionan estructuralmente, el diagrama de colaboración me conviene porque enfatiza los links\'',
+            '\'El diagrama de secuencia es superior al de colaboración porque muestra información adicional que el de colaboración omite\'',
+            '\'Para indicar una iteración en el diagrama de colaboración debo usar una notación diferente a la del de secuencia\'',
+            '\'Ambos diagramas describen lo mismo desde ángulos distintos: uno enfatiza el tiempo, el otro la estructura\'',
+          ],
+          correctIndexes: [0, 1, 4],
+          explain:
+            'La conclusión A es correcta: el apunte dice que ambos muestran la misma información. B es correcta: el diagrama de colaboración enfatiza la estructura con links entre objetos. E es correcta: es una paráfrasis directa del callout del apunte (\'Ambos describen lo mismo desde ángulos distintos: secuencia enfatiza el tiempo, colaboración enfatiza la estructura\'). La conclusión C es <strong>falsa</strong>: no hay información adicional en uno respecto al otro. La conclusión D es <strong>falsa</strong>: el apunte establece explícitamente que condición e iteración se denotan <em>de igual manera</em> en ambos diagramas.',
+        },
       ],
     },
     flashcards: [
@@ -3176,6 +4016,90 @@ export default {
           correctIndexes: [0, 1, 2],
           explain:
             'Responder al entorno en tiempo dictado es propio de los sistemas de tiempo real; ser exclusiva de sistemas distribuidos no tiene sustento en el apunte. Las primeras tres son textuales.',
+        },
+        {
+          id: 'ms-11-5',
+          q: '¿Cuáles de las siguientes afirmaciones son <strong>verdaderas</strong> respecto de la definición de <em>sistema</em> tal como la plantea el apunte?',
+          options: [
+            'La definición es amplia y no restringe los elementos a componentes de software',
+            'Los elementos de un sistema deben relacionarse entre sí',
+            'Todo sistema persigue un fin u objetivo común',
+            'La definición exige que los elementos sean hardware o software',
+            'Un sistema puede estar compuesto por cualquier tipo de elementos siempre que apunten a un mismo objetivo',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Según el apunte, un sistema es \'un conjunto de elementos que se relacionan para alcanzar un fin\': la definición es deliberadamente amplia (no exige computadoras ni software), requiere relación entre elementos y un fin común. La opción correcta 0, 1, 2 y 4 reflejan eso. La opción 3 es falsa porque el apunte <strong>nunca</strong> restringe los elementos a hardware o software — esa restricción no aparece en ninguna parte del texto.',
+        },
+        {
+          id: 'ms-11-6',
+          q: 'La definición de sistema de información que usa el apunte es de <strong>Schach</strong>. ¿Cuáles de estas características le corresponden <em>textualmente</em> a esa definición?',
+          options: [
+            'Logra un resultado empresarial',
+            'Recopila información respecto de las actividades de negocio',
+            'Ayuda a la administración en el manejo de las operaciones de negocios',
+            'Automatiza el ciclo de desarrollo de software de la empresa',
+            'Crea reportes de información de las actividades de negocio',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las opciones 0, 1, 2 y 4 son textualmente de la definición de Schach citada en el apunte. La opción 3 (\'automatiza el ciclo de desarrollo de software\') no aparece en ningún momento en esa definición ni en la sección; es un distractor plausible pero incorrecto.',
+        },
+        {
+          id: 'ms-11-7',
+          q: 'Considerá el objetivo final de un sistema de información según Schach. ¿Cuáles opciones lo describen correctamente?',
+          options: [
+            'Ayudar a la administración de la empresa',
+            'Manejar las operaciones de negocios de la empresa',
+            'Generar código fuente a partir de los datos recopilados',
+            'Proveer información para la toma de decisiones operativas',
+            'Compilar y distribuir software entre los empleados',
+          ],
+          correctIndexes: [0, 1],
+          explain:
+            'La definición de Schach es explícita: el fin es \'ayudar a la administración de esa empresa en el manejo de las operaciones de negocios\'. Las opciones 0 y 1 capturan exactamente eso. La opción 3 (\'toma de decisiones operativas\') suena razonable pero <strong>no está en el texto</strong> — Schach habla de manejar operaciones, no de toma de decisiones. Las opciones 2 y 4 (generar código, compilar software) no tienen ningún anclaje en la sección.',
+        },
+        {
+          id: 'ms-11-8',
+          q: 'El apunte aclara que existen <em>diversas clasificaciones</em> de sistemas. ¿Qué podés concluir de eso, combinando ese aviso con el resto del contenido de la sección?',
+          options: [
+            'Los tres tipos trabajados (tiempo real, distribuidos, embebidos) no son los únicos sistemas que existen',
+            'El apunte elige deliberadamente tres tipos y deja afuera otros',
+            'Tiempo real, distribuidos y embebidos son los únicos tipos de sistemas reconocidos por la ingeniería de software',
+            'Sistemas cliente-servidor y en la nube son tipos que el apunte descarta explícitamente',
+            'El foco del material está en tiempo real, distribuidos y embebidos',
+          ],
+          correctIndexes: [0, 1, 4],
+          explain:
+            'El apunte dice literalmente \'Existen diversas clasificaciones de sistemas, pero nos enfocaremos en las siguientes\', lo que implica que hay más tipos (opción 0 correcta), que hay una elección deliberada de foco (opción 1 correcta) y que el material se centra en esos tres (opción 4 correcta). La opción 2 es falsa porque afirma que <em>solo</em> existen esos tres, lo cual contradice el aviso de \'diversas clasificaciones\'. La opción 3 es falsa porque el apunte <strong>no descarta explícitamente</strong> ningún otro tipo — simplemente no los trabaja.',
+        },
+        {
+          id: 'ms-11-9',
+          q: '¿Qué diferencia <strong>conceptual clave</strong> establece el apunte entre la definición de <em>sistema</em> y la de <em>sistema de información</em>?',
+          options: [
+            'La definición de sistema es amplia y aplica a cualquier conjunto de elementos con un fin; la de sistema de información está orientada al contexto empresarial',
+            'La definición de sistema de información incluye acciones concretas sobre datos (recopilar, manipular, almacenar, reportar); la de sistema no especifica acciones',
+            'Un sistema siempre incluye hardware; un sistema de información siempre incluye software',
+            'La definición de sistema de información refiere a actividades de negocio de una empresa; la de sistema no impone ese contexto',
+            'La fuente de la definición de sistema es Schach; la de sistema es del apunte sin cita',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 capturan diferencias reales y ancladas en el texto: la definición general de sistema es amplia y no impone contexto empresarial ni acciones específicas, mientras que la de sistema de información (Schach) sí especifica las cuatro acciones y el contexto de negocio. La opción 2 es falsa — el apunte nunca dice que un sistema \'siempre incluye hardware\'. La opción 4 invierte la atribución: la definición de sistema de información es la que proviene de <strong>Schach</strong>, no la de sistema.',
+        },
+        {
+          id: 'ms-11-10',
+          q: 'Un estudiante afirma: «Un sistema de información es solo un sistema distribuido que almacena datos». ¿Cuáles de estos argumentos, basados <em>estrictamente</em> en el apunte, refutan esa afirmación?',
+          options: [
+            'Un sistema de información no necesariamente es distribuido; son clasificaciones independientes según el apunte',
+            'Un sistema de información no solo almacena: también recopila, manipula y crea reportes',
+            'El apunte define sistema de información sin requerir que sea de ninguno de los tres tipos (tiempo real, distribuido, embebido)',
+            'Los sistemas distribuidos son un subconjunto de los sistemas de información según el apunte',
+            'La definición de Schach establece que el fin de un sistema de información es empresarial, no meramente técnico',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'La afirmación del estudiante tiene dos errores: (1) restringe el sistema de información a distribuido, y (2) reduce su función a solo almacenar. La opción 0 refuta el primer error: el apunte trata \'sistemas de información\' y \'sistemas distribuidos\' como conceptos separados, sin decir que uno implique al otro. La opción 1 refuta el segundo error directamente con Schach. La opción 2 refuta ambos: la definición de sistema de información no menciona ni exige ninguno de los tres tipos. La opción 4 agrega que el fin es empresarial, lo cual va más allá de \'solo almacenar datos\'. La opción 3 es falsa: el apunte <strong>nunca</strong> establece que los sistemas distribuidos sean subconjunto de los de información — esa relación no existe en el texto.',
         },
       ],
     },
@@ -3446,6 +4370,90 @@ export default {
           explain:
             'En SOTR mandan los procesos, no el usuario. Compartir estructura con SO de escritorio o priorizar UX gráfica va en contra de la definición.',
         },
+        {
+          id: 'ms-12-5',
+          q: 'Según el apunte, ¿cuáles son los aspectos que pueden afectar el resultado temporal de un <strong>sistema de tiempo real</strong>?',
+          options: [
+            'El hardware utilizado',
+            'El software del sistema',
+            'El sistema operativo',
+            'La interfaz gráfica de usuario',
+            'Los requisitos de aplicación y aspectos del diseño realizado',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'El apunte lista textualmente: hardware, software, sistema operativo, requisitos de aplicación y aspectos del diseño. La <em>interfaz gráfica de usuario</em> no aparece en esa lista; además, en los STR el usuario no es el foco (los SOTR priorizan procesos, no usuarios), así que es el distractor.',
+        },
+        {
+          id: 'ms-12-6',
+          q: '¿Cuáles de las siguientes afirmaciones reflejan con precisión lo que el apunte dice sobre la <strong>complejidad</strong> de los sistemas de tiempo real?',
+          options: [
+            'Hay que tener presentes todas las interacciones entre componentes porque pueden afectar el resultado temporal',
+            'Cualquier cambio puede generar alteraciones impensadas en los tiempos',
+            'Un STR suele ser más complejo de lo que se cree',
+            'La complejidad se reduce considerablemente si se elige un lenguaje de tiempo real adecuado',
+            'Un STR con un único sensor es más simple y predecible que uno con múltiples sensores',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las tres primeras son textuales o directamente inferibles del apunte. La opción sobre el lenguaje de tiempo real es un distractor plausible: el apunte menciona los lenguajes como <em>elemento</em> del STR, pero nunca afirma que reducen la complejidad. La cantidad de sensores tampoco se menciona como factor simplificador.',
+        },
+        {
+          id: 'ms-12-7',
+          q: '¿Cuáles de los siguientes son <strong>elementos constitutivos</strong> de un sistema de tiempo real según el listado textual del apunte?',
+          options: [
+            'Sincronización y comunicación de tareas',
+            'Aspectos de integración y de rendimiento',
+            'Interfaz web de administración del sistema',
+            'Manejo de interrupciones',
+            'Modelo de datos relacional',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'El apunte enumera exactamente: aspectos de integración y rendimiento, manejo de interrupciones, bases de datos de tiempo real, SOTR, lenguajes de tiempo real y sincronización/comunicación de tareas. La <em>interfaz web de administración</em> y el <em>modelo de datos relacional</em> no figuran en esa lista; son distractores plausibles pero ajenos al texto.',
+        },
+        {
+          id: 'ms-12-8',
+          q: '¿Cuáles afirmaciones sobre el <strong>acoplamiento externo</strong> y las <strong>condiciones de operación</strong> de un STR son correctas según el apunte?',
+          options: [
+            'Se acopla al mundo externo',
+            'Opera en condiciones de rendimiento muy rigurosas',
+            'Requiere técnicas de análisis, diseño y prueba que no suelen emplearse en otras áreas de aplicación',
+            'Su rendimiento mejora automáticamente al ejecutarse en entornos desconectados de sensores',
+            'El rendimiento de un STR es independiente del hardware sobre el que corre',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las tres primeras son textuales de la sección de <em>generalidades</em>. Los entornos desconectados de sensores contradicen el uso típico descrito (control de entornos con sensores). La independencia del hardware es falsa: el apunte lista el hardware como uno de los aspectos que afectan el STR.',
+        },
+        {
+          id: 'ms-12-9',
+          q: 'Sobre el <strong>uso habitual</strong> de los sistemas de tiempo real y el rol de los sensores, ¿cuáles afirmaciones son correctas según el apunte?',
+          options: [
+            'El uso más habitual fue para el control de entornos',
+            'A veces se incluyen sensores que generan un procesamiento de la información',
+            'Los sensores producen una salida en respuesta a la entrada recibida',
+            'El uso más habitual fue en la gestión contable y administrativa de empresas',
+            'El apunte establece que el uso de sensores es obligatorio en todo STR',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'El apunte dice: «su uso más habitual fue para el control de entornos, a veces con sensores que generan un procesamiento de la información y una salida en respuesta a dicha entrada». La gestión contable no se menciona, y el apunte dice <em>a veces</em> con sensores, no que sean obligatorios siempre.',
+        },
+        {
+          id: 'ms-12-10',
+          q: 'Considerando la <strong>definición de eficiencia</strong>, las <strong>fases de diseño</strong> y la <strong>predictibilidad</strong> de un STR, ¿cuáles de las siguientes afirmaciones son correctas según el apunte?',
+          options: [
+            'La eficiencia de un STR no se basa solo en la exactitud de los resultados sino también en el momento en que los entrega',
+            'La predictibilidad es una característica principal de los STR',
+            'La tercera fase del diseño consiste en medir el tiempo de cómputo de cada tarea y realizar un análisis de la planificación',
+            'La exactitud del resultado de cómputo es condición suficiente para considerar eficiente un STR',
+            'La segunda fase del diseño es identificar las tareas y las restricciones temporales impuestas',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las opciones 0, 1 y 2 son textuales: la eficiencia depende de exactitud <em>y</em> tiempo de entrega; la predictibilidad es característica principal; y la tercera fase es medir tiempos y planificar. La opción 3 invierte la definición (la exactitud sola no es suficiente). La opción 4 confunde las fases: la <em>primera</em> es identificar tareas y restricciones, la segunda es codificar.',
+        },
       ],
     },
     flashcards: [
@@ -3666,6 +4674,90 @@ export default {
           explain:
             'Las primeras cuatro son textuales. Los sistemas distribuidos DEPENDEN de la red de comunicaciones: sin red, no hay sistema distribuido.',
         },
+        {
+          id: 'ms-13-5',
+          q: 'Según el apunte, ¿cuáles de las siguientes afirmaciones describen con precisión la <strong>estructura física y lógica</strong> de un sistema distribuido?',
+          options: [
+            'Las computadoras que lo forman pueden estar separadas físicamente',
+            'Cada computadora del sistema contiene su propio hardware y software individual',
+            'Se cuenta con una red de comunicaciones que conecta todas las máquinas',
+            'Aunque físicamente separadas, en el diseño se lo evalúa como un sistema único',
+            'Para que sea distribuido, todas las máquinas deben estar en el mismo edificio',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte: las máquinas están \'separadas físicamente\', cada una tiene \'software y hardware individual\', existe \'una red de comunicaciones que las conecta\' y \'en el diseño se evalúa como un sistema único\'. La quinta es un distractor: el apunte no impone ninguna restricción geográfica, la separación física puede ser de cualquier escala.',
+        },
+        {
+          id: 'ms-13-6',
+          q: '¿Cuáles de estas afirmaciones sobre la <strong>escalabilidad</strong> en sistemas distribuidos son <em>correctas según el texto</em>?',
+          options: [
+            'Suelen ser escalables, lo que permite sumar nuevos recursos',
+            'La capacidad de escalar depende de las posibilidades de la red que conecta las máquinas',
+            'La escalabilidad es ilimitada e independiente de la red',
+            'Sumar nuevos recursos es siempre posible sin ninguna restricción técnica',
+            'La escalabilidad es una ventaja listada explícitamente en el apunte',
+          ],
+          correctIndexes: [0, 1, 4],
+          explain:
+            'El apunte dice textualmente que \'suelen ser escalables, lo que permite sumar nuevos recursos, aunque esto dependerá de las posibilidades de la red que las conecte\'. Eso valida las opciones 0, 1 y 4. Las opciones 2 y 3 contradicen directamente la condición que impone el texto: la escalabilidad está limitada por la red, no es ilimitada ni libre de restricciones.',
+        },
+        {
+          id: 'ms-13-7',
+          q: 'Sobre los <strong>sistemas abiertos</strong> mencionados en la sección, ¿qué es correcto según el apunte?',
+          options: [
+            'Emplean protocolos estándares',
+            'Facilitan combinar equipos de diferentes proveedores',
+            'Facilitan combinar software de diferentes proveedores',
+            'Eliminan la necesidad de una red de comunicaciones entre las máquinas',
+            'Obligan a que todas las máquinas sean del mismo fabricante',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'El apunte dice que los sistemas abiertos \'emplean protocolos estándares que facilitan combinar equipos y software de diferentes proveedores\': eso cubre las opciones 0, 1 y 2. La opción 3 es falsa porque los distribuidos <em>dependen</em> de la red de comunicaciones. La opción 4 contradice directamente la ventaja de los sistemas abiertos: justamente permiten mezclar distintos fabricantes.',
+        },
+        {
+          id: 'ms-13-8',
+          q: 'Un colega afirma que en un sistema distribuido el fallo de una computadora <em>siempre</em> deja el servicio completamente intacto, sin ninguna degradación. ¿Cuáles de estas opciones refutan o matizan esa afirmación con base en el apunte?',
+          options: [
+            'El apunte dice que el servicio puede quedar \'un poco degradado\' ante un fallo',
+            'La tolerancia a fallos es \'mayor\', no absoluta ni del 100%',
+            'El fallo de una computadora no implica la caída <em>completa</em> del sistema, pero sí puede haber impacto',
+            'Según el apunte, el sistema distribuido garantiza disponibilidad total ante cualquier fallo',
+            'El apunte no menciona ningún tipo de degradación de servicio',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'El texto dice textualmente que la tolerancia a fallos \'suele ser mayor\' y que ante una caída el servicio queda \'un poco degradado\': eso valida las opciones 0, 1 y 2. Las opciones 3 y 4 son falsas porque el apunte <em>sí</em> menciona degradación y <em>no</em> promete disponibilidad del 100%.',
+        },
+        {
+          id: 'ms-13-9',
+          q: '¿Cuáles de las siguientes afirmaciones son <strong>verdaderas</strong> sobre la relación entre los sistemas distribuidos y la <em>concurrencia</em> y el <em>uso compartido de recursos</em>, según el apunte?',
+          options: [
+            'Permiten ejecutar procesos concurrentes sobre la misma computadora de la red',
+            'Permiten compartir hardware como impresoras o discos de las máquinas de la red',
+            'Permiten compartir software entre las máquinas de la red',
+            'La concurrencia solo es posible si todas las máquinas tienen el mismo sistema operativo',
+            'Compartir recursos requiere que las máquinas estén físicamente juntas',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'El apunte lista las tres primeras como ventajas explícitas: procesos concurrentes, compartir hardware (impresoras, discos) y compartir software. La opción 3 es un distractor: el apunte no impone restricción de sistema operativo, justamente los sistemas abiertos permiten combinar equipos y software de distintos proveedores. La opción 4 es falsa porque el texto dice que las máquinas pueden \'estar separadas físicamente\'.',
+        },
+        {
+          id: 'ms-13-10',
+          q: '¿Cuáles de estas afirmaciones representan <em>correctamente</em> la <strong>visión externa</strong> y la <strong>motivación general</strong> de los sistemas distribuidos según el apunte y Sommerville?',
+          options: [
+            'Desde afuera, el sistema distribuido se percibe como un sistema único',
+            'Su objetivo es repartir el procesamiento entre varias computadoras conectadas por red',
+            'Sommerville sostiene que prácticamente todos los grandes sistemas informáticos actuales son distribuidos',
+            'Se diseñan para tener un único destinatario, a diferencia de los sistemas centralizados',
+            'El procesamiento distribuido busca confinar la información en una única máquina para mayor seguridad',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las opciones 0 y 1 reflejan el concepto central del apunte (\'se evalúa como un sistema único\' y \'procesamiento distribuido sobre varias computadoras\'). La opción 2 es cita textual de Sommerville. La opción 3 es falsa: el texto dice \'múltiples destinatarios\', no uno solo. La opción 4 contradice la definición: los distribuidos hacen exactamente lo contrario, evitar confinar el procesamiento en una única máquina.',
+        },
       ],
     },
     flashcards: [
@@ -3872,6 +4964,90 @@ export default {
           correctIndexes: [0, 1],
           explain:
             'El apunte es claro: si falla un elemento, hay que reparar o reemplazar la placa íntegramente. No se cambian componentes sueltos ni hay autorreparación.',
+        },
+        {
+          id: 'ms-14-5',
+          q: '¿Cuáles de las siguientes afirmaciones describen con precisión la <strong>naturaleza funcional</strong> de un sistema embebido <em>según el apunte</em>?',
+          options: [
+            'Realiza una o algunas pocas funciones específicas',
+            'Sus funciones no suelen estar a la vista del usuario',
+            'Puede ejecutar simultáneamente decenas de aplicaciones de usuario final',
+            'Generalmente opera dentro de un sistema de tiempo real',
+            'Su propósito principal es exponer servicios web a través de una red',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'El apunte indica que los embebidos realizan \'una o algunas pocas funciones\', que \'no suelen estar a la vista del usuario\' y que operan \'generalmente dentro de un sistema de tiempo real\'. La opción de ejecutar decenas de aplicaciones contradice la idea de pocas funciones específicas, y exponer servicios web no es mencionado ni es coherente con su definición.',
+        },
+        {
+          id: 'ms-14-6',
+          q: 'Un estudiante afirma varias cosas sobre los <strong>componentes físicos</strong> de los sistemas embebidos. ¿Cuáles son correctas <em>según el apunte</em>?',
+          options: [
+            'Sus componentes suelen estar incluidos en una placa base',
+            'Pueden no verse como computadoras convencionales',
+            'Suelen emplear un procesador relativamente pequeño',
+            'La memoria que utilizan suele ser también pequeña',
+            'Incorporan necesariamente una GPU dedicada para procesamiento gráfico',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro primeras afirmaciones son textuales del apunte: componentes en placa base, apariencia no-computadora, procesador pequeño y memoria pequeña. La GPU dedicada no solo no está mencionada sino que contradice la lógica de hardware reducido y bajo costo.',
+        },
+        {
+          id: 'ms-14-7',
+          q: '¿Qué afirmaciones relacionan correctamente el <strong>modelo de producción</strong> con las <strong>consecuencias de hardware</strong> en los sistemas embebidos, <em>según el apunte</em>?',
+          options: [
+            'Se fabrican en forma masiva porque se busca reducir el coste de producción',
+            'La búsqueda de reducción de costos puede llevar a que los controladores sean más lentos que los de las PCs',
+            'La fabricación masiva implica necesariamente que cada unidad tenga hardware de última generación',
+            'El procesador y la memoria son relativamente pequeños como parte de esa reducción de costos',
+            'La producción masiva garantiza que no fallen nunca, eliminando la necesidad de mantenimiento',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'El apunte vincula explícitamente la fabricación masiva con la reducción de costos (opción 0), la posibilidad de controladores más lentos que los de PCs por esa misma reducción (opción 1), y el procesador/memoria pequeños (opción 3). Que el hardware sea de última generación contradice la lógica de bajo costo, y la eliminación de fallos no está mencionada — de hecho el apunte describe cómo manejar fallos.',
+        },
+        {
+          id: 'ms-14-8',
+          q: '¿Cuáles de las siguientes proposiciones sobre el <strong>lenguaje de programación y el contexto de ejecución</strong> de los embebidos son correctas <em>según el apunte</em>?',
+          options: [
+            'Generalmente se programan en lenguaje ensamblador sobre el microprocesador',
+            'El lenguaje ensamblador se ejecuta directamente sobre el microprocesador del sistema',
+            'Se programan principalmente en lenguajes orientados a objetos de alto nivel como Java',
+            'Corren dentro de un sistema de tiempo real como contexto habitual de operación',
+            'El uso de ensamblador se debe a que los embebidos requieren alta portabilidad entre plataformas',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'El apunte dice textualmente que \'se programan en lenguaje ensamblador sobre el microprocesador\' (opciones 0 y 1 son la misma afirmación descompuesta — ambas ciertas) y que funcionan \'dentro de un sistema de tiempo real\' (opción 3). Java de alto nivel contradice el uso de ensamblador. La portabilidad es justamente lo opuesto: el ensamblador es específico de cada arquitectura, no portable.',
+        },
+        {
+          id: 'ms-14-9',
+          q: '¿Qué afirmaciones sobre la <strong>política de mantenimiento ante fallos</strong> y la <strong>visibilidad del software</strong> en los embebidos son <em>ambas</em> correctas <em>según el apunte</em>?',
+          options: [
+            'Un fallo en un elemento implica reparar o reemplazar la placa íntegramente',
+            'Las funciones del software no suelen estar a la vista del usuario',
+            'Ante un fallo, el usuario puede actualizar el software por su cuenta para resolverlo',
+            'La invisibilidad del software al usuario es una característica accidental, no definitoria',
+            'El reemplazo de la placa completa es consecuencia directa de cómo están construidos estos sistemas',
+          ],
+          correctIndexes: [0, 1, 4],
+          explain:
+            'Las opciones 0 y 1 son textuales del apunte. La opción 4 es una síntesis válida: el reemplazo total de la placa ante fallos se deriva directamente de que los componentes están integrados en ella. La opción 2 no está en el apunte y contradice el modelo de hardware cerrado. La opción 3 es falsa: la invisibilidad del software es parte de la definición misma de los sistemas embebidos.',
+        },
+        {
+          id: 'ms-14-10',
+          q: 'Un equipo de desarrollo evalúa si un sistema califica como <strong>embebido</strong>. ¿Qué combinación de características, <em>según el apunte</em>, respalda esa clasificación?',
+          options: [
+            'El sistema realiza una función puntual dentro de un dispositivo específico sin que el usuario lo vea operar',
+            'Sus componentes están montados en una placa base y el conjunto no parece una computadora',
+            'El sistema corre en tiempo real y está programado en ensamblador sobre su microprocesador',
+            'El sistema expone una interfaz gráfica rica y permite instalar aplicaciones de terceros',
+            'Si falla, se reemplaza la placa completa porque los elementos no son reparables individualmente',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las opciones 0, 1, 2 y 4 sintetizan los rasgos definitivos del apunte: función específica invisible al usuario, componentes en placa con aspecto no-computadora, tiempo real + ensamblador, y reemplazo de placa ante fallos. La opción 3 es un distractor: la interfaz gráfica rica y las apps de terceros describen una PC o smartphone, lo opuesto a un embebido.',
         },
       ],
     },
@@ -4145,6 +5321,90 @@ export default {
           correctIndexes: [0, 1, 2, 3],
           explain:
             'Las primeras cuatro son textuales. Reingeniería es exactamente lo opuesto a reescribir desde cero — esa es justamente la alternativa a la que sustituye.',
+        },
+        {
+          id: 'ms-15-5',
+          q: '¿Qué afirmaciones describen correctamente la relación entre evolución, adaptación y estructura de un sistema de software, según el apunte?',
+          options: [
+            'Un sistema es modificado para adaptarse a cambios en el entorno que le permitan seguir siendo de utilidad para la organización.',
+            'La evolución del software es un punto relevante porque muchas organizaciones dependen operativamente de esos sistemas y de la inversión que representan.',
+            'La adaptación al entorno cambiante <strong>preserva</strong> la estructura interna del sistema, ya que las modificaciones la refuerzan.',
+            'Si el sistema es de utilidad se le pedirá que se adapte, pero esa adaptación hace que su estructura se vaya degradando en forma paulatina.',
+            'La degradación estructural ocurre únicamente cuando el sistema no recibe ningún tipo de mantenimiento durante años.',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son textuales del apunte: el sistema se modifica para seguir siendo útil, eso importa porque la organización depende de él, y precisamente esa adaptación degrada su estructura paulatinamente. La opción 2 invierte la realidad: la adaptación <em>degrada</em>, no preserva. La opción 4 también es falsa: la degradación ocurre exactamente por las modificaciones (es decir, por el mantenimiento activo), no por la falta de él.',
+        },
+        {
+          id: 'ms-15-6',
+          q: '¿Qué afirmaciones sobre los costos y consecuencias del mantenimiento son correctas según el apunte?',
+          options: [
+            'Es más costoso incorporar una nueva funcionalidad con el sistema ya funcionando que haberlo hecho durante el desarrollo.',
+            'Introducir cambios o nuevas funcionalidades a un sistema en mantenimiento <strong>inevitablemente introduce defectos</strong> en él.',
+            'El alto costo del mantenimiento se debe exclusivamente a que los programadores desconocen el código original.',
+            'Los cambios en mantenimiento pueden variar desde corregir un error en una línea de código hasta incorporar nuevos requerimientos o corregir errores de diseño.',
+            'El mantenimiento resulta más barato que el desarrollo original porque el sistema ya está construido y funcionando.',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son textuales. El apunte dice que incorporar funcionalidad nueva en mantenimiento cuesta más que en el desarrollo (0), que los cambios inevitablemente introducen defectos (1), y que el espectro del mantenimiento va desde lo más simple hasta lo más complejo (3). La opción 2 es un distractor plausible pero no aparece en el apunte: no se menciona el desconocimiento del código como causa. La opción 5 invierte la relación de costos que establece el apunte.',
+        },
+        {
+          id: 'ms-15-7',
+          q: '¿Qué afirmaciones sobre la reingeniería como proceso de mejora de software existente son correctas según el apunte?',
+          options: [
+            'La reingeniería busca la mejora de un software existente deteriorado por sucesivas modificaciones.',
+            'Puede emplearse para mejorar la estructura y la comprensión de un sistema cuya estructura fue dañada por cambios acumulados.',
+            'La reingeniería implica rediseñar la arquitectura del sistema para re-optimizar los recursos que las modificaciones habían malgastado.',
+            'Las sucesivas modificaciones hacen estragos en programas que originalmente podían haber sido pensados para optimizar los recursos.',
+            'La reingeniería es aplicable únicamente cuando el sistema nunca fue documentado de manera correcta desde su inicio.',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son textuales del apunte. La opción 2 es un distractor que suena técnico pero es incorrecto: la reingeniería generalmente se realiza <strong>sin cambiar la arquitectura</strong>, no para rediseñarla. La opción 4 establece una restricción que el apunte no menciona en ningún momento; la reingeniería no requiere falta de documentación inicial para aplicarse.',
+        },
+        {
+          id: 'ms-15-8',
+          q: '¿Qué características distinguen a la reingeniería de un desarrollo desde cero, según Sommerville y el apunte?',
+          options: [
+            'La reingeniería generalmente no cambia la <strong>funcionalidad</strong> del sistema.',
+            'La reingeniería generalmente no cambia la <strong>arquitectura</strong> del sistema.',
+            'La reingeniería puede incluir traducir el sistema a un lenguaje de programación más moderno sin alterar su funcionalidad.',
+            'La reingeniería elimina la necesidad de mantenimiento futuro porque resuelve todos los defectos estructurales acumulados.',
+            'La reingeniería y el desarrollo nuevo son equivalentes en costo cuando el sistema es de gran escala, según el apunte.',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las opciones 0, 1 y 2 son correctas: el apunte y Sommerville afirman que la reingeniería se realiza sin cambiar funcionalidad ni arquitectura, y que puede incluir traducir a un lenguaje más moderno. La opción 4 es falsa: el apunte dice que la reingeniería siempre cuesta <em>menos</em> que el desarrollo nuevo, no que sean equivalentes. La opción 5 es un invento: el apunte no afirma que la reingeniería elimine el mantenimiento futuro.',
+        },
+        {
+          id: 'ms-15-9',
+          q: '¿Qué afirmaciones sobre el riesgo en sistemas críticos y su relación con la decisión de hacer reingeniería son correctas según el apunte?',
+          options: [
+            'Un retraso en la disponibilidad de un nuevo sistema desarrollado desde cero puede causar daños severos a la empresa.',
+            'En sistemas críticos, la empresa depende de ellos para mantenerse operativa.',
+            'La reingeniería elimina definitivamente el riesgo de degradación estructural futura del sistema.',
+            'Desarrollar un sistema desde cero implica un riesgo mayor, lo que convierte a la reingeniería en una alternativa más segura.',
+            'Solo los sistemas críticos son candidatos válidos para un proceso de reingeniería, según el apunte.',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son correctas y textuales: el retraso en un sistema nuevo puede causar daños severos (0), los sistemas críticos sostienen la operatoria de la empresa (1), y eso hace que la reingeniería sea menos riesgosa que empezar de cero (3). La opción 3 es falsa: el apunte no afirma que la reingeniería elimine la degradación futura. La opción 5 también es falsa: la ventaja se menciona <em>especialmente</em> para sistemas críticos, pero el apunte no restringe la reingeniería solo a ellos.',
+        },
+        {
+          id: 'ms-15-10',
+          q: 'Combinando los conceptos de mantenimiento, degradación estructural y reingeniería, ¿cuáles de estas afirmaciones son verdaderas según el apunte?',
+          options: [
+            'Las organizaciones necesitan seguir invirtiendo para mantener o evolucionar sus sistemas de software.',
+            'La reingeniería es una alternativa que busca mejorar el sistema existente en lugar de reemplazarlo por un nuevo desarrollo completo.',
+            'El costo de la reingeniería <strong>siempre será menor</strong> que el requerido para desarrollar un sistema completamente nuevo.',
+            'Realizar mantenimiento sostenido durante años garantiza que la estructura del sistema se mantenga íntegra a largo plazo.',
+            'Redocumentar el sistema es una de las acciones que puede implicar la reingeniería según Sommerville.',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las opciones 0, 1, 2 y 4 son textuales del apunte: la organización debe seguir invirtiendo (0), la reingeniería mejora lo existente en lugar de reemplazarlo (1), su costo siempre es menor que un desarrollo nuevo (2), y redocumentar es una de las acciones que Sommerville menciona explícitamente (4). La opción 3 es <strong>falsa</strong> y es el distractor más peligroso: el mantenimiento sostenido es precisamente lo que <em>degrada</em> la estructura paulatinamente, no lo que la preserva.',
         },
       ],
     },
@@ -4455,6 +5715,90 @@ export default {
           correctIndexes: [0, 1, 2, 3],
           explain:
             'Las primeras cuatro son textuales. El apunte los presenta como complemento (no reemplazo) de las especificaciones informales.',
+        },
+        {
+          id: 'ms-16-5',
+          q: 'Según el apunte, ¿cuáles de las siguientes afirmaciones sobre la <strong>aproximación basada en modelos</strong> son correctas?',
+          options: [
+            'Emplea construcciones matemáticas como conjuntos y funciones',
+            'Puede mostrar el estado del sistema',
+            'Especifica el comportamiento mediante precondiciones y postcondiciones sobre el estado',
+            'Oculta el estado del sistema y trabaja solo con relaciones entre operaciones',
+            'Es útil para simplificar la especificación del comportamiento',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las opciones 0, 1, 2 y 4 son textuales del apunte: la aproximación basada en modelos usa conjuntos y funciones, <em>puede mostrar el estado</em>, define precondiciones y postcondiciones, y sirve para simplificar la especificación del comportamiento. La opción 3 describe lo contrario: <strong>ocultar el estado y trabajar con relaciones entre operaciones es la característica de la aproximación algebraica</strong>, no de la basada en modelos.',
+        },
+        {
+          id: 'ms-16-6',
+          q: '¿Qué afirmaciones son correctas sobre <strong>cuándo usar cada aproximación</strong>, según el apunte?',
+          options: [
+            'Si querés especificar interfaces (clases u tipos abstractos de datos), la aproximación algebraica es la indicada',
+            'La aproximación algebraica es útil porque oculta el estado del sistema y trabaja con relaciones entre operaciones de la interfaz',
+            'La aproximación basada en modelos sirve para sistemas donde se necesita mostrar cómo cambia el estado',
+            'La aproximación basada en modelos es la recomendada para especificar interfaces de clases',
+            'Ambas aproximaciones son igualmente adecuadas para especificar precondiciones y postcondiciones',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las opciones 0, 1 y 2 son textuales del apunte. La opción 3 es falsa: para interfaces se recomienda la algebraica, no la basada en modelos. La opción 4 es falsa: las precondiciones y postcondiciones son <strong>exclusivas de la aproximación basada en modelos</strong>; la algebraica trabaja con relaciones entre operaciones.',
+        },
+        {
+          id: 'ms-16-7',
+          q: 'Según el apunte, ¿cuáles de estas afirmaciones sobre los <strong>límites y el alcance</strong> de los métodos formales son correctas?',
+          options: [
+            'Son exitosos para aplicaciones críticas de tamaño pequeño',
+            'Cuando el tamaño de la aplicación aumenta, se descontrola su realización',
+            'Son aptos para desarrollos rápidos si se los combina con metodologías ágiles',
+            'No son aptos para diseñar interfaces de usuario',
+            'Son altamente escalables y se mantienen bajo control sin importar el tamaño',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'Las opciones 0, 1 y 3 son afirmaciones textuales del apunte. La opción 2 es falsa: el apunte dice que <strong>no son aptos para desarrollos rápidos</strong>, sin excepción ni condición de combinación con ágiles. La opción 4 contradice directamente el apunte, que afirma que los métodos formales <em>no son escalables</em>.',
+        },
+        {
+          id: 'ms-16-8',
+          q: 'El apunte menciona que los métodos formales <strong>no se popularizaron</strong> pese a que desde los 80 se los señala como camino a la calidad. ¿Cuáles de estas razones aparecen textualmente en el apunte?',
+          options: [
+            'La incorporación de lenguajes orientados a objetos y nuevas metodologías logró avances en la búsqueda de la calidad por otros caminos',
+            'La administración de configuraciones es una de las herramientas alternativas que contribuyó a mejorar la calidad',
+            'El mercado prioriza la interfaz con el usuario, para la cual las especificaciones formales no son aptas',
+            'Los métodos formales son demasiado costosos en licencias de software especializado',
+            'Los métodos formales no escalan: se descontrolan al aumentar el tamaño de la aplicación',
+          ],
+          correctIndexes: [0, 1, 2, 4],
+          explain:
+            'Las opciones 0, 1, 2 y 4 corresponden a las tres razones que el apunte da explícitamente. La opción 3 (costo de licencias) <strong>no aparece en el texto</strong>; es un distractor plausible pero inventado.',
+        },
+        {
+          id: 'ms-16-9',
+          q: '¿Cuáles de las siguientes afirmaciones sobre <strong>los lenguajes de especificación formal y su clasificación</strong> son correctas según el cuadro del apunte?',
+          options: [
+            'Larch y OBJ son lenguajes algebraicos para sistemas secuenciales',
+            'CSP es un lenguaje basado en modelos para sistemas concurrentes',
+            'Lotos y Brinksma son lenguajes algebraicos para sistemas concurrentes',
+            'Z y VDM son lenguajes basados en modelos para sistemas secuenciales',
+            'Las redes de Petri son lenguajes algebraicos para sistemas concurrentes',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las opciones 0, 1, 2 y 3 son textuales del cuadro del apunte. La opción 4 es falsa: las redes de Petri son <strong>basadas en modelos</strong> (no algebraicas) para sistemas concurrentes, según el mismo cuadro.',
+        },
+        {
+          id: 'ms-16-10',
+          q: 'Según el apunte, ¿qué afirmaciones reflejan correctamente la <strong>relación entre métodos formales y otros tipos de especificación</strong>?',
+          options: [
+            'Los métodos formales sirven de complemento para las especificaciones informales por ser precisos y no ambiguos',
+            'Los métodos formales eliminan dudas y evitan problemas de interpretación que sí tienen las especificaciones informales',
+            'Los métodos formales reemplazan completamente a las especificaciones informales en cualquier tipo de proyecto',
+            'Los métodos formales fuerzan un análisis temprano de requerimientos, donde corregir es menos costoso',
+            'Los métodos formales son una excelente herramienta para sistemas críticos donde se prioriza la seguridad y la confiabilidad',
+          ],
+          correctIndexes: [0, 1, 3, 4],
+          explain:
+            'Las opciones 0, 1, 3 y 4 son textuales de la sección \'Puntos clave\' del apunte. La opción 2 es falsa: el apunte los presenta como <strong>complemento</strong> de las especificaciones informales, no como reemplazo; y además aclara que no son aptos para todos los tipos de proyectos (por ejemplo, no sirven para interfaces de usuario ni desarrollos rápidos).',
         },
       ],
     },
