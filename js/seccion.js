@@ -3,6 +3,10 @@ import { getCurrentSubject, getSection } from './content.js';
 import { markRead } from './storage.js';
 import { renderMath } from './katex-init.js';
 
+// Promesa de carga de Mermaid (declarada antes de main() para evitar el TDZ:
+// main() se ejecuta de inmediato y puede llegar a renderMermaid).
+let mermaidPromise = null;
+
 main();
 
 function main() {
@@ -143,8 +147,6 @@ function renderSection(subject, s) {
     window.addEventListener('load', renderAll, { once: true });
   }
 }
-
-let mermaidPromise = null;
 
 // Carga Mermaid desde CDN (ESM) una sola vez y renderiza los diagramas
 // presentes en el contenedor dado.
