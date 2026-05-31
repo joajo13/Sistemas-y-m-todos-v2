@@ -158,6 +158,33 @@ function renderMermaid(container) {
   }
   mermaidPromise
     .then((mermaid) => mermaid.run({ nodes: container.querySelectorAll('.mermaid') }))
+    .then(() => {
+      // Una vez renderizado el SVG, se hace clicable para abrirlo en el
+      // lightbox con zoom (útil cuando el diagrama no entra completo).
+      container.querySelectorAll('figure.mermaid-figure').forEach((fig) => {
+        const svg = fig.querySelector('svg');
+        const node = fig.querySelector('.mermaid');
+        if (!svg || !node) return;
+        const cap = fig.querySelector('figcaption');
+        const alt = cap ? cap.textContent : 'Diagrama';
+        node.style.cursor = 'zoom-in';
+        node.setAttribute('role', 'button');
+        node.setAttribute('tabindex', '0');
+        node.setAttribute('aria-label', `Ampliar diagrama: ${alt}`);
+        const open = () => {
+          const markup = new XMLSerializer().serializeToString(svg);
+          const src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(markup);
+          window.openLightbox?.(src, alt, { zoomable: true });
+        };
+        node.addEventListener('click', open);
+        node.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            open();
+          }
+        });
+      });
+    })
     .catch((err) => console.error('No se pudo renderizar el diagrama Mermaid:', err));
 }
 

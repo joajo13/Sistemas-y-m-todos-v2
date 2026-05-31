@@ -950,6 +950,19 @@ figure.mermaid-figure figcaption::before {
   letter-spacing: 0;
 }
 
+/* Zoom dentro del lightbox: tamaño completo con scroll cuando no entra. */
+.lb-wrap--zoomed {
+  max-width: none;
+  width: auto;
+  max-height: 92vh;
+  overflow: auto;
+}
+img.lb-zoomed {
+  max-height: none !important;
+  width: auto;
+  max-width: none;
+}
+
 /* === Bottom bar / sticky CTA === */
 .action-bar {
   position: fixed;
