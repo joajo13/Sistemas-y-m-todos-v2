@@ -78,6 +78,11 @@ function renderSection(subject, s) {
     img.addEventListener('click', () => window.openLightbox?.(img.src, img.alt));
   });
 
+  // Diagramas Mermaid: se carga la librería sólo si hay diagramas en la sección.
+  if (article.querySelector('.mermaid')) {
+    renderMermaid(article);
+  }
+
   // Nav entre secciones (dentro del mismo subject)
   const list = subject.sections;
   const idx = list.findIndex((x) => x.id === s.id);
@@ -139,6 +144,23 @@ function renderSection(subject, s) {
   }
 }
 
+let mermaidPromise = null;
+
+// Carga Mermaid desde CDN (ESM) una sola vez y renderiza los diagramas
+// presentes en el contenedor dado.
+function renderMermaid(container) {
+  if (!mermaidPromise) {
+    mermaidPromise = import('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs')
+      .then(({ default: mermaid }) => {
+        mermaid.initialize({ startOnLoad: false, securityLevel: 'strict' });
+        return mermaid;
+      });
+  }
+  mermaidPromise
+    .then((mermaid) => mermaid.run({ nodes: container.querySelectorAll('.mermaid') }))
+    .catch((err) => console.error('No se pudo renderizar el diagrama Mermaid:', err));
+}
+
 function renderBlock(b, i) {
   switch (b.type) {
     case 'h3': {
@@ -193,6 +215,22 @@ function renderBlock(b, i) {
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;');
       return `<pre class="code-block"><code>${escaped}</code></pre>`;
+    }
+    case 'mermaid': {
+      // Diagrama Mermaid. Se escapa para que el navegador no parsee etiquetas
+      // como <br/> dentro de los labels: Mermaid lee el textContent y las
+      // interpreta él mismo. La inicialización ocurre tras inyectar el HTML.
+      const escaped = String(b.code)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+      const caption = b.caption ? `<figcaption>${b.caption}</figcaption>` : '';
+      return `
+        <figure class="mermaid-figure">
+          <pre class="mermaid">${escaped}</pre>
+          ${caption}
+        </figure>
+      `;
     }
     case 'table': {
       const caption = b.caption ? `<caption>${b.caption}</caption>` : '';

@@ -907,6 +907,49 @@ figure.figure figcaption::before {
   letter-spacing: 0;
 }
 
+/* === Diagramas Mermaid === */
+figure.mermaid-figure {
+  margin: 2rem 0;
+}
+figure.mermaid-figure .mermaid {
+  margin: 0;
+  padding: 1rem;
+  background: var(--ivory);
+  border: 1px solid var(--rule);
+  overflow-x: auto;
+  text-align: center;
+  /* Oculta el código fuente hasta que Mermaid lo reemplaza por el SVG. */
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+figure.mermaid-figure .mermaid[data-processed] {
+  padding: 1.2rem 1rem;
+  font-size: inherit;
+  color: inherit;
+}
+figure.mermaid-figure .mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+figure.mermaid-figure figcaption {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-top: 0.7rem;
+  text-align: center;
+}
+figure.mermaid-figure figcaption::before {
+  content: 'Fig. — ';
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05em;
+  font-variation-settings: 'opsz' 24, 'SOFT' 50;
+  color: var(--accent);
+  letter-spacing: 0;
+}
+
 /* === Bottom bar / sticky CTA === */
 .action-bar {
   position: fixed;
