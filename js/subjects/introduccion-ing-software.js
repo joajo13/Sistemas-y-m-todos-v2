@@ -1664,6 +1664,37 @@ export default {
         ],
       },
       {
+        type: 'mermaid',
+        caption:
+          'Las cuatro trazabilidades sobre el eje documentos previos → SRS → software construido.',
+        code: `graph LR
+    subgraph PREVIOS["DOCUMENTOS PREVIOS AL SRS"]
+        A["Necesidades del cliente<br/>Reglas de negocio<br/>Normativa"]
+    end
+
+    subgraph SRSBOX["SRS"]
+        B["Requerimientos"]
+    end
+
+    subgraph SOFT["SOFTWARE CONSTRUIDO"]
+        C["Componentes<br/>y comportamientos"]
+    end
+
+    A -->|"HACIA ADELANTE hasta los requerimientos<br/>(qué requerimiento generó cada necesidad)"| B
+    B -->|"HACIA ATRÁS desde los requerimientos<br/>(por qué existe cada requerimiento)"| A
+
+    B -->|"HACIA ADELANTE desde los requerimientos<br/>(qué componente implementa cada requerimiento)"| C
+    C -->|"HACIA ATRÁS hasta los requerimientos<br/>(qué requerimiento satisface cada componente)"| B
+
+    classDef prev fill:#e8dcc0,stroke:#8a7a55,color:#3a3320,stroke-width:2px
+    classDef srs fill:#c9d6c0,stroke:#5a7a55,color:#243320,stroke-width:2px
+    classDef soft fill:#c0cdd6,stroke:#55707a,color:#202f33,stroke-width:2px
+
+    class A prev
+    class B srs
+    class C soft`,
+      },
+      {
         type: 'callout',
         tone: 'criollo',
         text:
