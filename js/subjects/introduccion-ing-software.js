@@ -1,5 +1,6 @@
 /**
  * Materia: Introducción a la Ingeniería de Software (UP).
+ * Módulo 7 — Especificación de requerimientos (Unidad 7).
  * Módulos 8 — Modelado de requerimientos, 9 — Pruebas de los requerimientos,
  * 10 — Diagramas de secuencia, 12 — Tipos de sistemas (Unidad 11),
  * 11 — Reingeniería y métodos formales (Unidad 12).
@@ -10,9 +11,10 @@
 export default {
   id: 'introduccion-ing-software',
   title: 'Introducción a la Ingeniería de Software',
-  subtitle: 'Módulos 8, 9, 10, 11 y 12 — Apuntes',
-  tagline: 'Modelado de requerimientos · Pruebas de requerimientos · Diagramas de secuencia · Tipos de sistemas · Reingeniería y métodos formales',
+  subtitle: 'Módulos 7, 8, 9, 10, 11 y 12 — Apuntes',
+  tagline: 'Especificación de requerimientos · Modelado de requerimientos · Pruebas de requerimientos · Diagramas de secuencia · Tipos de sistemas · Reingeniería y métodos formales',
   units: {
+    '7': 'Especificación de requerimientos',
     '8': 'Modelado de requerimientos',
     '9': 'Pruebas de los requerimientos',
     '10': 'Diagramas de secuencia',
@@ -20,6 +22,1416 @@ export default {
     '12': 'Reingeniería y métodos formales',
   },
   sections: [
+  // ---------- UNIDAD 7 · SECCIÓN 7.1 ----------
+  {
+    id: '7.1',
+    unit: '7',
+    title: 'Especificación de requerimientos (SRS)',
+    criollo: 'El SRS es el documento donde describís todo lo que el software tiene que hacer de cara afuera, sin meterte todavía en cómo lo vas a programar. Acá vemos qué va, qué NO va, quién lo escribe y el estándar que casi nadie sigue al pie de la letra pero todos usan de base.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Qué es el SRS',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>especificación de requerimientos de software</strong> (SRS: <em>Software Requirement Specification</em>) contiene una <strong>descripción completa del comportamiento externo del software</strong>. El SRS son las especificaciones para un producto de software en particular, programa o conjunto de programas que realizan ciertas funciones en un determinado entorno. Deben especificarse tanto <strong>requerimientos funcionales como no funcionales</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Estrategias para escribirlo',
+        criollo: 'Dos caminos: o terminás de entender todo primero, o vas escribiendo de a partes mientras avanzás.',
+      },
+      {
+        type: 'p',
+        text: 'Una alternativa es <strong>completar el análisis del problema y luego escribir el SRS</strong>. Otra es <strong>ir descomponiéndolo</strong> e ir escribiendo la sección correspondiente en la medida que se va avanzando.',
+      },
+      {
+        type: 'h3',
+        text: 'Quién lo redacta',
+      },
+      {
+        type: 'p',
+        text: 'El documento SRS puede ser llevado a cabo por personal representativo del <strong>proveedor</strong>, es decir, el desarrollador del producto, o podría ser realizado por el <strong>usuario o potencial cliente</strong>. Lo recomendable es que fuera con la <strong>participación de ambas partes</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Aspectos básicos que DEBE incluir',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Funcionalidad</strong>: qué debe hacer el software.',
+          '<strong>Interfaces externas</strong>: cómo interactúa con usuarios, hardware y otros sistemas.',
+          '<strong>Rendimiento</strong>: velocidad, tiempos de respuesta, recuperación, etc.',
+          '<strong>Atributos</strong>: portabilidad, seguridad, exactitud, etc.',
+          '<strong>Restricciones impuestas al diseño</strong>: lenguajes, plataformas, etc.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Lo que NO debe incluir',
+        criollo: 'Ojo con meter cosas del proyecto o del diseño acá adentro: tienen otra audiencia y mezclan la documentación.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Requerimientos referentes al proyecto</strong>, como por ejemplo: costos, cronogramas de tiempos, fechas de conclusión, etc.',
+          '<strong>Diseños</strong>: deben ser excluidos porque tienen audiencias diferentes, y particionan la documentación.',
+          '<strong>Planes de aseguramiento del producto</strong>, como por ejemplo: plan de administración de configuraciones, plan de pruebas, etc.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'El SRS como base para pedido de cotización',
+      },
+      {
+        type: 'p',
+        text: 'La especificación de requerimientos, algunas veces, puede servir como <strong>base para un pedido de cotización</strong> a distintos proveedores. En ese caso <strong>no se detalla tanto cada requerimiento</strong>, sino que se describe en forma más general, para poder <strong>abarcar más alternativas disponibles en el mercado</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'El estándar IEEE Std. 830-1998',
+      },
+      {
+        type: 'p',
+        text: 'Tradicionalmente, esta especificación fue considerada igual a la <strong>especificación funcional</strong>, con lo cual dejaba de lado los objetivos, los requerimientos no funcionales y las restricciones de desarrollo. Existe un estándar generado para la especificación de requerimientos de software (se recomienda leerlo): <strong>IEEE Std. 830 – 1998</strong>.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Si bien es probable que en el ámbito laboral no se lleve a cabo el estándar tal como lo indica la IEEE, es habitual que las organizaciones se basen en él y hagan una adaptación acorde a sus necesidades.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Resumen: el SRS describe el "qué" hacia afuera (funcional y no funcional), no el "cómo" ni el "cuánto sale". El costo, el cronograma y el diseño van en otro lado.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-7.1-1',
+          q: 'El SRS contiene una descripción completa del comportamiento externo del software.',
+          a: true,
+          explain: 'El apunte lo define exactamente así: el SRS contiene una descripción completa del comportamiento externo del software.',
+        },
+        {
+          id: 'tf-7.1-2',
+          q: 'El SRS debe especificar solamente los requerimientos funcionales.',
+          a: false,
+          explain: 'Falso. Deben especificarse tanto requerimientos funcionales como no funcionales.',
+        },
+        {
+          id: 'tf-7.1-3',
+          q: 'Los costos y cronogramas del proyecto deben incluirse dentro del SRS.',
+          a: false,
+          explain: 'Falso. El apunte aclara que el SRS NO debe incluir requerimientos referentes al proyecto como costos, cronogramas o fechas de conclusión.',
+        },
+        {
+          id: 'tf-7.1-4',
+          q: 'Lo recomendable es que el SRS se redacte con la participación tanto del proveedor como del usuario o cliente.',
+          a: true,
+          explain: 'Verdadero. Puede hacerlo el proveedor o el usuario, pero lo recomendable es con la participación de ambas partes.',
+        },
+        {
+          id: 'tf-7.1-5',
+          q: 'Cuando el SRS sirve como base para un pedido de cotización, se detalla cada requerimiento con el máximo nivel de precisión.',
+          a: false,
+          explain: 'Falso. En ese caso no se detalla tanto cada requerimiento, sino que se describe en forma más general para abarcar más alternativas del mercado.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-7.1-1',
+          q: '¿Qué significa la sigla SRS?',
+          options: [
+            'System Requirement Standard',
+            'Software Requirement Specification',
+            'Software Resource System',
+            'Specification Requirement Statement',
+          ],
+          correctIndex: 1,
+          explain: 'SRS es Software Requirement Specification, la especificación de requerimientos de software.',
+        },
+        {
+          id: 'mc-7.1-2',
+          q: '¿Cuál de los siguientes es un aspecto básico que el SRS DEBE incluir?',
+          options: [
+            'El plan de pruebas',
+            'El cronograma de tiempos',
+            'Las interfaces externas',
+            'El plan de administración de configuraciones',
+          ],
+          correctIndex: 2,
+          explain: 'Las interfaces externas (cómo interactúa con usuarios, hardware y otros sistemas) son uno de los aspectos básicos que el SRS debe incluir. Los otros tres son cosas que el apunte indica que NO van en el SRS.',
+        },
+        {
+          id: 'mc-7.1-3',
+          q: 'Según el apunte, ¿cuál es el estándar generado para la especificación de requerimientos de software?',
+          options: [
+            'ISO 9001',
+            'IEEE Std. 830 – 1998',
+            'IEEE 802.11',
+            'ISO/IEC 12207',
+          ],
+          correctIndex: 1,
+          explain: 'El estándar que menciona el apunte es el IEEE Std. 830 – 1998, y recomienda leerlo.',
+        },
+        {
+          id: 'mc-7.1-4',
+          q: 'El aspecto "Rendimiento" dentro del SRS se refiere a:',
+          options: [
+            'Lenguajes y plataformas a usar',
+            'Velocidad, tiempos de respuesta, recuperación, etc.',
+            'Portabilidad, seguridad y exactitud',
+            'Costos y fechas de conclusión',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte define Rendimiento como velocidad, tiempos de respuesta, recuperación, etc. Lenguajes/plataformas son Restricciones de diseño y portabilidad/seguridad/exactitud son Atributos.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-7.1-1',
+          q: '¿Cuáles de los siguientes son aspectos básicos que el SRS DEBE incluir?',
+          options: [
+            'Funcionalidad',
+            'Costos del proyecto',
+            'Rendimiento',
+            'Restricciones impuestas al diseño',
+            'Plan de pruebas',
+          ],
+          correctIndexes: [
+            0,
+            2,
+            3,
+          ],
+          explain: 'Funcionalidad, Rendimiento y Restricciones impuestas al diseño son aspectos que el SRS debe incluir. Los costos y el plan de pruebas son cosas que el apunte indica que NO deben incluirse.',
+        },
+        {
+          id: 'ms-7.1-2',
+          q: '¿Qué cosas indica el apunte que el SRS NO debe incluir?',
+          options: [
+            'Requerimientos del proyecto como costos y cronogramas',
+            'Atributos como portabilidad y seguridad',
+            'Diseños',
+            'Planes de aseguramiento del producto',
+            'Interfaces externas',
+          ],
+          correctIndexes: [
+            0,
+            2,
+            3,
+          ],
+          explain: 'El SRS no debe incluir requerimientos del proyecto (costos, cronogramas), diseños ni planes de aseguramiento del producto. Atributos e interfaces externas sí son aspectos que debe incluir.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-7.1-1',
+        front: 'SRS',
+        back: 'Software Requirement Specification. Documento que contiene una descripción completa del comportamiento externo del software, especificando requerimientos funcionales y no funcionales.',
+      },
+      {
+        id: 'fc-7.1-2',
+        front: 'Quién redacta el SRS',
+        back: 'Puede hacerlo el proveedor (desarrollador del producto) o el usuario / potencial cliente. Lo recomendable es que participen ambas partes.',
+      },
+      {
+        id: 'fc-7.1-3',
+        front: 'Funcionalidad (en el SRS)',
+        back: 'Aspecto básico del SRS que define qué debe hacer el software.',
+      },
+      {
+        id: 'fc-7.1-4',
+        front: 'Interfaces externas',
+        back: 'Aspecto del SRS que describe cómo el software interactúa con usuarios, hardware y otros sistemas.',
+      },
+      {
+        id: 'fc-7.1-5',
+        front: 'Restricciones impuestas al diseño',
+        back: 'Aspecto del SRS que especifica condicionantes como lenguajes y plataformas a utilizar.',
+      },
+      {
+        id: 'fc-7.1-6',
+        front: 'Qué NO va en el SRS',
+        back: 'Requerimientos del proyecto (costos, cronogramas, fechas de conclusión), diseños y planes de aseguramiento del producto (administración de configuraciones, plan de pruebas).',
+      },
+      {
+        id: 'fc-7.1-7',
+        front: 'IEEE Std. 830 – 1998',
+        back: 'Estándar generado para la especificación de requerimientos de software. En la práctica las organizaciones suelen basarse en él y adaptarlo a sus necesidades.',
+      },
+      {
+        id: 'fc-7.1-8',
+        front: 'SRS para cotización',
+        back: 'Cuando sirve de base para un pedido de cotización, no se detalla tanto cada requerimiento, sino que se describe en forma más general para abarcar más alternativas del mercado.',
+      },
+      {
+        id: 'fc-7.1-9',
+        front: 'Estrategias para escribir el SRS',
+        back: 'Completar primero el análisis del problema y luego escribirlo, o ir descomponiendo el problema y escribiendo cada sección a medida que se avanza.',
+      },
+    ],
+  },
+
+  // ---------- UNIDAD 7 · SECCIÓN 7.2 ----------
+  {
+    id: '7.2',
+    unit: '7',
+    title: 'Cuantificación de los requerimientos',
+    criollo: 'En la etapa de requerimientos no alcanza con saber QUÉ tenés que hacer: también necesitás saber CUÁNTO. El mismo problema con distintos volúmenes pide soluciones distintas, así que hay que medir todo. Acá te muestro qué se cuantifica y cómo se arma el cuadro de entidades.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Por qué cuantificar',
+        criollo: 'No es lo mismo un sistema que procesa 20 cosas por día que uno que procesa 5000 por hora.',
+      },
+      {
+        type: 'p',
+        text: 'En toda etapa de requerimientos, además de saber <strong>qué</strong> tenemos que hacer, debemos saber <strong>cuánto</strong> tenemos que hacer. Esto se debe a que un mismo problema, con distintos volúmenes, lleva a <strong>soluciones distintas</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'Los volúmenes no siempre son un problema, pero para saber si lo son o no, deben <em>analizarse</em>. Por ejemplo: si mi sistema procesa autorizaciones de compras para tarjetas de crédito, diseñar una solución para un pico de 20 autorizaciones por día, 500 autorizaciones por hora o 5000 autorizaciones por hora, no será lo mismo.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'La moraleja del ejemplo de las tarjetas: con la misma funcionalidad, el volumen te cambia el diseño de la solución. Por eso primero se mide.',
+      },
+      {
+        type: 'h3',
+        text: 'Propósito de la cuantificación',
+      },
+      {
+        type: 'p',
+        text: 'El propósito de la cuantificación es especificar para los requerimientos <strong>estáticos</strong> y/o <strong>dinámicos</strong> vinculados al software o a la interacción humana con el software en conjunto.',
+      },
+      {
+        type: 'h3',
+        text: 'Requisitos estáticos',
+        criollo: 'Son los números más o menos fijos: cuánta gente, cuántas terminales, cuánta info.',
+      },
+      {
+        type: 'p',
+        text: 'Los requisitos estáticos pueden incluir lo siguiente:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'El número de terminales a ser consideradas.',
+          'El número de usuarios que se conectarán en simultáneo.',
+          'La cantidad y tipo de información que se manejará.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Pueden identificarse este tipo de requisitos estáticos en un apartado separado en la especificación de requerimientos, bajo el título: <strong>capacidad</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Requisitos dinámicos',
+        criollo: 'Son los que dependen del tiempo: cuántas transacciones, tareas y datos por período.',
+      },
+      {
+        type: 'p',
+        text: 'Los requisitos dinámicos pueden incluir los números de <strong>transacciones</strong>, <strong>tareas</strong> y la cantidad de <strong>datos</strong> a ser procesados dentro de ciertos períodos de tiempo, para condiciones del trabajo <em>normales</em> y <em>máximas</em>.',
+      },
+      {
+        type: 'p',
+        text: 'Todos estos requisitos deben declararse en <strong>condiciones mensurables</strong>. Por ejemplo, 95% de las transacciones se procesarán en menos de 1 seg.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Una condición mensurable es la que se puede medir y verificar objetivamente, como un porcentaje y un tiempo de respuesta concretos (95% en menos de 1 seg).',
+      },
+      {
+        type: 'h3',
+        text: 'Cuadro de cuantificación de entidades',
+        criollo: 'Se podrían armar cuadros como este para cuantificar las entidades que toca el software a desarrollar.',
+      },
+      {
+        type: 'p',
+        text: 'Se podrían realizar cuadros como el siguiente para cuantificar entidades involucradas en el software a desarrollar:',
+      },
+      {
+        type: 'table',
+        caption: 'Cuantificación de entidades involucradas en el software',
+        headers: [
+          'Entidad',
+          'Volumen inicial',
+          'Crecimiento esperado',
+          'Volumen máximo',
+          'Condición de obsolescencia',
+        ],
+        rows: [
+          [
+            'Clientes',
+            '150',
+            '25 por año',
+            '500',
+            '1 año sin pedidos',
+          ],
+          [
+            'Autorizaciones',
+            '25',
+            '15 por año',
+            '3000',
+            '2 meses de hecha',
+          ],
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-7.2-1',
+          q: 'En la etapa de requerimientos, además de saber qué tenemos que hacer, debemos saber cuánto tenemos que hacer.',
+          a: true,
+          explain: 'El apunte lo dice textual: un mismo problema, con distintos volúmenes, lleva a soluciones distintas.',
+        },
+        {
+          id: 'tf-7.2-2',
+          q: 'El número de usuarios que se conectarán en simultáneo es un requisito dinámico.',
+          a: false,
+          explain: 'Es un requisito estático. Los estáticos incluyen número de terminales, usuarios simultáneos y cantidad/tipo de información.',
+        },
+        {
+          id: 'tf-7.2-3',
+          q: 'Los requisitos estáticos pueden identificarse en un apartado separado bajo el título "capacidad".',
+          a: true,
+          explain: 'El apunte indica que este tipo de requisitos estáticos puede ir en un apartado separado bajo el título: capacidad.',
+        },
+        {
+          id: 'tf-7.2-4',
+          q: 'Todos los requisitos deben declararse en condiciones mensurables, como "95% de las transacciones se procesarán en menos de 1 seg".',
+          a: true,
+          explain: 'Ese es el ejemplo exacto de condición mensurable que da el apunte.',
+        },
+        {
+          id: 'tf-7.2-5',
+          q: 'Como los volúmenes nunca son un problema, no hace falta analizarlos.',
+          a: false,
+          explain: 'El apunte dice que los volúmenes no siempre son un problema, pero que para saber si lo son o no, deben analizarse.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-7.2-1',
+          q: '¿Cuál es el propósito de la cuantificación según el apunte?',
+          options: [
+            'Estimar el costo y el cronograma del proyecto',
+            'Especificar los requerimientos estáticos y/o dinámicos vinculados al software o a la interacción humana con el software',
+            'Definir el lenguaje de programación y la plataforma',
+            'Documentar únicamente los requerimientos funcionales',
+          ],
+          correctIndex: 1,
+          explain: 'El propósito de la cuantificación es especificar los requerimientos estáticos y/o dinámicos vinculados al software o a la interacción humana con el software en conjunto.',
+        },
+        {
+          id: 'mc-7.2-2',
+          q: 'En el ejemplo de las autorizaciones de compras para tarjetas de crédito, ¿qué demuestra comparar 20 por día, 500 por hora o 5000 por hora?',
+          options: [
+            'Que la funcionalidad cambia según el volumen',
+            'Que el volumen no influye en la solución',
+            'Que un mismo problema con distintos volúmenes lleva a soluciones distintas',
+            'Que siempre conviene diseñar para el pico máximo',
+          ],
+          correctIndex: 2,
+          explain: 'El ejemplo ilustra que con distintos volúmenes diseñar la solución no será lo mismo: un mismo problema con distintos volúmenes lleva a soluciones distintas.',
+        },
+        {
+          id: 'mc-7.2-3',
+          q: '¿Cuál de estos es un ejemplo de requisito dinámico?',
+          options: [
+            'El número de terminales a ser consideradas',
+            'El número de usuarios que se conectarán en simultáneo',
+            'La cantidad y tipo de información que se manejará',
+            'El número de transacciones a procesar dentro de ciertos períodos de tiempo',
+          ],
+          correctIndex: 3,
+          explain: 'Los requisitos dinámicos incluyen números de transacciones, tareas y datos procesados dentro de ciertos períodos de tiempo. Las otras opciones son requisitos estáticos.',
+        },
+        {
+          id: 'mc-7.2-4',
+          q: 'Según el cuadro de cuantificación, ¿cuál es el volumen máximo de la entidad Autorizaciones?',
+          options: [
+            '500',
+            '3000',
+            '25',
+            '150',
+          ],
+          correctIndex: 1,
+          explain: 'En el cuadro, Autorizaciones tiene volumen inicial 25 y volumen máximo 3000. El 500 corresponde al volumen máximo de Clientes.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-7.2-1',
+          q: '¿Cuáles de los siguientes son requisitos estáticos según el apunte?',
+          options: [
+            'El número de terminales a ser consideradas',
+            'El número de transacciones por período de tiempo',
+            'El número de usuarios que se conectarán en simultáneo',
+            'La cantidad y tipo de información que se manejará',
+            'La cantidad de tareas a procesar en condiciones máximas',
+          ],
+          correctIndexes: [
+            0,
+            2,
+            3,
+          ],
+          explain: 'Los requisitos estáticos son: número de terminales, usuarios simultáneos y cantidad/tipo de información. Las transacciones y tareas por período de tiempo son requisitos dinámicos.',
+        },
+        {
+          id: 'ms-7.2-2',
+          q: '¿Qué columnas tiene el cuadro de cuantificación de entidades?',
+          options: [
+            'Volumen inicial',
+            'Costo estimado',
+            'Crecimiento esperado',
+            'Volumen máximo',
+            'Condición de obsolescencia',
+          ],
+          correctIndexes: [
+            0,
+            2,
+            3,
+            4,
+          ],
+          explain: 'El cuadro tiene las columnas Entidad, Volumen inicial, Crecimiento esperado, Volumen máximo y Condición de obsolescencia. "Costo estimado" no figura.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-7.2-1',
+        front: 'Por qué cuantificar',
+        back: 'Además de saber qué tenemos que hacer, debemos saber cuánto, porque un mismo problema con distintos volúmenes lleva a soluciones distintas.',
+      },
+      {
+        id: 'fc-7.2-2',
+        front: 'Propósito de la cuantificación',
+        back: 'Especificar los requerimientos estáticos y/o dinámicos vinculados al software o a la interacción humana con el software en conjunto.',
+      },
+      {
+        id: 'fc-7.2-3',
+        front: 'Requisitos estáticos',
+        back: 'Incluyen el número de terminales, el número de usuarios que se conectarán en simultáneo y la cantidad y tipo de información que se manejará. Pueden ir en un apartado llamado "capacidad".',
+      },
+      {
+        id: 'fc-7.2-4',
+        front: 'Requisitos dinámicos',
+        back: 'Incluyen los números de transacciones, tareas y la cantidad de datos a procesar dentro de ciertos períodos de tiempo, para condiciones de trabajo normales y máximas.',
+      },
+      {
+        id: 'fc-7.2-5',
+        front: 'Apartado "capacidad"',
+        back: 'Título de un apartado separado en la especificación de requerimientos donde se identifican los requisitos estáticos.',
+      },
+      {
+        id: 'fc-7.2-6',
+        front: 'Condición mensurable',
+        back: 'Forma en que deben declararse los requisitos para poder medirse. Ejemplo: 95% de las transacciones se procesarán en menos de 1 seg.',
+      },
+      {
+        id: 'fc-7.2-7',
+        front: 'Cuadro de cuantificación',
+        back: 'Tabla para cuantificar entidades del software con columnas: Entidad, Volumen inicial, Crecimiento esperado, Volumen máximo y Condición de obsolescencia.',
+      },
+      {
+        id: 'fc-7.2-8',
+        front: 'Ejemplo entidad Clientes',
+        back: 'Volumen inicial 150, crecimiento esperado 25 por año, volumen máximo 500 y condición de obsolescencia 1 año sin pedidos.',
+      },
+    ],
+  },
+
+  // ---------- UNIDAD 7 · SECCIÓN 7.3 ----------
+  {
+    id: '7.3',
+    unit: '7',
+    title: 'Requerimientos no funcionales: técnicas',
+    criollo: 'Especificar lo funcional es solo la mitad de la pega. Te falta lo no funcional: las restricciones y atributos de calidad que el sistema también tiene que cumplir. Acá ves el árbol de cualidades de Boehm, el criterio SMART para escribirlos bien y cómo validarlos con escenarios.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Por qué los requerimientos no funcionales',
+        criollo: 'Todo sistema, del más simple al más complejo, tiene estos requerimientos extra.',
+      },
+      {
+        type: 'p',
+        text: 'Especificar los requerimientos funcionales para nuestro sistema de software es solo una parte de la tarea a realizar. Nos falta otra parte relevante que es enfocarnos en requerimientos no funcionales. Todos los sistemas, desde los más simples hasta los que presentan alta complejidad, tienen requerimientos adicionales que refieren a <strong>restricciones</strong> o <strong>atributos</strong> que deben también cumplir.',
+      },
+      {
+        type: 'h3',
+        text: 'El cuadro de Barry Boehm (1976)',
+      },
+      {
+        type: 'p',
+        text: 'El siguiente cuadro fue confeccionado por <strong>Barry Boehm</strong>, un reconocido autor en el área de ingeniería del software, que estableció en 1976 una <strong>lista jerárquica de cualidades</strong> presentes en un producto de software.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/7-arbol-calidad-software.jpeg',
+        alt: 'Árbol jerárquico de las características de calidad del software (Boehm, 1976): "Utilidades Generales" se ramifica en "Para el uso" (Portabilidad, Confiabilidad, Eficiencia, Ingeniería Humana) y "Para el mantenimiento" (Testeable, Comprensible, Modificable), que a su vez derivan en cualidades como Independiente del HW, Autocontenido, Seguro, Completo, Íntegro/Robusto, Consistente, Trazable, Eficiente con el HW, Accesible, Comunicativo, Autodescriptivo, Estructurado, Conciso, Legible y Escalable.',
+        caption: 'Árbol de las características de calidad del software (Boehm, 1976): una lista jerárquica de cualidades para guiar la especificación de requerimientos no funcionales.',
+      },
+      {
+        type: 'p',
+        text: 'Si bien el cuadro es muy completo, <strong>no todos los sistemas de software que desarrollemos van a requerir que se especifique toda la lista de cualidades</strong>. Esto dependerá de los requisitos planteados por el cliente o los usuarios para cada aplicación en particular.',
+      },
+      {
+        type: 'h3',
+        text: 'Cada caso pide lo suyo',
+        criollo: 'No generalices: fijate qué es crítico para cada aplicación puntual.',
+      },
+      {
+        type: 'p',
+        text: 'Por ejemplo, si se trata de un <strong>controlador de vuelo</strong> del que dependen vidas humanas, la <strong>confiabilidad</strong> se transformará en un requerimiento importante; mientras que si se trata de un producto que se comercializará en forma masiva, como un <strong>juego para niños</strong>, quizás la <strong>portabilidad</strong> sea un factor más crítico para poder alcanzar a la mayor cantidad de usuarios.',
+      },
+      {
+        type: 'p',
+        text: 'Lo más relevante a tener en cuenta es que debe determinarse para cada aplicación y cada situación particular cuáles son los <strong>requerimientos críticos necesarios</strong>, sin generalizar, para evitar malgastar tiempo y recursos en cuestiones que no son imprescindibles.',
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Los requerimientos no funcionales habitualmente son expresados en lenguaje natural. Esto implica que suelan tener un alto nivel de ambigüedad, que debe ser evitado para poder ser verificados.',
+      },
+      {
+        type: 'h3',
+        text: 'A qué refieren los no funcionales',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Restricciones:</strong> características impuestas por el cliente.',
+          '<strong>Atributos de calidad:</strong> propiedades relevantes para los usuarios.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Cuando el cliente o los usuarios especifican requerimientos no funcionales, se recomienda llevar a cabo un <strong>análisis costo/beneficio</strong> para ellos.',
+      },
+      {
+        type: 'h3',
+        text: 'El criterio SMART',
+        criollo: 'Sirve para evaluar si describiste bien el requerimiento. Una sigla por letra.',
+      },
+      {
+        type: 'p',
+        text: 'La correcta descripción puede evaluarse con las siglas del término <strong>SMART</strong> (Specific, Measurable, Attainable, Realizable, Traceable), que implica:',
+      },
+      {
+        type: 'table',
+        caption: 'El criterio SMART para describir requerimientos no funcionales',
+        headers: [
+          'Término',
+          'Significado',
+        ],
+        rows: [
+          [
+            'Específico (Specific)',
+            'El requerimiento debe estar expresado sin ambigüedad, en forma simple y clara.',
+          ],
+          [
+            'Medible (Measurable)',
+            'El requerimiento debe poder medirse, probarse si lo cumple o no.',
+          ],
+          [
+            'Alcanzable (Attainable)',
+            'Que sea factible llevarlo a cabo.',
+          ],
+          [
+            'Realizable (Realizable)',
+            'Se puede cumplir con los recursos disponibles: infraestructura, tecnología, personal, etc.',
+          ],
+          [
+            'Rastreable (Traceable)',
+            'Se puede determinar su origen, quién lo solicitó, dónde se encuentra especificado, su diseño e implementación.',
+          ],
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Validación por escenarios',
+        criollo: 'Para validar un requerimiento armás un escenario y lo partís en tres: entrada, condiciones y resultados.',
+      },
+      {
+        type: 'p',
+        text: 'Para validar un requerimiento puede emplearse la <strong>definición de escenarios</strong>, donde debe definirse:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>La entrada:</strong> quién produce el estímulo y el estímulo que se produce.',
+          '<strong>Las condiciones:</strong> en qué estado se encuentra el sistema y qué componente recibe el estímulo.',
+          '<strong>Los resultados:</strong> la respuesta que provoca ese estímulo, junto con la métrica para medirlo.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/7-escenario-validacion.png',
+        alt: 'Diagrama de validación por escenarios: a la izquierda "Entradas" (un usuario que produce un Estímulo), en el centro "Entorno" (las Condiciones) y a la derecha "Medida de Respuesta" (los Resultados). Flechas Estímulo → Entorno → Respuesta.',
+        caption: 'Validación de un requerimiento mediante escenarios: entrada (estímulo), condiciones del sistema y resultados con su métrica.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Resumiendo: árbol de Boehm para saber qué cualidades existen, SMART para escribir cada requerimiento sin ambigüedad, y escenarios para validar que de verdad se cumpla. Y siempre con un análisis costo/beneficio atrás.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-7.3-1',
+          q: 'Especificar los requerimientos funcionales es solo una parte de la tarea: también hay que enfocarse en los no funcionales.',
+          a: true,
+          explain: 'El apunte arranca aclarando que lo funcional es solo una parte y que falta enfocarse en los requerimientos no funcionales.',
+        },
+        {
+          id: 'tf-7.3-2',
+          q: 'Todo sistema de software que desarrollemos debe especificar la lista completa de cualidades del cuadro de Boehm.',
+          a: false,
+          explain: 'No: el apunte dice que, si bien el cuadro es muy completo, no todos los sistemas van a requerir que se especifique toda la lista. Depende de cada aplicación.',
+        },
+        {
+          id: 'tf-7.3-3',
+          q: 'Los requerimientos no funcionales suelen expresarse en lenguaje natural, lo que les da un alto nivel de ambigüedad que hay que evitar.',
+          a: true,
+          explain: 'Tal cual lo plantea el apunte: al estar en lenguaje natural suelen tener ambigüedad, que debe evitarse para poder verificarlos.',
+        },
+        {
+          id: 'tf-7.3-4',
+          q: 'La lista jerárquica de cualidades del software fue establecida por Barry Boehm en 1976.',
+          a: true,
+          explain: 'El cuadro fue confeccionado por Barry Boehm, que estableció en 1976 una lista jerárquica de cualidades de un producto de software.',
+        },
+        {
+          id: 'tf-7.3-5',
+          q: 'Cuando el cliente especifica requerimientos no funcionales, se recomienda evitar cualquier análisis costo/beneficio.',
+          a: false,
+          explain: 'Al revés: el apunte recomienda justamente llevar a cabo un análisis costo/beneficio para esos requerimientos.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-7.3-1',
+          q: '¿A qué refieren, según el apunte, los requerimientos no funcionales?',
+          options: [
+            'A funciones que el software debe ejecutar paso a paso',
+            'A restricciones impuestas por el cliente y atributos de calidad para los usuarios',
+            'A cronogramas, costos y fechas de conclusión del proyecto',
+            'Únicamente a los planes de pruebas del sistema',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte indica que los no funcionales refieren a restricciones (características impuestas por el cliente) y a atributos de calidad (propiedades relevantes para los usuarios).',
+        },
+        {
+          id: 'mc-7.3-2',
+          q: 'En un controlador de vuelo del que dependen vidas humanas, ¿qué cualidad se transforma en un requerimiento importante según el ejemplo del apunte?',
+          options: [
+            'La portabilidad',
+            'La confiabilidad',
+            'La legibilidad',
+            'La concisión',
+          ],
+          correctIndex: 1,
+          explain: 'El ejemplo del apunte señala la confiabilidad como requerimiento importante en un controlador de vuelo; la portabilidad aparece como crítica en otro caso (un juego masivo para niños).',
+        },
+        {
+          id: 'mc-7.3-3',
+          q: 'Dentro del criterio SMART, ¿qué significa que un requerimiento sea "Realizable"?',
+          options: [
+            'Que esté expresado sin ambigüedad, simple y claro',
+            'Que se pueda determinar su origen y quién lo solicitó',
+            'Que se pueda cumplir con los recursos disponibles: infraestructura, tecnología, personal, etc.',
+            'Que pueda medirse y probarse si lo cumple o no',
+          ],
+          correctIndex: 2,
+          explain: 'Realizable, según el apunte, es que se pueda cumplir con los recursos disponibles (infraestructura, tecnología, personal). Las otras opciones describen Específico, Rastreable y Medible.',
+        },
+        {
+          id: 'mc-7.3-4',
+          q: 'En la validación por escenarios, ¿qué define "la entrada"?',
+          options: [
+            'El estado del sistema y el componente que recibe el estímulo',
+            'La respuesta que provoca el estímulo y su métrica',
+            'Quién produce el estímulo y el estímulo que se produce',
+            'El análisis costo/beneficio del requerimiento',
+          ],
+          correctIndex: 2,
+          explain: 'La entrada define quién produce el estímulo y el estímulo que se produce. El estado del sistema y el componente que lo recibe son las condiciones; la respuesta y su métrica son los resultados.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-7.3-1',
+          q: '¿Cuáles de los siguientes son términos del criterio SMART tal como los define el apunte?',
+          options: [
+            'Específico',
+            'Medible',
+            'Documentado',
+            'Alcanzable',
+            'Rastreable',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'SMART es Específico, Medible, Alcanzable, Realizable y Rastreable. "Documentado" no forma parte de la sigla.',
+        },
+        {
+          id: 'ms-7.3-2',
+          q: 'En la validación por escenarios, ¿qué elementos hay que definir?',
+          options: [
+            'La entrada',
+            'Las condiciones',
+            'El presupuesto del proyecto',
+            'Los resultados',
+            'El cronograma de entrega',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+          ],
+          explain: 'El apunte indica definir la entrada (estímulo y quién lo produce), las condiciones (estado del sistema y componente que recibe el estímulo) y los resultados (respuesta y métrica). El presupuesto y el cronograma no se mencionan acá.',
+        },
+        {
+          id: 'ms-7.3-3',
+          q: '¿Qué afirmaciones del apunte sobre los requerimientos no funcionales son correctas?',
+          options: [
+            'Todos los sistemas, simples o complejos, tienen requerimientos adicionales de este tipo',
+            'Conviene especificar siempre la lista completa de cualidades de Boehm',
+            'Debe determinarse para cada situación cuáles son los requerimientos críticos, sin generalizar',
+            'Se recomienda un análisis costo/beneficio cuando se especifican',
+            'Como están en lenguaje natural, su ambigüedad es deseable y no hay que evitarla',
+          ],
+          correctIndexes: [
+            0,
+            2,
+            3,
+          ],
+          explain: 'Son correctas la 1, la 3 y la 4. No conviene especificar siempre toda la lista (depende del caso) y la ambigüedad del lenguaje natural debe evitarse, no fomentarse.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-7.3-1',
+        front: 'Requerimientos no funcionales',
+        back: 'Requerimientos adicionales que tienen todos los sistemas, simples o complejos. Refieren a restricciones impuestas por el cliente y a atributos de calidad relevantes para los usuarios.',
+      },
+      {
+        id: 'fc-7.3-2',
+        front: 'Cuadro de Boehm (1976)',
+        back: 'Lista jerárquica de cualidades presentes en un producto de software, confeccionada por Barry Boehm. Es muy completa, pero no todo sistema necesita especificar la lista entera.',
+      },
+      {
+        id: 'fc-7.3-3',
+        front: 'Criterio SMART',
+        back: 'Sigla para evaluar la correcta descripción de un requerimiento: Specific, Measurable, Attainable, Realizable, Traceable (Específico, Medible, Alcanzable, Realizable, Rastreable).',
+      },
+      {
+        id: 'fc-7.3-4',
+        front: 'Específico (Specific)',
+        back: 'El requerimiento debe estar expresado sin ambigüedad, en forma simple y clara.',
+      },
+      {
+        id: 'fc-7.3-5',
+        front: 'Realizable vs. Alcanzable',
+        back: 'Alcanzable es que sea factible llevarlo a cabo; Realizable es que se pueda cumplir con los recursos disponibles (infraestructura, tecnología, personal).',
+      },
+      {
+        id: 'fc-7.3-6',
+        front: 'Rastreable (Traceable)',
+        back: 'Se puede determinar su origen: quién lo solicitó, dónde se encuentra especificado, su diseño e implementación.',
+      },
+      {
+        id: 'fc-7.3-7',
+        front: 'Validación por escenarios',
+        back: 'Técnica para validar un requerimiento definiendo entrada (estímulo y quién lo produce), condiciones (estado del sistema y componente que recibe el estímulo) y resultados (respuesta y su métrica).',
+      },
+      {
+        id: 'fc-7.3-8',
+        front: 'Análisis costo/beneficio',
+        back: 'Se recomienda hacerlo cuando el cliente o los usuarios especifican requerimientos no funcionales.',
+      },
+      {
+        id: 'fc-7.3-9',
+        front: 'Ambigüedad de los no funcionales',
+        back: 'Como suelen expresarse en lenguaje natural, tienen alto nivel de ambigüedad, que debe evitarse para poder verificarlos.',
+      },
+    ],
+  },
+
+  // ---------- UNIDAD 7 · SECCIÓN 7.4 ----------
+  {
+    id: '7.4',
+    unit: '7',
+    title: 'Atributos de una buena especificación',
+    criollo: 'Acá viene la checklist de qué tiene que cumplir una SRS para estar bien escrita. Son como diez atributos con nombre propio: correcta, no ambigua, completa, verificable, etc. Memorizalos porque caen en parcial casi seguro, y ojo con las trampas tipo la famosa sigla de "a determinar".',
+    blocks: [
+      {
+        type: 'p',
+        text: 'A continuación se describen brevemente los atributos que debe cumplir una <strong>SRS</strong> para ser considerada <strong>bien escrita</strong>. Cada uno apunta a una propiedad distinta del documento de requerimientos.',
+      },
+      {
+        type: 'h3',
+        text: 'Correcto',
+      },
+      {
+        type: 'p',
+        text: 'Una especificación de requisitos de software es correcta <strong>si, y solo si</strong>, todos y cada uno de los requisitos indicados representa algo requerido por el sistema a construirse. No hay una herramienta que pueda garantizar la corrección, pero sí es recomendable que el <strong>cliente</strong> determine si la especificación muestra sus necesidades.',
+      },
+      {
+        type: 'h3',
+        text: 'No ambigua',
+      },
+      {
+        type: 'p',
+        text: 'Si, y solo si, cada requerimiento establecido en la especificación tiene una <strong>única interpretación</strong>. Algo a tener en cuenta es que cada término que tenga <strong>múltiples significados</strong> debe aparecer en un <strong>glosario</strong>, sobre todo porque el lenguaje natural invita a la ambigüedad.',
+      },
+      {
+        type: 'h3',
+        text: 'Completa',
+        criollo: 'Acá adentro vive la sigla de "a determinar", prestale atención.',
+      },
+      {
+        type: 'p',
+        text: 'Un documento SRS está completo <strong>si, y solo si</strong>, incluye:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Todo lo que el software tiene que hacer está en el SRS. Es una condición difícil de lograr ya que, si lo olvidamos, no lo detectaremos fácilmente.',
+          'Todas las posibles respuestas del software a todas las posibles entradas de datos deben estar definidas. Es importante especificar las respuestas tanto para datos de entrada <strong>válidos</strong> como <strong>inválidos</strong>.',
+          'Todas las páginas, figuras y tablas numeradas y referenciadas.',
+          'Ninguna sección puede contener las siglas en inglés de la frase to be determined (a determinar), que se incluyen junto a un requerimiento cuando su descripción no se encuentra completa.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'La sigla de "a determinar" (to be determined) marca un requerimiento cuya descripción está incompleta. Cuando aparece, se recomienda incluir la causa por la cual está incompleto, quién es la persona responsable de llevarlo a cabo y una fecha estipulada para cumplirse. Una SRS completa no puede tener ninguna de esas siglas suelta.',
+      },
+      {
+        type: 'h3',
+        text: 'Verificable',
+      },
+      {
+        type: 'p',
+        text: 'Un requisito es verificable <strong>si, y solo si</strong>, existe algún <strong>proceso concreto y finito</strong> en el cual una persona o máquina pueda comprobar si el software lo cumple.',
+      },
+      {
+        type: 'p',
+        text: 'En función de cómo se describe, puede ser difícil verificar el requerimiento: los requisitos <strong>ambiguos no son verificables</strong> (por ejemplo: \'el sistema debe tener una interfaz amigable\'). Lo mismo sucede cuando indican <strong>cantidades no mensurables</strong> (por ejemplo: \'el sistema usualmente no debe demorar más de 30 segundos en una consulta\') o cualquier requerimiento referente a pruebas de bloqueo (por ejemplo: \'el sistema no puede entrar en un ciclo infinito\'). Si no es posible establecer un método para comprobarlo, el requisito debe <strong>eliminarse o revisarse</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Consistente',
+      },
+      {
+        type: 'p',
+        text: 'La documentación es <strong>internamente consistente</strong> si, y solo si, no se establecen <strong>conflictos</strong> entre requisitos individuales o grupos de requisitos. Los tres tipos de conflictos posibles son:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Términos conflictivos</strong>: dos términos en distintos contextos se emplean para significar la misma cosa.',
+          '<strong>Características conflictivas</strong>: dos partes de la SRS demandan comportamientos contradictorios.',
+          '<strong>Inconsistencia temporal</strong>: dos partes del SRS demandan del producto características temporales contradictorias.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Entendible por no especialistas',
+      },
+      {
+        type: 'p',
+        text: 'Refiere a que la <strong>notación formal</strong> que se emplee debe poder ser comprendida por clientes y usuarios especialistas en todas las áreas. La idea es que sea <strong>fácil de entender</strong> para que el cliente pueda validarla.',
+      },
+      {
+        type: 'h3',
+        text: 'Modificable',
+      },
+      {
+        type: 'p',
+        text: 'Un documento de requisitos es modificable <strong>si, y solo si</strong>, su <strong>estilo y estructura</strong> permiten que puedan llevarse a cabo modificaciones en los requisitos manteniendo la estructura y el estilo, de forma fácil, completa y consistente. La modificabilidad generalmente requiere en la documentación una <strong>tabla de contenidos</strong> y un <strong>índice</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Rastreable o trazable',
+      },
+      {
+        type: 'p',
+        text: 'Un SRS es trazable si el <strong>origen</strong> de cada uno de los requerimientos es claro y facilita su referencia en las futuras etapas del desarrollo, o en las actualizaciones de la documentación. Se recomiendan los siguientes tipos de trazabilidad:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Trazabilidad hacia atrás desde los requerimientos</strong>: podemos conocer por qué cada requerimiento en el SRS existe.',
+          '<strong>Trazabilidad hacia adelante hasta los requerimientos</strong>: todos los documentos que preceden al SRS pueden referenciarse al SRS.',
+          '<strong>Trazabilidad hacia atrás hasta los requerimientos</strong>: cada comportamiento del software refiere explícitamente aquellos requerimientos que satisface.',
+          '<strong>Trazabilidad hacia adelante desde los requerimientos</strong>: podemos entender cuáles componentes del software satisfacen cada requerimiento.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Anotada',
+      },
+      {
+        type: 'p',
+        text: 'Cada requerimiento lleva una <strong>anotación</strong> que provee una guía al desarrollo. Existen básicamente dos tipos de notaciones:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Necesidad relativa</strong>: es de utilidad cuando el cliente prefiere el producto a tiempo aun cuando no estén completos los requerimientos no relevantes. Así, cada requerimiento puede ser catalogado como <strong>E</strong> (esencial), <strong>D</strong> (deseable) u <strong>O</strong> (opcional).',
+          '<strong>Estabilidad relativa</strong>: determina si el requerimiento es <strong>estable</strong> o <strong>volátil</strong>.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Truco para fijar los atributos: una buena SRS es CORRECTA y NO AMBIGUA, está COMPLETA (sin esas siglas de "a determinar" sueltas), es VERIFICABLE y CONSISTENTE, la entienden los NO ESPECIALISTAS, es MODIFICABLE, TRAZABLE y ANOTADA. Si te acordás de esos diez, tenés la pregunta.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-7.4-1',
+          q: 'Una SRS es completa solo si ninguna sección contiene las siglas que marcan un requerimiento "a determinar".',
+          a: true,
+          explain: 'Una de las condiciones de completitud es que ninguna sección contenga esas siglas, ya que indican que la descripción del requerimiento no está completa.',
+        },
+        {
+          id: 'tf-7.4-2',
+          q: 'Un requerimiento ambiguo igualmente puede ser verificable.',
+          a: false,
+          explain: 'El apunte es claro: los requisitos ambiguos no son verificables (por ejemplo, \'el sistema debe tener una interfaz amigable\'). Sin un proceso concreto y finito de comprobación, no hay verificabilidad.',
+        },
+        {
+          id: 'tf-7.4-3',
+          q: 'No existe una herramienta que pueda garantizar la corrección de una SRS, por lo que se recomienda que el cliente determine si la especificación muestra sus necesidades.',
+          a: true,
+          explain: 'Eso dice textualmente el atributo Correcto: no hay herramienta que garantice la corrección, y se recomienda que el cliente valide que la especificación refleja sus necesidades.',
+        },
+        {
+          id: 'tf-7.4-4',
+          q: 'El atributo "Modificable" generalmente requiere que la documentación tenga una tabla de contenidos y un índice.',
+          a: true,
+          explain: 'La modificabilidad depende del estilo y la estructura, y generalmente requiere en la documentación una tabla de contenidos y un índice.',
+        },
+        {
+          id: 'tf-7.4-5',
+          q: 'En la anotación por necesidad relativa, los requerimientos se catalogan como estable o volátil.',
+          a: false,
+          explain: 'Estable o volátil corresponde a la estabilidad relativa. La necesidad relativa cataloga los requerimientos como E (esencial), D (deseable) u O (opcional).',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-7.4-1',
+          q: '¿Qué se recomienda hacer cuando un término tiene múltiples significados en la especificación?',
+          options: [
+            'Eliminar el término del documento',
+            'Incluirlo en un glosario',
+            'Marcarlo como "a determinar"',
+            'Dejar que el cliente lo interprete',
+          ],
+          correctIndex: 1,
+          explain: 'El atributo No ambigua indica que cada término con múltiples significados debe aparecer en un glosario, justamente porque el lenguaje natural invita a la ambigüedad.',
+        },
+        {
+          id: 'mc-7.4-2',
+          q: '¿Cuál de los siguientes NO es uno de los tres tipos de conflictos posibles del atributo Consistente?',
+          options: [
+            'Términos conflictivos',
+            'Características conflictivas',
+            'Inconsistencia temporal',
+            'Trazabilidad conflictiva',
+          ],
+          correctIndex: 3,
+          explain: 'Los tres tipos de conflictos son términos conflictivos, características conflictivas e inconsistencia temporal. La trazabilidad pertenece a otro atributo (Rastreable o trazable).',
+        },
+        {
+          id: 'mc-7.4-3',
+          q: 'Según el atributo Completa, ¿para qué tipo de datos de entrada deben definirse las respuestas del software?',
+          options: [
+            'Solo para datos de entrada válidos',
+            'Solo para datos de entrada inválidos',
+            'Tanto para datos válidos como inválidos',
+            'Solo para los datos definidos por el cliente',
+          ],
+          correctIndex: 2,
+          explain: 'La completitud exige definir todas las posibles respuestas a todas las posibles entradas, especificando tanto los datos de entrada válidos como los inválidos.',
+        },
+        {
+          id: 'mc-7.4-4',
+          q: 'En la anotación por necesidad relativa, ¿qué significan las letras E, D y O?',
+          options: [
+            'Estable, Dinámico, Obsoleto',
+            'Esencial, Deseable, Opcional',
+            'Externo, Dependiente, Original',
+            'Estricto, Determinado, Obligatorio',
+          ],
+          correctIndex: 1,
+          explain: 'En la necesidad relativa, cada requerimiento se cataloga como E (esencial), D (deseable) u O (opcional).',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-7.4-1',
+          q: '¿Cuáles de los siguientes son atributos de una buena especificación según el apunte?',
+          options: [
+            'Correcto',
+            'No ambigua',
+            'Rentable',
+            'Verificable',
+            'Anotada',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Correcto, No ambigua, Verificable y Anotada son atributos descriptos. "Rentable" no figura entre los atributos de una buena SRS.',
+        },
+        {
+          id: 'ms-7.4-2',
+          q: '¿Cuáles condiciones debe cumplir un documento SRS para ser considerado Completo?',
+          options: [
+            'Todo lo que el software tiene que hacer está en el SRS',
+            'Las respuestas a entradas válidas e inválidas están definidas',
+            'Las páginas, figuras y tablas están numeradas y referenciadas',
+            'Ninguna sección contiene las siglas de "a determinar"',
+            'El documento tiene un índice y una tabla de contenidos',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Las cuatro primeras son las condiciones de completitud. El índice y la tabla de contenidos pertenecen al atributo Modificable, no a Completa.',
+        },
+        {
+          id: 'ms-7.4-3',
+          q: '¿Cuáles son los tipos de trazabilidad recomendados en el atributo Rastreable o trazable?',
+          options: [
+            'Trazabilidad hacia atrás desde los requerimientos',
+            'Trazabilidad hacia adelante hasta los requerimientos',
+            'Trazabilidad cruzada entre proyectos',
+            'Trazabilidad hacia atrás hasta los requerimientos',
+            'Trazabilidad hacia adelante desde los requerimientos',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Los cuatro tipos recomendados son hacia atrás desde, hacia adelante hasta, hacia atrás hasta y hacia adelante desde los requerimientos. La "trazabilidad cruzada entre proyectos" no figura en el apunte.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-7.4-1',
+        front: 'Correcto',
+        back: 'Una SRS es correcta si, y solo si, cada requisito indicado representa algo requerido por el sistema a construirse. No hay herramienta que garantice la corrección, pero se recomienda que el cliente valide que refleja sus necesidades.',
+      },
+      {
+        id: 'fc-7.4-2',
+        front: 'No ambigua',
+        back: 'Cada requerimiento tiene una única interpretación. Los términos con múltiples significados deben aparecer en un glosario, porque el lenguaje natural invita a la ambigüedad.',
+      },
+      {
+        id: 'fc-7.4-3',
+        front: 'Completa',
+        back: 'Incluye todo lo que el software hace, las respuestas a entradas válidas e inválidas, las páginas/figuras/tablas numeradas y referenciadas, y ninguna sección con las siglas de "a determinar".',
+      },
+      {
+        id: 'fc-7.4-4',
+        front: 'Siglas de "a determinar"',
+        back: 'Se incluyen junto a un requerimiento cuando su descripción no está completa. Conviene anotar la causa de lo incompleto, el responsable y una fecha estipulada. Una SRS completa no debe tenerlas.',
+      },
+      {
+        id: 'fc-7.4-5',
+        front: 'Verificable',
+        back: 'Existe un proceso concreto y finito en el que una persona o máquina puede comprobar si el software cumple el requisito. Los requisitos ambiguos o no mensurables no son verificables.',
+      },
+      {
+        id: 'fc-7.4-6',
+        front: 'Consistente',
+        back: 'No hay conflictos entre requisitos. Los tres tipos de conflicto son: términos conflictivos, características conflictivas e inconsistencia temporal.',
+      },
+      {
+        id: 'fc-7.4-7',
+        front: 'Modificable',
+        back: 'Su estilo y estructura permiten incorporar cambios de forma fácil, completa y consistente. Generalmente requiere una tabla de contenidos y un índice.',
+      },
+      {
+        id: 'fc-7.4-8',
+        front: 'Rastreable o trazable',
+        back: 'El origen de cada requerimiento es claro y facilita su referencia. Incluye trazabilidad hacia atrás y hacia adelante, tanto desde como hasta los requerimientos.',
+      },
+      {
+        id: 'fc-7.4-9',
+        front: 'Anotada',
+        back: 'Cada requerimiento lleva una anotación que guía el desarrollo. Hay dos tipos: necesidad relativa (E esencial, D deseable, O opcional) y estabilidad relativa (estable o volátil).',
+      },
+    ],
+  },
+
+  // ---------- UNIDAD 7 · SECCIÓN 7.5 ----------
+  {
+    id: '7.5',
+    unit: '7',
+    title: 'Gestión y evolución de los requerimientos',
+    criollo: 'Acá la idea es que los requerimientos no son una foto fija: hay que revisarlos seguido, que cliente y desarrolladores se hablen, y validar bien porque un error de requerimientos sale caro. Y ojo, que las cosas cambian: si la organización cambia sus objetivos, los requerimientos también, así que el SRS tiene que estar preparado para incorporar cambios sin volverse loco.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Aspectos de la gestión de requerimientos',
+        criollo: 'Revisar seguido y hablar entre todos te ahorra dolores de cabeza después.',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>revisión, en forma regular</strong>, de la definición de los requerimientos que se va realizando puede ayudar a su mejor gestión y a la <strong>detección de errores</strong>. En esta tarea van a estar involucrados tanto los <strong>desarrolladores</strong> como el <strong>cliente</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'La revisión de la especificación de requerimientos puede realizarse <strong>formalmente</strong>, es decir, cuando se cuenta con la documentación completa, o <strong>informalmente</strong> durante su producción. Mantener una <em>buena comunicación</em> entre todos los involucrados (clientes, usuarios y desarrolladores) puede ayudar a prevenir problemas en las primeras etapas del desarrollo.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Dos formas de revisar la especificación: formal (con la documentación ya completa) o informal (mientras se la está produciendo).',
+      },
+      {
+        type: 'h3',
+        text: 'Validación de los requerimientos',
+        criollo: 'Quien valida es el cliente y el usuario, porque son los que saben qué esperan del sistema.',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>validación</strong> de los requerimientos la debe realizar el <strong>cliente y los usuarios</strong> para confirmar que coincidan con los definidos para el sistema, en relación a lo que se desea o espera de él.',
+      },
+      {
+        type: 'p',
+        text: 'La validación es importante porque los <strong>costos de los errores en los requerimientos son altos</strong>, por lo cual, cuanto antes se detecten, más pronto podrán corregirse. El <em>prototipado</em> es una técnica de gran utilidad al momento de validar los requerimientos.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Pensalo así: un error de requerimientos que se cuela hasta el final te sale carísimo. Si lo cazás temprano, lo arreglás barato. Por eso validar a tiempo no es perder el rato, es ahorrar plata.',
+      },
+      {
+        type: 'h3',
+        text: 'Evolución de los requerimientos',
+        criollo: 'Los requerimientos cambian con el tiempo, así que el documento tiene que bancarse esos cambios.',
+      },
+      {
+        type: 'p',
+        text: 'Los requerimientos buscan <strong>comprender y cubrir las necesidades de los usuarios</strong>, pero, así como los objetivos de la organización pueden ir modificándose, esto puede implicar un <strong>cambio en los requerimientos</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'Es importante <strong>planear los posibles cambios o modificaciones</strong> en los requerimientos cuando se desarrolla el sistema, y mientras se lo está utilizando.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/7-evolucion-requerimientos.png',
+        alt: 'Línea de tiempo de la evolución de los requerimientos, de izquierda a derecha: "Comprensión inicial del problema" → "Requerimientos iniciales" → "Comprensión de los cambios en el problema" → "Requerimientos cambiados", con un eje "Tiempo" debajo.',
+        caption: 'Evolución de los requerimientos a lo largo del tiempo: del entendimiento inicial del problema a los requerimientos cambiados.',
+      },
+      {
+        type: 'p',
+        text: 'Todos los posibles cambios en los requerimientos deben <strong>actualizarse en el documento SRS, generando una nueva versión</strong>. Por esta razón, el documento debe ser <strong>organizado</strong> de forma tal que los cambios puedan ser incorporados <em>fácilmente</em>.',
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Si el SRS no está pensado para incorporar cambios, cada modificación se vuelve un parto. Por eso conviene armarlo desde el vamos con una estructura que aguante nuevas versiones.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-7.5-1',
+          q: 'La revisión regular de los requerimientos ayuda a su mejor gestión y a la detección de errores.',
+          a: true,
+          explain: 'El apunte indica que la revisión en forma regular de la definición de los requerimientos ayuda a su mejor gestión y a la detección de errores.',
+        },
+        {
+          id: 'tf-7.5-2',
+          q: 'La validación de los requerimientos la deben realizar exclusivamente los desarrolladores.',
+          a: false,
+          explain: 'Falso: según el apunte, la validación la deben realizar el cliente y los usuarios, para confirmar que los requerimientos coinciden con lo que se desea o espera del sistema.',
+        },
+        {
+          id: 'tf-7.5-3',
+          q: 'Los cambios en los requerimientos deben actualizarse en el documento SRS, generando una nueva versión.',
+          a: true,
+          explain: 'Verdadero: el apunte señala que todos los posibles cambios deben actualizarse en el SRS, generando una nueva versión, y que por eso el documento debe permitir incorporar cambios fácilmente.',
+        },
+        {
+          id: 'tf-7.5-4',
+          q: 'La revisión de la especificación de requerimientos solo puede hacerse de manera formal, con la documentación completa.',
+          a: false,
+          explain: 'Falso: la revisión puede realizarse formalmente (con la documentación completa) o informalmente durante su producción.',
+        },
+        {
+          id: 'tf-7.5-5',
+          q: 'Como los costos de los errores en los requerimientos son altos, conviene detectarlos cuanto antes.',
+          a: true,
+          explain: 'Verdadero: el apunte aclara que la validación es importante porque los costos de los errores son altos y, cuanto antes se detecten, más pronto podrán corregirse.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-7.5-1',
+          q: '¿Quiénes deben realizar la validación de los requerimientos según el apunte?',
+          options: [
+            'Únicamente los desarrolladores del producto',
+            'El cliente y los usuarios',
+            'Solo el líder de proyecto',
+            'Un auditor externo independiente',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte indica que la validación la deben realizar el cliente y los usuarios, para confirmar que los requerimientos coinciden con lo que se espera del sistema.',
+        },
+        {
+          id: 'mc-7.5-2',
+          q: '¿Qué técnica menciona el apunte como de gran utilidad al momento de validar los requerimientos?',
+          options: [
+            'El prototipado',
+            'La trazabilidad hacia atrás',
+            'El análisis costo/beneficio',
+            'La cuantificación dinámica',
+          ],
+          correctIndex: 0,
+          explain: 'El apunte señala explícitamente que el prototipado es una técnica de gran utilidad al momento de validar los requerimientos.',
+        },
+        {
+          id: 'mc-7.5-3',
+          q: '¿Por qué razón el documento SRS debe organizarse de forma tal que los cambios puedan incorporarse fácilmente?',
+          options: [
+            'Porque la IEEE lo exige obligatoriamente',
+            'Porque los requerimientos pueden cambiar y cada cambio genera una nueva versión del SRS',
+            'Porque reduce los costos del cronograma del proyecto',
+            'Porque elimina la necesidad de validar con el cliente',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte explica que, como los objetivos de la organización pueden cambiar, los requerimientos pueden cambiar, y cada cambio se actualiza en el SRS generando una nueva versión; por eso el documento debe permitir incorporar cambios fácilmente.',
+        },
+        {
+          id: 'mc-7.5-4',
+          q: '¿Qué ayuda a prevenir problemas en las primeras etapas del desarrollo según el apunte?',
+          options: [
+            'Aumentar la cantidad de terminales del sistema',
+            'Mantener una buena comunicación entre clientes, usuarios y desarrolladores',
+            'Eliminar la revisión informal de la especificación',
+            'Postergar la validación hasta el final del proyecto',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte indica que mantener una buena comunicación entre todos los involucrados (clientes, usuarios y desarrolladores) puede ayudar a prevenir problemas en las primeras etapas del desarrollo.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-7.5-1',
+          q: '¿Cuáles de las siguientes afirmaciones sobre la gestión de requerimientos son correctas según el apunte?',
+          options: [
+            'En la revisión de los requerimientos están involucrados los desarrolladores y el cliente',
+            'La revisión puede ser formal (con documentación completa) o informal (durante su producción)',
+            'Una buena comunicación entre los involucrados ayuda a prevenir problemas tempranos',
+            'La validación de los requerimientos la realiza únicamente los desarrolladores',
+            'La revisión regular ayuda a la mejor gestión y a la detección de errores',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            4,
+          ],
+          explain: 'Todas son fieles al apunte salvo la cuarta: la validación la realizan el cliente y los usuarios, no únicamente los desarrolladores.',
+        },
+        {
+          id: 'ms-7.5-2',
+          q: '¿Cuáles de los siguientes enunciados sobre la evolución de los requerimientos son correctos?',
+          options: [
+            'Los objetivos de la organización pueden modificarse e implicar un cambio en los requerimientos',
+            'Conviene planear los posibles cambios durante el desarrollo y mientras se usa el sistema',
+            'Los cambios en los requerimientos se actualizan en el SRS generando una nueva versión',
+            'El SRS debe organizarse para incorporar cambios fácilmente',
+            'Una vez definidos, los requerimientos no pueden volver a cambiar',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Las primeras cuatro son fieles al apunte. La última es falsa: justamente el apunte plantea que los requerimientos pueden cambiar y que el documento debe estar preparado para esos cambios.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-7.5-1',
+        front: 'Revisión regular de requerimientos',
+        back: 'La revisión periódica de la definición de los requerimientos ayuda a su mejor gestión y a la detección de errores. Participan tanto los desarrolladores como el cliente.',
+      },
+      {
+        id: 'fc-7.5-2',
+        front: 'Revisión formal vs. informal',
+        back: 'La revisión de la especificación puede ser formal, cuando se cuenta con la documentación completa, o informal, durante su producción.',
+      },
+      {
+        id: 'fc-7.5-3',
+        front: 'Validación de requerimientos',
+        back: 'La realizan el cliente y los usuarios para confirmar que los requerimientos coinciden con lo que se desea o espera del sistema.',
+      },
+      {
+        id: 'fc-7.5-4',
+        front: '¿Por qué validar es clave?',
+        back: 'Porque los costos de los errores en los requerimientos son altos; cuanto antes se detectan, más pronto pueden corregirse.',
+      },
+      {
+        id: 'fc-7.5-5',
+        front: 'Prototipado',
+        back: 'Técnica de gran utilidad al momento de validar los requerimientos.',
+      },
+      {
+        id: 'fc-7.5-6',
+        front: 'Evolución de los requerimientos',
+        back: 'Como los objetivos de la organización pueden modificarse, los requerimientos pueden cambiar. Hay que planear esos posibles cambios durante el desarrollo y mientras se usa el sistema.',
+      },
+      {
+        id: 'fc-7.5-7',
+        front: 'Cambios y versiones del SRS',
+        back: 'Todos los cambios en los requerimientos se actualizan en el documento SRS, generando una nueva versión. Por eso el documento debe organizarse para incorporar cambios fácilmente.',
+      },
+      {
+        id: 'fc-7.5-8',
+        front: 'Buena comunicación entre involucrados',
+        back: 'Mantener una buena comunicación entre clientes, usuarios y desarrolladores ayuda a prevenir problemas en las primeras etapas del desarrollo.',
+      },
+    ],
+  },
+
   // ---------- SECCIÓN 1 ----------
   {
     id: '1',
@@ -5890,6 +7302,11 @@ export default {
   },
   ],
   pdfs: [
+    {
+      key: 'modulo-7',
+      label: 'Módulo 7 — Especificación de requerimientos',
+      path: 'pdfs/introduccion-ing-software/7-especificacion-requerimientos.pdf',
+    },
     {
       key: 'modulo-8',
       label: 'Módulo 8 — Modelado de requerimientos',
