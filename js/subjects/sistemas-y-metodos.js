@@ -1,6 +1,7 @@
 /**
  * Materia: Sistemas y Métodos (UP).
- * Unidades 8.1 y 8.2 (Administración de Proyectos) y 9 (Sistemas de Información).
+ * Unidades 8.1 y 8.2 (Administración de Proyectos), 9 (Sistemas de Información)
+ * y 10 (Desarrollo de sistemas de información).
  *
  * Tipos conceptuales (ver js/content.js para Subject/Section/ContentBlock).
  */
@@ -8,12 +9,13 @@
 export default {
   id: 'sistemas-y-metodos',
   title: 'Sistemas y Métodos',
-  subtitle: 'Unidades 8 y 9 — Apuntes',
-  tagline: 'Administración de proyectos · Sistemas de información',
+  subtitle: 'Unidades 8, 9 y 10 — Apuntes',
+  tagline: 'Administración de proyectos · Sistemas de información · Desarrollo de sistemas de información',
   units: {
     '8.1': 'Fundamentos de la Administración de Proyectos',
     '8.2': 'Herramientas y procesos para la administración de proyectos',
     '9': 'Sistemas de Información',
+    '10': 'Desarrollo de sistemas de información',
   },
   sections: [
   // ---------- SECCIÓN 1 ----------
@@ -4170,6 +4172,2220 @@ export default {
       },
     ],
   },
+
+  // ---------- SECCIÓN 17 (Unidad 10) ----------
+  {
+    id: '17',
+    unit: '10',
+    title: 'Los SI en las empresas y el rol estratégico de la TI',
+    criollo: 'Acá arrancás con lo grande: por qué una empresa necesita ordenar su información y cómo los sistemas de información (SI) la ayudan a tomar mejores decisiones. La idea es que un SI no es solo software, y que la TI es la herramienta que lo hace posible. También vas a ver quiénes son los que mueven los hilos en el área de tecnología.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Por qué las empresas necesitan organizar su información',
+        criollo: 'Si la info está hecha un quilombo, el negocio opera mal. Ordenarla es el primer paso.',
+      },
+      {
+        type: 'p',
+        text: 'Las empresas necesitan <strong>organizar su información</strong> para poder operar en forma eficiente y mejorar su desempeño. Identificar los procesos que lleva a cabo el negocio, diseñarlos y optimizarlos puede marcar una <strong>diferencia competitiva</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'En este punto, los sistemas de información pueden ayudar <em>automatizando</em> actividades que se llevan a cabo en forma manual y permitiendo <em>compartir</em> esa información a los sectores de la empresa que lo requieran, en forma rápida, para agilizar la toma de decisiones. Introducir las tecnologías de la información en las organizaciones puede implicar un cambio en su funcionamiento y mejorar sus procesos.',
+      },
+      {
+        type: 'h3',
+        text: 'Qué es un sistema de información (SI)',
+        criollo: 'Ojo: un SI es mucho más que el programita. Es todo un conjunto de piezas trabajando juntas.',
+      },
+      {
+        type: 'p',
+        text: 'Un sistema de información (SI) es <strong>mucho más que solo software</strong>; es un conjunto de componentes interrelacionados que <strong>recolectan, procesan, almacenan y distribuyen</strong> información para apoyar la <em>toma de decisiones</em>, la <em>coordinación</em> y el <em>control</em> en una organización.',
+      },
+      {
+        type: 'h3',
+        text: 'Tipos de sistemas según el nivel gerencial',
+        criollo: 'Una empresa tiene varios tipos de SI, cada uno apoya decisiones de un nivel distinto. Acá van cortitos.',
+      },
+      {
+        type: 'p',
+        text: 'Una empresa puede tener diferentes tipos de sistemas que brinden apoyo a la toma de decisiones a <strong>diferentes niveles gerenciales</strong>. Nos enfocamos en estos:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>TPS</strong> (Sistemas de procesamiento de transacciones): sustituyen los procedimientos manuales por otros basados en computadoras.',
+          '<strong>MIS</strong> (Sistemas de información gerencial): proporcionan información base para las decisiones administrativas.',
+          '<strong>DSS</strong> (Sistemas de soporte a las decisiones): brindan apoyo a la toma de decisiones que no son de rutina, enfocándose en problemas únicos que cambian con rapidez.',
+          '<strong>ESS</strong> (Sistemas de apoyo a ejecutivos): ayudan al nivel superior a tomar decisiones no rutinarias que requieren juicio de valor y perspectiva, porque no se cuenta con un procedimiento acordado de antemano para la solución.',
+          '<strong>ERP</strong> (Sistemas de planificación de recursos empresariales): integran procesos de negocio, como manufactura, producción, finanzas, ventas y marketing, en un solo sistema de software.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'La comparación detallada de TPS, MIS, DSS, ESS y ERP (a qué nivel apunta cada uno y para qué sirve) ya está desarrollada en la Unidad 9. Acá solo los nombramos para ubicarlos.',
+      },
+      {
+        type: 'h3',
+        text: 'Procesos de negocio',
+        criollo: 'La base de toda empresa son sus procesos. Un SI sirve de verdad solo si los soporta, los optimiza o los transforma.',
+      },
+      {
+        type: 'p',
+        text: 'La base de toda organización son sus <strong>procesos de negocio</strong>. Estos son conjuntos de <em>actividades lógicamente relacionadas</em> que definen cómo se realizan tareas específicas para producir un producto o servicio. Un sistema de información es eficaz <strong>solo si</strong> logra soportar, optimizar o transformar estos procesos.',
+      },
+      {
+        type: 'p',
+        text: 'Ejemplo de proceso de negocio: <em>"Gestión de un pedido de venta"</em>. Fijate cómo cruza varias áreas funcionales:',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Ventas</strong>: un cliente realiza un pedido. El vendedor ingresa el pedido en el sistema.',
+          '<strong>Logística/Almacén</strong>: el sistema notifica al almacén. El personal del almacén prepara los productos.',
+          '<strong>Contabilidad</strong>: el sistema genera la factura correspondiente y la envía al cliente.',
+          '<strong>Envíos</strong>: el área de logística despacha el pedido.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Como ves, un solo pedido toca cuatro áreas. Por eso un SI integrado tipo ERP es clave: coordina todas esas actividades de manera eficiente, sin que cada sector trabaje en su propia isla.',
+      },
+      {
+        type: 'h3',
+        text: 'Infraestructura de TI',
+        criollo: 'La TI es la herramienta que habilita todo. Y no es solo el hardware: es un ecosistema completo.',
+      },
+      {
+        type: 'p',
+        text: 'La tecnología de la información (TI) es la <strong>herramienta que habilita</strong> a los sistemas de información modernos. Las tecnologías de la información les sirven a los gerentes para diseñar y ofrecer nuevos productos, y para redirigir y rediseñar las organizaciones. Su infraestructura no es solo hardware y software, sino un <strong>ecosistema</strong> que incluye:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Hardware</strong>: servidores, computadoras, dispositivos de red.',
+          '<strong>Software</strong>: sistemas operativos, sistemas de gestión de bases de datos (SGBD) y aplicaciones de negocio.',
+          '<strong>Almacenamiento de datos</strong>: bases de datos y data warehouses.',
+          '<strong>Redes y telecomunicaciones</strong>: Internet, intranets, redes locales (LAN).',
+          '<strong>Recursos humanos</strong>: el personal técnico que administra y opera toda la infraestructura (DBA, administradores de sistemas, desarrolladores).',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Tendencias actuales que están redefiniendo la infraestructura, haciéndola más flexible y escalable: la computación en la nube (cloud computing), el crecimiento de las plataformas digitales y el uso de software como servicio (SaaS).',
+      },
+      {
+        type: 'h3',
+        text: 'Roles del área de tecnología',
+        criollo: 'Detrás de los sistemas hay gente con roles bien definidos. Estos son los que aparecen en el apunte.',
+      },
+      {
+        type: 'p',
+        text: 'La infraestructura de TI está constituida por el hardware, el software, la tecnología de almacenamiento de datos, la tecnología de redes y telecomunicaciones, junto al <strong>personal que administra y opera</strong> esto. Además del <strong>CEO</strong> (Chief executive officer), máximo responsable de la organización, hay otros roles relevantes en el área de tecnología:',
+      },
+      {
+        type: 'table',
+        caption: 'Roles del área de tecnología',
+        headers: [
+          'Rol',
+          'Qué hace',
+        ],
+        rows: [
+          [
+            'Programadores',
+            'Especialistas técnicos que escriben las instrucciones de software para las computadoras.',
+          ],
+          [
+            'Analistas de sistemas',
+            'Traducen los problemas y requerimientos de negocios y sistemas de información.',
+          ],
+          [
+            'Gerentes de SI',
+            'Son líderes de equipo.',
+          ],
+          [
+            'CIO (Director de información)',
+            'Supervisa el uso de tecnología en la empresa.',
+          ],
+          [
+            'CSO o CISO (Director de seguridad de la información)',
+            'A cargo de la seguridad de los SI; responsable de implementar la política de seguridad de la información.',
+          ],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Resumen rápido: el CEO manda en toda la organización, el CIO se ocupa de la tecnología en general y el CSO/CISO es el que vela por la seguridad de la información. No los confundas en el parcial.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-17-1',
+          q: 'Un sistema de información (SI) es básicamente solo el software que usa la empresa.',
+          a: false,
+          explain: 'Falso. El apunte aclara que un SI es mucho más que solo software: es un conjunto de componentes interrelacionados que recolectan, procesan, almacenan y distribuyen información.',
+        },
+        {
+          id: 'tf-17-2',
+          q: 'Identificar, diseñar y optimizar los procesos de un negocio puede marcar una diferencia competitiva.',
+          a: true,
+          explain: 'Verdadero. Es justamente lo que plantea el apunte: trabajar sobre los procesos puede dar ventaja competitiva.',
+        },
+        {
+          id: 'tf-17-3',
+          q: 'Un sistema de información es eficaz solo si logra soportar, optimizar o transformar los procesos de negocio.',
+          a: true,
+          explain: 'Verdadero. El apunte señala que la base de toda organización son sus procesos y que un SI es eficaz solo si los soporta, optimiza o transforma.',
+        },
+        {
+          id: 'tf-17-4',
+          q: 'Los data warehouses forman parte de la categoría de redes y telecomunicaciones dentro de la infraestructura de TI.',
+          a: false,
+          explain: 'Falso. Las bases de datos y los data warehouses pertenecen a almacenamiento de datos. Redes y telecomunicaciones incluye Internet, intranets y LAN.',
+        },
+        {
+          id: 'tf-17-5',
+          q: 'El CISO es el responsable de implementar la política de seguridad de la información.',
+          a: true,
+          explain: 'Verdadero. El CSO o CISO (Director de seguridad de la información) está a cargo de la seguridad de los SI y es responsable de implementar la política de seguridad.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-17-1',
+          q: 'Según el apunte, ¿qué es un sistema de información (SI)?',
+          options: [
+            'Un programa de computadora que automatiza tareas administrativas.',
+            'Un conjunto de componentes interrelacionados que recolectan, procesan, almacenan y distribuyen información para apoyar decisiones, coordinación y control.',
+            'El hardware y las redes que conectan a la empresa con Internet.',
+            'El conjunto de roles técnicos que administran la tecnología.',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte define al SI como un conjunto de componentes interrelacionados que recolectan, procesan, almacenan y distribuyen información para apoyar la toma de decisiones, la coordinación y el control.',
+        },
+        {
+          id: 'mc-17-2',
+          q: 'En el ejemplo "Gestión de un pedido de venta", ¿en qué orden cruzan las áreas funcionales?',
+          options: [
+            'Contabilidad → Ventas → Envíos → Logística/Almacén.',
+            'Logística/Almacén → Ventas → Contabilidad → Envíos.',
+            'Ventas → Logística/Almacén → Contabilidad → Envíos.',
+            'Ventas → Contabilidad → Logística/Almacén → Envíos.',
+          ],
+          correctIndex: 2,
+          explain: 'Según el apunte: Ventas (el vendedor ingresa el pedido), Logística/Almacén (preparan los productos), Contabilidad (genera la factura) y Envíos (despachan el pedido).',
+        },
+        {
+          id: 'mc-17-3',
+          q: '¿Cuál de estos sistemas integra procesos de negocio como manufactura, finanzas, ventas y marketing en un solo software?',
+          options: [
+            'TPS',
+            'DSS',
+            'ESS',
+            'ERP',
+          ],
+          correctIndex: 3,
+          explain: 'El ERP (Sistema de planificación de recursos empresariales) integra procesos de negocio en un solo sistema de software, según el apunte.',
+        },
+        {
+          id: 'mc-17-4',
+          q: '¿Qué rol del área de tecnología supervisa el uso de tecnología en toda la empresa?',
+          options: [
+            'CIO (Director de información).',
+            'Programador.',
+            'Analista de sistemas.',
+            'CSO o CISO (Director de seguridad de la información).',
+          ],
+          correctIndex: 0,
+          explain: 'El apunte indica que el CIO (Director de información) supervisa el uso de tecnología en la empresa. El CSO/CISO se ocupa específicamente de la seguridad.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-17-1',
+          q: '¿Cuáles de los siguientes son componentes de la infraestructura de TI según el apunte?',
+          options: [
+            'Hardware (servidores, computadoras, dispositivos de red).',
+            'Software (sistemas operativos, SGBD, aplicaciones de negocio).',
+            'Almacenamiento de datos (bases de datos, data warehouses).',
+            'La diferencia competitiva del negocio.',
+            'Redes y telecomunicaciones (Internet, intranets, LAN).',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            4,
+          ],
+          explain: 'El apunte enumera hardware, software, almacenamiento de datos, redes y telecomunicaciones, y recursos humanos. La "diferencia competitiva" es un resultado de optimizar procesos, no un componente de la infraestructura.',
+        },
+        {
+          id: 'ms-17-2',
+          q: '¿Cuáles son tendencias actuales que están redefiniendo la infraestructura de TI?',
+          options: [
+            'Computación en la nube (cloud computing).',
+            'Plataformas digitales.',
+            'Software como servicio (SaaS).',
+            'Procesamiento manual de transacciones.',
+            'Entrevistas no estructuradas.',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+          ],
+          explain: 'El apunte menciona el cloud computing, el crecimiento de las plataformas digitales y el SaaS como tendencias que hacen la infraestructura más flexible y escalable. Las otras dos opciones no figuran como tendencias de infraestructura.',
+        },
+        {
+          id: 'ms-17-3',
+          q: '¿Qué acciones realiza un sistema de información, según la definición del apunte?',
+          options: [
+            'Recolecta información.',
+            'Procesa información.',
+            'Almacena información.',
+            'Distribuye información.',
+            'Elimina información obsoleta automáticamente.',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'La definición dice que un SI recolecta, procesa, almacena y distribuye información. "Eliminar información obsoleta automáticamente" no aparece en el apunte.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-17-1',
+        front: 'Sistema de información (SI)',
+        back: 'Es mucho más que solo software: un conjunto de componentes interrelacionados que recolectan, procesan, almacenan y distribuyen información para apoyar la toma de decisiones, la coordinación y el control en una organización.',
+      },
+      {
+        id: 'fc-17-2',
+        front: 'Proceso de negocio',
+        back: 'Conjunto de actividades lógicamente relacionadas que definen cómo se realizan tareas específicas para producir un producto o servicio. Un SI es eficaz solo si logra soportar, optimizar o transformar estos procesos.',
+      },
+      {
+        id: 'fc-17-3',
+        front: 'ERP',
+        back: 'Sistema de planificación de recursos empresariales. Integra procesos de negocio (manufactura, producción, finanzas, ventas, marketing) en un solo sistema de software, lo que permite coordinar actividades que cruzan varias áreas.',
+      },
+      {
+        id: 'fc-17-4',
+        front: 'Infraestructura de TI',
+        back: 'Ecosistema que incluye hardware, software, almacenamiento de datos, redes y telecomunicaciones, y los recursos humanos técnicos que la administran y operan.',
+      },
+      {
+        id: 'fc-17-5',
+        front: 'Tendencias de infraestructura',
+        back: 'Cloud computing (computación en la nube), plataformas digitales y SaaS (software como servicio) están redefiniendo la infraestructura, haciéndola más flexible y escalable.',
+      },
+      {
+        id: 'fc-17-6',
+        front: 'CIO',
+        back: 'Director de información. Supervisa el uso de tecnología en la empresa.',
+      },
+      {
+        id: 'fc-17-7',
+        front: 'CSO / CISO',
+        back: 'Director de seguridad de la información. Está a cargo de la seguridad de los sistemas de información y es responsable de implementar la política de seguridad de la información.',
+      },
+      {
+        id: 'fc-17-8',
+        front: 'Analista de sistemas',
+        back: 'Rol técnico que traduce los problemas y requerimientos de negocios y sistemas de información.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 18 (Unidad 10) ----------
+  {
+    id: '18',
+    unit: '10',
+    title: 'El ciclo de vida del desarrollo de sistemas (CVDS)',
+    criollo: 'Mirá, armar un sistema no es sentarse a tirar código y listo. Es un proceso ordenado, paso a paso, que se llama CVDS. La idea es que arranque con orden, no se te descontrole y termine cumpliendo lo que el negocio necesita. Y ojo: la fase de análisis es la posta, si la embarrás ahí el proyecto se va al tacho casi seguro.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'El desarrollo de un sistema de información <strong>no es un acto único</strong>, sino un proceso estructurado, conocido como el <strong>ciclo de vida del desarrollo de sistemas (CVDS)</strong>. Este ciclo asegura que el proyecto se realice de manera <em>ordenada, controlada</em> y cumpla con los <strong>objetivos del negocio</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Las fases principales del CVDS',
+        criollo: 'Son siete etapas, en orden. Cada una responde a una pregunta distinta.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Investigación preliminar y análisis</strong>: ¿cuál es el problema y qué se necesita?',
+          '<strong>Determinación de requerimientos</strong>: recopilar y documentar las necesidades específicas.',
+          '<strong>Diseño del sistema</strong>: ¿cómo se resolverá el problema? (creación de modelos).',
+          '<strong>Desarrollo del sistema</strong>: construcción del software.',
+          '<strong>Prueba del sistema</strong>: verificación de que el sistema funciona correctamente.',
+          '<strong>Implantación</strong>: puesta en marcha del sistema.',
+          '<strong>Mantenimiento y seguimiento</strong>: operación y mejora continua.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/10/cvds-rueda.png',
+        alt: 'Rueda dividida en seis sectores que representan las actividades del desarrollo de un sistema: Investigación preliminar y análisis, Determinación de requerimientos, Diseño del sistema, Desarrollo del sistema, Prueba del sistema e Implantación.',
+        caption: 'Actividades en el desarrollo de un sistema de información (CVDS). Fuente: elaboración propia (UP).',
+      },
+      {
+        type: 'h3',
+        text: 'Definir necesidades',
+        criollo: 'Antes de salir corriendo a construir, primero hay que tener claro qué problema estás resolviendo.',
+      },
+      {
+        type: 'p',
+        text: 'Para encarar bien el desarrollo, hay que <strong>definir las necesidades</strong>. Esto implica entender a fondo qué se quiere resolver antes de poner manos a la obra.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Definición adecuada del problema.</strong>',
+          '<strong>Entender cómo se genera</strong> el problema.',
+          '<strong>Definición de la información y acciones</strong> que lo resuelven.',
+          '<strong>Definición de la forma de obtener la información.</strong>',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'La fase de análisis es la más crítica',
+        criollo: 'Acá está la clave: si arrancás mal el análisis, no hay forma de que el proyecto termine bien.',
+      },
+      {
+        type: 'p',
+        text: 'La fase de análisis (investigación preliminar y comprensión del problema) es la <strong>más crítica</strong> de todo el ciclo. Un <em>error en el análisis</em>, casi con seguridad, conducirá al <strong>fracaso del proyecto</strong>.',
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Si la cagás en el análisis, todo lo que venga después (diseño, desarrollo, pruebas) va a estar construido sobre una base equivocada. Por eso esta fase es la que más atención merece.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Pensalo así: el CVDS es como una receta. No te salteás pasos ni los hacés en cualquier orden. Y el \'leer bien la receta\' (el análisis) es lo que te salva de hornear cualquier cosa.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-18-1',
+          q: 'El desarrollo de un sistema de información es un acto único que se resuelve de una sola vez.',
+          a: false,
+          explain: 'Falso. El apunte dice explícitamente que NO es un acto único, sino un proceso estructurado conocido como CVDS.',
+        },
+        {
+          id: 'tf-18-2',
+          q: 'El CVDS asegura que el proyecto se realice de manera ordenada, controlada y cumpla con los objetivos del negocio.',
+          a: true,
+          explain: 'Verdadero. Esa es justamente la función del ciclo de vida del desarrollo de sistemas según el apunte.',
+        },
+        {
+          id: 'tf-18-3',
+          q: 'La fase de análisis es la más crítica, y un error en ella casi con seguridad conduce al fracaso del proyecto.',
+          a: true,
+          explain: 'Verdadero. El apunte remarca que el análisis es la fase más crítica y que un error ahí conduce, casi seguro, al fracaso.',
+        },
+        {
+          id: 'tf-18-4',
+          q: 'El mantenimiento y seguimiento es la primera fase del CVDS.',
+          a: false,
+          explain: 'Falso. El mantenimiento y seguimiento es la última fase (operación y mejora continua); la primera es la investigación preliminar y análisis.',
+        },
+        {
+          id: 'tf-18-5',
+          q: 'Definir las necesidades incluye la definición adecuada del problema y entender cómo se genera.',
+          a: true,
+          explain: 'Verdadero. El apunte enumera la definición adecuada del problema y entender cómo se genera entre los puntos de definir necesidades.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-18-1',
+          q: '¿Qué pregunta responde la fase de Investigación preliminar y análisis?',
+          options: [
+            '¿Cómo se construirá el software?',
+            '¿Cuál es el problema y qué se necesita?',
+            '¿Cómo se pondrá en marcha el sistema?',
+            '¿Qué errores hay que corregir?',
+          ],
+          correctIndex: 1,
+          explain: 'Según el apunte, la investigación preliminar y análisis responde a \'¿cuál es el problema y qué se necesita?\'.',
+        },
+        {
+          id: 'mc-18-2',
+          q: 'La fase que se ocupa de \'¿cómo se resolverá el problema? (creación de modelos)\' es:',
+          options: [
+            'Determinación de requerimientos',
+            'Diseño del sistema',
+            'Desarrollo del sistema',
+            'Prueba del sistema',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte asocia el Diseño del sistema con la pregunta \'¿cómo se resolverá el problema?\' y la creación de modelos.',
+        },
+        {
+          id: 'mc-18-3',
+          q: '¿Cuál es la última fase del CVDS según el apunte?',
+          options: [
+            'Implantación',
+            'Prueba del sistema',
+            'Mantenimiento y seguimiento',
+            'Desarrollo del sistema',
+          ],
+          correctIndex: 2,
+          explain: 'La séptima y última fase es Mantenimiento y seguimiento: operación y mejora continua.',
+        },
+        {
+          id: 'mc-18-4',
+          q: 'La fase de Determinación de requerimientos consiste en:',
+          options: [
+            'Construir el software',
+            'Recopilar y documentar las necesidades específicas',
+            'Verificar que el sistema funciona',
+            'Poner en marcha el sistema',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte define la Determinación de requerimientos como recopilar y documentar las necesidades específicas.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-18-1',
+          q: '¿Cuáles de las siguientes son fases del CVDS según el apunte?',
+          options: [
+            'Investigación preliminar y análisis',
+            'Determinación de requerimientos',
+            'Normalización de datos',
+            'Prueba del sistema',
+            'Negociación contractual',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+          ],
+          explain: 'Investigación preliminar y análisis, Determinación de requerimientos y Prueba del sistema son fases del CVDS. La normalización y la negociación contractual no figuran como fases del ciclo en esta sección.',
+        },
+        {
+          id: 'ms-18-2',
+          q: '¿Qué implica \'definir las necesidades\' según el apunte?',
+          options: [
+            'Definición adecuada del problema',
+            'Entender cómo se genera el problema',
+            'Definición de la información y acciones que lo resuelven',
+            'Definición de la forma de obtener la información',
+            'Definición del presupuesto de hardware',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Los cuatro primeros puntos son los que el apunte lista para definir necesidades. El presupuesto de hardware no aparece en esa enumeración.',
+        },
+        {
+          id: 'ms-18-3',
+          q: '¿Qué afirmaciones sobre el CVDS son correctas según el apunte?',
+          options: [
+            'Es un proceso estructurado, no un acto único',
+            'Asegura que el proyecto se realice de manera ordenada y controlada',
+            'Busca cumplir con los objetivos del negocio',
+            'Se salta la fase de análisis para ir más rápido',
+            'La fase de análisis es la menos importante',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+          ],
+          explain: 'El CVDS es un proceso estructurado, ordenado y controlado, orientado a los objetivos del negocio. No se saltea el análisis (al contrario, es la fase más crítica), por lo que las dos últimas son falsas.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-18-1',
+        front: 'CVDS',
+        back: 'Ciclo de vida del desarrollo de sistemas: el proceso estructurado para desarrollar un sistema de información de manera ordenada, controlada y cumpliendo los objetivos del negocio.',
+      },
+      {
+        id: 'fc-18-2',
+        front: '¿El desarrollo es un acto único?',
+        back: 'No. El desarrollo de un sistema de información no es un acto único, sino un proceso estructurado conocido como CVDS.',
+      },
+      {
+        id: 'fc-18-3',
+        front: 'Investigación preliminar y análisis',
+        back: 'Primera fase del CVDS. Responde a la pregunta: ¿cuál es el problema y qué se necesita?',
+      },
+      {
+        id: 'fc-18-4',
+        front: 'Determinación de requerimientos',
+        back: 'Fase del CVDS en la que se recopilan y documentan las necesidades específicas.',
+      },
+      {
+        id: 'fc-18-5',
+        front: 'Diseño del sistema',
+        back: 'Fase del CVDS que responde a \'¿cómo se resolverá el problema?\' mediante la creación de modelos.',
+      },
+      {
+        id: 'fc-18-6',
+        front: 'Mantenimiento y seguimiento',
+        back: 'Última fase del CVDS: operación y mejora continua del sistema.',
+      },
+      {
+        id: 'fc-18-7',
+        front: 'Fase más crítica',
+        back: 'La fase de análisis. Un error en el análisis casi con seguridad conduce al fracaso del proyecto.',
+      },
+      {
+        id: 'fc-18-8',
+        front: 'Definir necesidades',
+        back: 'Implica definir adecuadamente el problema, entender cómo se genera, definir la información y acciones que lo resuelven, y la forma de obtener esa información.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 19 (Unidad 10) ----------
+  {
+    id: '19',
+    unit: '10',
+    title: 'Fase de análisis: técnicas de relevamiento',
+    criollo: 'Acá arranca lo bueno del análisis: antes de diseñar nada tenés que entender qué necesita la organización. El tema es que vos como analista no conocés cómo laburan ellos, y ellos no saben explicarte qué información necesitás en términos técnicos. Las técnicas de relevamiento son el puente para salvar esa brecha: entrevistas, cuestionarios, observación y revisión de registros.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Técnicas de relevamiento: ¿por qué se utilizan?',
+        criollo: 'Las usás porque hay un bache de comunicación de los dos lados.',
+      },
+      {
+        type: 'p',
+        text: 'Para entender las necesidades, el analista de sistemas debe recopilar información. Esto es vital porque <strong>los analistas no conocen los detalles de trabajo de la organización</strong>, en particular si son externos a esta; y, por el otro lado, <strong>los usuarios/clientes no saben qué información es necesaria o relevante</strong> para los analistas.',
+      },
+      {
+        type: 'p',
+        text: 'Son un medio para <em>mejorar la comunicación</em> y facilitar la colaboración entre usuarios/clientes y los analistas de sistemas, ya que existen diversas barreras que impiden lograr una comunicación eficaz entre ambos: <strong>diferentes vocabularios</strong>, <strong>choque de personalidades y caracteres</strong>.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Pensalo como un puente: de un lado el que sabe del negocio pero no de sistemas, del otro el que sabe de sistemas pero no del negocio. Las técnicas son para que se entiendan.',
+      },
+      {
+        type: 'h3',
+        text: 'Entrevistas',
+        criollo: 'Hay dos sabores: estructurada y no estructurada. Cada una sirve para un momento distinto.',
+      },
+      {
+        type: 'p',
+        text: '<strong>No estructurada:</strong> es una conversación abierta para explorar problemas y oportunidades. Es ideal para las primeras etapas, cuando todavía estás entendiendo el panorama general.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Estructurada:</strong> se utiliza una lista de preguntas predefinidas. Es útil para obtener <em>datos específicos y comparables</em> entre varios entrevistados.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Ejemplo práctico: arrancás con una entrevista no estructurada al gerente de ventas, para entender su visión general, y después seguís con entrevistas estructuradas a los vendedores, para detallar los pasos que siguen al cargar un pedido.',
+      },
+      {
+        type: 'h3',
+        text: 'Problemas en las entrevistas',
+        criollo: 'No todo es color de rosa: la entrevista tiene varias formas de salir mal.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Entrevistar a las personas equivocadas.',
+          'Entrevistar a la persona correcta, pero en el momento erróneo.',
+          'Hacer las preguntas equivocadas.',
+          'Obtener las respuestas equivocadas.',
+          'Crear fricciones con el entrevistado.',
+          'El tiempo que llevan.',
+          'No sirven para obtener gran cantidad de información.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Pautas para las entrevistas',
+        criollo: 'Para que la entrevista no sea un desastre, armá un plan global antes.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Utilizar un organigrama.',
+          'Definir a quiénes entrevistar y en qué orden.',
+          'Obtener la aprobación para realizar las entrevistas.',
+          'Programarlas con antelación.',
+          'Registrar adecuadamente la información que se releva.',
+          'Enviar un detalle de lo relevado al entrevistado.',
+          'Coordinar la próxima cita, si es necesaria.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Cuestionarios',
+        criollo: 'Cuando son muchos usuarios o están desparramados por todos lados, la entrevista no escala. Ahí entra el cuestionario.',
+      },
+      {
+        type: 'p',
+        text: '¿Cuándo conviene usar cuestionarios? En estos casos:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Cantidad de usuarios grande.',
+          'Usuarios distribuidos geográficamente.',
+          'Necesidad de cuantificar respuestas.',
+          'Anonimato de las respuestas.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'En cuanto a los <strong>medios</strong>, podés usar formularios en papel o formularios digitales.',
+      },
+      {
+        type: 'h3',
+        text: 'Cuestionarios: abiertos vs. cerrados',
+      },
+      {
+        type: 'p',
+        text: 'Los <strong>abiertos</strong> piden respuestas libres (cualitativas), con consignas del tipo: <em>describa</em>, <em>explique</em>, <em>detalle</em>. Los <strong>cerrados</strong> ofrecen opciones limitadas y son fáciles de cuantificar: <em>múltiple choice</em>, <em>sí/no</em>, <em>semáforo</em>.',
+      },
+      {
+        type: 'table',
+        caption: 'Tipos de preguntas en un cuestionario',
+        headers: [
+          'Abiertos',
+          'Cerrados',
+        ],
+        rows: [
+          [
+            'Describa',
+            'Múltiple choice',
+          ],
+          [
+            'Explique',
+            'Sí/No',
+          ],
+          [
+            'Detalle',
+            'Semáforo',
+          ],
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Cuestionarios: ventajas',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Permiten relevar un alto volumen de respuestas a bajo costo y en poco tiempo.',
+          'Eliminan la influencia del analista sobre el entrevistado.',
+          'El anonimato favorece respuestas más sinceras.',
+          'Son de uso rápido y eficiente.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Cuestionarios: desventajas',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Son impersonales.',
+          'A casi nadie le gusta contestarlos.',
+          'Tienen limitaciones en las preguntas (lo que no preguntaste, no lo averiguás).',
+          'Pueden surgir problemas de interpretación.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Ojo con la desventaja clave del cuestionario: una vez que lo mandaste, no podés repreguntar ni aclarar. Si la pregunta se entiende mal, la respuesta te va a salir mal.',
+      },
+      {
+        type: 'h3',
+        text: 'Observaciones',
+        criollo: 'A veces lo que la gente dice que hace no es lo que realmente hace. Por eso mirás cómo trabajan de verdad.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Directas:</strong> el analista adquiere la posición de observador de forma <em>planificada</em>, durante un cierto período de tiempo.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Indirectas:</strong> el analista contempla procesos y situaciones que transcurren en el momento, <em>sin haber planificado</em> dicha observación (son espontáneas).',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Efecto Hawthorne: una persona observada actúa de forma diferente, especialmente en las observaciones directas. La gente cambia su comportamiento cuando se sabe observada, y el analista tiene que tenerlo en cuenta.',
+      },
+      {
+        type: 'h3',
+        text: 'Pautas para las observaciones',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Que no interfiera en el proceso o situación observada (pasar desapercibido), salvo que el objetivo sea experimentar por uno mismo las actividades del usuario.',
+          'Que tenga en cuenta que una persona observada actúa de forma diferente (especialmente en observaciones directas).',
+          'Que elija el momento adecuado para la observación.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Revisión de registros',
+        criollo: 'Antes de molestar a nadie, fijate qué papeles, manuales y sistemas ya existen. Mucha info ya está escrita.',
+      },
+      {
+        type: 'p',
+        text: 'Consiste en analizar la documentación existente de la organización. Se puede dividir en varias categorías.',
+      },
+      {
+        type: 'table',
+        caption: 'Categorías de la revisión de registros',
+        headers: [
+          'Categoría',
+          'Qué incluye',
+        ],
+        rows: [
+          [
+            'Revisión de manuales',
+            'Manuales administrativos o de procedimiento; manuales de administración, operación e instalación de sistemas; manuales de calidad; estándares y políticas de la empresa (en especial de TI).',
+          ],
+          [
+            'Revisión de documentos',
+            'Expedientes, legajos, minutas, circulares, informes, etc.',
+          ],
+          [
+            'Revisión de comprobantes',
+            'Facturas, remitos, recibos, órdenes de compra, solicitudes, formularios.',
+          ],
+          [
+            'Revisión de reportes y gráficos',
+            'Listados y gráficos de sistemas o de confección manual.',
+          ],
+          [
+            'Revisión de sistemas actuales',
+            'Observación del sistema actual, para evaluar aspectos funcionales y no funcionales.',
+          ],
+          [
+            'Revisión de otras fuentes',
+            'Sitio web de la empresa, sitio web de la corporación, información en Internet, folletería de la empresa, artículos periodísticos, papers, libros, etc.',
+          ],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'En resumen: entrevistás para charlar cara a cara, mandás cuestionarios cuando son un montón, observás para ver qué pasa de verdad y revisás registros para no inventar la rueda. Las cuatro se complementan.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-19-1',
+          q: 'Las técnicas de relevamiento se usan, en parte, porque los analistas no siempre conocen los detalles de trabajo de la organización.',
+          a: true,
+          explain: 'El apunte lo dice explícitamente: los analistas no conocen los detalles de trabajo, sobre todo si son externos, y los usuarios no saben qué información es relevante.',
+        },
+        {
+          id: 'tf-19-2',
+          q: 'La entrevista estructurada es la ideal para las primeras etapas, cuando todavía estás explorando el panorama general.',
+          a: false,
+          explain: 'Al revés: la ideal para las primeras etapas es la no estructurada (conversación abierta). La estructurada sirve para datos específicos y comparables.',
+        },
+        {
+          id: 'tf-19-3',
+          q: 'El anonimato de los cuestionarios puede generar respuestas más sinceras.',
+          a: true,
+          explain: 'Es una de las ventajas que menciona el apunte: el anonimato favorece respuestas más sinceras.',
+        },
+        {
+          id: 'tf-19-4',
+          q: 'Según el efecto Hawthorne, una persona observada actúa exactamente igual que cuando no se siente observada.',
+          a: false,
+          explain: 'El efecto Hawthorne dice lo contrario: la persona observada actúa de forma diferente, especialmente en observaciones directas.',
+        },
+        {
+          id: 'tf-19-5',
+          q: 'La revisión de registros incluye fuentes externas como el sitio web de la empresa, papers y folletería.',
+          a: true,
+          explain: 'Dentro de la revisión de otras fuentes el apunte lista el sitio web, información en Internet, folletería, artículos periodísticos, papers y libros.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-19-1',
+          q: '¿Cuál es la barrera de comunicación que el apunte menciona entre analistas y usuarios?',
+          options: [
+            'Falta de presupuesto',
+            'Diferentes vocabularios y choque de personalidades',
+            'Distancia geográfica únicamente',
+            'Falta de hardware adecuado',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte cita como barreras los diferentes vocabularios y el choque de personalidades y caracteres.',
+        },
+        {
+          id: 'mc-19-2',
+          q: '¿Cuándo conviene usar cuestionarios en lugar de entrevistas?',
+          options: [
+            'Cuando hay pocos usuarios concentrados en un solo lugar',
+            'Cuando se necesita una conversación abierta y exploratoria',
+            'Cuando hay muchos usuarios, dispersos geográficamente, y se busca cuantificar o dar anonimato',
+            'Cuando el analista quiere experimentar por sí mismo las tareas del usuario',
+          ],
+          correctIndex: 2,
+          explain: 'El cuestionario se usa con cantidad grande de usuarios, distribución geográfica, necesidad de cuantificar respuestas y anonimato.',
+        },
+        {
+          id: 'mc-19-3',
+          q: 'En el ejemplo práctico del apunte, ¿en qué orden se hacen las entrevistas?',
+          options: [
+            'Estructurada al gerente y luego no estructurada a los vendedores',
+            'No estructurada al gerente de ventas y luego estructurada a los vendedores',
+            'Solo cuestionarios a todos por igual',
+            'Observación directa primero y entrevistas después',
+          ],
+          correctIndex: 1,
+          explain: 'El ejemplo arranca con una no estructurada al gerente (visión general) y sigue con estructuradas a los vendedores (detalle de los pasos al cargar un pedido).',
+        },
+        {
+          id: 'mc-19-4',
+          q: '¿Cuál de estos es un tipo de pregunta CERRADA según el apunte?',
+          options: [
+            'Describa',
+            'Explique',
+            'Detalle',
+            'Semáforo',
+          ],
+          correctIndex: 3,
+          explain: 'Describa, explique y detalle son consignas de preguntas abiertas. Semáforo (junto con múltiple choice y sí/no) es una pregunta cerrada.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-19-1',
+          q: '¿Cuáles de los siguientes son problemas de las entrevistas según el apunte?',
+          options: [
+            'Entrevistar a las personas equivocadas',
+            'El tiempo que llevan',
+            'Permiten el anonimato',
+            'Crear fricciones con el entrevistado',
+            'No sirven para obtener gran cantidad de información',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'El anonimato es una ventaja de los cuestionarios, no un problema de las entrevistas. Las otras cuatro están en la lista de problemas.',
+        },
+        {
+          id: 'ms-19-2',
+          q: '¿Cuáles son ventajas de los cuestionarios?',
+          options: [
+            'Alto volumen a bajo costo y poco tiempo',
+            'Eliminan la influencia del analista sobre el entrevistado',
+            'Son muy personales y cálidos',
+            'El anonimato favorece respuestas sinceras',
+            'Uso rápido y eficiente',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Que sean impersonales es una desventaja, no una ventaja. Las otras cuatro son ventajas que lista el apunte.',
+        },
+        {
+          id: 'ms-19-3',
+          q: '¿Cuáles de estas son pautas para realizar entrevistas?',
+          options: [
+            'Utilizar un organigrama',
+            'Obtener la aprobación para realizar las entrevistas',
+            'Mandar el cuestionario por correo',
+            'Programarlas con antelación',
+            'Enviar un detalle de lo relevado al entrevistado',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Mandar un cuestionario es otra técnica distinta. Las demás (organigrama, aprobación, programar con antelación y enviar detalle) son pautas del plan global de entrevistas.',
+        },
+        {
+          id: 'ms-19-4',
+          q: '¿Cuáles de estas categorías pertenecen a la revisión de registros?',
+          options: [
+            'Revisión de manuales',
+            'Revisión de comprobantes',
+            'Efecto Hawthorne',
+            'Revisión de reportes y gráficos',
+            'Revisión de otras fuentes',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'El efecto Hawthorne pertenece a las observaciones, no a la revisión de registros. Las otras cuatro son categorías de revisión de registros.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-19-1',
+        front: 'Para qué sirven las técnicas de relevamiento',
+        back: 'Son un medio para mejorar la comunicación entre usuarios y analistas, salvando barreras como los diferentes vocabularios y el choque de personalidades, porque ninguno conoce del todo el mundo del otro.',
+      },
+      {
+        id: 'fc-19-2',
+        front: 'Entrevista no estructurada',
+        back: 'Es una conversación abierta para explorar problemas y oportunidades. Es ideal para las primeras etapas del relevamiento.',
+      },
+      {
+        id: 'fc-19-3',
+        front: 'Entrevista estructurada',
+        back: 'Usa una lista de preguntas predefinidas. Sirve para obtener datos específicos y comparables entre varios entrevistados.',
+      },
+      {
+        id: 'fc-19-4',
+        front: 'Cuándo usar cuestionarios',
+        back: 'Cuando hay muchos usuarios, están dispersos geográficamente, se necesita cuantificar las respuestas o se busca el anonimato.',
+      },
+      {
+        id: 'fc-19-5',
+        front: 'Preguntas abiertas vs. cerradas',
+        back: 'Las abiertas piden respuestas libres (describa, explique, detalle). Las cerradas ofrecen opciones limitadas y fáciles de cuantificar (múltiple choice, sí/no, semáforo).',
+      },
+      {
+        id: 'fc-19-6',
+        front: 'Observación directa e indirecta',
+        back: 'La directa la hace el analista de forma planificada durante un período. La indirecta es espontánea: observa procesos que transcurren en el momento sin haberlo planificado.',
+      },
+      {
+        id: 'fc-19-7',
+        front: 'Efecto Hawthorne',
+        back: 'Las personas cambian su comportamiento cuando saben que están siendo observadas, sobre todo en las observaciones directas. El analista debe tenerlo en cuenta.',
+      },
+      {
+        id: 'fc-19-8',
+        front: 'Revisión de registros',
+        back: 'Es el análisis de documentación existente: manuales, documentos, comprobantes, reportes y gráficos, sistemas actuales y otras fuentes como sitios web, Internet o papers.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 20 (Unidad 10) ----------
+  {
+    id: '20',
+    unit: '10',
+    title: 'Modelos lógico y físico, y fase de diseño',
+    criollo: 'Acá la idea es que primero modelás QUÉ va a hacer el sistema (modelo lógico, el plano arquitectónico) y después CÓMO se construye (modelo físico, los planos de ingeniería). Después entramos a la fase de diseño, que aterriza todo eso en especificaciones concretas, con foco en la base de datos y la normalización. Tranqui que el ejemplo de los pedidos te lo desgloso paso a paso.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Creación de modelos: lógico y físico',
+        criollo: 'Una vez que relevaste la info, tenés que modelar la solución. Y ojo, hay que distinguir bien entre lo lógico y lo físico.',
+      },
+      {
+        type: 'p',
+        text: 'Una vez recopilada la información, el analista debe modelar la solución. Es fundamental distinguir entre el <strong>modelo lógico</strong> y el <strong>modelo físico</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Modelo lógico',
+        criollo: 'El QUÉ, sin meterte todavía en tecnología.',
+      },
+      {
+        type: 'p',
+        text: 'Su objetivo es <strong>representar la solución conceptualmente</strong>, describiendo <em>qué</em> hará el sistema, sin importar cómo se implementará tecnológicamente. Es un <strong>lenguaje común</strong> entre el usuario y el analista.',
+      },
+      {
+        type: 'p',
+        text: 'El modelo lógico define:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Flujos de información</strong>: de dónde viene y a dónde va.',
+          '<strong>Procesos</strong>: qué transformaciones sufre la información.',
+          '<strong>Almacenes de datos</strong>: qué información se debe guardar.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Analogía: el modelo lógico es el plano arquitectónico de una casa. Muestra las habitaciones, sus tamaños y cómo se conectan, pero no especifica el tipo de ladrillos o cables a usar.',
+      },
+      {
+        type: 'h3',
+        text: 'Modelo físico',
+        criollo: 'El CÓMO, ya bajando a la tecnología real y sus limitaciones.',
+      },
+      {
+        type: 'p',
+        text: 'Su objetivo es <strong>traducir el modelo lógico en especificaciones técnicas detalladas</strong>. Describe <em>cómo</em> se construirá el sistema, considerando las limitaciones de hardware, software y tecnología.',
+      },
+      {
+        type: 'p',
+        text: 'El modelo físico define:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Diseño de la interfaz</strong>: cómo serán las pantallas y los reportes.',
+          '<strong>Diseño de la base de datos</strong>: las tablas, campos, tipos de datos y relaciones.',
+          '<strong>Especificaciones de procesos</strong>: la lógica de programación, los algoritmos.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Analogía: el modelo físico son los planos de construcción e ingeniería. Detallan el tipo de cimientos, el calibre del cableado eléctrico, el material de las tuberías, etc.',
+      },
+      {
+        type: 'h3',
+        text: 'Fase de diseño: construyendo la solución',
+        criollo: 'Acá los modelos se refinan hasta tener especificaciones completas. Una pata clave es el diseño de la base de datos.',
+      },
+      {
+        type: 'p',
+        text: 'En esta fase, los modelos se refinan para crear especificaciones completas. Su objetivo es la <strong>construcción del sistema de información</strong>, de acuerdo con el diseño lógico y el diseño físico definidos en las etapas anteriores. Un área clave es el diseño de la base de datos.',
+      },
+      {
+        type: 'h3',
+        text: 'Objetivo del diseño',
+        criollo: 'Estos son los objetivos que el diseño tiene que cumplir sí o sí.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Especificar los elementos del diseño lógico</strong>: especificaciones detalladas de diseño que describen las características de un sistema: entrada, salida, archivos, BBDD y procedimientos.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Actividades de soporte para la empresa</strong>:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Los resultados del empleo del sistema serán útiles para mejorar el desempeño de la empresa.',
+          'El diseño debe ajustarse a la forma en la que la compañía conduce las actividades.',
+          'La tecnología es secundaria respecto al resultado de uso.',
+        ],
+      },
+      {
+        type: 'p',
+        text: '<strong>Satisfacer los requerimientos de los usuarios</strong>:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Efectuar en forma correcta los procedimientos apropiados.',
+          'Presentar en forma apropiada la información.',
+          'Proporcionar resultados exactos.',
+          'Utilizar los métodos de interacción apropiados.',
+          'Proporcionar confiabilidad total.',
+        ],
+      },
+      {
+        type: 'p',
+        text: '<strong>Fácil de usar</strong>: ingeniería de usabilidad. El diseño ergonómico debe ser físicamente cómodo y contribuir a la efectividad y eficiencia del usuario.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Proporcionar las especificaciones del software</strong>: especificar los componentes y funciones, con suficiente detalle, para construir el software de aplicación.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Ajustarse a los estándares de diseño</strong>: el diseño y su especificación deben estar en concordancia con las reglas y prácticas establecidas por la organización.',
+      },
+      {
+        type: 'h3',
+        text: 'Análisis de hechos',
+        criollo: 'Cuatro aspectos que mirás del sistema actual, cada uno con su estrategia de diseño.',
+      },
+      {
+        type: 'table',
+        caption: 'Aspectos del análisis de hechos y su estrategia de diseño',
+        headers: [
+          'Aspecto',
+          'Descripción',
+          'Estrategia de diseño',
+        ],
+        rows: [
+          [
+            'Capacidad',
+            'Capacidad del sistema existente.',
+            'Aumentar la capacidad / Reducir las expectativas / Volver a definir la naturaleza de la tarea.',
+          ],
+          [
+            'Control',
+            'Mecanismos para aumentar la probabilidad de que las actividades se lleven a cabo en forma apropiada.',
+            'Diseño para evitar fallas de control / Detección y notificación de fallas / Detección y corrección de fallas.',
+          ],
+          [
+            'Accesibilidad de la información',
+            'Disponibilidad de la información en un formato útil para alcanzar un objetivo.',
+            'Eliminar la necesidad de la información / Facilitar el acceso / Eliminar la necesidad de procesamiento / Cambiar el método de presentación.',
+          ],
+          [
+            'Complejidad',
+            'Número grande de tareas o interrelaciones que traen como consecuencia un rendimiento inaceptable. Conduce a problemas en los tres anteriores.',
+            'Simplificar / Dividir / Cambiar la secuencia de actividades.',
+          ],
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Elementos del diseño',
+        criollo: 'Las piezas que el diseño tiene que dejar definidas: por dónde fluyen los datos, dónde se guardan, qué procesos y controles hay y quién hace qué.',
+      },
+      {
+        type: 'p',
+        text: 'El diseño debe especificar los siguientes elementos:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Flujo de datos.',
+          'Almacenes de datos.',
+          'Procesos.',
+          'Procedimientos.',
+          'Controles.',
+          'Funciones del personal.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Almacenamiento',
+        criollo: 'Cómo se piensa el guardado de datos: clave, entidad, archivo y base de datos. Y los tipos de archivo.',
+      },
+      {
+        type: 'p',
+        text: 'Los conceptos base del almacenamiento son: <strong>clave</strong>, <strong>entidad</strong>, <strong>archivo</strong> y <strong>base de datos</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'Tipos de archivos:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Maestros</strong>.',
+          '<strong>Transacciones</strong>.',
+          '<strong>Reportes</strong>.',
+          '<strong>Resguardo</strong>.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Sobre el diseño de interacciones con la BBDD, el apunte indica: evaluar la conveniencia de la solicitud del analista, describir los métodos para interactuar con la BBDD y asegurar la integridad de los datos.',
+      },
+      {
+        type: 'h3',
+        text: 'Normalización',
+        criollo: 'Es el proceso formal para diseñar bases relacionales sin redundancia y con buena integridad. Te lo muestro con el ejemplo de los pedidos.',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>normalización</strong> es un proceso formal para diseñar bases de datos relacionales, con el objetivo de <strong>reducir la redundancia de datos y mejorar su integridad</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'Razones para normalizar:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Estructurar los datos, de forma que se puedan representar las relaciones.',
+          'Permitir la recuperación sencilla de los datos.',
+          'Simplificar el mantenimiento de los datos.',
+          'Reducir la necesidad de reestructuración.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Ejemplo práctico de normalización',
+        criollo: 'Partimos de una tabla de pedidos que mezcla todo. La vamos separando forma normal por forma normal.',
+      },
+      {
+        type: 'p',
+        text: 'Imaginemos una tabla simple para registrar pedidos:',
+      },
+      {
+        type: 'table',
+        caption: 'Tabla de pedidos sin normalizar',
+        headers: [
+          'PedidoID',
+          'Fecha',
+          'ClienteID',
+          'Nombre cliente',
+          'ProductoID',
+          'Nombre producto',
+          'Cantidad',
+          'Precio unitario',
+        ],
+        rows: [
+          [
+            '101',
+            '01/10/25',
+            'C01',
+            'Juan Pérez',
+            'P55',
+            'Teclado',
+            '2',
+            '1500',
+          ],
+          [
+            '101',
+            '01/10/25',
+            'C01',
+            'Juan Pérez',
+            'P62',
+            'Mouse',
+            '2',
+            '800',
+          ],
+          [
+            '102',
+            '02/10/25',
+            'C05',
+            'Ana López',
+            'P55',
+            'Teclado',
+            '1',
+            '1500',
+          ],
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Esta tabla tiene problemas: si Juan Pérez cambia su nombre, hay que actualizarlo en <strong>múltiples filas</strong>. Si borramos el pedido 102, <strong>perdemos la información</strong> de que el producto P55 es un \'Teclado\'.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Primera forma normal (1FN)</strong>: la tabla ya es <em>bidimensional</em> y no tiene grupos repetitivos, por lo que cumple 1FN.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Segunda forma normal (2FN)</strong>: elimina <strong>dependencias parciales</strong>. Los datos que no dependen de la clave completa se mueven a otra tabla. La clave aquí es (PedidoID, ProductoID).',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Problema: Fecha, ClienteID y NombreCliente dependen solo de PedidoID, no de la clave completa.',
+          'Solución: dividimos las tablas. Tabla pedidos: PedidoID (PK), Fecha, ClienteID, NombreCliente. Tabla detalle pedido: PedidoID (FK), ProductoID (FK), Cantidad.',
+        ],
+      },
+      {
+        type: 'p',
+        text: '<strong>Tercera forma normal (3FN)</strong>: elimina <strong>dependencias transitivas</strong>.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Problema: en la nueva tabla Pedidos, NombreCliente depende de ClienteID, que a su vez depende de PedidoID. Esto es una dependencia transitiva.',
+          'Solución: volvemos a dividir. Tabla clientes: ClienteID (PK), NombreCliente. Tabla productos: ProductoID (PK), NombreProducto, PrecioUnitario. Tabla pedidos: PedidoID (PK), Fecha, ClienteID (FK). Tabla detalle pedido: PedidoID (FK), ProductoID (FK), Cantidad.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Listo: ahora los datos están organizados, sin redundancia, y son mucho más fáciles de mantener. Cada cosa vive en su tabla y se relaciona por las claves.',
+      },
+      {
+        type: 'table',
+        caption: 'Resumen de las formas normales',
+        headers: [
+          'Forma normal',
+          'Qué hace',
+        ],
+        rows: [
+          [
+            'Primera forma normal (1FN)',
+            'Cambiar todas las estructuras que no sean bidimensionales (sin grupos repetitivos).',
+          ],
+          [
+            'Segunda forma normal (2FN)',
+            'Eliminar los datos que no dependan de las claves de los registros (dependencias parciales).',
+          ],
+          [
+            'Tercera forma normal (3FN)',
+            'Eliminar los datos que dependan transitivamente de las claves primarias (dependencias transitivas).',
+          ],
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-20-1',
+          q: 'El modelo lógico describe cómo se construirá el sistema, detallando hardware, pantallas y algoritmos.',
+          a: false,
+          explain: 'Falso. Eso es el modelo físico. El modelo lógico representa la solución conceptualmente, describiendo qué hará el sistema sin importar cómo se implementa tecnológicamente.',
+        },
+        {
+          id: 'tf-20-2',
+          q: 'La analogía del apunte compara el modelo lógico con el plano arquitectónico de una casa.',
+          a: true,
+          explain: 'Verdadero. El modelo lógico es el plano arquitectónico: muestra habitaciones, tamaños y conexiones, pero no el tipo de ladrillos ni cables.',
+        },
+        {
+          id: 'tf-20-3',
+          q: 'Según el objetivo del diseño, la tecnología es secundaria respecto al resultado de uso.',
+          a: true,
+          explain: 'Verdadero. Dentro de las actividades de soporte para la empresa, el apunte dice explícitamente que la tecnología es secundaria respecto al resultado de uso.',
+        },
+        {
+          id: 'tf-20-4',
+          q: 'La normalización busca aumentar la redundancia de datos para tener copias de seguridad en cada tabla.',
+          a: false,
+          explain: 'Falso. La normalización busca reducir la redundancia de datos y mejorar su integridad, no aumentarla.',
+        },
+        {
+          id: 'tf-20-5',
+          q: 'En el ejemplo, la tabla original ya cumple la primera forma normal (1FN) porque es bidimensional y no tiene grupos repetitivos.',
+          a: true,
+          explain: 'Verdadero. El apunte aclara que la tabla ya es bidimensional y sin grupos repetitivos, por lo que cumple 1FN.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-20-1',
+          q: '¿Qué define el modelo físico según el apunte?',
+          options: [
+            'Flujos de información, procesos y almacenes de datos.',
+            'Diseño de la interfaz, diseño de la base de datos y especificaciones de procesos.',
+            'Solo las técnicas de relevamiento como entrevistas y cuestionarios.',
+            'Las razones para normalizar una base de datos relacional.',
+          ],
+          correctIndex: 1,
+          explain: 'El modelo físico define el diseño de la interfaz (pantallas y reportes), el diseño de la base de datos (tablas, campos, tipos, relaciones) y las especificaciones de procesos (lógica de programación, algoritmos). Los flujos, procesos y almacenes son del modelo lógico.',
+        },
+        {
+          id: 'mc-20-2',
+          q: '¿Qué elimina la segunda forma normal (2FN)?',
+          options: [
+            'Las dependencias transitivas.',
+            'Los grupos repetitivos.',
+            'Las dependencias parciales.',
+            'Las claves primarias duplicadas.',
+          ],
+          correctIndex: 2,
+          explain: 'La 2FN elimina las dependencias parciales: mueve a otra tabla los datos que no dependen de la clave completa. Las transitivas las elimina la 3FN.',
+        },
+        {
+          id: 'mc-20-3',
+          q: 'En el ejemplo de normalización, ¿por qué Fecha, ClienteID y NombreCliente se separan al aplicar 2FN?',
+          options: [
+            'Porque dependen transitivamente de la clave primaria.',
+            'Porque dependen solo de PedidoID, no de la clave completa (PedidoID, ProductoID).',
+            'Porque son grupos repetitivos que rompen la 1FN.',
+            'Porque son claves foráneas hacia la tabla productos.',
+          ],
+          correctIndex: 1,
+          explain: 'La clave es (PedidoID, ProductoID). Fecha, ClienteID y NombreCliente dependen solo de PedidoID, es decir de una parte de la clave: eso es una dependencia parcial, que la 2FN elimina.',
+        },
+        {
+          id: 'mc-20-4',
+          q: 'Según el aspecto \'Complejidad\' del análisis de hechos, ¿cuáles son sus estrategias de diseño?',
+          options: [
+            'Aumentar la capacidad, reducir las expectativas, redefinir la tarea.',
+            'Eliminar la necesidad de la información, facilitar el acceso, cambiar la presentación.',
+            'Simplificar, dividir, cambiar la secuencia de actividades.',
+            'Detección, notificación y corrección de fallas de control.',
+          ],
+          correctIndex: 2,
+          explain: 'Para la Complejidad (número grande de tareas o interrelaciones con rendimiento inaceptable), las estrategias son simplificar, dividir y cambiar la secuencia de actividades. Las otras opciones corresponden a Capacidad, Accesibilidad y Control respectivamente.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-20-1',
+          q: '¿Cuáles de los siguientes son objetivos del diseño según el apunte?',
+          options: [
+            'Especificar los elementos del diseño lógico (entrada, salida, archivos, BBDD, procedimientos).',
+            'Que sea fácil de usar (ingeniería de usabilidad y ergonomía).',
+            'Maximizar la cantidad de tablas para guardar más copias de los datos.',
+            'Ajustarse a los estándares de diseño de la organización.',
+            'Proporcionar las especificaciones del software con suficiente detalle.',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Son objetivos del diseño: especificar los elementos del diseño lógico, ser fácil de usar, soportar a la empresa, satisfacer requerimientos de usuarios, proporcionar las especificaciones del software y ajustarse a los estándares. Maximizar tablas para copiar datos contradice la normalización, que busca reducir redundancia.',
+        },
+        {
+          id: 'ms-20-2',
+          q: '¿Cuáles son razones para normalizar una base de datos, según el apunte?',
+          options: [
+            'Estructurar los datos para representar las relaciones.',
+            'Permitir la recuperación sencilla de los datos.',
+            'Simplificar el mantenimiento de los datos.',
+            'Reducir la necesidad de reestructuración.',
+            'Aumentar la redundancia para acelerar las consultas.',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Las razones son: estructurar datos para representar relaciones, recuperación sencilla, simplificar el mantenimiento y reducir la necesidad de reestructuración. Aumentar la redundancia es justo lo contrario al objetivo de la normalización.',
+        },
+        {
+          id: 'ms-20-3',
+          q: '¿Cuáles de estos son tipos de archivos mencionados en Almacenamiento?',
+          options: [
+            'Maestros.',
+            'Transacciones.',
+            'Reportes.',
+            'Resguardo.',
+            'Transitivos.',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Los tipos de archivos son maestros, de transacciones, reportes y resguardo. \'Transitivos\' no es un tipo de archivo; lo transitivo aparece en las dependencias de la 3FN.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-20-1',
+        front: 'Modelo lógico',
+        back: 'Representa la solución conceptualmente: describe qué hará el sistema sin importar cómo se implementa. Define flujos de información, procesos y almacenes de datos. Es el plano arquitectónico de la casa.',
+      },
+      {
+        id: 'fc-20-2',
+        front: 'Modelo físico',
+        back: 'Traduce el modelo lógico en especificaciones técnicas detalladas: cómo se construye el sistema con sus limitaciones de hardware y software. Define interfaz, base de datos y especificaciones de procesos. Son los planos de construcción e ingeniería.',
+      },
+      {
+        id: 'fc-20-3',
+        front: 'Objetivo del diseño',
+        back: 'Especificar los elementos del diseño lógico (entrada, salida, archivos, BBDD, procedimientos), soportar a la empresa, satisfacer requerimientos de usuarios, ser fácil de usar, dar las especificaciones del software y ajustarse a los estándares.',
+      },
+      {
+        id: 'fc-20-4',
+        front: 'Normalización',
+        back: 'Proceso formal para diseñar bases de datos relacionales, con el objetivo de reducir la redundancia de datos y mejorar su integridad.',
+      },
+      {
+        id: 'fc-20-5',
+        front: 'Primera forma normal (1FN)',
+        back: 'Cambiar todas las estructuras que no sean bidimensionales: la tabla queda bidimensional y sin grupos repetitivos.',
+      },
+      {
+        id: 'fc-20-6',
+        front: 'Segunda forma normal (2FN)',
+        back: 'Elimina las dependencias parciales: los datos que no dependen de la clave completa se mueven a otra tabla. En el ejemplo separa pedidos de detalle de pedido.',
+      },
+      {
+        id: 'fc-20-7',
+        front: 'Tercera forma normal (3FN)',
+        back: 'Elimina las dependencias transitivas: los datos que dependen transitivamente de la clave primaria se separan. En el ejemplo crea las tablas clientes y productos.',
+      },
+      {
+        id: 'fc-20-8',
+        front: 'Tipos de archivos',
+        back: 'En el almacenamiento se distinguen archivos maestros, de transacciones, reportes y de resguardo.',
+      },
+      {
+        id: 'fc-20-9',
+        front: 'Análisis de hechos: aspectos',
+        back: 'Cuatro aspectos con su estrategia de diseño: capacidad, control, accesibilidad de la información y complejidad. La complejidad conduce a problemas en los otros tres.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 21 (Unidad 10) ----------
+  {
+    id: '21',
+    unit: '10',
+    title: 'Fases de prueba e implementación',
+    criollo: 'Acá ves cómo se prueba un sistema antes de soltarlo y cómo se pone en marcha sin romper todo. Distinguís White box (mirás el código por dentro) de Black box (mirás resultados sin ver el código), las pruebas especiales y las estrategias para pasar del sistema viejo al nuevo. La idea es que entiendas qué arriesgás según cómo hagas la conversión.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'Probar es fundamental para garantizar la calidad. Una vez probado, viene la puesta en marcha, que es la estrategia con la que lanzás el nuevo sistema en la organización.',
+      },
+      {
+        type: 'h3',
+        text: 'Estrategias de prueba',
+        criollo: 'Dos enfoques clásicos: uno mira el código por dentro, el otro mira los resultados desde afuera.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Prueba de código (White box)</strong>: el programador examina la lógica interna del código, para asegurarse de que cada rama y bucle funcione como se espera. Examina la lógica del programa.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Prueba de especificación (Black box)</strong>: el tester verifica los resultados del sistema, <em>sin conocer el código interno</em>. Se enfoca en si el sistema cumple con los requerimientos funcionales, examinando los resultados según la condición o conjunto de condiciones.',
+      },
+      {
+        type: 'h3',
+        text: 'Pruebas especiales',
+        criollo: 'El apunte lista seis tipos, cada uno apuntando a un aspecto distinto del sistema.',
+      },
+      {
+        type: 'table',
+        caption: 'Seis tipos diferentes de pruebas para un sistema',
+        headers: [
+          'Tipo de prueba',
+          'Descripción',
+        ],
+        rows: [
+          [
+            'De carga máxima',
+            'Probar si el sistema soporta el volumen de procesamiento en el nivel más alto de demanda.',
+          ],
+          [
+            'De almacenamiento',
+            'Testear la capacidad de almacenar la información.',
+          ],
+          [
+            'De tiempo de ejecución',
+            'Tiempo de respuesta en el momento de mayor carga.',
+          ],
+          [
+            'De recuperación',
+            'Prueba de backups o de reinicio.',
+          ],
+          [
+            'De procedimientos',
+            'Probar la documentación.',
+          ],
+          [
+            'De factores humanos',
+            'Prueba de usabilidad.',
+          ],
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Puesta en marcha (Implementación)',
+        criollo: 'Cuatro estrategias de conversión para pasar del sistema viejo al nuevo. Elegís según cuánto riesgo y cuánta plata podés bancar.',
+      },
+      {
+        type: 'p',
+        text: 'Existen diferentes estrategias para lanzar el nuevo sistema:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>En paralelo</strong>: el sistema viejo y el nuevo funcionan a la vez, durante un período. Es la <em>más segura</em>, pero la más costosa.',
+          '<strong>Gradual (o por fases)</strong>: se implementa el nuevo sistema por módulos o departamentos.',
+          '<strong>Piloto</strong>: se implementa el sistema completo en una pequeña parte de la organización. Si funciona, se expande al resto.',
+          '<strong>Abrupta (o Big bang)</strong>: se apaga el sistema viejo y se enciende el nuevo en una fecha determinada. Es la <em>más riesgosa</em> pero la más rápida.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Ojo con el tradeoff: la conversión en paralelo es la más segura pero la más costosa, mientras que la abrupta (Big bang) es la más rápida pero la más riesgosa.',
+      },
+      {
+        type: 'h3',
+        text: 'Implementación: preimplementación y puesta en marcha',
+        criollo: 'El apunte divide la implementación en dos momentos: lo que hacés antes de arrancar y lo que hacés al lanzar.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Preimplementación</strong>: incluye las tareas previas a lanzar el sistema.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Planificar la implementación y la puesta en marcha.',
+          'Efectuar las pruebas de los usuarios y de QA.',
+          'Desarrollar documentación para usuarios y operadores.',
+          'Capacitar a supervisores y operadores.',
+        ],
+      },
+      {
+        type: 'p',
+        text: '<strong>Puesta en marcha</strong>: las tareas de lanzar el sistema propiamente dicho.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Finalizar con la conversión de HW y SF (en paralelo, gradual, por piloto, abrupta).',
+          'Poner en marcha el sistema.',
+          'Completar la documentación del sistema.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'La etapa de implementación abarca planificación y puesta en marcha (con UAT y control de calidad), documentación (manual de usuario y manual de operaciones), capacitación a usuarios, supervisores y operadores, el documento de aprobación final, la tarea de conversión de archivos, el entorno de producción y la instalación.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Resumiendo: White box mira el código por dentro, Black box mira resultados desde afuera. Para lanzar, en paralelo es lo seguro y caro, Big bang es lo rápido y arriesgado. Y nunca arranques sin capacitar y documentar antes.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-21-1',
+          q: 'En la prueba White box el programador examina la lógica interna del código, revisando que cada rama y bucle funcione como se espera.',
+          a: true,
+          explain: 'Correcto. La prueba de código (White box) examina la lógica del programa, verificando cada rama y bucle.',
+        },
+        {
+          id: 'tf-21-2',
+          q: 'En la prueba Black box (de especificación) el tester conoce y revisa el código interno del sistema.',
+          a: false,
+          explain: 'Falso. En Black box el tester verifica los resultados sin conocer el código interno; se enfoca en los requerimientos funcionales.',
+        },
+        {
+          id: 'tf-21-3',
+          q: 'La conversión en paralelo es la estrategia más segura pero la más costosa.',
+          a: true,
+          explain: 'Verdadero. En paralelo el sistema viejo y el nuevo funcionan a la vez durante un período: es la más segura pero la más costosa.',
+        },
+        {
+          id: 'tf-21-4',
+          q: 'La conversión Abrupta o Big bang es la más rápida pero también la más riesgosa.',
+          a: true,
+          explain: 'Verdadero. En la abrupta se apaga el viejo y se enciende el nuevo en una fecha determinada: es la más riesgosa pero la más rápida.',
+        },
+        {
+          id: 'tf-21-5',
+          q: 'Capacitar a supervisores y operadores es una tarea de la puesta en marcha, no de la preimplementación.',
+          a: false,
+          explain: 'Falso. Según el apunte, capacitar a supervisores y operadores forma parte de la preimplementación.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-21-1',
+          q: '¿Qué describe la prueba de recuperación según las pruebas especiales del apunte?',
+          options: [
+            'Probar si el sistema soporta el volumen de procesamiento en el nivel más alto de demanda',
+            'Prueba de backups o de reinicio',
+            'Tiempo de respuesta en el momento de mayor carga',
+            'Prueba de usabilidad',
+          ],
+          correctIndex: 1,
+          explain: 'La prueba de recuperación se describe como prueba de backups o de reinicio. Las otras opciones corresponden a carga máxima, tiempo de ejecución y factores humanos.',
+        },
+        {
+          id: 'mc-21-2',
+          q: 'En la conversión Gradual (o por fases), ¿cómo se implementa el nuevo sistema?',
+          options: [
+            'En una pequeña parte de la organización y luego se expande',
+            'Apagando el viejo y encendiendo el nuevo en una fecha determinada',
+            'Por módulos o departamentos',
+            'Manteniendo viejo y nuevo funcionando a la vez',
+          ],
+          correctIndex: 2,
+          explain: 'La gradual o por fases implementa el nuevo sistema por módulos o departamentos. La opción A es piloto, la B es abrupta y la D es en paralelo.',
+        },
+        {
+          id: 'mc-21-3',
+          q: '¿Cuál de estas tareas corresponde a la puesta en marcha según el apunte?',
+          options: [
+            'Planificar la implementación y la puesta en marcha',
+            'Efectuar las pruebas de los usuarios y de QA',
+            'Capacitar a supervisores y operadores',
+            'Completar la documentación del sistema',
+          ],
+          correctIndex: 3,
+          explain: 'Completar la documentación del sistema es tarea de la puesta en marcha. Las otras tres pertenecen a la preimplementación.',
+        },
+        {
+          id: 'mc-21-4',
+          q: '¿Qué testea la prueba de procedimientos?',
+          options: [
+            'La capacidad de almacenar la información',
+            'La documentación',
+            'El tiempo de respuesta en el momento de mayor carga',
+            'Si el sistema es intuitivo y fácil de usar',
+          ],
+          correctIndex: 1,
+          explain: 'La prueba de procedimientos consiste en probar la documentación. Almacenar info es la de almacenamiento, el tiempo de respuesta es la de tiempo de ejecución y la usabilidad es la de factores humanos.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-21-1',
+          q: '¿Cuáles de las siguientes son estrategias de conversión / puesta en marcha mencionadas en el apunte?',
+          options: [
+            'En paralelo',
+            'Gradual (o por fases)',
+            'Correctiva',
+            'Piloto',
+            'Abrupta (o Big bang)',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'En paralelo, gradual, piloto y abrupta son las cuatro estrategias de conversión. "Correctiva" no es una estrategia de conversión, es un tipo de mantenimiento.',
+        },
+        {
+          id: 'ms-21-2',
+          q: '¿Cuáles de estas tareas pertenecen a la preimplementación?',
+          options: [
+            'Planificar la implementación y la puesta en marcha',
+            'Efectuar las pruebas de los usuarios y de QA',
+            'Poner en marcha el sistema',
+            'Desarrollar documentación para usuarios y operadores',
+            'Capacitar a supervisores y operadores',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Planificar, hacer pruebas de usuarios y QA, desarrollar documentación y capacitar son de la preimplementación. Poner en marcha el sistema pertenece a la puesta en marcha.',
+        },
+        {
+          id: 'ms-21-3',
+          q: '¿Cuáles de estos son tipos de pruebas especiales según la tabla del apunte?',
+          options: [
+            'De carga máxima',
+            'De almacenamiento',
+            'De normalización',
+            'De tiempo de ejecución',
+            'De factores humanos',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Carga máxima, almacenamiento, tiempo de ejecución y factores humanos figuran en la tabla de pruebas especiales. "De normalización" no aparece en esa lista.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-21-1',
+        front: 'Prueba White box',
+        back: 'Prueba de código en la que el programador examina la lógica interna del código, asegurándose de que cada rama y bucle funcione como se espera.',
+      },
+      {
+        id: 'fc-21-2',
+        front: 'Prueba Black box',
+        back: 'Prueba de especificación: el tester verifica los resultados del sistema sin conocer el código interno, enfocándose en si cumple con los requerimientos funcionales.',
+      },
+      {
+        id: 'fc-21-3',
+        front: 'Conversión en paralelo',
+        back: 'El sistema viejo y el nuevo funcionan a la vez durante un período. Es la más segura, pero la más costosa.',
+      },
+      {
+        id: 'fc-21-4',
+        front: 'Conversión Abrupta (Big bang)',
+        back: 'Se apaga el sistema viejo y se enciende el nuevo en una fecha determinada. Es la más riesgosa pero la más rápida.',
+      },
+      {
+        id: 'fc-21-5',
+        front: 'Conversión Piloto',
+        back: 'Se implementa el sistema completo en una pequeña parte de la organización. Si funciona, se expande al resto.',
+      },
+      {
+        id: 'fc-21-6',
+        front: 'Conversión Gradual (por fases)',
+        back: 'Se implementa el nuevo sistema por módulos o departamentos.',
+      },
+      {
+        id: 'fc-21-7',
+        front: 'Prueba de recuperación',
+        back: 'Prueba de backups o de reinicio: verifica que se puedan restaurar los datos, por ejemplo si el servidor se apaga.',
+      },
+      {
+        id: 'fc-21-8',
+        front: 'Preimplementación',
+        back: 'Etapa previa al lanzamiento: planificar, hacer las pruebas de usuarios y de QA, desarrollar documentación para usuarios y operadores, y capacitar a supervisores y operadores.',
+      },
+      {
+        id: 'fc-21-9',
+        front: 'Puesta en marcha',
+        back: 'Etapa de lanzamiento: finalizar la conversión de HW y SW, poner en marcha el sistema y completar la documentación. Incluye el documento de aprobación final, el entorno de producción y la instalación.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 22 (Unidad 10) ----------
+  {
+    id: '22',
+    unit: '10',
+    title: 'Mantenimiento, entornos y seguimiento',
+    criollo: 'Che, el sistema no termina cuando lo prendés: ahí recién arranca la fase más larga y la que más plata se come, el mantenimiento. Acá ves los tres tipos de mantenimiento, los entornos por donde pasa el código (DEV, QA, PROD), quién labura en el equipo y cómo se le hace seguimiento una vez que está en la calle.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Mantenimiento: la fase más larga',
+        criollo: 'Una vez implementado, el sistema entra en mantenimiento. Es lo que más dura y lo que más cuesta.',
+      },
+      {
+        type: 'p',
+        text: 'Una vez implementado, el sistema entra en su <strong>fase más larga</strong>: el mantenimiento. Representa la <strong>mayor parte del costo total de propiedad</strong> de un sistema. Hay tres tipos, y entre ellos se reparten el trabajo de forma bastante desigual.',
+      },
+      {
+        type: 'h3',
+        text: 'Tipos de mantenimiento',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>mantenimiento correctivo</strong> (~20 %) es arreglar errores y fallos (los famosos <em>bugs</em>) que no se detectaron en las pruebas. Incluye <strong>ajustes de emergencia</strong> y <strong>depuración rutinaria</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>mantenimiento adaptativo</strong> (~20 %) es modificar el sistema para que se adapte a cambios en el entorno, como un <strong>nuevo sistema operativo</strong> o <strong>cambios en la legislación</strong>. También entran acá la inclusión de cambios a los datos y archivos, y los cambios en el hardware y el software.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>mantenimiento perfectivo</strong> (~60 %) es mejorar el sistema agregando <strong>nuevas funcionalidades solicitadas por los usuarios</strong>, optimizando su rendimiento (recodificar para mejorar la performance) y mejorando la documentación. Es el que más peso tiene de los tres.',
+      },
+      {
+        type: 'table',
+        caption: 'Tipos de mantenimiento de un sistema',
+        headers: [
+          'Tipo',
+          'Qué incluye',
+          '%',
+        ],
+        rows: [
+          [
+            'Correctivo',
+            'Arreglar errores y fallos (bugs) no detectados en pruebas: ajustes de emergencia y depuración rutinaria.',
+            '~20 %',
+          ],
+          [
+            'Adaptativo',
+            'Adaptar el sistema a cambios del entorno (nuevo SO, cambios de legislación), cambios en datos y archivos, y cambios en HW y SW.',
+            '~20 %',
+          ],
+          [
+            'Perfectivo',
+            'Agregar funcionalidades pedidas por los usuarios, optimizar el rendimiento (recodificar) y mejorar la documentación.',
+            '~60 %',
+          ],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Ojo con el dato: el perfectivo se lleva el 60 %. O sea, la mayor parte del mantenimiento no es apagar incendios, es seguir agregando mejoras y funcionalidades que pide la gente.',
+      },
+      {
+        type: 'h3',
+        text: 'Entornos de sistemas',
+        criollo: 'Para laburar profesional y seguro, el código pasa por tres ambientes separados antes de llegar a manos del usuario final.',
+      },
+      {
+        type: 'p',
+        text: 'Para un desarrollo profesional y seguro, es indispensable trabajar con <strong>múltiples entornos</strong>. La idea es que el código no salte directo de la compu del programador a producción: pasa por etapas controladas.',
+      },
+      {
+        type: 'h3',
+        text: 'Desarrollo (DEV)',
+      },
+      {
+        type: 'p',
+        text: 'El entorno de <strong>Desarrollo (DEV)</strong> es el ambiente local de los programadores, donde escriben y prueban su código. Es un <strong>entorno inestable</strong>: acá las cosas se rompen y se arreglan todo el tiempo, y está bien que así sea.',
+      },
+      {
+        type: 'h3',
+        text: 'Calidad (QA - Quality assurance)',
+      },
+      {
+        type: 'p',
+        text: 'El entorno de <strong>Calidad (QA)</strong> es una <strong>réplica del entorno real</strong>, donde los testers realizan pruebas formales para validar que los cambios <strong>funcionan y no rompen nada existente</strong>. Es el filtro antes de salir a la cancha.',
+      },
+      {
+        type: 'h3',
+        text: 'Producción (PROD)',
+      },
+      {
+        type: 'p',
+        text: 'El entorno de <strong>Producción (PROD)</strong> es el entorno real, donde los usuarios finales trabajan. Es el sistema <strong>en vivo</strong> y debe ser <strong>estable y estar protegido</strong>. Acá no se experimenta.',
+      },
+      {
+        type: 'p',
+        text: 'El pasaje de código de <strong>DEV a QA y luego a PROD</strong> sigue un <strong>proceso controlado para minimizar los riesgos</strong>.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/10/entornos-sistemas.png',
+        alt: 'Diagrama de Venn de tres círculos que se solapan, etiquetados Desarrollo, Producción y Calidad, representando los entornos de sistemas.',
+        caption: 'Entornos de sistemas: Desarrollo (DEV), Calidad (QA) y Producción (PROD).',
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Nunca toques producción a mano ni pruebes ahí. Si algo no pasó por QA, no debería llegar a PROD. El proceso controlado existe justamente para no romperle el sistema en vivo a los usuarios.',
+      },
+      {
+        type: 'h3',
+        text: 'Equipos de trabajo para el desarrollo',
+        criollo: 'El equipo que arma el sistema tiene una jerarquía de tres niveles.',
+      },
+      {
+        type: 'p',
+        text: 'Los equipos de trabajo para el desarrollo de sistemas se organizan en una jerarquía de tres niveles: <strong>Junior</strong> en la base, <strong>Senior</strong> en el medio y <strong>Líder</strong> en la cima.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/10/equipos-trabajo.png',
+        alt: 'Pirámide de tres niveles que representa la jerarquía de un equipo de desarrollo: en la base "Junior", en el medio "Senior" y en la cima "Líder".',
+        caption: 'Equipos de trabajo para el desarrollo de sistemas: niveles Junior, Senior y Líder.',
+      },
+      {
+        type: 'h3',
+        text: 'Seguimiento y control',
+        criollo: 'Después de implementar, el sistema queda en observación para chequear que cumpla y para detectar qué hay que ajustar.',
+      },
+      {
+        type: 'p',
+        text: 'El objetivo del seguimiento y control es <strong>mantener el sistema en observación y operación controlada</strong>, para verificar si satisface las necesidades de información para las cuales fue generado, y <strong>detectar posibles modificaciones</strong> para adaptarlo a las condiciones del entorno en el cual opera.',
+      },
+      {
+        type: 'p',
+        text: 'En esta etapa hay que llevar adelante una serie de revisiones y cerrar con un informe:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Efectuar <strong>revisión administrativa</strong>.',
+          'Efectuar <strong>revisión de hardware y software (HW y SW)</strong>.',
+          'Efectuar <strong>revisión de la documentación</strong>.',
+          'Preparar el <strong>informe final de posimplementación</strong>.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'El seguimiento no es opcional: es lo que te dice si el sistema realmente resolvió el problema o si todavía le falta. De ahí salen las próximas modificaciones (que después caen como mantenimiento).',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-22-1',
+          q: 'El mantenimiento es la fase más larga del sistema y representa la mayor parte del costo total de propiedad.',
+          a: true,
+          explain: 'Tal cual el apunte: una vez implementado, el sistema entra en su fase más larga, el mantenimiento, que representa la mayor parte del costo total de propiedad.',
+        },
+        {
+          id: 'tf-22-2',
+          q: 'El mantenimiento correctivo es el que se lleva el mayor porcentaje del trabajo (~60 %).',
+          a: false,
+          explain: 'Falso. El correctivo es ~20 %. El que se lleva ~60 % es el perfectivo (nuevas funcionalidades, optimización y documentación).',
+        },
+        {
+          id: 'tf-22-3',
+          q: 'En el entorno de Producción (PROD) trabajan los testers haciendo pruebas formales.',
+          a: false,
+          explain: 'Falso. Los testers hacen pruebas formales en QA (réplica del entorno real). PROD es el sistema en vivo donde trabajan los usuarios finales.',
+        },
+        {
+          id: 'tf-22-4',
+          q: 'Adaptar el sistema a un nuevo sistema operativo o a cambios en la legislación es mantenimiento adaptativo.',
+          a: true,
+          explain: 'Correcto. El adaptativo modifica el sistema para adaptarlo a cambios del entorno, como un nuevo SO o cambios en la legislación.',
+        },
+        {
+          id: 'tf-22-5',
+          q: 'El pasaje de código de DEV a QA y luego a PROD sigue un proceso controlado para minimizar los riesgos.',
+          a: true,
+          explain: 'Tal cual lo dice el apunte: el pasaje DEV → QA → PROD sigue un proceso controlado para minimizar los riesgos.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-22-1',
+          q: '¿Qué tipo de mantenimiento incluye agregar nuevas funcionalidades pedidas por los usuarios y optimizar el rendimiento?',
+          options: [
+            'Correctivo',
+            'Adaptativo',
+            'Perfectivo',
+            'Preventivo',
+          ],
+          correctIndex: 2,
+          explain: 'El perfectivo (~60 %) mejora el sistema agregando funcionalidades solicitadas por los usuarios, optimizando el rendimiento y mejorando la documentación.',
+        },
+        {
+          id: 'mc-22-2',
+          q: '¿Cuál es el entorno descripto como inestable, donde los programadores escriben y prueban su código localmente?',
+          options: [
+            'Calidad (QA)',
+            'Desarrollo (DEV)',
+            'Producción (PROD)',
+            'Preimplementación',
+          ],
+          correctIndex: 1,
+          explain: 'Desarrollo (DEV) es el ambiente local de los programadores, donde escriben y prueban su código. El apunte lo describe como un entorno inestable.',
+        },
+        {
+          id: 'mc-22-3',
+          q: '¿Qué porcentaje aproximado le corresponde al mantenimiento correctivo?',
+          options: [
+            '~20 %',
+            '~40 %',
+            '~60 %',
+            '~80 %',
+          ],
+          correctIndex: 0,
+          explain: 'El correctivo es ~20 % (igual que el adaptativo). El perfectivo se lleva ~60 %.',
+        },
+        {
+          id: 'mc-22-4',
+          q: 'En la jerarquía del equipo de desarrollo, ¿cuál es el nivel que está en la cima de la pirámide?',
+          options: [
+            'Junior',
+            'Senior',
+            'Líder',
+            'Tester',
+          ],
+          correctIndex: 2,
+          explain: 'La jerarquía es Junior (base), Senior (medio) y Líder (cima).',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-22-1',
+          q: '¿Cuáles de las siguientes son revisiones o tareas del seguimiento y control?',
+          options: [
+            'Efectuar revisión administrativa',
+            'Efectuar revisión de HW y SW',
+            'Efectuar revisión de la documentación',
+            'Preparar el informe final de posimplementación',
+            'Diseñar la base de datos en 3FN',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'El seguimiento y control incluye revisión administrativa, de HW y SW, de la documentación, y preparar el informe final de posimplementación. El diseño de la base de datos en 3FN pertenece a otra fase (diseño), no al seguimiento.',
+        },
+        {
+          id: 'ms-22-2',
+          q: '¿Cuáles de estos son los entornos de sistemas mencionados en el apunte?',
+          options: [
+            'Desarrollo (DEV)',
+            'Calidad (QA)',
+            'Producción (PROD)',
+            'Preproducción (PRE)',
+            'Pruebas de carga (LOAD)',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+          ],
+          explain: 'El apunte menciona tres entornos: Desarrollo (DEV), Calidad (QA) y Producción (PROD). Preproducción y un entorno de pruebas de carga no figuran como entornos en esta fuente.',
+        },
+        {
+          id: 'ms-22-3',
+          q: '¿Qué actividades corresponden al mantenimiento correctivo según el apunte?',
+          options: [
+            'Ajustes de emergencia',
+            'Depuración rutinaria',
+            'Mejoras en la documentación',
+            'Recodificación para mejorar la performance',
+            'Cambios en el HW y SW',
+          ],
+          correctIndexes: [
+            0,
+            1,
+          ],
+          explain: 'El correctivo incluye ajustes de emergencia y depuración rutinaria. Las mejoras en la documentación y la recodificación son perfectivas; los cambios en HW y SW son adaptativos.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-22-1',
+        front: 'Fase de mantenimiento',
+        back: 'Es la fase más larga del ciclo de vida del sistema y representa la mayor parte del costo total de propiedad. Arranca una vez que el sistema está implementado.',
+      },
+      {
+        id: 'fc-22-2',
+        front: 'Mantenimiento correctivo (~20 %)',
+        back: 'Arreglar errores y fallos (bugs) que no se detectaron en las pruebas. Incluye ajustes de emergencia y depuración rutinaria.',
+      },
+      {
+        id: 'fc-22-3',
+        front: 'Mantenimiento adaptativo (~20 %)',
+        back: 'Modificar el sistema para adaptarlo a cambios del entorno, como un nuevo sistema operativo o cambios en la legislación, además de cambios en datos, archivos, HW y SW.',
+      },
+      {
+        id: 'fc-22-4',
+        front: 'Mantenimiento perfectivo (~60 %)',
+        back: 'Mejorar el sistema agregando funcionalidades pedidas por los usuarios, optimizando el rendimiento (recodificar) y mejorando la documentación. Es el de mayor porcentaje.',
+      },
+      {
+        id: 'fc-22-5',
+        front: 'Entorno DEV',
+        back: 'Desarrollo: ambiente local de los programadores donde escriben y prueban su código. Es un entorno inestable.',
+      },
+      {
+        id: 'fc-22-6',
+        front: 'Entorno QA',
+        back: 'Calidad (Quality assurance): réplica del entorno real donde los testers hacen pruebas formales para validar que los cambios funcionan y no rompen nada existente.',
+      },
+      {
+        id: 'fc-22-7',
+        front: 'Entorno PROD',
+        back: 'Producción: el entorno real en vivo donde trabajan los usuarios finales. Debe ser estable y estar protegido. El pasaje DEV → QA → PROD es controlado para minimizar riesgos.',
+      },
+      {
+        id: 'fc-22-8',
+        front: 'Equipos de trabajo',
+        back: 'Jerarquía de tres niveles para el desarrollo de sistemas: Junior en la base, Senior en el medio y Líder en la cima.',
+      },
+      {
+        id: 'fc-22-9',
+        front: 'Seguimiento y control',
+        back: 'Mantener el sistema en observación y operación controlada para verificar que satisface las necesidades y detectar modificaciones. Incluye revisión administrativa, de HW/SW y de documentación, y preparar el informe final de posimplementación.',
+      },
+    ],
+  },
   ],
   pdfs: [
     { key: 'fundamentos', label: 'Fundamentos', path: 'pdfs/fundamentos.pdf' },
@@ -4178,5 +6394,8 @@ export default {
     { key: 'si-introduccion', label: 'Sistemas de información (apunte)', path: 'pdfs/si-introduccion.pdf' },
     { key: 'si-presentacion', label: 'Sistemas de información (presentación)', path: 'pdfs/si-presentacion.pdf' },
     { key: 'si-definiciones', label: 'Sistemas de información (definiciones)', path: 'pdfs/si-definiciones.pdf' },
+    { key: 'si-empresas', label: 'Los SI en las empresas (apunte)', path: 'pdfs/si-empresas.pdf' },
+    { key: 'si-parte2-apunte', label: 'Sistemas de información — Parte 2 (apunte)', path: 'pdfs/si-parte2-apunte.pdf' },
+    { key: 'si-parte2-presentacion', label: 'Sistemas de información — Parte 2 (presentación)', path: 'pdfs/si-parte2-presentacion.pdf' },
   ],
 };
