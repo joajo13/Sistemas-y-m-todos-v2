@@ -613,8 +613,565 @@ export default {
         { id: 'fc-5-7', front: 'Resultado negativo en complemento', back: 'Para pasarlo a decimal, primero hay que volver a complementarlo (escribirlo en SyM).' },
       ],
     },
+    // ===================================================================
+    // UNIDAD 2 — Álgebra de Boole y compuertas lógicas
+    // ===================================================================
+    {
+      id: '6', unit: '2', title: 'Señales digitales binarias',
+      criollo: 'Esta es la base de todo lo digital, che: bichos que solo entienden dos cosas, prendido o apagado, 0 o 1. La metáfora es un interruptor con una lámpara, re intuitiva. Si agarrás bien esto, después las compuertas y el álgebra de Boole te van a entrar como manteca.',
+      blocks: [
+        { type: 'p', text: 'Los <strong>sistemas o dispositivos digitales</strong> son aquellos en los cuales la información que manipulan se representa mediante cantidades físicas que pueden tomar únicamente una cantidad finita de valores, es decir, <strong>señales discretas</strong> (llamadas señales digitales).' },
+        { type: 'h3', text: 'Qué son las señales digitales binarias', criollo: 'Binario = dos opciones y se acabó. No hay punto medio.' },
+        { type: 'p', text: 'En particular, se conoce como <strong>señales digitales binarias</strong> a las señales que pueden tomar solamente dos valores o estados ($0$ y $1$). Un ejemplo son las señales eléctricas, como la tensión o la corriente.' },
+        { type: 'h3', text: 'El ejemplo del circuito interruptor-lámpara', criollo: 'El clásico para que se entienda: una llave y una luz.' },
+        { type: 'p', text: 'Se tiene un circuito eléctrico con un <strong>interruptor</strong> (o llave), que solo tiene dos posibles posiciones, abierto y cerrado, conectado a una <strong>fuente de tensión</strong> (por ejemplo, una batería) y a una <strong>lámpara</strong>, la cual tiene solo dos estados posibles: apagado y encendido.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-circuito-interruptor-lampara-p01.png', alt: 'Circuito eléctrico simple con fuente de tensión, interruptor y lámpara conectados en serie.', caption: 'Circuito básico interruptor-lámpara: la base física de la señal binaria.' },
+        { type: 'p', text: 'Si el interruptor está abierto, se indicará con el valor $0$, mientras que si está cerrado se indicará con el valor $1$. Por otro lado, si la lámpara está apagada, tomará el valor $0$, y si está encendida tomará el valor $1$.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-interruptor-lampara-estados-p01.png', alt: 'Interruptor abierto (0) y cerrado (1) junto a lámpara apagada (0) y encendida (1).', caption: 'Los dos estados: interruptor abierto/cerrado y lámpara apagada/encendida como 0 y 1.' },
+        { type: 'h3', text: 'Tiempo 1 y tiempo 2', criollo: 'Dos fotos del mismo circuito: una con la luz apagada y otra prendida.' },
+        { type: 'p', text: 'En un <strong>tiempo 1</strong>, cuando el interruptor está abierto, no deja circular la corriente y no le llega tensión a la lámpara, por lo que esta estará apagada. En un <strong>tiempo 2</strong>, cuando el interruptor está cerrado, la corriente puede circular y le llega tensión a la lámpara, por lo que esta estará encendida.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-circuito-tiempo1-tiempo2-p02.png', alt: 'Mismo circuito en dos instantes, tiempo 1 con lámpara apagada y tiempo 2 con corriente circulando y lámpara encendida.', caption: 'El circuito en dos tiempos: cómo cambia el estado al cerrar el interruptor.' },
+        { type: 'h3', text: 'El diagrama tensión-tiempo', criollo: 'Graficás la tensión a lo largo del tiempo y se ve clarito el escalón.' },
+        { type: 'p', text: 'A continuación, se puede ver un diagrama que muestra la tensión ($V$) en la lámpara en función del tiempo ($t$). El <strong>tiempo 1</strong> corresponde a un nivel de tensión bajo ($V_L$), mientras que el <strong>tiempo 2</strong> corresponde a un nivel de tensión alto ($V_H$).' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-diagrama-tension-tiempo-p02.png', alt: 'Diagrama de tensión en función del tiempo con niveles bajo (VL) y alto (VH).', caption: 'Diagrama tensión-tiempo: el estado representado como nivel alto y bajo.' },
+        { type: 'h3', text: 'Lógica positiva', criollo: 'Convención: bajo es 0 y alto es 1. Punto.' },
+        { type: 'p', text: 'Las señales de tensión eléctrica podrán tomar un estado <strong>High</strong> (alto) o un estado <strong>Low</strong> (bajo). Utilizando la <strong>lógica positiva</strong>, cuando el estado sea $Low$ (bajo), se lo indicará con el valor $0$ (cero lógico), mientras que si el estado es $High$ (alto) se lo indicará con el valor $1$ (uno lógico).' },
+        { type: 'table', caption: 'Lógica positiva: relación entre nivel de tensión y valor lógico', headers: ['Nivel de tensión', 'Estado', 'Valor lógico'], rows: [['Bajo ($V_L$)', 'Low', '0'], ['Alto ($V_H$)', 'High', '1']] },
+        { type: 'callout', tone: 'info', text: 'El apunte introduce las señales binarias como base para las <strong>compuertas lógicas</strong>, que son los elementos básicos de los sistemas digitales y trabajan con estas señales. Las compuertas se desarrollan en las secciones siguientes.' }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-6-1', q: 'Una señal digital binaria puede tomar solamente dos valores o estados: $0$ y $1$.', a: true, explain: 'Exacto. Esa es justamente la definición de señal digital binaria según el apunte.' },
+          { id: 'tf-6-2', q: 'En el circuito de ejemplo, el interruptor abierto se indica con el valor $1$ y cerrado con el valor $0$.', a: false, explain: 'Al revés: abierto es $0$ y cerrado es $1$. Lo mismo la lámpara: apagada $0$, encendida $1$.' },
+          { id: 'tf-6-3', q: 'En el tiempo 2 el interruptor está cerrado, la corriente circula y la lámpara queda encendida.', a: true, explain: 'Correcto. En tiempo 2 el interruptor cerrado deja pasar corriente, le llega tensión a la lámpara y se enciende.' },
+          { id: 'tf-6-4', q: 'En la lógica positiva, el estado Low (bajo) corresponde al valor $1$ y el estado High (alto) al valor $0$.', a: false, explain: 'Es al revés: en lógica positiva Low es $0$ (cero lógico) y High es $1$ (uno lógico).' }
+        ],
+        mc: [
+          { id: 'mc-6-1', q: '¿Qué caracteriza a un sistema o dispositivo digital?', options: ['Maneja información representada por señales discretas, con una cantidad finita de valores', 'Maneja señales que pueden tomar infinitos valores continuos', 'Solo funciona con corriente y nunca con tensión', 'No utiliza ninguna cantidad física para representar información'], correctIndex: 0, explain: 'Un sistema digital representa la información mediante cantidades físicas que toman una cantidad finita de valores, es decir, señales discretas.' },
+          { id: 'mc-6-2', q: 'En el ejemplo del circuito, ¿cuándo la lámpara toma el valor $1$?', options: ['Cuando está apagada', 'Cuando está encendida', 'Cuando el interruptor está abierto', 'Siempre, sin importar el estado'], correctIndex: 1, explain: 'La lámpara encendida toma el valor $1$; apagada toma el valor $0$.' },
+          { id: 'mc-6-3', q: 'En el diagrama de tensión en función del tiempo, ¿a qué nivel corresponde el tiempo 1?', options: ['Al nivel de tensión alto ($V_H$)', 'Al nivel de tensión bajo ($V_L$)', 'A un nivel intermedio entre $V_L$ y $V_H$', 'A ningún nivel de tensión'], correctIndex: 1, explain: 'El tiempo 1 (interruptor abierto, lámpara apagada) corresponde al nivel de tensión bajo $V_L$; el tiempo 2 corresponde a $V_H$.' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-6-1', front: '¿Qué es un sistema o dispositivo digital?', back: 'Aquel en el que la información se representa mediante cantidades físicas que toman únicamente una cantidad finita de valores, es decir, señales discretas (señales digitales).' },
+        { id: 'fc-6-2', front: '¿Qué es una señal digital binaria?', back: 'Una señal que puede tomar solamente dos valores o estados: $0$ y $1$. Por ejemplo, señales eléctricas como la tensión o la corriente.' },
+        { id: 'fc-6-3', front: 'En el circuito de ejemplo, ¿qué valores toma el interruptor?', back: 'Abierto $= 0$; cerrado $= 1$.' },
+        { id: 'fc-6-4', front: 'En el circuito de ejemplo, ¿qué valores toma la lámpara?', back: 'Apagada $= 0$; encendida $= 1$.' },
+        { id: 'fc-6-5', front: '¿Qué pasa en el tiempo 1 y en el tiempo 2?', back: 'Tiempo 1: interruptor abierto, no circula corriente, lámpara apagada (nivel bajo $V_L$). Tiempo 2: interruptor cerrado, circula corriente, lámpara encendida (nivel alto $V_H$).' },
+        { id: 'fc-6-6', front: '¿Qué es la lógica positiva?', back: 'La convención por la cual el estado Low (bajo) se indica con $0$ (cero lógico) y el estado High (alto) se indica con $1$ (uno lógico).' },
+        { id: 'fc-6-7', front: 'En el diagrama tensión-tiempo, ¿qué representan $V_L$ y $V_H$?', back: '$V_L$ es el nivel de tensión bajo (tiempo 1, lámpara apagada) y $V_H$ es el nivel de tensión alto (tiempo 2, lámpara encendida).' }
+      ]
+    },
+    {
+      id: '7', unit: '2', title: 'Compuertas lógicas: OR, AND y NOT',
+      criollo: 'Acá arrancamos con los ladrillos básicos de todo sistema digital: las compuertas. Pensalas como circuitos con interruptores que prenden o no una lámpara. OR es \'con que uno alcance\', AND es \'tienen que estar los dos\', y NOT simplemente da vuelta la entrada. Fijate bien la tabla de verdad de cada una, que es lo que más cae.',
+      blocks: [
+        { type: 'p', text: 'Las <strong>compuertas lógicas</strong> son los elementos básicos de los sistemas digitales. Trabajan con señales digitales binarias: las señales de tensión eléctrica pueden tomar un estado <strong>High</strong> (alto) o <strong>Low</strong> (bajo).' },
+        { type: 'p', text: 'Usando la <strong>lógica positiva</strong>, cuando el estado sea Low (bajo) se lo indica con el valor $0$ (cero lógico), mientras que si el estado es High (alto) se lo indica con el valor $1$ (uno lógico).' },
+        { type: 'p', text: 'Para ver el funcionamiento de cada compuerta se usan las letras $A$ y $B$ para las señales de <strong>entrada</strong>, mientras que la letra $S$ hace referencia a la señal de <strong>salida</strong>.' },
+
+        { type: 'h3', text: 'Compuerta OR', criollo: 'La de \'con que uno esté, alcanza\'.' },
+        { type: 'p', text: 'La compuerta <strong>OR</strong> corresponde a la <strong>suma lógica</strong>. Para comprender su funcionamiento es más sencillo pensarla como un circuito eléctrico.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-simbolo-or-p03.png', alt: 'Símbolo lógico de la compuerta OR con entradas A y B y salida S.', caption: 'Símbolo de la compuerta OR.' },
+        { type: 'math', latex: 'S = A + B', display: true },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-circuito-electrico-or-p03.png', alt: 'Dos interruptores A y B en paralelo alimentando una lámpara.', caption: 'Equivalente eléctrico de la OR: dos interruptores en paralelo.' },
+        { type: 'p', text: '¿Cuándo se enciende la lámpara? La lámpara se enciende cuando el interruptor $A$ <strong>o</strong> el interruptor $B$ están cerrados. Es decir, con que uno de los dos esté cerrado basta para que la lámpara se encienda (interruptores en <strong>paralelo</strong>).' },
+        { type: 'p', text: 'El único caso en que la lámpara permanece apagada es cuando ninguno de los dos interruptores está cerrado. Por lo tanto, $S$ únicamente será $0$ cuando $A$ y $B$ sean $0$; en cualquier otro caso $S$ será $1$.' },
+        { type: 'table', caption: 'Tabla de verdad de la compuerta OR.', headers: ['$A$', '$B$', '$S = A + B$'], rows: [['0', '0', '0'], ['0', '1', '1'], ['1', '0', '1'], ['1', '1', '1']] },
+        { type: 'callout', tone: 'warning', text: 'Es importante <strong>no confundir la suma lógica</strong> ($1 + 1 = 1$) con la <strong>suma aritmética</strong>, ya sea binaria ($1 + 1 = 10$) o en un sistema de numeración de base mayor a 2 ($1 + 1 = 2$).' },
+
+        { type: 'h3', text: 'Compuerta AND', criollo: 'Esta es la exigente: tienen que estar los dos sí o sí.' },
+        { type: 'p', text: 'La compuerta <strong>AND</strong> corresponde al <strong>producto lógico</strong>. Nuevamente, para comprender su funcionamiento se plantea como un circuito eléctrico.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-simbolo-and-p04.png', alt: 'Símbolo lógico de la compuerta AND con entradas A y B y salida S.', caption: 'Símbolo de la compuerta AND.' },
+        { type: 'math', latex: 'S = A \\cdot B', display: true },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-circuito-electrico-and-p04.png', alt: 'Dos interruptores A y B en serie alimentando una lámpara.', caption: 'Equivalente eléctrico de la AND: dos interruptores en serie.' },
+        { type: 'p', text: '¿Cuándo se enciende la lámpara? La lámpara se enciende cuando el interruptor $A$ <strong>y</strong> el interruptor $B$ están cerrados. Es decir, el único caso en que la lámpara se enciende es cuando los dos interruptores están cerrados (interruptores en <strong>serie</strong>); en cualquier otro caso la lámpara permanece apagada.' },
+        { type: 'p', text: 'Por lo tanto, $S$ únicamente será $1$ cuando $A$ y $B$ sean $1$; en cualquier otro caso $S$ será $0$.' },
+        { type: 'table', caption: 'Tabla de verdad de la compuerta AND.', headers: ['$A$', '$B$', '$S = A \\cdot B$'], rows: [['0', '0', '0'], ['0', '1', '0'], ['1', '0', '0'], ['1', '1', '1']] },
+
+        { type: 'h3', text: 'Compuerta NOT (inversora)', criollo: 'La más simple: te da vuelta lo que entra. 0 entra, 1 sale.' },
+        { type: 'p', text: 'La compuerta <strong>NOT</strong>, también conocida como compuerta <strong>inversora</strong>, corresponde al <strong>complemento lógico</strong>. Como su nombre lo indica, se encarga de invertir el estado de la señal de entrada $A$ (no A).' },
+        { type: 'p', text: 'Es decir, si la señal de entrada $A$, en un determinado momento, está en un estado $0$, en ese caso la salida $S$ será $1$; por el contrario, si el estado de la señal de entrada $A$ es $1$, entonces la salida $S$ será $0$.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-simbolo-not-p05.png', alt: 'Símbolo lógico de la compuerta NOT, triángulo con círculo de inversión en la salida.', caption: 'Símbolo de la compuerta NOT (inversor).' },
+        { type: 'math', latex: 'S = \\overline{A}', display: true },
+        { type: 'table', caption: 'Tabla de verdad de la compuerta NOT.', headers: ['$A$', '$S = \\overline{A}$'], rows: [['0', '1'], ['1', '0']] }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-7-1', q: 'En la compuerta OR, la salida $S$ vale $0$ únicamente cuando $A$ y $B$ valen ambas $0$.', a: true, explain: 'Correcto. En la OR, con que una entrada esté en $1$ ya alcanza para que $S = 1$; el único caso de $S = 0$ es $A = 0$ y $B = 0$.' },
+          { id: 'tf-7-2', q: 'En la compuerta AND, la salida $S$ vale $1$ únicamente cuando ambas entradas valen $1$.', a: true, explain: 'Correcto. La AND es el producto lógico: $S = 1$ solo si $A$ y $B$ son ambas $1$; en cualquier otro caso $S = 0$.' },
+          { id: 'tf-7-3', q: 'En la suma lógica, $1 + 1 = 10$.', a: false, explain: 'Falso. En la suma lógica $1 + 1 = 1$. El $1 + 1 = 10$ corresponde a la suma aritmética binaria, que no hay que confundir con la lógica.' },
+          { id: 'tf-7-4', q: 'La compuerta OR equivale eléctricamente a dos interruptores conectados en serie.', a: false, explain: 'Falso. La OR equivale a dos interruptores en <strong>paralelo</strong> (con que uno cierre, la lámpara prende). La de interruptores en serie es la AND.' },
+          { id: 'tf-7-5', q: 'La compuerta NOT invierte el estado de la señal de entrada: si entra $0$ sale $1$, y si entra $1$ sale $0$.', a: true, explain: 'Correcto. La NOT o inversora corresponde al complemento lógico $S = \\overline{A}$, dando vuelta el estado de la entrada.' }
+        ],
+        mc: [
+          { id: 'mc-7-1', q: '¿A qué operación lógica corresponde la compuerta AND?', options: ['Suma lógica', 'Producto lógico', 'Complemento lógico', 'Suma aritmética'], correctIndex: 1, explain: 'La compuerta AND corresponde al producto lógico, $S = A \\cdot B$.' },
+          { id: 'mc-7-2', q: 'Para una compuerta OR con entradas $A = 1$ y $B = 0$, ¿cuánto vale la salida $S$?', options: ['$S = 0$', '$S = 1$', '$S = 10$', 'No se puede determinar'], correctIndex: 1, explain: 'En la OR basta con que una entrada esté en $1$ para que $S = 1$. Como $A = 1$, la salida es $1$.' },
+          { id: 'mc-7-3', q: '¿Cuál es la ecuación de la compuerta NOT?', options: ['$S = A + B$', '$S = A \\cdot B$', '$S = \\overline{A}$', '$S = A + \\overline{A}$'], correctIndex: 2, explain: 'La compuerta NOT (inversora) corresponde al complemento lógico: $S = \\overline{A}$.' },
+          { id: 'mc-7-4', q: 'Para una compuerta AND con entradas $A = 1$ y $B = 0$, ¿cuánto vale la salida $S$?', options: ['$S = 1$', '$S = 0$', '$S = 10$', '$S = \\overline{A}$'], correctIndex: 1, explain: 'La AND solo da $S = 1$ cuando ambas entradas son $1$. Como $B = 0$, la salida es $0$.' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-7-1', front: '¿Qué son las compuertas lógicas?', back: 'Son los elementos básicos de los sistemas digitales. Trabajan con señales digitales binarias, que pueden tomar un estado High (alto, $1$) o Low (bajo, $0$) en lógica positiva.' },
+        { id: 'fc-7-2', front: '¿Qué letras se usan para entradas y salida de una compuerta?', back: 'Se usan $A$ y $B$ para las señales de entrada, y $S$ para la señal de salida.' },
+        { id: 'fc-7-3', front: '¿A qué operación corresponde la compuerta OR y cuál es su ecuación?', back: 'A la suma lógica. Su ecuación es $S = A + B$. Equivale a dos interruptores en paralelo.' },
+        { id: 'fc-7-4', front: 'OR: ¿cuándo vale $S = 0$?', back: '$S$ vale $0$ únicamente cuando $A$ y $B$ son ambas $0$; en cualquier otro caso $S = 1$.' },
+        { id: 'fc-7-5', front: '¿A qué operación corresponde la compuerta AND y cuál es su ecuación?', back: 'Al producto lógico. Su ecuación es $S = A \\cdot B$. Equivale a dos interruptores en serie.' },
+        { id: 'fc-7-6', front: 'AND: ¿cuándo vale $S = 1$?', back: '$S$ vale $1$ únicamente cuando $A$ y $B$ son ambas $1$; en cualquier otro caso $S = 0$.' },
+        { id: 'fc-7-7', front: '¿Qué hace la compuerta NOT (inversora) y cuál es su ecuación?', back: 'Corresponde al complemento lógico: invierte el estado de la entrada. Si $A = 0$ entonces $S = 1$, y si $A = 1$ entonces $S = 0$. Su ecuación es $S = \\overline{A}$.' },
+        { id: 'fc-7-8', front: '¿Por qué no hay que confundir suma lógica con suma aritmética?', back: 'En la suma lógica $1 + 1 = 1$, mientras que en la suma aritmética binaria $1 + 1 = 10$ (y en base mayor a 2, $1 + 1 = 2$).' }
+      ]
+    },
+    {
+      id: '8', unit: '2', title: 'Compuertas derivadas: NOR, NAND, XOR y XNOR',
+      criollo: 'Acá ya no estamos con las básicas: estas compuertas salen de combinar OR, AND y NOT. La posta es fácil — cada vez que veas un círculo en la salida, hay una negación dada vuelta ahí. NOR es OR negada, NAND es AND negada, y las "exclusivas" (XOR y XNOR) se fijan si las entradas son distintas o iguales.',
+      blocks: [
+        { type: 'p', text: 'Las compuertas derivadas se construyen a partir de las básicas (<strong>OR</strong>, <strong>AND</strong> y <strong>NOT</strong>). Cada una toma una operación lógica y le agrega o cambia algo. Igual que antes, se usan las letras $A$ y $B$ para las señales de entrada y $S$ para la señal de salida.' },
+        { type: 'callout', tone: 'info', text: 'Regla práctica del apunte: siempre que se agrega el <strong>círculo</strong> en la salida del símbolo, estamos ante una negación.' },
+
+        { type: 'h3', text: 'Compuerta NOR', criollo: 'OR pero con la salida dada vuelta.' },
+        { type: 'p', text: 'La compuerta <strong>NOR</strong> corresponde al complemento de la suma lógica. Es decir, esta compuerta tiene como salida la inversa (o la negación) de la compuerta <strong>OR</strong>. Es, básicamente, una combinación de dos compuertas.' },
+        { type: 'p', text: 'Por lo tanto, $S$ únicamente será $1$ cuando $A$ y $B$ sean $0$; en cualquier otro caso $S$ será $0$.' },
+        { type: 'math', latex: 'S = \\overline{A + B} = (A + B)^{\\prime}', display: true },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-simbolo-nor-p05.png', alt: 'Símbolo lógico de la compuerta NOR, forma de OR con círculo de inversión en la salida.', caption: 'Símbolo de la compuerta NOR.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-construccion-nor-or-not-p05.png', alt: 'Una compuerta OR seguida de una NOT.', caption: 'La NOR como una OR seguida de un inversor.' },
+        { type: 'table', caption: 'Tabla de verdad de la compuerta NOR.', headers: ['$A$', '$B$', '$S = \\overline{A + B}$'], rows: [['0', '0', '1'], ['0', '1', '0'], ['1', '0', '0'], ['1', '1', '0']] },
+
+        { type: 'h3', text: 'Compuerta NAND', criollo: 'AND pero con la salida negada.' },
+        { type: 'p', text: 'La compuerta <strong>NAND</strong> corresponde al complemento del producto lógico. Con lo cual, esta compuerta tiene como salida la inversa (o la negación) de la compuerta <strong>AND</strong>.' },
+        { type: 'p', text: 'Por lo tanto, $S$ únicamente será $0$ cuando $A$ y $B$ sean $1$; en cualquier otro caso $S$ será $1$.' },
+        { type: 'math', latex: 'S = \\overline{A \\cdot B} = (A \\cdot B)^{\\prime}', display: true },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-simbolo-nand-p06.png', alt: 'Símbolo lógico de la compuerta NAND, forma de AND con círculo de inversión en la salida.', caption: 'Símbolo de la compuerta NAND.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-construccion-nand-and-not-p06.png', alt: 'Una compuerta AND seguida de una NOT.', caption: 'La NAND como una AND seguida de un inversor.' },
+        { type: 'table', caption: 'Tabla de verdad de la compuerta NAND.', headers: ['$A$', '$B$', '$S = \\overline{A \\cdot B}$'], rows: [['0', '0', '1'], ['0', '1', '1'], ['1', '0', '1'], ['1', '1', '0']] },
+
+        { type: 'h3', text: 'Compuerta XOR (OR exclusiva)', criollo: 'Da 1 cuando las entradas son distintas: una o la otra, pero no las dos.' },
+        { type: 'p', text: 'La compuerta <strong>XOR</strong>, también conocida como <strong>OR exclusiva</strong>, corresponde a la suma lógica exclusiva.' },
+        { type: 'p', text: 'En esta compuerta, la señal de salida $S$ será $1$ cuando las señales de entrada $A$ y $B$ sean distintas; en el caso de que $A$ y $B$ tengan el mismo estado, la señal de salida $S$ será $0$ ($A$ o $B$, pero no ambas).' },
+        { type: 'math', latex: 'S = A \\oplus B = \\overline{A} \\cdot B + A \\cdot \\overline{B}', display: true },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-simbolo-xor-p06.png', alt: 'Símbolo lógico de la compuerta XOR, forma de OR con doble línea curva en la entrada.', caption: 'Símbolo de la compuerta XOR (OR exclusiva).' },
+        { type: 'table', caption: 'Tabla de verdad de la compuerta XOR.', headers: ['$A$', '$B$', '$S = A \\oplus B$'], rows: [['0', '0', '0'], ['0', '1', '1'], ['1', '0', '1'], ['1', '1', '0']] },
+        { type: 'p', text: 'El comportamiento de la compuerta <strong>XOR</strong> también puede lograrse usando otro tipo de compuertas, por ejemplo, <strong>NOT</strong>, <strong>AND</strong> y <strong>OR</strong>. Eso se ve directamente en su ecuación: dos términos con productos ($\\overline{A} \\cdot B$ y $A \\cdot \\overline{B}$) sumados entre sí.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-circuito-logico-xor-p07.png', alt: 'Circuito que implementa la XOR con dos inversores, dos AND y una OR.', caption: 'La XOR armada con compuertas básicas: dos AND, dos NOT y una OR.' },
+
+        { type: 'h3', text: 'Compuerta XNOR (NOR exclusiva)', criollo: 'La XOR dada vuelta: da 1 cuando las entradas son iguales.' },
+        { type: 'p', text: 'La compuerta <strong>XNOR</strong>, también conocida como <strong>NOR exclusiva</strong>, corresponde al complemento de la suma lógica exclusiva. Con lo cual, esta compuerta tiene como salida la inversa (o la negación) de la compuerta <strong>XOR</strong>.' },
+        { type: 'p', text: 'Por lo tanto, en esta compuerta, la señal de salida $S$ será $1$ cuando las señales de entrada $A$ y $B$ sean iguales; en el caso de que $A$ y $B$ tengan distintos estados, la señal de salida $S$ será $0$.' },
+        { type: 'math', latex: 'S = \\overline{A \\oplus B} = \\overline{A} \\cdot \\overline{B} + A \\cdot B', display: true },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-simbolo-xnor-p07.png', alt: 'Símbolo lógico de la compuerta XNOR, forma de XOR con círculo de inversión en la salida.', caption: 'Símbolo de la compuerta XNOR.' },
+        { type: 'table', caption: 'Tabla de verdad de la compuerta XNOR.', headers: ['$A$', '$B$', '$S = \\overline{A \\oplus B}$'], rows: [['0', '0', '1'], ['0', '1', '0'], ['1', '0', '0'], ['1', '1', '1']] },
+
+        { type: 'callout', tone: 'criollo', text: 'Truco para no marearte: NOR y NAND son OR y AND con el círculo de negación pegado. XOR mira si las entradas son <strong>distintas</strong>, y XNOR si son <strong>iguales</strong>. Una es el complemento de la otra.' }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-8-1', q: 'La compuerta NOR da salida $1$ únicamente cuando $A$ y $B$ valen $0$.', a: true, explain: 'Correcto. La NOR es el complemento de la OR: como la OR solo da $0$ cuando ambas entradas son $0$, la NOR da $1$ justo en ese único caso.' },
+          { id: 'tf-8-2', q: 'La compuerta NAND da salida $0$ únicamente cuando ambas entradas valen $1$.', a: true, explain: 'Correcto. La NAND es el complemento de la AND. La AND da $1$ solo si ambas son $1$, así que la NAND da $0$ exactamente en ese caso y $1$ en todos los demás.' },
+          { id: 'tf-8-3', q: 'La compuerta XOR da salida $1$ cuando las dos entradas son iguales.', a: false, explain: 'Falso. Es al revés: la XOR (OR exclusiva) da $1$ cuando las entradas son distintas y $0$ cuando son iguales. La que da $1$ con entradas iguales es la XNOR.' },
+          { id: 'tf-8-4', q: 'El círculo en la salida del símbolo de una compuerta indica una negación.', a: true, explain: 'Correcto. Según el apunte, siempre que se agrega el círculo en la salida estamos ante una negación (por eso NOR, NAND y XNOR lo tienen).' },
+          { id: 'tf-8-5', q: 'El comportamiento de la XOR no se puede lograr con compuertas básicas como NOT, AND y OR.', a: false, explain: 'Falso. El apunte indica explícitamente que el comportamiento de la XOR también puede lograrse usando NOT, AND y OR.' }
+        ],
+        mc: [
+          { id: 'mc-8-1', q: '¿Cuál es la ecuación de la compuerta NOR?', options: ['$S = \\overline{A + B}$', '$S = \\overline{A \\cdot B}$', '$S = A \\oplus B$', '$S = A + B$'], correctIndex: 0, explain: 'La NOR es el complemento de la suma lógica: $S = \\overline{A + B}$. La opción con producto negado es la NAND.' },
+          { id: 'mc-8-2', q: '¿Cuál de estas compuertas da salida $1$ cuando las entradas son iguales?', options: ['XOR', 'XNOR', 'NAND', 'OR'], correctIndex: 1, explain: 'La XNOR (NOR exclusiva) da $1$ cuando $A$ y $B$ son iguales. La XOR hace lo contrario: da $1$ cuando son distintas.' },
+          { id: 'mc-8-3', q: 'La XOR responde a la ecuación $S = A \\oplus B$. ¿A cuál de estas expresiones equivale?', options: ['$\\overline{A} \\cdot \\overline{B} + A \\cdot B$', '$\\overline{A} \\cdot B + A \\cdot \\overline{B}$', '$\\overline{A + B}$', '$A \\cdot B$'], correctIndex: 1, explain: 'La XOR equivale a $\\overline{A} \\cdot B + A \\cdot \\overline{B}$. La otra suma de productos ($\\overline{A}\\cdot\\overline{B} + A\\cdot B$) es la XNOR.' },
+          { id: 'mc-8-4', q: 'La NAND es la negación de la compuerta...', options: ['OR', 'AND', 'XOR', 'NOT'], correctIndex: 1, explain: 'La NAND corresponde al complemento del producto lógico, es decir, la inversa de la AND ($S = \\overline{A \\cdot B}$).' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-8-1', front: '¿Qué operación realiza la compuerta NOR y cuál es su ecuación?', back: 'El complemento de la suma lógica (la inversa de la OR). Ecuación: $S = \\overline{A + B}$. Da $1$ solo cuando $A$ y $B$ son $0$.' },
+        { id: 'fc-8-2', front: '¿Qué operación realiza la compuerta NAND y cuál es su ecuación?', back: 'El complemento del producto lógico (la inversa de la AND). Ecuación: $S = \\overline{A \\cdot B}$. Da $0$ solo cuando $A$ y $B$ son $1$.' },
+        { id: 'fc-8-3', front: '¿Cuándo da $1$ la salida de una compuerta XOR?', back: 'Cuando las entradas $A$ y $B$ son distintas ($A$ o $B$, pero no ambas). Si son iguales, da $0$. Ecuación: $S = A \\oplus B = \\overline{A} \\cdot B + A \\cdot \\overline{B}$.' },
+        { id: 'fc-8-4', front: '¿Cuándo da $1$ la salida de una compuerta XNOR?', back: 'Cuando las entradas $A$ y $B$ son iguales. Si son distintas, da $0$. Ecuación: $S = \\overline{A \\oplus B} = \\overline{A} \\cdot \\overline{B} + A \\cdot B$.' },
+        { id: 'fc-8-5', front: '¿Qué indica el círculo en la salida del símbolo de una compuerta?', back: 'Una negación. Por eso lo tienen NOR, NAND y XNOR: son las versiones invertidas de OR, AND y XOR respectivamente.' },
+        { id: 'fc-8-6', front: '¿La XOR se puede construir con compuertas básicas?', back: 'Sí. Su comportamiento también se logra con NOT, AND y OR (dos NOT, dos AND y una OR), tal como muestra su ecuación $\\overline{A} \\cdot B + A \\cdot \\overline{B}$.' },
+        { id: 'fc-8-7', front: '¿Qué relación hay entre XOR y XNOR?', back: 'La XNOR es el complemento (la negación) de la XOR. Donde la XOR da $1$ (entradas distintas), la XNOR da $0$, y viceversa.' },
+        { id: 'fc-8-8', front: 'OR exclusiva y NOR exclusiva: ¿qué nombres comunes tienen?', back: 'La OR exclusiva es la XOR, y la NOR exclusiva es la XNOR. La primera corresponde a la suma lógica exclusiva; la segunda, a su complemento.' }
+      ]
+    },
+    {
+      id: '9', unit: '2', title: 'Álgebra de Boole: postulados',
+      criollo: 'El álgebra de Boole es la matemática que está atrás de todo lo digital: junta AND, OR y NOT en un par de reglas. Los postulados son los axiomas, o sea las premisas que se aceptan sin demostración. Acá te dejamos los cinco posta (conmutativa, distributiva, identidad, complemento y asociativa) y te verificamos dos por tabla de verdad para que veas que no son verso.',
+      blocks: [
+        { type: 'p', text: 'El <strong>álgebra de Boole</strong> (o álgebra booleana) es la base matemática lógica empleada en los sistemas digitales. Es el conjunto de reglas o propiedades que relacionan las operaciones lógicas <strong>AND</strong>, <strong>OR</strong> y <strong>NOT</strong>.' },
+        { type: 'p', text: 'El álgebra de Boole se compone de una serie de <strong>postulados o axiomas</strong>. Estos son premisas que se toman como base para un razonamiento, cuya verdad se admite sin pruebas.' },
+        { type: 'callout', tone: 'info', text: 'A partir de estos postulados es posible deducir luego varios <strong>teoremas</strong> del álgebra de Boole (idempotencia, elementos nulos, involutiva, absorción, De Morgan, transposición y consenso), que el apunte trata aparte.' },
+
+        { type: 'h3', text: 'Propiedad conmutativa', criollo: 'El orden de los factores no altera el resultado, igual que en la matemática de toda la vida.' },
+        { type: 'p', text: 'El orden de los factores no afecta ni a la suma lógica ni al producto lógico.' },
+        { type: 'math', latex: '\\begin{aligned} A + B &= B + A \\\\ A \\cdot B &= B \\cdot A \\end{aligned}', display: true },
+
+        { type: 'h3', text: 'Propiedad distributiva', criollo: 'Ojo con esta: en Boole no solo el producto distribuye sobre la suma, también la suma distribuye sobre el producto. Eso en la aritmética común no pasa.' },
+        { type: 'p', text: 'El producto lógico se puede distribuir respecto de la suma lógica, y la suma lógica se puede distribuir respecto del producto lógico.' },
+        { type: 'math', latex: '\\begin{aligned} A \\cdot (B + C) &= A \\cdot B + A \\cdot C \\\\ A + (B \\cdot C) &= (A + B) \\cdot (A + C) \\end{aligned}', display: true },
+
+        { type: 'h3', text: 'Verificación de la distributiva por tabla de verdad' },
+        { type: 'p', text: 'Una manera de verificar que $A + (B \\cdot C)$ es equivalente a $(A + B) \\cdot (A + C)$ es comprobar que ambas expresiones corresponden a una misma tabla de verdad. Como hay tres variables ($A$, $B$, $C$), la tabla tiene $2^n = 2^3 = 8$ filas.' },
+        { type: 'p', text: 'Para $A + (B \\cdot C)$ primero se resuelve el paréntesis $B \\cdot C$ (el producto lógico da $1$ solo cuando $B$ y $C$ son ambos $1$) y luego la suma lógica con $A$ (da $0$ solo cuando $B \\cdot C$ y $A$ son ambos $0$).' },
+        { type: 'table', caption: 'Tabla de verdad de A + (B · C)', headers: ['$A$', '$B$', '$C$', '$B \\cdot C$', '$A + (B \\cdot C)$'], rows: [
+          ['0', '0', '0', '0', '0'],
+          ['0', '0', '1', '0', '0'],
+          ['0', '1', '0', '0', '0'],
+          ['0', '1', '1', '1', '1'],
+          ['1', '0', '0', '0', '1'],
+          ['1', '0', '1', '0', '1'],
+          ['1', '1', '0', '0', '1'],
+          ['1', '1', '1', '1', '1']
+        ] },
+        { type: 'p', text: 'De igual manera se arma la tabla de $(A + B) \\cdot (A + C)$. Acá primero se resuelven las dos sumas lógicas y después el producto lógico entre sus resultados.' },
+        { type: 'table', caption: 'Tabla de verdad de (A + B) · (A + C)', headers: ['$A$', '$B$', '$C$', '$A + B$', '$A + C$', '$(A + B) \\cdot (A + C)$'], rows: [
+          ['0', '0', '0', '0', '0', '0'],
+          ['0', '0', '1', '0', '1', '0'],
+          ['0', '1', '0', '1', '0', '0'],
+          ['0', '1', '1', '1', '1', '1'],
+          ['1', '0', '0', '1', '1', '1'],
+          ['1', '0', '1', '1', '1', '1'],
+          ['1', '1', '0', '1', '1', '1'],
+          ['1', '1', '1', '1', '1', '1']
+        ] },
+        { type: 'callout', tone: 'info', text: 'Dado que las columnas de resultado de ambas tablas son <strong>iguales</strong> (0,0,0,1,1,1,1,1), se verifica la equivalencia: $A + (B \\cdot C) = (A + B) \\cdot (A + C)$.' },
+
+        { type: 'h3', text: 'Propiedad identidad', criollo: 'El 0 es el neutro de la suma y el 1 es el neutro del producto. Sumar 0 o multiplicar por 1 no cambia nada.' },
+        { type: 'math', latex: '\\begin{aligned} A + 0 &= A \\\\ A \\cdot 1 &= A \\end{aligned}', display: true },
+
+        { type: 'h3', text: 'Propiedad complemento', criollo: 'Una variable junto a su negada cubren todo: sumadas dan 1, multiplicadas dan 0. No hay punto medio.' },
+        { type: 'p', text: 'La suma lógica entre una variable y su complemento da como resultado $1$. El producto lógico entre una variable y su complemento da como resultado $0$.' },
+        { type: 'math', latex: '\\begin{aligned} A + \\overline{A} &= 1 \\\\ A \\cdot \\overline{A} &= 0 \\end{aligned}', display: true },
+        { type: 'p', text: 'Una manera sencilla de verificar que $A + \\overline{A}$ es $1$ es haciendo la tabla de verdad.' },
+        { type: 'table', caption: 'Verificación de A + Ā = 1', headers: ['$A$', '$\\overline{A}$', '$A + \\overline{A}$'], rows: [
+          ['0', '1', '1'],
+          ['1', '0', '1']
+        ] },
+        { type: 'callout', tone: 'info', text: 'Se verifica que en <strong>todos los casos</strong> el resultado es $1$.' },
+
+        { type: 'h3', text: 'Propiedad asociativa', criollo: 'Mientras sea la misma operación, agrupás como quieras: los paréntesis no cambian nada. Por eso podés escribir A + B + C sin paréntesis.' },
+        { type: 'p', text: 'Siempre que se trate de una misma operación lógica se podrá utilizar esta propiedad.' },
+        { type: 'math', latex: '\\begin{aligned} A + (B + C) &= (A + B) + C = A + B + C \\\\ A \\cdot (B \\cdot C) &= (A \\cdot B) \\cdot C = A \\cdot B \\cdot C = ABC \\end{aligned}', display: true },
+
+        { type: 'callout', tone: 'criollo', text: 'En este apunte se demuestran solo algunas propiedades; el resto se pueden comprobar igual, ya sea armando la tabla de verdad o encadenando otros postulados. Si las columnas de resultado coinciden, las expresiones son equivalentes y listo, rico.' }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-9-1', q: 'En el álgebra de Boole, los postulados son axiomas: premisas que se admiten sin demostración.', a: true, explain: 'Exacto. Los postulados se toman como base del razonamiento y su verdad se admite sin pruebas.' },
+          { id: 'tf-9-2', q: 'La propiedad distributiva del álgebra de Boole permite que la suma lógica se distribuya respecto del producto lógico: $A + (B \\cdot C) = (A + B) \\cdot (A + C)$.', a: true, explain: 'Sí. A diferencia de la aritmética común, en Boole la suma también distribuye sobre el producto.' },
+          { id: 'tf-9-3', q: 'Según la propiedad identidad, $A \\cdot 1 = A$ y $A + 0 = A$.', a: true, explain: 'Correcto: el 1 es el neutro del producto lógico y el 0 es el neutro de la suma lógica.' },
+          { id: 'tf-9-4', q: 'Por la propiedad complemento, $A + \\overline{A} = 0$.', a: false, explain: 'Falso. La suma de una variable con su complemento da $1$ ($A + \\overline{A} = 1$). El que da $0$ es el producto: $A \\cdot \\overline{A} = 0$.' },
+          { id: 'tf-9-5', q: 'La propiedad conmutativa solo vale para la suma lógica, no para el producto lógico.', a: false, explain: 'Falso. Vale para ambas: $A + B = B + A$ y $A \\cdot B = B \\cdot A$. El orden de los factores no afecta a ninguna de las dos.' }
+        ],
+        mc: [
+          { id: 'mc-9-1', q: '¿Qué operaciones lógicas relacionan las reglas del álgebra de Boole?', options: ['AND, OR y NOT', 'Suma, resta y multiplicación aritméticas', 'XOR, NAND y NOR únicamente', 'Solo AND y OR'], correctIndex: 0, explain: 'El álgebra de Boole es la base matemática que relaciona las operaciones lógicas AND, OR y NOT.' },
+          { id: 'mc-9-2', q: 'Para verificar por tabla de verdad la equivalencia $A + (B \\cdot C) = (A + B) \\cdot (A + C)$, ¿cuántas filas tiene la tabla?', options: ['4 filas', '6 filas', '8 filas', '16 filas'], correctIndex: 2, explain: 'Con $n = 3$ variables ($A$, $B$, $C$) la tabla tiene $2^n = 2^3 = 8$ filas.' },
+          { id: 'mc-9-3', q: '¿Cuál de estas igualdades corresponde a la propiedad asociativa?', options: ['$A + B = B + A$', '$A + (B + C) = (A + B) + C = A + B + C$', '$A + \\overline{A} = 1$', '$A \\cdot 1 = A$'], correctIndex: 1, explain: 'La asociativa permite reagrupar términos de una misma operación: $A + (B + C) = (A + B) + C = A + B + C$ (y lo análogo para el producto).' },
+          { id: 'mc-9-4', q: '¿Qué resultado da el producto lógico de una variable por su complemento?', options: ['$1$', '$0$', 'La variable $A$', '$\\overline{A}$'], correctIndex: 1, explain: 'Por la propiedad complemento, $A \\cdot \\overline{A} = 0$. La suma, en cambio, da $1$.' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-9-1', front: '¿Qué es el álgebra de Boole?', back: 'La base matemática lógica empleada en los sistemas digitales. Es el conjunto de reglas o propiedades que relacionan las operaciones lógicas AND, OR y NOT.' },
+        { id: 'fc-9-2', front: '¿Qué es un postulado (o axioma) del álgebra de Boole?', back: 'Una premisa que se toma como base para un razonamiento, cuya verdad se admite sin pruebas.' },
+        { id: 'fc-9-3', front: 'Propiedad conmutativa', back: '$A + B = B + A$ y $A \\cdot B = B \\cdot A$. El orden de los factores no afecta ni a la suma ni al producto lógico.' },
+        { id: 'fc-9-4', front: 'Propiedad distributiva', back: '$A \\cdot (B + C) = A \\cdot B + A \\cdot C$ y $A + (B \\cdot C) = (A + B) \\cdot (A + C)$. En Boole tanto el producto distribuye sobre la suma como la suma sobre el producto.' },
+        { id: 'fc-9-5', front: 'Propiedad identidad', back: '$A + 0 = A$ y $A \\cdot 1 = A$. El 0 es neutro de la suma y el 1 es neutro del producto lógico.' },
+        { id: 'fc-9-6', front: 'Propiedad complemento', back: '$A + \\overline{A} = 1$ y $A \\cdot \\overline{A} = 0$. Sumar una variable con su complemento da 1; multiplicarla por su complemento da 0.' },
+        { id: 'fc-9-7', front: 'Propiedad asociativa', back: '$A + (B + C) = (A + B) + C = A + B + C$ y $A \\cdot (B \\cdot C) = (A \\cdot B) \\cdot C = ABC$. Vale siempre que sea la misma operación lógica.' },
+        { id: 'fc-9-8', front: '¿Cómo se verifica que dos expresiones lógicas son equivalentes?', back: 'Armando las tablas de verdad de ambas con todas las combinaciones de variables ($2^n$ filas). Si las columnas de resultado coinciden, las expresiones son equivalentes.' }
+      ],
+    },
+    {
+      id: '10', unit: '2', title: 'Álgebra de Boole: teoremas',
+      criollo: 'Che, los postulados eran las reglas que se aceptan de una, sin demostrar. Acá arrancan los teoremas, que son las propiedades que se deducen a partir de esos postulados. La estrella es el principio de dualidad (das vuelta sumas por productos y unos por ceros y todo sigue valiendo) y joyas como De Morgan, absorción y consenso. Cerramos con una tabla resumen para tener todo a mano.',
+      blocks: [
+        { type: 'p', text: 'A partir de los postulados del álgebra de Boole es posible deducir algunos <strong>teoremas</strong>. Mientras los postulados se admiten como verdaderos sin pruebas, los teoremas se demuestran usando esos postulados.' },
+
+        { type: 'h3', text: 'Principio de dualidad', criollo: 'La regla madre: das vuelta todo y sigue valiendo.' },
+        { type: 'p', text: 'En cualquier propiedad del álgebra de Boole pueden invertirse las sumas lógicas por productos lógicos (y viceversa) y los unos por los ceros (y viceversa), y esta seguirá siendo válida.' },
+        { type: 'callout', tone: 'criollo', text: 'Por eso casi todas las propiedades vienen de a pares: una en <strong>forma OR</strong> y otra en <strong>forma AND</strong>. Cada una es la dual de la otra.' },
+
+        { type: 'h3', text: 'Idempotencia', criollo: 'Sumar o multiplicar una variable consigo misma no cambia nada.' },
+        { type: 'math', latex: 'A + A = A \\qquad A \\cdot A = A', display: true },
+        { type: 'p', text: 'Como la idempotencia es un teorema, podemos verificar que $A \\cdot A$ equivale a $A$ usando los postulados. Se parte de $A$:' },
+        { type: 'ol', items: [
+          'Por identidad: $A = A \\cdot 1$',
+          'Por complemento: $A \\cdot 1 = A \\cdot (A + \\overline{A})$',
+          'Por distributiva: $A \\cdot (A + \\overline{A}) = A \\cdot A + A \\cdot \\overline{A}$',
+          'Por complemento: $A \\cdot A + A \\cdot \\overline{A} = A \\cdot A + 0$',
+          'Por identidad: $A \\cdot A + 0 = A \\cdot A$'
+        ] },
+        { type: 'p', text: 'Se llega a comprobar entonces que $A = A \\cdot A$.' },
+        { type: 'callout', tone: 'info', text: 'El apunte aclara que este puede no ser el único camino para comprobar esta equivalencia.' },
+
+        { type: 'h3', text: 'Elementos nulos', criollo: 'El 1 manda en la OR y el 0 manda en la AND.' },
+        { type: 'math', latex: 'A + 1 = 1 \\qquad A \\cdot 0 = 0', display: true },
+
+        { type: 'h3', text: 'Involutiva', criollo: 'Negar dos veces te deja como estabas.' },
+        { type: 'p', text: 'El complemento del complemento de la variable es la variable en sí misma.' },
+        { type: 'math', latex: '\\overline{\\overline{A}} = A', display: true },
+
+        { type: 'h3', text: 'Absorción', criollo: 'Una variable se come al término que la contiene.' },
+        { type: 'math', latex: 'A + (A \\cdot B) = A \\qquad A \\cdot (A + B) = A', display: true },
+
+        { type: 'h3', text: 'De Morgan', criollo: 'Negás todo el grupo y se da vuelta la operación de adentro.' },
+        { type: 'p', text: 'La negación de una suma es el producto de las negaciones, y la negación de un producto es la suma de las negaciones.' },
+        { type: 'math', latex: '\\overline{A + B} = \\overline{A} \\cdot \\overline{B} \\qquad \\overline{A \\cdot B} = \\overline{A} + \\overline{B}', display: true },
+
+        { type: 'h3', text: 'Transposición', criollo: 'Reescribís una expresión de suma de productos como producto de sumas.' },
+        { type: 'math', latex: 'A \\cdot B + \\overline{A} \\cdot C = (A + C) \\cdot (\\overline{A} + B)', display: true },
+
+        { type: 'h3', text: 'Consenso', criollo: 'El término del medio sobra: lo podés borrar sin cambiar nada.' },
+        { type: 'p', text: 'El término de consenso ($B \\cdot C$ en la forma OR) es redundante y puede eliminarse.' },
+        { type: 'math', latex: 'A \\cdot B + \\overline{A} \\cdot C + B \\cdot C = A \\cdot B + \\overline{A} \\cdot C', display: true },
+        { type: 'p', text: 'Y su dual (forma AND):' },
+        { type: 'math', latex: '(A + B) \\cdot (\\overline{A} + C) \\cdot (B + C) = (A + B) \\cdot (\\overline{A} + C)', display: true },
+
+        { type: 'callout', tone: 'info', text: 'El apunte optó por demostrar solo algunas de las propiedades. De igual manera, se pueden comprobar el resto.' },
+
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-equivalencia-asociativa-or-p10.png', alt: 'Dos circuitos con compuertas OR equivalentes: uno con OR anidadas y otro con una sola OR de tres entradas.', caption: 'Equivalencia gráfica de la propiedad asociativa de la OR.' },
+
+        { type: 'h3', text: 'Tabla resumen de propiedades', criollo: 'Todo junto, forma OR y forma AND, para tenerlo a mano.' },
+        { type: 'table', caption: 'Postulados y teoremas del álgebra de Boole en forma OR y forma AND.',
+          headers: ['Propiedad', 'Forma OR', 'Forma AND'],
+          rows: [
+            ['Conmutativa', '$A + B = B + A$', '$A \\cdot B = B \\cdot A$'],
+            ['Distributiva', '$A \\cdot (B + C) = A \\cdot B + A \\cdot C$', '$A + (B \\cdot C) = (A + B) \\cdot (A + C)$'],
+            ['Identidad', '$A + 0 = A$', '$A \\cdot 1 = A$'],
+            ['Complemento', '$A + \\overline{A} = 1$', '$A \\cdot \\overline{A} = 0$'],
+            ['Asociativa', '$A + (B + C) = (A + B) + C = A + B + C$', '$A \\cdot (B \\cdot C) = (A \\cdot B) \\cdot C = ABC$'],
+            ['Idempotencia', '$A + A = A$', '$A \\cdot A = A$'],
+            ['Elementos nulos', '$A + 1 = 1$', '$A \\cdot 0 = 0$'],
+            ['Involutiva', '$\\overline{\\overline{A}} = A$', '$\\overline{\\overline{A}} = A$'],
+            ['Absorción', '$A + (A \\cdot B) = A$', '$A \\cdot (A + B) = A$'],
+            ['De Morgan', '$\\overline{A + B} = \\overline{A} \\cdot \\overline{B}$', '$\\overline{A \\cdot B} = \\overline{A} + \\overline{B}$'],
+            ['Transposición', '$A \\cdot B + \\overline{A} \\cdot C = (A + C) \\cdot (\\overline{A} + B)$', '$A \\cdot B + \\overline{A} \\cdot C = (A + C) \\cdot (\\overline{A} + B)$'],
+            ['Consenso', '$A \\cdot B + \\overline{A} \\cdot C + B \\cdot C = A \\cdot B + \\overline{A} \\cdot C$', '$(A + B) \\cdot (\\overline{A} + C) \\cdot (B + C) = (A + B) \\cdot (\\overline{A} + C)$']
+          ]
+        }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-10-1', q: 'Según el principio de dualidad, en cualquier propiedad del álgebra de Boole se pueden invertir las sumas por productos y los unos por los ceros, y la propiedad sigue siendo válida.', a: true, explain: 'Esa es exactamente la definición del principio de dualidad.' },
+          { id: 'tf-10-2', q: 'La propiedad de idempotencia establece que $A + A = A$ y que $A \\cdot A = A$.', a: true, explain: 'Sumar o multiplicar una variable consigo misma da la misma variable.' },
+          { id: 'tf-10-3', q: 'La propiedad de los elementos nulos dice que $A + 1 = A$ y $A \\cdot 0 = A$.', a: false, explain: 'Los elementos nulos son $A + 1 = 1$ y $A \\cdot 0 = 0$. El 1 absorbe en la OR y el 0 absorbe en la AND.' },
+          { id: 'tf-10-4', q: 'La propiedad involutiva afirma que $\\overline{\\overline{A}} = A$.', a: true, explain: 'El complemento del complemento de la variable es la variable en sí misma.' },
+          { id: 'tf-10-5', q: 'De Morgan establece que $\\overline{A + B} = \\overline{A} + \\overline{B}$.', a: false, explain: 'De Morgan da vuelta la operación: $\\overline{A + B} = \\overline{A} \\cdot \\overline{B}$ (y $\\overline{A \\cdot B} = \\overline{A} + \\overline{B}$).' }
+        ],
+        mc: [
+          { id: 'mc-10-1', q: '¿Cuál es la diferencia entre un postulado y un teorema en el álgebra de Boole?', options: ['Los postulados se demuestran y los teoremas se admiten sin pruebas', 'Los postulados se admiten como verdaderos sin pruebas y los teoremas se deducen a partir de ellos', 'Ambos se demuestran usando tablas de verdad obligatoriamente', 'No hay ninguna diferencia, son sinónimos'], correctIndex: 1, explain: 'Los postulados o axiomas se toman como base sin pruebas; los teoremas se deducen a partir de esos postulados.' },
+          { id: 'mc-10-2', q: 'En la demostración de $A \\cdot A = A$, ¿qué postulado se usa para reescribir $A$ como $A \\cdot 1$?', options: ['Complemento', 'Distributiva', 'Identidad', 'Conmutativa'], correctIndex: 2, explain: 'Por identidad $A \\cdot 1 = A$, así que se parte de $A = A \\cdot 1$.' },
+          { id: 'mc-10-3', q: '¿Cuál de las siguientes expresa correctamente la propiedad de absorción?', options: ['$A + (A \\cdot B) = A$ y $A \\cdot (A + B) = A$', '$A + (A \\cdot B) = B$ y $A \\cdot (A + B) = B$', '$A + (A \\cdot B) = 1$ y $A \\cdot (A + B) = 0$', '$A + (A \\cdot B) = A \\cdot B$'], correctIndex: 0, explain: 'En la absorción la variable se "come" al término que la contiene: el resultado es $A$ en ambas formas.' },
+          { id: 'mc-10-4', q: 'Según la propiedad de consenso, ¿qué término es redundante en $A \\cdot B + \\overline{A} \\cdot C + B \\cdot C$?', options: ['$A \\cdot B$', '$\\overline{A} \\cdot C$', '$B \\cdot C$', 'Ninguno, todos son necesarios'], correctIndex: 2, explain: 'El término de consenso $B \\cdot C$ es redundante: $A \\cdot B + \\overline{A} \\cdot C + B \\cdot C = A \\cdot B + \\overline{A} \\cdot C$.' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-10-1', front: '¿Qué dice el principio de dualidad?', back: 'En cualquier propiedad se pueden invertir sumas por productos (y viceversa) y unos por ceros (y viceversa), y la propiedad sigue siendo válida.' },
+        { id: 'fc-10-2', front: 'Propiedad de idempotencia', back: '$A + A = A$ y $A \\cdot A = A$.' },
+        { id: 'fc-10-3', front: 'Propiedad de los elementos nulos', back: '$A + 1 = 1$ y $A \\cdot 0 = 0$.' },
+        { id: 'fc-10-4', front: 'Propiedad involutiva', back: '$\\overline{\\overline{A}} = A$: el complemento del complemento de la variable es la variable misma.' },
+        { id: 'fc-10-5', front: 'Propiedad de absorción', back: '$A + (A \\cdot B) = A$ y $A \\cdot (A + B) = A$.' },
+        { id: 'fc-10-6', front: 'Teoremas de De Morgan', back: '$\\overline{A + B} = \\overline{A} \\cdot \\overline{B}$ y $\\overline{A \\cdot B} = \\overline{A} + \\overline{B}$.' },
+        { id: 'fc-10-7', front: 'Propiedad de transposición', back: '$A \\cdot B + \\overline{A} \\cdot C = (A + C) \\cdot (\\overline{A} + B)$.' },
+        { id: 'fc-10-8', front: 'Propiedad de consenso (forma OR)', back: '$A \\cdot B + \\overline{A} \\cdot C + B \\cdot C = A \\cdot B + \\overline{A} \\cdot C$: el término $B \\cdot C$ es redundante.' },
+        { id: 'fc-10-9', front: 'En la demostración de $A \\cdot A = A$, ¿qué postulados se usan?', back: 'Identidad, complemento y distributiva: $A = A \\cdot 1 = A \\cdot (A + \\overline{A}) = A \\cdot A + A \\cdot \\overline{A} = A \\cdot A + 0 = A \\cdot A$.' }
+      ]
+    },
+    {
+      id: '11', unit: '2', title: 'Funciones lógicas y circuitos',
+      criollo: 'Acá agarramos una función booleana, la dibujamos como circuito con compuertas, y después la achicamos con álgebra de Boole hasta dejarla mínima. Menos compuertas = menos costo. Y de yapa, cómo armar todo con una sola clase de compuerta (NAND o NOR).',
+      blocks: [
+        { type: 'h3', text: 'Qué es una función lógica', criollo: 'Una fórmula booleana con variables binarias conectadas por compuertas.' },
+        { type: 'p', text: 'Una <strong>función lógica</strong> es una expresión booleana conformada por variables binarias (señales digitales binarias), las cuales están relacionadas mediante las operaciones lógicas (compuertas lógicas).' },
+        { type: 'p', text: 'Por ejemplo, una función lógica de las variables $A$, $B$ y $C$:' },
+        { type: 'math', latex: 'f(A, B, C) = \\overline{(A + \\overline{B})} + A \\cdot (B + C) + B \\cdot (B + \\overline{C})', display: true },
+        { type: 'p', text: 'En este ejemplo, las variables son $A$, $B$ y $C$, pero podrían ser simbolizadas por otras letras o estar en otro orden, como $f(C, B, A)$.' },
+
+        { type: 'h3', text: 'Circuitos lógicos de las funciones', criollo: 'El dibujo de la función con los símbolos de las compuertas.' },
+        { type: 'p', text: 'El <strong>circuito lógico</strong> es la representación gráfica de la función, en la que se utilizan los símbolos lógicos de las compuertas para realizarlo.' },
+        { type: 'p', text: 'Para armar el circuito a partir de una función conviene identificar cada tipo de compuerta dentro de ella. Si vamos marcando tramo por tramo, aparecen NOT, NOR, OR, AND y la OR final que junta todo:' },
+        { type: 'math', latex: 'f(A, B, C) = \\underbrace{\\overline{(A + \\underbrace{\\overline{B}}_{NOT})}}_{NOR} + \\underbrace{A \\cdot \\underbrace{(B + C)}_{OR}}_{AND} + \\underbrace{B \\cdot \\underbrace{(B + \\underbrace{\\overline{C}}_{NOT})}_{OR}}_{AND}', display: true },
+        { type: 'p', text: 'Una vez identificadas las compuertas, ya se puede armar el diagrama lógico. En el circuito se conectan las entradas y las salidas de las compuertas con líneas (cables). Cuando se quiere indicar que dos líneas están conectadas, se hace un punto (círculo relleno).' },
+        { type: 'callout', tone: 'info', text: 'El apunte aclara que, para mayor claridad de lectura, el diagrama se puede dibujar de otra manera: cada entrada con la misma variable se entiende conectada como en el circuito original, aunque no se trace la línea completa.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-circuito-funcion-anotado-p02.png', alt: 'Circuito lógico de una función F a partir de A, B y C con inversores, AND, OR y NOR, anotado con las expresiones booleanas de cada nodo.', caption: 'Circuito de la función F con cada tramo anotado con su expresión booleana.' },
+
+        { type: 'h3', text: 'Minimización con álgebra de Boole', criollo: 'Usás las propiedades para sacarle compuertas hasta que no se pueda más.' },
+        { type: 'p', text: 'Las propiedades o reglas del álgebra se pueden utilizar para llegar a expresiones equivalentes de la función que tengan menor cantidad de compuertas lógicas. Se dice que la expresión es <strong>mínima</strong> cuando ya no es posible reducirla.' },
+        { type: 'callout', tone: 'info', text: 'Ojo: la expresión mínima <strong>puede no ser única</strong>. Puede haber más de una forma igual de chica.' },
+        { type: 'p', text: 'Vamos a encontrar una expresión mínima de la función $f(A, B, C)$ partiendo de la original. Cada paso aplica una propiedad distinta:' },
+        { type: 'math', latex: 'f(A, B, C) = \\overline{(A + \\overline{B})} + A \\cdot (B + C) + B \\cdot (B + \\overline{C})', display: true },
+        { type: 'ol', items: [
+          'Por <strong>De Morgan</strong>: $f(A, B, C) = \\overline{A} \\cdot B + A \\cdot (B + C) + B \\cdot (B + \\overline{C})$',
+          'Por <strong>distributiva</strong>: $f(A, B, C) = \\overline{A} \\cdot B + A \\cdot B + A \\cdot C + B \\cdot B + B \\cdot \\overline{C}$',
+          'Por <strong>idempotencia</strong> ($B \\cdot B = B$): $f(A, B, C) = \\overline{A} \\cdot B + A \\cdot B + A \\cdot C + B + B \\cdot \\overline{C}$',
+          'Por <strong>absorción</strong>: $f(A, B, C) = \\overline{A} \\cdot B + A \\cdot B + A \\cdot C + B$',
+          'Por <strong>absorción</strong>: $f(A, B, C) = \\overline{A} \\cdot B + A \\cdot C + B$',
+          'Por <strong>absorción</strong>: $f(A, B, C) = A \\cdot C + B$'
+        ] },
+        { type: 'p', text: 'Una expresión mínima de la función es entonces:' },
+        { type: 'math', latex: 'f(A, B, C) = A \\cdot C + B', display: true },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-circuito-funcion-minimizada-p03.png', alt: 'Circuito lógico minimizado con una AND de A y C combinada en una OR con B.', caption: 'Versión minimizada de la función: f = B + A·C.' },
+        { type: 'callout', tone: 'criollo', text: 'Fijate la diferencia: la expresión mínima minimiza la cantidad de compuertas. Cuando diseñás algo, lo querés optimizar para tener un menor costo lógico. Menos compuertas, más barato, rico.' },
+
+        { type: 'h3', text: 'Circuitos con un solo tipo de compuerta', criollo: 'A veces conviene armar todo con NAND o todo con NOR.' },
+        { type: 'p', text: 'A veces será conveniente implementar la función lógica con un solo tipo de compuerta. Se parte del resultado de la expresión mínima y se siguen una serie de pasos usando las propiedades del álgebra de Boole.' },
+
+        { type: 'p', text: '<strong>Solo con compuertas NAND.</strong> Partimos de $f(A, B, C) = A \\cdot C + B$:' },
+        { type: 'ol', items: [
+          'Por <strong>involutiva</strong> (doble negación): $f(A, B, C) = \\overline{\\overline{A \\cdot C + B}}$',
+          'Por <strong>De Morgan</strong>: $f(A, B, C) = \\overline{\\overline{A \\cdot C} \\cdot \\overline{B}}$',
+          'Por <strong>idempotencia</strong> ($B = B \\cdot B$): $f(A, B, C) = \\overline{\\overline{A \\cdot C} \\cdot \\overline{B \\cdot B}}$, donde cada $\\overline{A \\cdot C}$ y $\\overline{B \\cdot B}$ es una NAND, y la barra exterior es otra NAND.'
+        ] },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-circuito-funcion-solo-nand-p04.png', alt: 'Circuito que implementa la función usando únicamente compuertas NAND.', caption: 'La función implementada solo con compuertas NAND.' },
+
+        { type: 'p', text: '<strong>Solo con compuertas NOR.</strong> Acá se parte de la forma como producto de sumas $f(A, B, C) = (A + B) \\cdot (B + C)$:' },
+        { type: 'ol', items: [
+          'Por <strong>involutiva</strong> (doble negación): $f(A, B, C) = \\overline{\\overline{(A + B) \\cdot (B + C)}}$',
+          'Por <strong>De Morgan</strong>: $f(A, B, C) = \\overline{\\overline{(A + B)} + \\overline{(B + C)}}$, donde cada $\\overline{(A + B)}$ y $\\overline{(B + C)}$ es una NOR, y la barra exterior es otra NOR.'
+        ] },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u2-circuito-funcion-solo-nor-p04.png', alt: 'Circuito que implementa la función usando únicamente compuertas NOR.', caption: 'La función implementada solo con compuertas NOR.' },
+        { type: 'callout', tone: 'info', text: 'Los circuitos del apunte están realizados en el simulador https://www.falstad.com/circuit/.' }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-11-1', q: 'Una función lógica es una expresión booleana de variables binarias relacionadas mediante operaciones lógicas (compuertas).', a: true, explain: 'Es la definición exacta del apunte.' },
+          { id: 'tf-11-2', q: 'El circuito lógico es la representación gráfica de la función usando los símbolos de las compuertas.', a: true, explain: 'Correcto: el circuito es el dibujo de la función con los símbolos lógicos de las compuertas.' },
+          { id: 'tf-11-3', q: 'La expresión mínima de una función lógica es siempre única.', a: false, explain: 'Falso. El apunte aclara que la expresión mínima puede no ser única: puede haber más de una forma igual de reducida.' },
+          { id: 'tf-11-4', q: 'Minimizar una función con álgebra de Boole busca reducir la cantidad de compuertas para bajar el costo lógico.', a: true, explain: 'Así es: menos compuertas implica un menor costo lógico en el diseño.' },
+          { id: 'tf-11-5', q: 'Para implementar la función solo con compuertas NAND se parte de la forma producto de sumas $(A + B) \\cdot (B + C)$.', a: false, explain: 'Falso. De $(A + B) \\cdot (B + C)$ se parte para la versión solo NOR. Para solo NAND se parte de la expresión mínima $A \\cdot C + B$.' }
+        ],
+        mc: [
+          { id: 'mc-11-1', q: '¿Cuál es una expresión mínima de $f(A, B, C) = \\overline{(A + \\overline{B})} + A \\cdot (B + C) + B \\cdot (B + \\overline{C})$?', options: ['$A \\cdot C + B$', '$\\overline{A} \\cdot B + A \\cdot C$', '$A + B + C$', '$A \\cdot B \\cdot C$'], correctIndex: 0, explain: 'Aplicando De Morgan, distributiva, idempotencia y absorción se llega a $f = A \\cdot C + B$.' },
+          { id: 'mc-11-2', q: 'En la minimización, ¿qué propiedad permite pasar de $B \\cdot B$ a $B$?', options: ['Idempotencia', 'De Morgan', 'Distributiva', 'Involutiva'], correctIndex: 0, explain: 'La idempotencia establece que $B \\cdot B = B$ (y $B + B = B$).' },
+          { id: 'mc-11-3', q: '¿Qué dos propiedades se usan para llevar $A \\cdot C + B$ a una forma solo con compuertas NAND?', options: ['Involutiva y De Morgan (más idempotencia)', 'Distributiva y complemento', 'Absorción y conmutativa', 'Identidad y distributiva'], correctIndex: 0, explain: 'Se aplica involutiva (doble negación), luego De Morgan, y la idempotencia para desdoblar $B$ en $B \\cdot B$.' },
+          { id: 'mc-11-4', q: 'En el circuito, ¿cómo se indica que dos líneas (cables) están conectadas?', options: ['Con un punto (círculo relleno)', 'Con una flecha', 'Con un cuadrado', 'Con un círculo vacío'], correctIndex: 0, explain: 'El apunte indica que la conexión entre dos líneas se marca con un punto, un círculo relleno.' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-11-1', front: '¿Qué es una función lógica?', back: 'Una expresión booleana conformada por variables binarias relacionadas mediante operaciones lógicas (compuertas).' },
+        { id: 'fc-11-2', front: '¿Qué es un circuito lógico?', back: 'La representación gráfica de la función, usando los símbolos lógicos de las compuertas para realizarla.' },
+        { id: 'fc-11-3', front: '¿Cuándo una expresión es mínima?', back: 'Cuando ya no es posible reducirla aplicando propiedades del álgebra de Boole. Puede no ser única.' },
+        { id: 'fc-11-4', front: '¿Para qué sirve minimizar una función lógica?', back: 'Para llegar a una expresión equivalente con menor cantidad de compuertas, optimizando el diseño y bajando el costo lógico.' },
+        { id: 'fc-11-5', front: 'Expresión mínima de $\\overline{(A + \\overline{B})} + A \\cdot (B + C) + B \\cdot (B + \\overline{C})$', back: '$f(A, B, C) = A \\cdot C + B$, obtenida con De Morgan, distributiva, idempotencia y absorción.' },
+        { id: 'fc-11-6', front: '¿De qué expresión se parte para armar la función solo con NAND?', back: 'De la expresión mínima $A \\cdot C + B$, aplicando involutiva, De Morgan e idempotencia.' },
+        { id: 'fc-11-7', front: '¿De qué expresión se parte para armar la función solo con NOR?', back: 'De la forma producto de sumas $(A + B) \\cdot (B + C)$, aplicando involutiva y De Morgan.' },
+        { id: 'fc-11-8', front: '¿Cómo se marca en un circuito que dos cables están conectados?', back: 'Con un punto, es decir un círculo relleno, sobre la unión de las líneas.' }
+      ]
+    },
+    {
+      id: '12', unit: '2', title: 'Formas canónicas: SOP y POS',
+      criollo: 'Acá la idea es escribir la función de forma "prolija y completa": que en CADA término aparezcan TODAS las variables, sí o sí. Eso te da las formas canónicas, y de paso un atajo brutal para armar la tabla de verdad o leerla al revés. Hay dos sabores: suma de productos (SOP) y producto de sumas (POS).',
+      blocks: [
+        { type: 'p', text: 'La <strong>forma canónica</strong> de una función lógica es aquella en la que <strong>cada uno de los términos tiene todas las variables</strong> de la función. No alcanza con que esté simplificada: lo que importa es que ningún término se quede sin alguna variable.' },
+        { type: 'p', text: 'Existen dos maneras de escribir la forma canónica:' },
+        { type: 'ul', items: [
+          'Forma canónica como <strong>suma de productos</strong> (SOP).',
+          'Forma canónica como <strong>producto de sumas</strong> (POS).'
+        ] },
+
+        { type: 'h3', text: 'Forma canónica como suma de productos (SOP)', criollo: 'Partís de una suma de productos cualquiera y vas rellenando las variables que faltan.' },
+        { type: 'p', text: 'Para armar la SOP se puede partir de <strong>cualquier expresión equivalente</strong> de la función original que esté escrita como suma de productos, aunque no tenga todas las variables ni sea mínima. Por ejemplo:' },
+        { type: 'math', latex: 'f(A, B, C) = A \\cdot C + B', display: true },
+        { type: 'p', text: 'Con esa expresión, se siguen una serie de pasos para <strong>agregar las variables faltantes</strong> en cada término. Sobre el primer término ($A \\cdot C$, al que le falta $B$):' },
+        { type: 'math', latex: '\\text{Identidad} \\rightarrow f(A,B,C) = A \\cdot C \\cdot 1 + B', display: true },
+        { type: 'math', latex: '\\text{Complemento} \\rightarrow f(A,B,C) = A \\cdot C \\cdot (B + \\overline{B}) + B', display: true },
+        { type: 'math', latex: '\\text{Distributiva} \\rightarrow f(A,B,C) = A \\cdot C \\cdot B + A \\cdot C \\cdot \\overline{B} + B', display: true },
+        { type: 'p', text: 'Así se logró agregar la variable faltante en ese término. Repitiendo los mismos pasos sobre el otro término ($B$, al que le faltan $A$ y $C$):' },
+        { type: 'math', latex: '\\text{Identidad} \\rightarrow f(A,B,C) = A \\cdot C \\cdot B + A \\cdot C \\cdot \\overline{B} + B \\cdot 1 \\cdot 1', display: true },
+        { type: 'math', latex: '\\text{Complemento} \\rightarrow f(A,B,C) = A \\cdot C \\cdot B + A \\cdot C \\cdot \\overline{B} + B \\cdot (A + \\overline{A}) \\cdot (C + \\overline{C})', display: true },
+        { type: 'math', latex: '\\text{Distributiva} \\rightarrow f = A C B + A C \\overline{B} + B \\cdot (AC + A\\overline{C} + \\overline{A}C + \\overline{A}\\,\\overline{C})', display: true },
+        { type: 'math', latex: '\\text{Distributiva} \\rightarrow f = A C B + A C \\overline{B} + B A C + B A \\overline{C} + B \\overline{A} C + B \\overline{A}\\,\\overline{C}', display: true },
+        { type: 'p', text: 'En este punto todos los términos tienen todas las variables. Es importante <strong>no olvidar ordenarlos</strong>, de manera que en todos los términos las variables queden en el mismo orden:' },
+        { type: 'math', latex: '\\text{Conmutativa} \\rightarrow f = A B C + A \\overline{B} C + A B C + A B \\overline{C} + \\overline{A} B C + \\overline{A} B \\overline{C}', display: true },
+        { type: 'p', text: 'Algunos términos quedan repetidos, así que se aplica <strong>idempotencia</strong> para eliminar el duplicado:' },
+        { type: 'math', latex: '\\text{Idempotencia} \\rightarrow f = A B C + A \\overline{B} C + A B \\overline{C} + \\overline{A} B C + \\overline{A} B \\overline{C}', display: true },
+        { type: 'p', text: 'Esa última expresión ya está en forma canónica como suma de productos.' },
+
+        { type: 'h3', text: 'Minitérminos', criollo: 'Cada producto con todas las variables es un minitérmino. Y la regla de lectura: variable normal = 1, variable negada = 0.' },
+        { type: 'p', text: 'Cada término de <strong>producto lógico que contiene todas las variables</strong> se conoce como <strong>minitérmino</strong> ($m$).' },
+        { type: 'callout', tone: 'info', text: 'Cuando se trabaja con minitérminos: $A = 1$ y $\\overline{A} = 0$. Esto vale igual para todas las variables.' },
+        { type: 'p', text: 'Aplicando esa regla a cada minitérmino, leemos cada término como un número binario ($A B C$):' },
+        { type: 'math', latex: '\\underset{111}{A B C} + \\underset{101}{A \\overline{B} C} + \\underset{110}{A B \\overline{C}} + \\underset{011}{\\overline{A} B C} + \\underset{010}{\\overline{A} B \\overline{C}}', display: true },
+        { type: 'p', text: 'Si pasamos esos binarios a decimal, cada término toma su número de minitérmino:' },
+        { type: 'math', latex: '\\underset{m_7}{A B C} + \\underset{m_5}{A \\overline{B} C} + \\underset{m_6}{A B \\overline{C}} + \\underset{m_3}{\\overline{A} B C} + \\underset{m_2}{\\overline{A} B \\overline{C}}', display: true },
+        { type: 'p', text: 'De forma más compacta:' },
+        { type: 'math', latex: 'f(A,B,C) = m_2 + m_3 + m_5 + m_6 + m_7 = \\sum m(2, 3, 5, 6, 7)', display: true },
+
+        { type: 'h3', text: 'Tabla de verdad a partir de la SOP', criollo: 'Cada minitérmino es un 1 en la tabla. Donde aparece un minitérmino, f vale 1; el resto, 0.' },
+        { type: 'p', text: 'Cada <strong>minitérmino corresponde a un 1</strong> en la tabla de verdad de la función ($f = 1$). Y al revés: a partir de la tabla también se puede obtener la forma canónica de la función.' },
+        { type: 'table', caption: 'Tabla de verdad de la SOP: $f = ABC + A\\overline{B}C + AB\\overline{C} + \\overline{A}BC + \\overline{A}B\\overline{C}$', headers: ['$A$', '$B$', '$C$', '$f$', ''], rows: [
+          ['0', '0', '0', '0', ''],
+          ['0', '0', '1', '0', ''],
+          ['0', '1', '0', '1', '$m_2$'],
+          ['0', '1', '1', '1', '$m_3$'],
+          ['1', '0', '0', '0', ''],
+          ['1', '0', '1', '1', '$m_5$'],
+          ['1', '1', '0', '1', '$m_6$'],
+          ['1', '1', '1', '1', '$m_7$']
+        ] },
+
+        { type: 'h3', text: 'Forma canónica como producto de sumas (POS)', criollo: 'Mismo juego pero al revés: partís de un producto de sumas y rellenás las variables que faltan en cada suma.' },
+        { type: 'p', text: 'De manera análoga, se parte de una expresión escrita como producto de sumas. Por ejemplo:' },
+        { type: 'math', latex: 'f(A, B, C) = (A + B) \\cdot (B + C)', display: true },
+        { type: 'p', text: 'Se agregan las variables faltantes usando identidad, complemento y distributiva (acá el neutro de la suma es el $0$):' },
+        { type: 'math', latex: '\\text{Identidad} \\rightarrow f = (A + B + 0) \\cdot (0 + B + C)', display: true },
+        { type: 'math', latex: '\\text{Complemento} \\rightarrow f = ((A + B) + C \\cdot \\overline{C}) \\cdot (A \\cdot \\overline{A} + (B + C))', display: true },
+        { type: 'math', latex: '\\text{Distributiva} \\rightarrow f = (A + B + C)(A + B + \\overline{C})(A + B + C)(\\overline{A} + B + C)', display: true },
+        { type: 'math', latex: '\\text{Idempotencia} \\rightarrow f = (A + B + C)(A + B + \\overline{C})(\\overline{A} + B + C)', display: true },
+        { type: 'p', text: 'Esa expresión ya está en forma canónica como producto de sumas.' },
+
+        { type: 'h3', text: 'Maxitérminos', criollo: 'Cada suma con todas las variables es un maxitérmino. Ojo con la regla: acá se invierte, variable normal = 0, variable negada = 1.' },
+        { type: 'p', text: 'A cada término de <strong>suma lógica que contiene todas las variables</strong> se lo conoce como <strong>maxitérmino</strong> ($M$).' },
+        { type: 'callout', tone: 'warning', text: 'Cuando se trabaja con maxitérminos la regla se DA VUELTA respecto de los minitérminos: $A = 0$ y $\\overline{A} = 1$. Esto vale igual para todas las variables.' },
+        { type: 'p', text: 'Aplicando esa regla, leemos cada maxitérmino como un número binario ($A B C$):' },
+        { type: 'math', latex: '\\underset{000}{(A + B + C)} \\cdot \\underset{001}{(A + B + \\overline{C})} \\cdot \\underset{100}{(\\overline{A} + B + C)}', display: true },
+        { type: 'p', text: 'Pasando los binarios a decimal, cada término toma su número de maxitérmino:' },
+        { type: 'math', latex: '\\underset{M_0}{(A + B + C)} \\cdot \\underset{M_1}{(A + B + \\overline{C})} \\cdot \\underset{M_4}{(\\overline{A} + B + C)}', display: true },
+        { type: 'p', text: 'De forma más compacta:' },
+        { type: 'math', latex: 'f(A,B,C) = M_0 \\cdot M_1 \\cdot M_4 = \\prod M(0, 1, 4)', display: true },
+
+        { type: 'h3', text: 'Tabla de verdad a partir de la POS', criollo: 'Acá es al revés que en SOP: cada maxitérmino es un 0 en la tabla.' },
+        { type: 'p', text: 'Cada <strong>maxitérmino corresponde a un 0</strong> en la tabla de verdad de la función ($f = 0$). Igual que antes, a partir de la tabla también se puede obtener la forma canónica.' },
+        { type: 'table', caption: 'Tabla de verdad de la POS: $f = (A+B+C) \\cdot (A+B+\\overline{C}) \\cdot (\\overline{A}+B+C)$', headers: ['$A$', '$B$', '$C$', '$f$', ''], rows: [
+          ['0', '0', '0', '0', '$M_0$'],
+          ['0', '0', '1', '0', '$M_1$'],
+          ['0', '1', '0', '1', ''],
+          ['0', '1', '1', '1', ''],
+          ['1', '0', '0', '0', '$M_4$'],
+          ['1', '0', '1', '1', ''],
+          ['1', '1', '0', '1', ''],
+          ['1', '1', '1', '1', '']
+        ] },
+
+        { type: 'callout', tone: 'criollo', text: 'Truco para no marearte: minitérmino mira los UNOS (m = 1, variable normal = 1), maxitérmino mira los CEROS (M = 0, variable normal = 0). Son la misma tabla leída desde lados opuestos.' }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-12-1', q: 'En la forma canónica, cada término tiene todas las variables de la función.', a: true, explain: 'Esa es justamente la definición de forma canónica: cada término contiene todas las variables.' },
+          { id: 'tf-12-2', q: 'Un minitérmino es un término de producto lógico que contiene todas las variables.', a: true, explain: 'Correcto. El minitérmino ($m$) es un producto con todas las variables; el maxitérmino ($M$) es una suma con todas las variables.' },
+          { id: 'tf-12-3', q: 'Trabajando con minitérminos, una variable negada ($\\overline{A}$) se lee como 1.', a: false, explain: 'Al revés: en minitérminos $A = 1$ y $\\overline{A} = 0$. El criterio de leer la negada como 1 es el de los maxitérminos.' },
+          { id: 'tf-12-4', q: 'Cada maxitérmino corresponde a un 0 en la tabla de verdad de la función.', a: true, explain: 'Sí. Cada maxitérmino es una fila donde $f = 0$, mientras que cada minitérmino es una fila donde $f = 1$.' },
+          { id: 'tf-12-5', q: 'Para armar la SOP hay que partir obligatoriamente de la expresión mínima de la función.', a: false, explain: 'No. Se puede partir de cualquier expresión equivalente escrita como suma de productos, aunque no sea mínima ni tenga todas las variables.' }
+        ],
+        mc: [
+          { id: 'mc-12-1', q: '¿Qué propiedades se usan para agregar una variable faltante en un término de la SOP?', options: ['De Morgan e involutiva', 'Identidad, complemento y distributiva', 'Solo absorción', 'Dualidad y consenso'], correctIndex: 1, explain: 'El procedimiento del apunte es: identidad ($\\cdot 1$), complemento ($\\cdot (B + \\overline{B})$) y luego distributiva.' },
+          { id: 'mc-12-2', q: 'El minitérmino $\\overline{A} \\cdot B \\cdot \\overline{C}$ corresponde a qué número.', options: ['$m_7$', '$m_5$', '$m_2$', '$m_4$'], correctIndex: 2, explain: 'Con $\\overline{A}=0$, $B=1$, $\\overline{C}=0$ el binario es $010$, que en decimal es 2: $m_2$.' },
+          { id: 'mc-12-3', q: 'La función $f = (A+B+C)(A+B+\\overline{C})(\\overline{A}+B+C)$ en notación compacta es:', options: ['$\\sum m(0,1,4)$', '$\\prod M(0,1,4)$', '$\\sum m(2,3,5,6,7)$', '$\\prod M(2,3,5,6,7)$'], correctIndex: 1, explain: 'Son maxitérminos ($M_0$, $M_1$, $M_4$) multiplicándose, por eso es un producto: $\\prod M(0,1,4)$.' },
+          { id: 'mc-12-4', q: '¿Qué representa cada minitérmino de una SOP en la tabla de verdad?', options: ['Una fila donde $f = 0$', 'Una fila donde $f = 1$', 'Una columna de entrada', 'Una variable de la función'], correctIndex: 1, explain: 'Cada minitérmino corresponde a un 1 en la tabla de verdad ($f = 1$).' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-12-1', front: '¿Qué es la forma canónica de una función lógica?', back: 'Aquella en la que cada uno de los términos tiene TODAS las variables de la función.' },
+        { id: 'fc-12-2', front: '¿Cuáles son las dos formas canónicas?', back: 'Suma de productos (SOP) y producto de sumas (POS).' },
+        { id: 'fc-12-3', front: '¿Qué es un minitérmino ($m$)?', back: 'Un término de producto lógico que contiene todas las variables. En minitérminos $A = 1$ y $\\overline{A} = 0$.' },
+        { id: 'fc-12-4', front: '¿Qué es un maxitérmino ($M$)?', back: 'Un término de suma lógica que contiene todas las variables. En maxitérminos $A = 0$ y $\\overline{A} = 1$.' },
+        { id: 'fc-12-5', front: 'En la tabla de verdad, ¿a qué corresponde cada minitérmino?', back: 'A un 1 en la tabla ($f = 1$).' },
+        { id: 'fc-12-6', front: 'En la tabla de verdad, ¿a qué corresponde cada maxitérmino?', back: 'A un 0 en la tabla ($f = 0$).' },
+        { id: 'fc-12-7', front: '¿Qué propiedades se usan para agregar variables faltantes en SOP?', back: 'Identidad ($\\cdot 1$), complemento ($\\cdot (B + \\overline{B})$) y distributiva.' },
+        { id: 'fc-12-8', front: 'Escribí en notación compacta: $f = m_2 + m_3 + m_5 + m_6 + m_7$', back: '$f(A,B,C) = \\sum m(2, 3, 5, 6, 7)$' }
+      ]
+    },
+
   ],
   pdfs: [
     { key: 'u1-numeracion', label: 'U1 · Sistemas de numeración y aritmética binaria', path: 'pdfs/sistemas-digitales-i/1-sistemas-numeracion.pdf' },
+    { key: 'u2-compuertas', label: 'U2 · Compuertas lógicas y álgebra de Boole', path: 'pdfs/sistemas-digitales-i/2c-compuertas-logicas.pdf' },
+    { key: 'u2-funciones', label: 'U2 · Funciones lógicas con álgebra de Boole', path: 'pdfs/sistemas-digitales-i/2b-funciones-logicas.pdf' },
+    { key: 'u2-tabla-boole', label: 'U2 · Tabla del álgebra de Boole', path: 'pdfs/sistemas-digitales-i/2a-tabla-algebra-boole.pdf' },
   ],
 };
