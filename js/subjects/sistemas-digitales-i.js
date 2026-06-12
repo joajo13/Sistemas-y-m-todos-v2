@@ -1167,11 +1167,346 @@ export default {
       ]
     },
 
+    // ===================================================================
+    // UNIDAD 3 — Mapas de Karnaugh
+    // ===================================================================
+    {
+      id: '13', unit: '3', title: 'Mapas de Karnaugh: de la tabla al mapa',
+      criollo: 'Che, el mapa de Karnaugh es el atajo para minimizar una función sin romperte la cabeza con el álgebra de Boole. Acomodás la tabla de verdad en una grilla de celdas, agrupás los unos (o los ceros) y listo: sale la expresión mínima casi de una.',
+      blocks: [
+        { type: 'p', text: 'Dada una función lógica, se la puede minimizar a una expresión irreducible. Esa expresión mínima reduce los <strong>costos lógicos</strong> del circuito: disminuye la cantidad de compuertas y la cantidad de entradas de cada compuerta.' },
+        { type: 'p', text: 'Para hallar una expresión mínima equivalente se pueden usar los postulados y teoremas del álgebra de Boole. Pero esa no es la única manera: existen otros métodos, como el de los <strong>mapas de Karnaugh</strong>.' },
+        { type: 'callout', tone: 'info', text: 'El mapa de Karnaugh es un diagrama de celdas que ubica las filas de la tabla de verdad de manera estratégica para, con sencillos pasos, obtener una expresión mínima equivalente a la de la función.' },
+        { type: 'h3', text: 'El ejemplo que vamos a usar' },
+        { type: 'p', text: 'Partimos de la función:' },
+        { type: 'math', latex: 'f(A, B, C) = \\overline{(A + \\overline{B})} + A \\cdot (B + C) + B \\cdot (B + \\overline{C})', display: true },
+        { type: 'p', text: 'Usando las propiedades del álgebra de Boole se pudo obtener esta expresión mínima:' },
+        { type: 'math', latex: 'f(A, B, C) = A \\cdot C + B', display: true },
+        { type: 'p', text: 'La idea ahora es llegar a lo mismo con el mapa de Karnaugh. Su tabla de verdad es:' },
+        { type: 'table', caption: 'Tabla de verdad de f(A, B, C) — cada fila numerada es un minitérmino.', headers: ['n', 'A', 'B', 'C', 'f'], rows: [['0', '0', '0', '0', '0'], ['1', '0', '0', '1', '0'], ['2', '0', '1', '0', '1'], ['3', '0', '1', '1', '1'], ['4', '1', '0', '0', '0'], ['5', '1', '0', '1', '1'], ['6', '1', '1', '0', '1'], ['7', '1', '1', '1', '1']] },
+        { type: 'h3', text: 'De la tabla al mapa' },
+        { type: 'p', text: 'Para armar el mapa hay que tener en cuenta cuántas variables tiene la función. Acá son 3 (<strong>A</strong>, <strong>B</strong> y <strong>C</strong>), así que el mapa tiene $2^3 = 8$ celdas.' },
+        { type: 'callout', tone: 'info', text: 'En general, para una función de $n$ variables el mapa tiene $2^n$ celdas.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-mapa-3var-vacio-p02.png', alt: 'Mapa de Karnaugh de 3 variables vacío, A en filas (0,1) y BC en columnas en orden 00, 01, 11, 10.', caption: 'Mapa de 3 variables vacío — ojo con el orden de las columnas (00, 01, 11, 10).' },
+        { type: 'callout', tone: 'warning', text: 'Los valores en los bordes del mapa (izquierdo y superior) son <strong>fijos</strong>: no se deben modificar. Esa ubicación estratégica es justamente la que hace posible usar el método para minimizar la función.' },
+        { type: 'p', text: 'Para entender cómo se ubican las filas de la tabla en el mapa, conviene pensarlo como <strong>coordenadas</strong>. Veamos cómo ubicar la fila 1 (001):' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-tabla-verdad-a-mapa-celda-001-p03.png', alt: 'Tabla de verdad de tres variables con flechas que mapean la fila 001 a su celda del mapa de Karnaugh.', caption: 'De la tabla al mapa: la fila 001 cae en la celda A=0, BC=01.' },
+        { type: 'p', text: 'En este caso $A = 0$, $B = 0$ y $C = 1$. La coordenada de <strong>A</strong> se lee en el lado izquierdo: en la primera línea A vale 0. Las coordenadas de <strong>B</strong> y <strong>C</strong> se leen en la parte superior de las columnas: B es el primer valor y C el segundo.' },
+        { type: 'p', text: 'Entonces, en la primera línea, el único caso donde B vale 0 y C vale 1 es la celda de la segunda columna. De igual manera se ubican el resto de las filas en las celdas del mapa.' },
+        { type: 'p', text: 'Una vez ubicada la salida de la función en el mapa, se puede minimizar de dos formas: por <strong>minitérminos</strong> (por unos) o por <strong>maxitérminos</strong> (por ceros).' },
+        { type: 'h3', text: 'Minimización por minitérminos (por unos)' },
+        { type: 'p', text: 'Acá ubicamos en las celdas los minitérminos, es decir, las celdas cuya salida es \'1\' (se leen de la tabla).' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-mapa-3var-salidas-unos-p04.png', alt: 'Mapa de 3 variables con unos en las celdas correspondientes a los minitérminos donde la función vale 1.', caption: 'Mapa con las salidas en 1 ya ubicadas.' },
+        { type: 'p', text: 'Para encontrar la expresión mínima se agrupan los unos en grupos de $2^n$ celdas. Los grupos deben ser lo más grandes posibles y de forma rectangular (o cuadrada).' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-agrupacion-minterminos-p04.png', alt: 'Mapa de 3 variables agrupando por unos: un grupo de cuatro celdas que da B y un grupo de dos celdas que da A·C.', caption: 'Agrupación por unos: un grupo da B y el otro da A·C.' },
+        { type: 'callout', tone: 'info', text: 'Al trabajar con minitérminos: $A = 1$ y $\\overline{A} = 0$ (vale para todas las variables), y los términos son <strong>productos</strong>.' },
+        { type: 'p', text: 'Se mira cada agrupación por separado y se evalúa qué variables <strong>no cambian</strong> de valor.' },
+        { type: 'p', text: 'En la agrupación de $m_2$, $m_3$, $m_6$ y $m_7$: A vale 0 para $m_2$ y $m_3$, y 1 para $m_6$ y $m_7$, con lo cual cambia y se descarta. En la parte superior, B se mantiene en 1 en ambas columnas, así que B va en el término (sin negar, porque $B = 1$). C cambia (1 en una columna, 0 en la otra), se descarta. El primer término es $B$.' },
+        { type: 'p', text: 'En la agrupación de $m_5$ y $m_7$: A se mantiene en 1, va sin negar. C también se mantiene en 1 en ambas columnas, va sin negar. B cambia (0 en una columna, 1 en la otra), se descarta. El segundo término es $A \\cdot C$.' },
+        { type: 'p', text: 'Como son minitérminos, se <strong>suman</strong> los términos y queda la expresión mínima:' },
+        { type: 'math', latex: 'f(A, B, C) = A \\cdot C + B', display: true },
+        { type: 'callout', tone: 'criollo', text: 'Mirá vos: coincide clavadita con la que habíamos sacado a mano con el álgebra de Boole. Rico.' },
+        { type: 'h3', text: 'Minimización por maxitérminos (por ceros)' },
+        { type: 'p', text: 'Ahora ubicamos los maxitérminos, es decir, las celdas cuya salida es \'0\'.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-mapa-3var-salidas-ceros-p05.png', alt: 'Mapa de 3 variables con ceros en las celdas donde la función vale 0.', caption: 'Mapa con las salidas en 0 ubicadas.' },
+        { type: 'p', text: 'Igual que antes, se agrupan los ceros y se indica la expresión algebraica de cada término.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-agrupacion-maxterminos-p05.png', alt: 'Mapa de 3 variables agrupando por ceros, con dos grupos que dan los términos suma B+C y A+B.', caption: 'Agrupación por ceros: los grupos dan B+C y A+B.' },
+        { type: 'callout', tone: 'info', text: 'Al trabajar con maxitérminos se da vuelta el criterio: $A = 0$ y $\\overline{A} = 1$ (vale para todas las variables), y los términos son <strong>sumas</strong>.' },
+        { type: 'p', text: 'Una vez que se tienen las expresiones de todos los términos, se <strong>multiplican</strong>, y se obtiene la expresión mínima:' },
+        { type: 'math', latex: 'f(A, B, C) = (A + B) \\cdot (B + C)', display: true },
+        { type: 'callout', tone: 'info', text: 'Las dos expresiones son <strong>equivalentes</strong>: aplicando la propiedad distributiva sobre $(A + B) \\cdot (B + C)$ se llega a $A \\cdot C + B$.' },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-13-1', q: 'Para una función de n variables, el mapa de Karnaugh tiene 2^n celdas.', a: true, explain: 'La cantidad de celdas es 2 elevado a la cantidad de variables. Para 3 variables son 2^3 = 8 celdas.' },
+          { id: 'tf-13-2', q: 'Los valores de los bordes izquierdo y superior del mapa se pueden cambiar libremente sin afectar el método.', a: false, explain: 'Son fijos: esa ubicación estratégica es la que hace posible minimizar la función con el método.' },
+          { id: 'tf-13-3', q: 'Al minimizar por minitérminos (por unos), los términos resultantes son productos que luego se suman entre sí.', a: true, explain: 'Con minitérminos A=1 y complemento de A=0, los términos son productos y se suman para formar la expresión final.' },
+        ],
+        mc: [
+          { id: 'mc-13-1', q: 'Al agrupar minitérminos, ¿qué variables forman parte del término?', options: ['Las que cambian de valor dentro de la agrupación', 'Las que NO cambian de valor dentro de la agrupación', 'Todas las variables de la función siempre', 'Solo la variable A'], correctIndex: 1, explain: 'Se descartan las variables que cambian; quedan en el término las que se mantienen constantes en toda la agrupación.' },
+          { id: 'mc-13-2', q: 'En la minimización por maxitérminos (por ceros), ¿cómo se interpretan los valores y cómo se combinan los términos?', options: ['A=1 y complemento de A=0; los términos son productos que se suman', 'A=0 y complemento de A=1; los términos son sumas que se multiplican', 'A=0 y complemento de A=1; los términos son productos que se suman', 'A=1 y complemento de A=0; los términos son sumas que se multiplican'], correctIndex: 1, explain: 'Con maxitérminos A=0 y complemento de A=1; los términos son sumas y se multiplican entre sí.' },
+          { id: 'mc-13-3', q: 'Para el ejemplo f(A,B,C), ¿qué relación hay entre A·C + B (por unos) y (A+B)·(B+C) (por ceros)?', options: ['Son funciones distintas', 'Son equivalentes: aplicando distributiva una se transforma en la otra', 'La de ceros tiene un error', 'Solo coinciden para A=0'], correctIndex: 1, explain: 'Ambas son expresiones mínimas equivalentes de la misma función; aplicando distributiva se pasa de una a la otra.' },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-13-1', front: '¿Qué es un mapa de Karnaugh?', back: 'Un diagrama de celdas que ubica las filas de la tabla de verdad de forma estratégica para obtener, con pocos pasos, una expresión mínima equivalente a la de la función. Es una alternativa al álgebra de Boole.' },
+        { id: 'fc-13-2', front: '¿Cuántas celdas tiene el mapa de una función de n variables?', back: '2^n celdas. Por ejemplo, 3 variables dan 2^3 = 8 celdas.' },
+        { id: 'fc-13-3', front: 'Minimización por minitérminos (por unos)', back: 'Se ubican las celdas con salida 1, se agrupan en grupos de 2^n lo más grandes y rectangulares posibles. A=1, complemento de A=0. Los términos son productos y se suman. Ejemplo: A·C + B.' },
+        { id: 'fc-13-4', front: 'Minimización por maxitérminos (por ceros)', back: 'Se ubican las celdas con salida 0 y se agrupan. A=0, complemento de A=1. Los términos son sumas y se multiplican. Ejemplo: (A+B)·(B+C), equivalente a la expresión por unos.' },
+        { id: 'fc-13-5', front: '¿Cómo se ubica la fila 001 en el mapa de 3 variables?', back: 'Como coordenadas: A=0 (borde izquierdo), B=0 y C=1 (borde superior). Cae en la primera línea, en la columna donde B=0 y C=1, es decir la celda BC=01.' },
+      ],
+    },
+    {
+      id: '14', unit: '3', title: 'Generalización, adyacencia e implicantes',
+      criollo: 'Acá generalizamos el mapa según cuántas variables tenga la función y vemos las reglas para agrupar. Lo clave: celdas adyacentes, grupos de potencia de 2, formas rectangulares y siempre la agrupación más grande posible. Con eso aparecen los implicantes, los primos y los esenciales.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Generalización'
+        },
+        {
+          type: 'p',
+          text: 'Dependiendo de la cantidad de variables que se tengan, es cómo se debe plantear el mapa de Karnaugh. Existen mapas para 2, 3 y 4 variables. Si bien es posible usarlo con más variables, solo se utiliza el mapa de Karnaugh para funciones de <strong>hasta 4 variables</strong>.'
+        },
+        {
+          type: 'ul',
+          items: [
+            '<strong>2 variables</strong> $f(A,B)$: mapa de 2 filas $\\times$ 2 columnas (2x2).',
+            '<strong>3 variables</strong> $f(A,B,C)$: mapa de 2 $\\times$ 4.',
+            '<strong>4 variables</strong> $f(A,B,C,D)$: mapa de 4 $\\times$ 4.'
+          ]
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/sistemas-digitales-i/u3-mapa-2var-vacio-p06.png',
+          alt: 'Mapa de Karnaugh de 2 variables vacío con las celdas numeradas 0 a 3.',
+          caption: 'Mapa de 2 variables (2x2).'
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/sistemas-digitales-i/u3-mapa-3var-vacio-p06.png',
+          alt: 'Mapa de Karnaugh de 3 variables vacío con las celdas numeradas 0 a 7.',
+          caption: 'Mapa de 3 variables (2x4).'
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/sistemas-digitales-i/u3-mapa-4var-vacio-p06.png',
+          alt: 'Mapa de Karnaugh de 4 variables vacío, AB en filas y CD en columnas, celdas numeradas 0 a 15.',
+          caption: 'Mapa de 4 variables (4x4) con la numeración de las 16 celdas.'
+        },
+        {
+          type: 'p',
+          text: 'La cantidad de celdas será igual a $2^m$, siendo $m$ la cantidad de variables de la función.'
+        },
+        {
+          type: 'math',
+          latex: '\\text{cantidad de celdas} = 2^m',
+          display: true
+        },
+        {
+          type: 'h3',
+          text: 'Celdas adyacentes'
+        },
+        {
+          type: 'p',
+          text: 'Dos celdas son adyacentes cuando de una a otra <strong>solo cambia el valor de una de las variables</strong>. En el mapa de Karnaugh esto se cumple cuando las celdas comparten lado, lo cual se debe a la estratégica ubicación de los valores de las variables en los bordes izquierdos y superiores.'
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/sistemas-digitales-i/u3-adyacencias-celdas-p07.png',
+          alt: 'Mapa de 4 variables con flechas en los bordes que marcan la adyacencia por envolvente entre celdas de los extremos.',
+          caption: 'Adyacencias: los bordes se tocan, las celdas de los extremos son vecinas.'
+        },
+        {
+          type: 'p',
+          text: 'Por ejemplo, la celda 2 comparte lado con la celda 3, así que son adyacentes: para ambas $A$ y $B$ valen cero, $C$ vale uno en las dos y solo cambia $D$ (cero en la celda 2, uno en la celda 3). Como solo 1 de las cuatro variables cambia de valor, son adyacentes.'
+        },
+        {
+          type: 'p',
+          text: 'También la celda 2 y la celda 10 son adyacentes, aunque a primera vista no parezca: comparten lado por el efecto envolvente. Las variables $C$ y $D$ tienen el mismo valor en ambas, $B$ es cero en las dos y solo cambia $A$ (cero en la celda 2, uno en la celda 10). En cambio, la celda 2 y la celda 7 no son adyacentes, porque no comparten lado.'
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Los bordes se tocan por envolvente: la primera y la última columna son vecinas, y la primera y la última fila también. Es importante conocer cuándo dos celdas son adyacentes, porque al agrupar se debe hacer con celdas adyacentes, ya que de esa manera se disminuye la cantidad de variables del término.'
+        },
+        {
+          type: 'h3',
+          text: 'Agrupaciones de 2^n'
+        },
+        {
+          type: 'p',
+          text: 'Para minimizar la función se hacen agrupaciones de unos o de ceros (no ambas a la vez). Estas deben ser de $2^n$ celdas. Por ejemplo, en un mapa de 16 celdas (4 $\\times$ 4) se podrán hacer agrupaciones de 16, 8, 4, 2 y 1 celda.'
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'No están permitidas las agrupaciones de cantidades que no sean potencia de 2, por ejemplo, de 3 celdas.'
+        },
+        {
+          type: 'h3',
+          text: 'Agrupaciones rectangulares'
+        },
+        {
+          type: 'p',
+          text: 'Las agrupaciones deben tener forma <strong>rectangular (o cuadrada)</strong>, dado que esto, junto con el concepto de celdas adyacentes, hace posible la minimización de variables en los términos. No se pueden hacer agrupaciones tipo T, L u otras.'
+        },
+        {
+          type: 'ul',
+          items: [
+            'No se puede hacer una sola agrupación de las celdas 1, 2, 3 y 6 (forma no rectangular). En ese caso se hacen agrupaciones por separado: celdas 1 y 3, y celdas 2 y 6.',
+            'Sí está permitido hacer una sola agrupación de las celdas 2, 3, 6 y 7 (forma rectangular).',
+            'Sí están permitidas las agrupaciones envolventes entre la primera columna (CD: 00) y la última (CD: 10), y/o entre la primera fila (AB: 00) y la última (AB: 10). Por ejemplo, es válida la agrupación de las celdas 0, 2, 8 y 10.'
+          ]
+        },
+        {
+          type: 'h3',
+          text: 'Agrupaciones máximas'
+        },
+        {
+          type: 'p',
+          text: 'Siempre que se pueda hacer una agrupación, se debe optar por la de <strong>mayor cantidad de celdas posibles</strong>. Por ejemplo, si hay unos en las celdas 2, 3, 6 y 7, se realiza una sola agrupación de las 4 celdas y no dos agrupaciones de 2 celdas. Esto se debe a que cuanto mayor es la agrupación, menor será la cantidad de variables que quedan en el término, llegando así a una expresión mínima (irreducible).'
+        },
+        {
+          type: 'h3',
+          text: 'Implicante, IP e IPE'
+        },
+        {
+          type: 'ul',
+          items: [
+            '<strong>Implicante</strong>: cualquier agrupación de $2^n$ celdas (de unos o de ceros).',
+            '<strong>Implicante primo (IP)</strong>: cualquier agrupación máxima de ceros o unos. En los mapas de Karnaugh se deben marcar solo los implicantes primos, porque así se llega a la expresión mínima (cuanto más grande la agrupación, menos variables en el término).',
+            '<strong>Implicante primo esencial (IPE)</strong>: un implicante primo que tiene al menos alguna celda (con un uno o un cero) que no está contenida en ningún otro implicante primo. Los IPE siempre estarán en la expresión mínima de la función.'
+          ]
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Cuando se busca una expresión mínima, es importante recordar que esta <strong>puede no ser única</strong>. Habrá casos donde haya más de una expresión mínima, con la misma cantidad de términos y de variables en cada término.'
+        }
+      ],
+      quiz: {
+        tf: [
+          {
+            id: 'tf-14-1',
+            q: 'Dos celdas son adyacentes cuando de una a otra cambia el valor de una sola variable.',
+            a: true,
+            explain: 'Esa es la definición exacta: en el mapa se cumple cuando las celdas comparten lado, incluso por envolvente entre bordes.'
+          },
+          {
+            id: 'tf-14-2',
+            q: 'Se permiten agrupaciones de 3 celdas en el mapa de Karnaugh.',
+            a: false,
+            explain: 'Las agrupaciones deben ser de 2 elevado a n celdas (1, 2, 4, 8, 16). La de 3 celdas no está permitida.'
+          },
+          {
+            id: 'tf-14-3',
+            q: 'La agrupación de las celdas 0, 2, 8 y 10 es válida aunque use el efecto envolvente entre la primera y la última columna y la primera y la última fila.',
+            a: true,
+            explain: 'Se permiten agrupaciones rectangulares envolventes entre primera/última columna y primera/última fila, como esa de las celdas 0, 2, 8 y 10.'
+          },
+          {
+            id: 'tf-14-4',
+            q: 'La expresión mínima de una función siempre es única.',
+            a: false,
+            explain: 'Puede no ser única: puede haber más de una expresión mínima con la misma cantidad de términos y de variables en cada término.'
+          }
+        ],
+        mc: [
+          {
+            id: 'mc-14-1',
+            q: 'En un mapa de Karnaugh, ¿a qué es igual la cantidad de celdas?',
+            options: ['2 por la cantidad de variables', '2 elevado a m, donde m es la cantidad de variables', 'm al cuadrado, donde m es la cantidad de variables', 'La cantidad de filas de la tabla de verdad menos 1'],
+            correctIndex: 1,
+            explain: 'La cantidad de celdas es 2 elevado a m, siendo m la cantidad de variables de la función.'
+          },
+          {
+            id: 'mc-14-2',
+            q: '¿Qué es un implicante primo esencial (IPE)?',
+            options: ['Cualquier agrupación de 2 elevado a n celdas', 'Una agrupación de 3 celdas adyacentes', 'Un implicante primo con al menos una celda no contenida en ningún otro implicante primo', 'La agrupación más chica posible del mapa'],
+            correctIndex: 2,
+            explain: 'El IPE es un implicante primo (agrupación máxima) que tiene al menos una celda no contenida en ningún otro IP, y siempre está en la expresión mínima.'
+          },
+          {
+            id: 'mc-14-3',
+            q: 'Si hay unos en las celdas 2, 3, 6 y 7, ¿cómo conviene agruparlos?',
+            options: ['En dos agrupaciones de 2 celdas cada una', 'En una sola agrupación de las 4 celdas', 'En cuatro agrupaciones de 1 celda', 'En una agrupación tipo L de las 4 celdas'],
+            correctIndex: 1,
+            explain: 'Hay que elegir siempre la agrupación máxima: una sola de 4 celdas deja menos variables en el término que dos de 2 celdas.'
+          }
+        ]
+      },
+      flashcards: [
+        {
+          id: 'fc-14-1',
+          front: '¿Hasta cuántas variables se usa el mapa de Karnaugh y qué tamaños hay?',
+          back: 'Se usa hasta 4 variables. Tamaños: 2 variables (2x2), 3 variables (2x4) y 4 variables (4x4).'
+        },
+        {
+          id: 'fc-14-2',
+          front: '¿Cuándo dos celdas son adyacentes?',
+          back: 'Cuando de una a otra cambia el valor de una sola variable. En el mapa, cuando comparten lado, incluyendo los bordes que se tocan por envolvente (primera y última columna, primera y última fila).'
+        },
+        {
+          id: 'fc-14-3',
+          front: '¿De qué tamaño pueden ser las agrupaciones y qué forma deben tener?',
+          back: 'De 2 elevado a n celdas (1, 2, 4, 8, 16; nunca de 3). Deben ser rectangulares o cuadradas, sin formas T ni L, y siempre la mayor cantidad de celdas posible.'
+        },
+        {
+          id: 'fc-14-4',
+          front: 'Implicante vs. implicante primo (IP) vs. implicante primo esencial (IPE)',
+          back: 'Implicante: cualquier agrupación de 2 elevado a n celdas. IP: una agrupación máxima. IPE: un IP con al menos una celda no contenida en ningún otro IP; los IPE siempre están en la expresión mínima.'
+        }
+      ]
+    },
+    {
+      id: '15', unit: '3', title: 'Ejemplo 4×4 y funciones no totalmente definidas',
+      criollo: 'Acá metemos un mapa de 4 variables y armamos la tabla de implicantes primos para sacar los esenciales sin marear. Y arrancamos con las funciones no totalmente definidas, esas donde algunas salidas te las podés inventar (las famosas X o don\'t care) para agrupar más grande y reducir más.',
+      blocks: [
+        { type: 'h3', text: 'Minimización de una función por mapas de Karnaugh (4×4)' },
+        { type: 'p', text: 'Queremos encontrar una expresión mínima de la siguiente función de 4 variables expresada como suma de minitérminos:' },
+        { type: 'math', latex: 'f(A, B, C, D) = \\sum m(3, 5, 7, 10, 11, 13)', display: true },
+        { type: 'p', text: 'El procedimiento tiene tres pasos: <strong>1)</strong> ubicar los minitérminos en el mapa, <strong>2)</strong> marcar todos los implicantes primos, y <strong>3)</strong> armar una tabla para identificar cuáles son esenciales.' },
+        { type: 'h3', text: 'Paso 1: ubicar los minitérminos' },
+        { type: 'p', text: 'Primero ubicamos en el mapa de 16 celdas los unos correspondientes a los minitérminos 3, 5, 7, 10, 11 y 13.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-mapa-4x4-ejemplo-minterminos-p09.png', alt: 'Mapa de Karnaugh de 4 variables con unos en las celdas 3, 5, 7, 10, 11 y 13, sin agrupar.', caption: 'Mapa 4×4 del ejemplo con los minitérminos 3, 5, 7, 10, 11 y 13 ubicados.' },
+        { type: 'h3', text: 'Paso 2: marcar todos los implicantes primos' },
+        { type: 'p', text: 'Marcamos todas las agrupaciones máximas posibles. En este caso quedan cinco implicantes primos, cada uno un par de celdas (agrupación de 2).' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-mapa-4x4-implicantes-primos-p10.png', alt: 'Mapa de 4 variables con cinco agrupaciones de dos celdas marcadas con colores, cada una un implicante primo.', caption: 'Los cinco implicantes primos marcados, cada uno un par de celdas.' },
+        { type: 'h3', text: 'Paso 3: tabla de implicantes primos contra minitérminos' },
+        { type: 'p', text: 'Para identificar cuáles implicantes son esenciales y cuál es una expresión reducida, se arma una tabla que cruza cada implicante primo contra los minitérminos, marcando con un tick las celdas que cada implicante cubre.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-tabla-implicantes-primos-p10.png', alt: 'Tabla de implicantes primos contra los minitérminos 3, 5, 7, 10, 11, 13 con tildes en las celdas cubiertas.', caption: 'Tabla de implicantes primos contra minitérminos para ver qué cubre cada uno.' },
+        { type: 'p', text: 'Las <strong>columnas que tienen un solo tick</strong> (es decir, el minitérmino está agrupado en un único implicante primo) indican un <strong>implicante primo esencial (IPE)</strong>.' },
+        { type: 'ul', items: [
+          'El $m_{13}$ solo está contenido en el implicante $B\\overline{C}D$, así que ese implicante es esencial.',
+          'El $m_{10}$ solo está contenido en el implicante $A\\overline{B}C$, así que ese implicante también es esencial.'
+        ] },
+        { type: 'p', text: 'Estos dos implicantes primos esenciales son parte segura de la expresión mínima.' },
+        { type: 'p', text: 'Si eliminamos las filas de los IPE y las columnas de los minitérminos que ya cubrieron, quedan sin cubrir el $m_3$ y el $m_7$. De ahí se deduce que el implicante $\\overline{A}CD$ contiene esos dos minitérminos que faltan, con lo cual, sumándolo a los IPE, se obtiene la expresión mínima.' },
+        { type: 'callout', tone: 'info', text: 'Usar los otros dos implicantes primos también cubriría todos los minitérminos, pero no sería óptimo: usaría dos términos producto (dos ANDs) en lugar de uno. Por eso se elige $\\overline{A}CD$.' },
+        { type: 'p', text: 'La expresión mínima de la función queda:' },
+        { type: 'math', latex: 'f(A, B, C, D) = B\\overline{C}D + A\\overline{B}C + \\overline{A}CD', display: true },
+        { type: 'callout', tone: 'info', text: 'El método de la tabla del paso 3 es el algoritmo de Quine-McCluskey. Es útil cuando se tienen funciones de gran cantidad de variables y se las quiere reducir.' },
+        { type: 'h3', text: 'Funciones no totalmente definidas' },
+        { type: 'p', text: 'Se quiere implementar un circuito que reciba 10 números, del 0 (0000) al 9 (1001), de modo que cuando lleguen los números 1, 5, 7 o 9 la salida sea \'1\'.' },
+        { type: 'p', text: 'El detalle es que hay 6 números (del 10 al 15) que se espera que nunca lleguen, por lo que sus salidas <strong>no tienen valor asignado</strong>. Esas salidas se marcan con una $X$, que indica que no interesa qué valor tomarían. En inglés a estas condiciones se las llama <strong>don\'t care</strong>.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-tabla-verdad-dontcare-p12.png', alt: 'Tabla de verdad de cuatro variables donde las filas 10 a 15 tienen X como valor no asignado.', caption: 'Función no totalmente definida: las filas 10 a 15 no tienen valor asignado (X).' },
+        { type: 'p', text: 'La función que corresponde a esa tabla se escribe sumando los minitérminos definidos y agregando aparte los términos don\'t care con la letra $d$:' },
+        { type: 'math', latex: 'f(A, B, C, D) = \\sum m(1, 5, 7, 9) + d(10, 11, 12, 13, 14, 15)', display: true },
+        { type: 'p', text: 'Al armar el mapa de Karnaugh se ubican tanto los <strong>1s</strong> como las <strong>X</strong>. Las X podrán tomar el valor \'1\' o \'0\' según sea más conveniente para agrupar.' },
+        { type: 'callout', tone: 'warning', text: 'No se deben realizar agrupaciones de X que no contengan ningún 1. Las X solo sirven para agrandar agrupaciones que ya contienen unos.' },
+        { type: 'p', text: 'Para obtener una expresión más reducida, las X de las celdas 11, 13 y 15 se consideran como \'1\'. Así las agrupaciones se hacen más grandes.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u3-funcion-no-definida-dontcare-agrupaciones-p12.png', alt: 'Mapa de 4 variables con unos y varias X agrupados en bloques que aprovechan las X.', caption: 'Mapa con las X aprovechadas en las agrupaciones.' },
+        { type: 'p', text: 'Con los implicantes primos esenciales $\\overline{C}D$ y $BD$ quedan todos los 1s agrupados, por lo que la expresión mínima de la función que cumple con el circuito pedido es:' },
+        { type: 'math', latex: 'f(A, B, C, D) = \\overline{C}D + BD', display: true }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-15-1', q: 'En la tabla del paso 3, una columna con un solo tick indica que ese minitérmino está cubierto por un único implicante primo, que por lo tanto es esencial.', a: true, explain: 'Si el minitérmino está agrupado en un solo implicante primo, ese implicante es la única forma de cubrirlo, así que es esencial.' },
+          { id: 'tf-15-2', q: 'En una función no totalmente definida se pueden agrupar las X libremente, incluso agrupaciones de X que no contengan ningún 1.', a: false, explain: 'No se deben hacer agrupaciones de X que no contengan 1s. Las X solo sirven para agrandar agrupaciones que ya tienen unos.' },
+          { id: 'tf-15-3', q: 'La tabla de implicantes primos contra minitérminos del paso 3 corresponde al algoritmo de Quine-McCluskey.', a: true, explain: 'Ese método de la tabla es el algoritmo de Quine-McCluskey, útil para funciones de muchas variables.' },
+          { id: 'tf-15-4', q: 'En el ejemplo de la función no totalmente definida, las X de las celdas 11, 13 y 15 se tomaron como 0 para reducir la expresión.', a: false, explain: 'Se tomaron como 1, justamente para agrandar las agrupaciones y reducir la expresión.' }
+        ],
+        mc: [
+          { id: 'mc-15-1', q: 'En el ejemplo 4×4 con f = suma m(3,5,7,10,11,13), ¿cuál es la expresión mínima obtenida?', options: ['B(comp C)D + A(comp B)C + (comp A)CD', 'A·C + B', '(A+B)·(B+C)', '(comp C)D + BD'], correctIndex: 0, explain: 'Los dos IPE son B(comp C)D y A(comp B)C, y el implicante (comp A)CD cubre los m3 y m7 que faltaban.' },
+          { id: 'mc-15-2', q: 'En el ejemplo 4×4, ¿por qué el implicante (comp A)CD es preferible a usar los otros dos implicantes primos para cubrir m3 y m7?', options: ['Porque cubre más minitérminos', 'Porque usa un solo término producto en vez de dos ANDs', 'Porque es esencial', 'Porque agrupa las X disponibles'], correctIndex: 1, explain: 'Usar los otros dos IP cubriría todo, pero con dos ANDs en lugar de uno; por eso no es óptimo.' },
+          { id: 'mc-15-3', q: '¿Qué representa una X (don\'t care) en una función no totalmente definida?', options: ['Una salida que siempre vale 1', 'Una salida que siempre vale 0', 'Una salida sin valor asignado, que puede tomar 1 o 0 según convenga', 'Un minitérmino esencial'], correctIndex: 2, explain: 'La X marca una salida cuyo valor no interesa; puede tomar 1 o 0 según sea más conveniente para agrupar.' },
+          { id: 'mc-15-4', q: 'Para f = suma m(1,5,7,9) + d(10,11,12,13,14,15), tomando las X de las celdas 11, 13 y 15 como 1, ¿cuál es la expresión mínima?', options: ['B(comp C)D + A(comp B)C', '(comp C)D + BD', 'A·C + B', 'BD + (comp A)CD'], correctIndex: 1, explain: 'Con los IPE (comp C)D y BD quedan todos los 1s agrupados, dando f = (comp C)D + BD.' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-15-1', front: '¿Cómo se detecta un implicante primo esencial en la tabla del paso 3?', back: 'Buscando columnas con un solo tick: si un minitérmino está cubierto por un único implicante primo, ese implicante es esencial y va sí o sí en la expresión mínima.' },
+        { id: 'fc-15-2', front: '¿Qué es el algoritmo de Quine-McCluskey?', back: 'El método de la tabla de implicantes primos contra minitérminos (paso 3). Es útil para reducir funciones con gran cantidad de variables.' },
+        { id: 'fc-15-3', front: '¿Qué es un don\'t care (X) y cómo se usa al agrupar?', back: 'Es una salida sin valor asignado (no interesa su valor). Puede tomar 1 o 0 según convenga para agrandar agrupaciones, pero nunca se agrupan X que no contengan algún 1.' }
+      ]
+    },
+
   ],
   pdfs: [
     { key: 'u1-numeracion', label: 'U1 · Sistemas de numeración y aritmética binaria', path: 'pdfs/sistemas-digitales-i/1-sistemas-numeracion.pdf' },
     { key: 'u2-compuertas', label: 'U2 · Compuertas lógicas y álgebra de Boole', path: 'pdfs/sistemas-digitales-i/2c-compuertas-logicas.pdf' },
     { key: 'u2-funciones', label: 'U2 · Funciones lógicas con álgebra de Boole', path: 'pdfs/sistemas-digitales-i/2b-funciones-logicas.pdf' },
     { key: 'u2-tabla-boole', label: 'U2 · Tabla del álgebra de Boole', path: 'pdfs/sistemas-digitales-i/2a-tabla-algebra-boole.pdf' },
+    { key: 'u3-karnaugh', label: 'U3 · Mapas de Karnaugh', path: 'pdfs/sistemas-digitales-i/3-mapas-karnaugh.pdf' },
   ],
 };
