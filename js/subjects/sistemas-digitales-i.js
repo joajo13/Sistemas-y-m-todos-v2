@@ -2320,6 +2320,72 @@ export default {
       ],
     },
 
+    // ===================================================================
+    // UNIDAD 7 — Máquinas de estados
+    // ===================================================================
+    {
+      id: '26',
+      unit: '7',
+      title: 'Máquinas de estados',
+      criollo: 'Una máquina de estados es un modelo para diseñar circuitos secuenciales: el sistema va saltando entre un conjunto finito de estados según el reloj y las entradas. La gran división es Moore vs Mealy, y la diferencia está en de qué depende la salida.',
+      blocks: [
+        { type: 'p', text: 'Una <strong>máquina de estados finita</strong> (FSM) es un modelo utilizado en el diseño de circuitos lógicos secuenciales, principalmente aquellos que funcionan de manera sincronizada. Las máquinas de estados proporcionan un enfoque estructurado y eficiente para representar el comportamiento de un sistema digital.' },
+        { type: 'p', text: 'El concepto se refiere a un circuito que avanza secuencialmente a través de un conjunto predefinido de estados, cuya cantidad es <strong>finita</strong>. Este progreso es controlado por una señal de <strong>clock</strong> y otras entradas externas. Es decir, modela cómo se comporta un sistema a lo largo de diferentes situaciones (representadas como estados) y cómo transcurren las transiciones entre ellos.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u7-estructura-secuencial-p01.png', alt: 'Diagrama de bloques de un circuito secuencial con lógica combinacional, elementos de memoria y señal de clock, mostrando entradas y salidas.', caption: 'Estructura general: lógica combinacional realimentada por memoria, sincronizada con el clock.' },
+        { type: 'h3', text: 'Estados y transiciones', criollo: 'Estás en un estado por vez, con su nombre propio. Las flechas (transiciones) dicen cuándo y por qué saltás a otro, según las entradas.' },
+        { type: 'ul', items: [
+          'Cada <strong>estado</strong> refleja una condición o modo específico del sistema. Tiene un nombre único y no se puede estar en más de un estado a la vez. Al estado en el que se encuentra el sistema se lo llama <strong>estado actual</strong>.',
+          'Las <strong>transiciones</strong> definen las condiciones bajo las cuales el sistema cambia de un estado a otro. Están asociadas a condiciones externas, como las señales de entrada.',
+          'Las <strong>salidas</strong> pueden depender del estado actual y/o de las entradas actuales.',
+        ] },
+        { type: 'callout', tone: 'info', text: 'Un contador es, en rigor, una máquina de estados. Pero el término se usa más para otros circuitos secuenciales: al contador se lo piensa como un circuito para <strong>contar eventos</strong>, mientras que una máquina de estados se usa para <strong>controlar eventos</strong>.' },
+        { type: 'h3', text: 'Clasificación: Moore y Mealy', criollo: 'Las dos familias. La diferencia es de qué depende la salida: en Moore, solo del estado; en Mealy, del estado y de las entradas.' },
+        { type: 'p', text: 'Según cómo se manejan las salidas en función de las transiciones y los estados, se diferencian dos tipos de máquinas de estados.' },
+        { type: 'p', text: '<strong>Máquina de Moore</strong>: las salidas dependen solo del estado actual. La salida en un estado dado es constante durante toda la duración de ese estado y solo depende del estado en sí; cuando el estado cambia, la salida cambia. Por eso las salidas de Moore son deterministas y más estables.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u7-bloques-moore-p02.png', alt: 'Diagrama de bloques de una máquina de Moore donde la lógica de salida depende solo del estado actual y no de las entradas.', caption: 'Modelo Moore: la salida sale únicamente del estado; las entradas no llegan a la lógica de salida.' },
+        { type: 'p', text: '<strong>Máquina de Mealy</strong>: las salidas pueden depender tanto del estado actual como de las entradas actuales en ese instante. Es decir, si el sistema cambia de estado la salida cambia, pero incluso manteniéndose en un mismo estado la salida también puede cambiar debido a las entradas.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u7-bloques-mealy-p03.png', alt: 'Diagrama de bloques de una máquina de Mealy donde la lógica de salida depende del estado actual y también de las entradas.', caption: 'Modelo Mealy: la salida depende del estado y de las entradas, que se conectan a la lógica de salida.' },
+        { type: 'callout', tone: 'criollo', text: 'La elección entre Moore y Mealy depende de las necesidades del sistema y las características del problema. No hay una "mejor": son herramientas distintas.' },
+        { type: 'h3', text: 'Diagrama de estados', criollo: 'La forma clásica de dibujar una FSM, igual que viste en los contadores. El truco para distinguir Moore de Mealy: mirá dónde está la salida.' },
+        { type: 'p', text: 'Una manera de modelar una máquina de estados finitos es mediante los <strong>diagramas de estados</strong>, como se vio en los contadores. La diferencia clave: en la máquina de Moore la salida está asociada al <strong>estado</strong> (va dentro del nodo), mientras que en la máquina de Mealy la salida está asociada a la <strong>transición</strong> (va sobre la flecha, junto a la entrada).' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u7-diagrama-estados-moore-mealy-p03.png', alt: 'Comparación de diagramas de estado: en Moore la salida figura dentro del nodo del estado y en Mealy figura sobre la flecha de transición junto a la entrada.', caption: 'Diagrama de estados Moore vs Mealy: en Moore la salida va en el nodo, en Mealy va sobre la transición.' },
+        { type: 'h3', text: 'Diagrama ASM (máquina de estados algorítmico)', criollo: 'Otra forma de modelar la misma FSM, con pinta de diagrama de flujo: bloques de estado y rombos de decisión sobre las entradas.' },
+        { type: 'p', text: 'Otra manera de modelar una máquina de estados finitos es mediante el <strong>diagrama máquina de estados algorítmico</strong> (ASM). Un algoritmo es un conjunto ordenado y finito de operaciones que permite encontrar la solución de un problema mediante una secuencia de pasos bien definidos.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u7-asm-moore-p04.png', alt: 'Diagrama ASM de tipo Moore con un bloque de estado que contiene la salida y un rombo de decisión sobre la entrada con ramas 0 y 1.', caption: 'Carta ASM Moore: la salida queda asociada al bloque de estado y la decisión sobre la entrada define el camino.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u7-asm-mealy-p04.png', alt: 'Diagrama ASM de tipo Mealy con un bloque de estado, un rombo de decisión sobre la entrada y salidas condicionales en las ramas 0 y 1.', caption: 'Carta ASM Mealy: las salidas cuelgan de las ramas de decisión, dependiendo de la entrada.' },
+        { type: 'h3', text: 'Aplicaciones', criollo: 'Están en todos lados donde haya que controlar una secuencia de acciones.' },
+        { type: 'ul', items: [
+          '<strong>Sistemas de comunicación</strong>: codificar y decodificar datos para una transmisión y recepción precisas; y protocolos de comunicación, donde aseguran que las acciones se realicen en el orden correcto.',
+          '<strong>Sistemas embebidos y de control</strong>: controlar dispositivos y actuar en respuesta a eventos externos, como interruptores y sensores.',
+        ] },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-26-1', q: 'Una máquina de estados finita tiene una cantidad finita de estados y avanza controlada por una señal de clock y entradas externas.', a: true, explain: 'Esa es la definición: un circuito que avanza secuencialmente por un conjunto finito de estados, controlado por el clock y las entradas.' },
+          { id: 'tf-26-2', q: 'En una máquina de estados, el sistema puede estar en varios estados a la vez.', a: false, explain: 'No: cada estado tiene nombre único y no se puede estar en más de un estado a la vez. Al estado vigente se lo llama estado actual.' },
+          { id: 'tf-26-3', q: 'En una máquina de Moore, las salidas dependen solo del estado actual.', a: true, explain: 'Correcto. Por eso la salida es constante durante todo el estado y solo cambia cuando cambia el estado: son deterministas y más estables.' },
+          { id: 'tf-26-4', q: 'En una máquina de Mealy, la salida solo puede cambiar cuando se cambia de estado.', a: false, explain: 'Falso. En Mealy la salida depende del estado Y de las entradas, así que puede cambiar incluso quedándose en el mismo estado, por efecto de las entradas.' },
+          { id: 'tf-26-5', q: 'Un contador puede considerarse una máquina de estados.', a: true, explain: 'Sí. El contador es una máquina de estados, aunque el término se reserva más para otros secuenciales: el contador cuenta eventos y la máquina de estados controla eventos.' },
+        ],
+        mc: [
+          { id: 'mc-26-1', q: '¿De qué dependen las salidas en una máquina de Moore?', options: ['Solo del estado actual', 'Solo de las entradas', 'Del estado actual y de las entradas', 'Únicamente del clock'], correctIndex: 0, explain: 'En Moore las salidas dependen solo del estado actual, lo que las hace deterministas y estables.' },
+          { id: 'mc-26-2', q: 'En un diagrama de estados, ¿dónde se ubica la salida en una máquina de Mealy?', options: ['Dentro del nodo del estado', 'Sobre la flecha de transición, junto a la entrada', 'No se representa', 'En el clock'], correctIndex: 1, explain: 'En Mealy la salida está asociada a la transición (va sobre la flecha). En Moore, en cambio, va dentro del nodo del estado.' },
+          { id: 'mc-26-3', q: '¿Qué es un diagrama ASM?', options: ['Un diagrama de tiempo de los flip-flops', 'El diagrama máquina de estados algorítmico, otra forma de modelar una FSM', 'Un mapa de Karnaugh', 'Una tabla de excitación'], correctIndex: 1, explain: 'El ASM (algorithmic state machine) es otra manera de modelar una máquina de estados finitos, con bloques de estado y decisiones sobre las entradas.' },
+          { id: 'mc-26-4', q: '¿Cuál es una aplicación típica de las máquinas de estados?', options: ['Amplificar señales analógicas', 'Controlar protocolos de comunicación y sistemas de control', 'Rectificar corriente alterna', 'Almacenar imágenes'], correctIndex: 1, explain: 'Se usan en sistemas de comunicación (codificar/decodificar, protocolos) y en sistemas embebidos y de control que responden a eventos externos.' },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-26-1', front: '¿Qué es una máquina de estados finita (FSM)?', back: 'Un modelo para diseñar circuitos secuenciales sincronizados: un circuito que avanza por un conjunto finito de estados, controlado por el clock y las entradas externas.' },
+        { id: 'fc-26-2', front: 'Estado vs transición', back: 'El estado es una condición o modo del sistema (nombre único, uno por vez). La transición define cuándo el sistema cambia de un estado a otro, según las entradas.' },
+        { id: 'fc-26-3', front: 'Máquina de Moore', back: 'Las salidas dependen solo del estado actual. La salida es constante durante el estado y solo cambia al cambiar de estado. Deterministas y estables.' },
+        { id: 'fc-26-4', front: 'Máquina de Mealy', back: 'Las salidas dependen del estado actual Y de las entradas actuales. La salida puede cambiar incluso sin cambiar de estado, por efecto de las entradas.' },
+        { id: 'fc-26-5', front: 'Moore vs Mealy en el diagrama de estados', back: 'En Moore la salida va dentro del nodo (asociada al estado); en Mealy la salida va sobre la flecha de transición (asociada a la transición y la entrada).' },
+        { id: 'fc-26-6', front: 'Diagrama ASM', back: 'Diagrama máquina de estados algorítmico: otra forma de modelar una FSM, con bloques de estado y rombos de decisión sobre las entradas.' },
+        { id: 'fc-26-7', front: 'Contador vs máquina de estados', back: 'El contador es una máquina de estados, pero se lo usa para contar eventos; el término máquina de estados se reserva para circuitos que controlan eventos.' },
+        { id: 'fc-26-8', front: 'Aplicaciones de las FSM', back: 'Sistemas de comunicación (codificación/decodificación, protocolos) y sistemas embebidos y de control (responder a interruptores, sensores y otros eventos).' },
+      ],
+    },
+
   ],
   pdfs: [
     { key: 'u1-numeracion', label: 'U1 · Sistemas de numeración y aritmética binaria', path: 'pdfs/sistemas-digitales-i/1-sistemas-numeracion.pdf' },
@@ -2335,5 +2401,6 @@ export default {
     { key: 'u6-biestables', label: 'U6 · Circuitos secuenciales — Biestables', path: 'pdfs/sistemas-digitales-i/6a-biestables.pdf' },
     { key: 'u6-contador', label: 'U6 · Circuitos secuenciales — Contador síncrono', path: 'pdfs/sistemas-digitales-i/6b-contador-sincronico.pdf' },
     { key: 'u6-parte3', label: 'U6 · Circuitos secuenciales — Parte 3', path: 'pdfs/sistemas-digitales-i/6c-secuenciales-parte3.pdf' },
+    { key: 'u7-maquina-estados', label: 'U7 · Máquinas de estados', path: 'pdfs/sistemas-digitales-i/7-maquina-estados.pdf' },
   ],
 };
