@@ -2510,6 +2510,76 @@ export default {
       ],
     },
 
+    {
+      id: '30',
+      unit: '8',
+      title: 'Guía 4 — Multiplexores',
+      criollo: 'Práctica de multiplexores: expansión (armar muxes grandes con chicos) e implementación de funciones lógicas con muxes. La clave en la implementación de funciones es qué dato va en cada entrada según la selección.',
+      blocks: [
+        { type: 'callout', tone: 'info', text: 'La guía trae solo enunciados. Las <strong>respuestas son una resolución propia</strong> (método de la Unidad 5), no del PDF. Como no hay diagramas en la guía, las implementaciones se describen con su estructura y las tablas de asignación de datos (que es lo que define el circuito).' },
+        { type: 'h3', text: 'Procedimiento', criollo: 'Las dos cosas que pide la guía: expandir muxes e implementar funciones.' },
+        { type: 'ol', items: [
+          '<strong>Expansión</strong>: para armar un mux de más entradas con muxes de menos, usá el o los bits de control más significativos para elegir cuál sub-mux pasa a la salida. Con lógica adicional, ese bit habilita un sub-mux u otro; sin lógica adicional, se arma un árbol donde un mux máster selecciona la salida de los sub-muxes.',
+          '<strong>Implementar una función con un mux de $k$ entradas de control</strong>: tomá $k$ variables como entradas de selección. Si $k$ es igual a la cantidad de variables, cada entrada de dato es directamente el valor de la función (0 o 1) de esa fila. Si usás <strong>menos</strong> controles que variables, armá una tabla reducida: para cada combinación de las variables de control, mirá cuánto vale la función en función de las variables restantes (queda $0$, $1$, la variable o su complemento).',
+        ] },
+        { type: 'h3', text: 'Respuestas — 1, 2 y 3: expansión y construcción', criollo: 'Estructura de cada implementación.' },
+        { type: 'ul', items: [
+          '<strong>1) Mux de 8 a 1 con muxes de 4 a 1</strong> (con lógica adicional): dos muxes de 4 a 1 reciben $D_0..D_3$ y $D_4..D_7$; las entradas de control $C_1, C_0$ van a ambos, y el control más significativo $C_2$ habilita uno u otro (cuando $C_2=0$ pasa el primero con $D_0..D_3$; cuando $C_2=1$, el segundo con $D_4..D_7$). Las salidas se combinan con una OR. Es la misma idea de la expansión vista en la Unidad 5.',
+          '<strong>2) Mux de 16 a 1 con muxes de 2 controles (4 a 1), sin lógica adicional</strong>: árbol de dos niveles. En el primer nivel, cuatro muxes de 4 a 1 (controlados por $C_1, C_0$) toman de a 4 las 16 entradas de datos. En el segundo nivel, un mux máster de 4 a 1 (controlado por $C_3, C_2$) elige cuál de los cuatro sub-muxes pasa a la salida.',
+          '<strong>3) Mux de 2 controles (4 a 1) con un decodificador y lógica adicional</strong>: un decodificador $2\\times4$ con entradas $C_1, C_0$ genera las cuatro combinaciones de selección (sus salidas son los minitérminos de la selección). Cada salida del decodificador se hace AND con su dato correspondiente ($D_0..D_3$) y las cuatro AND se combinan en una OR. La habilitación del decodificador hace de habilitación del mux.',
+        ] },
+        { type: 'h3', text: 'Respuestas — 4) Función con un mux de 8 datos', criollo: 'Selección A, B, C; cada dato en función de D.' },
+        { type: 'p', text: 'Para $f(A,B,C,D) = \\overline{A}\\,C + A\\overline{B}\\,\\overline{C} + AB\\overline{C}\\,\\overline{D}$ (minitérminos $\\sum m(2,3,6,7,8,9,12)$), tomando $A, B, C$ como selección, cada entrada de datos se expresa en función de $D$:' },
+        { type: 'table', caption: 'Asignación de datos del mux de 8 entradas (selección ABC)', headers: ['Entrada', 'ABC', 'Dato'], rows: [
+          ['$D_0$', '000', '$0$'], ['$D_1$', '001', '$1$'], ['$D_2$', '010', '$0$'], ['$D_3$', '011', '$1$'],
+          ['$D_4$', '100', '$1$'], ['$D_5$', '101', '$0$'], ['$D_6$', '110', '$\\overline{D}$'], ['$D_7$', '111', '$0$'],
+        ] },
+        { type: 'h3', text: 'Respuestas — 5) f(A,B,C) = Σm(1,3,4,5,6)', criollo: 'Con 4 a 1 (selección A,B) y con muxes de 1 control en árbol.' },
+        { type: 'p', text: 'a) Con un <strong>mux de 2 controles (4 a 1)</strong>, tomando $A, B$ como selección y expresando cada dato en función de $C$:' },
+        { type: 'table', caption: 'Asignación de datos (selección AB, datos en función de C)', headers: ['Entrada', 'AB', 'Dato'], rows: [
+          ['$D_0$', '00', '$C$'], ['$D_1$', '01', '$C$'], ['$D_2$', '10', '$1$'], ['$D_3$', '11', '$\\overline{C}$'],
+        ] },
+        { type: 'p', text: 'b) Con <strong>muxes de 1 entrada de control (2 a 1), sin lógica adicional</strong>: se arma un árbol. Dos muxes de 2 a 1 (controlados por $B$) generan las cuatro entradas de datos a partir de los valores $C$, $C$, $1$, $\\overline{C}$ de la tabla anterior, y un mux máster (controlado por $A$) elige entre ambos. Las variables $C$ y $\\overline{C}$ se suponen disponibles.' },
+        { type: 'h3', text: 'Respuestas — 6) f(A,B,C,D) = Σm(0,3,5,6,9,12,13)', criollo: 'Con un mux de 8 datos y con muxes de 4 datos más lógica.' },
+        { type: 'p', text: 'a) Con un <strong>mux de 8 datos</strong> (selección $A, B, C$; datos en función de $D$):' },
+        { type: 'table', caption: 'Asignación de datos del mux de 8 entradas (selección ABC)', headers: ['Entrada', 'ABC', 'Dato'], rows: [
+          ['$D_0$', '000', '$\\overline{D}$'], ['$D_1$', '001', '$D$'], ['$D_2$', '010', '$D$'], ['$D_3$', '011', '$\\overline{D}$'],
+          ['$D_4$', '100', '$D$'], ['$D_5$', '101', '$0$'], ['$D_6$', '110', '$1$'], ['$D_7$', '111', '$0$'],
+        ] },
+        { type: 'p', text: 'b) Con <strong>muxes de 4 datos (2 controles) más lógica adicional</strong>: se toman $A, B$ como selección de un mux de 4 a 1 cuyos datos se expresan en función de $C$ y $D$; cada dato se arma con la lógica necesaria (un mux por grupo o compuertas) a partir de la tabla de verdad de la función. La idea es la misma del punto a) pero repartiendo dos variables a los datos.' },
+        { type: 'callout', tone: 'criollo', text: 'El truco de implementar funciones con muxes: las variables de selección son el "índice" y los datos son lo que vale la función para ese índice, escrito en función de las variables que no usaste como selección. Cuanto más chico el mux, más lógica/variables te quedan en los datos.' },
+      ],
+    },
+    {
+      id: '31',
+      unit: '8',
+      title: 'Guía 5 — Decodificadores',
+      criollo: 'Práctica de decodificadores: expansión (armar decos grandes con chicos) e implementación de funciones lógicas. Acordate: como el decodificador ya genera todos los minitérminos, implementar una función es sumar (OR) las salidas que correspondan.',
+      blocks: [
+        { type: 'callout', tone: 'info', text: 'La guía trae solo enunciados. Las <strong>respuestas son una resolución propia</strong> (método de la Unidad 5), no del PDF. Como no hay diagramas en la guía, las implementaciones se describen con su estructura.' },
+        { type: 'h3', text: 'Procedimiento', criollo: 'Expandir decos e implementar funciones con ellos.' },
+        { type: 'ol', items: [
+          '<strong>Expansión</strong>: el o los bits de entrada más significativos habilitan a uno u otro sub-decodificador. Sin lógica adicional, se usa un decodificador de nivel superior cuyas salidas hacen de habilitación de los decodificadores de nivel inferior.',
+          '<strong>Implementar una función con un decodificador</strong>: el decodificador, internamente, genera todas las combinaciones (sus salidas son los minitérminos). Para implementar $f$ escrita como suma de minitérminos, conectá una compuerta <strong>OR</strong> que reciba justamente las salidas correspondientes a los minitérminos de la función (las filas donde $f = 1$).',
+        ] },
+        { type: 'h3', text: 'Respuestas — 1, 2 y 3: expansión', criollo: 'Estructura de cada implementación.' },
+        { type: 'ul', items: [
+          '<strong>1) Decodificador 3×8 con decodificadores 2×4</strong> (con lógica adicional): dos decos $2\\times4$ comparten las entradas $E_1, E_0$; la entrada más significativa $E_2$ habilita uno (salidas $S_0..S_3$) cuando vale 0 y el otro (salidas $S_4..S_7$) cuando vale 1. La lógica adicional es la que enruta la habilitación según $E_2$.',
+          '<strong>2) Decodificador 4×16 con decodificadores 3×8</strong>: dos decos $3\\times8$ comparten $E_2, E_1, E_0$; la entrada $E_3$ habilita el primero (salidas $S_0..S_7$) cuando vale 0 y el segundo (salidas $S_8..S_{15}$) cuando vale 1.',
+          '<strong>3) Decodificador 4×16 con decodificadores 2×4, sin lógica adicional</strong>: árbol de dos niveles. Un deco $2\\times4$ de nivel superior (entradas $E_3, E_2$) tiene cada una de sus cuatro salidas conectada a la <strong>habilitación</strong> de uno de cuatro decos $2\\times4$ de nivel inferior (todos con entradas $E_1, E_0$). Así, solo el deco inferior habilitado activa una de sus salidas, cubriendo las 16 combinaciones sin compuertas extra.',
+        ] },
+        { type: 'h3', text: 'Respuestas — 4) f(A,B,C,D) = Σm(0,3,5,6,9,12,13)', criollo: 'Un deco grande y una OR con las salidas justas.' },
+        { type: 'p', text: 'Con un <strong>decodificador $4\\times16$</strong> (entradas $A, B, C, D$) y una compuerta OR que reciba las salidas correspondientes a los minitérminos de la función:' },
+        { type: 'math', display: true, latex: 'f = S_0 + S_3 + S_5 + S_6 + S_9 + S_{12} + S_{13}' },
+        { type: 'callout', tone: 'info', text: 'Cada $S_i$ es la salida del decodificador que se activa cuando la entrada $ABCD$ vale $i$. La OR junta las siete salidas donde $f = 1$.' },
+        { type: 'h3', text: 'Respuestas — 5) f(A,B,C) = Σm(0,2,5,6)', criollo: 'Con un deco solo y con decos de 2×4.' },
+        { type: 'p', text: 'a) Con un <strong>decodificador $3\\times8$</strong> (entradas $A, B, C$) y una OR de las salidas de los minitérminos:' },
+        { type: 'math', display: true, latex: 'f = S_0 + S_2 + S_5 + S_6' },
+        { type: 'p', text: 'b) Con <strong>decodificadores $2\\times4$</strong>: se arma primero el $3\\times8$ a partir de dos $2\\times4$ (como en el ejercicio 1, con $A$ habilitando uno u otro) y luego se conecta la misma OR con las salidas $S_0, S_2, S_5, S_6$.' },
+        { type: 'callout', tone: 'criollo', text: 'Decodificador + OR es la forma más directa de implementar cualquier función: el deco te da todos los minitérminos servidos, vos solo elegís cuáles sumar. La contra es que usás un integrado grande aunque la función sea simple.' },
+      ],
+    },
+
   ],
   pdfs: [
     { key: 'u1-numeracion', label: 'U1 · Sistemas de numeración y aritmética binaria', path: 'pdfs/sistemas-digitales-i/1-sistemas-numeracion.pdf' },
@@ -2529,5 +2599,7 @@ export default {
     { key: 'g1-numeracion', label: 'Guía 1 · Numeración y aritmética binaria', path: 'pdfs/sistemas-digitales-i/g1-numeracion.pdf' },
     { key: 'g2-karnaugh', label: 'Guía 2 · Mapas de Karnaugh', path: 'pdfs/sistemas-digitales-i/g2-karnaugh.pdf' },
     { key: 'g3-aritmeticos', label: 'Guía 3 · Circuitos combinatorios aritméticos', path: 'pdfs/sistemas-digitales-i/g3-combinatorios-aritmeticos.pdf' },
+    { key: 'g4-multiplexores', label: 'Guía 4 · Multiplexores', path: 'pdfs/sistemas-digitales-i/g4-multiplexores.pdf' },
+    { key: 'g5-decodificadores', label: 'Guía 5 · Decodificadores', path: 'pdfs/sistemas-digitales-i/g5-decodificadores.pdf' },
   ],
 };
