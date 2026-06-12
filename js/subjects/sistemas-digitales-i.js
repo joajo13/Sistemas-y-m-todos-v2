@@ -2386,6 +2386,54 @@ export default {
       ],
     },
 
+    // ===================================================================
+    // UNIDAD 8 — Guías de ejercicios
+    // ===================================================================
+    {
+      id: '27',
+      unit: '8',
+      title: 'Guía 1 — Sistemas de numeración y aritmética binaria',
+      criollo: 'La guía de práctica de la Unidad 1: conversiones entre bases y operaciones binarias con y sin signo (complemento a 1 y a 2). Primero el procedimiento para cada tipo, después todos los ejercicios resueltos.',
+      blocks: [
+        { type: 'callout', tone: 'info', text: 'La guía de la cátedra trae solo los enunciados, sin soluciones. Las <strong>respuestas de abajo son una resolución propia</strong>, derivada aplicando los métodos del apunte de la Unidad 1; no provienen del PDF. Verificá siempre tus propias cuentas.' },
+        { type: 'h3', text: 'Procedimiento', criollo: 'El kit de métodos. Si te trabás, volvé a la Unidad 1.' },
+        { type: 'ol', items: [
+          '<strong>Decimal → otra base</strong>: dividí la parte entera sucesivamente por la base destino y concatená el último cociente con los restos (de abajo hacia arriba). La parte fraccionaria se multiplica sucesivamente por la base, tomando la parte entera de cada paso.',
+          '<strong>Otra base → decimal</strong>: forma polinomial, cada dígito por la base elevada a su posición (desde la coma: a la izquierda $0, 1, 2, \\dots$; a la derecha $-1, -2, \\dots$).',
+          '<strong>Binario ↔ octal</strong>: agrupá de a 3 bits desde la coma ($2^3 = 8$). <strong>Binario ↔ hexadecimal</strong>: de a 4 bits ($2^4 = 16$). Completá con ceros donde falte.',
+          '<strong>Suma sin signo</strong>: pasá ambos a binario y sumá columna a columna con el carry; si sobra carry final, en sin signo forma parte del resultado.',
+          '<strong>Resta con signo</strong>: $A - B = (+A) + (-B)$. Igualá la cantidad de bits (con el bit de signo), escribí en complemento (Ca1 o Ca2) y sumá. En <strong>Ca1</strong> el carry final se vuelve a sumar al resultado (end-around carry); en <strong>Ca2</strong> el carry final se descarta. Si el resultado es negativo (bit de signo 1), volvé a complementar para leer la magnitud.',
+        ] },
+        { type: 'h3', text: 'Respuestas — 1) Conversión a binario', criollo: 'De cada base al binario.' },
+        { type: 'math', display: true, latex: '854_{10} = 1101010110_2 \\qquad 345{,}75_{10} = 101011001{,}11_2' },
+        { type: 'p', text: 'Para las bases octal y hexadecimal conviene la conversión directa por agrupación de bits:' },
+        { type: 'math', display: true, latex: '1056_8 = \\underbrace{001}_{1}\\,\\underbrace{000}_{0}\\,\\underbrace{101}_{5}\\,\\underbrace{110}_{6} = 1000101110_2' },
+        { type: 'math', display: true, latex: '75{,}64_8 = \\underbrace{111}_{7}\\,\\underbrace{101}_{5}\\,,\\,\\underbrace{110}_{6}\\,\\underbrace{100}_{4} = 111101{,}110100_2' },
+        { type: 'math', display: true, latex: '876{,}42_{16} = \\underbrace{1000}_{8}\\,\\underbrace{0111}_{7}\\,\\underbrace{0110}_{6}\\,,\\,\\underbrace{0100}_{4}\\,\\underbrace{0010}_{2} = 100001110110{,}01000010_2' },
+        { type: 'math', display: true, latex: 'F1A0_{16} = \\underbrace{1111}_{F}\\,\\underbrace{0001}_{1}\\,\\underbrace{1010}_{A}\\,\\underbrace{0000}_{0} = 1111000110100000_2' },
+        { type: 'h3', text: 'Respuestas — 2) Conversión a decimal', criollo: 'Forma polinomial y a sumar.' },
+        { type: 'math', display: true, latex: '110100101_2 = 256 + 128 + 32 + 4 + 1 = 421_{10}' },
+        { type: 'math', display: true, latex: '111111{,}01_2 = 32 + 16 + 8 + 4 + 2 + 1 + 0{,}25 = 63{,}25_{10}' },
+        { type: 'math', display: true, latex: '603_8 = 6 \\times 8^2 + 0 \\times 8^1 + 3 \\times 8^0 = 387_{10} \\qquad 1725_8 = 981_{10}' },
+        { type: 'math', display: true, latex: 'E9C_{16} = 14 \\times 16^2 + 9 \\times 16 + 12 = 3740_{10} \\qquad 93_{16} = 9 \\times 16 + 3 = 147_{10}' },
+        { type: 'h3', text: 'Respuestas — 3) Conversión a octal', criollo: 'Agrupá de a 3 bits.' },
+        { type: 'math', display: true, latex: '285_{10} = 435_8' },
+        { type: 'math', display: true, latex: '111011001_2 = \\underbrace{111}_{7}\\,\\underbrace{011}_{3}\\,\\underbrace{001}_{1} = 731_8' },
+        { type: 'math', display: true, latex: '1101{,}000011_2 = \\underbrace{001}_{1}\\,\\underbrace{101}_{5}\\,,\\,\\underbrace{000}_{0}\\,\\underbrace{011}_{3} = 15{,}03_8' },
+        { type: 'h3', text: 'Respuestas — 4) Conversión a hexadecimal', criollo: 'Agrupá de a 4 bits.' },
+        { type: 'math', display: true, latex: '1470_{10} = 5BE_{16} \\qquad 2163_{10} = 873_{16}' },
+        { type: 'math', display: true, latex: '11110110{,}01111_2 = \\underbrace{1111}_{F}\\,\\underbrace{0110}_{6}\\,,\\,\\underbrace{0111}_{7}\\,\\underbrace{1000}_{8} = F6{,}78_{16}' },
+        { type: 'math', display: true, latex: '127_8 = 001010111_2 = \\underbrace{0101}_{5}\\,\\underbrace{0111}_{7} = 57_{16}' },
+        { type: 'h3', text: 'Respuestas — Aritmética 1) Suma sin signo', criollo: 'Sumá columna a columna; el carry final, en sin signo, va al resultado.' },
+        { type: 'code', code: 'a)  105 + 123                 b)  250 + 46                  c)  29 + 37\n      0 1 1 0 1 0 0 1             1 1 1 1 1 0 1 0              0 0 1 1 1 0 1\n    + 0 1 1 1 1 0 1 1           + 0 0 1 0 1 1 1 0            + 0 1 0 0 1 0 1\n    -----------------          -------------------          ---------------\n      1 1 1 0 0 1 0 0          1 0 0 1 0 1 0 0 0              1 0 0 0 0 1 0\n      = 228 (10)                = 296 (10)                   = 66 (10)\n                               (carry final = parte del\n                                resultado, sin signo)' },
+        { type: 'h3', text: 'Respuestas — Aritmética 2) Con signo en complemento a 1', criollo: 'Recordá el end-around carry: si sobra carry, se lo sumás de nuevo al resultado.' },
+        { type: 'code', code: 'a) -18 - 9 = -27   (6 bits)        b) -213 + 84 = -129   (9 bits)\n   +18 = 010010  -> -18 = 101101      +84 = 001010100\n    +9 = 001001  ->  -9 = 110110      -213 = 100101010\n      1 0 1 1 0 1                        1 0 0 1 0 1 0 1 0\n    + 1 1 0 1 1 0                      + 0 0 1 0 1 0 1 0 0\n    -----------                       -------------------\n   (1)1 0 0 0 1 1   carry->end-around    1 0 1 1 1 1 1 1 0   (sin carry)\n    + 0 0 0 0 0 1                       bit signo 1 -> negativo\n    -----------                        magnitud = inv(01111110)=010000001\n      1 0 0 1 0 0   bit signo 1          = 129  ->  -129  (correcto)\n   magnitud=inv(00100)=11011=27\n   -> -27  (correcto)\n\nc) 28 - 17 = 11   (6 bits)         d) 29 + 37 = 66   (8 bits, ambos positivos)\n   +28 = 011100                       +29 = 00011101\n   +17 = 010001 -> -17 = 101110       +37 = 00100101\n      0 1 1 1 0 0                        0 0 0 1 1 1 0 1\n    + 1 0 1 1 1 0                      + 0 0 1 0 0 1 0 1\n    -----------                       ---------------\n   (1)0 0 1 0 1 0  carry->end-around    0 1 0 0 0 0 1 0\n    + 0 0 0 0 0 1                       bit signo 0 -> +66  (correcto)\n    -----------\n      0 0 1 0 1 1  = +11  (correcto)' },
+        { type: 'h3', text: 'Respuestas — Aritmética 3) Con signo en complemento a 2', criollo: 'En Ca2 el carry final se descarta directamente.' },
+        { type: 'code', code: 'a) -18 - 9 = -27   (6 bits)        b) -213 + 84 = -129   (9 bits)\n   -18 = 101110   (Ca2)              -213 = 100101011   (Ca2)\n    -9 = 110111   (Ca2)              +84  = 001010100\n      1 0 1 1 1 0                       1 0 0 1 0 1 0 1 1\n    + 1 1 0 1 1 1                     + 0 0 1 0 1 0 1 0 0\n    -----------                      -------------------\n   (1)1 0 0 1 0 1  descarto carry       1 0 1 1 1 1 1 1 1   = -129\n      1 0 0 1 0 1  signo 1 -> neg\n   magnitud=Ca2(100101)=011011=27\n   -> -27  (correcto)\n\nc) 28 - 17 = 11   (6 bits)         d) 29 + 37 = 66   (8 bits)\n   +28 = 011100                       +29 = 00011101\n   -17 = 101111   (Ca2)               +37 = 00100101\n      0 1 1 1 0 0                        0 0 0 1 1 1 0 1\n    + 1 0 1 1 1 1                      + 0 0 1 0 0 1 0 1\n    -----------                       ---------------\n   (1)0 0 1 0 1 1  descarto carry        0 1 0 0 0 0 1 0  = +66  (correcto)\n      0 0 1 0 1 1  = +11  (correcto)\n\ne) -225 + 76 = -149   (9 bits)     f) 225 - 76 = 149   (9 bits)\n   -225 = 100011111  (Ca2)            +225 = 011100001\n   +76  = 001001100                   -76  = 110110100  (Ca2)\n      1 0 0 0 1 1 1 1 1                  0 1 1 1 0 0 0 0 1\n    + 0 0 1 0 0 1 1 0 0                + 1 1 0 1 1 0 1 0 0\n    -------------------               -------------------\n      1 0 1 1 0 1 0 1 1   = -149      (1)0 1 0 0 1 0 1 0 1  descarto carry\n      signo 1 -> neg                     0 1 0 0 1 0 1 0 1  = +149  (correcto)\n      magnitud=Ca2(101101011)\n              =010010101=149  -> -149' },
+        { type: 'callout', tone: 'criollo', text: 'Dato clave de los rangos: con $n$ bits, en Ca2 el rango es $[-(2^{n-1}); (2^{n-1}-1)]$. Si una cuenta se va de ese rango (overflow), agregá un bit más. Por eso en varias de estas elegimos la cantidad de bits mirando la magnitud más grande, incluido el resultado.' },
+      ],
+    },
+
   ],
   pdfs: [
     { key: 'u1-numeracion', label: 'U1 · Sistemas de numeración y aritmética binaria', path: 'pdfs/sistemas-digitales-i/1-sistemas-numeracion.pdf' },
@@ -2402,5 +2450,6 @@ export default {
     { key: 'u6-contador', label: 'U6 · Circuitos secuenciales — Contador síncrono', path: 'pdfs/sistemas-digitales-i/6b-contador-sincronico.pdf' },
     { key: 'u6-parte3', label: 'U6 · Circuitos secuenciales — Parte 3', path: 'pdfs/sistemas-digitales-i/6c-secuenciales-parte3.pdf' },
     { key: 'u7-maquina-estados', label: 'U7 · Máquinas de estados', path: 'pdfs/sistemas-digitales-i/7-maquina-estados.pdf' },
+    { key: 'g1-numeracion', label: 'Guía 1 · Numeración y aritmética binaria', path: 'pdfs/sistemas-digitales-i/g1-numeracion.pdf' },
   ],
 };
