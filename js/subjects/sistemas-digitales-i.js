@@ -1941,6 +1941,385 @@ export default {
       ],
     },
 
+    // ===================================================================
+    // UNIDAD 6 — Circuitos secuenciales
+    // ===================================================================
+    {
+      id: '22', unit: '6', title: 'Biestables: el latch RS y el biestable D',
+      criollo: 'Acá arrancan los circuitos con memoria, che. Hasta ahora la salida dependía solo de las entradas; ahora va a depender también de lo que pasó antes. El biestable es el ladrillito que guarda un bit, y de ahí salen el latch RS y el biestable D. Rico.',
+      blocks: [
+        { type: 'h3', text: 'Combinacionales vs. secuenciales' },
+        { type: 'p', text: 'Hasta ahora vimos circuitos <strong>combinacionales</strong>: la salida depende únicamente de los valores en las entradas. No son capaces de memorizar resultados. Por ejemplo, en una compuerta OR la salida $S$ es una función que depende solo de las entradas $A$ y $B$.' },
+        { type: 'math', latex: 'S = f(A, B)', display: true },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-combinacional-or-simbolo-p01.png', alt: 'Símbolo de una compuerta OR como ejemplo de circuito combinacional sin memoria.', caption: 'Una OR común, sin memoria: la salida depende solo de las entradas.' },
+        { type: 'p', text: 'Un circuito <strong>secuencial</strong>, en cambio, es aquel en el que su salida depende tanto del estado actual de la entrada como del estado anterior. Para esto usan un <strong>lazo de retroalimentación</strong>, lo que les permite guardar información (bits). En el ejemplo de abajo, la salida $S$ depende tanto de la entrada $A$ como del valor anterior de su salida $S$.' },
+        { type: 'math', latex: 'S_{n+1} = f(A, S_n)', display: true },
+        { type: 'ul', items: [
+          '$S_n$: estado actual de la salida.',
+          '$S_{n+1}$: estado futuro de la salida (depende del actual).'
+        ] },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-secuencial-realimentacion-or-p01.png', alt: 'Compuerta OR con la salida realimentada a una de sus entradas, ilustrando un circuito secuencial.', caption: 'Acá la salida se realimenta: eso ya es secuencial (tiene memoria).' },
+        { type: 'h3', text: 'Sincrónicos, asincrónicos y la señal de reloj' },
+        { type: 'p', text: 'Los circuitos secuenciales pueden ser sincrónicos o asincrónicos. Los <strong>sincrónicos</strong> tienen todos sus elementos sincronizados mediante una señal de <strong>reloj (clock)</strong>, que es la que les permite cambiar de estado. La señal de clock es una señal cuadrada periódica (un tren de pulsos) que toma valor alto y bajo. Los <strong>asincrónicos</strong>, en cambio, no dependen del reloj: en cuanto reciben un cambio en sus entradas, cambian su estado.' },
+        { type: 'h3', text: 'Flancos del reloj' },
+        { type: 'p', text: 'En la señal de clock se distinguen dos momentos clave, los <strong>flancos</strong> (transiciones o bordes): el flanco <strong>ascendente</strong> (transición de 0 a 1) y el flanco <strong>descendente</strong> (transición de 1 a 0). Esto vale para todos los pulsos del clock.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-flancos-clock-cronograma-p03.png', alt: 'Cronograma de la señal de reloj señalando el flanco ascendente y el descendente.', caption: 'Flanco ascendente y descendente, los momentos clave del reloj.' },
+        { type: 'h3', text: 'Biestable: latch y flip-flop' },
+        { type: 'p', text: 'Los <strong>biestables</strong> son los elementos más básicos de los circuitos secuenciales: son la memoria más chica, capaz de mantener o almacenar un bit. Como su nombre lo indica, pueden tomar dos estados estables: 0 y 1. Dentro de los biestables se diferencian dos tipos: <strong>latch</strong> y <strong>flip-flop</strong>.' },
+        { type: 'ul', items: [
+          'Un <strong>latch</strong> es un elemento de memoria de un bit que cambia de estado cuando cambian sus entradas (idealmente). Si tiene una entrada de control (habilitación o enable), solo cambia mientras esté habilitado. Por eso se dice que cambian por <strong>nivel</strong> (cuando la habilitación está en 1 o nivel alto). Se suelen usar en circuitos asincrónicos.',
+          'Un <strong>flip-flop</strong> es un elemento de memoria de un bit que cambia de estado según la señal del reloj, por flanco ascendente o descendente. Esto es más conveniente que el latch, porque cambiar solo en el flanco resuelve problemas de estados transitorios inestables. Se usan en circuitos sincrónicos.'
+        ] },
+        { type: 'callout', tone: 'info', text: 'Se diferenciarán cuatro tipos de biestables según su funcionamiento: SR, D, JK y T. En esta sección vemos el SR y el D; el JK y el T quedan para más adelante.' },
+        { type: 'h3', text: 'Latch SR (Set – Reset)' },
+        { type: 'p', text: 'El latch SR es un circuito que en su estado <strong>SET</strong> ("setea") le asigna un 1 a la salida, en su estado <strong>RESET</strong> ("resetea") le asigna un 0, y en otro caso retiene el valor de su salida. Se arma con dos compuertas <strong>NOR cruzadas</strong> (también se puede plantear con NAND). Tiene entradas $R$ (reset) y $S$ (set), y salidas $Q$ y $\\overline{Q}$.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-rs-nor-circuito-p03.png', alt: 'Diagrama lógico interno de un biestable RS con dos compuertas NOR cruzadas, entradas R y S y salidas Q y Q negada.', caption: 'El RS por dentro: dos NOR cruzadas, el biestable más básico.' },
+        { type: 'p', text: 'Repasando la NOR: si alguna de sus entradas está en 1, la salida es 0; y si ambas entradas son 0, la salida es 1. Con eso analizamos cada caso:' },
+        { type: 'ul', items: [
+          'Con $S=0$ y $R=0$: el estado futuro $Q_{n+1}$ es igual a $Q_n$ (el estado inicial). O sea, <strong>mantiene</strong>.',
+          'Con $S=0$ y $R=1$: la salida queda en 0 ($Q_{n+1}=0$), sin importar el valor inicial. <strong>Resetea</strong>.',
+          'Con $S=1$ y $R=0$: la salida queda en 1 ($Q_{n+1}=1$), sin importar el valor inicial. <strong>Setea</strong>.',
+          'Con $S=1$ y $R=1$: ambas NOR tienen una entrada en 1, así que las dos salidas quedan en 0; $Q$ y $\\overline{Q}$ valen lo mismo.'
+        ] },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-rs-nor-set-p05.png', alt: 'Biestable RS con NOR mostrando R=0, S=1 que lleva a Q=1.', caption: 'S=1 setea: Q se va a 1.' },
+        { type: 'callout', tone: 'warning', text: 'Como Q y Q negada deben ser complementarias (si una es 0, la otra debe ser 1), el caso S=1 y R=1 es el estado PROHIBIDO: las dos salidas quedan en 0 y eso no es válido. En la tabla se marca con una X.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-rs-nor-prohibido-p05.png', alt: 'Biestable RS con NOR mostrando R=1 y S=1 simultáneos con Q y Q negada en 0, estado prohibido.', caption: 'R=1 y S=1 juntos: el estado prohibido.' },
+        { type: 'table', caption: 'Tabla de verdad reducida del latch SR', headers: ['S', 'R', 'Q(n+1)'], rows: [
+          ['0', '0', 'Q(n)'],
+          ['0', '1', '0'],
+          ['1', '0', '1'],
+          ['1', '1', 'X']
+        ] },
+        { type: 'p', text: 'A partir de la tabla se simplifica y se obtiene la ecuación característica del biestable SR:' },
+        { type: 'math', latex: 'Q_{n+1} = S + \\overline{R} \\cdot Q_n', display: true },
+        { type: 'callout', tone: 'info', text: 'La ecuación característica sale de simplificar la tabla de verdad mediante mapas de Karnaugh, la herramienta que vimos en la unidad de minimización lógica.' },
+        { type: 'h3', text: 'Latch SR con habilitación (Latch Enable)' },
+        { type: 'p', text: 'Al circuito anterior se le agrega la <strong>habilitación</strong> o Latch Enable ($LE$), una entrada de control que indica si puede o no cambiar de estado. Cuando $LE=1$ (nivel alto), permite el cambio según el valor de las entradas. Cuando $LE=0$, no importa el valor de $R$ y $S$: la salida mantiene su estado.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-rs-clock-circuito-p07.png', alt: 'Circuito del biestable RS con reloj, dos NAND de entrada gobernadas por la habilitación alimentando un latch RS con NOR.', caption: 'El RS con habilitación: solo cambia cuando la habilitación lo permite.' },
+        { type: 'table', caption: 'Tabla de verdad reducida del latch SR con habilitación', headers: ['LE', 'S', 'R', 'Q(n+1)'], rows: [
+          ['0', 'X', 'X', 'Q(n)'],
+          ['1', '0', '0', 'Q(n)'],
+          ['1', '0', '1', '0'],
+          ['1', '1', '0', '1'],
+          ['1', '1', '1', 'X']
+        ] },
+        { type: 'h3', text: 'Latch D (Data) con habilitación' },
+        { type: 'p', text: 'El latch D recibe su nombre de su entrada de datos. Se usa para almacenar datos (bits de información). En el fondo es un <strong>RS con habilitación pero con una sola entrada de dato $D$</strong>: a $S$ le va $D$ y a $R$ le va $\\overline{D}$ (vía un inversor). Así se <strong>evita el estado prohibido</strong>, porque $S$ y $R$ nunca pueden valer 1 al mismo tiempo.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-d-latch-circuito-p09.png', alt: 'Circuito interno del biestable D tipo latch, con inversor en D, dos compuertas habilitadas y un latch de NOR cruzadas.', caption: 'El D por dentro: un RS con habilitación pero una sola entrada de dato.' },
+        { type: 'ul', items: [
+          'Si $D=0$, entonces $S=0$ y $R=1$, por lo que la salida será 0, sin importar el estado inicial.',
+          'Si $D=1$, entonces $S=1$ y $R=0$, por lo que la salida será 1, sin importar el estado inicial.'
+        ] },
+        { type: 'p', text: 'O sea, cuando está habilitado, la salida <strong>sigue a $D$</strong>.' },
+        { type: 'table', caption: 'Tabla de verdad reducida del latch D con habilitación', headers: ['LE', 'D', 'Q(n+1)'], rows: [
+          ['0', 'X', 'Q(n)'],
+          ['1', '0', '0'],
+          ['1', '1', '1']
+        ] },
+        { type: 'p', text: 'Simplificando la tabla (otra vez con mapas de Karnaugh) se obtiene la ecuación característica del biestable D, la más simple de todas:' },
+        { type: 'math', latex: 'Q_{n+1} = D', display: true },
+        { type: 'h3', text: 'Flip-flop D maestro – esclavo' },
+        { type: 'p', text: 'Este flip-flop se compone de <strong>dos latches D en cascada</strong> con el reloj invertido entre ellos. Uno es el <strong>maestro</strong> (recibe el dato de entrada) y le pasa el valor al <strong>esclavo</strong>, que a su salida muestra el dato. Esta estructura elimina condiciones transitorias inestables de los circuitos vistos hasta acá.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-d-maestro-esclavo-circuito-p11.png', alt: 'Estructura maestro-esclavo de dos latches D en cascada con el reloj e inversor que controla las habilitaciones.', caption: 'Maestro-esclavo: dos latches D en cascada con el clock invertido entre ellos.' },
+        { type: 'ul', items: [
+          'Recién cuando el clock está en 1 se habilita el maestro, que toma el dato $D$ y lo deja en su salida (y por lo tanto en la entrada del esclavo).',
+          'Cuando el clock pasa a 0, la NOT entrega un 1 a la habilitación del esclavo, que recién entonces puede cambiar y muestra el dato a la salida.'
+        ] },
+        { type: 'p', text: 'En el diagrama temporal se ve que, aunque la entrada cambie en un instante, el cambio en la salida $Q_e$ recién se aprecia cuando llega la transición descendente próxima. Cabe destacar que esta conexión no es la única forma de lograr este funcionamiento, ni la óptima.' },
+        { type: 'h3', text: 'Flip-flop D por flanco' },
+        { type: 'p', text: 'Según su configuración, se pueden tener dos tipos de flip-flop D por flanco: por <strong>flanco descendente</strong> o por <strong>flanco ascendente</strong> del clock. En el símbolo lógico, la entrada dinámica (a la que se conecta el clock) se indica con un <strong>triángulo</strong>; si además lleva un <strong>círculo (burbuja)</strong> en el CLK, es por flanco descendente. Esta distinción del símbolo vale para todos los tipos de flip-flop.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-flip-flop-d-simbolos-flancos-p13.png', alt: 'Dos símbolos del flip-flop D, uno disparado por flanco descendente (con burbuja en el reloj) y otro por flanco ascendente.', caption: 'Flip-flop D: por flanco descendente (con burbujita) y por flanco ascendente.' },
+        { type: 'table', caption: 'Tabla de verdad reducida del flip-flop D por flanco (descendente)', headers: ['CLK', 'D', 'Q(n+1)'], rows: [
+          ['0', 'X', 'Q(n)'],
+          ['1', 'X', 'Q(n)'],
+          ['flanco descendente', '0', '0'],
+          ['flanco descendente', '1', '1']
+        ] }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-22-1', q: 'En un circuito combinacional la salida depende únicamente de los valores de las entradas.', a: true, explain: 'Exacto: el combinacional no tiene memoria, su salida es función solo de las entradas actuales.' },
+          { id: 'tf-22-2', q: 'Un circuito secuencial usa un lazo de retroalimentación y puede guardar información.', a: true, explain: 'Su salida depende del estado actual de la entrada y del estado anterior, gracias a la realimentación.' },
+          { id: 'tf-22-3', q: 'En el latch SR con NOR, el estado con S=1 y R=1 es un estado válido y recomendado.', a: false, explain: 'Es el estado PROHIBIDO: Q y Q negada quedan ambas en 0, y deberían ser complementarias.' },
+          { id: 'tf-22-4', q: 'El biestable D evita el estado prohibido del SR porque a R le llega D negado.', a: true, explain: 'El D es un RS con habilitación con una sola entrada: a S va D y a R va D negado, así S y R nunca valen 1 a la vez.' },
+          { id: 'tf-22-5', q: 'En el flip-flop D, una burbuja (círculo) en la entrada de reloj indica disparo por flanco ascendente.', a: false, explain: 'La burbuja indica flanco descendente. Sin burbuja, es por flanco ascendente.' }
+        ],
+        mc: [
+          { id: 'mc-22-1', q: 'En el latch SR con NOR, ¿qué pasa con S=0 y R=0?', options: ['Setea: Q=1', 'Resetea: Q=0', 'Mantiene el estado anterior (Q siguiente = Q actual)', 'Es el estado prohibido'], correctIndex: 2, explain: 'Con ambas entradas en 0, el estado futuro Q(n+1) es igual a Q(n): mantiene.' },
+          { id: 'mc-22-2', q: '¿Cuál es la ecuación característica del biestable D?', options: ['Q siguiente = D', 'Q siguiente = S + R negado por Q', 'Q siguiente = D negado', 'Q siguiente = Q anterior'], correctIndex: 0, explain: 'La más simple de todas: la salida sigue al dato, Q(n+1) = D.' },
+          { id: 'mc-22-3', q: '¿Qué diferencia a un flip-flop de un latch?', options: ['El flip-flop cambia por nivel y el latch por flanco', 'El flip-flop cambia según el flanco del reloj y el latch por nivel de la habilitación', 'El flip-flop no tiene memoria', 'No hay ninguna diferencia'], correctIndex: 1, explain: 'El flip-flop cambia por flanco del clock (resuelve estados transitorios); el latch cambia por nivel mientras esté habilitado.' },
+          { id: 'mc-22-4', q: 'La estructura maestro-esclavo del flip-flop D se arma con...', options: ['Dos compuertas NOR cruzadas', 'Dos latches D en cascada con el reloj invertido entre ellos', 'Un latch SR y un inversor', 'Tres flip-flops en serie'], correctIndex: 1, explain: 'Son dos latches D en cascada, maestro y esclavo, con el clock invertido entre ambos para controlar el cambio.' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-22-1', front: 'Combinacional vs. secuencial', back: 'Combinacional: la salida depende solo de las entradas actuales (sin memoria). Secuencial: depende también del estado anterior, mediante un lazo de retroalimentación (con memoria).' },
+        { id: 'fc-22-2', front: 'Flancos del reloj', back: 'Flanco ascendente: transición de 0 a 1. Flanco descendente: transición de 1 a 0. Son los momentos en que un flip-flop puede cambiar de estado.' },
+        { id: 'fc-22-3', front: 'Latch SR con NOR: los cuatro casos', back: 'S=0 R=0: mantiene. S=0 R=1: resetea (Q=0). S=1 R=0: setea (Q=1). S=1 R=1: estado PROHIBIDO (Q y Q negada quedan en 0).' },
+        { id: 'fc-22-4', front: 'Ecuación característica del SR', back: 'Q siguiente = S + (R negado) por Q anterior.' },
+        { id: 'fc-22-5', front: 'Biestable D: por qué no tiene estado prohibido', back: 'Es un RS con habilitación de una sola entrada D: a S va D y a R va D negado (vía inversor). Así S y R nunca valen 1 a la vez. Su ecuación es Q siguiente = D.' },
+        { id: 'fc-22-6', front: 'Maestro-esclavo', back: 'Dos latches D en cascada con el reloj invertido entre ellos. El maestro toma el dato; el esclavo lo muestra a la salida. Elimina condiciones transitorias inestables.' },
+        { id: 'fc-22-7', front: 'Símbolo del flip-flop D por flanco', back: 'La entrada de reloj lleva un triángulo. Si además tiene burbuja (círculo) en el CLK, es por flanco descendente; sin burbuja, por flanco ascendente.' }
+      ]
+    },
+    {
+      id: '23', unit: '6', title: 'Biestables JK y T, excitación y diagramas de estado',
+      criollo: 'Acá viene la posta: el JK es el SR pero arreglado, sin el estado prohibido al pedo. Y cuando le metés J=1 y K=1 conmuta solo, que es lo que aprovecha el T. Después le sumamos los diagramas de estado y las tablas de excitación, que son la tabla dada vuelta: en vez de mirar las entradas para saber la salida, mirás la transición que querés y averiguás qué entradas la producen.',
+      blocks: [
+        { type: 'h3', text: 'Flip Flop JK: el SR pero sin el estado prohibido' },
+        { type: 'p', text: 'El flip flop <strong>JK</strong> recibe su nombre por Jack Kilby, ingeniero e inventor de los circuitos integrados. Es análogo al flip flop <strong>SR</strong>, pero resuelve el cambio de estado cuando ambas entradas valen 1, ese caso que en el SR era estado prohibido.' },
+        { type: 'p', text: 'A partir del flip flop SR es posible armar el JK: se trata de un <strong>RS realimentado</strong>, donde las salidas Q y Q negada vuelven a las compuertas AND de entrada. Esa realimentación es justo lo que elimina el estado prohibido.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-jk-circuito-p15.png', alt: 'Circuito del biestable JK con dos AND de entrada realimentadas desde Q y Q negada hacia un latch RS con reloj.', caption: 'El JK por dentro: un RS realimentado que elimina el estado prohibido.' },
+        { type: 'p', text: 'Las entradas son <strong>J</strong> (cumple el rol de Set) y <strong>K</strong> (cumple el rol de Reset). De hecho, J es equivalente a S y K es equivalente a R. Su funcionamiento:' },
+        { type: 'ul', items: [
+          'Con J=0 y K=0, <strong>mantiene</strong> el estado (Q siguiente = Q actual).',
+          'Con J=1 y K=0, <strong>setea</strong> (Q siguiente = 1).',
+          'Con J=0 y K=1, <strong>resetea</strong> (Q siguiente = 0).',
+          'Con J=1 y K=1, <strong>conmuta</strong> (toggle): la salida se invierte, Q siguiente = Q negada actual.'
+        ] },
+        { type: 'p', text: 'Acá está la gracia: el SR con S=1 y R=1 era estado prohibido, pero el JK aprovecha ese caso para conmutar. Por eso se lo considera una mejora del SR.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-jk-simbolo-p15.png', alt: 'Símbolo de bloque del biestable JK con entradas J, K y reloj, y salidas Q y Q negada.', caption: 'El símbolo del JK.' },
+        { type: 'p', text: 'El símbolo mostrado corresponde al JK por flanco ascendente. Si fuera por flanco descendente, bastaría con agregar el círculo de negación en la entrada dinámica (la del reloj), tal como se hace con el flip flop D.' },
+        { type: 'table', caption: 'Tabla de verdad reducida del biestable JK', headers: ['J', 'K', 'Q siguiente'], rows: [
+          ['0', '0', 'Q actual (mantiene)'],
+          ['0', '1', '0 (resetea)'],
+          ['1', '0', '1 (setea)'],
+          ['1', '1', 'Q negada (conmuta)']
+        ] },
+        { type: 'p', text: 'Simplificando la tabla de verdad se obtiene la ecuación característica del JK:' },
+        { type: 'math', latex: 'Q_{n+1} = J \\cdot \\overline{Q_n} + \\overline{K} \\cdot Q_n', display: true },
+        { type: 'h3', text: 'JK por flanco ascendente y descendente' },
+        { type: 'p', text: 'Como todo flip flop, el JK cambia de estado según la señal de reloj. Según la configuración, dispara por flanco ascendente (subida del clock) o por flanco descendente (bajada). El cronograma deja ver cómo Q solo cambia en el flanco correspondiente, no en cualquier momento.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-flip-flop-jk-cronograma-ascendente-p19.png', alt: 'Cronograma del flip flop JK por flanco ascendente con señales de reloj, J, K y Q.', caption: 'Cronograma del JK por flanco ascendente.' },
+        { type: 'h3', text: 'Flip Flop T: conmutar o mantener' },
+        { type: 'p', text: 'El flip flop <strong>T</strong> recibe su nombre del inglés <em>toggle</em>, es decir conmutar o alternar. Mantiene o invierte su estado, nada más. Se arma <strong>a partir de un flip flop JK</strong>, uniendo las entradas J y K a una sola entrada que llamamos T.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-t-simbolo-jk-p17.png', alt: 'Símbolo del biestable T formado a partir de un JK, con J y K unidos a la entrada T y el reloj.', caption: 'El T armado con un JK: J y K juntas hacen de T.' },
+        { type: 'p', text: 'Al unir J y K, los únicos casos posibles son T=0 (que en el JK equivale a J=0, K=0) y T=1 (que equivale a J=1, K=1). Por eso:' },
+        { type: 'ul', items: [
+          'Con T=0, <strong>mantiene</strong> su estado (Q siguiente = Q actual).',
+          'Con T=1, <strong>conmuta</strong>: alterna o invierte su estado (Q siguiente = Q negada actual).'
+        ] },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-t-simbolo-p17.png', alt: 'Símbolo de bloque del biestable T con entrada T y reloj y salidas Q y Q negada.', caption: 'El símbolo del T.' },
+        { type: 'table', caption: 'Tabla de verdad reducida del biestable T', headers: ['T', 'Q siguiente'], rows: [
+          ['0', 'Q actual (mantiene)'],
+          ['1', 'Q negada (conmuta)']
+        ] },
+        { type: 'p', text: 'Su ecuación característica es:' },
+        { type: 'math', latex: 'Q_{n+1} = \\overline{T} \\cdot Q_n + T \\cdot \\overline{Q_n}', display: true },
+        { type: 'h3', text: 'Diagramas de estado: pensar en transiciones' },
+        { type: 'p', text: 'Hasta ahora trabajamos con las tablas de funcionamiento (entradas hacia salida). A veces es más cómodo trabajar al revés: con los <strong>diagramas y tablas de transiciones</strong>, que plantean qué pasa según el estado actual Q actual y el estado siguiente Q siguiente. A partir de la transición que querés lograr, averiguás qué valor deberían tener las entradas.' },
+        { type: 'p', text: 'El diagrama de transiciones del <strong>T</strong> tiene los cuatro casos de Q actual a Q siguiente, indicando qué valor de T los produce: cuando el estado se mantiene (0 a 0, o 1 a 1) hace falta T=0, y cuando cambia (0 a 1, o 1 a 0) hace falta T=1.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-t-diagrama-estado-p21.png', alt: 'Diagrama de transiciones del biestable T con los cuatro casos de Qn a Qn+1 indicando el valor de T en cada uno.', caption: 'Las transiciones del T: T=1 conmuta, T=0 mantiene.' },
+        { type: 'p', text: 'El diagrama de transiciones del <strong>JK</strong> es parecido, pero aparecen las <strong>condiciones de indiferencia</strong> (marcadas con X), porque una misma transición se puede lograr con más de una combinación de J y K.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-jk-diagrama-estado-p22.png', alt: 'Diagrama de transiciones del biestable JK con los cuatro casos de Qn a Qn+1 indicando los valores de J y K con condiciones de indiferencia.', caption: 'Las transiciones del JK, con sus condiciones de indiferencia (X).' },
+        { type: 'h3', text: 'Tablas de excitación' },
+        { type: 'p', text: 'Las <strong>tablas de excitación</strong> (o de transiciones) indican qué valores deben tener las entradas (J, K, T, D) para producir cada transición de Q actual a Q siguiente. Son la herramienta clave cuando diseñás un circuito a partir del comportamiento que querés.' },
+        { type: 'table', caption: 'Tabla de excitación del biestable T', headers: ['Q actual', 'Q siguiente', 'T'], rows: [
+          ['0', '0', '0'],
+          ['0', '1', '1'],
+          ['1', '0', '1'],
+          ['1', '1', '0']
+        ] },
+        { type: 'table', caption: 'Tabla de excitación del biestable D', headers: ['Q actual', 'Q siguiente', 'D'], rows: [
+          ['0', '0', '0'],
+          ['0', '1', '1'],
+          ['1', '0', '0'],
+          ['1', '1', '1']
+        ] },
+        { type: 'table', caption: 'Tabla de excitación del biestable JK (X = indiferencia)', headers: ['Q actual', 'Q siguiente', 'J', 'K'], rows: [
+          ['0', '0', '0', 'X'],
+          ['0', '1', '1', 'X'],
+          ['1', '0', 'X', '1'],
+          ['1', '1', 'X', '0']
+        ] },
+        { type: 'callout', tone: 'info', text: 'De dónde sale la X: cuando Q actual = 0 y Q siguiente = 0, en la tabla ampliada del JK hay dos filas que cumplen. En ambas J=0, pero en una K=0 y en la otra K=1. Como K puede tomar cualquiera de los dos valores, se anota K=X (indiferencia).' },
+        { type: 'h3', text: 'Armar un JK a partir de un flip flop D' },
+        { type: 'p', text: 'Se puede construir un flip flop JK partiendo de un flip flop D más algo de lógica. La idea: a la tabla del JK se le agrega una columna D, que se completa mirando cada transición de Q actual a Q siguiente y usando la tabla de transiciones del D.' },
+        { type: 'p', text: 'Simplificando la columna D obtenida (con variables J, K y Q actual) se llega a:' },
+        { type: 'math', latex: 'D = J \\cdot \\overline{Q_n} + \\overline{K} \\cdot Q_n', display: true },
+        { type: 'p', text: 'Que es exactamente la ecuación característica del JK. Con esa expresión se arma la lógica (AND, OR e inversor) que alimenta la entrada D del flip flop, y listo: tenés un JK construido con un D.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-jk-mapa-k-excitacion-p24.png', alt: 'Mapa de Karnaugh de excitación del biestable JK con las agrupaciones marcadas.', caption: 'El mapa de Karnaugh de excitación del JK.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-biestable-jk-construccion-flip-flop-d-p24.png', alt: 'Circuito que construye un biestable JK a partir de un flip-flop D, con AND, OR e inversor formando la entrada D.', caption: 'Cómo armar un JK usando un flip-flop D y algo de lógica.' }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-23-1', q: 'El flip flop JK elimina el estado prohibido del SR aprovechando el caso J=1, K=1 para conmutar la salida.', a: true, explain: 'Donde el SR tenía estado prohibido (S=1, R=1), el JK hace toggle: invierte la salida.' },
+          { id: 'tf-23-2', q: 'En el JK, con J=0 y K=0 la salida se invierte en cada flanco de reloj.', a: false, explain: 'Con J=0 y K=0 el JK mantiene su estado. El que invierte (conmuta) es J=1, K=1.' },
+          { id: 'tf-23-3', q: 'El flip flop T se arma a partir de un JK uniendo las entradas J y K en una sola entrada T.', a: true, explain: 'Al unir J y K, solo quedan T=0 (mantiene) y T=1 (conmuta).' },
+          { id: 'tf-23-4', q: 'En la tabla de excitación del JK, la X representa una condición de indiferencia: la entrada puede valer 0 o 1.', a: true, explain: 'Como una misma transición se logra con más de una combinación, esa entrada queda indiferente y se marca con X.' },
+          { id: 'tf-23-5', q: 'Una tabla de excitación parte de las entradas para calcular la salida siguiente.', a: false, explain: 'Es al revés: parte de la transición de Q actual a Q siguiente para averiguar qué entradas la producen.' }
+        ],
+        mc: [
+          { id: 'mc-23-1', q: 'En el flip flop JK, ¿qué hace la combinación J=1, K=1 en cada flanco de reloj?', options: ['Mantiene el estado', 'Setea la salida en 1', 'Resetea la salida en 0', 'Conmuta: invierte la salida'], correctIndex: 3, explain: 'J=1, K=1 produce el toggle: Q siguiente = Q negada actual.' },
+          { id: 'mc-23-2', q: 'Por dentro, el JK es esencialmente:', options: ['Un latch D con habilitación', 'Un RS realimentado, con Q y Q negada volviendo a las AND de entrada', 'Dos compuertas OR en serie', 'Un sumador completo'], correctIndex: 1, explain: 'La realimentación de las salidas hacia las AND de entrada es lo que elimina el estado prohibido.' },
+          { id: 'mc-23-3', q: 'En el flip flop T, ¿qué pasa con T=0?', options: ['Conmuta la salida', 'Mantiene el estado', 'Setea en 1', 'Es un estado prohibido'], correctIndex: 1, explain: 'Con T=0 mantiene (equivale a J=0, K=0 del JK). Con T=1 conmuta.' },
+          { id: 'mc-23-4', q: 'En la tabla de excitación del JK, para la transición Q actual = 1 a Q siguiente = 0, ¿qué valores corresponden?', options: ['J=0, K=0', 'J=1, K=X', 'J=X, K=1', 'J=X, K=0'], correctIndex: 2, explain: 'Para pasar de 1 a 0 hace falta K=1, y J queda indiferente (X).' },
+          { id: 'mc-23-5', q: 'Para construir un JK a partir de un flip flop D, ¿qué expresión alimenta la entrada D?', options: ['D = T', 'D = J por Q negada actual, mas K negada por Q actual', 'D = J mas K', 'D = Q actual'], correctIndex: 1, explain: 'Es exactamente la ecuación característica del JK, que se arma con AND, OR e inversor.' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-23-1', front: '¿Qué problema del SR resuelve el flip flop JK?', back: 'Elimina el estado prohibido (S=1, R=1). El JK aprovecha ese caso (J=1, K=1) para conmutar la salida en vez de quedar indefinido.' },
+        { id: 'fc-23-2', front: 'JK: ¿qué hace cada combinación de J y K?', back: 'J=0,K=0 mantiene; J=1,K=0 setea (Q=1); J=0,K=1 resetea (Q=0); J=1,K=1 conmuta (invierte la salida).' },
+        { id: 'fc-23-3', front: 'Por dentro, ¿qué es el JK?', back: 'Un RS realimentado: las salidas Q y Q negada vuelven a las compuertas AND de entrada. Esa realimentación elimina el estado prohibido.' },
+        { id: 'fc-23-4', front: '¿Cómo se arma un flip flop T y qué hace?', back: 'Se arma a partir de un JK uniendo J y K en una sola entrada T. Con T=1 conmuta (invierte) y con T=0 mantiene el estado.' },
+        { id: 'fc-23-5', front: '¿Qué es una tabla de excitación?', back: 'Indica qué valores deben tener las entradas (J, K, T, D) para producir cada transición de Q actual a Q siguiente. Es la tabla de verdad pensada al revés.' },
+        { id: 'fc-23-6', front: '¿Qué significa la X en la tabla de excitación del JK?', back: 'Condición de indiferencia: esa entrada puede valer 0 o 1 sin afectar la transición, porque varias combinaciones producen el mismo cambio de estado.' },
+        { id: 'fc-23-7', front: '¿Cómo se construye un JK con un flip flop D?', back: 'Se completa la columna D según las transiciones, se simplifica y queda D = J por Q negada actual + K negada por Q actual. Esa lógica (AND, OR, inversor) alimenta la entrada D.' },
+        { id: 'fc-23-8', front: 'Diagrama de transiciones del T: ¿cuándo T=1 y cuándo T=0?', back: 'T=1 cuando el estado cambia (0 a 1 o 1 a 0). T=0 cuando el estado se mantiene (0 a 0 o 1 a 1).' },
+        { id: 'fc-23-9', front: 'Tabla de excitación del D: ¿qué valor toma D?', back: 'D siempre vale lo mismo que Q siguiente, porque la ecuación característica del D es Q siguiente = D.' }
+      ],
+    },
+    {
+      id: '24', unit: '6', title: 'Contadores síncronos',
+      criollo: 'Un contador síncrono es un montón de flip-flops colgados todos del mismo reloj, así cambian de estado al mismo tiempo y recorren una secuencia. El truco está en el método: armás el diagrama de estados, la tabla de transición con J y K, minimizás con Karnaugh y dibujás el circuito. Re mecánico una vez que le agarrás la mano.',
+      blocks: [
+        { type: 'p', text: 'Antes vimos los flip-flops, que son los elementos básicos de los circuitos secuenciales sincrónicos: su comportamiento, sus tablas de funcionamiento y de transición. Acá vemos una aplicación que conecta varios entre sí.' },
+        { type: 'callout', tone: 'info', text: 'Cambio de notación: como ahora trabajamos con más de un flip-flop, Qn ya no indica el tiempo. Llamamos Qn al estado actual del flip-flop número n, y Qn+ (Q con un más) al estado futuro de ese mismo flip-flop n.' },
+        { type: 'h3', text: '¿Qué es un contador?' },
+        { type: 'p', text: 'Un <strong>contador</strong> es un dispositivo de memoria que cambia de estado según una secuencia establecida. Es decir, una combinación de biestables conectados de forma tal que pueda cumplir con esa secuencia.' },
+        { type: 'p', text: 'La cantidad de estados por los que pasa el contador se llama <strong>módulo</strong>: es la cantidad de pulsos que debe recibir el biestable en su entrada de activación (dinámica) para lograr una secuencia completa. La cantidad de estados y la secuencia quedan determinadas por la cantidad de biestables y la forma en la que se conectan.' },
+        { type: 'h3', text: 'Contador síncrono' },
+        { type: 'p', text: 'Según el modo en que se aplique la señal de reloj, los contadores se clasifican en sincrónicos o asincrónicos. En los <strong>contadores síncronos</strong>, todos los flip-flops se conectan a una misma señal de clock, de forma que todos pueden cambiar de estado en un mismo momento.' },
+        { type: 'h3', text: 'Contador síncrono de 3 bits' },
+        { type: 'p', text: 'Vamos a implementar un contador síncrono de 3 bits que arranca en 000, incrementa la cuenta de a uno hasta llegar a 111 y luego vuelve a 000.' },
+        { type: 'h3', text: '1) Diagrama de estados' },
+        { type: 'p', text: 'El diagrama de estados muestra la progresión de estados (000, 001, …, 111) por los que pasa el contador con cada pulso de clock, y las transiciones indicadas con flechas.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-contador-diagrama-estado-octal-p02.png', alt: 'Diagrama de estados circular de un contador de 3 bits que recorre 000 a 111 y vuelve a 000.', caption: 'Diagrama de estados del contador binario de 3 bits.' },
+        { type: 'p', text: 'Como es un contador de 3 bits, la cantidad máxima de estados es $2^3 = 8$. Como pasa por los 8, se dice que el módulo del contador es ocho ($M = 8$).' },
+        { type: 'h3', text: '2) Tabla de estados (actual y futuro)' },
+        { type: 'p', text: 'El <strong>estado futuro</strong> es el estado al que el contador pasa, al aplicar un pulso de reloj, desde su estado actual. El primer bit corresponde al $Q$ del flip-flop 2 ($Q_2$), el segundo al del flip-flop 1 ($Q_1$) y el tercero al del flip-flop 0 ($Q_0$). Lo mismo con los bits del estado futuro: $Q_2^+$, $Q_1^+$ y $Q_0^+$. Por ejemplo, si el estado actual es 000, el futuro será el siguiente del diagrama, es decir 001.' },
+        { type: 'table', caption: 'Tabla de estados del contador de 3 bits: estado actual y estado futuro.', headers: ['Q2', 'Q1', 'Q0', 'Q2+', 'Q1+', 'Q0+'], rows: [['0', '0', '0', '0', '0', '1'], ['0', '0', '1', '0', '1', '0'], ['0', '1', '0', '0', '1', '1'], ['0', '1', '1', '1', '0', '0'], ['1', '0', '0', '1', '0', '1'], ['1', '0', '1', '1', '1', '0'], ['1', '1', '0', '1', '1', '1'], ['1', '1', '1', '0', '0', '0']] },
+        { type: 'h3', text: 'Cantidad y tipo de biestables' },
+        { type: 'p', text: 'Un flip-flop almacena un bit. Como el contador es de 3 bits, necesitamos 3 flip-flops. Al ser síncrono, todos van conectados a la misma señal de clock. Se puede trabajar con flip-flops JK, D o T (obviamos el RS porque el JK funciona parecido pero sin estados prohibidos).' },
+        { type: 'callout', tone: 'info', text: '¿Hay uno mejor? Con flip-flops JK el procedimiento puede ser un poco más largo porque cada uno tiene dos entradas. Con T o D el procedimiento es menor, pero las funciones lógicas y las conexiones pueden ser más complejas. Acá se eligió trabajar con flip-flops JK.' },
+        { type: 'h3', text: 'Tabla de excitación (transiciones JK)' },
+        { type: 'p', text: 'Para completar las entradas miramos el estado actual y el estado futuro de un mismo flip-flop, y según la tabla de transiciones del JK obtenemos qué valores de $J$ y $K$ se necesitan. La X indica condición indiferente (don\'t care).' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-contador-transicion-estado-actual-futuro-p03.png', alt: 'Transición entre dos estados de un contador, del estado actual al estado futuro.', caption: 'Transición de estado actual a estado futuro.' },
+        { type: 'table', caption: 'Tabla de transiciones (excitación) del flip-flop JK.', headers: ['Qn', 'Qn+', 'J', 'K'], rows: [['0', '0', '0', 'X'], ['0', '1', '1', 'X'], ['1', '0', 'X', '1'], ['1', '1', 'X', '0']] },
+        { type: 'p', text: 'Por ejemplo, en la primera línea $Q_2 = 0$ y $Q_2^+ = 0$: cuando actual y futuro son ambos cero, $J = 0$ y $K = X$. Aplicando esto a cada flip-flop en cada fila se completa la tabla de estados y entradas.' },
+        { type: 'table', caption: 'Tabla de estados y entradas de los flip-flops del contador de 3 bits.', headers: ['Q2', 'Q1', 'Q0', 'Q2+', 'Q1+', 'Q0+', 'J2', 'K2', 'J1', 'K1', 'J0', 'K0'], rows: [['0', '0', '0', '0', '0', '1', '0', 'X', '0', 'X', '1', 'X'], ['0', '0', '1', '0', '1', '0', '0', 'X', '1', 'X', 'X', '1'], ['0', '1', '0', '0', '1', '1', '0', 'X', 'X', '0', '1', 'X'], ['0', '1', '1', '1', '0', '0', '1', 'X', 'X', '1', 'X', '1'], ['1', '0', '0', '1', '0', '1', 'X', '0', '0', 'X', '1', 'X'], ['1', '0', '1', '1', '1', '0', 'X', '0', '1', 'X', 'X', '1'], ['1', '1', '0', '1', '1', '1', 'X', '0', 'X', '0', '1', 'X'], ['1', '1', '1', '0', '0', '0', 'X', '1', 'X', '1', 'X', '1']] },
+        { type: 'h3', text: '3) Minimización con mapas de Karnaugh' },
+        { type: 'p', text: 'A partir de la tabla se pueden escribir las expresiones de $J$ y $K$, pero conviene minimizarlas con mapas de Karnaugh. Se hace un mapa por cada entrada de cada flip-flop (por cada columna $J$ y cada columna $K$), usando como variables los estados actuales $Q_2$, $Q_1$, $Q_0$.' },
+        { type: 'callout', tone: 'info', text: 'Recordá que al agrupar para abarcar todos los unos podés incluir, según convenga, celdas con X. Así las expresiones quedan menos complejas.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-contador-karnaugh-jq2-p06.png', alt: 'Mapa de Karnaugh para la entrada J del flip-flop Q2 con una agrupación marcada.', caption: 'Mapa de Karnaugh para J de Q2.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-contador-karnaugh-kq2-p06.png', alt: 'Mapa de Karnaugh para la entrada K del flip-flop Q2 con una agrupación marcada.', caption: 'Mapa de Karnaugh para K de Q2.' },
+        { type: 'p', text: 'Las funciones lógicas obtenidas para cada flip-flop son:' },
+        { type: 'math', latex: 'J_2 = Q_1 \\cdot Q_0 \\qquad K_2 = Q_1 \\cdot Q_0', display: true },
+        { type: 'math', latex: 'J_1 = Q_0 \\qquad K_1 = Q_0', display: true },
+        { type: 'math', latex: 'J_0 = 1 \\qquad K_0 = 1', display: true },
+        { type: 'h3', text: '4) Circuito lógico' },
+        { type: 'p', text: 'A partir de las funciones lógicas se arma el circuito con los tres flip-flops JK, el reloj común y la compuerta AND que produce $Q_1 \\cdot Q_0$ para las entradas del flip-flop 2.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-contador-circuito-jk-3bits-p07.png', alt: 'Circuito de un contador síncrono de 3 bits con tres flip-flops JK, una compuerta AND y reloj común.', caption: 'Circuito del contador síncrono de 3 bits con flip-flops JK.' },
+        { type: 'h3', text: 'Diagrama temporal (cronograma)' },
+        { type: 'p', text: 'A partir del circuito (o de las funciones lógicas) se puede armar el diagrama temporal, que muestra cómo se comportan las señales de salida y el clock en el tiempo. Las salidas $Q_2$, $Q_1$ y $Q_0$ van cambiando con cada pulso de reloj.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-contador-cronograma-3bits-p08.png', alt: 'Cronograma del contador de 3 bits con las señales de reloj, Q2, Q1 y Q0.', caption: 'Cronograma del contador de 3 bits.' },
+        { type: 'h3', text: 'Contador con secuencia no consecutiva (estados no permitidos)' },
+        { type: 'p', text: 'Supongamos que queremos un contador síncrono que siga la secuencia 0, 5, 9, 12 y 2, y vuelva a empezar. A diferencia del anterior, este tiene <strong>estados no permitidos</strong>: combinaciones por las que no pasa (1, 3, 4, 6, 7, 8, 10, 11, 13, 14, 15). Para el diseño se eligen flip-flops JK por flanco descendente, todos con el mismo clock.' },
+        { type: 'p', text: 'El mayor número de la secuencia es $12_d = 1100_b$. Como en binario se escribe con al menos 4 bits, cada estado se escribe con 4 bits. Primero se plantea el diagrama de estados en binario (con el decimal como referencia).' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-contador-diagrama-estado-decimal-binario-p09.png', alt: 'Diagramas de estados de un contador de secuencia no consecutiva, en decimal y en binario.', caption: 'Contador de secuencia no consecutiva (decimal y binario).' },
+        { type: 'p', text: 'Es un contador cíclico, porque reinicia su secuencia indefinidamente. Su módulo es 5, ya que tras 5 pulsos de reloj la secuencia se reinicia.' },
+        { type: 'p', text: 'Se vuelcan los estados en una tabla y, usando la tabla de transiciones del JK, se agregan las entradas $J$ y $K$ de los cuatro flip-flops (uno por cada bit). Los estados por los que el contador no pasa se completan con X (don\'t care), lo que permite agrupaciones de unos más grandes en Karnaugh.' },
+        { type: 'table', caption: 'Tabla de estados y entradas del contador de secuencia no consecutiva (0, 5, 9, 12, 2).', headers: ['Q3', 'Q2', 'Q1', 'Q0', 'Q3+', 'Q2+', 'Q1+', 'Q0+', 'J3', 'K3', 'J2', 'K2', 'J1', 'K1', 'J0', 'K0'], rows: [['0', '0', '0', '0', '0', '1', '0', '1', '0', 'X', '1', 'X', '0', 'X', '1', 'X'], ['0', '1', '0', '1', '1', '0', '0', '1', '1', 'X', 'X', '1', '0', 'X', 'X', '0'], ['1', '0', '0', '1', '1', '1', '0', '0', 'X', '0', '1', 'X', '0', 'X', 'X', '1'], ['1', '1', '0', '0', '0', '0', '1', '0', 'X', '1', 'X', '1', '1', 'X', '0', 'X'], ['0', '0', '1', '1', '0', '0', '0', '0', '0', 'X', '0', 'X', 'X', '1', '0', 'X']] },
+        { type: 'p', text: 'Si se quisiera, se puede completar la tabla con el resto de los estados, llenándolos con redundancias (don\'t care). Por ejemplo, el estado 1 (0001) iría todo con X, y lo mismo con los demás estados no usados.' },
+        { type: 'p', text: 'Haciendo un mapa de Karnaugh por cada entrada (variables $Q_3$, $Q_2$, $Q_1$, $Q_0$) y aprovechando las X, las funciones lógicas obtenidas son:' },
+        { type: 'math', latex: 'J_3 = Q_2 \\qquad K_3 = Q_2', display: true },
+        { type: 'math', latex: 'J_2 = \\overline{Q_1} \\qquad K_2 = 1', display: true },
+        { type: 'math', latex: 'J_1 = Q_3 \\cdot Q_2 \\qquad K_1 = 1', display: true },
+        { type: 'math', latex: 'J_0 = \\overline{Q_3} \\cdot \\overline{Q_1} \\qquad K_0 = Q_3', display: true },
+        { type: 'callout', tone: 'info', text: 'En Karnaugh a veces hay más de una agrupación válida que abarca todos los unos. Por ejemplo, en vez de J3 = Q2 se podía usar J3 = Q0. Cambia el diseño pero no el comportamiento: el contador igual recorre los estados en el orden pedido.' },
+        { type: 'p', text: 'Con esas funciones se arma el circuito con cuatro flip-flops JK por flanco descendente, dos compuertas AND y reloj común, y se obtiene el diagrama temporal correspondiente.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-contador-circuito-jk-4bits-p14.png', alt: 'Circuito de un contador síncrono de 4 bits con cuatro flip-flops JK, dos compuertas AND y reloj común.', caption: 'Circuito del contador síncrono de 4 bits.' },
+        { type: 'h3', text: '¿Y si cae en un estado no permitido?' },
+        { type: 'p', text: 'Si por ruido el contador cae en un estado no previsto (por ejemplo 0001), conviene que en el siguiente pulso vuelva a la secuencia. Evaluando las funciones con $Q_3 = 0$, $Q_2 = 0$, $Q_1 = 0$, $Q_0 = 1$ se obtiene el estado futuro 0101, que sí pertenece a la secuencia. Verificando con los demás estados no permitidos, en algún momento todos regresan a la secuencia original.' },
+        { type: 'callout', tone: 'warning', text: 'Si no fuera así, el contador podría quedarse atrapado en una secuencia no deseada de forma indefinida. Para solventarlo, podría ser necesario agregar algunas compuertas que aseguren el regreso a la secuencia original.' }
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-24-1', q: 'En un contador síncrono todos los flip-flops comparten la misma señal de clock.', a: true, explain: 'Por eso es síncrono: todos los flip-flops cambian de estado en el mismo momento al conectarse a un único clock.' },
+          { id: 'tf-24-2', q: 'El módulo de un contador es la cantidad de estados por los que pasa para completar su secuencia.', a: true, explain: 'El módulo es la cantidad de pulsos (estados) necesarios para lograr una secuencia completa. El contador de 3 bits que recorre los 8 estados tiene módulo 8.' },
+          { id: 'tf-24-3', q: 'Para diseñar el contador conviene escribir las expresiones de J y K directamente de la tabla, sin minimizarlas.', a: false, explain: 'Conviene minimizar con mapas de Karnaugh, un mapa por cada entrada J y K de cada flip-flop, para obtener expresiones menos complejas.' },
+          { id: 'tf-24-4', q: 'En un contador con estados no permitidos, esos estados se completan con X (don\'t care) en los mapas de Karnaugh.', a: true, explain: 'Los estados por los que el contador no pasa se completan con X, lo que permite agrupaciones de unos más grandes y simplifica más las expresiones.' }
+        ],
+        mc: [
+          { id: 'mc-24-1', q: '¿Cuál es el primer paso del método de diseño de un contador síncrono?', options: ['Armar el circuito con los flip-flops', 'Minimizar con mapas de Karnaugh', 'Armar el diagrama de estados con la secuencia deseada', 'Calcular el diagrama temporal'], correctIndex: 2, explain: 'El método arranca planteando el diagrama de estados con la secuencia deseada; recién después se arma la tabla de transición, se minimiza y se dibuja el circuito.' },
+          { id: 'mc-24-2', q: 'En la tabla de transiciones del flip-flop JK, si Qn = 1 y Qn+ = 0, ¿qué valores toman J y K?', options: ['J = 0, K = X', 'J = X, K = 1', 'J = 1, K = X', 'J = X, K = 0'], correctIndex: 1, explain: 'Para pasar de 1 a 0 hace falta K = 1 (resetear) y J es indiferente (X).' },
+          { id: 'mc-24-3', q: 'En el contador de 3 bits, ¿cuáles son las funciones de J y K del flip-flop 0?', options: ['J0 = Q1 y K0 = Q1', 'J0 = 1 y K0 = 1', 'J0 = Q0 y K0 = Q0', 'J0 = Q1 por Q0 y K0 = Q1 por Q0'], correctIndex: 1, explain: 'El flip-flop menos significativo conmuta en cada pulso, por eso J0 = 1 y K0 = 1 (modo toggle).' },
+          { id: 'mc-24-4', q: 'El contador de secuencia 0, 5, 9, 12, 2 que vuelve a empezar es un contador cíclico de módulo:', options: ['16', '4', '5', '8'], correctIndex: 2, explain: 'Pasa por 5 estados y tras 5 pulsos de reloj reinicia la secuencia, por lo que su módulo es 5.' }
+        ]
+      },
+      flashcards: [
+        { id: 'fc-24-1', front: '¿Qué es un contador síncrono?', back: 'Un circuito secuencial donde todos los flip-flops comparten el mismo clock y cambian de estado a la vez, recorriendo una secuencia de estados establecida.' },
+        { id: 'fc-24-2', front: '¿Qué es el módulo de un contador?', back: 'La cantidad de estados por los que pasa para completar su secuencia (cantidad de pulsos de reloj). Un contador de 3 bits que recorre los 8 estados tiene módulo 8.' },
+        { id: 'fc-24-3', front: '¿Cuáles son los 4 pasos del método de diseño?', back: '1) Diagrama de estados con la secuencia. 2) Tabla de transición/excitación: J y K de cada flip-flop según la tabla del JK. 3) Minimizar J y K con mapas de Karnaugh. 4) Armar el circuito con los flip-flops JK y las compuertas.' },
+        { id: 'fc-24-4', front: 'Tabla de transiciones del JK: ¿qué J y K se necesitan para cada transición de Qn a Qn+?', back: '0 a 0: J=0, K=X. 0 a 1: J=1, K=X. 1 a 0: J=X, K=1. 1 a 1: J=X, K=0.' },
+        { id: 'fc-24-5', front: 'En un contador con estados no permitidos, ¿cómo se completan esos estados en Karnaugh?', back: 'Con X (don\'t care o redundancias). Permite agrupaciones de unos más grandes y simplifica más las expresiones lógicas de J y K.' },
+        { id: 'fc-24-6', front: '¿Qué problema puede tener un contador con estados no permitidos y cómo se soluciona?', back: 'Por ruido puede caer en un estado no previsto. Hay que verificar que el estado futuro lo devuelva a la secuencia; si no lo hace, se agregan compuertas que aseguren el regreso a la secuencia original.' }
+      ]
+    },
+    {
+      id: '25', unit: '6', title: 'Contadores asíncronos y registros de desplazamiento',
+      criollo: 'Acá los flip flops dejan de marchar todos juntos: cada uno le pasa el reloj al siguiente, así que cambian en cadena, como un dominó. De yapa, eso mismo sirve para dividir frecuencias a la mitad en cada etapa. Y después aparecen los registros de desplazamiento, que son básicamente memorias chiquitas que van corriendo los bits con cada pulso.',
+      blocks: [
+        { type: 'p', text: 'Dependiendo del modo en que se aplique la señal de reloj, los contadores se pueden clasificar en <strong>sincrónicos</strong> o <strong>asincrónicos</strong>. En los sincrónicos todos los flip flops se conectan a una misma señal de clock, de forma que todos pueden cambiar de estado en un mismo momento.' },
+        { type: 'p', text: 'En los <strong>contadores asincrónicos</strong>, en cambio, los flip flops no están todos conectados a una misma señal de clock, por lo que los cambios no ocurren al mismo tiempo. Es decir, un contador asincrónico es aquel en el que los flip flops no cambian de estado en un mismo momento, dado que no todos dependen del mismo pulso de clock.' },
+        { type: 'h3', text: 'El armado con flip flops T' },
+        { type: 'p', text: 'En el circuito de ejemplo, el primer flip flop T está conectado a una señal de clock, pero los siguientes dependen de la <strong>salida negada del anterior</strong>. Este es un contador asíncrono que va desde 0000 al 1001 (del 0 al 9).' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-contador-asincronico-circuito-t-p03.png', alt: 'Circuito de un contador asincrónico con flip-flops T encadenados, donde la salida de cada uno alimenta el reloj del siguiente.', caption: 'Contador asincrónico: la salida de cada flip-flop es el reloj del siguiente.' },
+        { type: 'p', text: 'Cuando entre un pulso de clock al primer flip flop, este cambiará de estado en el flanco ascendente del pulso. Recién cuando en su salida negada haya una transición de cero a uno, el segundo flip flop podrá cambiar su estado. Lo mismo ocurre con el tercero y el cuarto, que deben esperar a que las salidas negadas de los anteriores pasen de cero a uno para cambiar de estado.' },
+        { type: 'callout', tone: 'info', text: 'Debido al retardo de propagación que se produce a través de los flip flops, el cual se va acumulando de flip flop a flip flop, a los contadores asíncronos también se los conoce como <strong>contadores con propagación</strong> (o de rizado / ripple). Esta acumulación es una de sus desventajas.' },
+        { type: 'p', text: 'Para lograr que la secuencia sea desde 0000 al 1001 (del 0 al 9), se utiliza lógica adicional para que el contador se reinicie cuando llegue al 10: cuando $Q_2$ y $Q_0$ sean uno, se resetean de forma asíncrona todos los flip flops poniéndolos en cero.' },
+        { type: 'callout', tone: 'warning', text: 'Como debe pasar unos nanosegundos por el estado 1010 para que se reinicie, esto produce lo que se conoce como <strong>glitch</strong>: un pico de tensión de corta duración no deseado, resultado de los retardos de propagación. Los glitches suelen darse en los contadores asíncronos.' },
+        { type: 'h3', text: 'Divisor de frecuencia' },
+        { type: 'p', text: 'Los contadores tienen diversas aplicaciones, entre ellas: contador de sucesos, secuenciador cíclico y <strong>divisor de frecuencia</strong>. Los divisores de frecuencia se utilizan para obtener frecuencias menores a partir de una frecuencia dada (como la del clock).' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-contador-asincronico-cronograma-frecuencias-p03.png', alt: 'Cronograma del contador asincrónico con reloj de 100 Hz y salidas que dividen la frecuencia hasta 12,5 Hz.', caption: 'El contador asincrónico como divisor de frecuencia.' },
+        { type: 'p', text: 'En el diagrama temporal se puede ver que la frecuencia de $Q_3$ es la mitad que la del clock, pues necesita que pasen dos períodos de clock para generar un período de $Q_3$. La frecuencia de $Q_2$ será la mitad de la de $Q_3$ y, por lo tanto, $\\frac{1}{4}$ de la del clock. La frecuencia de $Q_1$ será la mitad de la de $Q_2$ y, por lo tanto, $\\frac{1}{8}$ de la del clock.' },
+        { type: 'p', text: 'Entonces, si la frecuencia del clock fuera de 100 Hz, cada etapa la va dividiendo a la mitad: 100, 50, 25 y 12,5 Hz. Por ejemplo, la frecuencia de $Q_1$ sería $\\frac{100}{8} = 12{,}5$ Hz.' },
+        { type: 'math', latex: 'f = \\frac{1}{2^{n}}', display: true },
+        { type: 'callout', tone: 'info', text: 'Una aplicación típica de los divisores de frecuencia es, por ejemplo, en un reloj digital.' },
+        { type: 'h3', text: 'Registros de desplazamiento' },
+        { type: 'p', text: 'Los <strong>registros</strong> son circuitos secuenciales que consisten en un grupo de $n$ flip flops capaces de almacenar $n$ bits de información. A diferencia de los contadores, en general no siguen una secuencia específica de estados.' },
+        { type: 'p', text: 'Un registro capaz de desplazar su información binaria en una dirección u otra se llama <strong>registro de desplazamiento</strong> (shift register). Están conformados por flip flops, generalmente <strong>D</strong>, conectados en serie (la salida de uno entra al siguiente) y, según el caso, con alguna lógica adicional que permita los diferentes movimientos de los datos. El funcionamiento es sincrónico: todos los flip flops están conectados a la misma señal de clock.' },
+        { type: 'p', text: 'La capacidad de almacenamiento dependerá de la cantidad de flip flops, y el desplazamiento dependerá de cómo estén conectados y de cómo se dispongan sus salidas.' },
+        { type: 'h3', text: 'Tipos de registros según entrada / salida' },
+        { type: 'p', text: 'Según cómo entren y salgan los datos, hay distintos tipos de registros de 4 bits con diferentes movimientos:' },
+        { type: 'ul', items: ['<strong>Serie / serie</strong>: los datos entran de a un bit y salen de a un bit.', '<strong>Serie / paralelo</strong>: los datos entran de a un bit y salen todos juntos.', '<strong>Paralelo / serie</strong>: los datos entran todos juntos y salen de a un bit.', '<strong>Paralelo / paralelo</strong>: los datos entran y salen todos juntos.', '<strong>De rotación</strong>: desplazan rotando los bits, a derecha o a izquierda.'] },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-registro-desplazamiento-tipos-p04.jpeg', alt: 'Esquema de los tipos de registros de desplazamiento: serie/serie, serie/paralelo, paralelo/serie, paralelo/paralelo y de rotación.', caption: 'Los tipos de registros de desplazamiento.' },
+        { type: 'h3', text: 'Paso a paso: un dato entrando' },
+        { type: 'p', text: 'Veamos la implementación de un registro de desplazamiento de 4 bits hacia la derecha con entrada y salida en serie. Cuando llegue un dato a la entrada D del primer flip flop, este se irá desplazando hacia la derecha, flip flop a flip flop, con cada pulso de clock, hasta llegar a la salida.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-registro-desplazamiento-circuito-d-p05.png', alt: 'Circuito de un registro de desplazamiento de 4 bits con cuatro flip-flops D en cascada, entrada serie, salida serie y reloj común.', caption: 'Registro de desplazamiento con flip-flops D en cascada.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-registro-desplazamiento-paso1-p05.png', alt: 'Registro de desplazamiento con un 1 en la entrada y todas las salidas en 0, primer paso.', caption: 'Registro de desplazamiento, paso 1.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-registro-desplazamiento-paso5-p05.png', alt: 'Registro de desplazamiento con todas las etapas en 1 y el primer bit saliendo por la salida serie, quinto paso.', caption: 'Registro de desplazamiento, paso 5: el dato ya recorrió todas las etapas.' },
+        { type: 'callout', tone: 'criollo', text: 'Pensalo así: los flip flops son memorias que guardan un bit cada uno, y un registro de desplazamiento es una memoria a pequeña escala. Con cada pulso de clock el dato pega un salto a la derecha, como una fila de gente que va pasando una pelota.' },
+        { type: 'h3', text: 'Lectura de memoria con decodificador de direcciones' },
+        { type: 'p', text: 'Si los flip flops son memorias chiquitas, las memorias de mayor capacidad (como la RAM y la ROM) almacenan la información de manera estructurada. Una <strong>unidad de memoria</strong> es un conjunto de celdas (matriz de celdas) donde cada celda almacena un bit. La <strong>dirección</strong> hace referencia a la posición de una palabra (fila de la matriz) en memoria, y el acceso a la información se realiza a través de un <strong>decodificador</strong>.' },
+        { type: 'p', text: 'En una operación de lectura intervienen el <strong>registro de direcciones</strong>, el <strong>decodificador de direcciones</strong>, la <strong>matriz de memoria</strong> y el <strong>registro de datos</strong>.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u6-memoria-lectura-decodificador-direcciones-p07.jpeg', alt: 'Esquema de lectura de una memoria con registro de direcciones, decodificador de direcciones, matriz de memoria y registro de datos.', caption: 'Lectura de una memoria con decodificador de direcciones.' },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-25-1', q: 'En un contador asincrónico todos los flip flops cambian de estado al mismo tiempo porque comparten la misma señal de clock.', a: false, explain: 'Eso pasa en los sincrónicos. En el asincrónico cada flip flop depende de la salida del anterior, así que los cambios no ocurren al mismo tiempo.' },
+          { id: 'tf-25-2', q: 'A los contadores asíncronos también se los conoce como contadores con propagación o de rizado.', a: true, explain: 'Por el retardo de propagación que se va acumulando de flip flop a flip flop.' },
+          { id: 'tf-25-3', q: 'En un divisor de frecuencia cada etapa multiplica por dos la frecuencia del clock.', a: false, explain: 'Al revés: cada etapa divide la frecuencia a la mitad. De 100 Hz se pasa a 50, 25 y 12,5 Hz.' },
+          { id: 'tf-25-4', q: 'Los registros de desplazamiento funcionan de manera sincrónica, con todos los flip flops conectados al mismo clock.', a: true, explain: 'Aunque desplacen los bits, todos los flip flops comparten la misma señal de reloj.' },
+          { id: 'tf-25-5', q: 'Un glitch es un estado estable y deseado que el contador mantiene durante varios pulsos de clock.', a: false, explain: 'Un glitch es un pico de tensión de corta duración no deseado, producto de los retardos de propagación.' },
+        ],
+        mc: [
+          { id: 'mc-25-1', q: 'En el contador asíncrono con flip flops T del ejemplo, ¿qué hace de reloj para cada flip flop a partir del segundo?', options: ['La señal de clock principal', 'La salida negada del flip flop anterior', 'Una entrada T externa', 'El registro de direcciones'], correctIndex: 1, explain: 'El primero va al clock, pero los siguientes dependen de la salida negada del anterior.' },
+          { id: 'mc-25-2', q: 'Si el clock es de 100 Hz y cada etapa divide la frecuencia a la mitad, ¿qué frecuencia tiene la salida que está a 1/8 del clock?', options: ['50 Hz', '25 Hz', '12,5 Hz', '6,25 Hz'], correctIndex: 2, explain: '100 dividido 8 es igual a 12,5 Hz, según la fórmula f = 1 / (2 elevado a n).' },
+          { id: 'mc-25-3', q: 'En un registro de desplazamiento serie/paralelo, ¿cómo entran y cómo salen los datos?', options: ['Entran todos juntos y salen de a un bit', 'Entran de a un bit y salen de a un bit', 'Entran de a un bit y salen todos juntos', 'Entran y salen todos juntos'], correctIndex: 2, explain: 'Serie en la entrada (de a un bit) y paralelo en la salida (todos juntos).' },
+          { id: 'mc-25-4', q: '¿Qué elementos intervienen en una operación de lectura de memoria con decodificador?', options: ['Solo la matriz de memoria', 'Registro de direcciones, decodificador, matriz de memoria y registro de datos', 'Un único flip flop T', 'Un divisor de frecuencia y un contador'], correctIndex: 1, explain: 'La dirección se carga en el registro de direcciones, el decodificador selecciona la palabra en la matriz y el dato pasa al registro de datos.' },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-25-1', front: 'Diferencia entre contador sincrónico y asincrónico', back: 'En el sincrónico todos los flip flops comparten el mismo clock y cambian a la vez. En el asincrónico la salida de cada flip flop hace de reloj del siguiente, así que cambian en cadena, no todos a la vez.' },
+        { id: 'fc-25-2', front: '¿Por qué se llama contador con propagación (rizado/ripple)?', back: 'Por el retardo de propagación que se va acumulando de flip flop a flip flop. Es una de sus desventajas.' },
+        { id: 'fc-25-3', front: '¿Qué es un glitch en un contador asíncrono?', back: 'Un pico de tensión de corta duración no deseado, resultado de los retardos de propagación. Aparece, por ejemplo, al pasar fugazmente por un estado intermedio antes de reiniciarse.' },
+        { id: 'fc-25-4', front: 'Contador como divisor de frecuencia', back: 'Cada etapa divide la frecuencia a la mitad. Si el clock es de 100 Hz: 50, 25, 12,5 Hz. La fórmula general es f = 1 / (2 elevado a n). Se usa, por ejemplo, en relojes digitales.' },
+        { id: 'fc-25-5', front: '¿Qué es un registro de desplazamiento?', back: 'Un grupo de flip flops D en cascada (la salida de uno entra al siguiente) con clock común, que desplaza los bits una posición en cada pulso. Sirve para almacenar y desplazar datos.' },
+        { id: 'fc-25-6', front: 'Tipos de registros según entrada/salida', back: 'Serie/serie, serie/paralelo, paralelo/serie, paralelo/paralelo y de rotación (a derecha o a izquierda).' },
+        { id: 'fc-25-7', front: 'Elementos de la lectura de memoria con decodificador', back: 'Registro de direcciones, decodificador de direcciones, matriz de memoria (celdas, una por bit) y registro de datos. La dirección apunta a una palabra (fila) y el decodificador da acceso a ella.' },
+      ],
+    },
+
   ],
   pdfs: [
     { key: 'u1-numeracion', label: 'U1 · Sistemas de numeración y aritmética binaria', path: 'pdfs/sistemas-digitales-i/1-sistemas-numeracion.pdf' },
@@ -1953,5 +2332,8 @@ export default {
     { key: 'u5-multiplexores', label: 'U5 · Circuitos combinatorios — Multiplexores', path: 'pdfs/sistemas-digitales-i/5b-multiplexores.pdf' },
     { key: 'u5-sumadores-restadores', label: 'U5 · Circuitos combinatorios — Sumadores y restadores', path: 'pdfs/sistemas-digitales-i/5c-sumadores-restadores.pdf' },
     { key: 'u5-comparador-sumador', label: 'U5 · Circuitos combinatorios — Comparador y sumador', path: 'pdfs/sistemas-digitales-i/5d-comparador-sumador.pdf' },
+    { key: 'u6-biestables', label: 'U6 · Circuitos secuenciales — Biestables', path: 'pdfs/sistemas-digitales-i/6a-biestables.pdf' },
+    { key: 'u6-contador', label: 'U6 · Circuitos secuenciales — Contador síncrono', path: 'pdfs/sistemas-digitales-i/6b-contador-sincronico.pdf' },
+    { key: 'u6-parte3', label: 'U6 · Circuitos secuenciales — Parte 3', path: 'pdfs/sistemas-digitales-i/6c-secuenciales-parte3.pdf' },
   ],
 };
