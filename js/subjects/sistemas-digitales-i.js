@@ -1501,6 +1501,111 @@ export default {
       ]
     },
 
+    // ===================================================================
+    // UNIDAD 4 — Hardware digital
+    // ===================================================================
+    {
+      id: '16',
+      unit: '4',
+      title: 'Señales analógicas, digitales y niveles de tensión',
+      criollo: 'La diferencia de fondo: una señal analógica puede tomar infinitos valores (es continua), una digital toma una cantidad finita (es discreta). Las digitales binarias son las que solo valen 0 o 1. Y esos 0 y 1 no son un voltaje exacto sino un rango de tensión.',
+      blocks: [
+        { type: 'p', text: 'Los circuitos electrónicos pueden dividirse en <strong>analógicos</strong> y <strong>digitales</strong>, según el tipo de señales o magnitudes que manipulen.' },
+        { type: 'h3', text: 'Señales analógicas y digitales', criollo: 'Continua vs discreta: la analógica es una curva suave, la digital son escalones.' },
+        { type: 'ul', items: [
+          '<strong>Señales analógicas</strong>: pueden tomar infinitos valores, por lo que su gráfica es <strong>continua</strong>.',
+          '<strong>Señales digitales</strong>: pueden tomar una cantidad finita de valores, por lo que su gráfica es <strong>discontinua</strong>.',
+        ] },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u4-senal-analogica-p01.jpeg', alt: 'Gráfico de una señal analógica continua, amplitud en voltios sobre el eje vertical y tiempo en el horizontal, con forma de onda ondulada e irregular.', caption: 'Señal analógica: varía de forma continua en el tiempo.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u4-senal-digital-p01.png', alt: 'Gráfico de una señal digital escalonada, con pulsos rectangulares de dos niveles.', caption: 'Señal digital: toma solo valores discretos, alto o bajo.' },
+        { type: 'h3', text: 'Señales digitales binarias', criollo: 'Las que más nos importan: solo dos estados, 0 y 1. Como el interruptor que prende o apaga la lámpara.' },
+        { type: 'p', text: 'Los sistemas o dispositivos digitales (una computadora, un celular, una calculadora) son aquellos en los que la información se representa mediante cantidades físicas que toman únicamente una cantidad finita de valores, es decir, señales discretas (señales digitales).' },
+        { type: 'p', text: 'En particular, se conoce como <strong>señales digitales binarias</strong> a las que pueden tomar solamente dos valores o estados ($0$ y $1$). Un ejemplo son las señales eléctricas, como la tensión o la corriente.' },
+        { type: 'p', text: 'En un circuito con un interruptor (o llave) conectado a una fuente de tensión y a una lámpara: si el interruptor está abierto se indica con $0$, y si está cerrado con $1$. Del mismo modo, si la lámpara está apagada toma el valor $0$, y si está encendida toma el valor $1$.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u4-tension-tiempo-niveles-p03.png', alt: 'Diagrama de tensión contra tiempo con un pulso que pasa del nivel bajo L al nivel alto H y vuelve a bajo, con los intervalos 1 y 2 marcados.', caption: 'Tensión en función del tiempo: el tiempo 1 es nivel bajo (VL) y el tiempo 2 es nivel alto (VH).' },
+        { type: 'h3', text: 'Niveles lógicos de tensión', criollo: 'Clave: el 0 y el 1 no son un voltaje puntual, son rangos. Entre medio queda una zona indeterminada donde el nivel no está definido.' },
+        { type: 'p', text: 'En la <strong>lógica positiva</strong>, al nivel bajo de tensión $V_L$ (Low) se lo representa con el $0$ (cero lógico), y al nivel alto $V_H$ (High) con el $1$ (uno lógico).' },
+        { type: 'p', text: 'Estos estados representan un <strong>rango de valores</strong> de tensión contenidos en ellos. Por ejemplo, el $0$ (nivel bajo) puede representar tensiones desde $0\\,V$ hasta $1{,}5\\,V$, mientras que el $1$ (nivel alto) puede representar tensiones desde $3{,}3\\,V$ hasta $5\\,V$.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u4-niveles-logicos-tension-p04.png', alt: 'Gráfico de niveles lógicos por rangos de tensión: nivel alto 1 entre 3,3 V y 5 V, zona indeterminada entre 1,5 V y 3,3 V, y nivel bajo 0 entre 0 V y 1,5 V.', caption: 'Rangos de tensión para el 0, el 1 y la zona indeterminada entre ambos.' },
+        { type: 'callout', tone: 'info', text: 'El <strong>rango indeterminado</strong> de tensión corresponde a la zona de transición: ahí no está definido el nivel lógico. El nivel lógico de tensión es una de las características de los circuitos integrados.' },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-16-1', q: 'Una señal analógica puede tomar infinitos valores y su gráfica es continua.', a: true, explain: 'Correcto. Esa es justamente la diferencia con la digital, que toma una cantidad finita de valores (gráfica discontinua).' },
+          { id: 'tf-16-2', q: 'Las señales digitales binarias pueden tomar tres valores distintos.', a: false, explain: 'Falso. Las binarias toman solamente dos valores o estados: 0 y 1.' },
+          { id: 'tf-16-3', q: 'En lógica positiva, el nivel alto de tensión (High) se representa con el 1.', a: true, explain: 'Correcto. Low (bajo) es 0 y High (alto) es 1 en lógica positiva.' },
+          { id: 'tf-16-4', q: 'El 0 y el 1 lógicos corresponden a un único valor exacto de tensión.', a: false, explain: 'Falso. Cada nivel lógico representa un rango de tensiones (ej: el 0 de 0 a 1,5 V, el 1 de 3,3 a 5 V), no un valor puntual.' },
+        ],
+        mc: [
+          { id: 'mc-16-1', q: '¿Qué caracteriza a una señal digital?', options: ['Toma infinitos valores', 'Su gráfica es siempre una recta', 'Toma una cantidad finita de valores (gráfica discontinua)', 'No puede representarse en el tiempo'], correctIndex: 2, explain: 'La señal digital toma una cantidad finita de valores, por eso su gráfica es discontinua (escalonada).' },
+          { id: 'mc-16-2', q: 'En el ejemplo del apunte, ¿qué rango de tensión puede representar el nivel bajo (0)?', options: ['De 3,3 V a 5 V', 'De 0 V a 1,5 V', 'De 1,5 V a 3,3 V', 'Exactamente 0 V'], correctIndex: 1, explain: 'Según el apunte, el 0 (nivel bajo) puede representar tensiones desde 0 V hasta 1,5 V. El de 3,3 a 5 V es el nivel alto.' },
+          { id: 'mc-16-3', q: '¿Qué es la zona de transición o rango indeterminado?', options: ['El rango donde el nivel lógico no está definido', 'El nivel alto de tensión', 'El nivel bajo de tensión', 'El valor exacto del 1 lógico'], correctIndex: 0, explain: 'El rango indeterminado (entre el nivel bajo y el alto) es la zona de transición, donde el nivel lógico no está definido.' },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-16-1', front: 'Señal analógica', back: 'Señal que puede tomar infinitos valores; su gráfica es continua.' },
+        { id: 'fc-16-2', front: 'Señal digital', back: 'Señal que toma una cantidad finita de valores; su gráfica es discontinua.' },
+        { id: 'fc-16-3', front: 'Señal digital binaria', back: 'Señal que toma solamente dos valores o estados: 0 y 1.' },
+        { id: 'fc-16-4', front: 'Lógica positiva', back: 'Convención donde el nivel bajo de tensión (Low, VL) es 0 y el nivel alto (High, VH) es 1.' },
+        { id: 'fc-16-5', front: '¿El 0 y el 1 son un voltaje exacto?', back: 'No: cada nivel lógico representa un rango de tensiones (ej: 0 de 0 a 1,5 V, 1 de 3,3 a 5 V).' },
+        { id: 'fc-16-6', front: 'Zona de transición / rango indeterminado', back: 'El rango de tensión entre el nivel bajo y el alto donde el nivel lógico no está definido.' },
+      ],
+    },
+    {
+      id: '17',
+      unit: '4',
+      title: 'Circuitos integrados, propagación y familias lógicas',
+      criollo: 'Las compuertas no andan sueltas: vienen empaquetadas dentro de un chip, el circuito integrado. Según cuántas compuertas mete el chip hay distintas escalas (de SSI a ULSI). Y ojo: las señales no cambian de 0 a 1 al instante, siempre hay un retardo.',
+      blocks: [
+        { type: 'h3', text: 'Circuito integrado (CI)', criollo: 'Un chip que adentro tiene compuertas y demás elementos del sistema digital.' },
+        { type: 'p', text: 'Las compuertas lógicas son los elementos básicos de los sistemas digitales. Estas, al igual que el resto de los elementos que conforman los sistemas digitales, se encuentran disponibles dentro de un chip conocido como <strong>circuito integrado</strong> (CI).' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u4-circuito-integrado-7400-p04.jpeg', alt: 'Diagrama de pines del circuito integrado 7400 con sus cuatro compuertas NAND, alimentación VCC y GND, junto a una fotografía del chip real rotulado SN7400N.', caption: 'El circuito integrado 7400: cuatro compuertas NAND empaquetadas en un chip.' },
+        { type: 'h3', text: 'Escala de integración', criollo: 'Cuantas más compuertas mete el chip, mayor la escala. Va de SSI (hasta 10) a ULSI (más de 100.000).' },
+        { type: 'p', text: 'Los circuitos integrados se clasifican según su complejidad, que depende de la cantidad de compuertas que integra un mismo chip.' },
+        { type: 'table', caption: 'Escala de integración de circuitos lógicos', headers: ['Nivel de integración', 'Cantidad de compuertas', 'Función'], rows: [
+          ['SSI (Small) — pequeña escala', 'Hasta 10', 'Compuertas lógicas'],
+          ['MSI (Medium) — mediana escala', '10 a 100', 'Sumadores, multiplexores'],
+          ['LSI (Large) — grande escala', '100 a 10.000', 'Microcontroladores, memorias'],
+          ['VLSI (Very Large) — muy grande escala', '10.000 a 100.000', 'Microprocesadores, memorias'],
+          ['ULSI (Ultra Large) — ultra grande escala', 'Más de 100.000', 'Microcomputadores, memorias'],
+        ] },
+        { type: 'h3', text: 'Tiempos de propagación', criollo: 'La representación de señales cuadradas perfectas es ideal: en la realidad el cambio de nivel no es instantáneo, y la salida tarda un toque respecto de la entrada.' },
+        { type: 'p', text: 'Otra característica de los circuitos integrados es el <strong>tiempo de propagación</strong>. Solemos representar las señales de tensión con cambios instantáneos de $0$ a $1$, pero esa es una representación <strong>ideal</strong>: el cambio de nivel lógico no es instantáneo, y tampoco lo es la salida respecto de las entradas al pasar por un circuito.' },
+        { type: 'figure', src: 'images/diagrams/sistemas-digitales-i/u4-retardo-propagacion-not-p06.png', alt: 'Gráfico de las señales de entrada y salida de una compuerta NOT en el tiempo, marcando el desfasaje entre ambas que representa el retardo de propagación.', caption: 'Retardo de propagación en una NOT: la salida tarda unos momentos en cambiar respecto de la entrada.' },
+        { type: 'p', text: 'En el caso de una compuerta NOT que recibe un $0$ y luego un $1$: a la salida tendrá un $1$ primero y luego cambiará a $0$. Pero la salida tarda unos momentos en cambiar respecto de la señal de entrada. Ese retardo que experimentan las señales al pasar por una compuerta es el <strong>retardo de propagación</strong>.' },
+        { type: 'callout', tone: 'info', text: 'Todas las características de los circuitos integrados (niveles lógicos, tiempos de propagación, etc.) las brindan los fabricantes en lo que se conoce como <strong>hoja de datos</strong> (datasheet).' },
+        { type: 'h3', text: 'Familias lógicas', criollo: 'Componentes fabricados con la misma tecnología (a base de transistores), por eso son compatibles entre sí. Las dos clásicas: TTL y CMOS.' },
+        { type: 'p', text: 'Las <strong>familias lógicas</strong> son componentes lógicos que comparten características en común porque están fabricados con la misma tecnología (basada en transistores), lo que los hace compatibles entre sí.' },
+        { type: 'ul', items: [
+          '<strong>TTL</strong>: basadas en transistores bipolares.',
+          '<strong>CMOS</strong>: basadas en transistores unipolares (efecto de campo).',
+        ] },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-17-1', q: 'Un circuito integrado es un chip que contiene compuertas y otros elementos del sistema digital.', a: true, explain: 'Correcto. Las compuertas y demás elementos están disponibles dentro de un chip llamado circuito integrado.' },
+          { id: 'tf-17-2', q: 'La escala SSI (Small) integra más de 100.000 compuertas en un chip.', a: false, explain: 'Falso. SSI integra hasta 10 compuertas. La de más de 100.000 es la ULSI (Ultra Large).' },
+          { id: 'tf-17-3', q: 'El cambio de nivel lógico de 0 a 1 en un circuito real es instantáneo.', a: false, explain: 'Falso. Esa es una representación ideal: en la realidad hay un retardo (tiempo de propagación), el cambio no es instantáneo.' },
+          { id: 'tf-17-4', q: 'TTL y CMOS son dos familias lógicas fabricadas con tecnología basada en transistores.', a: true, explain: 'Correcto. TTL usa transistores bipolares y CMOS transistores unipolares (efecto de campo).' },
+        ],
+        mc: [
+          { id: 'mc-17-1', q: '¿Qué determina la escala de integración de un circuito integrado?', options: ['El tamaño físico del chip', 'La cantidad de compuertas que integra', 'El color del encapsulado', 'La marca del fabricante'], correctIndex: 1, explain: 'La escala (SSI, MSI, LSI, VLSI, ULSI) depende de la cantidad de compuertas que integra un mismo chip.' },
+          { id: 'mc-17-2', q: '¿Qué es el retardo de propagación?', options: ['El tiempo que tarda en encenderse el chip', 'El retardo que experimentan las señales al pasar por una compuerta', 'La diferencia entre el nivel alto y el bajo', 'El consumo de energía del circuito'], correctIndex: 1, explain: 'El retardo de propagación es el tiempo que tardan las señales en cambiar a la salida respecto de la entrada al pasar por una compuerta.' },
+          { id: 'mc-17-3', q: '¿Dónde brindan los fabricantes las características de un circuito integrado?', options: ['En la hoja de datos (datasheet)', 'En el sistema operativo', 'En la zona de transición', 'En el bit de signo'], correctIndex: 0, explain: 'Las características (niveles lógicos, tiempos de propagación, etc.) las brindan los fabricantes en la hoja de datos o datasheet.' },
+          { id: 'mc-17-4', q: '¿En qué se basan las familias lógicas TTL y CMOS respectivamente?', options: ['Ambas en transistores bipolares', 'TTL en bipolares y CMOS en unipolares (efecto de campo)', 'TTL en unipolares y CMOS en bipolares', 'Ninguna usa transistores'], correctIndex: 1, explain: 'TTL se basa en transistores bipolares y CMOS en transistores unipolares (de efecto de campo).' },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-17-1', front: 'Circuito integrado (CI)', back: 'Chip que contiene las compuertas lógicas y demás elementos de un sistema digital.' },
+        { id: 'fc-17-2', front: 'Escala de integración', back: 'Clasificación de los CI según la cantidad de compuertas que integran: SSI, MSI, LSI, VLSI y ULSI.' },
+        { id: 'fc-17-3', front: 'SSI vs ULSI', back: 'SSI (Small) integra hasta 10 compuertas; ULSI (Ultra Large) integra más de 100.000.' },
+        { id: 'fc-17-4', front: 'Tiempo / retardo de propagación', back: 'El retardo que experimentan las señales al pasar por una compuerta: el cambio de nivel no es instantáneo.' },
+        { id: 'fc-17-5', front: 'Hoja de datos (datasheet)', back: 'Documento del fabricante con todas las características del circuito integrado.' },
+        { id: 'fc-17-6', front: 'Familias lógicas', back: 'Componentes fabricados con la misma tecnología (a base de transistores), compatibles entre sí. Ej: TTL y CMOS.' },
+        { id: 'fc-17-7', front: 'TTL vs CMOS', back: 'TTL se basa en transistores bipolares; CMOS en transistores unipolares (efecto de campo).' },
+      ],
+    },
+
   ],
   pdfs: [
     { key: 'u1-numeracion', label: 'U1 · Sistemas de numeración y aritmética binaria', path: 'pdfs/sistemas-digitales-i/1-sistemas-numeracion.pdf' },
@@ -1508,5 +1613,6 @@ export default {
     { key: 'u2-funciones', label: 'U2 · Funciones lógicas con álgebra de Boole', path: 'pdfs/sistemas-digitales-i/2b-funciones-logicas.pdf' },
     { key: 'u2-tabla-boole', label: 'U2 · Tabla del álgebra de Boole', path: 'pdfs/sistemas-digitales-i/2a-tabla-algebra-boole.pdf' },
     { key: 'u3-karnaugh', label: 'U3 · Mapas de Karnaugh', path: 'pdfs/sistemas-digitales-i/3-mapas-karnaugh.pdf' },
+    { key: 'u4-hardware', label: 'U4 · Hardware digital', path: 'pdfs/sistemas-digitales-i/4-hardware-digital.pdf' },
   ],
 };
