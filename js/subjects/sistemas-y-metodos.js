@@ -1,7 +1,8 @@
 /**
  * Materia: Sistemas y Métodos (UP).
- * Unidades 8.1 y 8.2 (Administración de Proyectos), 9 (Sistemas de Información)
- * y 10 (Desarrollo de sistemas de información).
+ * Unidades 8.1 y 8.2 (Administración de Proyectos), 9 (Sistemas de Información),
+ * 10 (Desarrollo de sistemas de información), 11 (Proceso de desarrollo de
+ * sistemas de información) y 12 (Comunicación oral y escrita).
  *
  * Tipos conceptuales (ver js/content.js para Subject/Section/ContentBlock).
  */
@@ -9,13 +10,15 @@
 export default {
   id: 'sistemas-y-metodos',
   title: 'Sistemas y Métodos',
-  subtitle: 'Unidades 8, 9 y 10 — Apuntes',
-  tagline: 'Administración de proyectos · Sistemas de información · Desarrollo de sistemas de información',
+  subtitle: 'Unidades 8 a 12 — Apuntes',
+  tagline: 'Administración de proyectos · Sistemas de información · Desarrollo de sistemas · Proceso de desarrollo · Comunicación oral y escrita',
   units: {
     '8.1': 'Fundamentos de la Administración de Proyectos',
     '8.2': 'Herramientas y procesos para la administración de proyectos',
     '9': 'Sistemas de Información',
     '10': 'Desarrollo de sistemas de información',
+    '11': 'Proceso de desarrollo de sistemas de información',
+    '12': 'Comunicación oral y escrita',
   },
   sections: [
   // ---------- SECCIÓN 1 ----------
@@ -6386,6 +6389,2225 @@ export default {
       },
     ],
   },
+
+  // ========================================================================
+  // UNIDAD 11 — Proceso de desarrollo de sistemas de información
+  // ========================================================================
+
+  // ---------- SECCIÓN 23 ----------
+  {
+    id: '23',
+    unit: '11',
+    title: 'El proceso de desarrollo y el ciclo de vida (CVDS)',
+    criollo:
+      'Crear o mejorar un sistema no es algo que se improvise. Se sigue una receta ordenada con etapas: el ciclo de vida del desarrollo de sistemas (CVDS). Pensalo como el plano de construcción de un edificio: vas de la idea inicial hasta que el sistema está funcionando y se mantiene en el tiempo.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'Crear o mejorar un sistema de información no es un proceso improvisado. Para garantizar el éxito, se sigue una metodología estructurada, conocida como el <strong>ciclo de vida del desarrollo de sistemas (CVDS)</strong>. Imaginalo como el plano de construcción de un edificio: una serie de fases ordenadas que nos guían desde la idea inicial hasta que el sistema está en pleno funcionamiento y se mantiene en el tiempo.',
+      },
+      {
+        type: 'h3',
+        text: 'El modelo secuencial',
+        criollo:
+          'En su versión más clásica, el proceso es una fila india de actividades: terminás una y arrancás la siguiente, hasta llegar al objetivo.',
+      },
+      {
+        type: 'p',
+        text: 'El proceso de desarrollo del sistema se puede llevar a cabo de manera secuencial, a través de una serie de actividades para lograr el objetivo:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Análisis y especificación de requerimientos</strong>: se centra en tratar de entender “qué” se requiere, cuáles son los requisitos, y finaliza con la documentación de estos.',
+          '<strong>Diseño</strong>: que mostrará “cómo” llevaremos a cabo la solución.',
+          '<strong>Programación/Codificación</strong>: toma las especificaciones obtenidas en la etapa de diseño sobre los procesos y los traduce al lenguaje especificado.',
+          '<strong>Prueba</strong>: trata de detectar cada error, antes de la entrega del producto al cliente.',
+          '<strong>Conversión</strong>: determina cómo se pasará del sistema anterior al nuevo.',
+          '<strong>Producción y mantenimiento</strong>: se pone en producción el nuevo sistema y se lleva a cabo, mediante el mantenimiento, cualquier cambio o modificación requerida una vez que el sistema ya se encuentra funcionando.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Si bien mostramos un modelo secuencial, que se basa en una serie de etapas que se dan una a continuación de la otra, existe otra variedad de modelos que surgieron en forma posterior a este, cuya selección depende del tipo de sistema a desarrollar y la magnitud de este.',
+      },
+      {
+        type: 'h3',
+        text: 'Las fases del CVDS',
+        criollo:
+          'Mirado como ciclo de vida completo, el desarrollo se ordena en seis fases grandes, de la investigación inicial hasta el seguimiento posterior.',
+      },
+      {
+        type: 'p',
+        text: 'Las fases principales de este ciclo son:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Investigación preliminar y análisis.',
+          'Determinación de requerimientos.',
+          'Desarrollo del sistema (diseño y programación).',
+          'Prueba del sistema.',
+          'Implantación.',
+          'Seguimiento y control (posimplementación).',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/11/actividades-desarrollo.png',
+        alt: 'Diagrama circular en seis sectores etiquetados Investigación preliminar y análisis, Determinación de requerimientos, Diseño del sistema, Desarrollo del sistema, Prueba del sistema e Implantación.',
+        caption: 'Actividades en el desarrollo de sistemas, representadas como un ciclo de seis sectores. Fuente: elaboración propia (UP).',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'La idea es entender que hay un orden lógico: primero averiguás qué se necesita, después definís cómo, recién ahí programás, probás, lo ponés en marcha y lo seguís cuidando. Saltarte etapas es lo que después te explota en la cara.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-23-1',
+          q: 'El ciclo de vida del desarrollo de sistemas (CVDS) es una metodología estructurada de fases ordenadas.',
+          a: true,
+          explain: 'Tal cual el apunte: crear o mejorar un sistema no es improvisado; se sigue una metodología estructurada, el CVDS, que es una serie de fases ordenadas.',
+        },
+        {
+          id: 'tf-23-2',
+          q: 'En el modelo secuencial, la etapa de diseño se centra en entender “qué” se requiere.',
+          a: false,
+          explain: 'Falso. El “qué” lo define el análisis y especificación de requerimientos. El diseño muestra el “cómo” se llevará a cabo la solución.',
+        },
+        {
+          id: 'tf-23-3',
+          q: 'La conversión determina cómo se pasará del sistema anterior al nuevo.',
+          a: true,
+          explain: 'Correcto. La conversión es la actividad que determina cómo se realizará el pasaje del sistema anterior al nuevo.',
+        },
+        {
+          id: 'tf-23-4',
+          q: 'El modelo secuencial es el único modelo de desarrollo posible.',
+          a: false,
+          explain: 'Falso. El apunte aclara que existe otra variedad de modelos posteriores, cuya selección depende del tipo de sistema a desarrollar y su magnitud.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-23-1',
+          q: '¿Con qué se compara el CVDS en el apunte?',
+          options: [
+            'Con una receta de cocina',
+            'Con el plano de construcción de un edificio',
+            'Con un partido de fútbol',
+            'Con un árbol genealógico',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte lo compara con el plano de construcción de un edificio: una serie de fases ordenadas desde la idea inicial hasta el funcionamiento y el mantenimiento.',
+        },
+        {
+          id: 'mc-23-2',
+          q: 'En el modelo secuencial, ¿qué etapa toma las especificaciones de diseño y las traduce al lenguaje especificado?',
+          options: [
+            'Análisis y especificación de requerimientos',
+            'Prueba',
+            'Programación/Codificación',
+            'Conversión',
+          ],
+          correctIndex: 2,
+          explain: 'La programación/codificación toma las especificaciones obtenidas en el diseño sobre los procesos y las traduce al lenguaje especificado.',
+        },
+        {
+          id: 'mc-23-3',
+          q: '¿Cuál es la primera fase del CVDS según el apunte?',
+          options: [
+            'Determinación de requerimientos',
+            'Investigación preliminar y análisis',
+            'Implantación',
+            'Prueba del sistema',
+          ],
+          correctIndex: 1,
+          explain: 'Las fases del CVDS arrancan con la investigación preliminar y análisis, seguida de la determinación de requerimientos.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-23-1',
+          q: '¿Cuáles de las siguientes son actividades del modelo secuencial de desarrollo?',
+          options: [
+            'Análisis y especificación de requerimientos',
+            'Diseño',
+            'Programación/Codificación',
+            'Conversión',
+            'Tercerización del soporte',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'El modelo secuencial incluye análisis y especificación de requerimientos, diseño, programación/codificación, prueba, conversión y producción y mantenimiento. La tercerización del soporte no figura como actividad del modelo.',
+        },
+        {
+          id: 'ms-23-2',
+          q: '¿Cuáles de estas son fases principales del CVDS?',
+          options: [
+            'Investigación preliminar y análisis',
+            'Determinación de requerimientos',
+            'Prueba del sistema',
+            'Seguimiento y control (posimplementación)',
+            'Venta del sistema a terceros',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Las fases del CVDS son: investigación preliminar y análisis, determinación de requerimientos, desarrollo, prueba, implantación y seguimiento y control. La venta a terceros no es una fase del ciclo.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-23-1',
+        front: 'CVDS',
+        back: 'Ciclo de vida del desarrollo de sistemas: metodología estructurada de fases ordenadas que guían desde la idea inicial hasta el funcionamiento y el mantenimiento. Se lo compara con el plano de construcción de un edificio.',
+      },
+      {
+        id: 'fc-23-2',
+        front: 'Modelo secuencial',
+        back: 'Modelo donde las etapas se dan una a continuación de la otra: análisis y especificación de requerimientos, diseño, programación, prueba, conversión, y producción y mantenimiento.',
+      },
+      {
+        id: 'fc-23-3',
+        front: 'Análisis de requerimientos (el “qué”)',
+        back: 'Etapa que se centra en entender qué se requiere y cuáles son los requisitos; finaliza con la documentación de estos.',
+      },
+      {
+        id: 'fc-23-4',
+        front: 'Diseño (el “cómo”)',
+        back: 'Etapa que muestra cómo se llevará a cabo la solución.',
+      },
+      {
+        id: 'fc-23-5',
+        front: 'Conversión',
+        back: 'Actividad que determina cómo se pasará del sistema anterior al nuevo.',
+      },
+      {
+        id: 'fc-23-6',
+        front: 'Producción y mantenimiento',
+        back: 'Se pone en producción el nuevo sistema y, mediante el mantenimiento, se realiza cualquier cambio o modificación una vez que el sistema ya está funcionando.',
+      },
+      {
+        id: 'fc-23-7',
+        front: 'Fases del CVDS',
+        back: 'Investigación preliminar y análisis, determinación de requerimientos, desarrollo (diseño y programación), prueba, implantación, y seguimiento y control (posimplementación).',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 24 ----------
+  {
+    id: '24',
+    unit: '11',
+    title: 'Fases iniciales: relevamiento, planificación y requerimientos',
+    criollo:
+      'Esta es la etapa de cimientos. Antes de escribir una sola línea de código tenés que entender el problema, definir qué va a hacer (y qué NO) el sistema, y averiguar bien qué necesitan los usuarios. Un error acá te sale carísimo más adelante.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'Esta es la fase de cimentación del proyecto. Un error aquí puede costar muy caro más adelante.',
+      },
+      {
+        type: 'h3',
+        text: 'Relevamiento y planificación',
+        criollo:
+          'Primero investigás el problema, definís el alcance (qué hace y qué no) y armás un plan de trabajo con cronograma, recursos y presupuesto.',
+      },
+      {
+        type: 'p',
+        text: 'Antes de escribir una sola línea de código, debemos entender el problema. Esta etapa inicial implica:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Relevamiento preliminar</strong>: una primera investigación para entender la necesidad del negocio, su viabilidad y los posibles riesgos.',
+          '<strong>Definición de objetivos y alcance</strong>: se establece qué se espera lograr con el sistema y, muy importante, qué no hará. Esto evita que el proyecto crezca descontroladamente.',
+          '<strong>Plan de trabajo</strong>: se crea un cronograma inicial, se asignan recursos y se define un presupuesto.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/11/relevamiento-planificacion.png',
+        alt: 'Diagrama de la actividad "Definición de requerimientos y planificación" con entradas (evaluación preliminar de riesgo, seguridad y criticidad, objetivos y alcances del proyecto), tareas internas y salidas (requerimientos de alto nivel, plan de trabajo, especificaciones de requerimientos).',
+        caption: 'Relevamiento y planificación: entradas, tareas y salidas de la definición de requerimientos. Fuente: elaboración propia (UP).',
+      },
+      {
+        type: 'h3',
+        text: 'Determinación de requerimientos',
+        criollo:
+          'Los requerimientos son lo que el sistema tiene que cumplir, según lo que piden los usuarios o el cliente. Para descubrirlos, el analista usa varias técnicas.',
+      },
+      {
+        type: 'p',
+        text: 'Los requerimientos son la descripción detallada de las necesidades que el sistema debe satisfacer, planteadas por los usuarios o el cliente. Para descubrirlos, los analistas utilizan varias técnicas:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Entrevistas</strong>: conversaciones directas con los involucrados, para obtener información cualitativa y profunda. Ejemplo: entrevistar al gerente de finanzas para entender su proceso de toma de decisiones al aprobar un pago.',
+          '<strong>Cuestionarios</strong>: formularios con preguntas específicas, útiles para recopilar datos de un gran número de personas. Ejemplo: enviar un cuestionario a 150 vendedores para cuantificar cuánto tiempo tardan en registrar un pedido con el sistema actual.',
+          '<strong>Observación</strong>: mirar directamente cómo los usuarios trabajan en su día a día, para entender el flujo real de sus tareas. A veces, lo que la gente hace es diferente de lo que dice que hace.',
+          '<strong>Revisión de registros</strong>: analizar documentación existente (manuales, reportes, formularios), para comprender los procesos formales de la empresa.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Los <strong>requerimientos a encontrar</strong> abarcan: la comprensión del proceso, la frecuencia y volumen de los procesos, la identificación de controles, los requisitos de transacciones de los usuarios y los requerimientos de decisión de los usuarios. El objetivo final de la etapa es especificar los requerimientos.',
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Ojo con el alcance: definir qué NO hará el sistema es tan importante como definir qué hará. Es lo que evita que el proyecto crezca descontroladamente (el famoso “ya que estamos, agreguemos esto otro”).',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-24-1',
+          q: 'Definir qué NO hará el sistema ayuda a evitar que el proyecto crezca descontroladamente.',
+          a: true,
+          explain: 'Correcto. El apunte resalta que definir el alcance (qué se espera lograr y, muy importante, qué no hará) evita que el proyecto crezca descontroladamente.',
+        },
+        {
+          id: 'tf-24-2',
+          q: 'Los cuestionarios son la mejor técnica para obtener información cualitativa y profunda de pocos involucrados.',
+          a: false,
+          explain: 'Falso. Para información cualitativa y profunda sirven las entrevistas. Los cuestionarios son útiles para recopilar datos de un gran número de personas.',
+        },
+        {
+          id: 'tf-24-3',
+          q: 'La observación se usa porque a veces lo que la gente hace difiere de lo que dice que hace.',
+          a: true,
+          explain: 'Tal cual: la observación mira cómo trabajan los usuarios en su día a día, y a veces lo que hacen es diferente de lo que dicen que hacen.',
+        },
+        {
+          id: 'tf-24-4',
+          q: 'Los requerimientos son definidos exclusivamente por el equipo técnico, sin participación de los usuarios.',
+          a: false,
+          explain: 'Falso. Los requerimientos son las necesidades planteadas por los usuarios o el cliente; el analista las descubre y documenta.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-24-1',
+          q: '¿Qué técnica de relevamiento consiste en analizar manuales, reportes y formularios existentes?',
+          options: [
+            'Entrevistas',
+            'Cuestionarios',
+            'Observación',
+            'Revisión de registros',
+          ],
+          correctIndex: 3,
+          explain: 'La revisión de registros analiza la documentación existente (manuales, reportes, formularios) para comprender los procesos formales de la empresa.',
+        },
+        {
+          id: 'mc-24-2',
+          q: '¿Cuál de estas NO es parte del relevamiento y la planificación inicial?',
+          options: [
+            'Relevamiento preliminar',
+            'Definición de objetivos y alcance',
+            'Plan de trabajo con cronograma y presupuesto',
+            'Codificación de los módulos',
+          ],
+          correctIndex: 3,
+          explain: 'La codificación de módulos pertenece a la fase de construcción. El relevamiento y planificación incluye relevamiento preliminar, definición de objetivos y alcance, y plan de trabajo.',
+        },
+        {
+          id: 'mc-24-3',
+          q: 'Enviar un formulario con preguntas a 150 vendedores para cuantificar tiempos corresponde a la técnica de…',
+          options: [
+            'Cuestionarios',
+            'Entrevistas',
+            'Observación',
+            'Revisión de registros',
+          ],
+          correctIndex: 0,
+          explain: 'Es el ejemplo textual de cuestionarios: formularios con preguntas específicas, útiles para recopilar datos de un gran número de personas.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-24-1',
+          q: '¿Cuáles son técnicas para descubrir requerimientos según el apunte?',
+          options: [
+            'Entrevistas',
+            'Cuestionarios',
+            'Observación',
+            'Revisión de registros',
+            'Pruebas de estrés del servidor',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Las técnicas son entrevistas, cuestionarios, observación y revisión de registros. Las pruebas de estrés del servidor no son una técnica de relevamiento de requerimientos.',
+        },
+        {
+          id: 'ms-24-2',
+          q: '¿Qué incluye el relevamiento y la planificación inicial?',
+          options: [
+            'Relevamiento preliminar (necesidad, viabilidad, riesgos)',
+            'Definición de objetivos y alcance',
+            'Plan de trabajo (cronograma, recursos, presupuesto)',
+            'Conversión al sistema nuevo',
+            'Pruebas de aceptación del usuario',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+          ],
+          explain: 'El relevamiento y planificación inicial incluye relevamiento preliminar, definición de objetivos y alcance, y plan de trabajo. La conversión y las pruebas de aceptación pertenecen a fases posteriores.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-24-1',
+        front: 'Relevamiento preliminar',
+        back: 'Primera investigación para entender la necesidad del negocio, su viabilidad y los posibles riesgos.',
+      },
+      {
+        id: 'fc-24-2',
+        front: 'Definición de objetivos y alcance',
+        back: 'Establecer qué se espera lograr con el sistema y, muy importante, qué no hará. Evita que el proyecto crezca descontroladamente.',
+      },
+      {
+        id: 'fc-24-3',
+        front: 'Requerimientos',
+        back: 'Descripción detallada de las necesidades que el sistema debe satisfacer, planteadas por los usuarios o el cliente.',
+      },
+      {
+        id: 'fc-24-4',
+        front: 'Entrevistas',
+        back: 'Conversaciones directas con los involucrados para obtener información cualitativa y profunda.',
+      },
+      {
+        id: 'fc-24-5',
+        front: 'Cuestionarios',
+        back: 'Formularios con preguntas específicas, útiles para recopilar datos de un gran número de personas.',
+      },
+      {
+        id: 'fc-24-6',
+        front: 'Observación',
+        back: 'Mirar directamente cómo los usuarios trabajan en su día a día. Sirve porque a veces lo que hacen difiere de lo que dicen.',
+      },
+      {
+        id: 'fc-24-7',
+        front: 'Revisión de registros',
+        back: 'Analizar documentación existente (manuales, reportes, formularios) para comprender los procesos formales de la empresa.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 25 ----------
+  {
+    id: '25',
+    unit: '11',
+    title: 'El corazón del proceso: análisis y diseño',
+    criollo:
+      'Ya sabés qué se necesita; ahora definís cómo lo vas a construir. Para eso armás dos “planos”: el modelo lógico (el qué, sin tecnología) y el modelo físico (el cómo, con toda la tecnología y los detalles técnicos). Esta distinción es clave en ingeniería de software.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'Una vez que sabemos qué se necesita, debemos definir cómo lo vamos a construir. Para esto, se crean dos tipos de “planos” o modelos. Esta distinción es fundamental en la ingeniería de software. En la etapa de diseño se determina cómo se cumplirá con los objetivos, ya que en la etapa de análisis se describió lo que debe hacer el sistema. En algunas oportunidades, el diseño puede dividirse en diseño general y diseño detallado.',
+      },
+      {
+        type: 'h3',
+        text: 'El modelo lógico (el “qué”)',
+        criollo:
+          'Es el plano conceptual: muestra la solución sin meterse con la tecnología. Es el puente de comunicación entre los usuarios y los técnicos.',
+      },
+      {
+        type: 'p',
+        text: 'El modelo lógico es un modelo conceptual que representa la solución, sin preocuparse por la tecnología. Es un puente de comunicación entre los usuarios y los técnicos, ya que se enfoca en los requisitos del negocio. A través de una representación gráfica, con apoyo escrito, define:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Fuentes y destinos de la información: ¿de dónde vienen los datos y a quién se le entregan?',
+          'Información que debe ser almacenada.',
+          'Flujos de información: ¿cómo se mueven los datos a través del sistema?',
+          'Procesos de transformación: ¿qué cálculos o cambios se le aplican a la información?',
+          'Formato de los datos que componen la información.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Analogía: el modelo lógico es como el plano de un arquitecto. Muestra las habitaciones, sus funciones y cómo se conectan entre sí, pero no dice si las paredes serán de ladrillo o de yeso. Su objetivo es construir un modelo conceptual, entre el usuario y el especialista, que represente la solución propuesta, independientemente de los aspectos físicos del sistema.',
+      },
+      {
+        type: 'h3',
+        text: 'El modelo físico (el “cómo”)',
+        criollo:
+          'Traduce el modelo lógico a especificaciones técnicas concretas: acá sí entra la tecnología (hardware, software, bases de datos) y las limitaciones reales.',
+      },
+      {
+        type: 'p',
+        text: 'El modelo físico traduce el modelo lógico en especificaciones técnicas detalladas. Aquí sí se toma en cuenta la tecnología (hardware, software, bases de datos) y otras limitaciones reales. Define en detalle:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Las salidas del sistema y las entradas del sistema (diseño de pantallas, reportes y formularios).',
+          'Los archivos, bases de datos y estructuras de datos: la estructura exacta de las tablas, campos y relaciones.',
+          'Los procesos computacionales, los procedimientos y tipos de procesos.',
+          'Consideraciones de performance y tiempos de respuesta.',
+          'Aspectos de control, seguridad y confidencialidad: cómo se protegerá la información y se asegurará su integridad.',
+          'El hardware y software a emplear: qué servidores, sistemas operativos o lenguajes de programación se usarán.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/11/modelo-fisico.png',
+        alt: 'Conjunto de ocho recuadros con los aspectos que define el modelo físico: salidas del sistema, entradas del sistema, procedimientos y tipos de proceso, procesos computacionales, archivos/BBDD y estructura de datos, consideraciones de performance y tiempos de respuesta, aspectos de control/seguridad/confidencialidad, y consideración del HW y SW a emplear.',
+        caption: 'El modelo físico define en detalle salidas, entradas, procesos, archivos/BBDD, performance, control y el HW/SW a emplear. Fuente: elaboración propia (UP).',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Analogía: el modelo físico es como el plano de un ingeniero o constructor. Especifica el tipo de ladrillos, el calibre de los cables, la marca de las tuberías y todos los detalles necesarios para construir la casa que el arquitecto diseñó. Su objetivo es generar las especificaciones completas para poder construir el sistema y atender los aspectos relacionados con las limitaciones tecnológicas o humanas.',
+      },
+      {
+        type: 'h3',
+        text: 'El flujo de análisis y diseño',
+        criollo:
+          'El trabajo de análisis y diseño se encadena: relevás y analizás globalmente, después analizás los datos, y por último el análisis funcional. Cada paso alimenta al siguiente.',
+      },
+      {
+        type: 'p',
+        text: 'El análisis y diseño se desarrolla encadenando tres bloques de trabajo —relevamiento y análisis global, análisis de datos y análisis funcional— que toman como entrada los objetivos y alcances del proyecto, el plan de trabajo y los requerimientos, y producen el nuevo modelo lógico y físico:',
+      },
+      {
+        type: 'table',
+        caption: 'Tareas de cada bloque del análisis y diseño (elaboración propia, UP).',
+        headers: ['Relevamiento y análisis global', 'Análisis de datos', 'Análisis funcional'],
+        rows: [
+          [
+            'Preparar modelo físico y lógico de la situación actual.',
+            'Revisar el modelo de datos original.',
+            'Desarrollar el nuevo modelo físico.',
+          ],
+          [
+            'Identificar requerimientos de entrada y salida.',
+            'Identificar y normalizar entradas.',
+            'Comparación con el análisis de datos.',
+          ],
+          [
+            'Desarrollar el nuevo modelo lógico.',
+            'Definir las vistas lógicas.',
+            'Evaluar impacto del sistema.',
+          ],
+          [
+            'Identificar y evaluar las alternativas de diseño.',
+            'Cerrar el modelo de datos.',
+            '—',
+          ],
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/11/analisis-diseno.png',
+        alt: 'Diagrama de tres procesos encadenados (Relevamiento y análisis global S1, Análisis de datos S2, Análisis funcional S3) con sus entradas y salidas y un cuadro de tareas debajo de cada uno.',
+        caption: 'Análisis y diseño: relevamiento y análisis global (S1), análisis de datos (S2) y análisis funcional (S3). Fuente: elaboración propia (UP).',
+      },
+      {
+        type: 'p',
+        text: 'Los <strong>objetivos</strong> de esta etapa son: efectuar el relevamiento detallado, formular y evaluar alternativas de solución, formular el modelo lógico, formular el modelo físico y evaluar el riesgo de la aplicación.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-25-1',
+          q: 'El modelo lógico representa la solución sin preocuparse por la tecnología.',
+          a: true,
+          explain: 'Correcto. El modelo lógico es un modelo conceptual que representa la solución sin preocuparse por la tecnología; es el puente entre usuarios y técnicos.',
+        },
+        {
+          id: 'tf-25-2',
+          q: 'El modelo físico se compara con el plano de un arquitecto.',
+          a: false,
+          explain: 'Falso. El plano del arquitecto es la analogía del modelo lógico. El modelo físico se compara con el plano de un ingeniero o constructor.',
+        },
+        {
+          id: 'tf-25-3',
+          q: 'El modelo físico define el hardware y software a emplear, performance y aspectos de seguridad.',
+          a: true,
+          explain: 'Tal cual: el modelo físico define salidas, entradas, procesos, archivos/BBDD, performance y tiempos de respuesta, control/seguridad/confidencialidad, considerando el HW y SW a emplear.',
+        },
+        {
+          id: 'tf-25-4',
+          q: 'En el diseño se describe lo que el sistema debe hacer; en el análisis se determina cómo se cumplirán los objetivos.',
+          a: false,
+          explain: 'Falso, está invertido. En el análisis se describe lo que el sistema debe hacer; en el diseño se determina cómo se cumplirá con los objetivos.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-25-1',
+          q: '¿Cuál de estos aspectos define el modelo lógico?',
+          options: [
+            'La estructura exacta de tablas, campos y relaciones',
+            'Las fuentes y destinos de la información y los flujos de información',
+            'El calibre de los cables y la marca de las tuberías',
+            'Los servidores y sistemas operativos a usar',
+          ],
+          correctIndex: 1,
+          explain: 'El modelo lógico define fuentes y destinos de la información, información a almacenar, flujos, procesos de transformación y formato de los datos. La estructura física y la tecnología son del modelo físico.',
+        },
+        {
+          id: 'mc-25-2',
+          q: '¿Cuál es uno de los objetivos de la etapa de análisis y diseño?',
+          options: [
+            'Capacitar a los usuarios finales',
+            'Evaluar el riesgo de la aplicación',
+            'Apagar el sistema anterior',
+            'Preparar el informe de posimplementación',
+          ],
+          correctIndex: 1,
+          explain: 'Entre los objetivos están: relevamiento detallado, formular y evaluar alternativas, formular el modelo lógico, formular el modelo físico y evaluar el riesgo de la aplicación.',
+        },
+        {
+          id: 'mc-25-3',
+          q: 'En el flujo de análisis y diseño, “revisar el modelo de datos original, normalizar entradas y definir las vistas lógicas” corresponde a…',
+          options: [
+            'Relevamiento y análisis global',
+            'Análisis de datos',
+            'Análisis funcional',
+            'Conversión',
+          ],
+          correctIndex: 1,
+          explain: 'Esas tareas son del bloque de análisis de datos: revisar el modelo de datos original, identificar y normalizar entradas, definir las vistas lógicas y cerrar el modelo de datos.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-25-1',
+          q: '¿Qué define el modelo físico?',
+          options: [
+            'Las salidas y entradas del sistema',
+            'Los archivos, BBDD y estructuras de datos',
+            'Consideraciones de performance y tiempos de respuesta',
+            'El HW y SW a emplear',
+            'La estrategia de marketing del producto',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'El modelo físico define salidas, entradas, procesos computacionales, archivos/BBDD, performance, control/seguridad y el HW/SW a emplear. La estrategia de marketing no forma parte del modelo físico.',
+        },
+        {
+          id: 'ms-25-2',
+          q: '¿Cuáles son objetivos de la etapa de análisis y diseño?',
+          options: [
+            'Efectuar el relevamiento detallado',
+            'Formular y evaluar alternativas de solución',
+            'Formular el modelo lógico y el modelo físico',
+            'Evaluar el riesgo de la aplicación',
+            'Realizar la conversión al sistema nuevo',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Los objetivos son: relevamiento detallado, formular y evaluar alternativas, formular el modelo lógico, formular el modelo físico y evaluar el riesgo. La conversión es una fase posterior.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-25-1',
+        front: 'Modelo lógico',
+        back: 'Modelo conceptual que representa la solución sin preocuparse por la tecnología. Puente entre usuarios y técnicos. Analogía: plano del arquitecto.',
+      },
+      {
+        id: 'fc-25-2',
+        front: 'Modelo físico',
+        back: 'Traduce el modelo lógico a especificaciones técnicas detalladas, considerando tecnología y limitaciones reales. Analogía: plano del ingeniero/constructor.',
+      },
+      {
+        id: 'fc-25-3',
+        front: 'Análisis vs. diseño',
+        back: 'En el análisis se describe lo que el sistema debe hacer; en el diseño se determina cómo se cumplirán los objetivos.',
+      },
+      {
+        id: 'fc-25-4',
+        front: 'Define el modelo lógico',
+        back: 'Fuentes y destinos de la información, información a almacenar, flujos, procesos de transformación y formato de los datos.',
+      },
+      {
+        id: 'fc-25-5',
+        front: 'Define el modelo físico',
+        back: 'Salidas y entradas, archivos/BBDD y estructuras, procesos computacionales, performance, control/seguridad y el HW/SW a emplear.',
+      },
+      {
+        id: 'fc-25-6',
+        front: 'Bloques del análisis y diseño',
+        back: 'Relevamiento y análisis global (S1), análisis de datos (S2) y análisis funcional (S3).',
+      },
+      {
+        id: 'fc-25-7',
+        front: 'Objetivos del análisis y diseño',
+        back: 'Relevamiento detallado, formular y evaluar alternativas, formular el modelo lógico y el físico, y evaluar el riesgo de la aplicación.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 26 ----------
+  {
+    id: '26',
+    unit: '11',
+    title: 'Fase de construcción: desarrollo y pruebas',
+    criollo:
+      'Con los planos detallados (modelo físico) en mano, llega la hora de construir: codificar, armar módulos chiquitos, probarlos, y preparar las pantallas con las que va a trabajar el usuario. Y antes de entregar, pruebas rigurosas en varios niveles.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'Con los planos detallados (modelo físico) en mano, es hora de construir.',
+      },
+      {
+        type: 'h3',
+        text: 'Diseño detallado y programación',
+        criollo:
+          'En esta etapa, a menudo llamada simplemente “Desarrollo”, se escribe el código, se arman y prueban los módulos, y se prepara la interfaz de usuario.',
+      },
+      {
+        type: 'p',
+        text: 'Esta etapa, a menudo llamada "Desarrollo", consiste en:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Codificar los programas</strong>: los desarrolladores escriben el código fuente, basándose en las especificaciones.',
+          '<strong>Diseñar y probar módulos</strong>: el sistema se construye en partes más pequeñas (módulos) que se prueban individualmente.',
+          '<strong>Preparar la interfaz de usuario</strong>: se crean los menús y pantallas con los que interactuará el usuario final.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'El diseño detallado encadena, a su vez, el <strong>diseño detallado</strong>, las <strong>instalaciones de software</strong> y la <strong>programación</strong>. Entre sus tareas figuran: desarrollar los diagramas de estructura; diseñar entradas, salidas y cálculos; diseñar controles y procedimientos de resguardo y recuperación; describir procesos manuales; identificar los posibles productos de software y definir criterios de evaluación; planificar la adaptación; y, finalmente, codificar y probar los programas, revisar la lógica, efectuar prueba de módulos y preparar menús y sentencias de control (CL).',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/11/diseno-detallado.png',
+        alt: 'Diagrama de tres procesos encadenados (Diseño detallado S1, Instalaciones de software S2, Programación S3) con sus entradas, salidas y cuadros de tareas.',
+        caption: 'Diseño detallado, instalaciones de software y programación, con sus tareas. Fuente: elaboración propia (UP).',
+      },
+      {
+        type: 'h3',
+        text: 'Pruebas del sistema',
+        criollo:
+          'Antes de entregar, hay que probar en serio. Aunque el apunte breve no las detalla, en la práctica hay varios niveles de prueba, de lo más chico (un módulo) a lo más grande (todo el sistema y la aceptación del usuario).',
+      },
+      {
+        type: 'p',
+        text: 'Antes de entregar el sistema, es crucial someterlo a pruebas rigurosas para asegurar su calidad. Aunque el documento no las detalla, en la práctica existen varios niveles de prueba:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Pruebas unitarias</strong>: probar cada módulo por separado.',
+          '<strong>Pruebas de integración</strong>: verificar que los módulos funcionan bien juntos.',
+          '<strong>Pruebas del sistema</strong>: probar el sistema completo, para asegurar que cumple con todos los requerimientos.',
+          '<strong>Pruebas de aceptación del usuario (UAT)</strong>: el usuario final prueba el sistema, para darle su aprobación antes de la implementación.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Es lo mismo que armar un mueble: primero chequeás que cada pieza esté bien (unitarias), después que encajen entre sí (integración), después que el mueble entero se banque el peso (sistema), y al final que al que lo va a usar le sirva (aceptación).',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-26-1',
+          q: 'En la fase de construcción, el sistema se construye en módulos más pequeños que se prueban individualmente.',
+          a: true,
+          explain: 'Correcto. Diseñar y probar módulos implica construir el sistema en partes más pequeñas que se prueban individualmente.',
+        },
+        {
+          id: 'tf-26-2',
+          q: 'Las pruebas de integración verifican que cada módulo funciona por separado.',
+          a: false,
+          explain: 'Falso. Eso son las pruebas unitarias. Las de integración verifican que los módulos funcionan bien juntos.',
+        },
+        {
+          id: 'tf-26-3',
+          q: 'En las pruebas de aceptación del usuario (UAT) es el usuario final quien prueba el sistema y da su aprobación.',
+          a: true,
+          explain: 'Tal cual: en las UAT el usuario final prueba el sistema para darle su aprobación antes de la implementación.',
+        },
+        {
+          id: 'tf-26-4',
+          q: 'Preparar la interfaz de usuario significa crear los menús y pantallas con los que interactúa el usuario final.',
+          a: true,
+          explain: 'Correcto. Preparar la interfaz de usuario consiste en crear los menús y pantallas con los que interactuará el usuario final.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-26-1',
+          q: '¿Qué nivel de prueba consiste en probar el sistema completo para asegurar que cumple todos los requerimientos?',
+          options: [
+            'Pruebas unitarias',
+            'Pruebas de integración',
+            'Pruebas del sistema',
+            'Pruebas de aceptación del usuario',
+          ],
+          correctIndex: 2,
+          explain: 'Las pruebas del sistema prueban el sistema completo para asegurar que cumple con todos los requerimientos.',
+        },
+        {
+          id: 'mc-26-2',
+          q: '¿Cómo se llama a menudo la etapa de diseño detallado y programación?',
+          options: [
+            '"Análisis"',
+            '"Desarrollo"',
+            '"Conversión"',
+            '"Implantación"',
+          ],
+          correctIndex: 1,
+          explain: 'La etapa de diseño detallado y programación se llama a menudo simplemente "Desarrollo".',
+        },
+        {
+          id: 'mc-26-3',
+          q: 'Escribir el código fuente basándose en las especificaciones es…',
+          options: [
+            'Diseñar módulos',
+            'Codificar los programas',
+            'Preparar la interfaz de usuario',
+            'Revisar registros',
+          ],
+          correctIndex: 1,
+          explain: 'Codificar los programas es escribir el código fuente basándose en las especificaciones.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-26-1',
+          q: '¿Cuáles son niveles de prueba del sistema mencionados?',
+          options: [
+            'Pruebas unitarias',
+            'Pruebas de integración',
+            'Pruebas del sistema',
+            'Pruebas de aceptación del usuario (UAT)',
+            'Pruebas de mercado',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Los niveles son: unitarias, de integración, del sistema y de aceptación del usuario (UAT). Las pruebas de mercado no figuran como nivel de prueba.',
+        },
+        {
+          id: 'ms-26-2',
+          q: '¿Qué tareas componen la etapa de "Desarrollo" (diseño detallado y programación)?',
+          options: [
+            'Codificar los programas',
+            'Diseñar y probar módulos',
+            'Preparar la interfaz de usuario',
+            'Definir el presupuesto del proyecto',
+            'Realizar el relevamiento preliminar',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+          ],
+          explain: 'La etapa de desarrollo incluye codificar los programas, diseñar y probar módulos y preparar la interfaz de usuario. El presupuesto y el relevamiento preliminar son de fases iniciales.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-26-1',
+        front: 'Etapa de "Desarrollo"',
+        back: 'Diseño detallado y programación: codificar los programas, diseñar y probar módulos, y preparar la interfaz de usuario.',
+      },
+      {
+        id: 'fc-26-2',
+        front: 'Codificar los programas',
+        back: 'Los desarrolladores escriben el código fuente basándose en las especificaciones.',
+      },
+      {
+        id: 'fc-26-3',
+        front: 'Diseñar y probar módulos',
+        back: 'El sistema se construye en partes más pequeñas (módulos) que se prueban individualmente.',
+      },
+      {
+        id: 'fc-26-4',
+        front: 'Pruebas unitarias',
+        back: 'Probar cada módulo por separado.',
+      },
+      {
+        id: 'fc-26-5',
+        front: 'Pruebas de integración',
+        back: 'Verificar que los módulos funcionan bien juntos.',
+      },
+      {
+        id: 'fc-26-6',
+        front: 'Pruebas del sistema',
+        back: 'Probar el sistema completo para asegurar que cumple con todos los requerimientos.',
+      },
+      {
+        id: 'fc-26-7',
+        front: 'Pruebas de aceptación del usuario (UAT)',
+        back: 'El usuario final prueba el sistema para darle su aprobación antes de la implementación.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 27 ----------
+  {
+    id: '27',
+    unit: '11',
+    title: 'Puesta en marcha: implantación y conversión',
+    criollo:
+      'Llegó el momento de reemplazar el sistema viejo por el nuevo: eso es la conversión. Es un momento crítico, así que hay distintas estrategias según cuánto riesgo querés correr y cuánta plata estás dispuesto a poner.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'La conversión es el proceso de reemplazar el sistema antiguo por el nuevo. Es un momento crítico y existen diferentes estrategias para minimizar el riesgo.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Estrategia paralela</strong>: el sistema anterior y el nuevo operan juntos durante un tiempo.',
+          '<strong>Estrategia de reemplazo directo</strong>: se reemplaza al sistema anterior en su totalidad por el nuevo sistema (se apaga el viejo y se enciende el nuevo en una fecha determinada).',
+          '<strong>Estrategia de estudio piloto</strong>: se introduce una parte del sistema en solo un área limitada de la organización, por ejemplo en una sola sucursal, y, basándose en la retroalimentación, se efectúan los cambios para luego implementarlos en toda la organización.',
+        ],
+      },
+      {
+        type: 'table',
+        caption: 'Estrategias de conversión: ventajas y desventajas (apunte UP).',
+        headers: ['Estrategia', 'Descripción', 'Ventajas', 'Desventajas'],
+        rows: [
+          [
+            'Paralela',
+            'El sistema viejo y el nuevo funcionan a la vez durante un tiempo.',
+            'Máxima seguridad: si el nuevo falla, el viejo sigue operando.',
+            'Muy costosa. Requiere doble trabajo para los empleados.',
+          ],
+          [
+            'Reemplazo directo',
+            'Se apaga el sistema viejo y se enciende el nuevo en una fecha determinada.',
+            'Rápida y menos costosa.',
+            'Muy riesgosa: no hay vuelta atrás si algo sale mal.',
+          ],
+          [
+            'Piloto',
+            'Se implementa el sistema en un área pequeña o sucursal de la empresa.',
+            'Permite probar el sistema en un entorno real pero controlado.',
+            'El proceso total de implementación es más lento.',
+          ],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'El reemplazo directo es el más barato y rápido, pero es “a todo o nada”: si el sistema nuevo falla, no tenés red. La paralela es la más segura pero te hace pagar doble. El piloto es el equilibrio: probás en chico antes de jugártela en grande.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-27-1',
+          q: 'La conversión es el proceso de reemplazar el sistema antiguo por el nuevo.',
+          a: true,
+          explain: 'Correcto. La conversión es el proceso de reemplazar el sistema antiguo por el nuevo, y es un momento crítico.',
+        },
+        {
+          id: 'tf-27-2',
+          q: 'La estrategia paralela es la más rápida y la menos costosa.',
+          a: false,
+          explain: 'Falso. La paralela es muy costosa y requiere doble trabajo. La rápida y menos costosa es el reemplazo directo.',
+        },
+        {
+          id: 'tf-27-3',
+          q: 'La principal desventaja del reemplazo directo es que no hay vuelta atrás si algo sale mal.',
+          a: true,
+          explain: 'Tal cual: el reemplazo directo es muy riesgoso porque no hay vuelta atrás si algo sale mal.',
+        },
+        {
+          id: 'tf-27-4',
+          q: 'La estrategia piloto implementa el sistema en toda la organización al mismo tiempo.',
+          a: false,
+          explain: 'Falso. El piloto se implementa en un área pequeña o sucursal; según la retroalimentación se ajusta y luego se extiende a toda la organización.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-27-1',
+          q: '¿Cuál es la ventaja principal de la estrategia paralela?',
+          options: [
+            'Es la más rápida',
+            'Máxima seguridad: si el nuevo falla, el viejo sigue operando',
+            'No requiere trabajo extra',
+            'Implementa todo de una sola vez',
+          ],
+          correctIndex: 1,
+          explain: 'La ventaja de la paralela es la máxima seguridad: si el nuevo sistema falla, el viejo sigue operando.',
+        },
+        {
+          id: 'mc-27-2',
+          q: '¿Qué estrategia permite probar el sistema en un entorno real pero controlado?',
+          options: [
+            'Paralela',
+            'Reemplazo directo',
+            'Piloto',
+            'Ninguna',
+          ],
+          correctIndex: 2,
+          explain: 'El estudio piloto permite probar el sistema en un entorno real pero controlado, a costa de un proceso total de implementación más lento.',
+        },
+        {
+          id: 'mc-27-3',
+          q: '¿Cuál es la desventaja de la estrategia paralela?',
+          options: [
+            'Es muy riesgosa',
+            'Es muy costosa y requiere doble trabajo',
+            'Es muy lenta de implementar en total',
+            'No permite vuelta atrás',
+          ],
+          correctIndex: 1,
+          explain: 'La paralela es muy costosa y requiere doble trabajo para los empleados, porque hay que operar los dos sistemas a la vez.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-27-1',
+          q: '¿Cuáles son estrategias de conversión mencionadas en el apunte?',
+          options: [
+            'Paralela',
+            'Reemplazo directo',
+            'Estudio piloto',
+            'Migración en la nube',
+            'Tercerización total',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+          ],
+          explain: 'Las estrategias son: paralela, reemplazo directo y estudio piloto. La migración en la nube y la tercerización no figuran como estrategias de conversión.',
+        },
+        {
+          id: 'ms-27-2',
+          q: '¿Qué afirmaciones son correctas sobre las estrategias de conversión?',
+          options: [
+            'La paralela ofrece máxima seguridad',
+            'El reemplazo directo es rápido y menos costoso',
+            'El piloto se prueba en un área limitada',
+            'El reemplazo directo es el más seguro',
+            'La paralela es la más barata',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+          ],
+          explain: 'La paralela da máxima seguridad pero es costosa; el reemplazo directo es rápido y barato pero muy riesgoso; el piloto se prueba en un área limitada. El reemplazo directo NO es el más seguro y la paralela NO es la más barata.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-27-1',
+        front: 'Conversión',
+        back: 'Proceso de reemplazar el sistema antiguo por el nuevo. Es un momento crítico y existen distintas estrategias para minimizar el riesgo.',
+      },
+      {
+        id: 'fc-27-2',
+        front: 'Estrategia paralela',
+        back: 'El sistema viejo y el nuevo funcionan a la vez un tiempo. Máxima seguridad, pero muy costosa y con doble trabajo.',
+      },
+      {
+        id: 'fc-27-3',
+        front: 'Reemplazo directo',
+        back: 'Se apaga el viejo y se enciende el nuevo en una fecha. Rápido y barato, pero muy riesgoso: no hay vuelta atrás.',
+      },
+      {
+        id: 'fc-27-4',
+        front: 'Estudio piloto',
+        back: 'Se implementa en un área pequeña o sucursal; según la retroalimentación se ajusta y luego se extiende a toda la organización. Entorno real pero controlado; total más lento.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 28 ----------
+  {
+    id: '28',
+    unit: '11',
+    title: 'Seguimiento, control y planes de contingencia',
+    criollo:
+      'El trabajo no termina cuando el sistema se enciende. Hay que monitorearlo para ver si realmente resuelve el problema, si los usuarios están conformes, y revisar la parte técnica. Y además tener un plan B (contingencia) para cuando algo se vaya al carajo.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'El trabajo no termina cuando el sistema se enciende. Es vital monitorear el sistema en operación.',
+      },
+      {
+        type: 'h3',
+        text: 'Seguimiento, control y evaluación',
+        criollo:
+          'Mantenés el sistema bajo observación para verificar que cumple objetivos, medir si el usuario está conforme y revisar lo técnico, para corregir a tiempo.',
+      },
+      {
+        type: 'p',
+        text: 'Es vital monitorear el sistema en operación para:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Verificar el cumplimiento de objetivos</strong>: ¿el sistema realmente soluciona el problema para el cual fue creado?',
+          '<strong>Medir la satisfacción del usuario</strong>: ¿están los usuarios contentos y usando el sistema correctamente?',
+          '<strong>Realizar revisiones técnicas</strong>: se revisa periódicamente el hardware, el software y la documentación, para asegurar que todo esté actualizado y funcionando de manera óptima.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/11/seguimiento-control.png',
+        alt: 'Diagrama del proceso "Seguimiento y control" con entradas (sistema en operación, documentación actualizada), salida (información posimplementación) y un cuadro de tareas: efectuar revisión administrativa, de hardware y software, de la documentación, y preparar el informe final de posimplementación.',
+        caption: 'Seguimiento y control: revisión administrativa, de HW/SW y de documentación, e informe final de posimplementación. Fuente: elaboración propia (UP).',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>evaluación del sistema</strong> tiene como objetivos: detectar oportunamente los hechos que pueden derivar en actitudes negativas; verificar el cumplimiento de los objetivos iniciales; medir el grado de satisfacción de los usuarios; identificar oportunamente necesidades de entrenamiento y capacitación; y tomar acciones correctivas “a tiempo”.',
+      },
+      {
+        type: 'h3',
+        text: 'Planes de contingencia',
+        criollo:
+          'Toda organización tiene que estar preparada para lo inesperado. El plan de contingencia busca que el negocio siga funcionando aunque pase algo grave.',
+      },
+      {
+        type: 'p',
+        text: 'Toda organización debe estar preparada para lo inesperado. Un plan de contingencia busca asegurar la continuidad del negocio ante emergencias y prever continuidad a las operaciones y servicios críticos de cada negocio, en caso de eventualidades que las pudieran afectar. Ejemplos de eventualidades:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Desastres naturales.',
+          'Interrupción de suministros básicos.',
+          'Intrusiones, vandalismo y terrorismo.',
+          'Aumento inesperado de la carga de trabajo.',
+          'Fallas de equipamiento.',
+          'Otros peligros.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Las <strong>etapas</strong> para crear un plan de contingencia robusto incluyen:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Análisis de riesgo: identificar qué podría salir mal.',
+          'Creación del plan de contingencia: definir los pasos a seguir en caso de emergencia.',
+          'Prueba del plan: realizar simulacros para asegurar que el plan funciona.',
+          'Distribución del plan.',
+          'Aplicación.',
+          'Revisión continua: mantener el plan actualizado.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'El seguimiento no es opcional: es lo que te confirma si el sistema realmente resolvió el problema o todavía le falta. Y el plan de contingencia es el seguro contra catástrofes: no sirve de nada tenerlo guardado si nunca lo probaste con un simulacro.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-28-1',
+          q: 'El seguimiento y control busca verificar el cumplimiento de objetivos y medir la satisfacción del usuario.',
+          a: true,
+          explain: 'Correcto. Monitorear el sistema en operación sirve para verificar el cumplimiento de objetivos, medir la satisfacción del usuario y realizar revisiones técnicas.',
+        },
+        {
+          id: 'tf-28-2',
+          q: 'Un plan de contingencia busca asegurar la continuidad del negocio ante emergencias.',
+          a: true,
+          explain: 'Tal cual: el plan de contingencia busca asegurar la continuidad de las operaciones y servicios críticos ante eventualidades y emergencias.',
+        },
+        {
+          id: 'tf-28-3',
+          q: 'Probar el plan de contingencia mediante simulacros no es necesario si el plan está bien escrito.',
+          a: false,
+          explain: 'Falso. La prueba del plan (simulacros) es una etapa explícita para asegurar que el plan realmente funciona.',
+        },
+        {
+          id: 'tf-28-4',
+          q: 'Un aumento inesperado de la carga de trabajo es un ejemplo de eventualidad que cubre un plan de contingencia.',
+          a: true,
+          explain: 'Correcto. Entre las eventualidades figuran desastres naturales, interrupción de suministros, intrusiones, aumento inesperado de la carga de trabajo y fallas de equipamiento.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-28-1',
+          q: '¿Cuál es la primera etapa para crear un plan de contingencia robusto?',
+          options: [
+            'Aplicación',
+            'Análisis de riesgo',
+            'Distribución del plan',
+            'Prueba del plan',
+          ],
+          correctIndex: 1,
+          explain: 'La primera etapa es el análisis de riesgo: identificar qué podría salir mal.',
+        },
+        {
+          id: 'mc-28-2',
+          q: '¿Cuál de estos NO es un objetivo de la evaluación del sistema?',
+          options: [
+            'Verificar el cumplimiento de los objetivos iniciales',
+            'Medir el grado de satisfacción de los usuarios',
+            'Identificar necesidades de entrenamiento y capacitación',
+            'Definir el presupuesto del proyecto',
+          ],
+          correctIndex: 3,
+          explain: 'Definir el presupuesto es de las fases iniciales. La evaluación del sistema busca detectar hechos negativos, verificar objetivos, medir satisfacción, identificar necesidades de capacitación y tomar acciones correctivas a tiempo.',
+        },
+        {
+          id: 'mc-28-3',
+          q: 'Las revisiones técnicas del seguimiento y control abarcan periódicamente…',
+          options: [
+            'Solo el hardware',
+            'El hardware, el software y la documentación',
+            'Solo la base de datos',
+            'Solo la interfaz de usuario',
+          ],
+          correctIndex: 1,
+          explain: 'Las revisiones técnicas revisan periódicamente el hardware, el software y la documentación, para asegurar que todo esté actualizado y funcionando óptimamente.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-28-1',
+          q: '¿Cuáles son etapas para crear un plan de contingencia?',
+          options: [
+            'Análisis de riesgo',
+            'Creación del plan',
+            'Prueba del plan (simulacros)',
+            'Revisión continua',
+            'Venta del plan a un tercero',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Las etapas son: análisis de riesgo, creación del plan, prueba del plan, distribución, aplicación y revisión continua. La venta del plan a un tercero no es una etapa.',
+        },
+        {
+          id: 'ms-28-2',
+          q: '¿Qué objetivos tiene la evaluación del sistema?',
+          options: [
+            'Detectar hechos que puedan derivar en actitudes negativas',
+            'Verificar el cumplimiento de los objetivos iniciales',
+            'Medir el grado de satisfacción de los usuarios',
+            'Tomar acciones correctivas a tiempo',
+            'Elegir el lenguaje de programación',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'La evaluación busca detectar hechos negativos, verificar objetivos, medir satisfacción, identificar necesidades de capacitación y tomar acciones correctivas a tiempo. Elegir el lenguaje es de la etapa de diseño.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-28-1',
+        front: 'Seguimiento y control',
+        back: 'Monitorear el sistema en operación para verificar el cumplimiento de objetivos, medir la satisfacción del usuario y realizar revisiones técnicas (HW, SW y documentación).',
+      },
+      {
+        id: 'fc-28-2',
+        front: 'Tareas del seguimiento y control',
+        back: 'Revisión administrativa, revisión de HW y SW, revisión de la documentación y preparar el informe final de posimplementación.',
+      },
+      {
+        id: 'fc-28-3',
+        front: 'Evaluación del sistema',
+        back: 'Detectar hechos negativos a tiempo, verificar objetivos iniciales, medir satisfacción de usuarios, identificar necesidades de capacitación y tomar acciones correctivas a tiempo.',
+      },
+      {
+        id: 'fc-28-4',
+        front: 'Plan de contingencia',
+        back: 'Busca asegurar la continuidad del negocio y de los servicios críticos ante eventualidades y emergencias (desastres, fallas de equipo, intrusiones, etc.).',
+      },
+      {
+        id: 'fc-28-5',
+        front: 'Etapas del plan de contingencia',
+        back: 'Análisis de riesgo, creación del plan, prueba del plan (simulacros), distribución, aplicación y revisión continua.',
+      },
+      {
+        id: 'fc-28-6',
+        front: 'Eventualidades cubiertas',
+        back: 'Desastres naturales, interrupción de suministros básicos, intrusiones/vandalismo/terrorismo, aumento inesperado de carga de trabajo, fallas de equipamiento y otros peligros.',
+      },
+    ],
+  },
+
+  // ========================================================================
+  // UNIDAD 12 — Comunicación oral y escrita
+  // ========================================================================
+
+  // ---------- SECCIÓN 29 ----------
+  {
+    id: '29',
+    unit: '12',
+    title: 'La comunicación oral y escrita: la base de la lengua',
+    criollo:
+      'La lengua, en el fondo, es sonido: le entra al otro por el oído. La escritura es una forma secundaria que entra por la vista. Hablando te podés dar el lujo de dejar frases a medias porque el otro te entiende con un gesto; escribiendo no, ahí tenés que ser completo y claro porque no hay nadie para repreguntarte.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'La base material de la lengua es el sonido, y el sentido al que predominantemente impresiona es el oído. A través de otro sentido, que es la vista, se percibe una forma secundaria de la lengua: la escritura.',
+      },
+      {
+        type: 'h3',
+        text: 'La comunicación oral',
+        criollo:
+          'Hablando, no solo importan las palabras: también la entonación y el énfasis, que el otro interpreta a su manera. Y si no te entendió, repetís o lo explicás de otra forma.',
+      },
+      {
+        type: 'p',
+        text: 'Nos hacemos comprender por las palabras, los enunciados, las frases, pero también por la entonación y el énfasis que les damos a los términos y que el interlocutor interpreta a su manera. Las frases, muchas veces, se dejan truncas y se termina el mensaje con algún gesto, porque captamos que el interlocutor ya nos entendió. Si el interlocutor no nos ha comprendido, podemos repetir el mensaje o explicarlo de otra manera.',
+      },
+      {
+        type: 'h3',
+        text: 'La comunicación escrita',
+        criollo:
+          'Escribiendo, la entonación la reemplazás con signos de puntuación. Y como no hay feedback en el momento, las frases tienen que estar completas y sin ambigüedades.',
+      },
+      {
+        type: 'p',
+        text: 'En la comunicación escrita, transcribimos la entonación por signos de puntuación. Las frases deben ser completas, pues no se puede constatar si el lector interpretó lo que no escribimos. Es por esta misma razón que se deben evitar ambigüedades y tener cuidado con los giros del lenguaje.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Resumen fácil: hablando, el gesto y el tono te salvan; escribiendo, estás solo con tus palabras. Por eso lo escrito tiene que ser más prolijo, completo y sin doble sentido.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-29-1',
+          q: 'La base material de la lengua es el sonido y el sentido al que impresiona predominantemente es el oído.',
+          a: true,
+          explain: 'Tal cual el apunte: la base material de la lengua es el sonido, y el sentido al que predominantemente impresiona es el oído.',
+        },
+        {
+          id: 'tf-29-2',
+          q: 'La escritura es la forma primaria de la lengua y se percibe por el oído.',
+          a: false,
+          explain: 'Falso. La escritura es una forma secundaria de la lengua y se percibe a través de la vista.',
+        },
+        {
+          id: 'tf-29-3',
+          q: 'En la comunicación escrita la entonación se transcribe mediante signos de puntuación.',
+          a: true,
+          explain: 'Correcto. En la comunicación escrita transcribimos la entonación por signos de puntuación.',
+        },
+        {
+          id: 'tf-29-4',
+          q: 'En la comunicación oral nunca se dejan frases truncas.',
+          a: false,
+          explain: 'Falso. En la oral las frases muchas veces se dejan truncas y se cierra el mensaje con un gesto, porque captamos que el interlocutor ya entendió.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-29-1',
+          q: '¿Por qué en la comunicación escrita las frases deben ser completas?',
+          options: [
+            'Porque es más elegante',
+            'Porque no se puede constatar si el lector interpretó lo que no escribimos',
+            'Porque lo exige la gramática',
+            'Porque el papel es caro',
+          ],
+          correctIndex: 1,
+          explain: 'Las frases deben ser completas porque no se puede constatar si el lector interpretó lo que no escribimos; por eso hay que evitar ambigüedades.',
+        },
+        {
+          id: 'mc-29-2',
+          q: 'Además de las palabras, ¿qué interpreta el interlocutor a su manera en la comunicación oral?',
+          options: [
+            'La ortografía',
+            'La entonación y el énfasis',
+            'Los signos de puntuación',
+            'El formato del texto',
+          ],
+          correctIndex: 1,
+          explain: 'Nos hacemos comprender por las palabras, pero también por la entonación y el énfasis que damos a los términos, que el interlocutor interpreta a su manera.',
+        },
+        {
+          id: 'mc-29-3',
+          q: 'En la comunicación oral, si el interlocutor no comprende, ¿qué podemos hacer?',
+          options: [
+            'Repetir el mensaje o explicarlo de otra manera',
+            'Nada, ya es tarde',
+            'Cambiar de tema',
+            'Escribirlo obligatoriamente',
+          ],
+          correctIndex: 0,
+          explain: 'Si el interlocutor no comprendió, podemos repetir el mensaje o explicarlo de otra manera. Esa posibilidad de corrección inmediata distingue a la comunicación oral.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-29-1',
+          q: '¿Qué afirmaciones son correctas sobre la comunicación escrita?',
+          options: [
+            'La entonación se transcribe por signos de puntuación',
+            'Las frases deben ser completas',
+            'Se deben evitar ambigüedades',
+            'Hay que cuidar los giros del lenguaje',
+            'El gesto reemplaza a las palabras',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'En la escrita la entonación se transcribe por signos de puntuación, las frases deben ser completas, se evitan ambigüedades y se cuidan los giros del lenguaje. El gesto pertenece a la comunicación oral.',
+        },
+        {
+          id: 'ms-29-2',
+          q: '¿Qué caracteriza a la comunicación oral según el apunte?',
+          options: [
+            'Importa la entonación y el énfasis',
+            'A veces las frases se dejan truncas y se cierran con un gesto',
+            'Si no se entendió, se puede repetir o explicar de otra manera',
+            'El sentido predominante es el oído',
+            'No admite ninguna corrección posterior',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'La oral se apoya en entonación y énfasis, permite frases truncas cerradas con gestos, admite repetir o reexplicar, e impresiona predominantemente al oído. Justamente SÍ admite corrección inmediata.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-29-1',
+        front: 'Base material de la lengua',
+        back: 'El sonido; el sentido al que impresiona predominantemente es el oído.',
+      },
+      {
+        id: 'fc-29-2',
+        front: 'La escritura',
+        back: 'Forma secundaria de la lengua, percibida a través de la vista.',
+      },
+      {
+        id: 'fc-29-3',
+        front: 'Entonación en lo escrito',
+        back: 'Se transcribe mediante signos de puntuación.',
+      },
+      {
+        id: 'fc-29-4',
+        front: 'Frases en lo escrito',
+        back: 'Deben ser completas, porque no se puede constatar si el lector interpretó lo que no escribimos. Hay que evitar ambigüedades y cuidar los giros del lenguaje.',
+      },
+      {
+        id: 'fc-29-5',
+        front: 'Frases en lo oral',
+        back: 'Muchas veces se dejan truncas y se cierran con un gesto, porque captamos que el interlocutor ya entendió. Si no entendió, se repite o reexplica.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 30 ----------
+  {
+    id: '30',
+    unit: '12',
+    title: 'El proceso de comunicación',
+    criollo:
+      'Comunicar no es solo hablar: es un proceso circular entre dos o más partes. Alguien arma un mensaje (emisor), lo manda por un canal (medio), y otro lo recibe e interpreta (receptor). Y lo más importante: el receptor responde (retroalimentación). Si nadie escucha, la comunicación vale cero.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'La comunicación es un proceso dinámico y circular, en el que se intercambia información entre dos o más partes. Para que sea efectiva, todos sus componentes deben funcionar en armonía.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/12/proceso-comunicacion.png',
+        alt: 'Diagrama del proceso de comunicación con cuatro columnas (Emisor: quién habla; Medio: virtuales, intranet, orales, escritos, digitales; Mensaje: información, publicidad, solicitud, instrucción, corrección, capacitación; Receptor: el que recibe la información) y una flecha doble central de Retroalimentación/Escuchar.',
+        caption: 'El proceso de comunicación: emisor, medio, mensaje, receptor y la retroalimentación (escuchar). “Si no está dispuesto a escuchar, el producto de la comunicación es nulo.” Fuente: elaboración propia (UP).',
+      },
+      {
+        type: 'h3',
+        text: 'Emisor',
+        criollo: 'Es quien arranca el mensaje. No solo “habla”: codifica una idea en un lenguaje que el otro pueda entender.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>emisor</strong> es quien origina el mensaje, la fuente de la información. No solo “habla”, sino que codifica un pensamiento o una idea en un lenguaje comprensible. El emisor tiene una intención comunicativa (informar, persuadir, solicitar, etc.). El éxito de la comunicación depende, en gran medida, de su habilidad para adaptar el mensaje al receptor y al contexto.',
+      },
+      {
+        type: 'h3',
+        text: 'Mensaje',
+        criollo: 'Es la información en sí: puede ser una instrucción, una solicitud, una pieza publicitaria o una capacitación.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>mensaje</strong> es la información misma que se transmite. Puede ser una instrucción, una solicitud, una pieza publicitaria o una capacitación. Ejemplo: en un correo electrónico (medio), un gerente (emisor) envía a su equipo las “Instrucciones para el nuevo reporte de ventas” (mensaje).',
+      },
+      {
+        type: 'h3',
+        text: 'Medio (o canal)',
+        criollo: 'Es el vehículo por donde viaja el mensaje. Elegirlo bien es estratégico: no comunicás igual un despido que un asado de la empresa.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>medio</strong> (o canal) es el vehículo a través del cual viaja el mensaje. Puede ser oral, escrito, digital o virtual. La elección del medio es estratégica: no es lo mismo comunicar un despido (idealmente, oral y en persona) que anunciar un evento social de la empresa (un correo electrónico o la intranet son adecuados). Un medio inadecuado puede distorsionar el mensaje.',
+      },
+      {
+        type: 'h3',
+        text: 'Receptor',
+        criollo: 'Es quien recibe y decodifica. No es pasivo: interpreta el mensaje según lo que sabe, vivió y percibe.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>receptor</strong> es quien recibe y decodifica la información. El receptor no es un agente pasivo: interpreta el mensaje basándose en sus conocimientos, experiencias y percepciones.',
+      },
+      {
+        type: 'h3',
+        text: 'Retroalimentación (feedback)',
+        criollo: 'Es la respuesta del receptor. Cierra el círculo y te dice si el mensaje llegó bien. Y se apoya en una habilidad clave: saber escuchar.',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>retroalimentación</strong> (feedback) es la respuesta del receptor al mensaje del emisor. Este elemento es crucial porque cierra el círculo de la comunicación y le permite al emisor saber si su mensaje fue recibido y comprendido correctamente. La retroalimentación se basa en una habilidad fundamental: saber escuchar.',
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Principio clave: “Si no está dispuesto a escuchar, el producto de la comunicación es nulo”. La comunicación es un diálogo, no un monólogo. Sin escucha activa no hay retroalimentación, y sin retroalimentación no podemos saber si la comunicación fue exitosa.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-30-1',
+          q: 'La comunicación es un proceso dinámico y circular entre dos o más partes.',
+          a: true,
+          explain: 'Correcto. El apunte define la comunicación como un proceso dinámico y circular en el que se intercambia información entre dos o más partes.',
+        },
+        {
+          id: 'tf-30-2',
+          q: 'El receptor es un agente pasivo que solo recibe el mensaje sin interpretarlo.',
+          a: false,
+          explain: 'Falso. El receptor NO es pasivo: interpreta el mensaje basándose en sus conocimientos, experiencias y percepciones.',
+        },
+        {
+          id: 'tf-30-3',
+          q: 'La retroalimentación cierra el círculo de la comunicación y se basa en saber escuchar.',
+          a: true,
+          explain: 'Tal cual: la retroalimentación cierra el círculo y le permite al emisor saber si el mensaje se comprendió; se basa en la habilidad de saber escuchar.',
+        },
+        {
+          id: 'tf-30-4',
+          q: 'La elección del medio es indistinta: cualquier canal sirve igual para cualquier mensaje.',
+          a: false,
+          explain: 'Falso. La elección del medio es estratégica; un medio inadecuado puede distorsionar el mensaje (no es lo mismo comunicar un despido que un evento social).',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-30-1',
+          q: '¿Qué componente codifica un pensamiento o idea en un lenguaje comprensible?',
+          options: [
+            'El receptor',
+            'El emisor',
+            'El canal',
+            'La retroalimentación',
+          ],
+          correctIndex: 1,
+          explain: 'El emisor origina el mensaje y codifica un pensamiento o idea en un lenguaje comprensible; tiene una intención comunicativa.',
+        },
+        {
+          id: 'mc-30-2',
+          q: 'En el ejemplo del apunte, el correo electrónico que usa el gerente es el…',
+          options: [
+            'Mensaje',
+            'Emisor',
+            'Medio',
+            'Receptor',
+          ],
+          correctIndex: 2,
+          explain: 'En el ejemplo, el correo electrónico es el medio; el gerente es el emisor y las “Instrucciones para el nuevo reporte de ventas” son el mensaje.',
+        },
+        {
+          id: 'mc-30-3',
+          q: 'Según el principio clave del apunte, si no se está dispuesto a escuchar…',
+          options: [
+            'La comunicación es más rápida',
+            'El producto de la comunicación es nulo',
+            'El mensaje se refuerza',
+            'El emisor ahorra tiempo',
+          ],
+          correctIndex: 1,
+          explain: 'El principio clave dice: “Si no está dispuesto a escuchar, el producto de la comunicación es nulo”. Sin escucha no hay retroalimentación.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-30-1',
+          q: '¿Cuáles son componentes del proceso de comunicación?',
+          options: [
+            'Emisor',
+            'Mensaje',
+            'Medio (o canal)',
+            'Receptor',
+            'Presupuesto',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Los componentes son emisor, mensaje, medio (o canal), receptor y retroalimentación. El presupuesto no es un componente del proceso de comunicación.',
+        },
+        {
+          id: 'ms-30-2',
+          q: '¿Qué afirmaciones son correctas sobre la retroalimentación (feedback)?',
+          options: [
+            'Es la respuesta del receptor al mensaje del emisor',
+            'Cierra el círculo de la comunicación',
+            'Se basa en saber escuchar',
+            'Le permite al emisor saber si el mensaje se comprendió',
+            'Es exclusiva de la comunicación escrita',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'La retroalimentación es la respuesta del receptor, cierra el círculo, se basa en saber escuchar y le permite al emisor confirmar la comprensión. No es exclusiva de lo escrito.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-30-1',
+        front: 'Comunicación',
+        back: 'Proceso dinámico y circular en el que se intercambia información entre dos o más partes. Para ser efectiva, todos sus componentes deben funcionar en armonía.',
+      },
+      {
+        id: 'fc-30-2',
+        front: 'Emisor',
+        back: 'Quien origina el mensaje; codifica un pensamiento o idea en lenguaje comprensible. Tiene una intención comunicativa (informar, persuadir, solicitar).',
+      },
+      {
+        id: 'fc-30-3',
+        front: 'Mensaje',
+        back: 'La información misma que se transmite: una instrucción, solicitud, pieza publicitaria o capacitación.',
+      },
+      {
+        id: 'fc-30-4',
+        front: 'Medio (o canal)',
+        back: 'El vehículo por el que viaja el mensaje (oral, escrito, digital o virtual). Su elección es estratégica; uno inadecuado distorsiona el mensaje.',
+      },
+      {
+        id: 'fc-30-5',
+        front: 'Receptor',
+        back: 'Quien recibe y decodifica la información. No es pasivo: interpreta según sus conocimientos, experiencias y percepciones.',
+      },
+      {
+        id: 'fc-30-6',
+        front: 'Retroalimentación (feedback)',
+        back: 'Respuesta del receptor al emisor. Cierra el círculo de la comunicación y se basa en saber escuchar.',
+      },
+      {
+        id: 'fc-30-7',
+        front: 'Principio clave',
+        back: '“Si no está dispuesto a escuchar, el producto de la comunicación es nulo.” La comunicación es un diálogo, no un monólogo.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 31 ----------
+  {
+    id: '31',
+    unit: '12',
+    title: 'Oratoria: el arte de hablar en público',
+    criollo:
+      'Oratoria es el arte de hablar con elocuencia para persuadir, convencer o conmover a un auditorio. Y ojo: un buen orador no improvisa, se prepara. Dicen que la preparación es el 90 % del éxito. Acá van las bases del estilo y los pasos para preparar un discurso que se recuerde.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'La oratoria es el arte de hablar con elocuencia, es decir, con la capacidad de expresarse de manera eficaz para persuadir, convencer o conmover a un auditorio. Es un género que se concreta en distintas formas: discursos, conferencias, exposiciones, disertaciones y debates. La utilización del lenguaje puede ser oral, escrita, gestual y gráfica.',
+      },
+      {
+        type: 'h3',
+        text: 'Bases para un estilo oratorio eficaz',
+        criollo:
+          'Para que un discurso quede en la memoria y cumpla su objetivo, se apoya en varios principios. Resumido: que se entienda, que sea simple, que vaya al grano, que tenga hilo, que fluya, que sea natural y que pegue.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Claridad</strong>: las ideas deben ser transparentes y fáciles de entender. Evitá el lenguaje excesivamente técnico o la jerga si tu audiencia no está familiarizada con ella.',
+          '<strong>Sencillez</strong>: usá un lenguaje directo y sin adornos innecesarios. La sencillez no es simpleza, es elegancia comunicativa.',
+          '<strong>Concisión</strong>: expresá las ideas con el menor número de palabras posible, yendo a lo esencial. En lugar de “El punto que estoy tratando de hacer es que debemos considerar la posibilidad de...”, decí directamente: “Propongo que consideremos...”.',
+          '<strong>Coherencia</strong>: el discurso debe tener un hilo conductor claro, donde cada parte se conecte lógicamente con la anterior.',
+          '<strong>Fluidez</strong>: mantené la expresividad a lo largo de todo el discurso.',
+          '<strong>Naturalidad</strong>: sé vos mismo. Un orador auténtico y espontáneo genera más confianza y conexión con el público.',
+          '<strong>Impacto</strong>: buscá que tu mensaje deje una impresión duradera. Se logra con un buen comienzo, un final potente, historias relevantes o datos sorprendentes.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'La preparación del discurso: el 90 % del éxito',
+        criollo:
+          'Un buen orador no improvisa. Elegís el tema y el objetivo, analizás a quién le hablás y el contexto, investigás, organizás el contenido y practicás midiendo el tiempo.',
+      },
+      {
+        type: 'p',
+        text: 'Un buen orador no improvisa, se prepara. Los pasos para una preparación metódica son:',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Elección del tema y objetivo</strong>: ¿de qué voy a hablar y qué quiero lograr con ello (informar, motivar, vender)?',
+          '<strong>Análisis del auditorio y contexto</strong>: ¿quiénes me van a escuchar? ¿Qué saben del tema? ¿Cuál es su actitud? ¿En qué lugar y situación se dará la charla? Adaptar el mensaje a la audiencia es clave.',
+          '<strong>Investigación y organización</strong>: recopilá información de fuentes fiables (experiencia personal y ajena, bibliografía) y estructurá el contenido en introducción, cuerpo y conclusión.',
+          '<strong>Práctica</strong>: repetí el discurso varias veces, medí el tiempo y familiarizate con el contenido. Esto te dará fluidez y confianza.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'La estructura del contenido se organiza en un esquema de redacción de tres partes:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Introducción</strong>: captá la atención y presentá el tema central / el objetivo.',
+          '<strong>Cuerpo</strong>: desarrollá las ideas principales y secundarias con argumentos, datos y ejemplos.',
+          '<strong>Conclusión</strong>: resumí lo más importante y cerrá con una llamada a la acción o una reflexión final (perspectivas, cierre).',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'La comunicación hablada: respiración y objetividad',
+        criollo:
+          'Para hablar en público también cuenta el cuerpo: respirar bien y estar relajado. Y la exposición conviene que sea objetiva, clara y exacta, sin andar metiendo emociones personales.',
+      },
+      {
+        type: 'p',
+        text: 'Las técnicas de respiración son importantes: respiración diafragmática, desarrollar una adecuada relajación, no respirar por la boca, vestir ropa cómoda y no ajustada, y practicar el script (guion) varias veces.',
+      },
+      {
+        type: 'p',
+        text: 'La exposición debe ser una <strong>exposición objetiva de razonamientos y juicios</strong>, evitando manifestaciones de interés personal o reflejar emociones. Se busca esencialmente la claridad y exactitud en la exposición de los temas, y brindar información objetiva.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Moraleja: el talento ayuda, pero lo que de verdad te salva es preparar. Tema y objetivo claros, conocer a tu público, investigar, armar intro-cuerpo-conclusión y ensayar con cronómetro. Eso es el 90 % del éxito.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-31-1',
+          q: 'La oratoria es el arte de hablar con elocuencia para persuadir, convencer o conmover a un auditorio.',
+          a: true,
+          explain: 'Correcto, es la definición textual del apunte.',
+        },
+        {
+          id: 'tf-31-2',
+          q: 'Según el apunte, un buen orador improvisa en el momento para sonar más natural.',
+          a: false,
+          explain: 'Falso. Un buen orador NO improvisa, se prepara. La preparación se describe como el 90 % del éxito.',
+        },
+        {
+          id: 'tf-31-3',
+          q: 'La concisión consiste en expresar las ideas con el menor número de palabras posible, yendo a lo esencial.',
+          a: true,
+          explain: 'Tal cual: la concisión es expresar las ideas con el menor número de palabras, yendo a lo esencial.',
+        },
+        {
+          id: 'tf-31-4',
+          q: 'La exposición debe reflejar las emociones e intereses personales del orador.',
+          a: false,
+          explain: 'Falso. La exposición debe ser objetiva, evitando manifestaciones de interés personal o reflejar emociones; se busca claridad y exactitud.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-31-1',
+          q: '¿Cuál de estas es una de las bases del estilo oratorio?',
+          options: [
+            'Improvisación',
+            'Claridad',
+            'Ambigüedad',
+            'Extensión',
+          ],
+          correctIndex: 1,
+          explain: 'Entre las bases del estilo oratorio están claridad, sencillez, concisión, coherencia, fluidez, naturalidad e impacto.',
+        },
+        {
+          id: 'mc-31-2',
+          q: '¿Cómo se estructura el contenido de un discurso?',
+          options: [
+            'Inicio, nudo y desenlace',
+            'Introducción, cuerpo y conclusión',
+            'Tesis, antítesis y síntesis',
+            'Apertura, debate y votación',
+          ],
+          correctIndex: 1,
+          explain: 'El esquema de redacción se organiza en introducción (capta la atención y presenta el tema), cuerpo (desarrolla ideas) y conclusión (resume y cierra).',
+        },
+        {
+          id: 'mc-31-3',
+          q: '¿Qué técnica de respiración recomienda el apunte para la comunicación hablada?',
+          options: [
+            'Respiración por la boca',
+            'Respiración diafragmática',
+            'Contener la respiración',
+            'Respiración acelerada',
+          ],
+          correctIndex: 1,
+          explain: 'Recomienda la respiración diafragmática, adecuada relajación, no respirar por la boca, ropa cómoda y practicar el guion varias veces.',
+        },
+        {
+          id: 'mc-31-4',
+          q: 'En la preparación del discurso, analizar quiénes escuchan, qué saben y su actitud corresponde a…',
+          options: [
+            'Elección del tema y objetivo',
+            'Análisis del auditorio y contexto',
+            'Práctica',
+            'Conclusión',
+          ],
+          correctIndex: 1,
+          explain: 'El análisis del auditorio y contexto evalúa quiénes escuchan, qué saben del tema, su actitud y el lugar/situación de la charla, para adaptar el mensaje.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-31-1',
+          q: '¿Cuáles son bases del estilo oratorio según el apunte?',
+          options: [
+            'Claridad',
+            'Sencillez',
+            'Concisión',
+            'Coherencia',
+            'Improvisación',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Las bases son claridad, sencillez, concisión, coherencia, fluidez, naturalidad e impacto. La improvisación no es una base; de hecho el apunte recomienda preparar el discurso.',
+        },
+        {
+          id: 'ms-31-2',
+          q: '¿Qué pasos forman parte de la preparación metódica del discurso?',
+          options: [
+            'Elección del tema y objetivo',
+            'Análisis del auditorio y contexto',
+            'Investigación y organización del contenido',
+            'Práctica (repetir y medir el tiempo)',
+            'Esperar la inspiración del momento',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'La preparación incluye elección de tema/objetivo, análisis del auditorio y contexto, investigación y organización, y práctica. Esperar la inspiración contradice la idea de prepararse.',
+        },
+        {
+          id: 'ms-31-3',
+          q: '¿Qué recomienda el apunte para la comunicación hablada?',
+          options: [
+            'Respiración diafragmática',
+            'Adecuada relajación',
+            'No respirar por la boca',
+            'Vestir ropa cómoda, no ajustada',
+            'Hablar lo más rápido posible',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Recomienda respiración diafragmática, relajación, no respirar por la boca, ropa cómoda y practicar el guion. Hablar lo más rápido posible no figura entre las recomendaciones.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-31-1',
+        front: 'Oratoria',
+        back: 'Arte de hablar con elocuencia para persuadir, convencer o conmover a un auditorio. Se concreta en discursos, conferencias, exposiciones, disertaciones y debates.',
+      },
+      {
+        id: 'fc-31-2',
+        front: 'Bases del estilo oratorio',
+        back: 'Claridad, sencillez, concisión, coherencia, fluidez, naturalidad e impacto.',
+      },
+      {
+        id: 'fc-31-3',
+        front: 'Concisión',
+        back: 'Expresar las ideas con el menor número de palabras posible, yendo a lo esencial.',
+      },
+      {
+        id: 'fc-31-4',
+        front: 'Preparación del discurso',
+        back: 'El 90 % del éxito. Pasos: elección del tema y objetivo, análisis del auditorio y contexto, investigación y organización, y práctica.',
+      },
+      {
+        id: 'fc-31-5',
+        front: 'Esquema del discurso',
+        back: 'Introducción (capta la atención y presenta el tema), cuerpo (desarrolla ideas con argumentos y ejemplos) y conclusión (resume y cierra con llamada a la acción).',
+      },
+      {
+        id: 'fc-31-6',
+        front: 'Técnicas de respiración',
+        back: 'Respiración diafragmática, adecuada relajación, no respirar por la boca, ropa cómoda no ajustada y practicar el guion varias veces.',
+      },
+      {
+        id: 'fc-31-7',
+        front: 'Exposición objetiva',
+        back: 'Exponer razonamientos y juicios evitando intereses personales o emociones; buscar claridad y exactitud, y brindar información objetiva.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 32 ----------
+  {
+    id: '32',
+    unit: '12',
+    title: 'Comunicación escrita: redacción, informes y documentación técnica',
+    criollo:
+      'Escribir bien en el laburo pide rigor: no tenés gestos ni tono para aclarar. Una buena redacción es clara, breve y natural. Y en la empresa hay distintos tipos de comunicación escrita (interna/externa), manuales administrativos y documentos comerciales, cada uno con su propósito.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'La comunicación escrita, desde un correo electrónico hasta un informe técnico, exige un rigor particular. A diferencia de la comunicación oral, no contamos con el lenguaje gestual o el tono de voz para aclarar ambigüedades.',
+      },
+      {
+        type: 'h3',
+        text: 'Cualidades de una buena redacción',
+        criollo:
+          'Tres pilares: que sea clara y precisa, breve y concisa, y sencilla y natural. El apunte agrega otras cualidades, pero estas tres son el corazón.',
+      },
+      {
+        type: 'p',
+        text: 'Una redacción profesional debe ser:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Clara y precisa</strong>: las ideas deben ser inequívocas. Usá la palabra exacta para cada concepto.',
+          '<strong>Breve y concisa</strong>: andá al grano. Eliminá palabras, frases y párrafos que no aporten valor.',
+          '<strong>Sencilla y natural</strong>: escribí de forma directa y honesta, como si se lo estuvieras explicando a una persona, de forma clara y respetuosa.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'El apunte enumera, además, otras cualidades de la redacción: naturalidad, claridad, exactitud, brevedad, sencillez, originalidad, concisión, fluidez, precisión, corrección y estilo personal.',
+      },
+      {
+        type: 'h3',
+        text: 'Redacción de informes',
+        criollo:
+          'Para armar un informe, primero planificás: definís bien el problema, hacés un bosquejo y armás una agenda con fechas. Recién ahí te ponés a escribir.',
+      },
+      {
+        type: 'p',
+        text: 'Los informes y manuales son herramientas fundamentales en el mundo profesional, y su redacción requiere una planificación cuidadosa del proyecto:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Definición del problema</strong>: analizar el problema, definir sus alcances o límites, relacionar antecedentes históricos, examinar y analizar estudios previos, y hacer un estudio preliminar y genérico.',
+          '<strong>Confección del bosquejo o esquema</strong>: concretar ideas en frases clave, establecer gráfica y analíticamente el contenido y los límites del trabajo, y proporcionar una guía para el acopio de información.',
+          '<strong>Elaboración de la agenda</strong>: confeccionar el cronograma de tiempos, determinar la carga horaria diaria al proyecto y establecer el target-date o fecha de presentación.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Tipos de comunicación escrita en una empresa',
+        criollo:
+          'En una empresa lo escrito se divide en interna (dentro de la organización) y externa (hacia afuera). Y la interna puede ser formal o informal.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Interna formal</strong>: memorándums, boletines, informes y actas de reuniones.',
+          '<strong>Interna informal</strong>: comunicaciones sobre reuniones, deportes, eventos y temas personales.',
+          '<strong>Externa</strong>: comunicaciones dirigidas a clientes, proveedores o el público general; incluye relaciones públicas, comunicación institucional, promoción y publicidad (de productos o imagen institucional).',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Documentación técnica: manuales administrativos',
+        criollo:
+          'Los manuales administrativos estandarizan cómo funciona la empresa. Hay tres clásicos: el de organización, el de procedimientos y el del usuario.',
+      },
+      {
+        type: 'p',
+        text: 'Los manuales administrativos reflejan las normas de la compañía que deben ser contempladas en los diferentes procesos y actividades de la empresa; son documentos que estandarizan su funcionamiento:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Manual de organización</strong>: describe la estructura y funciones de la empresa (diseño funcional).',
+          '<strong>Manual de procedimientos</strong>: detalla paso a paso cómo realizar las operaciones (circuitos y procesos de las operaciones).',
+          '<strong>Manual de usuario</strong>: guía para utilizar un sistema o proceso automatizado; contiene instrucciones de sistemas y procesos automatizados.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Documentos comerciales',
+        criollo:
+          'Son la base de las transacciones de la empresa. Cada uno tiene un propósito legal y contable, así que hay que redactarlos con máxima precisión.',
+      },
+      {
+        type: 'p',
+        text: 'Los documentos comerciales son la base de las transacciones de una empresa. Cada uno tiene un propósito legal y contable específico, y debe ser redactado con máxima precisión. Incluyen, entre otros:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Contratos comerciales.',
+          'Factura, nota de débito, nota de crédito, recibo comercial y recibo de sueldo.',
+          'Pagaré.',
+          'Cheque y boleta de depósito.',
+          'Solicitud o pedido de venta.',
+          'Orden de compra y orden de pago.',
+          'Remito.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Clave: lo escrito en la empresa no es solo “mandar un mail”. Hay una pirámide que va de lo informal (un aviso de un asado) a lo formal y legal (una factura o un contrato), y cuanto más formal, más precisión necesita la redacción.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-32-1',
+          q: 'La comunicación escrita exige más rigor que la oral porque no contamos con gestos ni tono de voz para aclarar ambigüedades.',
+          a: true,
+          explain: 'Correcto. A diferencia de la oral, en la escrita no hay lenguaje gestual ni tono de voz para aclarar ambigüedades, por eso exige un rigor particular.',
+        },
+        {
+          id: 'tf-32-2',
+          q: 'El manual de procedimientos describe la estructura y funciones de la empresa.',
+          a: false,
+          explain: 'Falso. Eso lo hace el manual de organización. El manual de procedimientos detalla paso a paso cómo realizar las operaciones (circuitos y procesos).',
+        },
+        {
+          id: 'tf-32-3',
+          q: 'Una factura es un ejemplo de documento comercial con propósito legal y contable.',
+          a: true,
+          explain: 'Tal cual: los documentos comerciales (factura, notas de débito/crédito, recibos, órdenes, remito, etc.) tienen un propósito legal y contable y deben redactarse con máxima precisión.',
+        },
+        {
+          id: 'tf-32-4',
+          q: 'Los memorándums, informes y actas de reuniones son comunicación interna formal.',
+          a: true,
+          explain: 'Correcto. La comunicación interna formal incluye memorándums, boletines, informes y actas de reuniones.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-32-1',
+          q: '¿Cuál de estas es una cualidad de una buena redacción según el apunte?',
+          options: [
+            'Ambigua y extensa',
+            'Clara y precisa',
+            'Técnica y rebuscada',
+            'Larga y detallista',
+          ],
+          correctIndex: 1,
+          explain: 'Una buena redacción debe ser clara y precisa, breve y concisa, y sencilla y natural.',
+        },
+        {
+          id: 'mc-32-2',
+          q: '¿Qué manual administrativo contiene instrucciones de sistemas y procesos automatizados?',
+          options: [
+            'Manual de organización',
+            'Manual de procedimientos',
+            'Manual de usuario',
+            'Manual de marca',
+          ],
+          correctIndex: 2,
+          explain: 'El manual de usuario es la guía para utilizar un sistema o proceso automatizado; contiene instrucciones de sistemas y procesos automatizados.',
+        },
+        {
+          id: 'mc-32-3',
+          q: 'En la redacción de informes, establecer el cronograma de tiempos y la fecha de presentación (target-date) corresponde a…',
+          options: [
+            'Definición del problema',
+            'Confección del bosquejo',
+            'Elaboración de la agenda',
+            'Conclusión',
+          ],
+          correctIndex: 2,
+          explain: 'La elaboración de la agenda confecciona el cronograma de tiempos, determina la carga horaria diaria y establece el target-date o fecha de presentación.',
+        },
+        {
+          id: 'mc-32-4',
+          q: 'La promoción y la publicidad institucional son parte de la comunicación…',
+          options: [
+            'Interna formal',
+            'Interna informal',
+            'Externa',
+            'Privada',
+          ],
+          correctIndex: 2,
+          explain: 'La comunicación externa incluye relaciones públicas, comunicación institucional, promoción y publicidad (de productos o imagen institucional).',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-32-1',
+          q: '¿Cuáles son cualidades de una buena redacción mencionadas en el apunte?',
+          options: [
+            'Claridad',
+            'Concisión',
+            'Precisión',
+            'Naturalidad',
+            'Ambigüedad',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'El apunte enumera naturalidad, claridad, exactitud, brevedad, sencillez, originalidad, concisión, fluidez, precisión, corrección y estilo personal. La ambigüedad es justamente lo que hay que evitar.',
+        },
+        {
+          id: 'ms-32-2',
+          q: '¿Cuáles son los manuales administrativos descriptos?',
+          options: [
+            'Manual de organización',
+            'Manual de procedimientos',
+            'Manual de usuario',
+            'Manual de ventas',
+            'Manual de contingencia',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+          ],
+          explain: 'Los manuales administrativos descriptos son: de organización (estructura y funciones), de procedimientos (cómo hacer las operaciones) y de usuario (uso de sistemas automatizados).',
+        },
+        {
+          id: 'ms-32-3',
+          q: '¿Cuáles de estos son documentos comerciales según el apunte?',
+          options: [
+            'Factura',
+            'Nota de crédito',
+            'Orden de compra',
+            'Remito',
+            'Acta de reunión',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Son documentos comerciales: factura, notas de débito/crédito, recibos, pagaré, cheque, boleta de depósito, solicitud de venta, órdenes de compra/pago y remito. El acta de reunión es comunicación interna formal, no un documento comercial.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-32-1',
+        front: 'Rigor de lo escrito',
+        back: 'La comunicación escrita exige más rigor que la oral porque no hay gestos ni tono de voz para aclarar ambigüedades.',
+      },
+      {
+        id: 'fc-32-2',
+        front: 'Cualidades de la redacción (núcleo)',
+        back: 'Clara y precisa, breve y concisa, y sencilla y natural.',
+      },
+      {
+        id: 'fc-32-3',
+        front: 'Planificación de un informe',
+        back: 'Definición del problema, confección del bosquejo o esquema, y elaboración de la agenda (cronograma y target-date).',
+      },
+      {
+        id: 'fc-32-4',
+        front: 'Comunicación interna vs. externa',
+        back: 'Interna: formal (memos, informes, actas) e informal (eventos, reuniones, personal). Externa: clientes, proveedores y público (relaciones públicas, institucional, promoción, publicidad).',
+      },
+      {
+        id: 'fc-32-5',
+        front: 'Manual de organización',
+        back: 'Describe la estructura y funciones de la empresa (diseño funcional).',
+      },
+      {
+        id: 'fc-32-6',
+        front: 'Manual de procedimientos',
+        back: 'Detalla paso a paso cómo realizar las operaciones (circuitos y procesos).',
+      },
+      {
+        id: 'fc-32-7',
+        front: 'Manual de usuario',
+        back: 'Guía para utilizar un sistema o proceso automatizado; contiene instrucciones de sistemas automatizados.',
+      },
+      {
+        id: 'fc-32-8',
+        front: 'Documentos comerciales',
+        back: 'Base de las transacciones, con propósito legal y contable: factura, notas de débito/crédito, recibos, pagaré, cheque, boleta de depósito, órdenes de compra/pago y remito.',
+      },
+    ],
+  },
   ],
   pdfs: [
     { key: 'fundamentos', label: 'Fundamentos', path: 'pdfs/fundamentos.pdf' },
@@ -6397,5 +8619,11 @@ export default {
     { key: 'si-empresas', label: 'Los SI en las empresas (apunte)', path: 'pdfs/si-empresas.pdf' },
     { key: 'si-parte2-apunte', label: 'Sistemas de información — Parte 2 (apunte)', path: 'pdfs/si-parte2-apunte.pdf' },
     { key: 'si-parte2-presentacion', label: 'Sistemas de información — Parte 2 (presentación)', path: 'pdfs/si-parte2-presentacion.pdf' },
+    { key: 'proceso-de-desarrollo', label: 'Proceso de desarrollo (apunte)', path: 'pdfs/proceso-de-desarrollo.pdf' },
+    { key: 'desarrollo-de-si-apunte', label: 'Desarrollo de sistemas de información (apunte)', path: 'pdfs/desarrollo-de-si-apunte.pdf' },
+    { key: 'desarrollo-de-los-si', label: 'Desarrollo de los sistemas de información (presentación)', path: 'pdfs/desarrollo-de-los-si.pdf' },
+    { key: 'comunicacion-oral-escrita', label: 'La comunicación oral y escrita (apunte)', path: 'pdfs/comunicacion-oral-escrita.pdf' },
+    { key: 'habilidades-comunicacion', label: 'Habilidades de comunicación oral y escrita (apunte)', path: 'pdfs/habilidades-comunicacion.pdf' },
+    { key: 'comunicacion-presentacion', label: 'Comunicación oral y escrita (presentación)', path: 'pdfs/comunicacion-presentacion.pdf' },
   ],
 };
