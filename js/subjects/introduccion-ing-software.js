@@ -20,6 +20,7 @@ export default {
     '10': 'Diagramas de secuencia',
     '11': 'Tipos de sistemas',
     '12': 'Reingeniería y métodos formales',
+    'tp': 'TP Integrador — Sistema para librería',
   },
   sections: [
   // ---------- UNIDAD 7 · SECCIÓN 7.1 ----------
@@ -7300,6 +7301,2350 @@ export default {
       },
     ],
   },
+
+  // ==================== UNIDAD TP · TRABAJO PRÁCTICO INTEGRADOR ====================
+  // Caso: Sistema para librería de compra y reventa de artículos (UP). 6 partes.
+  // ---------- PARTE 1 ----------
+  {
+    id: 'tp.1',
+    unit: 'tp',
+    title: 'Parte 1 — Determinación del modelo de ciclo de vida',
+    criollo: 'Esta es la primera parte del TP de la librería: primero leemos bien el caso y sacamos las características clave del proyecto, y después justificamos por qué elegimos el modelo incremental. Para defenderlo tenés que tener clarísimo POR QUÉ incremental y por qué descartamos espiral, prototipos y evolutivo. Acá te lo dejo machacado.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'De qué va el caso',
+        criollo: 'Antes de elegir el modelo, conviene tener identificadas las características del proyecto a partir del enunciado.',
+      },
+      {
+        type: 'p',
+        text: 'El caso es el <strong>Sistema para librería de compra y reventa de artículos</strong>. Antes de elegir el modelo de ciclo de vida, lo primero que hicimos fue identificar bien las características del proyecto a partir del enunciado, separándolas en dos lados: lo que tiene que ver con la <strong>organización</strong> y lo que tiene que ver con los <strong>requerimientos</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Características de la organización',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Es una librería que maneja tanto <strong>ventas minoristas</strong> (particulares) como <strong>ventas mayoristas</strong> (empresas).',
+          'Tienen un <strong>showroom en el microcentro</strong> de Buenos Aires y un <strong>depósito</strong> bastante amplio.',
+          'Trabajan con un grupo chico de proveedores (<strong>solo 4 hoy en día</strong>), a los que les pasan los pedidos <strong>todos los viernes</strong>.',
+          'Punto clave: la parte de <strong>pagos queda fuera del sistema</strong>, porque la maneja exclusivamente el sector <strong>Contable</strong>.',
+          'Ya tienen el <strong>hardware comprado</strong> y quieren usar ese, o sea que hay una <strong>restricción tecnológica inamovible desde el día cero</strong>.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Características de los requerimientos',
+      },
+      {
+        type: 'ul',
+        items: [
+          'El sistema tiene que resolver cosas muy concretas: <strong>ventas</strong>, <strong>stock</strong> de ambos lugares y los <strong>pedidos de los viernes</strong>.',
+          'Los <strong>requisitos están definidos</strong>: la empresa ya existe, opera todos los días y tiene claro cómo son sus procesos.',
+          'Al dejar los pagos afuera, el <strong>alcance queda perfectamente delimitado</strong>.',
+          'Como el hardware ya está definido, el <strong>entorno donde va a correr el sistema se conoce de antemano</strong>.',
+          'Pueden presentarse <strong>nuevos requisitos a futuro</strong>, como la generación de reportes.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Modelo seleccionado: Incremental',
+        criollo: 'Acá está el corazón del TP. El modelo incremental es el más adecuado, y estas son las 5 razones que damos para defenderlo.',
+      },
+      {
+        type: 'p',
+        text: 'Elegimos el <strong>modelo incremental</strong> porque es el más adecuado para este caso. La idea del incremental es construir el sistema en <strong>partes funcionales</strong> (incrementos), donde cada incremento ya entrega valor al cliente antes de tener el sistema completo. Lo justificamos con cinco razones:',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Los requisitos son conocidos pero el sistema puede dividirse en partes funcionales.</strong> La librería ya tiene procesos definidos: gestión de stock, pedidos a proveedores, ventas minoristas y ventas mayoristas. Esas áreas pueden convertirse naturalmente en <strong>incrementos independientes</strong>, cada uno entregando valor antes de completar el sistema total.',
+          '<strong>El cliente puede ver y usar avances rápidamente.</strong> Al ser un negocio en funcionamiento, conviene que algunas funcionalidades (por ejemplo el control de stock o el registro de ventas) estén disponibles cuanto antes, sin esperar a que todo esté terminado. Esto también ayuda a <strong>detectar problemas en producción</strong>, que se pueden solucionar en futuras versiones.',
+          '<strong>La restricción de hardware es un condicionante conocido desde el inicio.</strong> Esto permite planificar cada incremento dentro de esa restricción técnica fija, <strong>sin necesidad de revisar riesgos en cada ciclo</strong> como haría el modelo espiral.',
+          '<strong>No hay alta incertidumbre en los requisitos.</strong> El modelo de <strong>prototipos</strong> o el <strong>evolutivo</strong> serían más apropiados si el cliente no supiera lo que necesita. Acá el negocio es concreto y el dominio es comprensible, así que no se justifica construir versiones exploratorias.',
+          '<strong>No es un proyecto de alto riesgo tecnológico.</strong> El modelo <strong>espiral</strong> está pensado para proyectos grandes con muchos riesgos. Este es un sistema de gestión para una empresa mediana con tecnología estándar, por lo que el overhead del análisis de riesgos en cada ciclo no se justifica.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Por qué se descartan los otros modelos',
+        criollo: 'Esto es lo que más te van a preguntar al defender: por qué NO los otros.',
+      },
+      {
+        type: 'table',
+        caption: 'Comparación: por qué incremental sí y los demás no.',
+        headers: ['Modelo', '¿Va o no va? Por qué'],
+        rows: [
+          ['Incremental', 'SÍ. Requisitos conocidos pero divisibles en partes funcionales (stock, pedidos, ventas), entrega de valor temprana y restricción de hardware conocida desde el inicio.'],
+          ['Prototipos', 'NO. Sirve cuando el cliente no sabe bien qué necesita. Acá los requisitos ya están definidos, no hace falta construir versiones exploratorias.'],
+          ['Evolutivo', 'NO. Igual que prototipos: apropiado cuando hay alta incertidumbre en los requisitos. Acá el dominio es concreto y comprensible.'],
+          ['Espiral', 'NO. Pensado para proyectos grandes con muchos riesgos. Este es un sistema de gestión para una empresa mediana con tecnología estándar; el análisis de riesgos por ciclo es overhead innecesario.'],
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Conclusión',
+      },
+      {
+        type: 'p',
+        text: 'Avanzamos con un <strong>ciclo de vida incremental</strong> para brindarle al cliente una solución funcional desde las primeras etapas, permitiendo que el showroom y el depósito operen con <strong>módulos críticos</strong> mientras se completan los restantes. Es la elección más lógica porque, si bien los requisitos y el hardware están definidos (lo que permitiría un enfoque clásico), la naturaleza del negocio requiere una <strong>entrega de valor temprana</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'El enfoque incremental nos permite asegurar la <strong>estabilidad de cada proceso</strong> (ventas, stock y pedidos) de forma ordenada, minimizando el impacto en la operación diaria de la librería y facilitando la incorporación de <strong>reportes u otros requisitos a futuro</strong> sin alterar la base del sistema.',
+      },
+      {
+        type: 'p',
+        text: 'En cuanto a la forma de trabajo del equipo, <strong>Scrum</strong> acompaña bien este modelo: permite organizar el desarrollo en <strong>iteraciones cortas</strong> y revisar avances de manera periódica. Esto sirve en un proyecto donde el sistema puede dividirse en módulos concretos, así cada incremento se planifica, se desarrolla con más orden y se revisa junto con el cliente antes de seguir con el siguiente.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Para defender: incremental porque los requisitos están claros pero se parten en módulos que entregan valor rápido, con el hardware ya fijado de entrada. Prototipos y evolutivo se caen porque NO hay incertidumbre en los requisitos. Espiral se cae porque NO hay alto riesgo tecnológico. Y Scrum acompaña con iteraciones cortas.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-tp.1-1',
+          q: 'El modelo de ciclo de vida elegido para el caso de la librería es el incremental.',
+          a: true,
+          explain: 'Verdadero. El TP selecciona el modelo incremental como el más adecuado para el caso.',
+        },
+        {
+          id: 'tf-tp.1-2',
+          q: 'La gestión de pagos forma parte del alcance del sistema a desarrollar.',
+          a: false,
+          explain: 'Falso. Los pagos quedan fuera del sistema porque los maneja exclusivamente el sector Contable; eso justamente ayuda a delimitar el alcance.',
+        },
+        {
+          id: 'tf-tp.1-3',
+          q: 'El hardware todavía no está definido, por eso conviene un modelo que revise riesgos tecnológicos en cada ciclo.',
+          a: false,
+          explain: 'Falso. El hardware ya está comprado: es una restricción tecnológica inamovible desde el día cero, conocida desde el inicio. Por eso no hace falta revisar riesgos en cada ciclo como el espiral.',
+        },
+        {
+          id: 'tf-tp.1-4',
+          q: 'Se descarta el modelo espiral porque no es un proyecto de alto riesgo tecnológico.',
+          a: true,
+          explain: 'Verdadero. El espiral está pensado para proyectos grandes con muchos riesgos; acá es una empresa mediana con tecnología estándar, así que el análisis de riesgos por ciclo no se justifica.',
+        },
+        {
+          id: 'tf-tp.1-5',
+          q: 'Los modelos de prototipos y evolutivo se descartan porque los requisitos del negocio están definidos y hay baja incertidumbre.',
+          a: true,
+          explain: 'Verdadero. Prototipos y evolutivo sirven cuando el cliente no sabe qué necesita; acá el negocio es concreto y el dominio comprensible, no se justifican versiones exploratorias.',
+        },
+        {
+          id: 'tf-tp.1-6',
+          q: 'Según el TP, Scrum no es compatible con un modelo incremental.',
+          a: false,
+          explain: 'Falso. El TP dice que Scrum acompaña bien el modelo incremental, organizando el desarrollo en iteraciones cortas y revisando avances de forma periódica.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-tp.1-1',
+          q: '¿Cuál de estas características del caso ayuda a que el alcance quede perfectamente delimitado?',
+          options: [
+            'Que trabajen con 4 proveedores',
+            'Que los pagos queden fuera del sistema (los maneja Contable)',
+            'Que tengan showroom y depósito',
+            'Que puedan aparecer reportes a futuro',
+          ],
+          correctIndex: 1,
+          explain: 'Al dejar los pagos afuera (los maneja exclusivamente Contable), el alcance del sistema queda perfectamente delimitado.',
+        },
+        {
+          id: 'mc-tp.1-2',
+          q: '¿Por qué razón el TP descarta el modelo de prototipos (y el evolutivo)?',
+          options: [
+            'Porque el hardware ya está comprado',
+            'Porque es un proyecto de alto riesgo tecnológico',
+            'Porque no hay alta incertidumbre en los requisitos: el negocio es concreto y conocido',
+            'Porque el cliente quiere ver avances rápido',
+          ],
+          correctIndex: 2,
+          explain: 'Prototipos y evolutivo sirven cuando hay alta incertidumbre y el cliente no sabe qué necesita. Acá el negocio es concreto y el dominio comprensible, por eso no se justifican versiones exploratorias.',
+        },
+        {
+          id: 'mc-tp.1-3',
+          q: '¿Cada cuánto le pasan los pedidos a los proveedores?',
+          options: [
+            'Todos los días',
+            'Una vez al mes',
+            'Todos los viernes',
+            'Cuando se queda sin stock',
+          ],
+          correctIndex: 2,
+          explain: 'Trabajan con 4 proveedores a los que les pasan los pedidos todos los viernes.',
+        },
+        {
+          id: 'mc-tp.1-4',
+          q: 'Según la conclusión del TP, ¿qué ventaja principal aporta el enfoque incremental al negocio?',
+          options: [
+            'Permite no documentar los requisitos',
+            'Brinda una entrega de valor temprana, con módulos críticos operativos desde las primeras etapas',
+            'Elimina la necesidad de revisar avances con el cliente',
+            'Permite cambiar el hardware en cada ciclo',
+          ],
+          correctIndex: 1,
+          explain: 'La conclusión destaca la entrega de valor temprana: el showroom y el depósito operan con módulos críticos mientras se completan los restantes, minimizando el impacto en la operación diaria.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-tp.1-1',
+          q: '¿Cuáles de las siguientes son razones que da el TP para elegir el modelo incremental?',
+          options: [
+            'Los requisitos son conocidos pero el sistema puede dividirse en partes funcionales',
+            'El cliente puede ver y usar avances rápidamente',
+            'El cliente no sabe lo que necesita y hay que explorar',
+            'La restricción de hardware es un condicionante conocido desde el inicio',
+            'Es un proyecto de alto riesgo tecnológico que necesita análisis por ciclo',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+          ],
+          explain: 'Las razones del TP son: requisitos conocidos pero divisibles en partes funcionales, el cliente ve avances rápido, y la restricción de hardware conocida desde el inicio. Las otras dos son justamente lo contrario: no hay incertidumbre en los requisitos (descarta prototipos/evolutivo) y no es de alto riesgo tecnológico (descarta espiral).',
+        },
+        {
+          id: 'ms-tp.1-2',
+          q: '¿Cuáles de estas afirmaciones sobre el caso de la librería son correctas?',
+          options: [
+            'Maneja ventas minoristas y mayoristas',
+            'El sistema debe incluir la gestión de pagos',
+            'Tiene un showroom en el microcentro y un depósito amplio',
+            'El hardware ya está comprado (restricción fija desde el inicio)',
+            'Trabajan con decenas de proveedores',
+          ],
+          correctIndexes: [
+            0,
+            2,
+            3,
+          ],
+          explain: 'Correctas: ventas minoristas y mayoristas, showroom en microcentro más depósito, y hardware ya comprado. Falsas: los pagos quedan FUERA del sistema (los maneja Contable) y trabajan con solo 4 proveedores, no decenas.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-tp.1-1',
+        front: 'Modelo elegido',
+        back: 'El modelo incremental, por ser el más adecuado al caso de la librería: requisitos conocidos pero divisibles en partes funcionales con entrega de valor temprana.',
+      },
+      {
+        id: 'fc-tp.1-2',
+        front: '¿Por qué no espiral?',
+        back: 'Porque no es un proyecto de alto riesgo tecnológico. El espiral sirve para proyectos grandes con muchos riesgos; acá es una empresa mediana con tecnología estándar.',
+      },
+      {
+        id: 'fc-tp.1-3',
+        front: '¿Por qué no prototipos ni evolutivo?',
+        back: 'Porque no hay alta incertidumbre en los requisitos. Esos modelos sirven cuando el cliente no sabe qué necesita; acá el negocio es concreto y el dominio comprensible.',
+      },
+      {
+        id: 'fc-tp.1-4',
+        front: 'Restricción tecnológica del caso',
+        back: 'El hardware ya está comprado: es una restricción inamovible conocida desde el día cero, lo que permite planificar cada incremento sin revisar riesgos en cada ciclo.',
+      },
+      {
+        id: 'fc-tp.1-5',
+        front: '¿Por qué los pagos no van en el sistema?',
+        back: 'Porque los maneja exclusivamente el sector Contable. Al dejarlos afuera, el alcance del sistema queda perfectamente delimitado.',
+      },
+      {
+        id: 'fc-tp.1-6',
+        front: 'Posibles incrementos del sistema',
+        back: 'Gestión de stock, pedidos a proveedores, ventas minoristas y ventas mayoristas: cada área puede convertirse en un incremento independiente que entrega valor.',
+      },
+      {
+        id: 'fc-tp.1-7',
+        front: 'Metodología de trabajo del equipo',
+        back: 'Scrum, que acompaña bien al incremental: organiza el desarrollo en iteraciones cortas y permite revisar avances con el cliente antes de seguir con el siguiente módulo.',
+      },
+      {
+        id: 'fc-tp.1-8',
+        front: 'Requisito futuro mencionado',
+        back: 'La generación de reportes. El incremental facilita incorporarlo a futuro sin alterar la base del sistema.',
+      },
+    ],
+  },
+  // ---------- PARTE 2 ----------
+  // ---------- TP INTEGRADOR · PARTE 2 ----------
+  {
+    id: 'tp.2',
+    unit: 'tp',
+    title: 'Parte 2 — Organigrama y entrevistas',
+    criollo: 'Acá presentamos cómo está armada la librería (el organigrama) y resumimos las tres entrevistas: Ventas, Compras y Depósito. Lo que tenés que defender es el relevamiento: cómo trabajan hoy a mano, qué comprobantes manejan, cómo (no) controlan el stock y, sobre todo, los problemas comunes que justifican el sistema único. Si te preguntan "¿por qué hace falta el sistema?", la respuesta sale toda de acá.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'El organigrama de la librería',
+        criollo: 'Cómo está dividida la empresa y de quién depende cada cosa.',
+      },
+      {
+        type: 'p',
+        text: 'La estructura arranca en el <strong>Gerente General</strong>, del que dependen cuatro áreas: <strong>Comercial</strong>, <strong>Logística y depósito</strong>, <strong>Compras</strong> y <strong>Contable</strong>. En Comercial está el <strong>Gerente de ventas</strong>, que tiene a cargo a los vendedores <strong>minorista</strong> y <strong>mayorista</strong>. En Logística está el <strong>Jefe de depósito</strong> con sus <strong>operarios</strong>. Compras tiene al <strong>Gerente de Compras</strong>, que se relaciona con los <strong>Proveedores</strong> (vínculo externo, por eso va con línea punteada). Contable cuelga del <strong>Gerente de contaduría</strong>.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/organigrama.png',
+        alt: 'Organigrama de la librería: Gerente General arriba; debajo las áreas Comercial, Logística y depósito, Compras y Contable. Comercial deriva en Gerente de ventas y luego Vendedor minorista y mayorista; Logística en Jefe de depósito y operarios; Compras en Gerente de Compras vinculado por línea punteada a Proveedores; Contable en Gerente de contaduría.',
+        caption: 'Organigrama de la librería. La línea punteada hacia Proveedores marca un vínculo externo, no una relación jerárquica interna.',
+      },
+      {
+        type: 'h3',
+        text: 'Entrevista 1 — Gerente de Ventas',
+        criollo: 'La persona a cargo de las ventas mayoristas y minoristas.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>proceso de venta depende del cliente</strong>. En <strong>minorista es directo</strong>: la persona llega al showroom, elige los productos, el vendedor consulta el stock y, si hay, cierra la venta en el momento. En <strong>mayorista es más largo</strong>: la empresa manda el pedido por <strong>mail o WhatsApp</strong>, se verifica contra el depósito si están las cantidades, se arma el <strong>presupuesto con precio mayorista</strong> y recién cuando el cliente confirma se da por cerrado. El <strong>cobro, en los dos casos, lo maneja Contaduría aparte</strong>.',
+      },
+      {
+        type: 'table',
+        caption: 'Diferencias entre venta minorista y mayorista',
+        headers: ['Aspecto', 'Minorista', 'Mayorista'],
+        rows: [
+          ['Modalidad', 'De mostrador (showroom)', 'Por volumen'],
+          ['Cantidad', 'Pocas unidades', 'Volumen alto'],
+          ['Precio', 'Precio de lista', 'Lista de precios más baja'],
+          ['Stock', 'Se consulta al cerrar', 'Casi siempre exige verificar stock antes de confirmar'],
+          ['Entrega', 'Inmediata', 'La coordina depósito'],
+          ['Cliente', 'Eventual', 'Recurrente y fichado'],
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Hoy las ventas se <strong>registran a mano</strong>: cada venta se carga en una <strong>planilla de Excel compartida</strong> (fecha, vendedor, productos con código y cantidad, precio y, si es mayorista, el cliente). Como la tocan varios, <strong>a veces queda desactualizada o con errores de tipeo</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'Sobre los <strong>comprobantes</strong>: en minorista <strong>ticket o factura</strong> según pida el cliente; en mayorista <strong>factura más un remito</strong> que acompaña la mercadería al salir del depósito. Lo fiscal y el cobro lo cierra <strong>Contaduría</strong>; Ventas solo genera el comprobante de la venta y el remito de salida.',
+      },
+      {
+        type: 'p',
+        text: 'Para <strong>verificar el stock</strong>, antes de confirmar se consulta al depósito. Si hay, se confirma el pedido y se registra la venta; depósito prepara el producto, lo entrega o despacha, y se actualiza el stock. <strong>Si no hay stock</strong>, se frena ahí: el depósito informa la falta, se le avisa al cliente y, si es algo que se vende seguido, se le pasa el dato a Compras para sumarlo al <strong>pedido del viernes</strong>. Todo eso hoy queda solo en un chat o de palabra.',
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Problemas que detecta Ventas: la información está dispersa y desactualizada (la venta en una planilla, el stock en otra, los pedidos en el mail), lo que genera errores y demoras. Quieren un sistema único donde la venta descuente stock sola y todos vean lo mismo.',
+      },
+      {
+        type: 'h3',
+        text: 'Entrevista 2 — Gerente de Compras',
+        criollo: 'El que compra a los proveedores.',
+      },
+      {
+        type: 'p',
+        text: 'Los pedidos a proveedores se hacen <strong>una vez por semana, los viernes</strong>. Antes de armar el pedido se revisa lo que se vendió en la semana y cómo quedaron los niveles de stock, para saber qué reponer.',
+      },
+      {
+        type: 'p',
+        text: 'Para decidir <strong>qué se pide y en qué cantidad</strong>, se basan en dos cosas: los productos que quedaron por <strong>debajo del stock mínimo</strong> y los de <strong>mayor rotación</strong>. Con eso arman un <strong>informe de faltantes</strong> y definen cantidades. Con ese informe se genera la <strong>orden de compra</strong> (productos, cantidades y el proveedor que corresponde, porque trabajan con <strong>cuatro proveedores</strong> y cada uno cubre ciertos artículos) y se la <strong>envían por mail</strong>.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Registro</strong>: la orden queda en el mail enviado y en una planilla (qué se pidió, a quién y en qué fecha). <strong>No hay seguimiento formal del estado</strong> de cada orden.',
+          '<strong>Consulta de stock</strong>: preguntan al depósito o miran la planilla de stock, que <strong>no siempre está al día</strong>, así que a veces piden de más o de menos.',
+          '<strong>Confirmación del proveedor</strong>: es <strong>informal</strong> (a veces responde el mail o llama), no queda registro claro. Si el proveedor no tiene stock de algo, avisa y se le pide a otro o se espera a la semana siguiente.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Entrevista 3 — Jefe de depósito',
+        criollo: 'Encargado del stock y la logística de los productos.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>control de stock</strong> hoy es con <strong>planillas y control manual</strong>; cada tanto hacen <strong>recuentos físicos</strong> para corregir diferencias. Cuando llega mercadería de un proveedor, la reciben y <strong>controlan el remito contra la orden de compra</strong> (que coincidan productos y cantidades) y después hacen un <strong>control de calidad</strong> de lo que llegó.',
+      },
+      {
+        type: 'p',
+        text: 'Si lo recibido <strong>no coincide con la orden o viene con fallas</strong>, registran la diferencia o el problema y <strong>notifican al proveedor</strong>. Según el caso, se <strong>rechaza la mercadería</strong> o se <strong>acepta solo lo que está bien y se reclama el resto</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>actualización del stock</strong>: cuando la mercadería pasa el control, se ingresa al stock y se almacena; en las ventas se descuenta al preparar y enviar el producto. <strong>Todo se hace a mano, por eso a veces se actualiza tarde</strong>. La <strong>logística</strong> hacia showroom y mayoristas funciona así: el área comercial pide lo que necesita, depósito confirma disponibilidad, prepara el producto y lo envía.',
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Problema que detecta Depósito: los desfasajes por la carga manual hacen que el stock no siempre refleje la realidad. Lo ideal sería un sistema único donde el ingreso de mercadería y las ventas actualicen el stock automáticamente.',
+      },
+      {
+        type: 'h3',
+        text: 'Problemas comunes (lo que justifica el sistema)',
+        criollo: 'Si juntás las tres entrevistas, las quejas son las mismas. Esto es lo que tenés que tener afilado para defender el TP.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Información dispersa</strong>: la venta en una planilla, el stock en otra, los pedidos en el mail. Cada área mira su propia fuente.',
+          '<strong>Carga manual</strong>: ventas, compras y stock se cargan a mano en planillas, con errores de tipeo y dependencia de quién las toca.',
+          '<strong>Stock desactualizado</strong>: por la carga manual y los desfasajes, el stock no refleja la realidad, lo que lleva a pedir de más o de menos y a frenar ventas.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Moraleja del relevamiento: las tres áreas terminan pidiendo lo mismo, un sistema único donde la venta descuente stock sola, el ingreso de mercadería lo actualice y todos vean la misma información. Esa necesidad es la que justifica todo el proyecto.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-tp.2-1',
+          q: 'En la venta minorista el cliente manda el pedido por mail o WhatsApp y se le arma un presupuesto antes de cerrar.',
+          a: false,
+          explain: 'Falso. Eso es el proceso mayorista. El minorista es directo: la persona llega al showroom, elige, el vendedor consulta el stock y cierra en el momento.',
+        },
+        {
+          id: 'tf-tp.2-2',
+          q: 'El cobro de las ventas, tanto minorista como mayorista, lo maneja Contaduría aparte.',
+          a: true,
+          explain: 'Verdadero. El Gerente de Ventas aclara que en los dos casos el cobro lo maneja Contaduría; Ventas solo genera el comprobante y el remito de salida.',
+        },
+        {
+          id: 'tf-tp.2-3',
+          q: 'Los pedidos a los proveedores se arman todos los días según lo que se va vendiendo.',
+          a: false,
+          explain: 'Falso. Los pedidos se hacen una vez por semana, los viernes, revisando antes lo vendido y los niveles de stock.',
+        },
+        {
+          id: 'tf-tp.2-4',
+          q: 'Cuando el depósito recibe mercadería, controla el remito contra la orden de compra y después hace un control de calidad.',
+          a: true,
+          explain: 'Verdadero. El Jefe de depósito describe exactamente ese doble control: remito contra orden de compra (productos y cantidades) y luego control de calidad.',
+        },
+        {
+          id: 'tf-tp.2-5',
+          q: 'La confirmación de que el proveedor recibió y aceptó la orden queda registrada de forma formal y trazable.',
+          a: false,
+          explain: 'Falso. La confirmación es informal: a veces el proveedor responde el mail o llama, pero no queda un registro claro.',
+        },
+        {
+          id: 'tf-tp.2-6',
+          q: 'En el organigrama, el vínculo entre Compras y los Proveedores se representa con línea punteada porque es una relación externa.',
+          a: true,
+          explain: 'Verdadero. La línea punteada hacia Proveedores marca un vínculo externo, no una relación jerárquica interna de la librería.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-tp.2-1',
+          q: '¿Sobre qué dos criterios se decide qué productos pedir y en qué cantidad?',
+          options: [
+            'Precio del proveedor y plazo de entrega',
+            'Productos por debajo del stock mínimo y los de mayor rotación',
+            'Pedidos pendientes y reclamos de clientes',
+            'Antigüedad del producto y margen de ganancia',
+          ],
+          correctIndex: 1,
+          explain: 'El Gerente de Compras se basa en los productos que quedaron por debajo del stock mínimo y los que más rotación tuvieron; con eso arma el informe de faltantes.',
+        },
+        {
+          id: 'mc-tp.2-2',
+          q: '¿Qué comprobantes se emiten en una venta mayorista?',
+          options: [
+            'Solo ticket',
+            'Ticket o factura según pida el cliente',
+            'Factura más un remito que acompaña la mercadería',
+            'Únicamente la orden de compra',
+          ],
+          correctIndex: 2,
+          explain: 'En mayorista se emite factura más un remito que acompaña la mercadería al salir del depósito. El ticket o factura "según pida el cliente" es el caso minorista.',
+        },
+        {
+          id: 'mc-tp.2-3',
+          q: '¿Qué hace el depósito si la mercadería recibida no coincide con la orden o viene con fallas?',
+          options: [
+            'Acepta todo igual y lo carga al stock',
+            'Devuelve siempre el envío completo sin avisar',
+            'Registra el problema, notifica al proveedor y rechaza o acepta solo lo que está bien reclamando el resto',
+            'Lo deriva directamente a Contaduría',
+          ],
+          correctIndex: 2,
+          explain: 'Registran la diferencia o el problema y notifican al proveedor; según el caso rechazan la mercadería o aceptan solo lo que está bien y reclaman el resto.',
+        },
+        {
+          id: 'mc-tp.2-4',
+          q: '¿Por qué el stock "se actualiza tarde" según el Jefe de depósito?',
+          options: [
+            'Porque el sistema se cae seguido',
+            'Porque todo se hace a mano (carga manual)',
+            'Porque los proveedores entregan tarde',
+            'Porque Contaduría no informa los cobros',
+          ],
+          correctIndex: 1,
+          explain: 'El ingreso de mercadería y el descuento por ventas se hacen a mano, por eso a veces el stock se actualiza tarde y aparecen los desfasajes.',
+        },
+        {
+          id: 'mc-tp.2-5',
+          q: '¿Cuántos proveedores maneja Compras y cómo se reparten?',
+          options: [
+            'Uno solo que cubre todo',
+            'Cuatro, y cada uno cubre ciertos artículos',
+            'Dos, divididos por minorista y mayorista',
+            'Tantos como pida cada cliente',
+          ],
+          correctIndex: 1,
+          explain: 'Trabajan con cuatro proveedores y cada uno cubre ciertos artículos; por eso en la orden de compra se indica el proveedor que corresponde.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-tp.2-1',
+          q: '¿Cuáles son los problemas comunes detectados en las entrevistas que justifican el sistema?',
+          options: [
+            'Información dispersa entre planillas y mail',
+            'Falta de proveedores en el mercado',
+            'Carga manual de ventas, compras y stock',
+            'Stock desactualizado que no refleja la realidad',
+            'Exceso de personal en el depósito',
+          ],
+          correctIndexes: [0, 2, 3],
+          explain: 'Los tres problemas comunes son la información dispersa, la carga manual y el stock desactualizado. La falta de proveedores y el exceso de personal no aparecen en las entrevistas.',
+        },
+        {
+          id: 'ms-tp.2-2',
+          q: '¿Cuáles de estas características corresponden a la venta MAYORISTA?',
+          options: [
+            'Pedido por mail o WhatsApp',
+            'Entrega inmediata de mostrador',
+            'Lista de precios más baja',
+            'Casi siempre exige verificar stock antes de confirmar',
+            'Cliente eventual sin ficha',
+          ],
+          correctIndexes: [0, 2, 3],
+          explain: 'La mayorista llega por mail o WhatsApp, usa lista de precios más baja y casi siempre exige verificar stock antes de confirmar. La entrega inmediata de mostrador y el cliente eventual son de la minorista (el mayorista es recurrente y fichado).',
+        },
+        {
+          id: 'ms-tp.2-3',
+          q: '¿Qué tareas hace el depósito al recibir y manejar la mercadería?',
+          options: [
+            'Controlar el remito contra la orden de compra',
+            'Emitir la factura fiscal de la compra',
+            'Hacer control de calidad de lo recibido',
+            'Hacer recuentos físicos para corregir diferencias',
+            'Definir el precio mayorista de venta',
+          ],
+          correctIndexes: [0, 2, 3],
+          explain: 'El depósito controla remito contra orden de compra, hace control de calidad y recuentos físicos. La factura fiscal es de Contaduría y el precio mayorista lo maneja Ventas.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-tp.2-1',
+        front: 'Áreas del organigrama',
+        back: 'Del Gerente General dependen cuatro áreas: Comercial, Logística y depósito, Compras y Contable.',
+      },
+      {
+        id: 'fc-tp.2-2',
+        front: 'Proceso de venta minorista',
+        back: 'Directo: el cliente llega al showroom, elige, el vendedor consulta el stock y, si hay, cierra la venta en el momento. Entrega inmediata y precio de lista.',
+      },
+      {
+        id: 'fc-tp.2-3',
+        front: 'Proceso de venta mayorista',
+        back: 'El cliente manda el pedido por mail o WhatsApp, se verifica stock contra depósito, se arma presupuesto con precio mayorista y se cierra cuando el cliente confirma. La entrega la coordina depósito.',
+      },
+      {
+        id: 'fc-tp.2-4',
+        front: 'Comprobantes de venta',
+        back: 'Minorista: ticket o factura según el cliente. Mayorista: factura más remito que acompaña la mercadería. Lo fiscal y el cobro lo cierra Contaduría.',
+      },
+      {
+        id: 'fc-tp.2-5',
+        front: 'Pedidos a proveedores',
+        back: 'Se hacen una vez por semana, los viernes. Se decide por stock mínimo y rotación armando un informe de faltantes; la orden de compra se envía por mail.',
+      },
+      {
+        id: 'fc-tp.2-6',
+        front: 'Informe de faltantes',
+        back: 'Documento que arma Compras con los productos por debajo del stock mínimo y los de mayor rotación, para definir qué pedir y en qué cantidad.',
+      },
+      {
+        id: 'fc-tp.2-7',
+        front: 'Control de mercadería en depósito',
+        back: 'Se controla el remito contra la orden de compra (productos y cantidades) y luego se hace control de calidad. Si hay diferencias o fallas, se rechaza o se acepta solo lo bueno y se reclama el resto.',
+      },
+      {
+        id: 'fc-tp.2-8',
+        front: 'Por qué el stock se actualiza tarde',
+        back: 'Porque el ingreso de mercadería y el descuento por ventas se hacen a mano (carga manual), lo que genera desfasajes y que el stock no refleje la realidad.',
+      },
+      {
+        id: 'fc-tp.2-9',
+        front: 'Problemas comunes que justifican el sistema',
+        back: 'Información dispersa (planillas, mail), carga manual y stock desactualizado. Las tres áreas piden un sistema único que descuente y actualice el stock automáticamente.',
+      },
+    ],
+  },
+  // ---------- PARTE 3 ----------
+  {
+    id: 'tp.3',
+    unit: 'tp',
+    title: 'Parte 3 — Procesos de negocio (BPMN)',
+    criollo: 'Acá modelamos cómo funciona la librería por dentro con diagramas BPMN: un proceso general que arranca con el pedido del cliente y se ramifica en tres áreas (Comercial, Compras, Depósito), más tres subprocesos que bajan al detalle (ventas, gestión de pedidos a proveedor e ingreso de mercadería). Para defenderlo, lo clave son los gateways (las decisiones) y los caminos alternativos: qué pasa cuando NO hay stock, cuando se rechaza una compra o cuando la mercadería viene fallada. El PDF en estas páginas casi no tiene texto: todo el contenido vive en los diagramas, así que estudiá los flujos.',
+    blocks: [
+      {
+        type: 'p',
+        text: 'En esta parte modelamos los <strong>procesos de negocio</strong> de la librería con notación <strong>BPMN</strong>. Hay un <strong>proceso general</strong> que da la vista de alto nivel y <strong>tres subprocesos</strong> que detallan las actividades clave: <strong>ventas</strong>, <strong>gestión de pedidos a proveedor</strong> e <strong>ingreso de mercadería</strong>. Cada diagrama usa <em>pools</em> (los participantes) y <em>carriles</em> (las áreas internas) para mostrar quién hace qué.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'En estas páginas (10 a 13) el TP solo presenta los títulos de los diagramas; toda la lógica de los procesos está expresada en los propios diagramas BPMN. Las descripciones de flujo de abajo reconstruyen lo que muestra cada diagrama.',
+      },
+      {
+        type: 'h3',
+        text: 'Proceso general',
+        criollo: 'La foto grande: del pedido del cliente para abajo, y las tres áreas trabajando en paralelo.',
+      },
+      {
+        type: 'p',
+        text: 'El proceso general se organiza en <strong>cuatro pools</strong>: <strong>Cliente</strong>, <strong>Proceso General</strong> (con los carriles <strong>Área Comercial</strong>, <strong>Área de Compras</strong> y <strong>Área de Depósito</strong>) y <strong>Proveedor</strong>. Es la vista de alto nivel: cada área tiene su propio disparador y su propio fin, y las actividades complejas se delegan a subprocesos.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Flujo del Área Comercial (venta):</strong>',
+      },
+      {
+        type: 'ol',
+        items: [
+          'El <strong>Cliente</strong> realiza un pedido (evento de inicio).',
+          'El Área Comercial hace la <strong>Recepción de pedido</strong>.',
+          'Gateway de decisión: <strong>¿Compra Mayorista o Minorista?</strong>',
+          'Según el camino, se invoca el <strong>Sub-proceso de Ventas Mayoristas</strong> o el <strong>Sub-proceso de Ventas Minoristas</strong>.',
+          'Llega al evento de <strong>Fin</strong>.',
+        ],
+      },
+      {
+        type: 'p',
+        text: '<strong>Flujo del Área de Compras y del Área de Depósito (corren en paralelo a la venta):</strong>',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Área de Compras</strong>: se dispara con un evento temporal <strong>"Una vez a la semana"</strong> → se ejecuta el <strong>Sub-proceso de compras</strong> → <strong>Fin</strong>.',
+          '<strong>Área de Depósito</strong>: arranca con el <strong>Ingreso de mercadería</strong> → <strong>Sub-proceso de ingreso de mercadería</strong> → <strong>Fin de Reposición</strong>.',
+          '<strong>Proveedor</strong> (pool externo): <strong>Recibe orden de compra</strong> → <strong>Despachar mercadería</strong> → <strong>Fin</strong>.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/proceso-general.jpeg',
+        alt: 'Diagrama BPMN del proceso general con pools Cliente, Proceso General (carriles Área Comercial, Área de Compras y Área de Depósito) y Proveedor.',
+        caption: 'Proceso general: el pedido del cliente dispara la venta en el Área Comercial (gateway mayorista/minorista), mientras Compras (disparador semanal) y Depósito (ingreso de mercadería) trabajan en paralelo. El Proveedor recibe la orden y despacha.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Lo defendible del proceso general: la decisión mayorista/minorista bifurca la venta en dos subprocesos distintos, y las áreas no van en una sola fila india — Comercial, Compras y Depósito tienen cada una su disparador (pedido del cliente, temporizador semanal, ingreso de mercadería).',
+      },
+      {
+        type: 'h3',
+        text: 'Sub-proceso de venta al cliente',
+        criollo: 'El detalle de cómo se concreta una venta, con el chequeo de stock como punto crítico.',
+      },
+      {
+        type: 'p',
+        text: 'Este subproceso usa tres carriles: <strong>Cliente</strong>, <strong>Área comercial</strong> y <strong>Área de logística y depósito</strong>. Tiene <strong>dos gateways</strong>: uno que separa minorista de mayorista y otro que decide según haya o no <strong>stock suficiente</strong>.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'El <strong>Cliente</strong> selecciona productos.',
+          'Gateway <strong>¿minorista o mayorista?</strong> → minorista: <strong>atender en showroom</strong>; mayorista: <strong>recibir pedido mayorista</strong>.',
+          'El Área comercial hace <strong>Consultar stock</strong> e <strong>Informar stock</strong>.',
+          'Gateway <strong>¿hay stock suficiente?</strong> Camino <strong>No</strong>: <strong>Informar falta de stock</strong> → el Cliente <strong>recibe el rechazo</strong> y el flujo termina.',
+          'Camino <strong>Sí</strong>: <strong>Confirmar pedido</strong> → <strong>Registrar venta</strong>.',
+          'Logística/depósito: <strong>Preparar producto</strong> → <strong>Enviar producto</strong> → <strong>Actualizar stock</strong>.',
+          'El Área comercial <strong>Recibe producto</strong> y lo <strong>Entrega</strong>; el Cliente <strong>recibe el producto</strong> → <strong>Fin</strong>.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/subproceso-ventas.png',
+        alt: 'Diagrama BPMN del subproceso de venta al cliente con carriles Cliente, Área comercial y Área de logística y depósito.',
+        caption: 'Subproceso de ventas: tras seleccionar productos se decide minorista/mayorista, se consulta stock y un gateway decide. Sin stock se informa la falta y se rechaza; con stock se confirma, registra, prepara, envía y actualiza el stock.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'El punto fino para defender ventas: el gateway "¿hay stock suficiente?" es el que parte el flujo en dos. Si no hay, la venta NO sigue: se informa la falta y el cliente recibe el rechazo. La actualización de stock recién pasa después de enviar el producto.',
+      },
+      {
+        type: 'h3',
+        text: 'Sub-proceso de gestión de pedidos a proveedor',
+        criollo: 'El reabastecimiento: se cruzan los más vendidos con el stock para decidir qué comprar.',
+      },
+      {
+        type: 'p',
+        text: 'Carriles <strong>Área de compras</strong>, <strong>Área de logística y depósito</strong> y <strong>Área comercial</strong>. Arranca con un <strong>disparador temporal</strong> y un <strong>gateway paralelo</strong> que lanza dos consultas a la vez; después las ramas se vuelven a unir (<em>join</em>) para decidir la compra.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Disparador temporal</strong> → gateway paralelo: en simultáneo se hace <strong>Consultar a ventas los productos más vendidos</strong> y <strong>Consultar stock a depósito</strong>.',
+          '<strong>Depósito</strong>: <strong>Revisar stock</strong> → <strong>Discriminar stock menor a stock mínimo</strong> → gateway <strong>¿existen productos bajo stock mínimo?</strong> → devuelve <strong>informe de faltantes</strong> o de <strong>stock completo</strong>.',
+          '<strong>Comercial</strong>: <strong>Devolver informe de productos más vendidos</strong>.',
+          'Las ramas se unen (<em>join</em>): el Área de compras hace <strong>Recibir informe de más vendidos</strong> y <strong>Revisar informes</strong>.',
+          'Gateway <strong>¿se aprueba la compra?</strong> → camino <strong>No</strong>: <strong>fin</strong> (no se compra).',
+          'Camino <strong>Sí</strong>: <strong>Registrar compra en planilla Excel</strong> → <strong>Generar orden de compra</strong> → <strong>Enviar solicitud a proveedores</strong> → <strong>Fin</strong>.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/subproceso-pedidos.png',
+        alt: 'Diagrama BPMN del subproceso de gestión de pedidos a proveedor con carriles Área de compras, Área de logística y depósito y Área comercial.',
+        caption: 'Subproceso de gestión de pedidos: un gateway paralelo lanza la consulta de más vendidos (Comercial) y la de stock bajo mínimo (Depósito); al unirse, se revisan los informes y un gateway decide si se aprueba o no la compra al proveedor.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Para defender este subproceso fijate en el gateway paralelo (las dos consultas van juntas, no una atrás de otra) y en el gateway "¿se aprueba la compra?". Si no se aprueba, se corta y listo; si se aprueba, recién ahí se registra en Excel, se genera la orden y se manda al proveedor.',
+      },
+      {
+        type: 'h3',
+        text: 'Sub-proceso de ingreso de mercadería',
+        criollo: 'La recepción: dos controles seguidos (remito y calidad), cada uno con su escape al rechazo.',
+      },
+      {
+        type: 'p',
+        text: 'Carriles <strong>Proveedor</strong> y <strong>Área de logística y depósito</strong>. Tiene <strong>dos gateways</strong> en cadena: primero compara la factura con la orden de compra y después controla la calidad. Cada gateway tiene su camino de error con notificación al proveedor.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'El <strong>Proveedor</strong> envía la mercadería.',
+          'Depósito: <strong>Recibir mercadería</strong> → <strong>Control de remito</strong>.',
+          'Gateway <strong>¿coincide la factura con la orden de compra?</strong> → camino <strong>No</strong>: <strong>Registrar error</strong> → <strong>Notificar a proveedor</strong> → <strong>Rechazo de mercadería</strong> → <strong>fin</strong>.',
+          'Camino <strong>Sí</strong>: <strong>Control de calidad</strong>.',
+          'Gateway <strong>¿los productos tienen buena calidad?</strong> → camino <strong>No</strong>: <strong>Registrar error</strong> → <strong>Notificar a proveedor</strong> → <strong>Rechazo de mercadería</strong> → <strong>fin</strong>.',
+          'Camino <strong>Sí</strong>: <strong>Ingresar en sistema (stock)</strong> → <strong>Almacenar en el depósito</strong> → <strong>fin</strong>.',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/subproceso-ingreso.png',
+        alt: 'Diagrama BPMN del subproceso de ingreso de mercadería con carriles Proveedor y Área de logística y depósito.',
+        caption: 'Subproceso de ingreso de mercadería: tras recibir la mercadería se controla el remito (¿coincide factura con orden de compra?) y luego la calidad. Cualquiera de los dos controles fallidos registra error y notifica al proveedor; solo si pasan ambos se ingresa al stock y se almacena.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Lo defendible del ingreso: son DOS controles en cadena (remito primero, calidad después) y cada uno frena el ingreso si falla. La mercadería entra al stock recién cuando pasa los dos; cualquiera de los dos errores se registra y se notifica al proveedor, y ambos caminos de error confluyen en el rechazo de la mercadería.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-tp.3-1',
+          q: 'El proceso general se organiza en cuatro pools: Cliente, Proceso General (con sus carriles), y Proveedor.',
+          a: true,
+          explain: 'Verdadero. El proceso general tiene los pools Cliente, Proceso General (con los carriles Área Comercial, Área de Compras y Área de Depósito) y Proveedor.',
+        },
+        {
+          id: 'tf-tp.3-2',
+          q: 'En el proceso general, el Área de Compras se dispara con el pedido del cliente.',
+          a: false,
+          explain: 'Falso. El Área de Compras se dispara con un evento temporal "Una vez a la semana". Quien se dispara con el pedido del cliente es el Área Comercial.',
+        },
+        {
+          id: 'tf-tp.3-3',
+          q: 'En el subproceso de ventas, si no hay stock suficiente se informa la falta de stock y el cliente recibe el rechazo.',
+          a: true,
+          explain: 'Verdadero. El gateway "¿hay stock suficiente?" en su camino No lleva a Informar falta de stock y el cliente recibe el rechazo, terminando el flujo.',
+        },
+        {
+          id: 'tf-tp.3-4',
+          q: 'En el subproceso de gestión de pedidos, la consulta de productos más vendidos y la consulta de stock se hacen una después de la otra, en secuencia.',
+          a: false,
+          explain: 'Falso. Un gateway paralelo lanza ambas consultas en simultáneo (más vendidos a Comercial y stock a Depósito); recién después las ramas se unen.',
+        },
+        {
+          id: 'tf-tp.3-5',
+          q: 'En el subproceso de ingreso de mercadería, basta con que coincida la factura con la orden de compra para ingresar los productos al stock.',
+          a: false,
+          explain: 'Falso. Después del control de remito hay un segundo control de calidad. Solo si se pasan AMBOS controles se ingresa al sistema y se almacena.',
+        },
+        {
+          id: 'tf-tp.3-6',
+          q: 'En el subproceso de gestión de pedidos, si no se aprueba la compra el flujo termina sin generar orden de compra.',
+          a: true,
+          explain: 'Verdadero. El gateway "¿se aprueba la compra?" en su camino No lleva directo al fin; solo el camino Sí registra en Excel, genera la orden y la envía a proveedores.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-tp.3-1',
+          q: 'En el proceso general, ¿qué dispara el flujo del Área de Compras?',
+          options: [
+            'El pedido del cliente',
+            'El ingreso de mercadería',
+            'Un evento temporal "Una vez a la semana"',
+            'La recepción de la orden de compra por el proveedor',
+          ],
+          correctIndex: 2,
+          explain: 'El Área de Compras se dispara con un evento temporal "Una vez a la semana", que lanza el Sub-proceso de compras.',
+        },
+        {
+          id: 'mc-tp.3-2',
+          q: 'En la recepción de pedido del proceso general, ¿qué decide el primer gateway del Área Comercial?',
+          options: [
+            'Si hay stock suficiente o no',
+            'Si la compra es Mayorista o Minorista',
+            'Si se aprueba la compra al proveedor',
+            'Si la factura coincide con la orden de compra',
+          ],
+          correctIndex: 1,
+          explain: 'Tras la Recepción de pedido, el gateway decide "¿Compra Mayorista o Minorista?", invocando el subproceso de ventas correspondiente.',
+        },
+        {
+          id: 'mc-tp.3-3',
+          q: 'En el subproceso de ingreso de mercadería, si el control de remito detecta que la factura NO coincide con la orden de compra, ¿qué ocurre?',
+          options: [
+            'Se hace igual el control de calidad',
+            'Se ingresa la mercadería al stock con una observación',
+            'Se registra el error, se notifica al proveedor y se rechaza la mercadería',
+            'Se almacena en depósito y se avisa al área comercial',
+          ],
+          correctIndex: 2,
+          explain: 'El camino No del gateway "¿coincide la factura con la orden de compra?" lleva a Registrar error, Notificar a proveedor, Rechazo de mercadería y fin.',
+        },
+        {
+          id: 'mc-tp.3-4',
+          q: 'En el subproceso de ventas, ¿en qué momento se actualiza el stock?',
+          options: [
+            'Apenas el cliente selecciona los productos',
+            'Después de enviar el producto, en el carril de logística y depósito',
+            'Antes de confirmar el pedido',
+            'Solo si no hay stock suficiente',
+          ],
+          correctIndex: 1,
+          explain: 'En el camino con stock, logística prepara y envía el producto y recién después actualiza el stock.',
+        },
+        {
+          id: 'mc-tp.3-5',
+          q: 'En el subproceso de gestión de pedidos, ¿qué pasa cuando se aprueba la compra?',
+          options: [
+            'El flujo termina sin más acciones',
+            'Se vuelve a consultar el stock a depósito',
+            'Se registra la compra en planilla Excel, se genera la orden de compra y se envía la solicitud a proveedores',
+            'Se rechaza la mercadería y se notifica al proveedor',
+          ],
+          correctIndex: 2,
+          explain: 'El camino Sí del gateway "¿se aprueba la compra?" lleva a Registrar compra en planilla Excel, Generar orden de compra y Enviar solicitud a proveedores.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-tp.3-1',
+          q: '¿Cuáles de los siguientes son carriles del Área del Proceso General en el diagrama general?',
+          options: [
+            'Área Comercial',
+            'Área de Compras',
+            'Área de Depósito',
+            'Área de Marketing',
+            'Área de Recursos Humanos',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+          ],
+          explain: 'El pool Proceso General tiene los carriles Área Comercial, Área de Compras y Área de Depósito. Marketing y Recursos Humanos no aparecen en el diagrama.',
+        },
+        {
+          id: 'ms-tp.3-2',
+          q: 'En el subproceso de ingreso de mercadería, ¿qué controles deben superarse para que los productos ingresen al stock?',
+          options: [
+            'Control de remito (coincidencia factura / orden de compra)',
+            'Control de calidad de los productos',
+            'Control de fecha de vencimiento',
+            'Aprobación del gerente comercial',
+            'Verificación del medio de pago del cliente',
+          ],
+          correctIndexes: [
+            0,
+            1,
+          ],
+          explain: 'Son dos controles en cadena: el control de remito (¿coincide la factura con la orden de compra?) y el control de calidad. Solo si se pasan ambos se ingresa al stock. Los otros no figuran en el diagrama.',
+        },
+        {
+          id: 'ms-tp.3-3',
+          q: '¿Cuáles de estas afirmaciones sobre el subproceso de gestión de pedidos a proveedor son correctas?',
+          options: [
+            'Arranca con un disparador temporal',
+            'Usa un gateway paralelo para lanzar dos consultas en simultáneo',
+            'Depósito discrimina los productos con stock menor al stock mínimo',
+            'Si no se aprueba la compra, igual se genera la orden de compra',
+            'La compra se registra en una planilla Excel',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            4,
+          ],
+          explain: 'El subproceso arranca con un disparador temporal, usa un gateway paralelo (más vendidos + stock), depósito discrimina stock bajo mínimo y la compra aprobada se registra en Excel. Lo falso es que si NO se aprueba se genere orden: en ese caso el flujo termina.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-tp.3-1',
+        front: 'Pools del proceso general',
+        back: 'Cliente, Proceso General (con carriles Área Comercial, Área de Compras y Área de Depósito) y Proveedor.',
+      },
+      {
+        id: 'fc-tp.3-2',
+        front: 'Disparadores de cada área (proceso general)',
+        back: 'Área Comercial: pedido del cliente. Área de Compras: evento temporal "Una vez a la semana". Área de Depósito: ingreso de mercadería.',
+      },
+      {
+        id: 'fc-tp.3-3',
+        front: 'Gateway clave del subproceso de ventas',
+        back: '"¿Hay stock suficiente?". Si no hay, se informa la falta de stock y el cliente recibe el rechazo. Si hay, se confirma, registra, prepara, envía y se actualiza el stock.',
+      },
+      {
+        id: 'fc-tp.3-4',
+        front: 'Minorista vs. mayorista (ventas)',
+        back: 'Un gateway separa al cliente minorista (atender en showroom) del mayorista (recibir pedido mayorista) antes de consultar stock.',
+      },
+      {
+        id: 'fc-tp.3-5',
+        front: 'Gateway paralelo (gestión de pedidos)',
+        back: 'Tras el disparador temporal, lanza en simultáneo dos consultas: productos más vendidos al Área comercial y stock al depósito. Luego las ramas se unen para decidir la compra.',
+      },
+      {
+        id: 'fc-tp.3-6',
+        front: 'Decisión de compra al proveedor',
+        back: 'Gateway "¿se aprueba la compra?". No: termina el flujo. Sí: registrar compra en Excel, generar orden de compra y enviar solicitud a proveedores.',
+      },
+      {
+        id: 'fc-tp.3-7',
+        front: 'Controles del ingreso de mercadería',
+        back: 'Dos en cadena: control de remito (¿coincide factura con orden de compra?) y control de calidad. Solo si se pasan ambos se ingresa al sistema y se almacena.',
+      },
+      {
+        id: 'fc-tp.3-8',
+        front: 'Camino de error en el ingreso',
+        back: 'Tanto si la factura no coincide con la orden como si la calidad es mala, se registra el error y se notifica al proveedor; ambos caminos confluyen en el rechazo de la mercadería.',
+      },
+      {
+        id: 'fc-tp.3-9',
+        front: 'Subprocesos del TP',
+        back: 'Tres: ventas (al cliente), gestión de pedidos (a proveedor) e ingreso de mercadería. El proceso general los invoca desde sus respectivas áreas.',
+      },
+    ],
+  },
+  // ---------- PARTE 4 ----------
+  {
+    id: 'tp.4',
+    unit: 'tp',
+    title: 'Parte 4 — Especificación de requerimientos',
+    criollo: 'Acá está el listado completo de lo que el sistema tiene que hacer (funcionales), cómo lo tiene que hacer (no funcionales) y los límites que le pusimos al negocio (de negocio). Para defenderlo: aprendete los códigos RFx/RNFx/RNx y, sobre todo, los recortes de alcance (RN2 sin pagos, RN3 proveedores reducidos) porque ahí es donde más te van a apretar.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Cómo está organizada la especificación',
+        criollo: 'Tres grupos: lo que hace, cómo lo hace y hasta dónde llega.',
+      },
+      {
+        type: 'p',
+        text: 'Los requerimientos del sistema para la librería se dividen en tres grupos: <strong>requerimientos funcionales</strong> (qué debe hacer el sistema, agrupados por área), <strong>requerimientos no funcionales</strong> (cómo debe comportarse: rendimiento, seguridad, usabilidad, etc.) y <strong>requerimientos de negocio</strong> (las reglas y límites del alcance que define el negocio). Cada uno tiene un código fijo (<code>RFx</code>, <code>RNFx</code>, <code>RNx</code>) que sirve de trazabilidad.',
+      },
+      {
+        type: 'h3',
+        text: 'Funcionales — Ventas (RF1 a RF5)',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>RF1</strong>: El sistema debe permitir registrar ventas minoristas en el momento.',
+          '<strong>RF2</strong>: El sistema debe permitir registrar pedidos de venta mayorista.',
+          '<strong>RF3</strong>: El sistema debe verificar la disponibilidad de stock antes de confirmar una venta mayorista.',
+          '<strong>RF4</strong>: El sistema debe permitir gestionar distintos precios para ventas minoristas y mayoristas.',
+          '<strong>RF5</strong>: El sistema debe generar comprobantes de venta.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Funcionales — Stock (RF6 a RF9)',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>RF6</strong>: El sistema debe mantener el stock actualizado.',
+          '<strong>RF7</strong>: El sistema debe descontar stock automáticamente al registrarse una venta.',
+          '<strong>RF8</strong>: El sistema debe incrementar el stock automáticamente al registrarse el ingreso de mercadería.',
+          '<strong>RF9</strong>: El sistema debe permitir la consulta de stock en tiempo real.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Funcionales — Compras (RF10 a RF15)',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>RF10</strong>: El sistema debe permitir registrar pedidos a proveedores.',
+          '<strong>RF11</strong>: El sistema debe permitir generar pedidos de compra de manera periódica.',
+          '<strong>RF12</strong>: El sistema debe brindar soporte para la toma de decisiones de compra en base al nivel de stock y volumen de ventas.',
+          '<strong>RF13</strong>: El sistema debe generar órdenes de compra a proveedores.',
+          '<strong>RF14</strong>: El sistema debe permitir registrar el envío de la orden de compra al proveedor.',
+          '<strong>RF15</strong>: El sistema debe registrar la confirmación o recepción de la orden por parte del proveedor.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Funcionales — Ingreso de mercadería (RF16 a RF18)',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>RF16</strong>: El sistema debe permitir registrar la recepción de mercadería.',
+          '<strong>RF17</strong>: El sistema debe permitir verificar los productos recibidos en relación con el pedido realizado.',
+          '<strong>RF18</strong>: El sistema debe registrar inconsistencias entre productos solicitados y recibidos.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Funcionales — Información (RF19 a RF21)',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>RF19</strong>: El sistema debe centralizar la información actualmente distribuida en planillas y correos electrónicos.',
+          '<strong>RF20</strong>: El sistema debe permitir la consulta del historial de ventas.',
+          '<strong>RF21</strong>: El sistema debe permitir la consulta del historial de compras.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Funcionales — Usuarios (RF22 a RF23)',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>RF22</strong>: El sistema debe permitir la gestión de usuarios con distintos roles.',
+          '<strong>RF23</strong>: El sistema debe permitir el acceso concurrente a la información por parte de las distintas áreas.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'No funcionales (RNF1 a RNF5)',
+        criollo: 'Acá está el "cómo": rendimiento, seguridad, compatibilidad, usabilidad y consistencia.',
+      },
+      {
+        type: 'table',
+        caption: 'Requerimientos no funcionales del sistema',
+        headers: ['Código', 'Requerimiento'],
+        rows: [
+          ['RNF1', 'El sistema debe proporcionar tiempos de respuesta adecuados para la consulta de stock en tiempo real.'],
+          ['RNF2', 'El sistema debe garantizar control de acceso basado en roles de usuario.'],
+          ['RNF3', 'El sistema debe ser compatible con el hardware existente.'],
+          ['RNF4', 'El sistema debe presentar una interfaz de uso simple e intuitiva.'],
+          ['RNF5', 'El sistema debe garantizar la consistencia de la información, evitando discrepancias en el stock.'],
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'De negocio (RN1 a RN3)',
+        criollo: 'Las reglas que marcan hasta dónde llega el sistema. Estos son los que más conviene tener afilados para la defensa.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>RN1</strong>: El sistema debe soportar ventas minoristas y mayoristas.',
+          '<strong>RN2</strong>: El sistema no debe incluir la gestión de pagos.',
+          '<strong>RN3</strong>: El sistema debe contemplar la gestión de un conjunto reducido de proveedores.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Límites del alcance (clave para defender): por <strong>RN2</strong> el sistema <strong>NO incluye la gestión de pagos</strong>, y por <strong>RN3</strong> solo contempla un <strong>conjunto reducido de proveedores</strong>. Si en la defensa preguntan por cobros, facturación de pagos o cientos de proveedores, la respuesta es que quedaron fuera del alcance por decisión de negocio.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'No funcionales que conviene resaltar: <strong>RNF3</strong> exige compatibilidad con el hardware existente (no hace falta cambiar las máquinas), <strong>RNF2</strong> impone control de acceso por roles (de la mano de RF22) y <strong>RNF5</strong> garantiza la consistencia del stock, evitando discrepancias.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Truco para acordarte de los funcionales: van por área del negocio — Ventas, Stock, Compras, Ingreso de mercadería, Información y Usuarios. Si te acordás de las áreas, reconstruís casi todos los RFx.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-tp.4-1',
+          q: 'El requerimiento RN2 establece que el sistema NO debe incluir la gestión de pagos.',
+          a: true,
+          explain: 'Verdadero. RN2 dice textual que el sistema no debe incluir la gestión de pagos: es un límite de alcance del negocio.',
+        },
+        {
+          id: 'tf-tp.4-2',
+          q: 'Según RF3, el sistema debe verificar la disponibilidad de stock antes de confirmar una venta mayorista.',
+          a: true,
+          explain: 'Verdadero. RF3 exige verificar la disponibilidad de stock antes de confirmar una venta mayorista.',
+        },
+        {
+          id: 'tf-tp.4-3',
+          q: 'El requerimiento RNF3 indica que el sistema debe correr únicamente sobre hardware nuevo a comprar.',
+          a: false,
+          explain: 'Falso. RNF3 pide justo lo contrario: que el sistema sea compatible con el hardware existente.',
+        },
+        {
+          id: 'tf-tp.4-4',
+          q: 'RN3 indica que el sistema debe contemplar la gestión de un conjunto reducido de proveedores.',
+          a: true,
+          explain: 'Verdadero. RN3 acota el alcance a un conjunto reducido de proveedores.',
+        },
+        {
+          id: 'tf-tp.4-5',
+          q: 'El control de acceso basado en roles de usuario es un requerimiento funcional (RF).',
+          a: false,
+          explain: 'Falso. El control de acceso basado en roles es el no funcional RNF2. El funcional asociado es RF22 (gestión de usuarios con distintos roles), pero la garantía de control de acceso es no funcional.',
+        },
+        {
+          id: 'tf-tp.4-6',
+          q: 'RF19 plantea centralizar la información que hoy está distribuida en planillas y correos electrónicos.',
+          a: true,
+          explain: 'Verdadero. RF19 busca centralizar la información actualmente distribuida en planillas y correos electrónicos.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-tp.4-1',
+          q: '¿En qué categoría de requerimientos funcionales se ubica RF7 ("descontar stock automáticamente al registrarse una venta")?',
+          options: [
+            'Ventas',
+            'Stock',
+            'Compras',
+            'Ingreso de mercadería',
+          ],
+          correctIndex: 1,
+          explain: 'RF7 pertenece a la categoría Stock (RF6 a RF9): descontar stock automáticamente al registrarse una venta.',
+        },
+        {
+          id: 'mc-tp.4-2',
+          q: '¿Cuál de estos es un requerimiento de negocio (RN)?',
+          options: [
+            'El sistema debe generar comprobantes de venta',
+            'El sistema debe ser compatible con el hardware existente',
+            'El sistema no debe incluir la gestión de pagos',
+            'El sistema debe permitir la consulta de stock en tiempo real',
+          ],
+          correctIndex: 2,
+          explain: '"El sistema no debe incluir la gestión de pagos" es RN2, un requerimiento de negocio. Generar comprobantes es RF5 (funcional), la compatibilidad de hardware es RNF3 (no funcional) y la consulta de stock en tiempo real es RF9 (funcional).',
+        },
+        {
+          id: 'mc-tp.4-3',
+          q: 'El requerimiento RNF5 apunta específicamente a:',
+          options: [
+            'Tiempos de respuesta adecuados en la consulta de stock',
+            'Una interfaz de uso simple e intuitiva',
+            'El control de acceso basado en roles',
+            'Garantizar la consistencia de la información, evitando discrepancias en el stock',
+          ],
+          correctIndex: 3,
+          explain: 'RNF5 garantiza la consistencia de la información, evitando discrepancias en el stock. Los tiempos de respuesta son RNF1, la interfaz simple es RNF4 y el control de acceso por roles es RNF2.',
+        },
+        {
+          id: 'mc-tp.4-4',
+          q: '¿Cuál de los siguientes requerimientos pertenece a la categoría Compras?',
+          options: [
+            'RF5: generar comprobantes de venta',
+            'RF13: generar órdenes de compra a proveedores',
+            'RF16: registrar la recepción de mercadería',
+            'RF22: gestión de usuarios con distintos roles',
+          ],
+          correctIndex: 1,
+          explain: 'RF13 (generar órdenes de compra a proveedores) pertenece a Compras (RF10 a RF15). RF5 es Ventas, RF16 es Ingreso de mercadería y RF22 es Usuarios.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-tp.4-1',
+          q: '¿Cuáles de los siguientes son requerimientos NO funcionales (RNF) del sistema?',
+          options: [
+            'Tiempos de respuesta adecuados para la consulta de stock en tiempo real',
+            'Generar comprobantes de venta',
+            'Control de acceso basado en roles de usuario',
+            'Compatibilidad con el hardware existente',
+            'Registrar pedidos a proveedores',
+          ],
+          correctIndexes: [
+            0,
+            2,
+            3,
+          ],
+          explain: 'Los no funcionales son RNF1 (tiempos de respuesta), RNF2 (control de acceso por roles) y RNF3 (compatibilidad con hardware existente). Generar comprobantes es RF5 y registrar pedidos a proveedores es RF10: ambos funcionales.',
+        },
+        {
+          id: 'ms-tp.4-2',
+          q: '¿Cuáles de estas afirmaciones describen límites del alcance definidos por los requerimientos de negocio?',
+          options: [
+            'El sistema no debe incluir la gestión de pagos',
+            'El sistema debe contemplar un conjunto reducido de proveedores',
+            'El sistema debe descontar stock automáticamente al registrar una venta',
+            'El sistema debe soportar ventas minoristas y mayoristas',
+            'El sistema debe generar comprobantes de venta',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+          ],
+          explain: 'Los requerimientos de negocio son RN1 (soportar minoristas y mayoristas), RN2 (no incluir gestión de pagos) y RN3 (conjunto reducido de proveedores). Descontar stock (RF7) y generar comprobantes (RF5) son funcionales.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-tp.4-1',
+        front: 'RN2',
+        back: 'Requerimiento de negocio: el sistema no debe incluir la gestión de pagos. Es un límite del alcance.',
+      },
+      {
+        id: 'fc-tp.4-2',
+        front: 'RN3',
+        back: 'Requerimiento de negocio: el sistema debe contemplar la gestión de un conjunto reducido de proveedores.',
+      },
+      {
+        id: 'fc-tp.4-3',
+        front: 'RN1',
+        back: 'Requerimiento de negocio: el sistema debe soportar ventas minoristas y mayoristas.',
+      },
+      {
+        id: 'fc-tp.4-4',
+        front: 'Categorías de los RF',
+        back: 'Los funcionales se agrupan por área: Ventas (RF1-RF5), Stock (RF6-RF9), Compras (RF10-RF15), Ingreso de mercadería (RF16-RF18), Información (RF19-RF21) y Usuarios (RF22-RF23).',
+      },
+      {
+        id: 'fc-tp.4-5',
+        front: 'RNF2',
+        back: 'No funcional: el sistema debe garantizar control de acceso basado en roles de usuario. Va de la mano de RF22 (gestión de usuarios con roles).',
+      },
+      {
+        id: 'fc-tp.4-6',
+        front: 'RNF3',
+        back: 'No funcional: el sistema debe ser compatible con el hardware existente, sin necesidad de cambiar las máquinas.',
+      },
+      {
+        id: 'fc-tp.4-7',
+        front: 'RNF5',
+        back: 'No funcional: el sistema debe garantizar la consistencia de la información, evitando discrepancias en el stock.',
+      },
+      {
+        id: 'fc-tp.4-8',
+        front: 'RF3',
+        back: 'Funcional (Ventas): el sistema debe verificar la disponibilidad de stock antes de confirmar una venta mayorista.',
+      },
+      {
+        id: 'fc-tp.4-9',
+        front: 'RF19',
+        back: 'Funcional (Información): centralizar la información hoy distribuida en planillas y correos electrónicos.',
+      },
+    ],
+  },
+  // ---------- PARTE 5 ----------
+  {
+  id: 'tp.5',
+  unit: 'tp',
+  title: 'Parte 5 — Diagrama de casos de uso',
+  criollo: 'Acá pasamos de los requerimientos a quién hace qué: definimos los 6 actores (y cómo se atan al organigrama), dibujamos el diagrama de casos de uso con sus «include» y «extend», y desarrollamos los 8 casos de uso más las 8 historias de usuario. Para defenderlo, lo más jugoso es saber qué actor dispara cada CU, qué RFs cubre cada uno y por qué hay relaciones include/extend.',
+  blocks: [
+    {
+      type: 'h3',
+      text: 'De qué va esta parte',
+    },
+    {
+      type: 'p',
+      text: 'Esta es la <strong>Parte 5</strong> del TP: a partir de los requerimientos relevados (Parte 4) y del organigrama (Parte 2), modelamos el <strong>diagrama de casos de uso</strong> del sistema. La idea es mostrar <strong>qué hace cada actor</strong> con el sistema, qué casos de uso existen y cómo se relacionan entre sí.',
+    },
+    {
+      type: 'h3',
+      text: 'Actores del sistema',
+      criollo: 'Seis actores. Cinco salen del organigrama y uno (el Administrador) es puramente del sistema.',
+    },
+    {
+      type: 'p',
+      text: 'Los actores del sistema, <strong>alineados con los cargos del organigrama relevado en la Parte 2</strong>, son seis:',
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>Vendedor</strong>',
+        '<strong>Jefe de depósito</strong>',
+        '<strong>Gerente de Compras</strong>',
+        '<strong>Gerente General</strong>',
+        '<strong>Proveedor</strong>',
+        '<strong>Administrador</strong>',
+      ],
+    },
+    {
+      type: 'figure',
+      src: 'images/diagrams/introduccion-ing-software/tp/casos-de-uso.png',
+      alt: 'Diagrama de casos de uso del Sistema de Gestión Comercial, con los seis actores conectados a sus casos de uso y las relaciones include y extend entre casos.',
+      caption: 'Diagrama de casos de uso del sistema. El Vendedor dispara Registrar venta minorista y Registrar pedido mayorista (ambos «include» Verificar disponibilidad de stock y Generar comprobante de venta); el Jefe de depósito hace Consultar stock en tiempo real y Registrar ingreso de mercadería («extend» Registrar inconsistencias); el Gerente de Compras genera la orden de compra («extend» Generar pedido periódico); el Proveedor confirma la orden; el Gerente General consulta el historial; y el Administrador gestiona usuarios y roles.',
+    },
+    {
+      type: 'h3',
+      text: 'Correspondencia con el organigrama',
+      criollo: 'Esta tabla es oro para defender: cada actor del sistema se mapea contra un cargo real (o se aclara que no existe en el organigrama).',
+    },
+    {
+      type: 'table',
+      caption: 'Correspondencia entre actores del sistema, cargos del organigrama (Parte 2), área y casos de uso.',
+      headers: ['Actor (sistema)', 'Cargo en el organigrama', 'Área', 'Casos de uso'],
+      rows: [
+        ['Vendedor', 'Vendedor Minorista / Vendedor Mayorista', 'Comercial', 'CU1, CU2'],
+        ['Jefe de depósito', 'Jefe de depósito', 'Logística y depósito', 'CU3, CU4'],
+        ['Gerente de Compras', 'Gerente de Compras', 'Compras', 'CU5'],
+        ['Gerente General', 'Gerente General', 'Dirección', 'CU7'],
+        ['Proveedor', 'Proveedores (entidad externa)', '—', 'CU8'],
+        ['Administrador', 'Rol de sistema (no figura en el organigrama)', 'TI / Sistema', 'CU6'],
+      ],
+    },
+    {
+      type: 'callout',
+      tone: 'info',
+      text: 'Nota del TP: el <strong>Administrador es un rol funcional del sistema</strong> (gestión de cuentas y permisos) y <strong>no se corresponde con un cargo del organigrama operativo</strong> de la librería. Por eso es el único actor que no tiene un cargo real detrás.',
+    },
+    {
+      type: 'h3',
+      text: 'Las relaciones del diagrama: «include» y «extend»',
+      criollo: 'Include = siempre pasa, es parte obligada del flujo. Extend = solo pasa a veces, bajo cierta condición.',
+    },
+    {
+      type: 'p',
+      text: 'El diagrama usa dos tipos de relación entre casos de uso. Con <strong>«include»</strong> (incluye), un caso de uso <strong>siempre ejecuta a otro</strong> como parte de su flujo: tanto <strong>Registrar venta minorista (CU1)</strong> como <strong>Registrar pedido mayorista (CU2)</strong> incluyen <strong>Verificar disponibilidad de stock</strong> y <strong>Generar comprobante de venta</strong>. Con <strong>«extend»</strong> (extiende), un caso de uso <strong>se ejecuta solo bajo cierta condición</strong>: <strong>Registrar ingreso de mercadería (CU4)</strong> extiende a <strong>Registrar inconsistencias</strong> (solo si las cantidades no coinciden), y <strong>Generar orden de compra (CU5)</strong> extiende a <strong>Generar pedido periódico</strong> (solo si se elige esa opción).',
+    },
+    {
+      type: 'h3',
+      text: 'CU1 — Registrar venta minorista',
+      criollo: 'La venta de mostrador. El vendedor carga, el sistema valida stock, descuenta y genera comprobante.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Identificador (RFs que cubre):</strong> RF1, RF4, RF5, RF7, RNF1, RNF2. <strong>Actor principal:</strong> Vendedor.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Descripción:</strong> permite registrar una venta realizada en el momento por un cliente presencial y actualiza el inventario. <strong>Precondición:</strong> el usuario debe estar autenticado con rol de <strong>Vendedor</strong> y los productos deben estar registrados en el sistema.',
+    },
+    {
+      type: 'ol',
+      items: [
+        'El Vendedor inicia el registro de la venta e ingresa código y cantidad de cada producto.',
+        'El sistema <strong>valida existencia y disponibilidad de stock</strong> de cada producto.',
+        'El sistema agrega el producto al detalle aplicando automáticamente el <strong>precio minorista</strong>.',
+        'El Vendedor confirma la finalización (recordando que el sistema <strong>no gestiona pagos</strong>).',
+        'El sistema <strong>descuenta el inventario</strong> y <strong>genera el comprobante de venta</strong>.',
+      ],
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>3a. Stock insuficiente:</strong> si la cantidad supera el stock físico, muestra advertencia y no permite agregar la línea hasta ajustar la cantidad.',
+        '<strong>3b. Producto inexistente:</strong> si el código es incorrecto, informa “Producto no encontrado” y pide ingresarlo de nuevo.',
+      ],
+    },
+    {
+      type: 'h3',
+      text: 'CU2 — Registrar pedido mayorista',
+      criollo: 'Parecido al minorista pero con validación de stock más estricta y precio mayorista. Acá el cliente tiene que estar ya registrado.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Identificador:</strong> RF2, RF3, RF4, RF5, RF7, RNF1, RNF2. <strong>Actor principal:</strong> Vendedor.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Descripción:</strong> registra formalmente un pedido para un cliente mayorista, <strong>validando de forma estricta que exista stock suficiente</strong> antes de autorizar la confirmación. <strong>Precondición:</strong> Vendedor autenticado y el <strong>cliente mayorista ya registrado</strong> en la base.',
+    },
+    {
+      type: 'ol',
+      items: [
+        'El Vendedor inicia el pedido y selecciona al cliente mayorista.',
+        'Ingresa código y cantidad de cada artículo; el sistema <strong>verifica la disponibilidad de stock en el depósito</strong>.',
+        'El sistema agrega la línea aplicando el <strong>esquema de precios mayorista</strong>.',
+        'El Vendedor confirma; el sistema <strong>descuenta inventario</strong> y <strong>genera el comprobante</strong>.',
+      ],
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>3a. Stock insuficiente:</strong> el sistema <strong>bloquea la carga</strong> de ese artículo, muestra el stock real y exige ajustar la cantidad para continuar.',
+      ],
+    },
+    {
+      type: 'h3',
+      text: 'CU3 — Consultar stock en tiempo real',
+      criollo: 'Solo lectura: mira cuánto hay de un producto, al instante y sin tocar nada.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Identificador:</strong> RF6, RF9, RF23, RNF1, RNF5. <strong>Actor principal:</strong> Jefe de depósito.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Descripción:</strong> permite consultar de manera inmediata y simultánea las unidades disponibles de cualquier producto, garantizando la <strong>consistencia de los datos en tiempo real</strong>. <strong>Precondición:</strong> usuario autenticado con un rol válido para consultar inventario.',
+    },
+    {
+      type: 'ol',
+      items: [
+        'El usuario accede al módulo de consulta de stock e ingresa un parámetro de búsqueda (código o descripción).',
+        'El sistema busca en la <strong>base de datos centralizada</strong>.',
+        'Muestra el detalle del artículo y la <strong>cantidad exacta de stock actualizado</strong>.',
+      ],
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>2a. Producto no encontrado:</strong> si no coincide con ningún artículo, muestra “El producto buscado no existe” y permite una nueva búsqueda.',
+      ],
+    },
+    {
+      type: 'h3',
+      text: 'CU4 — Registrar ingreso de mercadería',
+      criollo: 'El depósito recibe lo del proveedor, lo compara contra la orden de compra y recién ahí suma al stock. Si no coincide, dispara el «extend» de inconsistencias.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Identificador:</strong> RF8, RF16, RF17, RF18. <strong>Actor principal:</strong> Jefe de depósito. <strong>Actor secundario:</strong> Áreas de Ventas y Compras.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Descripción:</strong> registra la recepción física de mercadería de un proveedor, <strong>contrastándola contra la orden de compra original</strong> y registrando formalmente cualquier inconsistencia antes de actualizar el inventario. <strong>Precondición:</strong> usuario autenticado y <strong>debe existir una Orden de Compra (OC)</strong> previamente generada y enviada.',
+    },
+    {
+      type: 'ol',
+      items: [
+        'El Jefe de depósito selecciona la OC correspondiente al envío recibido; el sistema muestra productos y cantidades solicitadas.',
+        'Ingresa o valida las <strong>cantidades físicas que recibe</strong> realmente.',
+        'El sistema verifica que productos y cantidades <strong>coincidan con el pedido</strong>.',
+        'El Jefe confirma el ingreso; el sistema <strong>incrementa el stock automáticamente</strong> y marca la OC como “Completada/Recibida”.',
+      ],
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>4a. Inconsistencias en la entrega:</strong> si las cantidades físicas difieren de la OC (faltantes o sobrantes), el sistema <strong>registra la inconsistencia automáticamente</strong>, notifica al Jefe, <strong>actualiza el stock solo con las cantidades reales</strong> y deja la OC en estado “Parcial” o “Con diferencias” para reclamos.',
+      ],
+    },
+    {
+      type: 'h3',
+      text: 'CU5 — Generar orden de compra',
+      criollo: 'Compras arma el pedido a proveedores con ayuda de sugerencias del sistema, y registra el envío. El «extend» periódico le arma un borrador solo.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Identificador:</strong> RF10, RF11, RF12, RF13, RF14, RNF3. <strong>Actor principal:</strong> Gerente de Compras.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Descripción:</strong> permite crear pedidos de reposición a proveedores, <strong>usando herramientas de soporte basadas en estadísticas</strong>, y registrar el envío de la orden. <strong>Precondición:</strong> usuario con rol de <strong>Compras</strong> y proveedores ya registrados.',
+    },
+    {
+      type: 'ol',
+      items: [
+        'El Gerente de Compras entra al módulo; el sistema muestra <strong>sugerencias y alertas de reposición</strong> según stock actual y volumen de ventas histórico.',
+        'Selecciona productos, cantidades y elige el proveedor de la lista.',
+        'El sistema valida y <strong>genera formalmente la Orden de Compra (OC)</strong>.',
+        'El Gerente confirma y <strong>registra el envío de la orden</strong> al proveedor.',
+      ],
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>2a. Pedido periódico automatizado:</strong> en vez de crear la OC desde cero, elige “generar pedido periódico”; el sistema crea un <strong>borrador automático</strong> según parámetros de tiempo predefinidos, que el Gerente revisa, ajusta y confirma.',
+      ],
+    },
+    {
+      type: 'h3',
+      text: 'CU6 — Gestionar usuarios y roles',
+      criollo: 'El caso del Administrador: altas, bajas, modificaciones y asignación de roles. Pura seguridad y control de acceso.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Identificador:</strong> RF22, RNF2. <strong>Actor principal:</strong> Administrador.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Descripción:</strong> administra el ciclo de vida de las cuentas (altas, bajas y modificaciones) y asigna los roles a cada empleado para garantizar el <strong>control de acceso a los módulos</strong>. <strong>Precondición:</strong> usuario autenticado con el rol estricto de <strong>“Administrador”</strong>.',
+    },
+    {
+      type: 'ol',
+      items: [
+        'El Administrador accede al módulo de configuración y seguridad; el sistema lista los usuarios activos.',
+        'Selecciona crear un nuevo usuario (Alta), ingresa los datos y le asigna <strong>obligatoriamente un rol</strong> (Ventas, Compras, Depósito o Administrador).',
+        'El sistema valida los datos y que el usuario no esté en uso, guarda el perfil y <strong>aplica las políticas de acceso</strong> del nuevo rol.',
+      ],
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>3a. Modificación/Baja:</strong> al editar o eliminar, el sistema carga los datos; en la baja exige <strong>confirmación de seguridad</strong> antes de inhabilitar el acceso.',
+        '<strong>5a. Usuario duplicado:</strong> si el nombre o correo ya existe, detiene el proceso y pide un identificador único.',
+      ],
+    },
+    {
+      type: 'h3',
+      text: 'CU7 — Consultar historial de ventas y compras',
+      criollo: 'El Gerente General mira reportes para analizar el negocio. Solo lectura, con filtros por fecha.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Identificador:</strong> RF20, RF21, RF22, RNF2. <strong>Actor principal:</strong> Gerente General.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Descripción:</strong> permite consultar los movimientos de compras y ventas registrados. <strong>Precondición:</strong> actor autenticado con rol de <strong>Gerente General</strong>.',
+    },
+    {
+      type: 'ol',
+      items: [
+        'El actor accede al módulo de reportes y elige el tipo de histórico (compras o ventas).',
+        'Define los <strong>filtros de búsqueda</strong> (rango de fechas / período).',
+        'El sistema busca en la base y muestra el <strong>listado detallado</strong> de resultados.',
+      ],
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>4a. Sin resultados:</strong> si no hay registros en el período, muestra “No se encontraron movimientos para las fechas ingresadas”.',
+      ],
+    },
+    {
+      type: 'h3',
+      text: 'CU8 — Confirmar orden de compra',
+      criollo: 'Único caso disparado por un actor externo: el Proveedor entra a un portal y confirma, rechaza o acepta parcial la orden. Notifica a Compras.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Identificador:</strong> RF15, RNF2. <strong>Actor principal:</strong> Proveedor. <strong>Actor secundario:</strong> Gerente de Compras (recibe la notificación del resultado).',
+    },
+    {
+      type: 'p',
+      text: '<strong>Descripción:</strong> permite al proveedor registrar formalmente la <strong>confirmación, rechazo o aceptación parcial</strong> de una OC recibida, indicando fecha estimada de entrega o motivo, para que la librería pueda dar seguimiento. <strong>Precondición:</strong> Proveedor autenticado en el <strong>portal externo</strong> y debe existir una OC en estado “Enviada” dirigida a ese proveedor.',
+    },
+    {
+      type: 'ol',
+      items: [
+        'El Proveedor entra al portal externo y ve las OC pendientes; selecciona una.',
+        'El sistema muestra el detalle (productos, cantidades, precios y datos de la librería).',
+        'El Proveedor <strong>confirma e indica la fecha estimada de entrega</strong>; el sistema deja la OC en “Confirmada”.',
+        'El sistema <strong>notifica automáticamente al Gerente de Compras</strong>.',
+      ],
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>4a. Rechazo:</strong> el Proveedor rechaza e indica el motivo (falta de stock, precio desactualizado); estado “Rechazada” y notifica a Compras.',
+        '<strong>4b. Confirmación parcial:</strong> el Proveedor solo entrega parte; el sistema registra las <strong>cantidades comprometidas</strong> y notifica a Compras.',
+      ],
+    },
+    {
+      type: 'h3',
+      text: 'Historias de Usuario',
+      criollo: 'El mismo contenido pero en formato “Como… Quiero… Para…”. Una por cada caso de uso, mismo actor.',
+    },
+    {
+      type: 'table',
+      caption: 'Las 8 historias de usuario, alineadas con los 8 casos de uso.',
+      headers: ['#', 'Como…', 'Quiero…', 'Para…'],
+      rows: [
+        ['HU1', 'Vendedor', 'registrar ventas minoristas', 'generar comprobantes y actualizar el stock automáticamente.'],
+        ['HU2', 'Vendedor', 'registrar pedidos mayoristas', 'gestionar ventas a clientes grandes.'],
+        ['HU3', 'Jefe de depósito', 'consultar el stock en tiempo real', 'conocer la disponibilidad de productos.'],
+        ['HU4', 'Jefe de depósito', 'registrar ingresos de mercadería', 'mantener actualizado el inventario.'],
+        ['HU5', 'Gerente de Compras', 'generar órdenes de compra', 'solicitar productos a proveedores.'],
+        ['HU6', 'Administrador', 'gestionar usuarios y roles', 'controlar el acceso al sistema.'],
+        ['HU7', 'Gerente General', 'consultar el historial de ventas y compras', 'analizar el rendimiento comercial de la empresa.'],
+        ['HU8', 'Proveedor', 'confirmar, rechazar o aceptar parcialmente las órdenes de compra recibidas', 'informar a la librería sobre la aceptación del pedido y la fecha estimada de entrega.'],
+      ],
+    },
+    {
+      type: 'callout',
+      tone: 'criollo',
+      text: 'Para la defensa, clavá esto: <strong>Vendedor</strong> → CU1 y CU2; <strong>Jefe de depósito</strong> → CU3 y CU4; <strong>Gerente de Compras</strong> → CU5; <strong>Administrador</strong> → CU6; <strong>Gerente General</strong> → CU7; <strong>Proveedor</strong> → CU8. Y las relaciones: «include» son obligatorias (verificar stock + comprobante en CU1/CU2), «extend» son condicionales (inconsistencias en CU4, pedido periódico en CU5).',
+    },
+  ],
+  quiz: {
+    tf: [
+      {
+        id: 'tf-tp.5-1',
+        q: 'El Administrador es uno de los actores del sistema aunque no figure en el organigrama de la librería.',
+        a: true,
+        explain: 'Verdadero. El TP aclara que el Administrador es un rol funcional del sistema (gestión de cuentas y permisos) y no se corresponde con un cargo del organigrama operativo.',
+      },
+      {
+        id: 'tf-tp.5-2',
+        q: 'El caso de uso Confirmar orden de compra (CU8) lo dispara el Gerente de Compras como actor principal.',
+        a: false,
+        explain: 'Falso. El actor principal de CU8 es el Proveedor; el Gerente de Compras es actor secundario que recibe la notificación del resultado.',
+      },
+      {
+        id: 'tf-tp.5-3',
+        q: 'Tanto Registrar venta minorista (CU1) como Registrar pedido mayorista (CU2) incluyen Verificar disponibilidad de stock y Generar comprobante de venta.',
+        a: true,
+        explain: 'Verdadero. Ambos casos de uso tienen relación «include» con esas dos subfunciones, que se ejecutan siempre como parte del flujo.',
+      },
+      {
+        id: 'tf-tp.5-4',
+        q: 'En el pedido mayorista (CU2), si no hay stock suficiente el sistema igual permite cargar el artículo y avisa después.',
+        a: false,
+        explain: 'Falso. En CU2 el sistema bloquea la carga del artículo, muestra el stock real y exige ajustar la cantidad para poder continuar. La validación es estricta.',
+      },
+      {
+        id: 'tf-tp.5-5',
+        q: 'Registrar inconsistencias se relaciona con Registrar ingreso de mercadería mediante una relación «extend».',
+        a: true,
+        explain: 'Verdadero. Es «extend» porque solo se ejecuta cuando las cantidades físicas recibidas no coinciden con la orden de compra (faltantes o sobrantes).',
+      },
+      {
+        id: 'tf-tp.5-6',
+        q: 'El sistema gestiona el cobro de las ventas al confirmar una venta minorista.',
+        a: false,
+        explain: 'Falso. El CU1 aclara expresamente que el sistema no gestiona pagos; solo descuenta stock y genera el comprobante de venta.',
+      },
+    ],
+    mc: [
+      {
+        id: 'mc-tp.5-1',
+        q: '¿Cuál es el actor principal del caso de uso Consultar stock en tiempo real (CU3)?',
+        options: [
+          'Gerente General',
+          'Jefe de depósito',
+          'Administrador',
+          'Vendedor',
+        ],
+        correctIndex: 1,
+        explain: 'El actor principal de CU3 es el Jefe de depósito, que también es el responsable de CU4 (Registrar ingreso de mercadería).',
+      },
+      {
+        id: 'mc-tp.5-2',
+        q: 'El caso de uso Gestionar usuarios y roles (CU6) cubre principalmente los requerimientos:',
+        options: [
+          'RF1 y RF5',
+          'RF10 a RF14',
+          'RF22 y RNF2',
+          'RF20 y RF21',
+        ],
+        correctIndex: 2,
+        explain: 'CU6 cubre RF22 (gestión de usuarios con distintos roles) y RNF2 (control de acceso basado en roles). Su actor es el Administrador.',
+      },
+      {
+        id: 'mc-tp.5-3',
+        q: '¿Qué significa que un caso de uso A «extiende» a un caso de uso B?',
+        options: [
+          'Que A siempre se ejecuta como parte obligatoria de B',
+          'Que A se ejecuta solo bajo cierta condición dentro de B',
+          'Que A y B tienen el mismo actor principal',
+          'Que A reemplaza por completo a B',
+        ],
+        correctIndex: 1,
+        explain: 'La relación «extend» indica ejecución condicional: por ejemplo, Registrar inconsistencias solo ocurre si hay diferencias en el ingreso, y Generar pedido periódico solo si se elige esa opción.',
+      },
+      {
+        id: 'mc-tp.5-4',
+        q: 'Según la correspondencia con el organigrama, ¿a qué área pertenece el actor Gerente General?',
+        options: [
+          'Comercial',
+          'Compras',
+          'Dirección',
+          'Logística y depósito',
+        ],
+        correctIndex: 2,
+        explain: 'El Gerente General pertenece al área de Dirección y es el actor de CU7 (Consultar historial de ventas y compras).',
+      },
+      {
+        id: 'mc-tp.5-5',
+        q: '¿Cuál es una precondición del caso de uso Registrar ingreso de mercadería (CU4)?',
+        options: [
+          'Que el cliente mayorista ya esté registrado',
+          'Que exista una Orden de Compra previamente generada y enviada al proveedor',
+          'Que el usuario tenga rol de Administrador',
+          'Que haya una venta en curso',
+        ],
+        correctIndex: 1,
+        explain: 'CU4 requiere que ya exista una Orden de Compra (OC) generada y enviada, porque el ingreso se contrasta contra esa OC antes de sumar al stock.',
+      },
+    ],
+    ms: [
+      {
+        id: 'ms-tp.5-1',
+        q: '¿Cuáles de los siguientes son actores del sistema según la Parte 5?',
+        options: [
+          'Vendedor',
+          'Gerente de Compras',
+          'Contador',
+          'Proveedor',
+          'Cliente minorista',
+        ],
+        correctIndexes: [0, 1, 3],
+        explain: 'Los seis actores son Vendedor, Jefe de depósito, Gerente de Compras, Gerente General, Proveedor y Administrador. El Contador y el Cliente minorista no figuran entre los actores del sistema relevados en la Parte 5.',
+      },
+      {
+        id: 'ms-tp.5-2',
+        q: '¿Cuáles de estos casos de uso tienen al Vendedor como actor principal?',
+        options: [
+          'Registrar venta minorista (CU1)',
+          'Registrar pedido mayorista (CU2)',
+          'Consultar stock en tiempo real (CU3)',
+          'Generar orden de compra (CU5)',
+          'Confirmar orden de compra (CU8)',
+        ],
+        correctIndexes: [0, 1],
+        explain: 'El Vendedor es actor principal de CU1 y CU2. CU3 y CU4 son del Jefe de depósito, CU5 del Gerente de Compras y CU8 del Proveedor.',
+      },
+      {
+        id: 'ms-tp.5-3',
+        q: '¿Cuáles de las siguientes relaciones del diagrama de casos de uso son correctas?',
+        options: [
+          'CU1 «include» Verificar disponibilidad de stock',
+          'CU4 «extend» Registrar inconsistencias',
+          'CU5 «extend» Generar pedido periódico',
+          'CU3 «include» Generar comprobante de venta',
+          'CU6 «extend» Gestionar usuarios y roles',
+        ],
+        correctIndexes: [0, 1, 2],
+        explain: 'Correctas: CU1 incluye Verificar stock, CU4 extiende a Registrar inconsistencias y CU5 extiende a Generar pedido periódico. CU3 (consulta de stock) no genera comprobantes, y CU6 no tiene esa relación consigo mismo.',
+      },
+    ],
+  },
+  flashcards: [
+    {
+      id: 'fc-tp.5-1',
+      front: 'Actores del sistema (6)',
+      back: 'Vendedor, Jefe de depósito, Gerente de Compras, Gerente General, Proveedor y Administrador. Cinco salen del organigrama; el Administrador es solo rol del sistema.',
+    },
+    {
+      id: 'fc-tp.5-2',
+      front: 'Casos de uso del Vendedor',
+      back: 'CU1 Registrar venta minorista y CU2 Registrar pedido mayorista. Ambos incluyen Verificar disponibilidad de stock y Generar comprobante de venta.',
+    },
+    {
+      id: 'fc-tp.5-3',
+      front: '«include» vs «extend»',
+      back: '«include» = el caso siempre ejecuta a otro (parte obligatoria del flujo). «extend» = el caso se ejecuta solo bajo cierta condición.',
+    },
+    {
+      id: 'fc-tp.5-4',
+      front: 'Casos de uso «extend» del diagrama',
+      back: 'Registrar inconsistencias extiende a CU4 (solo si hay diferencias en el ingreso) y Generar pedido periódico extiende a CU5 (solo si se elige esa opción).',
+    },
+    {
+      id: 'fc-tp.5-5',
+      front: 'CU8 Confirmar orden de compra',
+      back: 'Actor principal: Proveedor (en un portal externo). Actor secundario: Gerente de Compras, que recibe la notificación. El proveedor confirma, rechaza o acepta parcial.',
+    },
+    {
+      id: 'fc-tp.5-6',
+      front: 'RFs de CU1 (venta minorista)',
+      back: 'RF1, RF4, RF5, RF7, RNF1, RNF2. Cubre registrar venta, precios diferenciados, comprobante, descuento de stock y control de acceso.',
+    },
+    {
+      id: 'fc-tp.5-7',
+      front: 'Diferencia clave CU1 vs CU2',
+      back: 'CU1 usa precio minorista y validación simple; CU2 usa precio mayorista, exige cliente ya registrado y valida stock de forma estricta (bloquea si no alcanza).',
+    },
+    {
+      id: 'fc-tp.5-8',
+      front: 'Actor y área del Administrador',
+      back: 'Administrador → área TI / Sistema, caso de uso CU6 (Gestionar usuarios y roles). No figura en el organigrama operativo: es rol funcional del sistema.',
+    },
+    {
+      id: 'fc-tp.5-9',
+      front: 'Historia de Usuario, formato',
+      back: '“Como [actor] / Quiero [acción] / Para [objetivo]”. Hay 8, una por cada caso de uso, con el mismo actor principal.',
+    },
+  ],
+},
+  // ---------- PARTE 6 ----------
+  {
+    id: 'tp.6',
+    unit: 'tp',
+    title: 'Parte 6 — Diagramas de secuencia y modelo de datos',
+    criollo: 'Esta es la Parte 6 y arranca donde quedó la Parte 5: describimos las cuatro subfunciones que faltaban, mostramos cómo funciona cada CU por dentro con un diagrama de secuencia, y armamos el modelo de datos. Para defender esto tenés que tener clarísimo qué se «incluye» y qué se «extiende», quién participa en cada secuencia y la tabla de trazabilidad. Es la parte más densa, así que andá tranqui que la dividimos por subtema.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'De qué va la Parte 6',
+      },
+      {
+        type: 'p',
+        text: 'Esta es la <strong>Parte 6</strong> del trabajo y continúa lo que hicimos en la Parte 5. Ya teníamos <strong>ocho casos de uso</strong> descritos; ahora hacemos tres cosas: <strong>(a)</strong> describimos los casos de uso que faltaban, <strong>(b)</strong> mostramos cómo funciona cada caso de uso por dentro con un <strong>diagrama de secuencia</strong>, y <strong>(c)</strong> armamos un <strong>modelo de datos preliminar</strong> que muestra qué información guarda el sistema.',
+      },
+      {
+        type: 'p',
+        text: 'Los actores son los mismos que en la Parte 5: <strong>Vendedor</strong>, <strong>Jefe de depósito</strong>, <strong>Gerente de Compras</strong>, <strong>Gerente General</strong>, <strong>Proveedor</strong> y <strong>Administrador</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'El sistema tiene <strong>ocho casos de uso principales</strong> (ya descritos en la Parte 5) y <strong>cuatro «subfunciones»</strong> que aparecen en el diagrama de casos de uso unidas con las relaciones <strong>«incluye»</strong> y <strong>«extiende»</strong>. Esas cuatro son los casos de uso que faltaban describir.',
+      },
+      {
+        type: 'table',
+        caption: 'Los 8 casos de uso principales (Parte 5) más las 4 subfunciones (Parte 6).',
+        headers: ['ID', 'Caso de uso', 'Origen', 'Tipo'],
+        rows: [
+          ['CU1', 'Registrar venta minorista', 'Parte 5', 'Principal'],
+          ['CU2', 'Registrar pedido mayorista', 'Parte 5', 'Principal'],
+          ['CU3', 'Consultar stock en tiempo real', 'Parte 5', 'Principal'],
+          ['CU4', 'Registrar ingreso de mercadería', 'Parte 5', 'Principal'],
+          ['CU5', 'Generar orden de compra', 'Parte 5', 'Principal'],
+          ['CU6', 'Gestionar usuarios y roles', 'Parte 5', 'Principal'],
+          ['CU7', 'Consultar historial de ventas y compras', 'Parte 5', 'Principal'],
+          ['CU8', 'Confirmar orden de compra', 'Parte 5', 'Principal'],
+          ['S1', 'Verificar disponibilidad de stock', 'Parte 6', '«incluye» (CU1, CU2)'],
+          ['S2', 'Generar comprobante de venta', 'Parte 6', '«incluye» (CU1, CU2)'],
+          ['S3', 'Registrar inconsistencias', 'Parte 6', '«extiende» (CU4)'],
+          ['S4', 'Generar pedido periódico', 'Parte 6', '«extiende» (CU5)'],
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Las 4 subfunciones que faltaban',
+        criollo: 'Ojo con esto que es re defendible: ninguna subfunción la inicia un actor directo. Se ejecutan adentro de su caso de uso principal.',
+      },
+      {
+        type: 'p',
+        text: 'Describimos las cuatro subfunciones con el mismo formato de cuadro que usamos en la Parte 5. Como son casos de uso <strong>«incluidos»</strong> o <strong>«extendidos»</strong>, <strong>no los inicia un actor directamente</strong>: se ejecutan dentro de su caso de uso principal.',
+      },
+      {
+        type: 'p',
+        text: '<strong>S1 — Verificar disponibilidad de stock</strong> (<code>RF3, RF6, RF9</code>). Se ejecuta dentro de «Registrar venta minorista» y «Registrar pedido mayorista»; no tiene actor principal. Revisa si hay suficiente stock de un producto antes de agregarlo a una venta o pedido. Precondición: hay una venta o pedido en curso y el producto existe.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Recibe el producto y la cantidad pedida.',
+          'Busca cuánto stock hay de ese producto.',
+          'Compara el stock con la cantidad pedida.',
+          'Avisa si hay stock suficiente. (3a. Si no alcanza, avisa que no hay disponible e informa cuánto queda.)',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'S1 es solo una consulta: postcondición es que se sabe si hay stock suficiente, pero NO cambia ningún dato.',
+      },
+      {
+        type: 'p',
+        text: '<strong>S2 — Generar comprobante de venta</strong> (<code>RF5</code>). Caso de uso «incluido» en «Registrar venta minorista» y «Registrar pedido mayorista»; sin actor directo. Crea el comprobante de una venta ya confirmada. <strong>El sistema no cobra</strong>: el comprobante es solo un respaldo de la venta. Precondición: la venta ya fue confirmada y el stock ya se descontó.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Toma los datos de la venta (productos, cantidades, precios y total).',
+          'Le pone número y fecha al comprobante.',
+          'Genera el comprobante.',
+          'Lo deja listo para imprimir o entregar. (Si la venta no se confirmó, el comprobante no se genera.)',
+        ],
+      },
+      {
+        type: 'p',
+        text: '<strong>S3 — Registrar inconsistencias</strong> (<code>RF18</code>). Caso de uso que <strong>«extiende»</strong> a «Registrar ingreso de mercadería»; solo ocurre si hay diferencias. Anota las diferencias entre lo que se pidió en la orden de compra y lo que realmente llegó (faltantes o sobrantes). Precondición: se está registrando un ingreso y las cantidades recibidas no coinciden con la orden.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Detecta la diferencia producto por producto.',
+          'Anota la cantidad pedida, la recibida y la diferencia.',
+          'Marca si es un faltante o un sobrante.',
+          'Relaciona la diferencia con la orden de compra.',
+          'Avisa al Jefe de depósito y deja la orden como «con diferencias». (El stock se actualiza con lo que realmente llegó.)',
+        ],
+      },
+      {
+        type: 'p',
+        text: '<strong>S4 — Generar pedido periódico</strong> (<code>RF11, RF12</code>). Caso de uso que <strong>«extiende»</strong> a «Generar orden de compra», cuando el Gerente de Compras elige esa opción. Arma <strong>solo un borrador</strong> de orden de compra usando reglas ya configuradas, para ayudar con las compras periódicas (los pedidos se hacen los viernes). Precondición: hay reglas de reposición configuradas y el Gerente eligió «pedido periódico».',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Toma las reglas de reposición ya configuradas.',
+          'Mira el stock actual y las ventas de cada producto.',
+          'Calcula cuánto conviene pedir.',
+          'Arma un borrador de orden de compra.',
+          'Se lo muestra al Gerente de Compras para que lo revise. (5a. El Gerente cambia productos o cantidades del borrador antes de seguir.)',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Regla de oro: «incluye» = siempre pasa (S1 y S2 son obligatorios en cada venta). «extiende» = pasa solo a veces (S3 si hay diferencias, S4 si el Gerente elige el pedido periódico).',
+      },
+      {
+        type: 'h3',
+        text: 'Diagramas de secuencia',
+        criollo: 'Acá mostramos cómo trabaja cada CU por dentro: quién le manda mensajes a quién y en qué orden.',
+      },
+      {
+        type: 'h3',
+        text: 'CU1 — Registrar venta minorista',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>Vendedor</strong> registra una venta presencial: el sistema revisa el stock, lo descuenta y emite el comprobante. Participan: <strong>Vendedor · Pantalla de Ventas · Gestor de Ventas · Producto · Venta · Detalle de Venta</strong>.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/seq-cu1-venta-minorista.png',
+        alt: 'Diagrama de secuencia de CU1 Registrar venta minorista, con Vendedor, Pantalla de Ventas, Gestor de Ventas, Producto, Venta y Detalle de Venta.',
+        caption: 'CU1: el Gestor de Ventas verifica stock («incluye» S1) y genera el comprobante («incluye» S2).',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Vendedor → Pantalla de Ventas: inicia una nueva venta; la pantalla le pide al Gestor de Ventas que cree la venta.',
+          'Por cada producto: el Vendedor ingresa producto y cantidad, y el Gestor busca el producto y trae sus datos.',
+          'Gestor de Ventas → Producto: verifica si hay stock («incluye» S1); responde que hay disponible.',
+          'Gestor de Ventas → Detalle de Venta: agrega el producto con precio minorista.',
+          'Vendedor confirma la venta; el Gestor registra la venta y descuenta el stock.',
+          'Gestor de Ventas → Venta: genera el comprobante («incluye» S2) y la Pantalla se lo muestra al Vendedor.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'CU2 — Registrar pedido mayorista',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>Vendedor</strong> carga un pedido para un cliente mayorista; el sistema revisa bien el stock antes de confirmar. Participan: <strong>Vendedor · Pantalla de Pedido Mayorista · Gestor de Pedidos · Cliente · Producto · Venta · Detalle de Venta</strong>.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/seq-cu2-pedido-mayorista.png',
+        alt: 'Diagrama de secuencia de CU2 Registrar pedido mayorista, con Vendedor, Pantalla de Pedido Mayorista, Gestor de Pedidos, Cliente, Producto, Venta y Detalle de Venta.',
+        caption: 'CU2: igual que CU1 pero con cliente y precio mayorista; también «incluye» S1 y S2.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Vendedor → Pantalla de Pedido Mayorista: inicia un pedido mayorista; el Gestor de Pedidos crea el pedido.',
+          'El Vendedor elige el cliente; el Gestor busca el cliente y trae sus datos.',
+          'Por cada artículo: el Vendedor lo ingresa con su cantidad y el Gestor verifica si hay stock («incluye» S1).',
+          'Gestor de Pedidos → Detalle de Venta: agrega el artículo con precio mayorista.',
+          'El Vendedor confirma el pedido; el Gestor registra la venta y descuenta el stock.',
+          'Gestor de Pedidos → Venta: genera el comprobante («incluye» S2) y se lo muestra al Vendedor.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'CU3 — Consultar stock en tiempo real',
+      },
+      {
+        type: 'p',
+        text: 'Un usuario consulta cuánto stock hay de un producto, al instante. Participan: <strong>Jefe de depósito · Pantalla de Consulta de Stock · Gestor de Stock · Producto</strong>.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/seq-cu3-consultar-stock.png',
+        alt: 'Diagrama de secuencia de CU3 Consultar stock en tiempo real, con Jefe de depósito, Pantalla de Consulta de Stock, Gestor de Stock y Producto.',
+        caption: 'CU3: consulta directa de stock; si el producto no existe, avisa.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Jefe de depósito → Pantalla de Consulta de Stock: busca un producto.',
+          'Pantalla → Gestor de Stock: consulta el stock; el Gestor busca el producto.',
+          'Si existe: Producto devuelve datos y stock, y la Pantalla muestra el stock al Jefe de depósito.',
+          'Si no existe: el Gestor avisa que el producto no existe.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'CU4 — Registrar ingreso de mercadería',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>Jefe de depósito</strong> compara la mercadería que llegó con la orden de compra, suma al stock y anota diferencias si las hay. Participan: <strong>Jefe de depósito · Pantalla de Ingreso · Gestor de Ingresos · Orden de Compra · Ingreso de Mercadería · Producto · Inconsistencia</strong>.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/seq-cu4-ingreso-mercaderia.png',
+        alt: 'Diagrama de secuencia de CU4 Registrar ingreso de mercadería, con Jefe de depósito, Pantalla de Ingreso, Gestor de Ingresos, Orden de Compra, Ingreso de Mercadería, Producto e Inconsistencia.',
+        caption: 'CU4: si las cantidades no coinciden, «extiende» S3 (Registrar inconsistencias) y la orden queda parcial.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Jefe de depósito elige la orden de compra; el Gestor de Ingresos la obtiene y muestra su detalle.',
+          'Por cada producto: el Jefe ingresa la cantidad recibida; el Gestor registra lo recibido.',
+          'El Jefe confirma el ingreso; el Gestor compara las cantidades contra la Orden de Compra.',
+          'Si coinciden: suma al stock, registra el ingreso (exacto) y marca la orden como completada.',
+          'Si hay diferencias: registra la diferencia en Inconsistencia («extiende» S3), suma al stock lo realmente recibido y marca la orden como parcial.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'CU5 — Generar orden de compra',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>Gerente de Compras</strong> arma y envía una orden de compra a un proveedor, con ayuda de sugerencias de qué reponer. Participan: <strong>Gerente de Compras · Pantalla de Compras · Gestor de Compras · Producto · Proveedor · Orden de Compra</strong>.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/seq-cu5-orden-compra.png',
+        alt: 'Diagrama de secuencia de CU5 Generar orden de compra, con Gerente de Compras, Pantalla de Compras, Gestor de Compras, Producto, Proveedor y Orden de Compra.',
+        caption: 'CU5: si el Gerente elige «pedido periódico», «extiende» S4 y arma un borrador automático.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Gerente de Compras entra al módulo de compras; el Gestor pide sugerencias de reposición revisando stock y ventas, y las muestra.',
+          'Opcional: el Gerente pide generar pedido periódico («extiende» S4) y la pantalla arma un borrador automático.',
+          'El Gerente elige productos, cantidades y proveedor; el Gestor valida el proveedor.',
+          'Gestor de Compras → Orden de Compra: crea la orden (pendiente).',
+          'El Gerente confirma el envío; el Gestor marca la orden como enviada y devuelve la confirmación.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'CU6 — Gestionar usuarios y roles',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>Administrador</strong> crea, modifica o da de baja usuarios y les asigna su rol. Participan: <strong>Administrador · Pantalla de Usuarios · Gestor de Usuarios · Usuario · Rol</strong>.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/seq-cu6-usuarios-roles.png',
+        alt: 'Diagrama de secuencia de CU6 Gestionar usuarios y roles, con Administrador, Pantalla de Usuarios, Gestor de Usuarios, Usuario y Rol.',
+        caption: 'CU6: al dar de alta, verifica que el usuario no exista y le asigna un Rol.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Administrador entra a configuración; el Gestor obtiene los usuarios y muestra la lista.',
+          'El Administrador crea un usuario nuevo; el Gestor lo da de alta.',
+          'Gestor de Usuarios → Usuario: verifica que no exista.',
+          'Si no existe: asigna el rol y guarda el usuario.',
+          'Si ya existe: avisa que el usuario ya existe.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'CU7 — Consultar historial de ventas y compras',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>Gerente General</strong> mira el historial de ventas o de compras filtrando por fecha. Participan: <strong>Gerente General · Pantalla de Reportes · Gestor de Reportes · Venta · Orden de Compra</strong>.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/seq-cu7-historial.png',
+        alt: 'Diagrama de secuencia de CU7 Consultar historial de ventas y compras, con Gerente General, Pantalla de Reportes, Gestor de Reportes, Venta y Orden de Compra.',
+        caption: 'CU7: según el tipo elegido busca en Venta o en Orden de Compra; si no hay nada, avisa.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Gerente General elige tipo (ventas o compras) y fechas; el Gestor de Reportes pide el historial.',
+          'Si es ventas: busca en Venta y trae los movimientos.',
+          'Si es compras: busca en Orden de Compra y trae los movimientos.',
+          'La Pantalla muestra el reporte; si no hay resultados, avisa que no hay movimientos.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'CU8 — Confirmar orden de compra',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>Proveedor</strong> confirma, rechaza o acepta en parte una orden de compra desde su portal, y se avisa al Gerente de Compras. Participan: <strong>Proveedor · Portal del Proveedor · Gestor de Órdenes · Orden de Compra · Gerente de Compras</strong>.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/introduccion-ing-software/tp/seq-cu8-confirmar-orden.png',
+        alt: 'Diagrama de secuencia de CU8 Confirmar orden de compra, con Proveedor, Portal del Proveedor, Gestor de Órdenes, Orden de Compra y Gerente de Compras.',
+        caption: 'CU8: al confirmar, el Gestor avisa al Gerente de Compras; también puede marcar rechazada o parcial.',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Proveedor → Portal del Proveedor: ve las órdenes pendientes; el Gestor de Órdenes las obtiene y muestra.',
+          'El Proveedor elige una orden y pide el detalle.',
+          'El Proveedor confirma la orden e indica la fecha de entrega.',
+          'Gestor de Órdenes → Orden de Compra: marca como confirmada y avisa la confirmación al Gerente de Compras.',
+          'Alternativas: el Gestor puede marcar la orden como rechazada o como parcial.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Modelo de datos preliminar',
+        criollo: 'Las «cosas» de las que el sistema guarda info. Sale de las entidades que aparecen en los diagramas de secuencia.',
+      },
+      {
+        type: 'p',
+        text: 'Este modelo muestra las <strong>entidades</strong> (las «cosas» de las que el sistema guarda información) y sus datos principales. Surge de las entidades que aparecen en los diagramas de secuencia y va de la mano con los requerimientos de la Parte 4.',
+      },
+      {
+        type: 'table',
+        caption: 'Entidades del modelo de datos preliminar y los datos que guarda cada una.',
+        headers: ['Entidad', 'Datos que guarda'],
+        rows: [
+          ['Usuario', 'Nombre de usuario, Contraseña, Nombre completo, Correo, Estado (activo / inactivo), Rol'],
+          ['Rol', 'Nombre (Ventas, Compras, Depósito o Administrador), Descripción'],
+          ['Producto', 'Código, Descripción, Precio minorista, Precio mayorista, Stock actual, Stock mínimo'],
+          ['Cliente', 'Nombre o razón social, Tipo (minorista / mayorista), CUIT o documento, Datos de contacto'],
+          ['Venta', 'Número de venta, Fecha, Tipo (minorista / mayorista), Cliente, Vendedor, Total, Número de comprobante'],
+          ['Detalle de Venta', 'Venta, Producto, Cantidad, Precio unitario, Subtotal'],
+          ['Proveedor', 'Nombre o razón social, CUIT, Datos de contacto, Dirección'],
+          ['Orden de Compra', 'Número de orden, Fecha, Proveedor, Comprador, Estado, Fecha de envío, Fecha estimada de entrega'],
+          ['Detalle de Orden de Compra', 'Orden de compra, Producto, Cantidad pedida, Cantidad recibida, Precio unitario'],
+          ['Ingreso de Mercadería', 'Número de ingreso, Fecha, Orden de compra, Quién recibió, Estado (exacto / parcial / con diferencias)'],
+          ['Inconsistencia', 'Ingreso, Producto, Cantidad pedida, Cantidad recibida, Diferencia, Tipo (faltante / sobrante)'],
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Cada entidad tiene un <strong>identificador único</strong> (por ejemplo, el número de venta o el código de producto). Además, algunas se relacionan entre sí: una <strong>Venta</strong> tiene varios <strong>Detalles de Venta</strong> y cada Detalle corresponde a un <strong>Producto</strong>; una <strong>Orden de Compra</strong> tiene varios Detalles y pertenece a un <strong>Proveedor</strong>. El comprobante se guarda como parte de la Venta y el stock como un dato del Producto.',
+      },
+      {
+        type: 'h3',
+        text: 'Trazabilidad: requerimientos, casos de uso y entidades',
+        criollo: 'Esta tabla es oro para defender: muestra que todo está conectado y no quedó nada colgado.',
+      },
+      {
+        type: 'p',
+        text: 'Esta tabla muestra qué requerimiento cumple cada caso de uso y qué entidades usa. Sirve para ver que <strong>todo está conectado</strong>: cada requerimiento de la Parte 4 tiene su caso de uso y sus datos.',
+      },
+      {
+        type: 'table',
+        caption: 'Trazabilidad entre casos de uso, requerimientos funcionales y entidades.',
+        headers: ['Caso de uso', 'Requerimientos que cumple', 'Entidades que usa'],
+        rows: [
+          ['CU1 Registrar venta minorista', 'RF1, RF4, RF5, RF7', 'Producto, Venta, Detalle de Venta, Cliente'],
+          ['CU2 Registrar pedido mayorista', 'RF2, RF3, RF4, RF5, RF7', 'Cliente, Producto, Venta, Detalle de Venta'],
+          ['CU3 Consultar stock en tiempo real', 'RF6, RF9', 'Producto'],
+          ['CU4 Registrar ingreso de mercadería', 'RF8, RF16, RF17', 'Orden de Compra, Ingreso de Mercadería, Producto'],
+          ['CU5 Generar orden de compra', 'RF10, RF12, RF13, RF14', 'Producto, Proveedor, Orden de Compra, Detalle de Orden de Compra'],
+          ['CU6 Gestionar usuarios y roles', 'RF22', 'Usuario, Rol'],
+          ['CU7 Consultar historial de ventas y compras', 'RF20, RF21', 'Venta, Orden de Compra'],
+          ['CU8 Confirmar orden de compra', 'RF15', 'Orden de Compra, Proveedor'],
+          ['S1 Verificar disponibilidad de stock', 'RF3, RF6, RF9', 'Producto'],
+          ['S2 Generar comprobante de venta', 'RF5', 'Venta'],
+          ['S3 Registrar inconsistencias', 'RF18', 'Inconsistencia, Ingreso de Mercadería'],
+          ['S4 Generar pedido periódico', 'RF11, RF12', 'Orden de Compra, Producto'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Los requerimientos RF19 (centralizar la información) y RF23 (que varias áreas usen el sistema a la vez), junto con los no funcionales, son generales y no pertenecen a un solo caso de uso.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-tp.6-1',
+          q: 'Las subfunciones S1, S2, S3 y S4 son iniciadas directamente por un actor.',
+          a: false,
+          explain: 'Falso. Como son casos de uso «incluidos» o «extendidos», no los inicia un actor directamente: se ejecutan dentro de su caso de uso principal.',
+        },
+        {
+          id: 'tf-tp.6-2',
+          q: 'S1 (Verificar disponibilidad de stock) se «incluye» tanto en CU1 como en CU2.',
+          a: true,
+          explain: 'Verdadero. S1 se ejecuta dentro de «Registrar venta minorista» (CU1) y «Registrar pedido mayorista» (CU2) con la relación «incluye».',
+        },
+        {
+          id: 'tf-tp.6-3',
+          q: 'S3 (Registrar inconsistencias) «incluye» a CU4 y por lo tanto se ejecuta siempre.',
+          a: false,
+          explain: 'Falso. S3 «extiende» a CU4 (no lo «incluye») y solo ocurre si hay diferencias entre lo pedido y lo recibido.',
+        },
+        {
+          id: 'tf-tp.6-4',
+          q: 'Al generar el comprobante de venta (S2), el sistema también cobra la venta.',
+          a: false,
+          explain: 'Falso. El sistema no cobra: el comprobante es solo un respaldo de la venta ya confirmada.',
+        },
+        {
+          id: 'tf-tp.6-5',
+          q: 'En el modelo de datos, una Venta tiene varios Detalles de Venta y cada Detalle corresponde a un Producto.',
+          a: true,
+          explain: 'Verdadero. Esa es exactamente una de las relaciones descritas: una Venta tiene varios Detalles de Venta y cada Detalle corresponde a un Producto.',
+        },
+        {
+          id: 'tf-tp.6-6',
+          q: 'Los requerimientos RF19 y RF23 pertenecen a un único caso de uso específico.',
+          a: false,
+          explain: 'Falso. RF19 (centralizar la información) y RF23 (varias áreas a la vez), junto con los no funcionales, son generales y no pertenecen a un solo caso de uso.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-tp.6-1',
+          q: '¿Cuál de estas subfunciones «extiende» a «Generar orden de compra» (CU5)?',
+          options: [
+            'S1 Verificar disponibilidad de stock',
+            'S2 Generar comprobante de venta',
+            'S3 Registrar inconsistencias',
+            'S4 Generar pedido periódico',
+          ],
+          correctIndex: 3,
+          explain: 'S4 (Generar pedido periódico) «extiende» a CU5 cuando el Gerente de Compras elige esa opción. S3 «extiende» a CU4; S1 y S2 se «incluyen» en CU1 y CU2.',
+        },
+        {
+          id: 'mc-tp.6-2',
+          q: '¿Qué entidades NO aparecen entre los participantes del diagrama de secuencia de CU4 (Registrar ingreso de mercadería)?',
+          options: [
+            'Orden de Compra e Ingreso de Mercadería',
+            'Cliente y Venta',
+            'Producto e Inconsistencia',
+            'Gestor de Ingresos y Pantalla de Ingreso',
+          ],
+          correctIndex: 1,
+          explain: 'En CU4 participan Jefe de depósito, Pantalla de Ingreso, Gestor de Ingresos, Orden de Compra, Ingreso de Mercadería, Producto e Inconsistencia. Cliente y Venta no aparecen.',
+        },
+        {
+          id: 'mc-tp.6-3',
+          q: 'Según la trazabilidad, ¿qué entidades usa CU6 (Gestionar usuarios y roles)?',
+          options: [
+            'Producto y Proveedor',
+            'Usuario y Rol',
+            'Venta y Detalle de Venta',
+            'Orden de Compra y Cliente',
+          ],
+          correctIndex: 1,
+          explain: 'CU6 cumple RF22 y usa las entidades Usuario y Rol.',
+        },
+        {
+          id: 'mc-tp.6-4',
+          q: 'En el diagrama de secuencia de CU8 (Confirmar orden de compra), ¿a quién avisa el Gestor de Órdenes cuando la orden se confirma?',
+          options: [
+            'Al Jefe de depósito',
+            'Al Administrador',
+            'Al Gerente de Compras',
+            'Al Gerente General',
+          ],
+          correctIndex: 2,
+          explain: 'Al marcar la orden como confirmada, el Gestor de Órdenes avisa la confirmación al Gerente de Compras.',
+        },
+        {
+          id: 'mc-tp.6-5',
+          q: 'En el modelo de datos, ¿qué entidad guarda el dato "Estado (exacto / parcial / con diferencias)"?',
+          options: [
+            'Orden de Compra',
+            'Inconsistencia',
+            'Ingreso de Mercadería',
+            'Detalle de Orden de Compra',
+          ],
+          correctIndex: 2,
+          explain: 'Ingreso de Mercadería guarda Número de ingreso, Fecha, Orden de compra, Quién recibió y Estado (exacto / parcial / con diferencias).',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-tp.6-1',
+          q: '¿Cuáles de estas subfunciones se relacionan con su caso de uso principal mediante «incluye»?',
+          options: [
+            'S1 Verificar disponibilidad de stock',
+            'S2 Generar comprobante de venta',
+            'S3 Registrar inconsistencias',
+            'S4 Generar pedido periódico',
+            'CU7 Consultar historial de ventas y compras',
+          ],
+          correctIndexes: [0, 1],
+          explain: 'S1 y S2 se «incluyen» en CU1 y CU2 (siempre pasan). S3 y S4 «extienden» (pasan solo a veces). CU7 es un caso de uso principal, no una subfunción.',
+        },
+        {
+          id: 'ms-tp.6-2',
+          q: '¿Quiénes participan en el diagrama de secuencia de CU2 (Registrar pedido mayorista)?',
+          options: [
+            'Vendedor',
+            'Cliente',
+            'Jefe de depósito',
+            'Detalle de Venta',
+            'Proveedor',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain: 'En CU2 participan Vendedor, Pantalla de Pedido Mayorista, Gestor de Pedidos, Cliente, Producto, Venta y Detalle de Venta. Jefe de depósito y Proveedor no participan.',
+        },
+        {
+          id: 'ms-tp.6-3',
+          q: '¿Cuáles de estas entidades forman parte del modelo de datos preliminar?',
+          options: [
+            'Inconsistencia',
+            'Detalle de Orden de Compra',
+            'Comprobante',
+            'Gestor de Ventas',
+            'Rol',
+          ],
+          correctIndexes: [0, 1, 4],
+          explain: 'Inconsistencia, Detalle de Orden de Compra y Rol son entidades del modelo. El comprobante se guarda como parte de la Venta (no es entidad propia) y el Gestor de Ventas es un objeto de control de los diagramas, no una entidad de datos.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-tp.6-1',
+        front: 'Las 3 cosas de la Parte 6',
+        back: 'Describir los casos de uso que faltaban (las 4 subfunciones), mostrar cómo funciona cada CU por dentro con diagramas de secuencia, y armar un modelo de datos preliminar.',
+      },
+      {
+        id: 'fc-tp.6-2',
+        front: '«incluye» vs «extiende»',
+        back: '«incluye» = el sub-caso siempre se ejecuta (S1 y S2 en CU1/CU2). «extiende» = se ejecuta solo a veces (S3 si hay diferencias en CU4, S4 si el Gerente elige pedido periódico en CU5).',
+      },
+      {
+        id: 'fc-tp.6-3',
+        front: 'S1 — Verificar disponibilidad de stock',
+        back: 'RF3, RF6, RF9. Se «incluye» en CU1 y CU2. Revisa si hay stock suficiente antes de agregar un producto. Es solo consulta: no cambia ningún dato.',
+      },
+      {
+        id: 'fc-tp.6-4',
+        front: 'S2 — Generar comprobante de venta',
+        back: 'RF5. Se «incluye» en CU1 y CU2. Crea el comprobante de una venta ya confirmada. El sistema no cobra: el comprobante es solo un respaldo.',
+      },
+      {
+        id: 'fc-tp.6-5',
+        front: 'S3 — Registrar inconsistencias',
+        back: 'RF18. «extiende» a CU4 y solo ocurre si hay diferencias. Anota faltantes o sobrantes entre lo pedido y lo recibido, y deja la orden «con diferencias» / parcial.',
+      },
+      {
+        id: 'fc-tp.6-6',
+        front: 'S4 — Generar pedido periódico',
+        back: 'RF11, RF12. «extiende» a CU5. Arma solo un borrador de orden de compra con reglas de reposición (los pedidos se hacen los viernes); el Gerente lo revisa.',
+      },
+      {
+        id: 'fc-tp.6-7',
+        front: 'Participantes de CU4',
+        back: 'Jefe de depósito, Pantalla de Ingreso, Gestor de Ingresos, Orden de Compra, Ingreso de Mercadería, Producto e Inconsistencia.',
+      },
+      {
+        id: 'fc-tp.6-8',
+        front: 'Relaciones del modelo de datos',
+        back: 'Una Venta tiene varios Detalles de Venta y cada Detalle corresponde a un Producto; una Orden de Compra tiene varios Detalles y pertenece a un Proveedor. El comprobante se guarda dentro de la Venta y el stock como dato del Producto.',
+      },
+      {
+        id: 'fc-tp.6-9',
+        front: 'Requerimientos generales (RF19, RF23)',
+        back: 'RF19 (centralizar la información) y RF23 (varias áreas usan el sistema a la vez), junto con los no funcionales, son generales y no pertenecen a un solo caso de uso.',
+      },
+    ],
+  },
   ],
   pdfs: [
     {
@@ -7331,6 +9676,11 @@ export default {
       key: 'modulo-12',
       label: 'Módulo 12 — Tipos de sistemas',
       path: 'pdfs/introduccion-ing-software/12-tipos-de-sistemas.pdf',
+    },
+    {
+      key: 'tp-integrador',
+      label: 'TP Integrador — Sistema para librería (caso completo)',
+      path: 'pdfs/introduccion-ing-software/tp-integrador.pdf',
     },
   ],
   partials: [
