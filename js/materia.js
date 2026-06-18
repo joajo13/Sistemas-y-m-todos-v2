@@ -26,6 +26,24 @@ if (!subject) {
 
   renderPartialsEntry();
   renderSections();
+  renderResumenEntry();
+}
+
+function renderResumenEntry() {
+  const host = document.getElementById('materia-resumen');
+  if (!host) return;
+  if (!subject.resumen) { host.remove(); return; }
+  host.innerHTML = `
+    <a href="resumen.html?subject=${subject.id}" class="folio-card" style="display:block;">
+      <div class="folio-card-body">
+        <div class="folio-card-meta" style="margin-bottom:0.5rem;">
+          <span class="quiz">Resumen final</span>
+        </div>
+        <h3 class="folio-card-title">Resumen para el final</h3>
+        <p class="folio-card-dek">Toda la materia condensada para repasar antes del final, con cada tema enlazado a su sección completa.</p>
+      </div>
+    </a>
+  `;
 }
 
 function renderPartialsEntry() {

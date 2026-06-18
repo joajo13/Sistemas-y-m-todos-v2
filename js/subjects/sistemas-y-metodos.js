@@ -13535,4 +13535,3297 @@ export default {
     { key: 'habilidades-comunicacion', label: 'Habilidades de comunicación oral y escrita (apunte)', path: 'pdfs/habilidades-comunicacion.pdf' },
     { key: 'comunicacion-presentacion', label: 'Comunicación oral y escrita (presentación)', path: 'pdfs/comunicacion-presentacion.pdf' },
   ],
+  resumen: {
+    "intro": "Repaso condensado de toda la materia, de la Teoría General de los Sistemas a la comunicación oral y escrita, pasando por el proceso administrativo, la planificación y el control, la dirección, la organización, la administración de proyectos, los sistemas de información y su desarrollo. Cada tema enlaza a su sección completa con \"Leer completo →\".",
+    "units": [
+      {
+        "unit": "1",
+        "sections": [
+          {
+            "id": "33",
+            "title": "Introducción a Sistemas y Métodos: definiciones básicas",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Una organización es un sistema donde las personas se interrelacionan con una coordinación lógica para lograr las directivas de la alta dirección. Requiere normas y procedimientos que avalen sus operaciones."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Procedimiento</strong>: método estándar de operaciones; serie detallada de instrucciones para una secuencia de acciones frecuentes o regulares.",
+                  "<strong>Método</strong>: manera de proceder u obrar con orden. En las ciencias, sirve para encontrar la verdad y enseñarla. Dos maneras: <strong>analítico</strong> o <strong>sintético</strong> (Descartes, <em>Discurso del método</em>).",
+                  "<strong>Dato</strong>: hechos desagregados aún sin procesar.",
+                  "<strong>Información</strong>: datos procesados en forma significativa para el receptor, con valor para decisiones presentes o futuras."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "<strong>Sistema</strong>: conjunto de elementos que interactúan en un entorno cambiante. Un <strong>sistema abierto</strong> comprende entradas y salidas a un proceso de transformación, donde las salidas pueden generar retroinformación (feedback). El entorno cambiante muchas veces no puede modificarse desde adentro."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Sistema de información</strong>: conjunto integrado de personas y máquinas cuyo objetivo es entregar a la organización la información requerida para operaciones, administración y toma de decisiones.",
+                  "<strong>Función de Organización y Métodos (O&amp;M)</strong>: analiza los problemas de estructura y los procedimientos de la empresa para optimizar la infraestructura administrativa y lograr los objetivos."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Los sistemas de información gerencial proveen a la dirección la información necesaria: apoyar las operaciones, brindar datos para la administración, apoyar las decisiones de la alta dirección y permitir planeamiento y control, soportados por equipos, software, bases de datos y manuales."
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "El dato es la materia prima cruda; la información es ese dato ya procesado y con sentido para decidir. Y O&amp;M se mete con cómo está armada la empresa y cómo hace las cosas."
+              }
+            ]
+          },
+          {
+            "id": "34",
+            "title": "Teoría General de los Sistemas",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La <strong>Teoría General de los Sistemas</strong> (Ludwig von Bertalanffy, 1950-1968) es una teoría interdisciplinaria con una visión orientada hacia el todo, más interesada en unir las cosas que en separarlas. Un <strong>sistema</strong> es un conjunto de elementos que se relacionan para alcanzar un fin. Ver diagrama del sistema abierto en la sección completa."
+              },
+              {
+                "type": "p",
+                "text": "<strong>Enfoque reduccionista vs. sistémico</strong>: el reduccionista estudia el todo por sus partes; el sistémico (integrador) destaca la interacción entre ellas, porque el todo no se explica solo por la suma. De ahí surgen el concepto de sistema y subsistema (un sistema puede ser parte de uno mayor)."
+              },
+              {
+                "type": "p",
+                "text": "<strong>Sinergia</strong>: la suma de las partes es diferente del todo: $2 + 2 = 5$. Caracteriza y justifica la existencia de un sistema. Según Fuller, hay sinergia cuando una parte aislada no puede explicar ni predecir la conducta del todo."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Los sistemas tienden al <strong>equilibrio</strong>: actúan una fuerza que evita cambios bruscos y otra que impulsa al cambio lento y evolutivo.",
+                  "<strong>Retroalimentación negativa</strong>: información que advierte un desvío a los centros decisionales para que corrijan y vuelvan al camino original.",
+                  "La información es una disminución de la incertidumbre; los sistemas tienden al estado más probable (caos, desorden).",
+                  "<strong>Entropía</strong>: desgaste del sistema por el tiempo o el funcionamiento; los muy entrópicos tienden a desaparecer.",
+                  "En sistemas cerrados la entropía siempre es positiva; en sistemas abiertos (biológicos, sociales) puede reducirse o volverse <strong>neguentropía</strong> (entropía negativa): más organización."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "<strong>Organizaciones inteligentes</strong>: aquellas donde la gente expande su aptitud para crear los resultados que desea y aprende a aprender en conjunto. Según Peter Senge requieren cuatro disciplinas:"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "Dominio personal.",
+                  "Modelos mentales.",
+                  "Visión compartida.",
+                  "Aprendizaje en equipo."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Sinergia es el \"2+2=5\": el todo da algo distinto que la suma de las partes. Entropía es el desgaste, y en los sistemas abiertos lo podés revertir convirtiéndolo en neguentropía."
+              }
+            ]
+          },
+          {
+            "id": "35",
+            "title": "Teoría General de los Sistemas y la tecnología",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "La evolución de las TIC"
+              },
+              {
+                "type": "p",
+                "text": "Las <strong>TIC</strong> (tecnologías de la información y la comunicación) son el conjunto de tecnologías que permiten acceder, producir, almacenar y comunicar información. Su evolución fue exponencial. Ver línea de tiempo en la sección completa."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Hasta 1950: comunicación analógica (telégrafo, teléfono, radio).",
+                  "1970-1980: digitalización; transmisión de datos, TV satelital, teletexto. Inicio de la era de la información.",
+                  "Década de 1990: explosión de la conectividad (correo electrónico, telemática); bases de la web moderna."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "El concepto de sistema y sus características"
+              },
+              {
+                "type": "p",
+                "text": "Un <strong>sistema</strong> es un conjunto de componentes que interactúan entre sí para lograr un objetivo común; las partes por sí solas no logran lo que el conjunto sí (ejemplo: un automóvil)."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Finalidad</strong>: todo sistema tiene una razón de ser.",
+                  "<strong>Componentes (subsistemas)</strong>: partes que pueden ser sistemas más pequeños.",
+                  "<strong>Interacción con el entorno</strong>: recibe entradas (inputs) y entrega salidas (outputs).",
+                  "<strong>Homeostasis</strong>: capacidad de mantener un equilibrio dinámico mediante la autorregulación (como un termostato).",
+                  "<strong>Retroalimentación (feedback)</strong>: la salida vuelve como información para ajustar el comportamiento futuro; permite la homeostasis."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Ciencia y tecnología"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Ciencia</strong>: motivada por el deseo de conocer; su actividad es la investigación y su producto, el conocimiento científico.",
+                  "<strong>Tecnología</strong>: conocimientos (científicos y empíricos) y técnicas para crear soluciones útiles; su producto son cosas artificiales (físicas o virtuales) que modifican el entorno.",
+                  "<strong>Relación simbiótica</strong>: no hay desarrollo tecnológico sin conocimiento científico, ni ciencia sin las herramientas que la tecnología aporta."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Sistemas de procesamiento de la información"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Proceso por lotes (batch)</strong>: los datos se acumulan y procesan juntos, en momentos de baja demanda (ej. de noche), sin intervención continua del operador.",
+                  "<strong>Proceso en línea o interactivo</strong>: el usuario introduce datos y el sistema responde de inmediato; cada acción desencadena una reacción (ej. e-commerce)."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Metodologías de desarrollo de sistemas"
+              },
+              {
+                "type": "p",
+                "text": "Una <strong>metodología</strong> es un conjunto de procedimientos, técnicas y herramientas que guían la creación de software de forma sistemática, para cumplir requisitos dentro de costos y tiempos y facilitar el mantenimiento."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Convencional (años 50-60)</strong>: enfoques artesanales, sin método formal.",
+                  "<strong>Estructurado (años 70-80)</strong>: orientación a procesos (Top-Down) y luego orientación a datos.",
+                  "<strong>Orientado a objetos (años 90)</strong>: unifica procesos y datos en objetos; facilita reutilización y sistemas complejos.",
+                  "<strong>Ágiles (siglo XXI)</strong>: ciclos cortos (iteraciones) que entregan valor incremental y se adaptan al cambio (Scrum, Kanban)."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Ciencia busca conocer (produce conocimiento); tecnología busca resolver (produce cosas que modifican el entorno). Y para procesar datos: batch junta todo y lo procesa de una, en línea te responde al toque."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "2",
+        "sections": [
+          {
+            "id": "36",
+            "title": "El proceso administrativo: introducción y definiciones",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Administración de operaciones"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Operaciones</strong>: las actividades de transformación que se realizan en una organización.",
+                  "<strong>Organización de producción</strong>: produce bienes tangibles, producibles en masa y almacenables para consumo posterior.",
+                  "<strong>Organización de servicios</strong>: produce bienes intangibles que requieren la participación del consumidor y no se pueden almacenar.",
+                  "<strong>Administración de operaciones</strong>: planificar la producción, organizar los recursos, dirigir las operaciones y el personal, y controlar la actuación del sistema."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Circuitos administrativos"
+              },
+              {
+                "type": "p",
+                "text": "Los <strong>circuitos administrativos</strong> representan en forma gráfica los procesos mediante símbolos. La simbología se acuerda con el usuario o se usa la <strong>Norma IRAM 34.501</strong>."
+              },
+              {
+                "type": "h3",
+                "text": "Manuales administrativos"
+              },
+              {
+                "type": "p",
+                "text": "Los <strong>manuales</strong> son herramientas para comunicar y controlar el desarrollo de las funciones administrativas y operativas. Hay tres tipos:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Manuales de organización</strong>: reflejan el diseño funcional de la empresa; describen cada puesto (objetivos, derechos, obligaciones, autoridad, responsabilidad), organigramas, misión y funciones.",
+                  "<strong>Manuales de procedimientos</strong>: detallan los circuitos y operaciones; funciones y tareas del circuito, formularios, archivos, controles y cursogramas (compras, caja, facturación).",
+                  "<strong>Manuales de usuario</strong>: instrucciones de los sistemas automatizados y procesos de cada tarea (técnico, de productos, del supervisor, para especialistas)."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Producir bienes (que se almacenan) no es lo mismo que prestar servicios (que necesitan al cliente y no se guardan). Y los manuales son tres familias: organización, procedimientos y usuario."
+              }
+            ]
+          },
+          {
+            "id": "37",
+            "title": "Productividad y calidad",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Productividad"
+              },
+              {
+                "type": "p",
+                "text": "La <strong>productividad</strong> es una medida de eficiencia que relaciona los bienes o servicios producidos con los recursos utilizados. El objetivo es maximizar las salidas minimizando las entradas: producir más con los mismos recursos, lo mismo con menos, o mucho más con menos."
+              },
+              {
+                "type": "math",
+                "latex": "\\text{Productividad} = \\dfrac{\\text{salidas (outputs)}}{\\text{entradas (inputs)}}",
+                "display": true
+              },
+              {
+                "type": "h3",
+                "text": "Calidad"
+              },
+              {
+                "type": "p",
+                "text": "La <strong>calidad</strong> no es un valor absoluto, sino un término relativo: la capacidad de un producto o servicio para satisfacer las expectativas del cliente. Deriva del latín <em>qualitas</em> (condición); solo tiene sentido al compararse con necesidades, expectativas o especificaciones."
+              },
+              {
+                "type": "p",
+                "text": "Históricamente se creía que más calidad aumentaba los costos. <strong>W. Edwards Deming</strong> demostró lo contrario: mejorar la calidad reduce los costos a largo plazo (menos desperdicios, reprocesos y errores) y aumenta la productividad y la satisfacción del cliente."
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Una app llena de bugs sale rápido (alta productividad inicial), pero después quemás horas corrigiendo fallos. Calidad y productividad no están peleadas: bien hecha, la calidad te ahorra plata."
+              }
+            ]
+          },
+          {
+            "id": "38",
+            "title": "Optimización de procesos: tiempos, cronogramas y Six Sigma",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Estudio de tiempos y cronogramas"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Estudio de tiempos</strong>: mide cuánto tarda un trabajador calificado en una tarea a ritmo normal, para fijar un \"tiempo estándar\" (planificar la producción, calcular costos y evaluar el desempeño).",
+                  "<strong>Cronogramas</strong>: herramientas visuales como el Diagrama de Gantt que distribuyen las actividades en el tiempo; permiten detectar tiempos muertos o cuellos de botella."
+                ]
+              },
+              {
+                "type": "table",
+                "caption": "Ejemplo de medición de tiempos (apunte). Total 95,9 min, con 23,5 min de tiempo muerto (casi 25 %).",
+                "headers": [
+                  "Actividad",
+                  "Tiempo",
+                  "Tipo"
+                ],
+                "rows": [
+                  [
+                    "Verificar materia prima",
+                    "11,4 min",
+                    "—"
+                  ],
+                  [
+                    "Buscar herramienta",
+                    "4,5 min",
+                    "Tiempo muerto"
+                  ],
+                  [
+                    "Proceso de corte",
+                    "32 min",
+                    "—"
+                  ],
+                  [
+                    "Esperar montacarga",
+                    "19 min",
+                    "Tiempo muerto"
+                  ],
+                  [
+                    "Proceso de corte",
+                    "22 min",
+                    "—"
+                  ],
+                  [
+                    "Ensamblar",
+                    "5 min",
+                    "—"
+                  ],
+                  [
+                    "Verificar corte",
+                    "2 min",
+                    "—"
+                  ]
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Los 23,5 min de tiempo muerto (buscar herramienta + esperar montacargas) son casi el 25 % del total. La optimización apunta a reducir esas esperas (kit de herramientas listo, mejor logística de montacargas)."
+              },
+              {
+                "type": "h3",
+                "text": "Cycle time (tiempo de ciclo)"
+              },
+              {
+                "type": "p",
+                "text": "El <strong>cycle time</strong> es el tiempo total para completar una tarea de un proceso, de principio a fin. Métrica clave para entender la capacidad de producción (ej. un latte en 3 min ⇒ 20 lattes/hora)."
+              },
+              {
+                "type": "h3",
+                "text": "Six Sigma"
+              },
+              {
+                "type": "p",
+                "text": "<strong>Six Sigma</strong> es una metodología rigurosa que usa herramientas estadísticas para reducir defectos y variabilidad. Su meta: no más de 3,4 defectos por millón de oportunidades (eficiencia del 99,9996 %). Se basa en el ciclo de 5 fases <strong>DMAIC</strong>:"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Definir</strong>: el problema, el alcance y los objetivos.",
+                  "<strong>Medir</strong>: el desempeño actual del proceso (datos cuantitativos).",
+                  "<strong>Analizar</strong>: los datos para identificar la causa raíz.",
+                  "<strong>Mejorar (improve)</strong>: diseñar, probar e implementar soluciones que eliminen la causa raíz.",
+                  "<strong>Controlar</strong>: asegurar que la mejora se mantenga en el tiempo."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Para mejorar hay que medir: tiempos estándar, Gantt para ver los tiempos muertos, y Six Sigma con DMAIC para perseguir la perfección (3,4 defectos por millón)."
+              }
+            ]
+          },
+          {
+            "id": "39",
+            "title": "Sistema de operaciones, circuitos administrativos y flujogramas",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "El sistema de operaciones"
+              },
+              {
+                "type": "p",
+                "text": "El <strong>sistema de operaciones</strong> ve a la empresa como una máquina de transformar. Ver diagrama del modelo en la sección completa."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Insumos (inputs)</strong>: recursos para operar (recursos humanos, materias primas, materiales, servicios, equipos, instalaciones, información); provistos por los proveedores.",
+                  "<strong>Procesos (transformation)</strong>: actividades que transforman los insumos en algo de mayor valor.",
+                  "<strong>Productos (outputs)</strong>: bienes o servicios finales que se entregan a los clientes.",
+                  "<strong>Sistema de información y control</strong>: mecanismo de retroalimentación (feedback) que monitorea todo y permite ajustes para cumplir los objetivos."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Circuitos administrativos y flujogramas"
+              },
+              {
+                "type": "p",
+                "text": "Un <strong>circuito administrativo</strong> es la secuencia de operaciones que sigue un documento o información a través de la organización. Visualizarlo con un <strong>flujograma (o cursograma)</strong> permite detectar deficiencias, identificar controles débiles, evitar duplicación de tareas y encontrar fallas de relevamiento."
+              },
+              {
+                "type": "h3",
+                "text": "Simbología básica del flujograma"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Óvalo</strong>: operación (acción o tarea que agrega valor).",
+                  "<strong>Rectángulo</strong>: control (verificación o comparación contra un estándar).",
+                  "<strong>\"D\"</strong>: demora (espera o interrupción del flujo).",
+                  "<strong>Rombo</strong>: decisión (bifurcación según condición Sí/No).",
+                  "<strong>Rectángulo con base curva</strong>: documento (formulario, factura, etc.).",
+                  "<strong>Triángulo</strong>: archivo (hacia abajo definitivo; hacia arriba transitorio)."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Ver cursogramas de ejemplo (pedido y facturación) en la sección completa: el mapa visual es más claro que una descripción de varias páginas."
+              },
+              {
+                "type": "h3",
+                "text": "Formularios y lay-out de oficinas"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Diseño de formularios</strong>: los formularios son el principal vehículo de la información formal; un buen diseño captura datos sin errores. Los digitales suman seguridad, almacenamiento y experiencia de usuario en múltiples dispositivos.",
+                  "<strong>Lay-out de oficinas</strong>: la disposición física del espacio impacta en la funcionalidad operativa y del personal; un buen layout facilita la comunicación y minimiza traslados innecesarios."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "La empresa como sistema de transformación: insumos → procesos → productos, con feedback. Y el cursograma es el mapa que deja a la vista las deficiencias y los controles flojos."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "3",
+        "sections": [
+          {
+            "id": "40",
+            "title": "La planificación: misión, visión, metas y estrategia",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La <strong>planificación</strong> es la función fundamental del proceso administrativo. No es solo predecir el futuro, sino construir el futuro deseado: definir a dónde se quiere llegar (objetivos) y cómo (estrategias y planes)."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Planificación organizacional</strong>: proceso sistemático y continuo de establecer objetivos y trazar el camino para alcanzarlos, según los recursos y el entorno.",
+                  "<strong>Administración estratégica</strong>: arte y ciencia de formular, implementar y evaluar decisiones multifuncionales para alcanzar los objetivos. La planificación es su primer paso; su esencia es adaptar los recursos internos a las oportunidades y riesgos del entorno."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Misión, visión y metas"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Misión</strong>: la razón de ser de la organización (qué hace, para quién y cómo).",
+                  "<strong>Visión</strong>: lo que la organización aspira a ser en el futuro; imagen inspiradora del destino deseado.",
+                  "<strong>Metas y objetivos</strong>: fines específicos, concretos y medibles, en un plazo determinado, que guían las decisiones y permiten evaluar el desempeño."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Las metas importan por cuatro motivos: (1) dan un sentido de dirección; (2) enfocan los esfuerzos; (3) guían planes y decisiones; (4) sirven para evaluar el avance."
+              },
+              {
+                "type": "h3",
+                "text": "Los tres niveles de estrategia"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Corporativo</strong>: formulada por la alta dirección para supervisar corporaciones con múltiples negocios.",
+                  "<strong>Unidad de negocios</strong>: formulada para alcanzar las metas de un negocio concreto.",
+                  "<strong>Funcional</strong>: formulada para un área específica, para poner en práctica la estrategia de la unidad de negocios."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "El proceso de administración estratégica comprende dos momentos: la <strong>planificación estratégica</strong> (establecer metas y formular estrategias) y la <strong>implantación de la estrategia</strong> (administración y control estratégico)."
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Primero el norte (misión, visión, metas), después el cómo (estrategia en tres niveles). Sin eso, remás sin brújula."
+              }
+            ]
+          },
+          {
+            "id": "41",
+            "title": "Tipos de planes: estratégico, táctico y operativo",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La planificación se despliega en distintos niveles jerárquicos, cada uno con su alcance y horizonte temporal (pirámide: estratégico en la cima, táctico en el medio, operativo en la base)."
+              },
+              {
+                "type": "h3",
+                "text": "Nivel estratégico"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Definición</strong>: plan maestro; objetivos generales a largo plazo y posicionamiento de la empresa en su entorno competitivo.",
+                  "<strong>Responsables</strong>: alta dirección (CEO, directorio).",
+                  "<strong>Horizonte</strong>: largo plazo (3 a 5 años o más).",
+                  "<strong>Características</strong>: planes amplios y genéricos, para toda la organización; decisiones complejas y no programadas."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Nivel táctico"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Definición</strong>: traduce los planes estratégicos en planes específicos por área o departamento.",
+                  "<strong>Responsables</strong>: nivel medio (gerentes de división o área).",
+                  "<strong>Horizonte</strong>: mediano plazo (1 a 3 años).",
+                  "<strong>Características</strong>: más detallados que los estratégicos; coordinan los recursos para implementar la estrategia."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Nivel operativo"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Definición</strong>: el \"cómo hacer\"; procedimientos, procesos y cronogramas de las tareas cotidianas que respaldan los planes tácticos.",
+                  "<strong>Responsables</strong>: primera línea (supervisores, jefes de equipo).",
+                  "<strong>Horizonte</strong>: corto plazo (diario, semanal, mensual, hasta 1 año).",
+                  "<strong>Características</strong>: muy detallados y orientados a la acción; decisiones mayormente programadas, basadas en reglas y procedimientos."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Estratégico = a dónde vamos; táctico = cómo lo bajamos por área; operativo = el día a día. Cada nivel, su gente y su horizonte."
+              }
+            ]
+          },
+          {
+            "id": "42",
+            "title": "Herramientas de diagnóstico: análisis FODA y cadena de valor",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Análisis FODA"
+              },
+              {
+                "type": "p",
+                "text": "El <strong>FODA</strong> permite analizar la situación competitiva de una empresa identificando factores internos (fortalezas y debilidades) y externos (oportunidades y amenazas)."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Fortalezas (interno)</strong>: atributos internos que dan ventaja (calidad, marca, bajos costos).",
+                  "<strong>Oportunidades (externo)</strong>: factores del entorno aprovechables (nuevos mercados, crecimiento de la demanda).",
+                  "<strong>Debilidades (interno)</strong>: atributos internos que ponen en desventaja (poca publicidad, fácil imitación).",
+                  "<strong>Amenazas (externo)</strong>: factores del entorno que perjudican (nuevos competidores, crisis económica)."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "El objetivo del FODA no es solo listar, sino formular estrategias: usar fortalezas para aprovechar oportunidades, superar debilidades aprovechando oportunidades, usar fortalezas para mitigar amenazas y reducir debilidades evitando amenazas."
+              },
+              {
+                "type": "h3",
+                "text": "Cadena de valor (Porter)"
+              },
+              {
+                "type": "p",
+                "text": "Desarrollada por Michael Porter, la <strong>cadena de valor</strong> describe el conjunto de actividades que una empresa realiza para crear valor para sus clientes. Se divide en actividades primarias y de soporte; la diferencia entre el valor creado y el costo es el margen."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Actividades primarias</strong>: logística interna, operaciones (transformación), logística externa, marketing y ventas, y servicios posventa.",
+                  "<strong>Actividades de soporte</strong>: infraestructura de la empresa, gestión de recursos humanos, desarrollo de tecnología y compras (abastecimiento)."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Analizar la cadena de valor permite entender dónde y cómo se crea valor, identificar fuentes de ventaja competitiva y optimizar procesos para ser más eficiente o diferenciarse."
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "FODA para saber cómo estás parado; cadena de valor para ver dónde generás guita. Diagnóstico antes de planificar."
+              }
+            ]
+          },
+          {
+            "id": "43",
+            "title": "El control: fases, tipos y balanced scorecard",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La planificación sin control es inútil. El <strong>control</strong> es el proceso que asegura que las actividades reales se ajusten a las planificadas: mide el desempeño y toma acciones correctivas ante los desvíos."
+              },
+              {
+                "type": "h3",
+                "text": "Fases del proceso de control"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Establecer parámetros (indicadores)</strong>: definir los estándares de medición, derivados de los objetivos de la planificación.",
+                  "<strong>Medir los resultados</strong>: recopilar información sobre el desempeño real.",
+                  "<strong>Evaluar el resultado (comparación)</strong>: comparar lo real con el estándar para identificar desviaciones.",
+                  "<strong>Retroalimentar (medidas correctivas)</strong>: ante desvíos significativos, corregir la ejecución o revisar el plan."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Tipos de controles"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Financieros</strong>: balance general (activos, pasivos y patrimonio en un momento dado) y estado de resultados (ingresos y egresos de un período: utilidad o pérdida).",
+                  "<strong>Presupuestarios</strong>: comparan los resultados reales con las proyecciones (presupuestos).",
+                  "<strong>Auditorías</strong>: externas (auditores independientes verifican los estados financieros) o internas (evalúan eficiencia de procesos y cumplimiento de políticas)."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "El balanced scorecard (cuadro de mando integral)"
+              },
+              {
+                "type": "p",
+                "text": "Herramienta de control estratégico que va más allá de lo financiero. Propone una visión balanceada del desempeño en cuatro perspectivas derivadas de la visión y la estrategia:"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Financiera</strong>: ¿cómo aparecer ante los inversionistas? (rentabilidad, crecimiento de ingresos).",
+                  "<strong>Del cliente</strong>: ¿cómo ser vistos por los clientes? (satisfacción, cuota de mercado).",
+                  "<strong>De procesos internos</strong>: ¿en qué procesos sobresalir? (calidad, eficiencia, innovación).",
+                  "<strong>De aprendizaje y crecimiento</strong>: ¿cómo mantener la capacidad de cambiar y progresar? (capacitación, cultura, tecnología)."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Planificar sin controlar es chamuyo. El balanced scorecard te recuerda que no todo es plata: también cuentan cliente, procesos y aprendizaje."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "4",
+        "sections": [
+          {
+            "id": "44",
+            "title": "Liderazgo: estilos y la rejilla de Blake y Mouton",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La <strong>dirección</strong> no se limita a administrar recursos: implica guiar, inspirar y coordinar personas para alcanzar objetivos comunes. Un líder eficaz domina un conjunto de habilidades interconectadas."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Liderazgo</strong>: capacidad de influir en un grupo para lograr metas (crear una visión y motivar, más allá de dar órdenes).",
+                  "<strong>Motivación</strong>: entender y canalizar los factores que impulsan el comportamiento.",
+                  "<strong>Comunicación</strong>: compartir significados mediante mensajes; alinea al equipo y da retroalimentación.",
+                  "<strong>Delegación</strong>: asignar autoridad y responsabilidad; empoderar y desarrollar, no solo \"pasar trabajo\".",
+                  "<strong>Negociación</strong>: manejar conflictos y llegar a acuerdos satisfactorios.",
+                  "<strong>Toma de decisiones</strong>: identificar problemas, evaluar alternativas y elegir el mejor curso de acción."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Liderazgo gerencial"
+              },
+              {
+                "type": "p",
+                "text": "Es el proceso de dirigir las actividades laborales de un grupo e influir en ellas. Sus cuatro implicaciones: (1) involucra a otras personas (colaboradores), cuya voluntad de aceptar órdenes define la posición del líder; (2) entraña una distribución desigual del poder; (3) usa esas diferencias de poder para influir en la conducta de los seguidores; (4) es, en el fondo, una cuestión de valores."
+              },
+              {
+                "type": "h3",
+                "text": "La rejilla administrativa de Blake y Mouton"
+              },
+              {
+                "type": "p",
+                "text": "Matriz que cruza la preocupación por la producción (eje X) con la preocupación por la gente (eje Y); de ahí surgen cinco estilos."
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Dirección empobrecida (1.1)</strong>: mínima preocupación por la producción y por la gente; mínimo esfuerzo, apatía.",
+                  "<strong>Dirección de tareas (9.1) o autoritaria</strong>: máxima por la producción, mínima por la gente. \"Cumple el objetivo, cueste lo que cueste\".",
+                  "<strong>Club campestre (1.9)</strong>: alta por la gente, baja por la producción; prioriza el ambiente agradable aunque baje la productividad.",
+                  "<strong>Dirección de equipo (9.9)</strong>: máxima por ambas. Estilo ideal: integra las tareas con las necesidades humanas (compromiso, respeto, confianza).",
+                  "<strong>Mitad de camino (5.5) o péndulo amortiguado</strong>: equilibrio intermedio; rendimiento adecuado sin presionar demasiado. \"Sé justo, pero firme\"."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "El ideal es el 9.9: te importa la producción Y la gente. El 1.1 es el que está de florero."
+              }
+            ]
+          },
+          {
+            "id": "45",
+            "title": "Motivación: el ciclo, Maslow y otras teorías",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La <strong>motivación</strong> es el conjunto de factores que ocasionan, canalizan y sostienen la conducta de una persona. Es el \"por qué\" de nuestras acciones."
+              },
+              {
+                "type": "h3",
+                "text": "El ciclo de la motivación"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Necesidad (privación)</strong>: una carencia insatisfecha que genera tensión.",
+                  "<strong>Impulso</strong>: la tensión se convierte en un motivo que nos moviliza a actuar.",
+                  "<strong>Acciones</strong>: la conducta específica para alcanzar la meta y reducir la tensión.",
+                  "<strong>Satisfacción</strong>: al alcanzar la meta, el impulso disminuye, hasta que surge una nueva necesidad."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "La jerarquía de necesidades de Maslow"
+              },
+              {
+                "type": "p",
+                "text": "Las necesidades están jerarquizadas (pirámide): primero se satisfacen las más básicas antes de aspirar a las superiores."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Fisiológicas</strong>: la base (alimentarse, descansar); en el trabajo, un salario que cubra lo esencial.",
+                  "<strong>Seguridad</strong>: estabilidad laboral, ambiente seguro, beneficios.",
+                  "<strong>Sociales (afiliación)</strong>: pertenencia, trabajo en equipo, buen clima laboral.",
+                  "<strong>Estima (reconocimiento)</strong>: estima propia (logros) y de los demás (reconocimiento, estatus): un ascenso, un premio, un elogio.",
+                  "<strong>Autorrealización</strong>: la cima; desarrollar el máximo potencial (tareas desafiantes, autonomía, crecimiento)."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Otras teorías de la motivación"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Teoría de las expectativas (Vroom)</strong>: la motivación es el producto de expectativa (si me esfuerzo, ¿lograré el objetivo?), instrumentalidad (si lo logro, ¿recibiré recompensa?) y valencia (¿valoro esa recompensa?). Si alguno es cero, la motivación es nula.",
+                  "<strong>Teoría del reforzamiento (Skinner)</strong>: el comportamiento es función de sus consecuencias. Las positivas refuerzan la conducta; las negativas o nulas la desalientan (modificación de la conducta).",
+                  "<strong>Recompensas extrínsecas</strong>: tangibles, dadas por un tercero (dinero, ascenso).",
+                  "<strong>Recompensas intrínsecas</strong>: la satisfacción personal de la tarea misma (logro, orgullo). Un buen líder equilibra ambas."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Maslow: primero comés, después te autorrealizás. Vroom: si algún factor es cero, la motivación es cero, no hay vuelta."
+              }
+            ]
+          },
+          {
+            "id": "46",
+            "title": "Comunicación en la organización",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La <strong>comunicación</strong> es el proceso mediante el cual se comparten significados a través de mensajes simbólicos. Es vital para coordinar acciones, motivar y ejercer el liderazgo."
+              },
+              {
+                "type": "p",
+                "text": "Se centra en tres puntos esenciales: (1) necesita la participación de personas; (2) significa compartir significados; (3) necesita de símbolos (tipos de lenguaje). En la organización es el medio formal, respaldado y controlado por los gerentes."
+              },
+              {
+                "type": "h3",
+                "text": "Tipos de comunicación"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Formal</strong>: sigue la estructura jerárquica oficial (correos institucionales, informes, reuniones). Puede ser interna o externa.",
+                  "<strong>Informal</strong>: surge espontáneamente de las relaciones sociales, sin canales oficiales (pasillo, rumores). Puede desinformar, pero también agiliza y fortalece las relaciones.",
+                  "<strong>Vertical</strong>: la que sube o baja por la cadena de mando."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "El proceso de comunicación"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Emisor (quién)</strong>: la persona que origina el mensaje.",
+                  "<strong>Mensaje (dice qué)</strong>: la información que se transmite.",
+                  "<strong>Medio (en qué forma)</strong>: el canal (oral, escrito, digital).",
+                  "<strong>Receptor (a quién)</strong>: la persona que recibe el mensaje.",
+                  "<strong>Retroalimentación (con qué efecto)</strong>: la respuesta del receptor que le indica al emisor si el mensaje se comprendió."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "La formal va por los canales oficiales; la informal es el radiopasillo. Y sin retroalimentación nunca sabés si te entendieron."
+              }
+            ]
+          },
+          {
+            "id": "47",
+            "title": "Negociación y toma de decisiones",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Negociación"
+              },
+              {
+                "type": "p",
+                "text": "La <strong>negociación</strong> surge a raíz de un conflicto (desacuerdo sobre recursos, metas o valores). Negociar es aplicar habilidades de comunicación y liderazgo para resolverlo de manera satisfactoria para las partes."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Enfoque duro</strong>: posición rígida, desconfianza de la otra parte; el único objetivo es ganar.",
+                  "<strong>Enfoque suave</strong>: evitar el conflicto a toda costa, cediendo fácilmente para acordar.",
+                  "<strong>Enfoque basado en principios (Harvard)</strong>: busca soluciones ganar-ganar, centrándose en los intereses subyacentes y no en las posiciones rígidas."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Proceso racional de toma de decisiones"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Definir el problema</strong>: identificar clara y precisamente la situación a resolver.",
+                  "<strong>Analizar el problema</strong>: recopilar información y comprender causas y alcance.",
+                  "<strong>Evaluar las alternativas</strong>: generar cursos de acción y valorar pros y contras.",
+                  "<strong>Elegir la alternativa</strong>: seleccionar la opción más efectiva y eficiente.",
+                  "<strong>Aplicar la decisión</strong>: poner en marcha el curso elegido, comunicarlo a los involucrados y monitorear los resultados."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "El de Harvard (ganar-ganar) es el copado: mirás los intereses, no la postura terca. Y para decidir bien, primero entendé el problema antes de tirar soluciones."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "5",
+        "sections": [
+          {
+            "id": "48",
+            "title": "La organización: concepto, eficiencia, entorno y las cinco fuerzas de Porter",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "¿Qué es una organización?"
+              },
+              {
+                "type": "p",
+                "text": "Una organización es un <strong>sistema social</strong> de dos o más personas que trabajan coordinada y estructuradamente para alcanzar metas. Toda organización comparte tres rasgos: (A) un propósito o meta definida; (B) un plan o método para alcanzarla; (C) recursos que adquiere y asigna. La <strong>administración</strong> le da forma para que cumpla sus metas de manera racional y eficiente; el responsable de dirigirla es el <strong>gerente</strong>."
+              },
+              {
+                "type": "h3",
+                "text": "Eficiencia vs. eficacia"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Eficiencia</strong>: usar la menor cantidad de recursos para un resultado. \"Hacer las cosas bien\" / al menor costo.",
+                  "<strong>Eficacia</strong>: definir y alcanzar los objetivos correctos. \"Hacer las cosas que se deben hacer\"."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "El éxito es ser eficiente y eficaz a la vez: no sirve fabricar barato algo que nadie quiere, ni fabricar lo deseado a un costo invendible."
+              },
+              {
+                "type": "h3",
+                "text": "La organización y su entorno"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Microambiente (específico)</strong>: actores cercanos que afectan la atención al cliente: clientes, proveedores, competencia y grupos reguladores.",
+                  "<strong>Macroambiente (general)</strong>: fuerzas amplias: económicas, político-legales, socioculturales, tecnológicas y ecológicas."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Las cinco fuerzas de Porter"
+              },
+              {
+                "type": "p",
+                "text": "Sirven para analizar la intensidad de la competencia y la rentabilidad de un sector (analizan el microambiente)."
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Competidores tradicionales</strong>: rivalidad entre empresas existentes.",
+                  "<strong>Nuevos participantes</strong>: amenaza de empresas que ingresan al sector.",
+                  "<strong>Productos y servicios sustitutos</strong>: de otros sectores que satisfacen la misma necesidad.",
+                  "<strong>Proveedores</strong>: su poder de negociación para imponer precios o condiciones.",
+                  "<strong>Clientes</strong>: su poder de negociación para exigir precios más bajos o más calidad."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "49",
+            "title": "Diseño y estructura organizacional",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La <strong>estructura organizacional</strong> es la forma en que el trabajo se divide, agrupa y coordina formalmente. El <strong>diseño organizacional</strong> es el proceso de tomar decisiones para crear esa estructura."
+              },
+              {
+                "type": "h3",
+                "text": "División del trabajo (especialización)"
+              },
+              {
+                "type": "p",
+                "text": "Descomponer una tarea compleja en subtareas más simples para que cada persona se especialice. <strong>Adam Smith</strong> (<em>La riqueza de las naciones</em>) lo mostró con la fábrica de alfileres: diez personas coordinadas producían unos 48.000 alfileres por día, frente a los pocos que lograría cada una por separado. Este principio inspiró la línea de montaje del \"Ford T\"."
+              },
+              {
+                "type": "h3",
+                "text": "Otros elementos de la estructura"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Departamentalización</strong>: agrupar tareas y puestos en departamentos lógicos (por funciones, productos, clientes, área geográfica o procesos).",
+                  "<strong>Jerarquía</strong>: línea de autoridad y responsabilidad; define quién reporta a quién y los niveles de mando.",
+                  "<strong>Coordinación</strong>: integrar las actividades de los departamentos para que trabajen sincronizados hacia las metas."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "A más diferenciación (especialización y división del trabajo), mayor necesidad de integración (coordinación). Dividir sin coordinar genera caos."
+              }
+            ]
+          },
+          {
+            "id": "50",
+            "title": "Tipos de estructura y organización formal e informal",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Existen cuatro tipos básicos de estructura que las organizaciones pueden adoptar."
+              },
+              {
+                "type": "h3",
+                "text": "A. Estructura lineal (o piramidal)"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Líneas de autoridad y comunicación directas, sin tramos complejos.",
+                  "Ventajas: simple, asignación clara de autoridad y responsabilidad, decisiones rápidas.",
+                  "Desventajas: rígida, sobrecarga a los directivos, no fomenta la especialización.",
+                  "Ideal para: empresas muy pequeñas (tienda familiar, taller)."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "B. Estructura funcional"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Agrupa a los empleados por función o especialidad (Finanzas, Marketing, RR. HH., Operaciones).",
+                  "Ventajas: fomenta la especialización y la eficiencia; facilita la supervisión.",
+                  "Desventajas: puede crear \"silos\" (departamentos que no se comunican); respuesta lenta al mercado.",
+                  "Ideal para: organizaciones medianas con pocos productos."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "C. Estructura por producto/mercado (divisional)"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Organiza la empresa en divisiones semiautónomas enfocadas en un producto, mercado, cliente o región; cada una opera casi como empresa independiente, con su propio gerente y departamentos.",
+                  "Ventajas: mayor enfoque en resultados, más adaptabilidad, libera a la alta dirección de la gestión diaria.",
+                  "Desventajas: duplicación de recursos y costos; posible competencia destructiva entre divisiones.",
+                  "Ideal para: grandes corporaciones con cartera diversificada (Nestlé, General Electric)."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "D. Estructura matricial"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Combina dos formas de departamentalización (funcional y de producto/proyecto); el empleado tiene dos jefes —uno funcional (vertical) y uno de proyecto (horizontal)—. Sistema de mando múltiple.",
+                  "Ventajas: muy flexible, responde rápido a los cambios, permite usar especialistas en distintos proyectos.",
+                  "Desventajas: rompe la unidad de mando (confusión y conflictos de poder); requiere mucha comunicación.",
+                  "Ideal para: entornos complejos y dinámicos (agencias de publicidad, consultoras, NASA)."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Organización formal e informal"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Organización formal</strong>: estructura oficial y planificada por la dirección; se basa en la división del trabajo, la autoridad formal y reglas, y se representa con el organigrama. Clarifica objetivos, pero puede reprimir la iniciativa.",
+                  "<strong>Organización informal</strong>: red de relaciones sociales que surge espontáneamente; tiene líderes informales y valores de grupo. Satisface necesidades sociales y mejora la comunicación por el \"radiopasillo\", pero puede generar rumores y resistencia al cambio."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "El gerente inteligente no elimina la organización informal: la entiende, la alinea con los objetivos formales y usa sus canales a favor."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "6",
+        "sections": [
+          {
+            "id": "51",
+            "title": "Poder, influencia y autoridad. Las fuentes del poder",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Poder, influencia y autoridad"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Poder</strong>: capacidad potencial de modificar el comportamiento o las actitudes de otros (que A haga que B haga algo que de otro modo no haría). No requiere un cargo formal.",
+                  "<strong>Influencia</strong>: la manifestación activa del poder (\"el verbo\"); su ejercicio, que produce un cambio real en el comportamiento o las actitudes.",
+                  "<strong>Autoridad</strong>: tipo de poder legitimado por la estructura formal; el derecho a dar órdenes y esperar obediencia, conferido por un cargo. Poder institucionalizado, jerárquico, de arriba hacia abajo."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Diferencia clave: el poder es multidireccional y puede surgir de cualquier parte; la autoridad es jerárquica y deriva del cargo. Un empleado con conocimiento indispensable tiene poder aunque no sea jefe; un gerente tiene autoridad por su cargo."
+              },
+              {
+                "type": "h3",
+                "text": "Las fuentes del poder (French y Raven)"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Poder de recompensa</strong>: capacidad de distribuir recompensas valoradas, tangibles (aumentos, bonos, ascensos) o intangibles (reconocimiento).",
+                  "<strong>Poder coercitivo</strong>: capacidad de aplicar castigos o consecuencias negativas; su motor es el miedo. Efectivo a corto plazo, pero su abuso genera resentimiento.",
+                  "<strong>Poder legítimo</strong>: deriva de la posición formal en la jerarquía; es sinónimo de autoridad.",
+                  "<strong>Poder de experto</strong>: proviene del conocimiento, habilidades o pericia. No depende del cargo.",
+                  "<strong>Poder de referencia (referente)</strong>: se basa en cualidades personales (carisma, integridad) que inspiran admiración, respeto o lealtad. Asociado al liderazgo transformacional."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "52",
+            "title": "Tipos de autoridad, centralización y coordinación",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Tipos de autoridad"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Autoridad lineal</strong>: fluye por la cadena de mando; toma decisiones y da órdenes directas para los objetivos principales. Es la columna vertebral de la jerarquía.",
+                  "<strong>Autoridad de staff</strong>: asesora, da servicios y apoya a la línea (RR. HH., Jurídico, I+D), pero no da órdenes directas. Aumenta la eficacia de la línea.",
+                  "<strong>Autoridad funcional</strong>: rompe la unidad de mando; otorga a un staff el derecho de controlar actividades específicas en otros departamentos para garantizar uniformidad (ej.: Finanzas exige un formato de informes a todos)."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Jerarquía, centralización y descentralización"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Jerarquía</strong>: organización de personas en rangos o niveles; establece quién reporta a quién.",
+                  "<strong>Centralización</strong>: la toma de decisiones se concentra en los niveles más altos. Da control y uniformidad (útil en crisis), pero ralentiza y puede desmotivar.",
+                  "<strong>Descentralización</strong>: transfiere la autoridad de decisión a niveles más bajos. Puede ser vertical (baja por la cadena) u horizontal (hacia analistas/especialistas fuera de la línea). Agiliza y motiva, pero puede hacer perder control."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Coordinación: los mecanismos de Mintzberg"
+              },
+              {
+                "type": "p",
+                "text": "La coordinación integra las actividades de las partes para alcanzar las metas. <strong>Henry Mintzberg</strong> describió cinco mecanismos:"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Ajuste mutuo</strong>: coordinación por comunicación informal (organizaciones muy simples o muy complejas).",
+                  "<strong>Supervisión directa</strong>: un gerente asume la responsabilidad del trabajo de otros y los supervisa. Típico de estructuras jerárquicas.",
+                  "<strong>Estandarización de procesos de trabajo</strong>: se especifica el contenido del trabajo (manuales, protocolos, línea de ensamblaje).",
+                  "<strong>Estandarización de resultados (outputs)</strong>: se especifica el resultado, no el cómo (a un vendedor se le da una cuota).",
+                  "<strong>Estandarización de habilidades (skills)</strong>: se especifica la formación del trabajador (cirujano y anestesista se entienden por su formación, sin comunicación constante)."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "53",
+            "title": "Caso resuelto: Presión en la sala de proyectos",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "En una agencia, cinco personas intentan influir sobre el equipo. La resolución consiste en identificar qué <strong>fuente de poder de French y Raven</strong> representa cada una: <strong>Sofía</strong> (Directora General de Cuentas) ejerce <strong>poder legítimo</strong> —la obedecen por el cargo—; <strong>Javier</strong>, <strong>poder de recompensa</strong> (promete bono extra y días libres); <strong>Ricardo</strong>, <strong>poder coercitivo</strong> (amenaza con informar a la dirección y oponerse al bono: mueve por el miedo); <strong>Elena</strong>, <strong>poder de experto</strong> (la escuchan por su pericia de redactora galardonada, no por su cargo); <strong>Mateo</strong>, <strong>poder de referencia</strong> (lo siguen por su carisma y el respeto que inspira, sin cargo, premios ni castigos)."
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Truco para reconocerlos: influencia del cargo → legítimo; de premiar → recompensa; de castigar/amenazar → coercitivo; de lo que sabe → experto; de cómo es la persona (admiración) → referente."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "7",
+        "sections": [
+          {
+            "id": "54",
+            "title": "El puesto de trabajo: componentes y la diferencia con el rol",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El <strong>puesto de trabajo</strong> es la unidad fundamental de la estructura: una posición específica y formal dentro del organigrama, con un conjunto predefinido de tareas, deberes y responsabilidades asignadas a quien lo ocupa."
+              },
+              {
+                "type": "h3",
+                "text": "Componentes del puesto"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Tareas</strong>: el \"qué se hace\"; las acciones y actividades concretas que el ocupante ejecuta.",
+                  "<strong>Responsabilidad</strong>: el \"sobre qué se rinde cuentas\"; la obligación de responder por los resultados de las tareas.",
+                  "<strong>Autoridad</strong>: el \"qué decisiones se pueden tomar\"; el grado de autonomía para usar recursos y decidir sin consultar a un superior."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Puesto vs. rol"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Puesto</strong>: la descripción formal y estática; el documento que detalla lo que se espera de la posición.",
+                  "<strong>Rol</strong>: la dimensión dinámica y conductual; cómo la persona vive e interpreta ese puesto en su interacción diaria, con comportamientos y expectativas no siempre escritos."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Dos personas en el mismo puesto de \"vendedor de salón\": el A cumple lo estricto; el B es proactivo (se acerca a indecisos, avisa promos, colabora con stock). Mismo puesto, distinto rol e impacto."
+              }
+            ]
+          },
+          {
+            "id": "55",
+            "title": "Grupo vs. equipo y tipos de equipos de trabajo",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Grupo vs. equipo"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Grupo de trabajo</strong>: sus miembros comparten información para desempeñar mejor su labor individual. Rendimiento = suma de los esfuerzos individuales. Metas y responsabilidad individuales, liderazgo único y fuerte.",
+                  "<strong>Equipo de trabajo</strong>: personas con habilidades complementarias, propósito común y metas por las que se sienten mutuamente responsables. La clave es la <strong>sinergia</strong>: el resultado colectivo es mayor que la suma de aportes (\"1 + 1 = 3\"). Meta colectiva, responsabilidad individual y mutua, liderazgo a menudo compartido."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Grupo: representantes de ventas que comparten estrategias pero cada uno con su meta. Equipo: desarrollo de software (programadores, UX/UI, testers) donde el éxito depende de que todos trabajen coordinados; si el diseño falla, la programación se resiente."
+              },
+              {
+                "type": "h3",
+                "text": "Tipos de equipos formales"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Grupos de trabajo (work groups)</strong>: un gerente y los empleados que le reportan; unidad del organigrama. Permanentes y unifuncionales (todos de la misma área). Ej.: Departamento de Contabilidad.",
+                  "<strong>Task force (fuerzas de tarea)</strong>: equipos temporales y multifuncionales para resolver un problema o proyecto específico; se disuelven al cumplir su misión. No figuran en el organigrama. Ej.: equipo para el lanzamiento de un producto.",
+                  "<strong>Comités</strong>: equipos formales de gobierno, supervisión y asesoramiento (asuntos estratégicos, operativos o legales). Multifuncionales, suelen ser duraderos; integrados por gerencia media y alta. Ej.: Comité de Ética, de Presupuesto."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Pertenecer a un comité es un reconocimiento a las aptitudes y experiencia del participante. Las task force suelen ser grupos multidisciplinarios de gerencia media y empleados con experiencia, para proyectos de mediana o corta duración."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "8.1",
+        "sections": [
+          {
+            "id": "1",
+            "title": "¿Qué es un proyecto y por qué necesita gestión?",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Un <strong>proyecto</strong> es un esfuerzo <strong>temporal y único</strong> que se emprende para crear un producto, servicio o resultado específico."
+              },
+              {
+                "type": "h3",
+                "text": "Características clave de un proyecto"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Temporal:</strong> tiene comienzo y final definidos; no es operación continua ni rutinaria.",
+                  "<strong>Único:</strong> el resultado difiere de otros (ubicación, diseño o equipo propios). Construir un edificio es proyecto; mantenerlo a diario es operación.",
+                  "<strong>Recursos definidos:</strong> se asigna presupuesto, personal y equipamiento específicos.",
+                  "<strong>Resultado específico:</strong> busca un objetivo claro y tangible."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Administración de proyectos (project management)"
+              },
+              {
+                "type": "p",
+                "text": "Disciplina que planifica, organiza, asegura y gestiona los recursos para cumplir los objetivos dentro de las restricciones de <strong>alcance, tiempo y costo</strong>. Aumenta las probabilidades de éxito y optimiza recursos, pero no lo garantiza."
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Si es rutina, es operación; si tiene principio y fin con un objetivo concreto, es proyecto."
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "title": "El nacimiento de un proyecto (fase conceptual)",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Los proyectos nacen de necesidades y oportunidades que se evalúan y filtran antes de ser aprobados."
+              },
+              {
+                "type": "h3",
+                "text": "Fuentes de proyectos"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Oportunidades de negocio (nuevo nicho, mejorar eficiencia).",
+                  "Requerimientos del cliente (interno o externo).",
+                  "Cambios regulatorios (nuevas leyes o normativas).",
+                  "Plan estratégico de la alta dirección desglosado en proyectos.",
+                  "Ideas innovadoras de los empleados."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Proceso de selección y aprobación"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Business case:</strong> primer documento formal; justifica el proyecto analizando beneficios esperados, costos estimados y alineación estratégica.",
+                  "<strong>Estudio de factibilidad:</strong> técnica (¿tenemos tecnología y conocimientos?), económica (¿es rentable?) y operativa (¿se integra con las operaciones actuales?).",
+                  "<strong>Comités de revisión:</strong> deciden aprobar o rechazar."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Comités de revisión"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Comité directivo (steering committee):</strong> altos ejecutivos; alineación estratégica y aprobación de grandes presupuestos.",
+                  "<strong>Comité de sistemas de información:</strong> gerentes y expertos de TI; factibilidad técnica e integración con sistemas existentes.",
+                  "<strong>Comité del grupo de usuarios:</strong> áreas afectadas; aportan la visión del \"cliente\" final."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Si el proyecto supera estas fases, obtiene la aprobación formal y pasa a la planificación detallada."
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "title": "Ciclo de vida y áreas de conocimiento PMBOK",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Todo proyecto, sin importar su tamaño, atraviesa una serie de fases conocidas como el <strong>ciclo de vida del proyecto</strong>."
+              },
+              {
+                "type": "h3",
+                "text": "Las cinco fases del ciclo de vida"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Inicio:</strong> se define el proyecto a nivel general; se elabora el project charter y se identifican los stakeholders clave.",
+                  "<strong>Planificación:</strong> fase más intensiva; se detallan alcance, cronograma, presupuesto, riesgos, recursos y comunicaciones. Su resultado es el plan de proyecto.",
+                  "<strong>Ejecución:</strong> el equipo realiza el trabajo y crea los entregables; consume la mayor parte del tiempo y presupuesto.",
+                  "<strong>Monitoreo y control:</strong> en paralelo a la ejecución; mide progreso real vs. planificado y toma acciones correctivas.",
+                  "<strong>Cierre:</strong> se formaliza la aceptación, se liberan recursos y se documentan las lecciones aprendidas."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "El PMI y la Guía del PMBOK®"
+              },
+              {
+                "type": "p",
+                "text": "El <strong>Project Management Institute (PMI)</strong> es la organización líder mundial en dirección de proyectos. Su publicación más importante, la <strong>Guía del PMBOK®</strong>, recopila las mejores prácticas reconocidas de la industria."
+              },
+              {
+                "type": "h3",
+                "text": "Áreas de conocimiento del PMBOK®"
+              },
+              {
+                "type": "p",
+                "text": "No son fases, sino dimensiones que el director gestiona de forma integrada a lo largo de todo el ciclo de vida:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Integración:</strong> coordina todas las demás áreas como un todo cohesivo.",
+                  "<strong>Alcance:</strong> incluye todo el trabajo requerido, y solo ese.",
+                  "<strong>Tiempo (cronograma):</strong> asegura cumplir el plazo previsto.",
+                  "<strong>Costos:</strong> planificación, estimación, presupuesto y control.",
+                  "<strong>Calidad:</strong> cumplir los requisitos de calidad definidos.",
+                  "<strong>Recursos humanos:</strong> organiza y dirige al equipo.",
+                  "<strong>Comunicaciones:</strong> genera, distribuye y almacena la información oportunamente.",
+                  "<strong>Riesgos:</strong> identifica, analiza y responde a los riesgos.",
+                  "<strong>Adquisiciones:</strong> compra de bienes o servicios a proveedores externos."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "4",
+            "title": "Fundamentos de la planificación",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Una planificación sólida es la base del éxito: mejora la comunicación, minimiza la repetición de tareas, aumenta la predictibilidad y ayuda a entregar productos de calidad a tiempo."
+              },
+              {
+                "type": "h3",
+                "text": "Objetivos SMART"
+              },
+              {
+                "type": "p",
+                "text": "Para evitar objetivos ambiguos (como \"mejorar la página web\") se usa el acrónimo SMART:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>S — Específico:</strong> claro y sin ambigüedades. Correcto: \"Implementar un sistema de carrito de compras en la web\".",
+                  "<strong>M — Medible:</strong> cuantificable. Ej.: \"Aumentar las ventas online un 20 % en seis meses\".",
+                  "<strong>A — Alcanzable:</strong> posible con los recursos y el tiempo disponibles; un desafío, no una utopía.",
+                  "<strong>R — Realista/Relevante:</strong> alineado con las metas de la organización y pertinente al momento.",
+                  "<strong>T — Oportuno/Limitado en el Tiempo:</strong> con fecha límite. Ej.: \"operativo antes del 30 de noviembre\"."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Esfuerzo vs. Duración vs. Tiempo calendario"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Esfuerzo (tiempo/persona):</strong> total de horas de trabajo necesarias. Ej.: \"40 horas de programación\".",
+                  "<strong>Duración (días laborales):</strong> días hábiles según la disponibilidad de los recursos.",
+                  "<strong>Tiempo calendario:</strong> tiempo total transcurrido de inicio a fin, incluyendo fines de semana y feriados."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Ejemplo: 16 hs-persona, 1 programador a 8 hs/día → duración 16/8 = 2 días laborales; si arranca un viernes, el tiempo calendario es 4 días (vie + sáb + dom + lun)."
+              },
+              {
+                "type": "p",
+                "text": "La disponibilidad de la persona, la naturaleza del trabajo (si requiere colaboración) y el tamaño del equipo influyen en cómo el esfuerzo se traduce en duración."
+              }
+            ]
+          },
+          {
+            "id": "5",
+            "title": "Herramientas esenciales de gestión de proyectos",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Existen herramientas y documentos estandarizados que ayudan a gestionar el proyecto de manera efectiva."
+              },
+              {
+                "type": "h3",
+                "text": "Project Charter (Acta de constitución)"
+              },
+              {
+                "type": "p",
+                "text": "Documento que <strong>autoriza formalmente el proyecto</strong> y define el qué, por qué, quién y cuándo. Incluye objetivos, gerente asignado, stakeholders clave, presupuesto preliminar y entregables principales. Es la \"partida de nacimiento\" del proyecto."
+              },
+              {
+                "type": "h3",
+                "text": "WBS (Work Breakdown Structure)"
+              },
+              {
+                "type": "p",
+                "text": "Descomposición jerárquica del alcance total del trabajo: desglosa los grandes entregables en paquetes de trabajo más pequeños y manejables. Indica <strong>qué</strong> hay que hacer, no <strong>cuándo</strong>."
+              },
+              {
+                "type": "h3",
+                "text": "Cronograma Gantt"
+              },
+              {
+                "type": "p",
+                "text": "Herramienta visual por excelencia del cronograma: muestra las tareas en una línea de tiempo, sus duraciones, dependencias y el progreso general."
+              },
+              {
+                "type": "h3",
+                "text": "Plan de proyecto"
+              },
+              {
+                "type": "p",
+                "text": "Documento maestro y formal que guía la ejecución y el control. Integra todos los planes secundarios: alcance, cronograma, costos, calidad, etc."
+              },
+              {
+                "type": "h3",
+                "text": "Gestión de riesgos y cambios"
+              },
+              {
+                "type": "p",
+                "text": "Son <strong>procesos</strong>, no documentos únicos. Hace falta un plan para identificar y mitigar riesgos y un procedimiento formal para gestionar cambios al alcance original, evitando el <strong>scope creep</strong> (corrupción del alcance)."
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "El PDF de presentación lista OBS (Organization Breakdown Structure) entre las herramientas, pero el apunte de esta unidad no la desarrolla."
+              }
+            ]
+          },
+          {
+            "id": "6",
+            "title": "Desafíos comunes en la gestión de proyectos",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Todo proyecto enfrenta desafíos que, si no se gestionan proactivamente, pueden llevar al fracaso. El apunte identifica cinco problemas recurrentes:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Objetivos poco claros:</strong> si el equipo no sabe a dónde va, difícilmente llegue a buen puerto.",
+                  "<strong>Planes y calendarios irreales:</strong> la presión por terminar rápido genera cronogramas imposibles, desmotivación y baja calidad.",
+                  "<strong>Recursos saturados:</strong> asignar personas a demasiados proyectos a la vez reduce productividad y aumenta errores.",
+                  "<strong>Prioridades cambiantes:</strong> si la dirección cambia de opinión constantemente, el equipo pierde el foco y el proyecto se estanca.",
+                  "<strong>Comunicación deficiente:</strong> es una de las principales causas de problemas en los proyectos."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Un buen gerente trabaja proactivamente para mitigar estos desafíos desde el inicio, anticipándose a los problemas en lugar de reaccionar cuando ya ocurrieron."
+              }
+            ]
+          },
+          {
+            "id": "7",
+            "title": "Consideraciones generales (proyectos de sistemas)",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Los proyectos de desarrollo de sistemas tienen consideraciones específicas. Cinco puntos clave:"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "Deben estar correctamente planeados, en conformidad con el grupo de usuarios.",
+                  "Los requerimientos de tiempo se refieren al tiempo necesario para una investigación clara y profunda del sistema a desarrollar.",
+                  "El tiempo de investigación se determina por la cantidad de personas a entrevistar, el tiempo necesario para el desarrollo y las interconsultas entre usuarios.",
+                  "El personal debe asignarse y administrarse adecuadamente, siguiendo los lineamientos para asegurar la calidad y efectividad de la aplicación.",
+                  "El desarrollo y la programación son actividades individuales, pero el project leader debe controlar que todas las personas asignadas estén disponibles para concretar el plan de trabajo."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "La coordinación con el usuario es desde el día uno; el rol del project leader no es solo asignar tareas, sino garantizar la disponibilidad del equipo cuando se la necesita."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "8.2",
+        "sections": [
+          {
+            "id": "8",
+            "title": "Estructurando el trabajo (WBS y OBS)",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Antes de planificar tiempo o costo, hay que definir con precisión todo el trabajo a realizar. Para eso se usan dos herramientas estructurales: la <strong>WBS</strong> y la <strong>OBS</strong>."
+              },
+              {
+                "type": "h3",
+                "text": "WBS (Work Breakdown Structure / Estructura de desglose del trabajo)"
+              },
+              {
+                "type": "p",
+                "text": "Descomposición jerárquica de todo el alcance del trabajo que el equipo debe ejecutar para crear los entregables. Divide tareas grandes y complejas en partes más chicas y manejables, llamadas <strong>paquetes de trabajo</strong>."
+              },
+              {
+                "type": "p",
+                "text": "Características clave:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Orientada a entregables: se enfoca en el \"qué\" se entrega, no en el \"cómo\" ni el \"cuándo\".",
+                  "Jerárquica: del proyecto general en la cima a los paquetes de trabajo individuales en la base.",
+                  "Regla del 100%: debe incluir el 100% del alcance del proyecto, ni más ni menos."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "OBS (Organization Breakdown Structure / Estructura de desglose de la organización)"
+              },
+              {
+                "type": "p",
+                "text": "Mientras la WBS define el \"qué\", la OBS define el \"quién\": es el organigrama del proyecto, con las unidades organizativas (departamentos, equipos) y cómo se relacionan."
+              },
+              {
+                "type": "p",
+                "text": "Al cruzar la WBS con la OBS se asigna la responsabilidad de cada paquete de trabajo a un equipo o departamento. Esto arma una <strong>matriz de asignación de responsabilidades</strong>, garantizando que cada parte del proyecto tenga un dueño claro."
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "WBS = qué, OBS = quién. Cruzalas y cada paquete de laburo tiene dueño."
+              }
+            ]
+          },
+          {
+            "id": "9",
+            "title": "Planificación y gestión del tiempo",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Una vez que sabemos qué hay que hacer, hay que planificar cuándo. La gestión del cronograma es uno de los pilares de la dirección de proyectos."
+              },
+              {
+                "type": "h3",
+                "text": "Conceptos fundamentales del tiempo"
+              },
+              {
+                "type": "p",
+                "text": "No hay que confundir tres términos:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Esfuerzo</strong>: cantidad total de horas de trabajo que requiere la tarea (ej.: diseñar el logo = 16 horas).",
+                  "<strong>Duración</strong>: días laborables que toma con los recursos asignados (16 h con un diseñador a 8 h/día = 2 días).",
+                  "<strong>Tiempo calendario</strong>: lapso total en el almanaque entre inicio y fin, incluyendo días no laborables (una tarea de 2 días que arranca un viernes = 4 días de calendario, termina el lunes)."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Diagrama de Gantt"
+              },
+              {
+                "type": "p",
+                "text": "Herramienta visual por excelencia: gráfico de barras horizontales que muestra las tareas a lo largo del tiempo. Permite ver de un vistazo:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Qué tareas hay que hacer.",
+                  "Cuándo comienza y termina cada una.",
+                  "Cuánto dura cada una.",
+                  "Cómo se superponen y si hay dependencias entre ellas."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Camino crítico (critical path)"
+              },
+              {
+                "type": "p",
+                "text": "Es la secuencia de tareas más larga y menos flexible del proyecto. Su duración total determina la duración total del proyecto."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "¿Por qué es \"crítico\"? Cualquier retraso en una tarea de este camino retrasa la fecha de fin de todo el proyecto.",
+                  "Foco de gestión: concentra la máxima atención del gerente. Para acortar la duración total es obligatorio acortar tareas del camino crítico."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Si querés terminar antes, tocá el camino crítico; lo demás tiene holgura y no mueve la aguja."
+              }
+            ]
+          },
+          {
+            "id": "10",
+            "title": "Gestión de incertidumbre y calidad",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Un buen plan no solo define el trabajo y el tiempo: también se anticipa a los problemas y asegura que el resultado sea el esperado."
+              },
+              {
+                "type": "h3",
+                "text": "Gestión de riesgos"
+              },
+              {
+                "type": "p",
+                "text": "Un <strong>riesgo</strong> es un evento incierto que, si ocurre, tendrá impacto (positivo o negativo) en el proyecto. La gestión no busca eliminar la incertidumbre, sino gestionarla. Cuatro estrategias para riesgos negativos:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Evitar</strong>: modificar el plan para eliminar la amenaza (ej.: contratar un proveedor conocido en vez de uno nuevo).",
+                  "<strong>Transferir</strong>: trasladar el impacto a un tercero (ej.: contratar un seguro). El riesgo sigue, pero las consecuencias financieras se transfieren.",
+                  "<strong>Anticipar (mitigar)</strong>: reducir la probabilidad o el impacto (ej.: instalar carpas ante riesgo de lluvia).",
+                  "<strong>Aceptar</strong>: no actuar y asumir las consecuencias. Se usa para riesgos de bajo impacto o probabilidad."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Gestión de calidad"
+              },
+              {
+                "type": "p",
+                "text": "Asegura que el proyecto cumpla con los requisitos para los que fue emprendido. Tres procesos:"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Planificación de la calidad</strong>: definir qué estándares aplican y cómo se cumplen. Usa análisis costo/beneficio y benchmarking.",
+                  "<strong>Aseguramiento (QA)</strong>: enfocado en los procesos. Auditorías para verificar que se sigan los procedimientos. Objetivo: prevenir defectos.",
+                  "<strong>Control (QC)</strong>: enfocado en los productos. Inspección y medición de entregables para detectar defectos; si hay uno, se decide aceptar, rechazar o retrabajar."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "QA mira los PROCESOS para prevenir defectos; QC mira los PRODUCTOS para detectarlos. Uno previene, el otro inspecciona."
+              },
+              {
+                "type": "h3",
+                "text": "Gestión de cambios"
+              },
+              {
+                "type": "p",
+                "text": "Los cambios son inevitables; la clave es gestionarlos de forma controlada. El proceso formal sigue estos pasos:"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Solicitud</strong>: alguien (cliente o miembro del equipo) solicita formalmente un cambio.",
+                  "<strong>Evaluación del impacto</strong>: el PM analiza cómo afecta alcance, cronograma, costo y calidad.",
+                  "<strong>Aprobación del comité</strong>: el cambio y su análisis se presentan a un comité de control de cambios para aprobar o rechazar.",
+                  "<strong>Ajuste y comunicación</strong>: si se aprueba, se actualizan el plan y las líneas base y se notifica a todos los involucrados."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Los cambios suelen aterrizar en: alcance, cronograma/actividades, presupuesto, indicadores de calidad e integrantes del proyecto."
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Los cambios siempre caen; mejor un proceso formal que andar parchando a los gritos."
+              }
+            ]
+          },
+          {
+            "id": "11",
+            "title": "Seguimiento y cierre del proyecto",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Por último, hay que monitorear el progreso y cerrar el proyecto de forma ordenada."
+              },
+              {
+                "type": "h3",
+                "text": "Informe de avance"
+              },
+              {
+                "type": "p",
+                "text": "Documento principal para comunicar el estado del proyecto a los interesados. Típicamente incluye:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Resumen ejecutivo: vista rápida para la alta gerencia.",
+                  "Estado de actividades: qué se completó y qué está en progreso.",
+                  "Riesgos y problemas: actualización de los principales.",
+                  "Atrasos y presupuesto: análisis de desviaciones respecto al plan original."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Acta de certificación de hitos"
+              },
+              {
+                "type": "p",
+                "text": "Un <strong>hito</strong> es un punto o evento importante del proyecto. El acta es el documento formal donde el cliente o sponsor firma la aceptación de un entregable o el fin de una fase, lo que libera al equipo para continuar con la siguiente etapa."
+              },
+              {
+                "type": "h3",
+                "text": "Proceso de cierre del proyecto"
+              },
+              {
+                "type": "p",
+                "text": "El cierre no es solo decir \"terminamos\": es una fase formal con actividades clave:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Cierre administrativo</strong>: finalizar contratos, pagar últimas facturas y archivar la documentación.",
+                  "<strong>Revisión post-implementación</strong>: evaluar el éxito comparando resultados finales con objetivos originales.",
+                  "<strong>Acta de cierre</strong>: formaliza el fin del proyecto. Su sección más valiosa son las <strong>lecciones aprendidas</strong> (qué salió bien, qué salió mal y qué mejorar).",
+                  "<strong>Reconocimiento y celebración</strong>: reconocer el esfuerzo del equipo; crucial para la moral y la motivación futura."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Lo más valioso del cierre son las lecciones aprendidas: ahí está el oro para que el próximo proyecto arranque menos a ciegas."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "9",
+        "sections": [
+          {
+            "id": "12",
+            "title": "Conceptos fundamentales",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Para entender qué es un sistema de información hay que dominar primero una serie de términos básicos que son sus cimientos."
+              },
+              {
+                "type": "h3",
+                "text": "El área de organización y métodos"
+              },
+              {
+                "type": "p",
+                "text": "Área de las TIC que analiza los problemas de estructura y procedimientos de una empresa, para optimizar la infraestructura organizativa y el logro de los objetivos definidos."
+              },
+              {
+                "type": "h3",
+                "text": "Dato vs. Información"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Dato</strong>: materia prima; hechos en bruto, símbolos o registros sin contexto. Por sí solo no sirve para decidir (ej.: el número \"150\").",
+                  "<strong>Información</strong>: resultado de procesar, organizar y estructurar datos para darles significado y relevancia. Reduce la incertidumbre y es base para decidir (ej.: \"Se vendieron 150 unidades del producto X en Palermo en agosto\")."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Método y Procedimiento"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Método</strong>: forma ordenada y sistemática de realizar una acción o alcanzar un fin. Es el \"qué hacer\" y \"cómo\" a nivel general.",
+                  "<strong>Procedimiento</strong>: implementación detallada de un método; serie de pasos explícitos para completar una tarea de forma estandarizada."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Sistema"
+              },
+              {
+                "type": "p",
+                "text": "Un <strong>sistema</strong> es un conjunto de componentes interrelacionados que operan en un entorno para lograr un objetivo común. Todo sistema tiene <strong>entrada (input)</strong>, <strong>proceso de transformación</strong>, <strong>salida (output)</strong> y un mecanismo de <strong>retroalimentación (feedback)</strong> para el control y el ajuste."
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Dato es el ladrillo suelto; información es la pared. Método es el plan general; procedimiento es el paso a paso."
+              }
+            ]
+          },
+          {
+            "id": "13",
+            "title": "El sistema de información (SI)",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Definición de sistema de información"
+              },
+              {
+                "type": "p",
+                "text": "Un <strong>sistema de información (SI)</strong> es un conjunto organizado de componentes (personas, hardware, software, redes de comunicación y datos) que interactúan para recolectar, procesar, almacenar y distribuir información. Su propósito es apoyar las operaciones, la gestión (coordinación y control) y la toma de decisiones de la organización."
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Laudon y Laudon: \"Conjunto de componentes interrelacionados que recolectan (o recuperan), procesan, almacenan y distribuyen información para apoyar los procesos de toma de decisión, coordinación y control de la organización.\""
+              },
+              {
+                "type": "h3",
+                "text": "Componentes clave de un SI"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Hardware</strong>: equipos físicos (computadoras, servidores, periféricos).",
+                  "<strong>Software</strong>: programas y aplicaciones que dirigen el hardware.",
+                  "<strong>Datos</strong>: hechos en bruto que el sistema procesará.",
+                  "<strong>Personas</strong>: usuarios, operadores, analistas y administradores.",
+                  "<strong>Procesos</strong>: procedimientos y reglas de negocio que gobiernan el funcionamiento."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Sistemas abiertos y su entorno"
+              },
+              {
+                "type": "p",
+                "text": "La <strong>finalidad</strong> de un sistema es la razón de su existencia. Para lograr sus objetivos interactúa con su <strong>medioambiente</strong>, formado por todos los objetos fuera de las fronteras del sistema. Los que reciben entradas y producen salidas son <strong>sistemas abiertos</strong>; trabajan mejor dentro de niveles de desempeño tolerables."
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Finalidades de un SI: procesar entradas, mantener archivos de datos de la organización y producir información, reportes y otras salidas."
+              }
+            ]
+          },
+          {
+            "id": "14",
+            "title": "Beneficios de los sistemas de información",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Los beneficios de los SI se agrupan en tres grandes áreas: eficiencia operativa, soporte a la toma de decisiones y ventaja estratégica."
+              },
+              {
+                "type": "h3",
+                "text": "Eficiencia operativa"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Aumento de la productividad</strong>: automatizan tareas repetitivas y liberan a los empleados para actividades de mayor valor.",
+                  "<strong>Reducción de costos operacionales</strong>: optimizan recursos, minimizan errores y reducen la mano de obra en ciertas tareas.",
+                  "<strong>Control de gastos</strong>: seguimiento más preciso de costos, evitando desviaciones presupuestarias."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Soporte a la toma de decisiones"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Mejora en la calidad de las decisiones</strong>: información oportuna, precisa y relevante para los gerentes.",
+                  "<strong>Análisis de tendencias</strong>: analizan grandes volúmenes de datos para identificar patrones de mercado, comportamiento de clientes o problemas internos."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Ventaja estratégica"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Nuevos productos y servicios</strong>: nuevos modelos de negocio basados en información (ej.: streaming o banca online).",
+                  "<strong>Mejora de la relación con el cliente</strong>: sistemas como los <strong>CRM</strong> (Customer Relationship Management) personalizan la atención y fidelizan clientes."
+                ]
+              }
+            ]
+          },
+          {
+            "id": "15",
+            "title": "Clasificación de los sistemas de información",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Los SI se clasifican según el nivel jerárquico al que sirven y el tipo de problemas que resuelven. Tres tipos principales: TPS, MIS y DSS, donde cada nivel se alimenta del de abajo."
+              },
+              {
+                "type": "h3",
+                "text": "TPS — Sistema de procesamiento de transacciones"
+              },
+              {
+                "type": "p",
+                "text": "<strong>Nivel operativo</strong>: atiende a los trabajadores de primera línea (cajeros, operarios, administrativos). <strong>Objetivo</strong>: registrar y procesar el gran volumen de transacciones diarias, sustituyendo procedimientos manuales por procesos computarizados en tareas rutinarias y bien estructuradas."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Alta velocidad</strong>: procesa miles de transacciones en poco tiempo.",
+                  "<strong>Confiabilidad y consistencia</strong>: procesos estandarizados que garantizan la integridad de los datos.",
+                  "<strong>Eficiencia</strong>: rápido y eficaz en la captura de datos.",
+                  "Ejemplos: punto de venta (POS), cajero automático (ATM), nómina, reservas de vuelos."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "MIS — Sistema de información administrativa"
+              },
+              {
+                "type": "p",
+                "text": "<strong>Nivel táctico</strong>: sirve a los gerentes de nivel medio (jefes de departamento, gerentes regionales). <strong>Objetivo</strong>: dar informes y resúmenes sobre el desempeño actual e histórico para apoyar el control y la decisión a mediano plazo. Usa los datos del TPS como principal fuente de entrada."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Orientado a informes</strong>: salida principal son informes predefinidos (diarios, semanales, mensuales).",
+                  "<strong>Poca flexibilidad analítica</strong>: los usuarios no suelen crear consultas nuevas por sí mismos.",
+                  "<strong>Apoyo a decisiones estructuradas</strong>: problemas rutinarios con criterios claros.",
+                  "Ejemplos: informe mensual de ventas, control de inventario, informe de desempeño de empleados."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "DSS — Sistema de soporte a decisiones"
+              },
+              {
+                "type": "p",
+                "text": "<strong>Nivel estratégico</strong>: apoya a la alta gerencia (directores, CEO). <strong>Objetivo</strong>: ayudar a tomar decisiones únicas, complejas y no estructuradas, donde no hay procedimientos claros."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Interactividad</strong>: el usuario manipula datos y modelos para explorar escenarios (\"¿qué pasaría si...?\").",
+                  "<strong>Flexibilidad</strong>: permite definir las propias consultas y análisis.",
+                  "<strong>Uso de modelos analíticos</strong>: estadísticos, de optimización o de simulación.",
+                  "Ejemplos: rentabilidad de un pozo petrolero, planificación financiera, evaluación de riesgo crediticio."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Cuadro comparativo"
+              },
+              {
+                "type": "table",
+                "caption": "Comparación entre TPS, MIS y DSS",
+                "headers": [
+                  "Característica",
+                  "TPS",
+                  "MIS",
+                  "DSS"
+                ],
+                "rows": [
+                  [
+                    "Usuarios",
+                    "Personal operativo",
+                    "Gerentes nivel medio",
+                    "Alta gerencia, analistas"
+                  ],
+                  [
+                    "Tipo de decisión",
+                    "Ninguna (registra datos)",
+                    "Estructurada",
+                    "No estructurada o semiestructurada"
+                  ],
+                  [
+                    "Entrada",
+                    "Transacciones diarias",
+                    "Resúmenes del TPS",
+                    "Datos internos/externos, modelos"
+                  ],
+                  [
+                    "Procesamiento",
+                    "Clasificación, listado, actualización",
+                    "Informes de rutina, resúmenes",
+                    "Interactivo, simulaciones, análisis"
+                  ],
+                  [
+                    "Salida",
+                    "Registros detallados",
+                    "Informes resumidos",
+                    "Análisis de escenarios, proyecciones"
+                  ],
+                  [
+                    "Horizonte temporal",
+                    "Pasado y presente inmediato",
+                    "Pasado y presente",
+                    "Futuro"
+                  ]
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "TPS es el día a día, MIS los informes para los jefes y DSS el \"¿qué pasaría si...?\" para la alta gerencia."
+              }
+            ]
+          },
+          {
+            "id": "16",
+            "title": "Para reflexionar",
+            "blocks": [
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "\"Las empresas exitosas son las que aprenden cómo usar las tecnologías, para sacar provecho en sus negocios.\" — Laudon y Laudon (2012)"
+              },
+              {
+                "type": "h3",
+                "text": "¿Qué hace la diferencia?"
+              },
+              {
+                "type": "p",
+                "text": "¿Qué diferencia a empresas como Mercado Libre, Netflix o Amazon del resto? No solo su producto, sino su dominio magistral de los SI para entender al cliente, optimizar la logística y tomar decisiones estratégicas basadas en datos."
+              },
+              {
+                "type": "p",
+                "text": "Pregunta para llevarse: ¿cómo podría un sistema de información transformar un negocio tradicional que conozcas, como un restaurante de barrio o un taller mecánico?"
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Referencia: Laudon, K. C. y Laudon, J. P. (2012). <strong>Sistemas de información gerencial: Administración de la empresa digital</strong> (12.ª ed.). México: Pearson Educación."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "10",
+        "sections": [
+          {
+            "id": "17",
+            "title": "Los SI en las empresas y el rol estratégico de la TI",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Las empresas necesitan <strong>organizar su información</strong> para operar eficientemente. Identificar, diseñar y optimizar los procesos puede dar una <strong>diferencia competitiva</strong>. Los SI ayudan automatizando actividades manuales y compartiendo información entre sectores para agilizar la toma de decisiones."
+              },
+              {
+                "type": "h3",
+                "text": "Qué es un sistema de información (SI)"
+              },
+              {
+                "type": "p",
+                "text": "Un SI es <strong>mucho más que solo software</strong>: un conjunto de componentes interrelacionados que <strong>recolectan, procesan, almacenan y distribuyen</strong> información para apoyar la toma de decisiones, la coordinación y el control en una organización."
+              },
+              {
+                "type": "h3",
+                "text": "Tipos de sistemas según el nivel gerencial"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>TPS</strong>: sustituyen procedimientos manuales por otros basados en computadoras.",
+                  "<strong>MIS</strong>: proporcionan información base para decisiones administrativas.",
+                  "<strong>DSS</strong>: apoyan decisiones no rutinarias, en problemas únicos que cambian con rapidez.",
+                  "<strong>ESS</strong>: ayudan al nivel superior en decisiones no rutinarias que requieren juicio de valor.",
+                  "<strong>ERP</strong>: integran procesos de negocio (manufactura, producción, finanzas, ventas, marketing) en un solo software."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "La comparación detallada de TPS, MIS, DSS, ESS y ERP ya está desarrollada en la Unidad 9; acá solo los nombramos."
+              },
+              {
+                "type": "h3",
+                "text": "Procesos de negocio"
+              },
+              {
+                "type": "p",
+                "text": "La base de toda organización son sus <strong>procesos de negocio</strong>: conjuntos de actividades lógicamente relacionadas que definen cómo se realizan tareas para producir un producto o servicio. Un SI es eficaz <strong>solo si</strong> logra soportar, optimizar o transformar estos procesos."
+              },
+              {
+                "type": "p",
+                "text": "Ejemplo \"Gestión de un pedido de venta\", que cruza varias áreas funcionales:"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Ventas</strong>: el vendedor ingresa el pedido del cliente.",
+                  "<strong>Logística/Almacén</strong>: prepara los productos.",
+                  "<strong>Contabilidad</strong>: genera la factura y la envía al cliente.",
+                  "<strong>Envíos</strong>: despacha el pedido."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Infraestructura de TI"
+              },
+              {
+                "type": "p",
+                "text": "La TI es la <strong>herramienta que habilita</strong> a los SI modernos. Su infraestructura no es solo hardware y software, sino un <strong>ecosistema</strong> que incluye:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Hardware</strong>: servidores, computadoras, dispositivos de red.",
+                  "<strong>Software</strong>: sistemas operativos, SGBD y aplicaciones de negocio.",
+                  "<strong>Almacenamiento de datos</strong>: bases de datos y data warehouses.",
+                  "<strong>Redes y telecomunicaciones</strong>: Internet, intranets, LAN.",
+                  "<strong>Recursos humanos</strong>: personal técnico que administra y opera (DBA, administradores, desarrolladores)."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Tendencias que redefinen la infraestructura (más flexible y escalable): cloud computing, plataformas digitales y software como servicio (SaaS)."
+              },
+              {
+                "type": "h3",
+                "text": "Roles del área de tecnología"
+              },
+              {
+                "type": "table",
+                "caption": "Roles del área de tecnología",
+                "headers": [
+                  "Rol",
+                  "Qué hace"
+                ],
+                "rows": [
+                  [
+                    "Programadores",
+                    "Escriben las instrucciones de software para las computadoras."
+                  ],
+                  [
+                    "Analistas de sistemas",
+                    "Traducen los problemas y requerimientos de negocios y SI."
+                  ],
+                  [
+                    "Gerentes de SI",
+                    "Son líderes de equipo."
+                  ],
+                  [
+                    "CIO (Director de información)",
+                    "Supervisa el uso de tecnología en la empresa."
+                  ],
+                  [
+                    "CSO o CISO (Director de seguridad de la información)",
+                    "A cargo de la seguridad de los SI; implementa la política de seguridad."
+                  ]
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "El CEO manda en toda la organización, el CIO se ocupa de la tecnología en general y el CSO/CISO vela por la seguridad. No los confundas en el parcial."
+              }
+            ]
+          },
+          {
+            "id": "18",
+            "title": "El ciclo de vida del desarrollo de sistemas (CVDS)",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El desarrollo de un SI <strong>no es un acto único</strong>, sino un proceso estructurado: el <strong>ciclo de vida del desarrollo de sistemas (CVDS)</strong>. Asegura que el proyecto se realice de manera <em>ordenada, controlada</em> y cumpla con los <strong>objetivos del negocio</strong>."
+              },
+              {
+                "type": "h3",
+                "text": "Las fases principales del CVDS"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Investigación preliminar y análisis</strong>: ¿cuál es el problema y qué se necesita?",
+                  "<strong>Determinación de requerimientos</strong>: recopilar y documentar las necesidades.",
+                  "<strong>Diseño del sistema</strong>: ¿cómo se resolverá? (creación de modelos).",
+                  "<strong>Desarrollo del sistema</strong>: construcción del software.",
+                  "<strong>Prueba del sistema</strong>: verificar que funciona correctamente.",
+                  "<strong>Implantación</strong>: puesta en marcha.",
+                  "<strong>Mantenimiento y seguimiento</strong>: operación y mejora continua."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Definir necesidades"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Definición adecuada del problema.</strong>",
+                  "<strong>Entender cómo se genera</strong> el problema.",
+                  "<strong>Definición de la información y acciones</strong> que lo resuelven.",
+                  "<strong>Definición de la forma de obtener la información.</strong>"
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "La fase de análisis es la más crítica"
+              },
+              {
+                "type": "p",
+                "text": "La fase de análisis (investigación preliminar y comprensión del problema) es la <strong>más crítica</strong> del ciclo. Un <em>error en el análisis</em>, casi con seguridad, conduce al <strong>fracaso del proyecto</strong>."
+              },
+              {
+                "type": "callout",
+                "tone": "warning",
+                "text": "Si fallás en el análisis, todo lo que viene después (diseño, desarrollo, pruebas) se construye sobre una base equivocada. Por eso es la fase que más atención merece."
+              }
+            ]
+          },
+          {
+            "id": "19",
+            "title": "Fase de análisis: técnicas de relevamiento",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Técnicas de relevamiento: ¿por qué se utilizan?"
+              },
+              {
+                "type": "p",
+                "text": "El analista debe recopilar información porque <strong>no conoce los detalles de trabajo de la organización</strong> (sobre todo si es externo) y los <strong>usuarios no saben qué información es relevante</strong> para él. Son un medio para mejorar la comunicación y salvar barreras como los <strong>diferentes vocabularios</strong> y el <strong>choque de personalidades y caracteres</strong>."
+              },
+              {
+                "type": "h3",
+                "text": "Entrevistas"
+              },
+              {
+                "type": "p",
+                "text": "<strong>No estructurada:</strong> conversación abierta para explorar problemas y oportunidades; ideal para las primeras etapas. <strong>Estructurada:</strong> lista de preguntas predefinidas; útil para datos específicos y comparables entre entrevistados."
+              },
+              {
+                "type": "h3",
+                "text": "Problemas en las entrevistas"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Entrevistar a las personas equivocadas.",
+                  "Entrevistar a la persona correcta en el momento erróneo.",
+                  "Hacer las preguntas equivocadas u obtener respuestas equivocadas.",
+                  "Crear fricciones con el entrevistado.",
+                  "El tiempo que llevan.",
+                  "No sirven para obtener gran cantidad de información."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Pautas para las entrevistas"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "Utilizar un organigrama.",
+                  "Definir a quiénes entrevistar y en qué orden.",
+                  "Obtener la aprobación para realizar las entrevistas.",
+                  "Programarlas con antelación.",
+                  "Registrar adecuadamente la información relevada.",
+                  "Enviar un detalle de lo relevado al entrevistado.",
+                  "Coordinar la próxima cita, si es necesaria."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Cuestionarios"
+              },
+              {
+                "type": "p",
+                "text": "Convienen cuando hay <strong>cantidad grande de usuarios</strong>, <strong>distribuidos geográficamente</strong>, <strong>necesidad de cuantificar respuestas</strong> o <strong>anonimato</strong>. Medios: formularios en papel o digitales."
+              },
+              {
+                "type": "h3",
+                "text": "Cuestionarios: abiertos vs. cerrados"
+              },
+              {
+                "type": "p",
+                "text": "Los <strong>abiertos</strong> piden respuestas libres (cualitativas): <em>describa, explique, detalle</em>. Los <strong>cerrados</strong> ofrecen opciones limitadas y fáciles de cuantificar: <em>múltiple choice, sí/no, semáforo</em>."
+              },
+              {
+                "type": "h3",
+                "text": "Cuestionarios: ventajas y desventajas"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Ventajas:</strong> alto volumen a bajo costo y poco tiempo; eliminan la influencia del analista; el anonimato favorece respuestas sinceras; uso rápido y eficiente.",
+                  "<strong>Desventajas:</strong> son impersonales; a casi nadie le gusta contestarlos; limitaciones en las preguntas; problemas de interpretación."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "warning",
+                "text": "Desventaja clave: una vez enviado el cuestionario no podés repreguntar ni aclarar. Si la pregunta se entiende mal, la respuesta sale mal."
+              },
+              {
+                "type": "h3",
+                "text": "Observaciones"
+              },
+              {
+                "type": "p",
+                "text": "<strong>Directas:</strong> el analista observa de forma <em>planificada</em> durante un período. <strong>Indirectas:</strong> contempla procesos que transcurren en el momento, <em>sin planificarlo</em> (espontáneas)."
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Efecto Hawthorne: una persona observada actúa de forma diferente, sobre todo en observaciones directas. El analista debe tenerlo en cuenta."
+              },
+              {
+                "type": "h3",
+                "text": "Revisión de registros"
+              },
+              {
+                "type": "p",
+                "text": "Consiste en analizar la documentación existente de la organización, dividida en categorías:"
+              },
+              {
+                "type": "table",
+                "caption": "Categorías de la revisión de registros",
+                "headers": [
+                  "Categoría",
+                  "Qué incluye"
+                ],
+                "rows": [
+                  [
+                    "Manuales",
+                    "Administrativos/procedimiento, de sistemas, de calidad, estándares y políticas de TI."
+                  ],
+                  [
+                    "Documentos",
+                    "Expedientes, legajos, minutas, circulares, informes."
+                  ],
+                  [
+                    "Comprobantes",
+                    "Facturas, remitos, recibos, órdenes de compra, formularios."
+                  ],
+                  [
+                    "Reportes y gráficos",
+                    "Listados y gráficos de sistemas o manuales."
+                  ],
+                  [
+                    "Sistemas actuales",
+                    "Observación del sistema actual (aspectos funcionales y no funcionales)."
+                  ],
+                  [
+                    "Otras fuentes",
+                    "Sitio web, Internet, folletería, artículos, papers, libros."
+                  ]
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Entrevistás para charlar cara a cara, mandás cuestionarios cuando son un montón, observás para ver qué pasa de verdad y revisás registros para no inventar la rueda. Las cuatro se complementan."
+              }
+            ]
+          },
+          {
+            "id": "20",
+            "title": "Modelos lógico y físico, y fase de diseño",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Modelo lógico"
+              },
+              {
+                "type": "p",
+                "text": "Representa la solución <strong>conceptualmente</strong>: describe <em>qué</em> hará el sistema, sin importar cómo se implementa. Es un <strong>lenguaje común</strong> entre usuario y analista. Define <strong>flujos de información</strong>, <strong>procesos</strong> y <strong>almacenes de datos</strong>. Analogía: el plano arquitectónico de una casa."
+              },
+              {
+                "type": "h3",
+                "text": "Modelo físico"
+              },
+              {
+                "type": "p",
+                "text": "Traduce el modelo lógico en <strong>especificaciones técnicas detalladas</strong>: <em>cómo</em> se construye, considerando limitaciones de hardware, software y tecnología. Define <strong>diseño de interfaz</strong>, <strong>diseño de base de datos</strong> y <strong>especificaciones de procesos</strong> (algoritmos). Analogía: los planos de construcción e ingeniería."
+              },
+              {
+                "type": "h3",
+                "text": "Fase de diseño y objetivos"
+              },
+              {
+                "type": "p",
+                "text": "Los modelos se refinan en especificaciones completas para la <strong>construcción del sistema</strong>. Objetivos del diseño:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Especificar los elementos del diseño lógico</strong>: entrada, salida, archivos, BBDD y procedimientos.",
+                  "<strong>Soporte a la empresa</strong>: mejorar el desempeño; ajustarse a cómo conduce sus actividades; la tecnología es secundaria respecto al resultado de uso.",
+                  "<strong>Satisfacer requerimientos de los usuarios</strong>: procedimientos correctos, info apropiada, resultados exactos, métodos de interacción adecuados, confiabilidad total.",
+                  "<strong>Fácil de usar</strong>: ingeniería de usabilidad y diseño ergonómico.",
+                  "<strong>Especificaciones del software</strong>: componentes y funciones con detalle suficiente para construirlo.",
+                  "<strong>Ajustarse a los estándares de diseño</strong> de la organización."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Análisis de hechos"
+              },
+              {
+                "type": "table",
+                "caption": "Aspectos del análisis de hechos y su estrategia de diseño",
+                "headers": [
+                  "Aspecto",
+                  "Estrategia de diseño"
+                ],
+                "rows": [
+                  [
+                    "Capacidad",
+                    "Aumentar la capacidad / Reducir expectativas / Redefinir la tarea."
+                  ],
+                  [
+                    "Control",
+                    "Evitar fallas / Detección y notificación / Detección y corrección de fallas."
+                  ],
+                  [
+                    "Accesibilidad de la información",
+                    "Eliminar la necesidad de la info / Facilitar el acceso / Eliminar procesamiento / Cambiar la presentación."
+                  ],
+                  [
+                    "Complejidad",
+                    "Simplificar / Dividir / Cambiar la secuencia de actividades. (Conduce a problemas en los otros tres.)"
+                  ]
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Elementos del diseño y almacenamiento"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Elementos a especificar: flujo de datos, almacenes de datos, procesos, procedimientos, controles y funciones del personal.",
+                  "Conceptos base del almacenamiento: <strong>clave</strong>, <strong>entidad</strong>, <strong>archivo</strong> y <strong>base de datos</strong>.",
+                  "Tipos de archivos: <strong>maestros</strong>, <strong>transacciones</strong>, <strong>reportes</strong> y <strong>resguardo</strong>."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Normalización"
+              },
+              {
+                "type": "p",
+                "text": "Proceso formal para diseñar bases de datos relacionales, con el objetivo de <strong>reducir la redundancia de datos y mejorar su integridad</strong>. Razones: estructurar datos para representar relaciones, recuperación sencilla, simplificar el mantenimiento y reducir la necesidad de reestructuración."
+              },
+              {
+                "type": "h3",
+                "text": "Ejemplo práctico de normalización"
+              },
+              {
+                "type": "p",
+                "text": "Partimos de una tabla de pedidos que mezcla todo (PedidoID, Fecha, ClienteID, NombreCliente, ProductoID, NombreProducto, Cantidad, Precio). Problemas: si Juan Pérez cambia su nombre hay que actualizarlo en <strong>múltiples filas</strong>, y al borrar el pedido 102 se <strong>pierde</strong> que P55 es 'Teclado'."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>1FN</strong>: la tabla ya es bidimensional y sin grupos repetitivos, por lo que cumple.",
+                  "<strong>2FN</strong> (elimina dependencias parciales, clave = PedidoID+ProductoID): Fecha, ClienteID y NombreCliente dependen solo de PedidoID → se separan. Tabla pedidos (PedidoID PK, Fecha, ClienteID, NombreCliente) y tabla detalle pedido (PedidoID FK, ProductoID FK, Cantidad).",
+                  "<strong>3FN</strong> (elimina dependencias transitivas): NombreCliente depende de ClienteID, que depende de PedidoID → se separa. Quedan tablas clientes (ClienteID PK, NombreCliente), productos (ProductoID PK, NombreProducto, PrecioUnitario), pedidos (PedidoID PK, Fecha, ClienteID FK) y detalle pedido (PedidoID FK, ProductoID FK, Cantidad)."
+                ]
+              },
+              {
+                "type": "table",
+                "caption": "Resumen de las formas normales",
+                "headers": [
+                  "Forma normal",
+                  "Qué hace"
+                ],
+                "rows": [
+                  [
+                    "1FN",
+                    "Estructuras bidimensionales, sin grupos repetitivos."
+                  ],
+                  [
+                    "2FN",
+                    "Elimina datos que no dependen de la clave completa (dependencias parciales)."
+                  ],
+                  [
+                    "3FN",
+                    "Elimina datos que dependen transitivamente de la clave primaria (dependencias transitivas)."
+                  ]
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Cada cosa vive en su tabla y se relaciona por las claves: datos sin redundancia y mucho más fáciles de mantener."
+              }
+            ]
+          },
+          {
+            "id": "21",
+            "title": "Fases de prueba e implementación",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Estrategias de prueba"
+              },
+              {
+                "type": "p",
+                "text": "<strong>Prueba de código (White box)</strong>: el programador examina la lógica interna del código, verificando que cada rama y bucle funcione como se espera. <strong>Prueba de especificación (Black box)</strong>: el tester verifica los resultados <em>sin conocer el código interno</em>, enfocándose en si el sistema cumple los requerimientos funcionales."
+              },
+              {
+                "type": "h3",
+                "text": "Pruebas especiales"
+              },
+              {
+                "type": "table",
+                "caption": "Seis tipos de pruebas para un sistema",
+                "headers": [
+                  "Tipo de prueba",
+                  "Descripción"
+                ],
+                "rows": [
+                  [
+                    "De carga máxima",
+                    "Si soporta el volumen en el nivel más alto de demanda."
+                  ],
+                  [
+                    "De almacenamiento",
+                    "Capacidad de almacenar la información."
+                  ],
+                  [
+                    "De tiempo de ejecución",
+                    "Tiempo de respuesta en el momento de mayor carga."
+                  ],
+                  [
+                    "De recuperación",
+                    "Prueba de backups o de reinicio."
+                  ],
+                  [
+                    "De procedimientos",
+                    "Probar la documentación."
+                  ],
+                  [
+                    "De factores humanos",
+                    "Prueba de usabilidad."
+                  ]
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Puesta en marcha (estrategias de conversión)"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>En paralelo</strong>: viejo y nuevo funcionan a la vez un período. La <em>más segura</em>, pero la más costosa.",
+                  "<strong>Gradual (por fases)</strong>: se implementa por módulos o departamentos.",
+                  "<strong>Piloto</strong>: el sistema completo en una parte chica de la organización; si funciona, se expande.",
+                  "<strong>Abrupta (Big bang)</strong>: se apaga el viejo y se enciende el nuevo en una fecha. La <em>más riesgosa</em> pero la más rápida."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "warning",
+                "text": "Tradeoff: en paralelo es la más segura pero la más costosa; la abrupta (Big bang) es la más rápida pero la más riesgosa."
+              },
+              {
+                "type": "h3",
+                "text": "Implementación: preimplementación y puesta en marcha"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Preimplementación:</strong> planificar la implementación; efectuar pruebas de usuarios y QA; desarrollar documentación para usuarios y operadores; capacitar a supervisores y operadores.",
+                  "<strong>Puesta en marcha:</strong> finalizar la conversión de HW y SW (paralela, gradual, piloto, abrupta); poner en marcha el sistema; completar la documentación."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "La implementación abarca planificación y puesta en marcha (con UAT y control de calidad), documentación (manual de usuario y de operaciones), capacitación, documento de aprobación final, conversión de archivos, entorno de producción e instalación."
+              }
+            ]
+          },
+          {
+            "id": "22",
+            "title": "Mantenimiento, entornos y seguimiento",
+            "blocks": [
+              {
+                "type": "h3",
+                "text": "Mantenimiento: la fase más larga"
+              },
+              {
+                "type": "p",
+                "text": "Una vez implementado, el sistema entra en su <strong>fase más larga</strong>: el mantenimiento, que representa la <strong>mayor parte del costo total de propiedad</strong>. Hay tres tipos."
+              },
+              {
+                "type": "table",
+                "caption": "Tipos de mantenimiento de un sistema",
+                "headers": [
+                  "Tipo",
+                  "Qué incluye",
+                  "%"
+                ],
+                "rows": [
+                  [
+                    "Correctivo",
+                    "Arreglar errores y fallos (bugs) no detectados en pruebas: ajustes de emergencia y depuración rutinaria.",
+                    "~20 %"
+                  ],
+                  [
+                    "Adaptativo",
+                    "Adaptar a cambios del entorno (nuevo SO, legislación), cambios en datos y archivos, y en HW y SW.",
+                    "~20 %"
+                  ],
+                  [
+                    "Perfectivo",
+                    "Agregar funcionalidades pedidas por usuarios, optimizar el rendimiento (recodificar) y mejorar la documentación.",
+                    "~60 %"
+                  ]
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "El perfectivo se lleva el 60 %: la mayor parte del mantenimiento no es apagar incendios, es seguir agregando mejoras que pide la gente."
+              },
+              {
+                "type": "h3",
+                "text": "Entornos de sistemas"
+              },
+              {
+                "type": "p",
+                "text": "Para un desarrollo profesional y seguro se trabaja con <strong>múltiples entornos</strong>: el código no salta directo de la compu del programador a producción, pasa por etapas controladas."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Desarrollo (DEV)</strong>: ambiente local de los programadores; entorno <strong>inestable</strong> donde se escribe y prueba código.",
+                  "<strong>Calidad (QA)</strong>: <strong>réplica del entorno real</strong> donde los testers validan que los cambios funcionan y no rompen nada existente.",
+                  "<strong>Producción (PROD)</strong>: el entorno real <strong>en vivo</strong> donde trabajan los usuarios; estable y protegido, no se experimenta."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "El pasaje <strong>DEV → QA → PROD</strong> sigue un <strong>proceso controlado para minimizar riesgos</strong>."
+              },
+              {
+                "type": "callout",
+                "tone": "warning",
+                "text": "Nunca toques producción a mano ni pruebes ahí. Si algo no pasó por QA, no debería llegar a PROD."
+              },
+              {
+                "type": "h3",
+                "text": "Equipos de trabajo"
+              },
+              {
+                "type": "p",
+                "text": "Jerarquía de tres niveles: <strong>Junior</strong> en la base, <strong>Senior</strong> en el medio y <strong>Líder</strong> en la cima."
+              },
+              {
+                "type": "h3",
+                "text": "Seguimiento y control"
+              },
+              {
+                "type": "p",
+                "text": "Objetivo: <strong>mantener el sistema en observación y operación controlada</strong> para verificar si satisface las necesidades para las que fue generado y <strong>detectar modificaciones</strong> para adaptarlo al entorno. Cierra con un informe."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Efectuar <strong>revisión administrativa</strong>.",
+                  "Efectuar <strong>revisión de HW y SW</strong>.",
+                  "Efectuar <strong>revisión de la documentación</strong>.",
+                  "Preparar el <strong>informe final de posimplementación</strong>."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "El seguimiento te dice si el sistema resolvió el problema o si todavía le falta. De ahí salen las próximas modificaciones, que después caen como mantenimiento."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "11",
+        "sections": [
+          {
+            "id": "23",
+            "title": "El proceso de desarrollo y el ciclo de vida (CVDS)",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Crear o mejorar un sistema de información no es improvisado: se sigue una metodología estructurada, el <strong>ciclo de vida del desarrollo de sistemas (CVDS)</strong>, una serie de fases ordenadas que van desde la idea inicial hasta el funcionamiento y el mantenimiento. Es como el plano de construcción de un edificio."
+              },
+              {
+                "type": "h3",
+                "text": "El modelo secuencial"
+              },
+              {
+                "type": "p",
+                "text": "En su versión clásica, las actividades se dan una a continuación de la otra:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Análisis y especificación de requerimientos</strong>: entender el \"qué\" se requiere; finaliza documentando los requisitos.",
+                  "<strong>Diseño</strong>: muestra el \"cómo\" se llevará a cabo la solución.",
+                  "<strong>Programación/Codificación</strong>: traduce las especificaciones de diseño al lenguaje especificado.",
+                  "<strong>Prueba</strong>: detectar errores antes de entregar el producto.",
+                  "<strong>Conversión</strong>: determina cómo se pasará del sistema anterior al nuevo.",
+                  "<strong>Producción y mantenimiento</strong>: se pone en producción y se hacen los cambios requeridos con el sistema ya funcionando."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Existen otros modelos posteriores al secuencial; su selección depende del tipo de sistema a desarrollar y de su magnitud."
+              },
+              {
+                "type": "h3",
+                "text": "Las fases del CVDS"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "Investigación preliminar y análisis.",
+                  "Determinación de requerimientos.",
+                  "Desarrollo del sistema (diseño y programación).",
+                  "Prueba del sistema.",
+                  "Implantación.",
+                  "Seguimiento y control (posimplementación)."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Primero averiguás qué se necesita, después el cómo, recién ahí programás, probás, ponés en marcha y seguís cuidando. Saltarte etapas es lo que después te explota en la cara."
+              }
+            ]
+          },
+          {
+            "id": "24",
+            "title": "Fases iniciales: relevamiento, planificación y requerimientos",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Es la fase de cimentación del proyecto: un error acá puede costar muy caro más adelante."
+              },
+              {
+                "type": "h3",
+                "text": "Relevamiento y planificación"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Relevamiento preliminar</strong>: primera investigación de la necesidad del negocio, su viabilidad y los posibles riesgos.",
+                  "<strong>Definición de objetivos y alcance</strong>: qué se espera lograr y, clave, qué NO hará el sistema (evita que crezca descontroladamente).",
+                  "<strong>Plan de trabajo</strong>: cronograma inicial, asignación de recursos y presupuesto."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Determinación de requerimientos"
+              },
+              {
+                "type": "p",
+                "text": "Los requerimientos son la descripción detallada de las necesidades que el sistema debe satisfacer, planteadas por los usuarios o el cliente. Técnicas para descubrirlos:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Entrevistas</strong>: conversaciones directas para obtener información cualitativa y profunda.",
+                  "<strong>Cuestionarios</strong>: formularios con preguntas específicas, útiles para recopilar datos de muchas personas.",
+                  "<strong>Observación</strong>: mirar cómo trabajan los usuarios en su día a día (a veces lo que hacen difiere de lo que dicen).",
+                  "<strong>Revisión de registros</strong>: analizar documentación existente (manuales, reportes, formularios) para comprender los procesos formales."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Los requerimientos a encontrar abarcan: comprensión del proceso, frecuencia y volumen, identificación de controles, requisitos de transacciones y requerimientos de decisión de los usuarios. El objetivo final es especificar los requerimientos."
+              },
+              {
+                "type": "callout",
+                "tone": "warning",
+                "text": "Definir qué NO hará el sistema es tan importante como definir qué hará: es lo que evita el \"ya que estamos, agreguemos esto otro\"."
+              }
+            ]
+          },
+          {
+            "id": "25",
+            "title": "El corazón del proceso: análisis y diseño",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Sabiendo qué se necesita, hay que definir cómo construirlo mediante dos \"planos\". En el <strong>análisis</strong> se describe lo que el sistema debe hacer; en el <strong>diseño</strong> se determina cómo se cumplirán los objetivos (a veces dividido en diseño general y detallado)."
+              },
+              {
+                "type": "h3",
+                "text": "El modelo lógico (el \"qué\")"
+              },
+              {
+                "type": "p",
+                "text": "Modelo conceptual que representa la solución sin preocuparse por la tecnología. Es el puente de comunicación entre usuarios y técnicos. Define:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Fuentes y destinos de la información.",
+                  "Información que debe almacenarse.",
+                  "Flujos de información (cómo se mueven los datos).",
+                  "Procesos de transformación (cálculos o cambios sobre la información).",
+                  "Formato de los datos."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Analogía: el plano del arquitecto. Muestra las habitaciones y cómo se conectan, pero no si las paredes serán de ladrillo o yeso."
+              },
+              {
+                "type": "h3",
+                "text": "El modelo físico (el \"cómo\")"
+              },
+              {
+                "type": "p",
+                "text": "Traduce el modelo lógico a especificaciones técnicas detalladas, considerando la tecnología (hardware, software, bases de datos) y limitaciones reales. Define:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Salidas y entradas del sistema (pantallas, reportes, formularios).",
+                  "Archivos, bases de datos y estructuras de datos (tablas, campos, relaciones).",
+                  "Procesos computacionales, procedimientos y tipos de procesos.",
+                  "Performance y tiempos de respuesta.",
+                  "Control, seguridad y confidencialidad.",
+                  "Hardware y software a emplear."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Analogía: el plano del ingeniero/constructor. Especifica los ladrillos, el calibre de los cables y las tuberías para construir la casa que diseñó el arquitecto."
+              },
+              {
+                "type": "h3",
+                "text": "El flujo de análisis y diseño"
+              },
+              {
+                "type": "p",
+                "text": "El trabajo encadena tres bloques que toman como entrada los objetivos y alcances, el plan de trabajo y los requerimientos, y producen el nuevo modelo lógico y físico:"
+              },
+              {
+                "type": "table",
+                "headers": [
+                  "Relevamiento y análisis global",
+                  "Análisis de datos",
+                  "Análisis funcional"
+                ],
+                "rows": [
+                  [
+                    "Preparar modelo físico y lógico de la situación actual.",
+                    "Revisar el modelo de datos original.",
+                    "Desarrollar el nuevo modelo físico."
+                  ],
+                  [
+                    "Identificar requerimientos de entrada y salida.",
+                    "Identificar y normalizar entradas.",
+                    "Comparación con el análisis de datos."
+                  ],
+                  [
+                    "Desarrollar el nuevo modelo lógico.",
+                    "Definir las vistas lógicas.",
+                    "Evaluar impacto del sistema."
+                  ],
+                  [
+                    "Identificar y evaluar alternativas de diseño.",
+                    "Cerrar el modelo de datos.",
+                    "—"
+                  ]
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Los <strong>objetivos</strong> de la etapa son: relevamiento detallado, formular y evaluar alternativas, formular el modelo lógico, formular el modelo físico y evaluar el riesgo de la aplicación."
+              }
+            ]
+          },
+          {
+            "id": "26",
+            "title": "Fase de construcción: desarrollo y pruebas",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "Con los planos detallados (modelo físico) en mano, es hora de construir."
+              },
+              {
+                "type": "h3",
+                "text": "Diseño detallado y programación"
+              },
+              {
+                "type": "p",
+                "text": "Esta etapa, a menudo llamada \"Desarrollo\", consiste en:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Codificar los programas</strong>: escribir el código fuente según las especificaciones.",
+                  "<strong>Diseñar y probar módulos</strong>: construir el sistema en partes pequeñas probadas individualmente.",
+                  "<strong>Preparar la interfaz de usuario</strong>: menús y pantallas con los que interactúa el usuario final."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "El diseño detallado encadena el diseño detallado, las instalaciones de software y la programación. Tareas: diagramas de estructura; diseño de entradas, salidas y cálculos; controles y procedimientos de resguardo y recuperación; describir procesos manuales; identificar productos de software y criterios de evaluación; planificar la adaptación; y codificar y probar programas, revisar la lógica, probar módulos y preparar menús y sentencias de control (CL)."
+              },
+              {
+                "type": "h3",
+                "text": "Pruebas del sistema"
+              },
+              {
+                "type": "p",
+                "text": "Antes de entregar hay que someter el sistema a pruebas rigurosas. En la práctica existen varios niveles:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Pruebas unitarias</strong>: probar cada módulo por separado.",
+                  "<strong>Pruebas de integración</strong>: verificar que los módulos funcionan bien juntos.",
+                  "<strong>Pruebas del sistema</strong>: probar el sistema completo contra todos los requerimientos.",
+                  "<strong>Pruebas de aceptación del usuario (UAT)</strong>: el usuario final prueba y aprueba antes de implementar."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Como armar un mueble: chequeás cada pieza (unitarias), que encajen (integración), que el mueble se banque el peso (sistema) y que al que lo usa le sirva (aceptación)."
+              }
+            ]
+          },
+          {
+            "id": "27",
+            "title": "Puesta en marcha: implantación y conversión",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La <strong>conversión</strong> es el proceso de reemplazar el sistema antiguo por el nuevo. Es un momento crítico y existen distintas estrategias para minimizar el riesgo:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Estrategia paralela</strong>: el sistema anterior y el nuevo operan juntos un tiempo.",
+                  "<strong>Reemplazo directo</strong>: se apaga el viejo y se enciende el nuevo en una fecha determinada.",
+                  "<strong>Estudio piloto</strong>: se introduce el sistema en un área limitada (p. ej. una sucursal) y, según la retroalimentación, se ajusta y luego se extiende a toda la organización."
+                ]
+              },
+              {
+                "type": "table",
+                "headers": [
+                  "Estrategia",
+                  "Descripción",
+                  "Ventajas",
+                  "Desventajas"
+                ],
+                "rows": [
+                  [
+                    "Paralela",
+                    "El viejo y el nuevo funcionan a la vez un tiempo.",
+                    "Máxima seguridad: si el nuevo falla, el viejo sigue operando.",
+                    "Muy costosa. Doble trabajo para los empleados."
+                  ],
+                  [
+                    "Reemplazo directo",
+                    "Se apaga el viejo y se enciende el nuevo en una fecha.",
+                    "Rápida y menos costosa.",
+                    "Muy riesgosa: no hay vuelta atrás."
+                  ],
+                  [
+                    "Piloto",
+                    "Se implementa en un área pequeña o sucursal.",
+                    "Prueba en entorno real pero controlado.",
+                    "Implementación total más lenta."
+                  ]
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "warning",
+                "text": "El reemplazo directo es barato y rápido pero \"a todo o nada\"; la paralela es la más segura pero pagás doble; el piloto es el equilibrio: probás en chico antes de jugártela en grande."
+              }
+            ]
+          },
+          {
+            "id": "28",
+            "title": "Seguimiento, control y planes de contingencia",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "El trabajo no termina cuando el sistema se enciende: es vital monitorearlo en operación."
+              },
+              {
+                "type": "h3",
+                "text": "Seguimiento, control y evaluación"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Verificar el cumplimiento de objetivos</strong>: ¿el sistema realmente soluciona el problema?",
+                  "<strong>Medir la satisfacción del usuario</strong>: ¿están conformes y lo usan correctamente?",
+                  "<strong>Realizar revisiones técnicas</strong>: revisar periódicamente hardware, software y documentación."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "La <strong>evaluación del sistema</strong> busca: detectar a tiempo hechos que deriven en actitudes negativas, verificar el cumplimiento de objetivos iniciales, medir el grado de satisfacción de los usuarios, identificar necesidades de entrenamiento y capacitación, y tomar acciones correctivas a tiempo."
+              },
+              {
+                "type": "h3",
+                "text": "Planes de contingencia"
+              },
+              {
+                "type": "p",
+                "text": "Toda organización debe prepararse para lo inesperado. Un plan de contingencia asegura la continuidad del negocio y de las operaciones y servicios críticos ante eventualidades. Ejemplos:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Desastres naturales.",
+                  "Interrupción de suministros básicos.",
+                  "Intrusiones, vandalismo y terrorismo.",
+                  "Aumento inesperado de la carga de trabajo.",
+                  "Fallas de equipamiento.",
+                  "Otros peligros."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Las <strong>etapas</strong> para crear un plan robusto:"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "Análisis de riesgo: identificar qué podría salir mal.",
+                  "Creación del plan: definir los pasos ante una emergencia.",
+                  "Prueba del plan: simulacros para asegurar que funciona.",
+                  "Distribución del plan.",
+                  "Aplicación.",
+                  "Revisión continua: mantenerlo actualizado."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "El seguimiento confirma si el sistema resolvió el problema; el plan de contingencia es el seguro contra catástrofes, y no sirve de nada si nunca lo probaste con un simulacro."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "unit": "12",
+        "sections": [
+          {
+            "id": "29",
+            "title": "La comunicación oral y escrita: la base de la lengua",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La base material de la lengua es el <strong>sonido</strong>, y el sentido al que impresiona predominantemente es el <strong>oído</strong>. La <strong>escritura</strong> es una forma secundaria de la lengua, percibida a través de la vista."
+              },
+              {
+                "type": "h3",
+                "text": "La comunicación oral"
+              },
+              {
+                "type": "p",
+                "text": "Nos hacemos comprender por las palabras, pero también por la <strong>entonación</strong> y el <strong>énfasis</strong>, que el interlocutor interpreta a su manera. Las frases muchas veces se dejan truncas y se cierra el mensaje con un gesto, porque captamos que el otro ya entendió. Si no comprendió, podemos repetir o explicarlo de otra manera."
+              },
+              {
+                "type": "h3",
+                "text": "La comunicación escrita"
+              },
+              {
+                "type": "p",
+                "text": "En lo escrito, la entonación se transcribe por <strong>signos de puntuación</strong>. Las frases deben ser completas, porque no se puede constatar si el lector interpretó lo que no escribimos; hay que evitar ambigüedades y cuidar los giros del lenguaje."
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "Hablando, el gesto y el tono te salvan; escribiendo, estás solo con tus palabras: tiene que ser más prolijo, completo y sin doble sentido."
+              }
+            ]
+          },
+          {
+            "id": "30",
+            "title": "El proceso de comunicación",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La comunicación es un proceso <strong>dinámico y circular</strong> en el que se intercambia información entre dos o más partes. Para ser efectiva, todos sus componentes deben funcionar en armonía."
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Emisor</strong>: origina el mensaje; codifica un pensamiento o idea en lenguaje comprensible y tiene una intención comunicativa (informar, persuadir, solicitar).",
+                  "<strong>Mensaje</strong>: la información misma (una instrucción, solicitud, pieza publicitaria o capacitación).",
+                  "<strong>Medio (o canal)</strong>: vehículo por el que viaja el mensaje (oral, escrito, digital o virtual). Su elección es estratégica; uno inadecuado distorsiona el mensaje.",
+                  "<strong>Receptor</strong>: recibe y decodifica. No es pasivo: interpreta según sus conocimientos, experiencias y percepciones.",
+                  "<strong>Retroalimentación (feedback)</strong>: respuesta del receptor; cierra el círculo y permite al emisor saber si el mensaje se comprendió. Se basa en saber escuchar."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "warning",
+                "text": "Principio clave: \"Si no está dispuesto a escuchar, el producto de la comunicación es nulo\". La comunicación es un diálogo, no un monólogo: sin escucha no hay retroalimentación."
+              }
+            ]
+          },
+          {
+            "id": "31",
+            "title": "Oratoria: el arte de hablar en público",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La <strong>oratoria</strong> es el arte de hablar con elocuencia para persuadir, convencer o conmover a un auditorio. Se concreta en discursos, conferencias, exposiciones, disertaciones y debates."
+              },
+              {
+                "type": "h3",
+                "text": "Bases para un estilo oratorio eficaz"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Claridad</strong>: ideas transparentes y fáciles de entender.",
+                  "<strong>Sencillez</strong>: lenguaje directo, sin adornos innecesarios.",
+                  "<strong>Concisión</strong>: las ideas con el menor número de palabras posible, yendo a lo esencial.",
+                  "<strong>Coherencia</strong>: un hilo conductor claro, cada parte conectada con la anterior.",
+                  "<strong>Fluidez</strong>: expresividad sostenida en todo el discurso.",
+                  "<strong>Naturalidad</strong>: ser auténtico y espontáneo genera confianza.",
+                  "<strong>Impacto</strong>: dejar una impresión duradera (buen comienzo, final potente, historias o datos)."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "La preparación del discurso: el 90 % del éxito"
+              },
+              {
+                "type": "p",
+                "text": "Un buen orador no improvisa, se prepara. Pasos de la preparación metódica:"
+              },
+              {
+                "type": "ol",
+                "items": [
+                  "<strong>Elección del tema y objetivo</strong>: de qué hablar y qué lograr (informar, motivar, vender).",
+                  "<strong>Análisis del auditorio y contexto</strong>: quiénes escuchan, qué saben, su actitud y el lugar/situación; adaptar el mensaje a la audiencia.",
+                  "<strong>Investigación y organización</strong>: recopilar de fuentes fiables y estructurar en introducción, cuerpo y conclusión.",
+                  "<strong>Práctica</strong>: repetir, medir el tiempo y familiarizarse con el contenido."
+                ]
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Introducción</strong>: capta la atención y presenta el tema/objetivo.",
+                  "<strong>Cuerpo</strong>: desarrolla ideas principales y secundarias con argumentos, datos y ejemplos.",
+                  "<strong>Conclusión</strong>: resume lo importante y cierra con una llamada a la acción o reflexión."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "La comunicación hablada: respiración y objetividad"
+              },
+              {
+                "type": "p",
+                "text": "Técnicas de respiración: <strong>respiración diafragmática</strong>, adecuada relajación, no respirar por la boca, ropa cómoda no ajustada y practicar el guion varias veces. La exposición debe ser una <strong>exposición objetiva de razonamientos y juicios</strong>, evitando intereses personales o emociones; se busca claridad y exactitud."
+              },
+              {
+                "type": "callout",
+                "tone": "criollo",
+                "text": "El talento ayuda, pero lo que te salva es preparar: tema y objetivo claros, conocer al público, investigar, armar intro-cuerpo-conclusión y ensayar con cronómetro."
+              }
+            ]
+          },
+          {
+            "id": "32",
+            "title": "Comunicación escrita: redacción, informes y documentación técnica",
+            "blocks": [
+              {
+                "type": "p",
+                "text": "La comunicación escrita exige un rigor particular: a diferencia de la oral, no contamos con el lenguaje gestual ni el tono de voz para aclarar ambigüedades."
+              },
+              {
+                "type": "h3",
+                "text": "Cualidades de una buena redacción"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Clara y precisa</strong>: ideas inequívocas; la palabra exacta para cada concepto.",
+                  "<strong>Breve y concisa</strong>: ir al grano; eliminar lo que no aporta valor.",
+                  "<strong>Sencilla y natural</strong>: directa y honesta, clara y respetuosa."
+                ]
+              },
+              {
+                "type": "p",
+                "text": "El apunte enumera además: naturalidad, claridad, exactitud, brevedad, sencillez, originalidad, concisión, fluidez, precisión, corrección y estilo personal."
+              },
+              {
+                "type": "h3",
+                "text": "Redacción de informes"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Definición del problema</strong>: analizar el problema, definir alcances/límites, relacionar antecedentes y estudios previos, y hacer un estudio preliminar.",
+                  "<strong>Confección del bosquejo o esquema</strong>: concretar ideas en frases clave, establecer contenido y límites del trabajo, y guiar el acopio de información.",
+                  "<strong>Elaboración de la agenda</strong>: cronograma de tiempos, carga horaria diaria y <strong>target-date</strong> (fecha de presentación)."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Tipos de comunicación escrita en una empresa"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Interna formal</strong>: memorándums, boletines, informes y actas de reuniones.",
+                  "<strong>Interna informal</strong>: reuniones, deportes, eventos y temas personales.",
+                  "<strong>Externa</strong>: clientes, proveedores y público; relaciones públicas, comunicación institucional, promoción y publicidad."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Documentación técnica: manuales administrativos"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "<strong>Manual de organización</strong>: describe la estructura y funciones de la empresa (diseño funcional).",
+                  "<strong>Manual de procedimientos</strong>: detalla paso a paso cómo realizar las operaciones (circuitos y procesos).",
+                  "<strong>Manual de usuario</strong>: guía para usar un sistema o proceso automatizado; instrucciones de sistemas automatizados."
+                ]
+              },
+              {
+                "type": "h3",
+                "text": "Documentos comerciales"
+              },
+              {
+                "type": "p",
+                "text": "Son la base de las transacciones de la empresa; cada uno tiene un propósito legal y contable, y debe redactarse con máxima precisión. Incluyen:"
+              },
+              {
+                "type": "ul",
+                "items": [
+                  "Contratos comerciales.",
+                  "Factura, nota de débito, nota de crédito, recibo comercial y recibo de sueldo.",
+                  "Pagaré.",
+                  "Cheque y boleta de depósito.",
+                  "Solicitud o pedido de venta.",
+                  "Orden de compra y orden de pago.",
+                  "Remito."
+                ]
+              },
+              {
+                "type": "callout",
+                "tone": "info",
+                "text": "Lo escrito en la empresa no es solo \"mandar un mail\": va de lo informal (un aviso) a lo formal y legal (una factura o un contrato), y cuanto más formal, más precisión necesita la redacción."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
 };
