@@ -1,8 +1,16 @@
 /**
  * Materia: Sistemas y Métodos (UP).
- * Unidades 8.1 y 8.2 (Administración de Proyectos), 9 (Sistemas de Información),
+ * Unidades 1 (Introducción y Teoría General de los Sistemas), 2 (El proceso
+ * administrativo y la optimización de operaciones), 3 (La planificación y el
+ * control), 4 (Fundamentos de la dirección y habilidades gerenciales), 5, 6 y 7
+ * (La organización: estructura y tipos, poder y autoridad, puestos y equipos),
+ * 8.1 y 8.2 (Administración de Proyectos), 9 (Sistemas de Información),
  * 10 (Desarrollo de sistemas de información), 11 (Proceso de desarrollo de
  * sistemas de información) y 12 (Comunicación oral y escrita).
+ *
+ * Las unidades 1 a 7 son fundacionales y se ubican al principio del array de
+ * secciones (ids 33+) para que se muestren antes de la 8 — materia.js agrupa
+ * las unidades por el orden de aparición de las secciones, no por la key.
  *
  * Tipos conceptuales (ver js/content.js para Subject/Section/ContentBlock).
  */
@@ -10,9 +18,16 @@
 export default {
   id: 'sistemas-y-metodos',
   title: 'Sistemas y Métodos',
-  subtitle: 'Unidades 8 a 12 — Apuntes',
-  tagline: 'Administración de proyectos · Sistemas de información · Desarrollo de sistemas · Proceso de desarrollo · Comunicación oral y escrita',
+  subtitle: 'Unidades 1 a 12 — Apuntes',
+  tagline: 'Teoría general de los sistemas · Proceso administrativo · Planificación y control · Dirección · Organización · Administración de proyectos · Sistemas de información · Desarrollo de sistemas · Comunicación oral y escrita',
   units: {
+    '1': 'Introducción a Sistemas y Métodos y Teoría General de los Sistemas',
+    '2': 'El proceso administrativo y la optimización de operaciones',
+    '3': 'La planificación y el control en la gestión organizacional',
+    '4': 'Fundamentos de la dirección y habilidades gerenciales',
+    '5': 'La organización: tipos de estructura y tipos de organización',
+    '6': 'La organización: el poder y la autoridad',
+    '7': 'La organización: descripción de puestos y tipos de equipos',
     '8.1': 'Fundamentos de la Administración de Proyectos',
     '8.2': 'Herramientas y procesos para la administración de proyectos',
     '9': 'Sistemas de Información',
@@ -21,6 +36,4876 @@ export default {
     '12': 'Comunicación oral y escrita',
   },
   sections: [
+  // ====================================================================
+  // UNIDAD 1 — Introducción a Sistemas y Métodos y Teoría General de los Sistemas
+  // ====================================================================
+
+  // ---------- SECCIÓN 33 ----------
+  {
+    id: '33',
+    unit: '1',
+    title: 'Introducción a Sistemas y Métodos: definiciones básicas',
+    criollo:
+      'Arrancamos por el vocabulario base de la materia: qué es un procedimiento, qué es un método, la diferencia entre dato e información, qué es un sistema abierto y para qué existe la función de Organización y Métodos. Son las palabras con las que se construye todo lo demás, así que conviene tenerlas claras de entrada.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Las organizaciones requieren hoy en día normas y procedimientos que avalen sus operaciones a fin de lograr los objetivos correspondientes. Una organización representa un sistema en el cual las personas se interrelacionan entre sí y donde existe una coordinación lógica que tiene por objetivo lograr las directivas de la alta dirección.',
+      },
+      {
+        type: 'h3',
+        text: 'Procedimiento y método',
+        criollo:
+          'Procedimiento es el "paso a paso" estandarizado para algo que se repite seguido. Método es la manera de proceder u obrar; en la ciencia, el camino para encontrar la verdad y enseñarla.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Procedimiento</strong>: método estándar de operaciones que consiste en una serie detallada de instrucciones para ejecutar una secuencia de acciones que se presentan con frecuencia o regularidad.',
+          '<strong>Método</strong>: manera de proceder u obrar; procedimiento seguido, manera de decir o hacer con orden alguna cosa. En las ciencias, sirve para encontrar la verdad y enseñarla.',
+          'Existen dos maneras de método: <strong>analítico</strong> o <strong>sintético</strong>. La reflexión sobre el método tiene un antecedente clásico en el <em>Discurso del método</em> de René Descartes.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Dato e información',
+        criollo:
+          'El dato es la materia prima cruda; la información es ese dato ya procesado y con sentido para quien lo recibe. La información sirve para tomar decisiones.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Dato</strong>: hechos desagregados que aún no han sido procesados para convertirse en información útil.',
+          '<strong>Información</strong>: datos procesados en forma significativa para el receptor, con valor real y perceptible para decisiones presentes o futuras.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Sistema abierto',
+        criollo:
+          'Un sistema abierto es el que intercambia con su entorno: entran cosas, se transforman, salen resultados, y parte de esa salida vuelve como retroinformación. El entorno cambia y muchas veces no lo podés controlar desde adentro.',
+      },
+      {
+        type: 'p',
+        text:
+          'Un sistema es un conjunto de elementos que interactúan entre sí en un entorno cambiante. Un sistema abierto comprende las entradas y salidas a un proceso de transformación o conversión, donde las salidas, a su vez, pueden producir un canal de retroinformación o feedback. Este sistema abierto se ve influenciado por un entorno cambiante, que muchas veces no puede ser alterado o modificado desde adentro de la organización.',
+      },
+      {
+        type: 'h3',
+        text: 'Sistema de información',
+        criollo:
+          'Un sistema de información mezcla personas y máquinas con un objetivo concreto: darle a la organización la información que necesita para operar, administrarse y decidir.',
+      },
+      {
+        type: 'p',
+        text:
+          'Sistema de información: conjunto integrado de personas y máquinas, cuyo objetivo es entregarle a una organización la información requerida para el apoyo de las operaciones, la administración y la toma de decisiones.',
+      },
+      {
+        type: 'h3',
+        text: 'Función de organización y métodos',
+        criollo:
+          'Organización y Métodos (O&M) es el área que se mete con cómo está armada la empresa y cómo hace las cosas, para optimizar la estructura administrativa y que se cumplan los objetivos.',
+      },
+      {
+        type: 'p',
+        text:
+          'La función de organización y métodos, dentro de una organización, se ocupa de analizar los problemas de estructura y los procedimientos de dicha empresa, a fin de optimizar la infraestructura administrativa para el logro de los objetivos mencionados.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Los sistemas de información gerencial proveen a la dirección la información necesaria para lograr los objetivos. Esa información debe servir de apoyo a las operaciones, brindar datos para la administración general, apoyar la toma de decisiones de la alta dirección, permitir el planeamiento y control adecuados, y estar soportada por los equipos de computación, comunicaciones, software, bases de datos y manuales administrativos correspondientes.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-33-1',
+          q: 'Un procedimiento es una serie detallada de instrucciones para ejecutar una secuencia de acciones que se presentan con frecuencia o regularidad.',
+          a: true,
+          explain:
+            'Verdadero. El apunte define el procedimiento como un método estándar de operaciones: una serie detallada de instrucciones para acciones frecuentes o regulares.',
+        },
+        {
+          id: 'tf-33-2',
+          q: 'Dato e información son sinónimos: ambos son hechos ya procesados y con valor para decidir.',
+          a: false,
+          explain:
+            'Falso. El dato son hechos desagregados aún sin procesar; la información son datos ya procesados en forma significativa para el receptor.',
+        },
+        {
+          id: 'tf-33-3',
+          q: 'En un sistema abierto, las salidas pueden producir un canal de retroinformación o feedback.',
+          a: true,
+          explain:
+            'Verdadero. El sistema abierto comprende entradas y salidas a un proceso de transformación, y las salidas pueden generar retroinformación (feedback).',
+        },
+        {
+          id: 'tf-33-4',
+          q: 'La función de Organización y Métodos se ocupa exclusivamente de la contabilidad de la empresa.',
+          a: false,
+          explain:
+            'Falso. O&M analiza los problemas de estructura y los procedimientos de la empresa para optimizar la infraestructura administrativa, no la contabilidad.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-33-1',
+          q: '¿Cuáles son las dos maneras de método que menciona el apunte?',
+          options: [
+            'Inductivo y deductivo',
+            'Analítico y sintético',
+            'Cualitativo y cuantitativo',
+            'Empírico y racional',
+          ],
+          correctIndex: 1,
+          explain:
+            'El apunte señala dos maneras: analítico o sintético, y remite al Discurso del método de Descartes.',
+        },
+        {
+          id: 'mc-33-2',
+          q: '¿Cómo define el apunte un sistema de información?',
+          options: [
+            'Un conjunto de computadoras conectadas en red',
+            'Un conjunto integrado de personas y máquinas cuyo objetivo es entregar a la organización la información requerida para operaciones, administración y toma de decisiones',
+            'Un programa que automatiza tareas repetitivas',
+            'Una base de datos con los registros de la empresa',
+          ],
+          correctIndex: 1,
+          explain:
+            'El sistema de información es un conjunto integrado de personas y máquinas orientado a proveer la información requerida para apoyar operaciones, administración y decisiones.',
+        },
+        {
+          id: 'mc-33-3',
+          q: '¿Qué es un dato según el apunte?',
+          options: [
+            'Datos procesados con valor para decidir',
+            'Hechos desagregados que aún no han sido procesados para convertirse en información útil',
+            'La razón de ser de un sistema',
+            'El canal de retroinformación de un sistema abierto',
+          ],
+          correctIndex: 1,
+          explain:
+            'El dato son hechos desagregados que todavía no fueron procesados para transformarse en información útil.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-33-1',
+          q: '¿Qué aspectos debe contemplar la información de los sistemas de información gerencial, según el apunte?',
+          options: [
+            'Servir de apoyo a las operaciones de la empresa',
+            'Brindar información para la administración general de la compañía',
+            'Apoyar la toma de decisiones de la alta dirección',
+            'Permitir el planeamiento y control adecuados',
+            'Reemplazar por completo a la alta dirección en las decisiones',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro primeros son textuales del apunte. La información apoya las decisiones de la dirección, no la reemplaza.',
+        },
+        {
+          id: 'ms-33-2',
+          q: '¿Cuáles de los siguientes son elementos del sistema de información según el apunte?',
+          options: [
+            'Personas',
+            'Máquinas',
+            'Un objetivo: proveer información para operaciones, administración y decisiones',
+            'La eliminación de la coordinación lógica entre personas',
+            'La exclusión de los manuales administrativos',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'El sistema de información integra personas y máquinas con el objetivo de proveer información. La coordinación lógica y los manuales son parte del soporte, no algo a excluir.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-33-1',
+        front: 'Procedimiento',
+        back:
+          'Método estándar de operaciones: serie detallada de instrucciones para ejecutar una secuencia de acciones que se presentan con frecuencia o regularidad.',
+      },
+      {
+        id: 'fc-33-2',
+        front: 'Método',
+        back:
+          'Manera de proceder u obrar con orden. En las ciencias, sirve para encontrar la verdad y enseñarla. Dos maneras: analítico o sintético (Descartes, Discurso del método).',
+      },
+      {
+        id: 'fc-33-3',
+        front: 'Dato vs. información',
+        back:
+          'Dato: hechos desagregados aún sin procesar. Información: datos procesados en forma significativa para el receptor, con valor para decisiones presentes o futuras.',
+      },
+      {
+        id: 'fc-33-4',
+        front: 'Sistema abierto',
+        back:
+          'Conjunto de elementos que interactúan en un entorno cambiante; comprende entradas y salidas a un proceso de transformación, donde las salidas pueden generar retroinformación (feedback).',
+      },
+      {
+        id: 'fc-33-5',
+        front: 'Sistema de información',
+        back:
+          'Conjunto integrado de personas y máquinas cuyo objetivo es entregar a la organización la información requerida para las operaciones, la administración y la toma de decisiones.',
+      },
+      {
+        id: 'fc-33-6',
+        front: 'Función de organización y métodos (O&M)',
+        back:
+          'Analiza los problemas de estructura y los procedimientos de la empresa para optimizar la infraestructura administrativa y lograr los objetivos.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 34 ----------
+  {
+    id: '34',
+    unit: '1',
+    title: 'Teoría General de los Sistemas',
+    criollo:
+      'Acá va la teoría madre de la materia: la idea de mirar el mundo como sistemas interconectados en vez de partes sueltas. Conceptos clave: sinergia (el todo es más que la suma de las partes), entropía (el desgaste), retroalimentación y las organizaciones inteligentes de Senge. Todo gira alrededor de "ver el todo".',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Entre los años 1950 y 1968 se desarrolló una teoría interdisciplinaria con los trabajos del biólogo alemán Ludwig von Bertalanffy, conocida como Teoría General de los Sistemas: una visión orientada hacia el todo, más interesada en unir las cosas que en separarlas. Esta teoría desarrolló principios unificadores que atraviesan verticalmente los universos particulares de las diversas ciencias, y expresa la necesidad de un cuerpo sistemático de construcciones teóricas que pueda discutir, analizar y explicar las relaciones generales del mundo empírico.',
+      },
+      {
+        type: 'p',
+        text:
+          'Un sistema es un conjunto de elementos que se relacionan para alcanzar un fin.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/sistema-abierto.png',
+        alt: 'Esquema de sistema abierto: ENTRADA → CAJA NEGRA → SALIDA, atravesado por RETROALIMENTACIÓN arriba y HOMEOSTASIS abajo',
+        caption:
+          'El sistema abierto: la entrada se procesa en la "caja negra" y produce una salida; la retroalimentación y la homeostasis mantienen el equilibrio.',
+      },
+      {
+        type: 'h3',
+        text: 'Enfoque reduccionista vs. enfoque sistémico',
+        criollo:
+          'Podés estudiar algo desarmándolo en partes (reduccionista), pero el todo no se explica solo sumando las partes: hay que mirar cómo interactúan entre sí (sistémico). De ahí salen los conceptos de sistema y subsistema.',
+      },
+      {
+        type: 'p',
+        text:
+          'El estudio de los sistemas puede realizarse desde un enfoque reduccionista, es decir, estudiar los fenómenos complejos a través de las partes que los componen. Sin embargo, no se puede estudiar el todo exclusivamente a través de la suma de sus partes, sino destacando también la interacción que hay entre ellas; esto genera el enfoque sistémico o integrador. De aquí surge el concepto de sistema y subsistema: cualquier sistema podría ser visto como parte componente de un sistema mayor. Siempre existe alguna interrelación entre los objetos (fuerzas de atracción y repulsión, distancias), es decir, cohesión entre los elementos componentes.',
+      },
+      {
+        type: 'h3',
+        text: 'Sinergia',
+        criollo:
+          'Sinergia es el famoso "2 + 2 = 5": el todo da algo distinto (y mayor) que la simple suma de las partes. Es lo que justifica que el sistema exista.',
+      },
+      {
+        type: 'p',
+        text:
+          'Una característica presente en los sistemas es la sinergia, que puede expresarse como que la suma de las partes es diferente del todo: $2 + 2 = 5$ (o distinto de 4). Caracteriza y justifica la existencia de un sistema. El filósofo Fuller señala que existe sinergia cuando el examen de una o alguna de sus partes, en forma aislada, no puede explicar ni predecir la conducta del todo.',
+      },
+      {
+        type: 'h3',
+        text: 'Equilibrio, retroalimentación y entropía',
+        criollo:
+          'Los sistemas buscan mantenerse en equilibrio. Cuando se desvían, la retroalimentación negativa avisa y se corrige el rumbo. La entropía es el desgaste por el paso del tiempo; en los sistemas abiertos se puede revertir convirtiéndola en neguentropía (más organización).',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Los sistemas tienden a mantenerse en equilibrio, y sobre él actúan dos fuerzas: una que trata de evitar los cambios bruscos y otra que impulsa al sistema a cambiar, pero en forma lenta y evolutiva.',
+          'Cuando el sistema se desvía de su camino, la información de <strong>retroalimentación negativa</strong> advierte el cambio a los centros decisionales, que toman las medidas correctivas para volver al camino original.',
+          'La información es una <strong>disminución de la incertidumbre</strong>. En la física, el estado más probable de los sistemas es el caos, el desorden; los sistemas tienden al estado más probable.',
+          'La <strong>entropía</strong> es el desgaste que el sistema presenta por el transcurso del tiempo o por su funcionamiento. Los sistemas altamente entrópicos tienden a desaparecer.',
+          'En un sistema cerrado la entropía siempre debe ser positiva; pero en los sistemas abiertos, biológicos o sociales, puede reducirse o transformarse en <strong>entropía negativa (neguentropía)</strong>: un proceso de organización más completa y de capacidad para transformar los recursos.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Organizaciones inteligentes',
+        criollo:
+          'Son las organizaciones que aprenden: la gente expande su capacidad de crear lo que quiere y aprende a aprender en conjunto. Peter Senge dice que para lograrlo hacen falta cuatro disciplinas.',
+      },
+      {
+        type: 'p',
+        text:
+          'Las organizaciones inteligentes son aquellas donde la gente expande su aptitud para crear los resultados que desea, donde se cultivan nuevos patrones de pensamiento y donde la gente continuamente aprende a aprender en conjunto. El pensamiento sistémico es un cuerpo de conocimientos y herramientas que ayuda a que los patrones de pensamiento resulten más claros y a modificarlos. Según Peter Senge, son necesarias cuatro disciplinas para construir una organización inteligente:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Dominio personal.',
+          'Modelos mentales.',
+          'Visión compartida.',
+          'Aprendizaje en equipo.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Los sistemas de información son aquellos sistemas necesarios para la toma de decisiones y para realizar las operaciones de planificación y control necesarias para el desarrollo de los negocios. Es fundamental que los usuarios colaboren en la planificación y el diseño de los sistemas informáticos, y que participen de la llamada "prueba del usuario" (Acceptance Test).',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-34-1',
+          q: 'La Teoría General de los Sistemas fue desarrollada por el biólogo Ludwig von Bertalanffy y propone una visión orientada hacia el todo.',
+          a: true,
+          explain:
+            'Verdadero. Bertalanffy desarrolló la TGS entre 1950 y 1968, con una visión orientada al todo, más interesada en unir que en separar.',
+        },
+        {
+          id: 'tf-34-2',
+          q: 'La sinergia significa que el todo es exactamente igual a la suma de sus partes.',
+          a: false,
+          explain:
+            'Falso. La sinergia se expresa como 2 + 2 = 5: la suma de las partes es diferente del todo. Por eso una parte aislada no explica la conducta del todo.',
+        },
+        {
+          id: 'tf-34-3',
+          q: 'En los sistemas abiertos la entropía puede reducirse o transformarse en entropía negativa (neguentropía).',
+          a: true,
+          explain:
+            'Verdadero. A diferencia del sistema cerrado (entropía siempre positiva), en los sistemas abiertos la entropía puede reducirse o volverse neguentropía: más organización.',
+        },
+        {
+          id: 'tf-34-4',
+          q: 'Según Senge, alcanza con el dominio personal para construir una organización inteligente.',
+          a: false,
+          explain:
+            'Falso. Senge plantea cuatro disciplinas: dominio personal, modelos mentales, visión compartida y aprendizaje en equipo.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-34-1',
+          q: '¿Qué es la retroalimentación negativa en un sistema?',
+          options: [
+            'Una crítica destructiva al desempeño del sistema',
+            'La información que advierte un desvío a los centros decisionales para que tomen medidas correctivas y vuelvan al camino original',
+            'El desgaste del sistema por el paso del tiempo',
+            'La eliminación de todo cambio en el sistema',
+          ],
+          correctIndex: 1,
+          explain:
+            'La retroalimentación negativa avisa el desvío a los centros decisionales, que aplican correcciones para retomar el objetivo original.',
+        },
+        {
+          id: 'mc-34-2',
+          q: '¿Cómo describe el apunte la entropía de un sistema?',
+          options: [
+            'La razón de ser del sistema',
+            'El desgaste que el sistema presenta por el transcurso del tiempo o por su funcionamiento',
+            'La interacción entre las partes del sistema',
+            'La capacidad de crear nuevos resultados',
+          ],
+          correctIndex: 1,
+          explain:
+            'La entropía es el desgaste del sistema por el paso del tiempo o por su funcionamiento; los sistemas muy entrópicos tienden a desaparecer.',
+        },
+        {
+          id: 'mc-34-3',
+          q: '¿Qué afirma el enfoque sistémico o integrador?',
+          options: [
+            'Que el todo se explica exclusivamente sumando sus partes',
+            'Que solo importan las partes individuales, no su interacción',
+            'Que hay que destacar la interacción entre las partes, no solo sumarlas',
+            'Que los sistemas no se relacionan con otros sistemas',
+          ],
+          correctIndex: 2,
+          explain:
+            'El enfoque sistémico sostiene que el todo no se explica solo por la suma de partes, sino destacando la interacción entre ellas.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-34-1',
+          q: '¿Cuáles son las cuatro disciplinas de la organización inteligente según Peter Senge?',
+          options: [
+            'Dominio personal',
+            'Modelos mentales',
+            'Visión compartida',
+            'Aprendizaje en equipo',
+            'Control financiero',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro disciplinas son dominio personal, modelos mentales, visión compartida y aprendizaje en equipo. El control financiero no forma parte de ellas.',
+        },
+        {
+          id: 'ms-34-2',
+          q: '¿Qué afirmaciones sobre la Teoría General de los Sistemas son correctas?',
+          options: [
+            'Fue desarrollada por Ludwig von Bertalanffy',
+            'Propone una visión orientada hacia el todo',
+            'Un sistema es un conjunto de elementos que se relacionan para alcanzar un fin',
+            'La sinergia se expresa como 2 + 2 = 5',
+            'Niega la existencia de subsistemas',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son textuales del apunte. La TGS justamente introduce el concepto de sistema y subsistema, no lo niega.',
+        },
+        {
+          id: 'ms-34-3',
+          q: '¿Qué fuerzas y mecanismos actúan sobre el equilibrio de un sistema según el apunte?',
+          options: [
+            'Una fuerza que trata de evitar los cambios bruscos',
+            'Una fuerza que impulsa al sistema a cambiar en forma lenta y evolutiva',
+            'La retroalimentación negativa que corrige los desvíos',
+            'La sinergia entendida como 2 + 2 = 4',
+            'La eliminación de toda incertidumbre de manera instantánea',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las dos fuerzas (estabilidad y cambio evolutivo) y la retroalimentación negativa son del apunte. La sinergia es 2 + 2 = 5, y la información disminuye la incertidumbre, no la elimina al instante.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-34-1',
+        front: 'Teoría General de los Sistemas',
+        back:
+          'Teoría interdisciplinaria de Ludwig von Bertalanffy (1950-1968): visión orientada al todo, más interesada en unir las cosas que en separarlas.',
+      },
+      {
+        id: 'fc-34-2',
+        front: 'Sistema',
+        back:
+          'Conjunto de elementos que se relacionan para alcanzar un fin.',
+      },
+      {
+        id: 'fc-34-3',
+        front: 'Sinergia',
+        back:
+          'La suma de las partes es diferente del todo: 2 + 2 = 5. Una parte aislada no explica ni predice la conducta del todo (Fuller). Justifica la existencia del sistema.',
+      },
+      {
+        id: 'fc-34-4',
+        front: 'Entropía y neguentropía',
+        back:
+          'Entropía: desgaste del sistema por el tiempo o el uso. En sistemas cerrados es siempre positiva; en sistemas abiertos puede reducirse o volverse entropía negativa (neguentropía): más organización.',
+      },
+      {
+        id: 'fc-34-5',
+        front: 'Retroalimentación negativa',
+        back:
+          'Información que advierte un desvío a los centros decisionales para que tomen medidas correctivas y el sistema vuelva a su camino original.',
+      },
+      {
+        id: 'fc-34-6',
+        front: 'Organizaciones inteligentes',
+        back:
+          'Aquellas donde la gente expande su aptitud para crear los resultados que desea y aprende a aprender en conjunto. Senge: dominio personal, modelos mentales, visión compartida y aprendizaje en equipo.',
+      },
+      {
+        id: 'fc-34-7',
+        front: 'Enfoque reduccionista vs. sistémico',
+        back:
+          'Reduccionista: estudiar el todo por sus partes. Sistémico/integrador: destacar la interacción entre las partes, porque el todo no se explica solo por la suma.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 35 ----------
+  {
+    id: '35',
+    unit: '1',
+    title: 'Teoría General de los Sistemas y la tecnología',
+    criollo:
+      'Acá conectamos la teoría de sistemas con la tecnología: cómo evolucionaron las TIC, la diferencia entre ciencia y tecnología, las dos formas de procesar información (por lotes y en línea) y cómo fueron cambiando las metodologías para desarrollar software. Es el puente entre "pensar en sistemas" y la informática.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'La evolución de las TIC',
+        criollo:
+          'Las TIC son todo lo que nos deja acceder, producir, guardar y comunicar información. En menos de 150 años pasamos del telégrafo a un ecosistema digital, y eso creció de forma exponencial.',
+      },
+      {
+        type: 'p',
+        text:
+          'Las TIC (tecnologías de la información y la comunicación) son el conjunto de tecnologías que nos permiten acceder, producir, almacenar y comunicar información. Su evolución ha sido exponencial: transformó radicalmente la sociedad y las organizaciones.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/evolucion-tic.png',
+        alt: 'Línea de tiempo exponencial de las TIC desde 1850 (telégrafo) hasta 1990, sumando tecnologías en cada etapa',
+        caption:
+          'Línea de tiempo de las TIC: en menos de 150 años pasamos del telégrafo punto a punto a un ecosistema digital complejo.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Hasta 1950: dominio de la comunicación analógica (telégrafo, teléfono, radio).',
+          '1970-1980: la digitalización gana terreno. Aparecen la transmisión de datos, la televisión por satélite y las primeras formas de teletexto. Marca el inicio de la era de la información.',
+          'Década de 1990: explosión de la conectividad. El correo electrónico y la telemática se popularizan, lo que sienta las bases para la web moderna.',
+        ],
+      },
+      {
+        type: 'p',
+        text:
+          'Esta evolución impulsó la automatización de procesos, lo que les permitió a las empresas manejar grandes volúmenes de datos y mejorar la eficiencia en tareas repetitivas. La tecnología pasó de ser una herramienta de soporte a un pilar estratégico.',
+      },
+      {
+        type: 'h3',
+        text: 'El concepto de sistema y sus características',
+        criollo:
+          'Un sistema es un conjunto de componentes que interactúan para un objetivo común. Las partes solas no logran lo que sí logra el conjunto. Pensá en un auto: motor, ruedas y chasis por separado no te llevan a ningún lado.',
+      },
+      {
+        type: 'p',
+        text:
+          'Un sistema es un conjunto de componentes que interactúan entre sí para lograr un objetivo común. La clave está en la interacción y el objetivo: las partes por sí solas no pueden lograr lo que el sistema en su conjunto sí puede. Ejemplo: un automóvil es un sistema; sus componentes (motor, ruedas, chasis) no sirven de mucho por separado, pero coordinados cumplen su objetivo de transportar personas.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Finalidad</strong>: todo sistema tiene una razón de ser, un propósito que guía su comportamiento.',
+          '<strong>Componentes (subsistemas)</strong>: está formado por partes que, a su vez, pueden ser sistemas más pequeños (el motor del auto es un subsistema de pistones, cilindros, etc.).',
+          '<strong>Interacción con el entorno</strong>: los sistemas no existen en el vacío; reciben entradas (inputs) y entregan salidas (outputs).',
+          '<strong>Homeostasis</strong>: capacidad de mantener un equilibrio dinámico mediante la autorregulación (como un termostato).',
+          '<strong>Retroalimentación (feedback)</strong>: mecanismo de control que permite la homeostasis; la salida vuelve a ingresar como información para ajustar el comportamiento futuro.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Ciencia y tecnología',
+        criollo:
+          'No son lo mismo, aunque se necesiten. La ciencia busca conocer (su producto es el conocimiento); la tecnología busca resolver (su producto son cosas que modifican el entorno). Se retroalimentan: sin ciencia no hay tecnología, y sin tecnología la ciencia no tiene herramientas.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Ciencia</strong>: motivada por el deseo de conocer y comprender el mundo de forma racional; su actividad es la investigación y su producto, el conocimiento científico.',
+          '<strong>Tecnología</strong>: conjunto de conocimientos (científicos y empíricos) y técnicas que, aplicados de forma lógica, permiten crear soluciones útiles para satisfacer necesidades; su producto son cosas artificiales, físicas o virtuales, que modifican el entorno.',
+          '<strong>Relación simbiótica</strong>: no hay desarrollo tecnológico sin conocimiento científico, ni ciencia sin las herramientas que la tecnología proporciona. El telescopio (tecnología) le permitió a Galileo hacer descubrimientos (ciencia) que impulsaron mejores telescopios.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Sistemas de procesamiento de la información',
+        criollo:
+          'Hay dos formas básicas de procesar datos: por lotes (juntás todo y lo procesás de una, ej. de noche) o en línea (cargás el dato y el sistema te responde al toque).',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/procesamiento-batch-online.png',
+        alt: 'Diagrama comparando procesamiento por lotes (batch) con entrada por teclado, archivo de transacciones y archivo maestro, contra procesamiento en línea con alimentación y salida inmediatas',
+        caption:
+          'Procesamiento por lotes (batch) vs. procesamiento en línea: en el batch las operaciones se agrupan y procesan juntas; en línea, la respuesta es inmediata.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Proceso por lotes (batch processing)</strong>: los datos de entrada se acumulan y se procesan en grandes "lotes", generalmente en momentos de baja demanda (por ejemplo, de noche). No requiere intervención continua del operador. Ejemplo: un banco que procesa todas las transacciones del día en un solo lote durante la madrugada.',
+          '<strong>Proceso en línea o interactivo (interactive processing)</strong>: el usuario introduce los datos y el sistema los procesa de inmediato, con respuesta instantánea. Cada acción del usuario desencadena una reacción del sistema. Ejemplo: una compra en un sitio de e-commerce, donde el stock se actualiza y el pago se procesa al instante.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Metodologías de desarrollo de sistemas',
+        criollo:
+          'Hacer software no es magia espontánea: es ingeniería que necesita método. Una metodología es el combo de procedimientos, técnicas y herramientas que guía a los desarrolladores. Y fueron evolucionando con el tiempo.',
+      },
+      {
+        type: 'p',
+        text:
+          'Una metodología es un conjunto de procedimientos, técnicas y herramientas que guían a los desarrolladores en la creación de software de manera sistemática. Su objetivo es construir sistemas que cumplan los requisitos, dentro de los costos y tiempos esperados, y que sean fáciles de mantener.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/evolucion-metodologias-desarrollo.png',
+        alt: 'Línea de tiempo de los enfoques de desarrollo desde los años 50 a los 90: orientación a procesos, a datos y a objetos',
+        caption:
+          'Evolución de los enfoques de desarrollo: de la orientación a procesos (años 70) a la orientación a datos y a objetos (años 90 en adelante).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Desarrollo convencional (años 50-60)</strong>: enfoques "artesanales", sin un método formal, que a menudo resultaban en proyectos caóticos.',
+          '<strong>Desarrollo estructurado (años 70-80)</strong>: orientación a procesos (se centra en las funciones que el sistema debe realizar, con enfoque Top-Down) y, como evolución, orientación a datos (modela los datos antes que los procesos).',
+          '<strong>Paradigma orientado a objetos (años 90 en adelante)</strong>: unifica procesos y datos en "objetos" (representaciones de entidades del mundo real); facilita la reutilización de código y la gestión de sistemas complejos.',
+          '<strong>Metodologías ágiles (siglo XXI)</strong>: en lugar de planificar todo al inicio, se basan en ciclos cortos (iteraciones) que entregan valor de forma incremental, adaptándose a los cambios (como Scrum o Kanban).',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-35-1',
+          q: 'Las TIC son el conjunto de tecnologías que permiten acceder, producir, almacenar y comunicar información.',
+          a: true,
+          explain:
+            'Verdadero. Esa es exactamente la definición de TIC del apunte, y su evolución fue exponencial.',
+        },
+        {
+          id: 'tf-35-2',
+          q: 'Ciencia y tecnología son lo mismo: ambas tienen como producto el conocimiento científico.',
+          a: false,
+          explain:
+            'Falso. La ciencia produce conocimiento; la tecnología produce cosas artificiales (físicas o virtuales) que modifican el entorno. Son distintas pero interdependientes.',
+        },
+        {
+          id: 'tf-35-3',
+          q: 'En el procesamiento por lotes (batch) los datos se acumulan y se procesan juntos, a menudo en momentos de baja demanda.',
+          a: true,
+          explain:
+            'Verdadero. El batch agrupa los datos y los procesa en grandes lotes, por ejemplo de noche, sin intervención continua del operador.',
+        },
+        {
+          id: 'tf-35-4',
+          q: 'El paradigma orientado a objetos mantiene los datos y los procesos completamente separados.',
+          a: false,
+          explain:
+            'Falso. El paradigma orientado a objetos justamente unifica procesos y datos en "objetos" que representan entidades del mundo real.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-35-1',
+          q: '¿Qué es la homeostasis en un sistema?',
+          options: [
+            'El desgaste del sistema por el paso del tiempo',
+            'La capacidad de mantener un equilibrio dinámico mediante la autorregulación',
+            'La separación de los datos y los procesos',
+            'La acumulación de datos para procesarlos por lotes',
+          ],
+          correctIndex: 1,
+          explain:
+            'La homeostasis es la capacidad de un sistema de mantener un equilibrio dinámico mediante la autorregulación, como un termostato.',
+        },
+        {
+          id: 'mc-35-2',
+          q: '¿Cuál es la diferencia central entre proceso por lotes y proceso en línea?',
+          options: [
+            'El batch es más moderno que el proceso en línea',
+            'El batch acumula y procesa datos juntos; el proceso en línea responde de inmediato a cada acción del usuario',
+            'El proceso en línea no requiere computadoras',
+            'El batch solo se usa en e-commerce',
+          ],
+          correctIndex: 1,
+          explain:
+            'En el batch los datos se acumulan y procesan en lotes; en el proceso en línea (interactivo) cada acción del usuario obtiene respuesta instantánea.',
+        },
+        {
+          id: 'mc-35-3',
+          q: '¿Qué caracteriza a las metodologías ágiles?',
+          options: [
+            'Planificar todo el proyecto desde el inicio sin cambios',
+            'Basarse en ciclos cortos (iteraciones) que entregan valor incremental y se adaptan a los cambios',
+            'Eliminar por completo la documentación y el método',
+            'Centrarse únicamente en modelar los datos',
+          ],
+          correctIndex: 1,
+          explain:
+            'Las metodologías ágiles (Scrum, Kanban) trabajan en iteraciones cortas, entregando valor incremental y adaptándose a los cambios sobre la marcha.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-35-1',
+          q: '¿Cuáles son características fundamentales de los sistemas según el apunte?',
+          options: [
+            'Finalidad',
+            'Componentes o subsistemas',
+            'Interacción con el entorno (entradas y salidas)',
+            'Homeostasis y retroalimentación',
+            'Ausencia total de objetivo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Finalidad, componentes/subsistemas, interacción con el entorno y homeostasis/retroalimentación son del apunte. Todo sistema tiene una finalidad, no carece de objetivo.',
+        },
+        {
+          id: 'ms-35-2',
+          q: '¿Qué enfoques de desarrollo menciona la evolución del apunte?',
+          options: [
+            'Desarrollo convencional (artesanal)',
+            'Desarrollo estructurado (orientación a procesos y a datos)',
+            'Paradigma orientado a objetos',
+            'Metodologías ágiles',
+            'Programación sin ningún tipo de método ni objetivo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro primeros son los enfoques descritos. Una metodología, por definición, aporta procedimientos y técnicas: lo contrario a programar sin método.',
+        },
+        {
+          id: 'ms-35-3',
+          q: '¿Qué afirmaciones sobre ciencia y tecnología son correctas?',
+          options: [
+            'La ciencia se motiva por el deseo de conocer y comprender el mundo',
+            'El producto de la ciencia es el conocimiento científico',
+            'La tecnología crea soluciones útiles que modifican el entorno',
+            'Ciencia y tecnología son interdependientes y se retroalimentan',
+            'La tecnología no necesita ningún conocimiento científico',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son del apunte. El propio texto aclara que no hay desarrollo tecnológico sin conocimiento científico.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-35-1',
+        front: 'TIC',
+        back:
+          'Tecnologías de la información y la comunicación: conjunto de tecnologías que permiten acceder, producir, almacenar y comunicar información. Su evolución fue exponencial.',
+      },
+      {
+        id: 'fc-35-2',
+        front: 'Homeostasis',
+        back:
+          'Capacidad de un sistema de mantener un equilibrio dinámico mediante la autorregulación (ejemplo: un termostato). Se sostiene gracias a la retroalimentación.',
+      },
+      {
+        id: 'fc-35-3',
+        front: 'Ciencia vs. tecnología',
+        back:
+          'Ciencia: deseo de conocer; producto, el conocimiento. Tecnología: conocimientos y técnicas para crear soluciones útiles; producto, cosas que modifican el entorno. Son interdependientes.',
+      },
+      {
+        id: 'fc-35-4',
+        front: 'Proceso por lotes (batch)',
+        back:
+          'Los datos se acumulan y se procesan juntos en grandes lotes, generalmente en momentos de baja demanda, sin intervención continua del operador.',
+      },
+      {
+        id: 'fc-35-5',
+        front: 'Proceso en línea (interactivo)',
+        back:
+          'El usuario introduce datos y el sistema los procesa de inmediato, con respuesta instantánea. Cada acción del usuario desencadena una reacción del sistema.',
+      },
+      {
+        id: 'fc-35-6',
+        front: 'Metodología de desarrollo',
+        back:
+          'Conjunto de procedimientos, técnicas y herramientas que guían la creación de software de forma sistemática, para cumplir requisitos dentro de costos y tiempos y facilitar el mantenimiento.',
+      },
+      {
+        id: 'fc-35-7',
+        front: 'Evolución de las metodologías',
+        back:
+          'Convencional (50-60) → estructurada, orientada a procesos y a datos (70-80) → orientada a objetos (90) → ágiles (siglo XXI, iteraciones e incrementos).',
+      },
+    ],
+  },
+
+  // ====================================================================
+  // UNIDAD 2 — El proceso administrativo y la optimización de operaciones
+  // ====================================================================
+
+  // ---------- SECCIÓN 36 ----------
+  {
+    id: '36',
+    unit: '2',
+    title: 'El proceso administrativo: introducción y definiciones',
+    criollo:
+      'Acá entramos en la administración de operaciones: qué son las operaciones, la diferencia entre una empresa que produce bienes y una que presta servicios, y las herramientas para documentar y controlar cómo trabaja la empresa (circuitos administrativos y los tres tipos de manuales).',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Administración de operaciones',
+        criollo:
+          'Las operaciones son las actividades de transformación de la empresa. Producir bienes (que se almacenan) no es lo mismo que prestar servicios (que necesitan al cliente y no se guardan). Administrar operaciones es planificar, organizar, dirigir y controlar todo ese sistema.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Operaciones</strong>: las actividades de transformación que se realizan en una organización.',
+          '<strong>Organización de producción</strong>: organización que produce bienes tangibles que se pueden producir en masa y guardar para su consumo posterior.',
+          '<strong>Organización de servicios</strong>: organización que produce bienes intangibles que requieren la participación del consumidor y que no se pueden almacenar.',
+          '<strong>Administración de operaciones</strong>: actividad administrativa compleja que incluye planificar la producción, organizar los recursos, dirigir las operaciones y el personal, y controlar la actuación del sistema.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Circuitos administrativos',
+        criollo:
+          'Un circuito administrativo es la representación gráfica de cómo fluye un proceso. La simbología se acuerda con el usuario o se usa la norma IRAM 34.501.',
+      },
+      {
+        type: 'p',
+        text:
+          'Mediante la utilización de símbolos se representan en forma gráfica los procesos de una organización. Esta simbología debe ser acordada con el usuario para su total comprensión, o bien utilizar los símbolos de la Norma IRAM 34.501, que establece en forma genérica la descripción de dichos símbolos.',
+      },
+      {
+        type: 'h3',
+        text: 'Manuales administrativos',
+        criollo:
+          'Los manuales son las herramientas para comunicar y controlar cómo se hacen las cosas. Hay tres familias: de organización (cómo está armada la empresa), de procedimientos (cómo se hacen los circuitos) y de usuario (cómo operar un sistema o tarea).',
+      },
+      {
+        type: 'p',
+        text:
+          'Los manuales constituyen una de las herramientas con las que cuentan las organizaciones para comunicar y controlar el desarrollo de las funciones administrativas y operativas.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Manuales de organización</strong>: reflejan el diseño funcional de la empresa y describen la organización formal para cada puesto de trabajo, sus objetivos, derechos y obligaciones, y la autoridad y responsabilidad del puesto. Contienen objetivo, alcance, jerarquía, autoridad, misión y funciones, organigramas, régimen de atribuciones, planeamiento, supervisión de tareas, etc.',
+          '<strong>Manuales de procedimientos</strong>: detallan los circuitos y operaciones de la empresa, y definen las funciones y tareas del circuito, los formularios a utilizar, los archivos y los controles a efectuar. Incluyen cursogramas, normas y políticas, formularios y diagramas de flujos de datos (por ejemplo, manual de compras, de caja, de facturación).',
+          '<strong>Manuales de usuario</strong>: especifican las instrucciones de los sistemas automatizados y los procesos de cada tarea (manual técnico de sistemas, de productos, del supervisor, para especialistas).',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-36-1',
+          q: 'Una organización de servicios produce bienes intangibles que requieren la participación del consumidor y que no se pueden almacenar.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la definición del apunte para la organización de servicios, en contraste con la de producción, que genera bienes tangibles almacenables.',
+        },
+        {
+          id: 'tf-36-2',
+          q: 'La norma que se puede utilizar para la simbología de los circuitos administrativos es la IRAM 34.501.',
+          a: true,
+          explain:
+            'Verdadero. El apunte indica que se puede acordar la simbología con el usuario o usar los símbolos de la Norma IRAM 34.501.',
+        },
+        {
+          id: 'tf-36-3',
+          q: 'El manual de procedimientos refleja el diseño funcional de la empresa y describe cada puesto de trabajo.',
+          a: false,
+          explain:
+            'Falso. Eso corresponde al manual de organización. El de procedimientos detalla los circuitos y operaciones de la empresa.',
+        },
+        {
+          id: 'tf-36-4',
+          q: 'La administración de operaciones incluye planificar la producción, organizar recursos, dirigir las operaciones y el personal, y controlar la actuación del sistema.',
+          a: true,
+          explain:
+            'Verdadero. El apunte define la administración de operaciones justamente con esas cuatro actividades.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-36-1',
+          q: '¿Qué son las operaciones según el apunte?',
+          options: [
+            'Las decisiones estratégicas de la alta dirección',
+            'Las actividades de transformación que se realizan en una organización',
+            'Los manuales que documentan los procesos',
+            'Los símbolos de la norma IRAM 34.501',
+          ],
+          correctIndex: 1,
+          explain:
+            'Las operaciones son las actividades de transformación que se realizan en una organización.',
+        },
+        {
+          id: 'mc-36-2',
+          q: '¿Cuál es la diferencia clave entre una organización de producción y una de servicios?',
+          options: [
+            'La de producción es más grande que la de servicios',
+            'La de producción genera bienes tangibles almacenables; la de servicios genera bienes intangibles que requieren al consumidor y no se almacenan',
+            'La de servicios no tiene clientes',
+            'La de producción no usa recursos humanos',
+          ],
+          correctIndex: 1,
+          explain:
+            'La organización de producción genera bienes tangibles que se pueden almacenar; la de servicios, bienes intangibles que requieren la participación del consumidor y no se pueden almacenar.',
+        },
+        {
+          id: 'mc-36-3',
+          q: '¿Qué manual especifica las instrucciones de los sistemas automatizados y los procesos de cada tarea?',
+          options: [
+            'El manual de organización',
+            'El manual de procedimientos',
+            'El manual de usuario',
+            'El manual de la alta dirección',
+          ],
+          correctIndex: 2,
+          explain:
+            'El manual de usuario especifica las instrucciones de los sistemas automatizados y los procesos de cada tarea.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-36-1',
+          q: '¿Qué actividades comprende la administración de operaciones?',
+          options: [
+            'Planificar la producción',
+            'Organizar los recursos',
+            'Dirigir las operaciones y el personal',
+            'Controlar la actuación del sistema',
+            'Eliminar la participación del cliente en los servicios',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro primeras son las actividades del apunte. En los servicios, la participación del consumidor es necesaria, no algo a eliminar.',
+        },
+        {
+          id: 'ms-36-2',
+          q: '¿Cuáles son los tres tipos de manuales administrativos del apunte?',
+          options: [
+            'Manuales de organización',
+            'Manuales de procedimientos',
+            'Manuales de usuario',
+            'Manuales de marketing',
+            'Manuales de auditoría externa',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Los tres tipos son: de organización, de procedimientos y de usuario.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-36-1',
+        front: 'Operaciones',
+        back:
+          'Las actividades de transformación que se realizan en una organización.',
+      },
+      {
+        id: 'fc-36-2',
+        front: 'Organización de producción vs. de servicios',
+        back:
+          'Producción: bienes tangibles, producibles en masa y almacenables. Servicios: bienes intangibles, requieren al consumidor y no se almacenan.',
+      },
+      {
+        id: 'fc-36-3',
+        front: 'Administración de operaciones',
+        back:
+          'Actividad compleja: planificar la producción, organizar los recursos, dirigir las operaciones y el personal, y controlar la actuación del sistema.',
+      },
+      {
+        id: 'fc-36-4',
+        front: 'Circuitos administrativos',
+        back:
+          'Representación gráfica de los procesos con símbolos. La simbología se acuerda con el usuario o se usa la Norma IRAM 34.501.',
+      },
+      {
+        id: 'fc-36-5',
+        front: 'Manual de organización',
+        back:
+          'Refleja el diseño funcional de la empresa: describe cada puesto, objetivos, derechos, obligaciones, autoridad, responsabilidad y organigramas.',
+      },
+      {
+        id: 'fc-36-6',
+        front: 'Manual de procedimientos',
+        back:
+          'Detalla los circuitos y operaciones: funciones y tareas del circuito, formularios, archivos, controles y cursogramas (compras, caja, facturación).',
+      },
+      {
+        id: 'fc-36-7',
+        front: 'Manual de usuario',
+        back:
+          'Especifica las instrucciones de los sistemas automatizados y procesos de cada tarea (manual técnico, de productos, del supervisor, para especialistas).',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 37 ----------
+  {
+    id: '37',
+    unit: '2',
+    title: 'Productividad y calidad',
+    criollo:
+      'Los dos pilares para medir si una organización trabaja bien. Productividad es cuánto producís con los recursos que tenés (eficiencia). Calidad es qué tan bien satisfacés las expectativas del cliente, y es relativa. Deming demostró que mejorar la calidad, a la larga, baja los costos.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Productividad',
+        criollo:
+          'Es una medida de eficiencia: relacionás lo que producís (salidas) con los recursos que usaste (entradas). La idea es producir más con menos.',
+      },
+      {
+        type: 'p',
+        text:
+          'La productividad es una medida de eficiencia que relaciona la cantidad de bienes o servicios producidos con la cantidad de recursos utilizados para producirlos. El objetivo es maximizar las salidas minimizando las entradas: producir más con los mismos recursos, lo mismo con menos recursos, o —lo ideal— mucho más con menos recursos.',
+      },
+      {
+        type: 'math',
+        latex: '\\text{Productividad} = \\dfrac{\\text{salidas (outputs)}}{\\text{entradas (inputs)}}',
+        display: true,
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Ejemplo: una fábrica producía 100 pares de zapatillas por día con 10 empleados (productividad de 10 pares/empleado). Tras mejorar sus máquinas, produce 120 pares con los mismos 10 empleados (12 pares/empleado): aumentó su productividad un 20 %.',
+      },
+      {
+        type: 'h3',
+        text: 'Calidad',
+        criollo:
+          'La calidad no es un valor absoluto: es relativa, se define por qué tan bien el producto o servicio satisface las expectativas del cliente. La palabra viene del latín qualitas (condición).',
+      },
+      {
+        type: 'p',
+        text:
+          'La calidad no es un valor absoluto, sino un término relativo que se define por la capacidad de un producto o servicio para satisfacer las expectativas del cliente. La palabra deriva del latín <em>qualitas</em>, que se refiere a la condición o propiedades de algo. Tiene sentido únicamente cuando se compara o se relaciona con necesidades, expectativas, pretensiones o especificaciones.',
+      },
+      {
+        type: 'p',
+        text:
+          'Históricamente se creía que aumentar la calidad (más controles, mejores materiales) aumentaba inevitablemente los costos y reducía la productividad. Sin embargo, teóricos como <strong>W. Edwards Deming</strong> revolucionaron esta idea y demostraron que mejorar la calidad reduce los costos a largo plazo, al disminuir los desperdicios, los reprocesos y los errores, lo que a su vez aumenta la productividad y la satisfacción del cliente.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text:
+          'Pensá en una app llena de bugs: la sacaron rápido (alta productividad inicial), pero la baja calidad obliga a quemar horas de programadores corrigiendo fallos y atendiendo quejas. La productividad real se desploma. Calidad y productividad no están peleadas: bien hecha, la calidad te ahorra plata.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-37-1',
+          q: 'La productividad relaciona la cantidad de bienes o servicios producidos con la cantidad de recursos utilizados.',
+          a: true,
+          explain:
+            'Verdadero. La productividad es una medida de eficiencia: salidas producidas en relación con las entradas (recursos) utilizadas.',
+        },
+        {
+          id: 'tf-37-2',
+          q: 'La calidad es un valor absoluto, independiente de las expectativas del cliente.',
+          a: false,
+          explain:
+            'Falso. La calidad es un término relativo: se define por la capacidad de satisfacer las expectativas del cliente, y tiene sentido al compararse con necesidades o especificaciones.',
+        },
+        {
+          id: 'tf-37-3',
+          q: 'Según Deming, mejorar la calidad reduce los costos a largo plazo al disminuir desperdicios, reprocesos y errores.',
+          a: true,
+          explain:
+            'Verdadero. Deming demostró que la mejora de la calidad reduce costos a largo plazo y aumenta la productividad y la satisfacción del cliente.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-37-1',
+          q: '¿Cuál es el objetivo de la productividad según el apunte?',
+          options: [
+            'Maximizar las entradas minimizando las salidas',
+            'Maximizar las salidas minimizando las entradas',
+            'Mantener iguales las entradas y las salidas',
+            'Eliminar la medición de la eficiencia',
+          ],
+          correctIndex: 1,
+          explain:
+            'El objetivo es maximizar las salidas (outputs) minimizando las entradas (inputs): producir más con menos recursos.',
+        },
+        {
+          id: 'mc-37-2',
+          q: '¿De qué raíz latina deriva la palabra calidad y qué significa?',
+          options: [
+            'De quantum, que significa cantidad',
+            'De qualitas, que significa condición',
+            'De qualis, que significa cliente',
+            'De calidus, que significa caliente',
+          ],
+          correctIndex: 1,
+          explain:
+            'Calidad deriva del latín qualitas, que se refiere a la condición o propiedades de algo.',
+        },
+        {
+          id: 'mc-37-3',
+          q: '¿Qué demostró W. Edwards Deming respecto de la relación entre calidad y costos?',
+          options: [
+            'Que más calidad siempre aumenta los costos',
+            'Que la calidad no tiene relación con los costos',
+            'Que mejorar la calidad reduce los costos a largo plazo al disminuir desperdicios, reprocesos y errores',
+            'Que la calidad reduce la satisfacción del cliente',
+          ],
+          correctIndex: 2,
+          explain:
+            'Deming demostró que mejorar la calidad reduce los costos a largo plazo y aumenta la productividad y la satisfacción del cliente.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-37-1',
+          q: '¿De qué maneras se puede aumentar la productividad según el apunte?',
+          options: [
+            'Producir más con los mismos recursos',
+            'Producir lo mismo con menos recursos',
+            'Producir mucho más con menos recursos',
+            'Producir menos usando más recursos',
+            'Dejar de medir las salidas',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las tres primeras son las formas que describe el apunte. Producir menos con más recursos baja la productividad.',
+        },
+        {
+          id: 'ms-37-2',
+          q: '¿Qué efectos tiene mejorar la calidad, según Deming?',
+          options: [
+            'Disminuir los desperdicios',
+            'Disminuir los reprocesos y los errores',
+            'Reducir los costos a largo plazo',
+            'Aumentar la productividad y la satisfacción del cliente',
+            'Aumentar inevitablemente los costos para siempre',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son consecuencias que demostró Deming. La idea de que la calidad aumenta los costos "inevitablemente" es justamente lo que él refutó.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-37-1',
+        front: 'Productividad',
+        back:
+          'Medida de eficiencia que relaciona los bienes o servicios producidos (salidas) con los recursos utilizados (entradas). Objetivo: maximizar salidas minimizando entradas.',
+      },
+      {
+        id: 'fc-37-2',
+        front: 'Calidad',
+        back:
+          'Término relativo: capacidad de un producto o servicio para satisfacer las expectativas del cliente. Del latín qualitas (condición).',
+      },
+      {
+        id: 'fc-37-3',
+        front: 'W. Edwards Deming',
+        back:
+          'Demostró que mejorar la calidad reduce los costos a largo plazo (menos desperdicios, reprocesos y errores) y aumenta la productividad y la satisfacción del cliente.',
+      },
+      {
+        id: 'fc-37-4',
+        front: 'Fórmula de productividad',
+        back:
+          'Productividad = salidas (outputs) / entradas (inputs).',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 38 ----------
+  {
+    id: '38',
+    unit: '2',
+    title: 'Optimización de procesos: tiempos, cronogramas y Six Sigma',
+    criollo:
+      'Para mejorar productividad y calidad hay que medir. Acá van las herramientas: el estudio de tiempos (cuánto tarda una tarea bien hecha), los cronogramas (Gantt) para ver tiempos muertos, el cycle time, y Six Sigma con su ciclo DMAIC para perseguir la perfección.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Estudio de tiempos y cronogramas',
+        criollo:
+          'El estudio de tiempos mide cuánto tarda un trabajador calificado en hacer una tarea a ritmo normal, para fijar un "tiempo estándar". Los cronogramas (Gantt) distribuyen las tareas en el tiempo y dejan ver los cuellos de botella.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Estudio de tiempos</strong>: técnica para medir el tiempo que un trabajador calificado necesita para realizar una tarea específica siguiendo un método preestablecido y a un ritmo normal. Su objetivo es establecer un "tiempo estándar" que sirva para planificar la producción, calcular costos y evaluar el desempeño.',
+          '<strong>Cronogramas</strong>: herramientas visuales, como el Diagrama de Gantt, que distribuyen las actividades de un proceso en el tiempo. Permiten identificar la duración de cada tarea y detectar los tiempos muertos o cuellos de botella.',
+        ],
+      },
+      {
+        type: 'table',
+        caption: 'Ejemplo de medición de tiempos de un proceso (elaboración propia del apunte). Total: 95,9 min, con 23,5 min de tiempo muerto (casi el 25 %).',
+        headers: ['Paso', 'Actividad', 'Tiempo', 'Tipo'],
+        rows: [
+          ['Paso 1', 'Verificar materia prima', '11,4 min', '—'],
+          ['Paso 2', 'Buscar herramienta', '4,5 min', 'Tiempo muerto'],
+          ['Paso 3', 'Proceso de corte', '32 min', '—'],
+          ['Paso 4', 'Esperar montacarga', '19 min', 'Tiempo muerto'],
+          ['Paso 5', 'Proceso de corte', '22 min', '—'],
+          ['Paso 6', 'Ensamblar', '5 min', '—'],
+          ['Paso 7', 'Verificar corte', '2 min', '—'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'En el ejemplo, los 23,5 minutos de tiempo muerto (4,5 buscando herramienta + 19 esperando el montacargas) representan casi un 25 % del tiempo total. La optimización se centraría en reducir esas esperas: por ejemplo, con un kit de herramientas listo o mejorando la logística de los montacargas.',
+      },
+      {
+        type: 'h3',
+        text: 'Cycle time (tiempo de ciclo)',
+        criollo:
+          'Es cuánto tarda en completarse una tarea de principio a fin. Sirve para saber la capacidad de producción.',
+      },
+      {
+        type: 'p',
+        text:
+          'El cycle time es el tiempo total que se tarda en completar una tarea específica de un proceso, desde que comienza hasta que termina. Es una métrica crucial para entender la capacidad de producción. Ejemplo: en una cafetería, el cycle time para preparar un café latte puede ser de 3 minutos, lo que significa que un barista puede producir, teóricamente, 20 lattes en una hora.',
+      },
+      {
+        type: 'h3',
+        text: 'Six Sigma',
+        criollo:
+          'Es una metodología rigurosa que usa estadística para reducir defectos al mínimo: la meta es no más de 3,4 defectos por millón de oportunidades (99,9996 % de eficiencia). Trabaja con el ciclo DMAIC.',
+      },
+      {
+        type: 'p',
+        text:
+          'Six Sigma es una metodología rigurosa de mejora de procesos que utiliza herramientas estadísticas para reducir drásticamente los defectos y la variabilidad. Su famosa meta es alcanzar no más de 3,4 defectos por millón de oportunidades, lo que equivale a una eficiencia del 99,9996 %. Se basa en un ciclo de 5 fases, conocido como DMAIC.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/six-sigma-dmaic.png',
+        alt: 'Ciclo DMAIC de Six Sigma: Definir, Medir, Analizar, Mejorar y Controlar en forma circular',
+        caption:
+          'El ciclo DMAIC de Six Sigma: Definir → Medir → Analizar → Mejorar → Controlar.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Definir</strong>: se define el problema, el alcance del proyecto y los objetivos a alcanzar.',
+          '<strong>Medir</strong>: se mide el desempeño actual del proceso para obtener datos cuantitativos sobre el problema.',
+          '<strong>Analizar</strong>: se analizan los datos recopilados para identificar la causa raíz de los defectos o problemas.',
+          '<strong>Mejorar (improve)</strong>: se diseñan, prueban e implementan soluciones para eliminar la causa raíz.',
+          '<strong>Controlar</strong>: se establecen controles para asegurar que la mejora se mantenga en el tiempo y no se vuelva al estado anterior.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-38-1',
+          q: 'El objetivo del estudio de tiempos es establecer un "tiempo estándar" para planificar la producción, calcular costos y evaluar el desempeño.',
+          a: true,
+          explain:
+            'Verdadero. El estudio de tiempos mide el tiempo de una tarea a ritmo normal para fijar un tiempo estándar de referencia.',
+        },
+        {
+          id: 'tf-38-2',
+          q: 'En el ejemplo del apunte, el tiempo muerto representa aproximadamente el 25 % del tiempo total del proceso.',
+          a: true,
+          explain:
+            'Verdadero. Los 23,5 min de tiempo muerto sobre los 95,9 min totales representan casi un 25 %.',
+        },
+        {
+          id: 'tf-38-3',
+          q: 'La meta de Six Sigma es alcanzar no más de 3,4 defectos por millón de oportunidades.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la meta famosa de Six Sigma, equivalente a una eficiencia del 99,9996 %.',
+        },
+        {
+          id: 'tf-38-4',
+          q: 'El cycle time mide la cantidad de defectos por millón de oportunidades.',
+          a: false,
+          explain:
+            'Falso. El cycle time es el tiempo total para completar una tarea de principio a fin; los defectos por millón corresponden a Six Sigma.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-38-1',
+          q: '¿Qué herramienta visual permite distribuir las actividades en el tiempo y detectar tiempos muertos?',
+          options: [
+            'El análisis FODA',
+            'El Diagrama de Gantt (cronograma)',
+            'El balance general',
+            'La pirámide de Maslow',
+          ],
+          correctIndex: 1,
+          explain:
+            'Los cronogramas, como el Diagrama de Gantt, distribuyen las actividades en el tiempo y permiten detectar tiempos muertos o cuellos de botella.',
+        },
+        {
+          id: 'mc-38-2',
+          q: '¿Qué significan las siglas DMAIC de Six Sigma?',
+          options: [
+            'Definir, Medir, Analizar, Mejorar, Controlar',
+            'Diseñar, Medir, Aplicar, Implementar, Cerrar',
+            'Definir, Modelar, Analizar, Integrar, Concluir',
+            'Detectar, Mejorar, Auditar, Innovar, Controlar',
+          ],
+          correctIndex: 0,
+          explain:
+            'DMAIC son las cinco fases: Definir, Medir, Analizar, Mejorar (improve) y Controlar.',
+        },
+        {
+          id: 'mc-38-3',
+          q: '¿Qué es el cycle time?',
+          options: [
+            'El tiempo estándar de un trabajador calificado',
+            'El tiempo total que se tarda en completar una tarea de un proceso, desde que comienza hasta que termina',
+            'El porcentaje de tiempo muerto de un proceso',
+            'La cantidad de defectos por millón',
+          ],
+          correctIndex: 1,
+          explain:
+            'El cycle time es el tiempo total para completar una tarea específica de un proceso, de principio a fin; sirve para entender la capacidad de producción.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-38-1',
+          q: '¿Cuáles son las cinco fases del ciclo DMAIC de Six Sigma?',
+          options: [
+            'Definir',
+            'Medir',
+            'Analizar',
+            'Mejorar y Controlar',
+            'Vender',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las fases son Definir, Medir, Analizar, Mejorar y Controlar. "Vender" no forma parte de DMAIC.',
+        },
+        {
+          id: 'ms-38-2',
+          q: '¿Para qué sirve el "tiempo estándar" que surge del estudio de tiempos?',
+          options: [
+            'Para planificar la producción',
+            'Para calcular costos',
+            'Para evaluar el desempeño',
+            'Para fijar precios de venta al público de forma automática',
+            'Para reemplazar el cronograma de Gantt',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'El tiempo estándar sirve para planificar la producción, calcular costos y evaluar el desempeño. No fija precios ni reemplaza al cronograma.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-38-1',
+        front: 'Estudio de tiempos',
+        back:
+          'Técnica para medir cuánto tarda un trabajador calificado en una tarea a ritmo normal, para fijar un "tiempo estándar" (planificar, costear y evaluar desempeño).',
+      },
+      {
+        id: 'fc-38-2',
+        front: 'Cronograma / Diagrama de Gantt',
+        back:
+          'Herramienta visual que distribuye las actividades en el tiempo; permite ver la duración de cada tarea y detectar tiempos muertos o cuellos de botella.',
+      },
+      {
+        id: 'fc-38-3',
+        front: 'Cycle time',
+        back:
+          'Tiempo total para completar una tarea de un proceso, de principio a fin. Métrica clave para entender la capacidad de producción.',
+      },
+      {
+        id: 'fc-38-4',
+        front: 'Six Sigma',
+        back:
+          'Metodología estadística de mejora de procesos. Meta: no más de 3,4 defectos por millón de oportunidades (99,9996 % de eficiencia).',
+      },
+      {
+        id: 'fc-38-5',
+        front: 'Ciclo DMAIC',
+        back:
+          'Las 5 fases de Six Sigma: Definir, Medir, Analizar, Mejorar (improve) y Controlar.',
+      },
+      {
+        id: 'fc-38-6',
+        front: 'Tiempo muerto',
+        back:
+          'Esperas o interrupciones del flujo (buscar herramientas, esperar el montacargas). Reducirlas es el foco de la optimización.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 39 ----------
+  {
+    id: '39',
+    unit: '2',
+    title: 'Sistema de operaciones, circuitos administrativos y flujogramas',
+    criollo:
+      'Acá vemos a la organización como un sistema de transformación (insumos → procesos → productos, con feedback) y cómo se documentan y mejoran sus circuitos con flujogramas. También entran el diseño de formularios y el layout de oficinas.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'El sistema de operaciones',
+        criollo:
+          'Modelo que ve a la empresa como una máquina de transformar: entran insumos de los proveedores, se procesan, salen productos para los clientes, y un sistema de información y control monitorea todo (feedback).',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/sistema-de-operaciones.png',
+        alt: 'Modelo de sistema de operaciones: Proveedores → Insumos → Procesos → Productos → Clientes, con un Sistema de información y control de retroalimentación debajo',
+        caption:
+          'Modelo del sistema de operaciones: los insumos de los proveedores se transforman en productos para los clientes; el sistema de información y control retroalimenta todo el proceso.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Insumos (inputs)</strong>: todos los recursos que la organización necesita para operar (recursos humanos, materias primas, materiales, servicios, equipos, instalaciones, edificios, información). Son provistos por los proveedores.',
+          '<strong>Procesos (transformation)</strong>: las actividades que transforman los insumos en algo de mayor valor.',
+          '<strong>Productos (outputs)</strong>: los bienes o servicios finales que se entregan a los clientes.',
+          '<strong>Sistema de información y control</strong>: el mecanismo de retroalimentación (feedback) que monitorea todo el sistema y permite hacer ajustes para cumplir los objetivos.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Circuitos administrativos y flujogramas',
+        criollo:
+          'Un circuito es la secuencia de pasos que sigue un documento o información por la empresa. La mejor forma de verlo es con un flujograma (o cursograma): un mapa visual que deja a la vista las deficiencias y los controles débiles.',
+      },
+      {
+        type: 'p',
+        text:
+          'Un circuito administrativo es la secuencia de operaciones que sigue un documento o información a través de la organización, e incorpora sus elementos componentes y la ubicación funcional de cada uno. Visualizar un proceso con un flujograma (o cursograma) permite detectar deficiencias, identificar controles débiles, evitar la duplicación de tareas y encontrar fallas de relevamiento.',
+      },
+      {
+        type: 'h3',
+        text: 'Simbología básica del flujograma',
+        criollo:
+          'Cada figura significa algo: óvalo = operación, rectángulo = control, "D" = demora, rombo = decisión, etc. Con estos símbolos se arma el mapa del proceso.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Óvalo (operación)</strong>: una acción o tarea que agrega valor.',
+          '<strong>Rectángulo (control)</strong>: una verificación o comparación contra un estándar.',
+          '<strong>"D" (demora)</strong>: una espera o interrupción en el flujo.',
+          '<strong>Rombo (decisión)</strong>: un punto donde el flujo se bifurca según una condición (Sí/No).',
+          '<strong>Rectángulo con base curva (documento)</strong>: un formulario, factura, etc.',
+          '<strong>Triángulo (archivo)</strong>: indica que un documento se almacena (hacia abajo es definitivo; hacia arriba, transitorio).',
+        ],
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/cursograma-pedido.png',
+        alt: 'Cursograma de un pedido distribuido en los sectores A, B y C, con la columna de descripciones de cada paso',
+        caption:
+          'Cursograma de un pedido: la operación se reparte entre los sectores A, B y C, con la descripción de cada paso a la derecha.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/cursograma-facturacion.jpeg',
+        alt: 'Cursograma de facturación con columnas Cliente, Vendedor, Cajero, Empaque y Contaduría, mostrando el recorrido de la factura',
+        caption:
+          'Cursograma de facturación: la factura es emitida por el vendedor, cobrada por el cajero, verificada en empaque y, finalmente, registrada en contaduría. El mapa visual es más claro que una descripción de varias páginas.',
+      },
+      {
+        type: 'h3',
+        text: 'Formularios y lay-out de oficinas',
+        criollo:
+          'Los formularios son el principal vehículo de la información formal: un buen diseño captura datos sin errores. El layout es cómo distribuís el espacio físico, y eso impacta en cómo se trabaja y se comunica la gente.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Diseño de formularios</strong>: los formularios son el principal vehículo de la información formal en una empresa. Un buen diseño es clave para capturar datos de forma clara y sin errores. Los formularios digitales aportan ventajas en seguridad, almacenamiento y experiencia de usuario en múltiples dispositivos.',
+          '<strong>Lay-out de oficinas</strong>: la disposición física del espacio de trabajo no es solo estética; impacta en la funcionalidad operativa y del personal. Un buen layout facilita la comunicación, minimiza los traslados innecesarios y crea un ambiente de trabajo adecuado.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-39-1',
+          q: 'En el sistema de operaciones, el sistema de información y control es el mecanismo de retroalimentación que monitorea todo el proceso.',
+          a: true,
+          explain:
+            'Verdadero. El sistema de información y control es el feedback que monitorea el sistema y permite hacer ajustes para cumplir los objetivos.',
+        },
+        {
+          id: 'tf-39-2',
+          q: 'En la simbología del flujograma, el rombo representa una operación que agrega valor.',
+          a: false,
+          explain:
+            'Falso. El rombo representa una decisión (bifurcación Sí/No). La operación que agrega valor se representa con un óvalo.',
+        },
+        {
+          id: 'tf-39-3',
+          q: 'Un flujograma permite detectar deficiencias, identificar controles débiles y evitar la duplicación de tareas.',
+          a: true,
+          explain:
+            'Verdadero. Visualizar el proceso con un flujograma permite justamente detectar deficiencias, controles débiles, duplicación de tareas y fallas de relevamiento.',
+        },
+        {
+          id: 'tf-39-4',
+          q: 'Los insumos del sistema de operaciones son entregados por los clientes.',
+          a: false,
+          explain:
+            'Falso. Los insumos son provistos por los proveedores; los productos finales son los que se entregan a los clientes.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-39-1',
+          q: '¿Qué representa el óvalo en la simbología básica del flujograma?',
+          options: [
+            'Una decisión',
+            'Una operación o tarea que agrega valor',
+            'Una demora',
+            'Un archivo',
+          ],
+          correctIndex: 1,
+          explain:
+            'El óvalo representa una operación: una acción o tarea que agrega valor.',
+        },
+        {
+          id: 'mc-39-2',
+          q: 'En el modelo de sistema de operaciones, ¿qué son los procesos?',
+          options: [
+            'Los recursos que entran al sistema',
+            'Las actividades que transforman los insumos en algo de mayor valor',
+            'Los bienes o servicios finales',
+            'El mecanismo de retroalimentación',
+          ],
+          correctIndex: 1,
+          explain:
+            'Los procesos (transformation) son las actividades que transforman los insumos en algo de mayor valor.',
+        },
+        {
+          id: 'mc-39-3',
+          q: 'Según el ejemplo, ¿por qué un cursograma es preferible a una descripción textual?',
+          options: [
+            'Porque ocupa más páginas',
+            'Porque es un mapa visual más claro y fácil de analizar que una descripción de varias páginas',
+            'Porque no necesita simbología',
+            'Porque elimina la necesidad de controles',
+          ],
+          correctIndex: 1,
+          explain:
+            'El cursograma de facturación muestra que el mapa visual es mucho más claro y fácil de analizar que una descripción textual de varias páginas.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-39-1',
+          q: '¿Cuáles son componentes del modelo de sistema de operaciones?',
+          options: [
+            'Insumos (inputs)',
+            'Procesos (transformación)',
+            'Productos (outputs)',
+            'Sistema de información y control (feedback)',
+            'Eliminación de los proveedores y clientes',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro primeros son los componentes del modelo. Proveedores (que aportan insumos) y clientes (que reciben productos) son parte del esquema, no algo a eliminar.',
+        },
+        {
+          id: 'ms-39-2',
+          q: '¿Qué objetivos permite alcanzar la visualización de un proceso con un flujograma?',
+          options: [
+            'Detectar deficiencias',
+            'Identificar controles débiles',
+            'Evitar la duplicación de tareas',
+            'Detectar fallas de relevamiento',
+            'Garantizar que nunca haya que tomar decisiones',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro primeros son objetivos del flujograma. Las decisiones (rombos) son parte natural del proceso, no algo que se elimine.',
+        },
+        {
+          id: 'ms-39-3',
+          q: '¿Qué afirmaciones sobre formularios y layout son correctas?',
+          options: [
+            'Los formularios son el principal vehículo de la información formal',
+            'Un buen diseño de formulario captura datos sin errores',
+            'Los formularios digitales aportan ventajas en seguridad y almacenamiento',
+            'El layout impacta en la funcionalidad operativa y del personal',
+            'El layout es solo una cuestión estética sin impacto operativo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son del apunte. El layout no es solo estética: impacta directamente en la funcionalidad operativa.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-39-1',
+        front: 'Sistema de operaciones',
+        back:
+          'Modelo que ve a la organización como un sistema de transformación: insumos → procesos → productos, con un sistema de información y control que retroalimenta.',
+      },
+      {
+        id: 'fc-39-2',
+        front: 'Insumos / Procesos / Productos',
+        back:
+          'Insumos: recursos que aportan los proveedores. Procesos: actividades que transforman los insumos. Productos: bienes o servicios finales para los clientes.',
+      },
+      {
+        id: 'fc-39-3',
+        front: 'Circuito administrativo',
+        back:
+          'Secuencia de operaciones que sigue un documento o información a través de la organización. Se representa con un flujograma o cursograma.',
+      },
+      {
+        id: 'fc-39-4',
+        front: 'Simbología del flujograma',
+        back:
+          'Óvalo = operación; rectángulo = control; "D" = demora; rombo = decisión; rectángulo de base curva = documento; triángulo = archivo (abajo definitivo, arriba transitorio).',
+      },
+      {
+        id: 'fc-39-5',
+        front: 'Diseño de formularios',
+        back:
+          'Los formularios son el principal vehículo de la información formal. Un buen diseño captura datos sin errores; los digitales suman seguridad, almacenamiento y experiencia de usuario.',
+      },
+      {
+        id: 'fc-39-6',
+        front: 'Lay-out de oficinas',
+        back:
+          'Disposición física del espacio de trabajo. Impacta en la funcionalidad operativa y del personal: un buen layout facilita la comunicación y minimiza traslados.',
+      },
+    ],
+  },
+
+  // ====================================================================
+  // UNIDAD 3 — La planificación y el control en la gestión organizacional
+  // ====================================================================
+
+  // ---------- SECCIÓN 40 ----------
+  {
+    id: '40',
+    unit: '3',
+    title: 'La planificación: misión, visión, metas y estrategia',
+    criollo:
+      'Planificar no es adivinar el futuro: es construir el futuro que querés. Definís a dónde querés llegar (objetivos) y cómo (estrategias). Todo arranca por tener claro el norte: misión (por qué existís), visión (qué querés llegar a ser) y metas (los resultados concretos).',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'La planificación es la función fundamental del proceso administrativo. No se trata simplemente de predecir el futuro, sino de construir el futuro deseado de la organización: implica definir a dónde se quiere llegar (objetivos) y cómo se va a llegar (estrategias y planes).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Planificación organizacional</strong>: proceso sistemático de establecer objetivos y trazar el camino para alcanzarlos, considerando los recursos disponibles y el entorno. Es un proceso continuo de toma de decisiones.',
+          '<strong>Administración estratégica</strong>: concepto más amplio que engloba la planificación. Es el arte y la ciencia de formular, implementar y evaluar decisiones multifuncionales que le permiten a una organización alcanzar sus objetivos. La planificación es su primer paso. Su esencia es adaptar los recursos y habilidades internos a las oportunidades y riesgos del entorno cambiante.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Misión, visión y metas',
+        criollo:
+          'Misión: la razón de ser, qué hacés y para quién. Visión: lo que aspirás a ser en el futuro. Metas: los resultados concretos y medibles que te proponés para cumplir la misión y acercarte a la visión.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Misión</strong>: la razón de ser de la organización. Describe qué hace, para quién y cómo. Ejemplo (Google): "Organizar la información mundial y hacerla universalmente accesible y útil".',
+          '<strong>Visión</strong>: describe lo que la organización aspira a ser en el futuro; una imagen inspiradora del destino deseado. Ejemplo (LinkedIn): "Crear oportunidades económicas para cada profesional del mercado laboral mundial".',
+          '<strong>Metas y objetivos</strong>: los fines específicos hacia los cuales se dirige la acción. Resultados concretos y medibles, en un plazo determinado, que guían las decisiones, enfocan los esfuerzos y sirven como parámetros para evaluar el desempeño.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Las metas son importantes por cuatro motivos: (1) proporcionan un sentido de dirección; (2) permiten enfocar los esfuerzos de la organización; (3) guían los planes y las decisiones; (4) sirven para evaluar el avance de los objetivos a lograr.',
+      },
+      {
+        type: 'h3',
+        text: 'Los tres niveles de estrategia',
+        criollo:
+          'La estrategia se piensa en tres niveles: la corporativa (toda la empresa con varios negocios), la de la unidad de negocios (un negocio puntual) y la funcional (un área específica que ejecuta).',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Estrategia a nivel corporativo</strong>: formulada por la alta dirección para supervisar los intereses y operaciones de corporaciones con múltiples negocios.',
+          '<strong>Estrategia de la unidad de negocios</strong>: formulada para alcanzar las metas de un negocio concreto.',
+          '<strong>Estrategia a nivel funcional</strong>: formulada para un área específica de funciones, con el propósito de poner en práctica la estrategia de la unidad de negocios.',
+        ],
+      },
+      {
+        type: 'p',
+        text:
+          'El proceso de la administración estratégica comprende dos grandes momentos: la <strong>planificación estratégica</strong> (el establecimiento de metas y la formulación de estrategias) y la <strong>implantación de la estrategia</strong> (los pasos de administración y control estratégico).',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-40-1',
+          q: 'La planificación consiste solamente en predecir el futuro de la organización.',
+          a: false,
+          explain:
+            'Falso. La planificación no es solo predecir, sino construir el futuro deseado: definir a dónde llegar (objetivos) y cómo (estrategias y planes).',
+        },
+        {
+          id: 'tf-40-2',
+          q: 'La misión describe la razón de ser de la organización: qué hace, para quién y cómo.',
+          a: true,
+          explain:
+            'Verdadero. La misión es la razón de ser; la visión, en cambio, describe lo que la organización aspira a ser en el futuro.',
+        },
+        {
+          id: 'tf-40-3',
+          q: 'La planificación es el primer paso de la administración estratégica.',
+          a: true,
+          explain:
+            'Verdadero. La administración estratégica engloba la planificación, que es su primer paso.',
+        },
+        {
+          id: 'tf-40-4',
+          q: 'La estrategia a nivel funcional es formulada por la alta dirección para múltiples negocios.',
+          a: false,
+          explain:
+            'Falso. Eso describe la estrategia corporativa. La funcional se formula para un área específica, para poner en práctica la estrategia de la unidad de negocios.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-40-1',
+          q: '¿Cuál es la diferencia entre misión y visión?',
+          options: [
+            'La misión es el futuro deseado; la visión es la razón de ser actual',
+            'La misión es la razón de ser (qué hace y para quién); la visión es lo que aspira a ser en el futuro',
+            'Son sinónimos',
+            'La misión es financiera y la visión es operativa',
+          ],
+          correctIndex: 1,
+          explain:
+            'La misión es la razón de ser (qué hace, para quién, cómo); la visión es la aspiración futura, una imagen inspiradora del destino deseado.',
+        },
+        {
+          id: 'mc-40-2',
+          q: '¿Qué es la administración estratégica?',
+          options: [
+            'Una técnica contable para medir costos',
+            'El arte y la ciencia de formular, implementar y evaluar decisiones multifuncionales para alcanzar los objetivos',
+            'La representación gráfica de los circuitos',
+            'El control de inventarios',
+          ],
+          correctIndex: 1,
+          explain:
+            'La administración estratégica es el arte y la ciencia de formular, implementar y evaluar decisiones multifuncionales que permiten a la organización alcanzar sus objetivos.',
+        },
+        {
+          id: 'mc-40-3',
+          q: '¿Cuáles son los tres niveles de estrategia?',
+          options: [
+            'Inicial, intermedio y avanzado',
+            'Corporativo, de la unidad de negocios y funcional',
+            'Operativo, táctico y financiero',
+            'Interno, externo y mixto',
+          ],
+          correctIndex: 1,
+          explain:
+            'Los tres niveles son: corporativo (toda la corporación), unidad de negocios (un negocio concreto) y funcional (un área específica).',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-40-1',
+          q: '¿Por qué son importantes las metas según el apunte?',
+          options: [
+            'Proporcionan un sentido de dirección',
+            'Permiten enfocar los esfuerzos de la organización',
+            'Guían los planes y las decisiones',
+            'Sirven para evaluar el avance de los objetivos',
+            'Eliminan la necesidad de estrategia',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro primeros son los motivos del apunte. Las metas no eliminan la estrategia: la guían.',
+        },
+        {
+          id: 'ms-40-2',
+          q: '¿Qué momentos comprende el proceso de la administración estratégica?',
+          options: [
+            'La planificación estratégica (establecer metas y formular estrategias)',
+            'La implantación de la estrategia (administración y control estratégico)',
+            'La eliminación de los objetivos',
+            'La definición de la misión y la visión como guía',
+            'La renuncia a evaluar el desempeño',
+          ],
+          correctIndexes: [0, 1, 3],
+          explain:
+            'La planificación estratégica y la implantación son los dos momentos; misión y visión guían todo el proceso. No se eliminan objetivos ni se renuncia a evaluar.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-40-1',
+        front: 'Planificación',
+        back:
+          'Función fundamental del proceso administrativo: no solo predecir, sino construir el futuro deseado, definiendo objetivos (a dónde) y estrategias (cómo).',
+      },
+      {
+        id: 'fc-40-2',
+        front: 'Administración estratégica',
+        back:
+          'Arte y ciencia de formular, implementar y evaluar decisiones multifuncionales para alcanzar los objetivos. La planificación es su primer paso.',
+      },
+      {
+        id: 'fc-40-3',
+        front: 'Misión',
+        back:
+          'La razón de ser de la organización: qué hace, para quién y cómo. Ej. Google: "Organizar la información mundial y hacerla accesible y útil".',
+      },
+      {
+        id: 'fc-40-4',
+        front: 'Visión',
+        back:
+          'Lo que la organización aspira a ser en el futuro; imagen inspiradora del destino deseado.',
+      },
+      {
+        id: 'fc-40-5',
+        front: 'Metas y objetivos',
+        back:
+          'Fines específicos, concretos y medibles, en un plazo determinado. Dan dirección, enfocan esfuerzos, guían decisiones y sirven para evaluar el desempeño.',
+      },
+      {
+        id: 'fc-40-6',
+        front: 'Tres niveles de estrategia',
+        back:
+          'Corporativo (toda la corporación con varios negocios), unidad de negocios (un negocio concreto) y funcional (un área específica que ejecuta la estrategia).',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 41 ----------
+  {
+    id: '41',
+    unit: '3',
+    title: 'Tipos de planes: estratégico, táctico y operativo',
+    criollo:
+      'La planificación se despliega en tres niveles según el horizonte de tiempo y quién la hace. El estratégico es el plan maestro a largo plazo (la alta dirección); el táctico lo baja a las áreas a mediano plazo (gerentes medios); el operativo es el día a día (supervisores).',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'La planificación se despliega en diferentes niveles jerárquicos de la organización, cada uno con un alcance y un horizonte temporal distintos.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/niveles-planificacion.png',
+        alt: 'Pirámide de tres niveles de planificación: Estratégico en la cima, Táctico en el medio y Operativo en la base',
+        caption:
+          'Los tres niveles de planificación: estratégico (cima, largo plazo), táctico (medio, mediano plazo) y operativo (base, corto plazo).',
+      },
+      {
+        type: 'h3',
+        text: 'Nivel estratégico',
+        criollo:
+          'El plan maestro: objetivos generales a largo plazo y cómo se posiciona la empresa para alcanzarlos. Lo hace la alta dirección.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Definición</strong>: plan maestro de la organización; define los objetivos generales a largo plazo y cómo se posicionará la empresa en su entorno competitivo.',
+          '<strong>Responsables</strong>: nivel superior (alta dirección, CEO, directorio).',
+          '<strong>Horizonte</strong>: largo plazo (típicamente, de 3 a 5 años o más).',
+          '<strong>Características</strong>: planes amplios, genéricos, enfocados en la organización como un todo; decisiones complejas y no programadas.',
+          '<strong>Ejemplo</strong>: la decisión de una automotriz de entrar en el mercado de vehículos eléctricos y convertirse en líder de ese segmento en los próximos 10 años.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Nivel táctico',
+        criollo:
+          'Traduce la estrategia a planes concretos por área (Marketing, Finanzas, etc.). Mediano plazo, gerentes medios.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Definición</strong>: traduce los planes estratégicos en planes más específicos para las distintas áreas o departamentos.',
+          '<strong>Responsables</strong>: nivel medio (gerentes de división o de área).',
+          '<strong>Horizonte</strong>: mediano plazo (generalmente, de 1 a 3 años).',
+          '<strong>Características</strong>: más detallados que los estratégicos; coordinan los recursos para implementar la estrategia. Decisiones programadas o no programadas.',
+          '<strong>Ejemplo</strong>: el plan de Marketing para lanzar y posicionar la nueva línea de vehículos eléctricos en los próximos 2 años (público objetivo, presupuesto publicitario, canales).',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Nivel operativo',
+        criollo:
+          'El "cómo hacer" del día a día: procedimientos y cronogramas para las tareas cotidianas. Corto plazo, supervisores.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Definición</strong>: se enfoca en el "cómo hacer"; establece procedimientos, procesos y cronogramas para las tareas cotidianas que respaldan los planes tácticos.',
+          '<strong>Responsables</strong>: nivel técnico o de primera línea (supervisores, jefes de equipo).',
+          '<strong>Horizonte</strong>: corto plazo (diario, semanal, mensual, hasta 1 año).',
+          '<strong>Características</strong>: muy detallados, específicos y orientados a la acción; decisiones mayormente programadas, basadas en reglas y procedimientos.',
+          '<strong>Ejemplo</strong>: el plan de un supervisor para organizar los turnos de la próxima semana en la línea de ensamblaje de las baterías.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-41-1',
+          q: 'El nivel estratégico de planificación es responsabilidad de la alta dirección y tiene un horizonte de largo plazo.',
+          a: true,
+          explain:
+            'Verdadero. El nivel estratégico lo define el nivel superior (alta dirección, CEO, directorio) con un horizonte típico de 3 a 5 años o más.',
+        },
+        {
+          id: 'tf-41-2',
+          q: 'El nivel operativo se enfoca en el largo plazo y en decisiones complejas no programadas.',
+          a: false,
+          explain:
+            'Falso. El nivel operativo es de corto plazo, muy detallado, con decisiones mayormente programadas. El largo plazo y las decisiones no programadas son del nivel estratégico.',
+        },
+        {
+          id: 'tf-41-3',
+          q: 'El nivel táctico traduce los planes estratégicos en planes más específicos para las áreas o departamentos.',
+          a: true,
+          explain:
+            'Verdadero. El nivel táctico (gerentes medios, mediano plazo) baja la estrategia a planes concretos por área.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-41-1',
+          q: '¿Quiénes son los responsables del nivel operativo?',
+          options: [
+            'La alta dirección (CEO, directorio)',
+            'Los gerentes de división o de área',
+            'Los supervisores y jefes de equipo (primera línea)',
+            'Los accionistas',
+          ],
+          correctIndex: 2,
+          explain:
+            'El nivel operativo es responsabilidad del nivel técnico o de primera línea: supervisores y jefes de equipo.',
+        },
+        {
+          id: 'mc-41-2',
+          q: '¿Qué horizonte temporal tiene típicamente el nivel táctico?',
+          options: [
+            'Diario o semanal',
+            'Mediano plazo (de 1 a 3 años)',
+            'Largo plazo (de 3 a 5 años o más)',
+            'No tiene horizonte definido',
+          ],
+          correctIndex: 1,
+          explain:
+            'El nivel táctico tiene un horizonte de mediano plazo, generalmente de 1 a 3 años.',
+        },
+        {
+          id: 'mc-41-3',
+          q: '¿Cuál es el foco del nivel operativo?',
+          options: [
+            'Definir los objetivos generales a largo plazo',
+            'El "cómo hacer": procedimientos y cronogramas de las tareas cotidianas',
+            'Posicionar a la empresa en su entorno competitivo',
+            'Coordinar áreas para implementar la estrategia',
+          ],
+          correctIndex: 1,
+          explain:
+            'El nivel operativo se enfoca en el "cómo hacer": establece procedimientos, procesos y cronogramas para las tareas cotidianas.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-41-1',
+          q: '¿Qué características corresponden al nivel estratégico?',
+          options: [
+            'Lo define la alta dirección',
+            'Horizonte de largo plazo',
+            'Planes amplios y genéricos para toda la organización',
+            'Decisiones complejas y no programadas',
+            'Se ocupa de los turnos diarios de la línea de ensamblaje',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son del nivel estratégico. Los turnos diarios son del nivel operativo.',
+        },
+        {
+          id: 'ms-41-2',
+          q: '¿Qué afirmaciones sobre el nivel táctico son correctas?',
+          options: [
+            'Lo realizan los gerentes medios (de división o área)',
+            'Traduce la estrategia a planes específicos por área',
+            'Horizonte de mediano plazo (1 a 3 años)',
+            'Coordina los recursos para implementar la estrategia',
+            'Es exclusivamente de largo plazo y para toda la organización',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro describen el nivel táctico. El largo plazo para toda la organización es del nivel estratégico.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-41-1',
+        front: 'Nivel estratégico',
+        back:
+          'Plan maestro: objetivos generales a largo plazo (3-5 años o más). Alta dirección. Amplio, genérico, decisiones complejas no programadas.',
+      },
+      {
+        id: 'fc-41-2',
+        front: 'Nivel táctico',
+        back:
+          'Traduce la estrategia a planes por área. Gerentes medios. Mediano plazo (1-3 años). Coordina recursos para implementar la estrategia.',
+      },
+      {
+        id: 'fc-41-3',
+        front: 'Nivel operativo',
+        back:
+          'El "cómo hacer" cotidiano: procedimientos y cronogramas. Supervisores. Corto plazo (diario a 1 año). Decisiones mayormente programadas.',
+      },
+      {
+        id: 'fc-41-4',
+        front: 'Horizontes de planificación',
+        back:
+          'Estratégico: largo plazo (3-5 años+). Táctico: mediano plazo (1-3 años). Operativo: corto plazo (diario a 1 año).',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 42 ----------
+  {
+    id: '42',
+    unit: '3',
+    title: 'Herramientas de diagnóstico: análisis FODA y cadena de valor',
+    criollo:
+      'Antes de planificar conviene saber cómo estás parado. El FODA te ordena lo interno (fortalezas y debilidades) y lo externo (oportunidades y amenazas). La cadena de valor de Porter te muestra dónde tu empresa genera valor, separando actividades primarias de las de soporte.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Análisis FODA',
+        criollo:
+          'Es una matriz que cruza lo interno (fortalezas, debilidades) con lo externo (oportunidades, amenazas). Pero la gracia no es solo listar: es formar estrategias combinando esos cuatro cuadrantes.',
+      },
+      {
+        type: 'p',
+        text:
+          'El FODA es una metodología que permite analizar la situación competitiva de una empresa, identificando sus factores internos (fortalezas y debilidades) y externos (oportunidades y amenazas).',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/analisis-foda.png',
+        alt: 'Matriz FODA de cuatro cuadrantes: Fortalezas y Debilidades (internas), Oportunidades y Amenazas (externas)',
+        caption:
+          'La matriz FODA cruza los factores internos (fortalezas y debilidades) con los externos (oportunidades y amenazas).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Fortalezas (interno)</strong>: atributos internos que dan ventaja competitiva (producto de alta calidad, marca reconocida, bajos costos).',
+          '<strong>Oportunidades (externo)</strong>: factores del entorno que se pueden aprovechar (nuevos mercados, tratados de libre comercio, crecimiento de la demanda).',
+          '<strong>Debilidades (interno)</strong>: atributos internos que ponen en desventaja (poca publicidad, fácil imitación, ser nuevo en el mercado).',
+          '<strong>Amenazas (externo)</strong>: factores del entorno que podrían perjudicar (nuevos competidores, crisis económica, mayor poder de los distribuidores).',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'El objetivo del FODA no es solo listar, sino formular estrategias: usar las fortalezas para aprovechar las oportunidades, superar las debilidades aprovechando oportunidades, usar las fortalezas para mitigar las amenazas, y reducir las debilidades evitando las amenazas.',
+      },
+      {
+        type: 'h3',
+        text: 'Cadena de valor (Porter)',
+        criollo:
+          'Michael Porter dice que la empresa es una cadena de actividades que crean valor. Hay actividades primarias (las que tocan directamente el producto) y de soporte (las que ayudan a que las primarias funcionen). La diferencia entre el valor creado y el costo es el margen.',
+      },
+      {
+        type: 'p',
+        text:
+          'Desarrollada por Michael Porter, la cadena de valor es un modelo que describe el conjunto de actividades que una empresa realiza para crear valor para sus clientes. Se divide en actividades primarias y actividades de soporte.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/cadena-de-valor.png',
+        alt: 'Cadena de valor de Porter: actividades de soporte arriba (infraestructura, RR. HH., tecnología, compras) y actividades primarias abajo (logística interna, operaciones, logística externa, marketing y ventas, servicios posventa), con el margen a la derecha',
+        caption:
+          'La cadena de valor de Porter: las actividades primarias (logística interna, operaciones, logística externa, marketing y ventas, posventa) se apoyan en las de soporte (infraestructura, RR. HH., tecnología, compras). La diferencia con el costo es el margen.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Actividades primarias</strong>: logística interna (recepción y gestión de insumos), operaciones (transformación), logística externa (distribución del producto), marketing y ventas, y servicios posventa.',
+          '<strong>Actividades de soporte (o de apoyo)</strong>: infraestructura de la empresa (planificación, finanzas, contabilidad), gestión de recursos humanos, desarrollo de tecnología y compras (abastecimiento).',
+        ],
+      },
+      {
+        type: 'p',
+        text:
+          'Analizar la cadena de valor le permite a la empresa entender dónde y cómo crea valor, identificar sus fuentes de ventaja competitiva y optimizar sus procesos para ser más eficiente o diferenciarse de la competencia.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-42-1',
+          q: 'En el FODA, las fortalezas y las debilidades son factores internos de la empresa.',
+          a: true,
+          explain:
+            'Verdadero. Fortalezas y debilidades son internas; oportunidades y amenazas son externas (del entorno).',
+        },
+        {
+          id: 'tf-42-2',
+          q: 'El objetivo del FODA es únicamente hacer una lista de los cuatro factores.',
+          a: false,
+          explain:
+            'Falso. El objetivo no es solo listar, sino formular estrategias combinando los factores (usar fortalezas para aprovechar oportunidades, etc.).',
+        },
+        {
+          id: 'tf-42-3',
+          q: 'La cadena de valor fue desarrollada por Michael Porter.',
+          a: true,
+          explain:
+            'Verdadero. Porter desarrolló la cadena de valor para describir las actividades que crean valor para los clientes.',
+        },
+        {
+          id: 'tf-42-4',
+          q: 'En la cadena de valor, la gestión de recursos humanos es una actividad primaria.',
+          a: false,
+          explain:
+            'Falso. La gestión de recursos humanos es una actividad de soporte; las primarias son logística interna, operaciones, logística externa, marketing y ventas, y posventa.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-42-1',
+          q: '¿Qué factores del FODA corresponden al entorno externo?',
+          options: [
+            'Fortalezas y debilidades',
+            'Oportunidades y amenazas',
+            'Fortalezas y oportunidades',
+            'Debilidades y amenazas',
+          ],
+          correctIndex: 1,
+          explain:
+            'Los factores externos son las oportunidades y las amenazas; los internos, las fortalezas y las debilidades.',
+        },
+        {
+          id: 'mc-42-2',
+          q: '¿Cuál de las siguientes es una actividad primaria de la cadena de valor?',
+          options: [
+            'Infraestructura de la empresa',
+            'Gestión de recursos humanos',
+            'Operaciones (transformación de insumos en producto)',
+            'Desarrollo de tecnología',
+          ],
+          correctIndex: 2,
+          explain:
+            'Las operaciones son una actividad primaria. Infraestructura, RR. HH. y desarrollo de tecnología son actividades de soporte.',
+        },
+        {
+          id: 'mc-42-3',
+          q: '¿Para qué sirve analizar la cadena de valor?',
+          options: [
+            'Para eliminar a los clientes del proceso',
+            'Para entender dónde y cómo se crea valor e identificar fuentes de ventaja competitiva',
+            'Para reemplazar el análisis FODA',
+            'Para calcular impuestos',
+          ],
+          correctIndex: 1,
+          explain:
+            'Analizar la cadena de valor permite entender dónde y cómo se crea valor, identificar ventajas competitivas y optimizar procesos.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-42-1',
+          q: '¿Cuáles son actividades primarias de la cadena de valor?',
+          options: [
+            'Logística interna',
+            'Operaciones',
+            'Logística externa',
+            'Marketing y ventas, y servicios posventa',
+            'Gestión de recursos humanos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son primarias. La gestión de recursos humanos es una actividad de soporte.',
+        },
+        {
+          id: 'ms-42-2',
+          q: '¿Qué tipos de estrategias busca formular el FODA?',
+          options: [
+            'Usar las fortalezas para aprovechar las oportunidades',
+            'Superar las debilidades aprovechando las oportunidades',
+            'Usar las fortalezas para mitigar las amenazas',
+            'Reducir las debilidades y evitar las amenazas',
+            'Ignorar el entorno externo por completo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro primeras son las combinaciones estratégicas del FODA. Ignorar el entorno contradice el sentido de la herramienta.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-42-1',
+        front: 'Análisis FODA',
+        back:
+          'Metodología que cruza factores internos (Fortalezas y Debilidades) con externos (Oportunidades y Amenazas) para analizar la situación competitiva.',
+      },
+      {
+        id: 'fc-42-2',
+        front: 'Objetivo real del FODA',
+        back:
+          'No solo listar, sino formular estrategias: aprovechar oportunidades con las fortalezas, superar debilidades, mitigar amenazas y reducir debilidades evitando amenazas.',
+      },
+      {
+        id: 'fc-42-3',
+        front: 'Cadena de valor (Porter)',
+        back:
+          'Modelo que describe las actividades que crean valor para los clientes; se divide en actividades primarias y de soporte. El margen es valor menos costo.',
+      },
+      {
+        id: 'fc-42-4',
+        front: 'Actividades primarias',
+        back:
+          'Logística interna, operaciones, logística externa, marketing y ventas, y servicios posventa.',
+      },
+      {
+        id: 'fc-42-5',
+        front: 'Actividades de soporte',
+        back:
+          'Infraestructura de la empresa, gestión de recursos humanos, desarrollo de tecnología y compras (abastecimiento).',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 43 ----------
+  {
+    id: '43',
+    unit: '3',
+    title: 'El control: fases, tipos y balanced scorecard',
+    criollo:
+      'Planificar sin controlar no sirve de nada. El control asegura que lo que pasa de verdad se ajuste a lo planificado: mide el desempeño y corrige los desvíos. Es un ciclo de cuatro fases, y hay distintos tipos (financieros, presupuestarios, auditorías). El balanced scorecard suma una mirada balanceada más allá de lo financiero.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'La planificación sin control es un ejercicio inútil. El control es el proceso que asegura que las actividades reales se ajusten a las actividades planificadas. Es el mecanismo para medir el desempeño y tomar acciones correctivas si es necesario.',
+      },
+      {
+        type: 'h3',
+        text: 'Fases del proceso de control',
+        criollo:
+          'Es un ciclo: primero fijás los indicadores (sacados de los objetivos), después medís lo real, comparás contra el estándar y, si hay desvío, corregís.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/ciclo-de-control.png',
+        alt: 'Ciclo de control de cuatro fases: establecimiento de parámetros (indicadores), medir los resultados, evaluar el resultado y retroalimentar (medidas correctivas)',
+        caption:
+          'El ciclo de control: establecer parámetros (indicadores) → medir los resultados → evaluar (comparar) → retroalimentar con medidas correctivas.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Establecimiento de parámetros de medición (indicadores)</strong>: se definen los estándares con los que se medirá el desempeño; deben derivar de los objetivos de la planificación. Ej.: si el objetivo es "aumentar las ventas un 10 % en el trimestre", el indicador es el % de crecimiento.',
+          '<strong>Medir los resultados</strong>: se recopila información sobre el desempeño real. Ej.: al final del trimestre, las ventas aumentaron un 8 %.',
+          '<strong>Evaluar el resultado (comparación)</strong>: se compara el desempeño real con el estándar para identificar desviaciones. Ej.: la desviación es de -2 % (8 % real vs. 10 % esperado).',
+          '<strong>Retroalimentar (medidas correctivas)</strong>: si hay desviaciones significativas, se toman acciones para corregir el rumbo, lo que puede implicar cambiar la ejecución o revisar el plan.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Tipos de controles',
+        criollo:
+          'Las organizaciones usan controles financieros (balance, estado de resultados), presupuestarios (real vs. proyectado) y auditorías (externas o internas).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Controles financieros</strong>: se basan en información contable. Incluyen el balance general (activos, pasivos y patrimonio en un momento dado) y el estado de resultados (ingresos y egresos de un período, para determinar la utilidad o pérdida).',
+          '<strong>Controles presupuestarios</strong>: comparan los resultados reales con las proyecciones financieras (presupuestos) para controlar ingresos, egresos, compras y utilidades.',
+          '<strong>Auditorías</strong>: verificaciones formales y sistemáticas. Externas (auditores independientes verifican la exactitud de los estados financieros) o internas (personal de la empresa evalúa la eficiencia de los procesos y el cumplimiento de las políticas).',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'El balanced scorecard (cuadro de mando integral)',
+        criollo:
+          'Va más allá de los números financieros: propone mirar el desempeño desde cuatro perspectivas balanceadas, todas derivadas de la visión y la estrategia.',
+      },
+      {
+        type: 'p',
+        text:
+          'El balanced scorecard es una herramienta de control estratégico que va más allá de los indicadores puramente financieros. Propone una visión "balanceada" del desempeño organizacional y mide cuatro perspectivas interrelacionadas que se derivan de la visión y la estrategia:',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/balanced-scorecard.png',
+        alt: 'Balanced scorecard: la visión y la estrategia en el centro, rodeadas por las cuatro perspectivas (financiera, del cliente, de procesos internos, y de aprendizaje y crecimiento)',
+        caption:
+          'El balanced scorecard: las cuatro perspectivas (financiera, del cliente, de procesos internos y de aprendizaje y crecimiento) giran en torno a la visión y la estrategia, cada una con su pregunta orientadora.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Perspectiva financiera</strong>: ¿cómo deberíamos aparecer ante nuestros inversionistas para tener éxito financiero? (rentabilidad, crecimiento de ingresos).',
+          '<strong>Perspectiva del cliente</strong>: ¿cómo deberíamos ser vistos por nuestros clientes? (satisfacción, cuota de mercado).',
+          '<strong>Perspectiva de procesos internos</strong>: ¿en qué procesos debemos sobresalir para satisfacer a los clientes? (calidad, eficiencia operativa, innovación).',
+          '<strong>Perspectiva de aprendizaje y crecimiento</strong>: ¿cómo mantenemos nuestra habilidad para cambiar y progresar? (capacitación, cultura organizacional, tecnología).',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-43-1',
+          q: 'El control es el proceso que asegura que las actividades reales se ajusten a las actividades planificadas.',
+          a: true,
+          explain:
+            'Verdadero. El control mide el desempeño y toma acciones correctivas para que lo real coincida con lo planificado.',
+        },
+        {
+          id: 'tf-43-2',
+          q: 'Los parámetros de medición (indicadores) del control deben derivar de los objetivos establecidos en la planificación.',
+          a: true,
+          explain:
+            'Verdadero. La primera fase del control es establecer indicadores, que deben derivar de los objetivos de la planificación.',
+        },
+        {
+          id: 'tf-43-3',
+          q: 'El balanced scorecard mide únicamente la perspectiva financiera.',
+          a: false,
+          explain:
+            'Falso. El balanced scorecard propone una visión balanceada con cuatro perspectivas: financiera, del cliente, de procesos internos y de aprendizaje y crecimiento.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-43-1',
+          q: '¿Cuál es la primera fase del proceso de control?',
+          options: [
+            'Medir los resultados',
+            'Establecer los parámetros de medición (indicadores)',
+            'Retroalimentar con medidas correctivas',
+            'Evaluar el resultado',
+          ],
+          correctIndex: 1,
+          explain:
+            'La primera fase es establecer los parámetros de medición (indicadores), derivados de los objetivos de la planificación.',
+        },
+        {
+          id: 'mc-43-2',
+          q: '¿Qué muestra el estado de resultados?',
+          options: [
+            'Los activos, pasivos y patrimonio en un momento dado',
+            'Los ingresos y egresos de un período, para determinar la utilidad o pérdida',
+            'La comparación entre real y presupuestado',
+            'La opinión de un auditor externo',
+          ],
+          correctIndex: 1,
+          explain:
+            'El estado de resultados resume ingresos y egresos de un período para determinar la utilidad o pérdida; el balance general muestra activos, pasivos y patrimonio en un momento dado.',
+        },
+        {
+          id: 'mc-43-3',
+          q: '¿Cuál NO es una de las cuatro perspectivas del balanced scorecard?',
+          options: [
+            'Perspectiva financiera',
+            'Perspectiva del cliente',
+            'Perspectiva de procesos internos',
+            'Perspectiva publicitaria',
+          ],
+          correctIndex: 3,
+          explain:
+            'Las cuatro perspectivas son: financiera, del cliente, de procesos internos y de aprendizaje y crecimiento. No existe una "perspectiva publicitaria".',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-43-1',
+          q: '¿Cuáles son las cuatro fases del proceso de control?',
+          options: [
+            'Establecer parámetros de medición (indicadores)',
+            'Medir los resultados',
+            'Evaluar el resultado (comparación)',
+            'Retroalimentar (medidas correctivas)',
+            'Eliminar la planificación',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro fases son establecer indicadores, medir, evaluar y retroalimentar. El control no elimina la planificación: la complementa.',
+        },
+        {
+          id: 'ms-43-2',
+          q: '¿Cuáles son las cuatro perspectivas del balanced scorecard?',
+          options: [
+            'Financiera',
+            'Del cliente',
+            'De procesos internos',
+            'De aprendizaje y crecimiento',
+            'De la competencia directa',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro perspectivas son financiera, del cliente, de procesos internos y de aprendizaje y crecimiento.',
+        },
+        {
+          id: 'ms-43-3',
+          q: '¿Qué tipos de controles utilizan las organizaciones según el apunte?',
+          options: [
+            'Controles financieros (balance, estado de resultados)',
+            'Controles presupuestarios (real vs. proyectado)',
+            'Auditorías externas e internas',
+            'Controles de redes sociales obligatorios',
+            'Eliminación de toda medición',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Los tipos son financieros, presupuestarios y auditorías. Las otras dos opciones no figuran en el apunte.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-43-1',
+        front: 'Control',
+        back:
+          'Proceso que asegura que las actividades reales se ajusten a las planificadas. Mide el desempeño y toma acciones correctivas ante los desvíos.',
+      },
+      {
+        id: 'fc-43-2',
+        front: 'Fases del control',
+        back:
+          'Establecer parámetros (indicadores) → medir los resultados → evaluar (comparar con el estándar) → retroalimentar con medidas correctivas.',
+      },
+      {
+        id: 'fc-43-3',
+        front: 'Tipos de controles',
+        back:
+          'Financieros (balance general, estado de resultados), presupuestarios (real vs. proyectado) y auditorías (externas o internas).',
+      },
+      {
+        id: 'fc-43-4',
+        front: 'Balance general vs. estado de resultados',
+        back:
+          'Balance general: activos, pasivos y patrimonio en un momento dado. Estado de resultados: ingresos y egresos de un período (utilidad o pérdida).',
+      },
+      {
+        id: 'fc-43-5',
+        front: 'Balanced scorecard',
+        back:
+          'Cuadro de mando integral: visión balanceada del desempeño en cuatro perspectivas (financiera, cliente, procesos internos, y aprendizaje y crecimiento), derivadas de la visión y la estrategia.',
+      },
+    ],
+  },
+
+  // ====================================================================
+  // UNIDAD 4 — Fundamentos de la dirección y habilidades gerenciales
+  // ====================================================================
+
+  // ---------- SECCIÓN 44 ----------
+  {
+    id: '44',
+    unit: '4',
+    title: 'Liderazgo: estilos y la rejilla de Blake y Mouton',
+    criollo:
+      'Dirigir no es solo administrar recursos: es guiar, inspirar y coordinar gente para lograr objetivos. El líder necesita un combo de habilidades (liderazgo, motivación, comunicación, delegación, negociación y toma de decisiones). Y hay distintos estilos de liderazgo, que la rejilla de Blake y Mouton ordena según cuánto te importa la producción y cuánto la gente.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'La dirección de una organización no se limita a administrar recursos: implica la capacidad de guiar, inspirar y coordinar a las personas para alcanzar objetivos comunes. Un líder eficaz debe dominar un conjunto de habilidades interconectadas.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Liderazgo</strong>: capacidad de influir en un grupo para que logre las metas propuestas; va más allá de dar órdenes (crear una visión y motivar a otros).',
+          '<strong>Motivación</strong>: entender y canalizar los factores que impulsan el comportamiento de las personas.',
+          '<strong>Comunicación</strong>: proceso de compartir significados a través de mensajes; alinea al equipo y da retroalimentación.',
+          '<strong>Delegación</strong>: asignar autoridad y responsabilidad; no es "pasar trabajo", sino empoderar y desarrollar a otros.',
+          '<strong>Negociación</strong>: manejar conflictos y llegar a acuerdos satisfactorios para las partes.',
+          '<strong>Toma de decisiones</strong>: proceso racional de identificar problemas, evaluar alternativas y elegir el mejor curso de acción.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Liderazgo gerencial',
+        criollo:
+          'El liderazgo gerencial es dirigir e influir en las actividades de un grupo. Involucra a otras personas, implica una distribución desigual del poder, usa esas diferencias para influir, y se sostiene en valores.',
+      },
+      {
+        type: 'p',
+        text:
+          'El liderazgo gerencial es el proceso de dirigir las actividades laborales de los miembros de un grupo y de influir en ellas. Sus cuatro implicaciones son: (1) involucra a otras personas (empleados o colaboradores), que con su voluntad de aceptar las órdenes ayudan a definir la posición del líder; (2) entraña una distribución desigual del poder (los miembros no carecen de poder, pero el líder suele tener más); (3) es la capacidad de usar esas diferencias de poder para influir en la conducta de los seguidores; (4) combina lo anterior con una cuestión de valores.',
+      },
+      {
+        type: 'h3',
+        text: 'La rejilla administrativa de Blake y Mouton',
+        criollo:
+          'Es una matriz de dos ejes: el interés por la producción (eje X) y el interés por la gente (eje Y). Cruzándolos salen cinco estilos de liderazgo, del peor (1.1) al ideal (9.9).',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/rejilla-blake-mouton.jpeg',
+        alt: 'Rejilla gerencial de Blake y Mouton: ejes de preocupación por la producción (horizontal) y por la gente (vertical), del 1 al 9, con los estilos 1.1, 1.9, 9.1, 9.9 y 5.5',
+        caption:
+          'La rejilla de Blake y Mouton cruza la preocupación por la producción (eje horizontal) con la preocupación por la gente (eje vertical) y ubica los cinco estilos de dirección.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Dirección empobrecida (1.1)</strong>: mínima preocupación por la producción y por la gente. El líder hace el mínimo esfuerzo; apatía e indiferencia.',
+          '<strong>Dirección de tareas (9.1) o autoritaria</strong>: máxima preocupación por la producción, mínima por la gente. Las personas son un medio para un fin. Lema: "Cumple el objetivo, cueste lo que cueste".',
+          '<strong>Dirección tipo club campestre (1.9)</strong>: alta preocupación por la gente, baja por la producción. Prioriza el ambiente agradable y la armonía, aunque baje la productividad.',
+          '<strong>Dirección de equipo (9.9)</strong>: máxima preocupación por la producción y por la gente. Es el estilo ideal: la producción se logra integrando las tareas con las necesidades humanas (compromiso, respeto y confianza).',
+          '<strong>Péndulo amortiguado o mitad de camino (5.5)</strong>: equilibrio intermedio. Busca un rendimiento adecuado sin presionar demasiado. Lema: "sé justo, pero firme".',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-44-1',
+          q: 'El liderazgo gerencial es el proceso de dirigir las actividades laborales de un grupo e influir en ellas.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la definición del apunte; además, el liderazgo entraña una distribución desigual del poder.',
+        },
+        {
+          id: 'tf-44-2',
+          q: 'En la rejilla de Blake y Mouton, el estilo 9.9 (dirección de equipo) es considerado el ideal.',
+          a: true,
+          explain:
+            'Verdadero. El estilo 9.9 combina máxima preocupación por la producción y por la gente, y es el ideal según el modelo.',
+        },
+        {
+          id: 'tf-44-3',
+          q: 'El estilo de dirección de tareas (9.1) muestra máxima preocupación por la gente y mínima por la producción.',
+          a: false,
+          explain:
+            'Falso. Es al revés: el 9.1 (autoritario) tiene máxima preocupación por la producción y mínima por la gente.',
+        },
+        {
+          id: 'tf-44-4',
+          q: 'La delegación consiste simplemente en pasarle trabajo a otro.',
+          a: false,
+          explain:
+            'Falso. La delegación es asignar autoridad y responsabilidad para empoderar y desarrollar a otros, no solo "pasar trabajo".',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-44-1',
+          q: '¿Qué dos dimensiones cruza la rejilla administrativa de Blake y Mouton?',
+          options: [
+            'Tiempo y costo',
+            'Preocupación por la producción y preocupación por la gente',
+            'Calidad y cantidad',
+            'Autoridad y responsabilidad',
+          ],
+          correctIndex: 1,
+          explain:
+            'La rejilla cruza la preocupación por la producción (eje X) con la preocupación por la gente (eje Y).',
+        },
+        {
+          id: 'mc-44-2',
+          q: '¿Qué estilo se caracteriza por mínima preocupación tanto por la producción como por la gente?',
+          options: [
+            'Dirección de equipo (9.9)',
+            'Dirección empobrecida (1.1)',
+            'Club campestre (1.9)',
+            'Mitad de camino (5.5)',
+          ],
+          correctIndex: 1,
+          explain:
+            'La dirección empobrecida (1.1) muestra mínima preocupación por ambos: el líder hace el mínimo esfuerzo.',
+        },
+        {
+          id: 'mc-44-3',
+          q: '¿Cuál NO es una de las habilidades gerenciales mencionadas en el apunte?',
+          options: [
+            'Liderazgo y motivación',
+            'Comunicación y delegación',
+            'Negociación y toma de decisiones',
+            'Contabilidad de costos',
+          ],
+          correctIndex: 3,
+          explain:
+            'Las habilidades del apunte son liderazgo, motivación, comunicación, delegación, negociación y toma de decisiones. La contabilidad de costos no figura.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-44-1',
+          q: '¿Cuáles son las cuatro implicaciones del liderazgo según el apunte?',
+          options: [
+            'Involucra a otras personas (empleados o colaboradores)',
+            'Entraña una distribución desigual del poder',
+            'Usa las diferencias de poder para influir en la conducta de los seguidores',
+            'Es, en el fondo, una cuestión de valores',
+            'Elimina toda diferencia de poder en el grupo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son las implicaciones del apunte. El liderazgo no elimina las diferencias de poder: las usa para influir.',
+        },
+        {
+          id: 'ms-44-2',
+          q: '¿Qué habilidades debe dominar un líder eficaz según el apunte?',
+          options: [
+            'Liderazgo y motivación',
+            'Comunicación y delegación',
+            'Negociación',
+            'Toma de decisiones',
+            'Programación de software',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cuatro primeras agrupan las seis habilidades del apunte. La programación de software no es parte de esta lista.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-44-1',
+        front: 'Liderazgo gerencial',
+        back:
+          'Proceso de dirigir las actividades laborales de un grupo e influir en ellas. Involucra a otras personas, una distribución desigual del poder y valores.',
+      },
+      {
+        id: 'fc-44-2',
+        front: 'Rejilla de Blake y Mouton',
+        back:
+          'Matriz que cruza la preocupación por la producción (eje X) con la preocupación por la gente (eje Y); de ahí surgen cinco estilos de liderazgo.',
+      },
+      {
+        id: 'fc-44-3',
+        front: 'Estilo 9.9 (dirección de equipo)',
+        back:
+          'Máxima preocupación por la producción y por la gente. Estilo ideal: integra las tareas con las necesidades humanas (compromiso, respeto, confianza).',
+      },
+      {
+        id: 'fc-44-4',
+        front: 'Estilos de la rejilla administrativa',
+        back:
+          'Empobrecida (1.1), tareas/autoritaria (9.1), club campestre (1.9), equipo (9.9) y mitad de camino o péndulo amortiguado (5.5).',
+      },
+      {
+        id: 'fc-44-5',
+        front: 'Habilidades gerenciales',
+        back:
+          'Liderazgo, motivación, comunicación, delegación, negociación y toma de decisiones.',
+      },
+      {
+        id: 'fc-44-6',
+        front: 'Delegación',
+        back:
+          'Asignar autoridad y responsabilidad a otros. No es "pasar trabajo": es empoderar, desarrollar habilidades y optimizar el tiempo.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 45 ----------
+  {
+    id: '45',
+    unit: '4',
+    title: 'Motivación: el ciclo, Maslow y otras teorías',
+    criollo:
+      'La motivación es el "por qué" de lo que hacemos: los factores que ocasionan, canalizan y sostienen la conducta. Funciona como un ciclo (necesidad → impulso → acción → satisfacción). Maslow ordena las necesidades en una pirámide, y hay otras teorías (Vroom, Skinner) y dos tipos de recompensas: intrínsecas y extrínsecas.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'La motivación es el conjunto de factores que ocasionan, canalizan y sostienen la conducta de una persona. Es el "por qué" de nuestras acciones.',
+      },
+      {
+        type: 'h3',
+        text: 'El ciclo de la motivación',
+        criollo:
+          'Arranca con una necesidad insatisfecha (tensión), que genera un impulso, que te lleva a actuar; al alcanzar la meta llega la satisfacción, y el ciclo vuelve a empezar con una necesidad nueva.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/ciclo-motivacion.png',
+        alt: 'Ciclo de la motivación: necesidad (privación) → impulso → acciones → satisfacción, que reinicia el ciclo',
+        caption:
+          'El ciclo de la motivación: una necesidad genera un impulso que lleva a acciones; la satisfacción reduce la tensión hasta que surge una necesidad nueva.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Necesidad (privación)</strong>: una carencia insatisfecha que genera un estado de tensión.',
+          '<strong>Impulso</strong>: la tensión se convierte en un motivo que nos moviliza a actuar.',
+          '<strong>Acciones</strong>: la conducta específica para alcanzar la meta y reducir la tensión.',
+          '<strong>Satisfacción</strong>: al alcanzar la meta, la necesidad se satisface y el impulso disminuye, hasta que surge una nueva necesidad.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'La jerarquía de necesidades de Maslow',
+        criollo:
+          'Maslow dice que las necesidades están jerarquizadas: hay que satisfacer las más básicas antes de aspirar a las superiores. Por eso se dibuja como pirámide, de lo fisiológico hasta la autorrealización.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/piramide-maslow.jpeg',
+        alt: 'Pirámide de Maslow de cinco niveles: fisiológicas, seguridad, sociales, estima y autorrealización, de la base a la cima',
+        caption:
+          'La pirámide de Maslow: necesidades fisiológicas (base), de seguridad, sociales, de estima y de autorrealización (cima). Primero se satisfacen las básicas.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Fisiológicas</strong>: la base (respirar, alimentarse, descansar). En el trabajo, un salario que cubra lo esencial.',
+          '<strong>Seguridad</strong>: seguridad física, de empleo, de recursos. En el trabajo: estabilidad laboral, ambiente seguro, beneficios.',
+          '<strong>Sociales (afiliación)</strong>: amistad, afecto, pertenencia. En la organización: trabajo en equipo, buen clima laboral.',
+          '<strong>Estima (reconocimiento)</strong>: éxito, respeto, confianza. Estima propia (logros) y de los demás (reconocimiento, estatus): un ascenso, un premio, un elogio.',
+          '<strong>Autorrealización</strong>: la cima; desarrollar el máximo potencial. En el trabajo: tareas desafiantes, autonomía y crecimiento.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Otras teorías de la motivación',
+        criollo:
+          'Vroom (expectativas): te motivás según lo que esperás del resultado. Skinner (reforzamiento): la conducta depende de sus consecuencias. Y están las recompensas intrínsecas (la satisfacción de la tarea misma) y extrínsecas (algo tangible que te da un tercero).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Teoría de las expectativas (Victor Vroom)</strong>: la motivación es el producto de tres factores: expectativa (si me esfuerzo, ¿lograré el objetivo?), instrumentalidad (si lo logro, ¿recibiré una recompensa?) y valencia (¿valoro esa recompensa?). Si alguno es cero, la motivación es nula.',
+          '<strong>Teoría del reforzamiento (B. F. Skinner)</strong>: el comportamiento es función de sus consecuencias. La conducta seguida de consecuencias positivas (reforzamiento) tiende a repetirse; la seguida de consecuencias negativas o ninguna, a no repetirse (modificación de la conducta).',
+          '<strong>Recompensas extrínsecas</strong>: tangibles, dadas por un tercero (dinero, un ascenso).',
+          '<strong>Recompensas intrínsecas</strong>: la satisfacción personal de realizar la tarea (sentimiento de logro, orgullo). Un buen líder equilibra ambas.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-45-1',
+          q: 'La motivación es el conjunto de factores que ocasionan, canalizan y sostienen la conducta de una persona.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la definición del apunte: la motivación es el "por qué" de nuestras acciones.',
+        },
+        {
+          id: 'tf-45-2',
+          q: 'Según Maslow, primero se aspira a la autorrealización y recién después se satisfacen las necesidades fisiológicas.',
+          a: false,
+          explain:
+            'Falso. Es al revés: primero se satisfacen las necesidades más básicas (fisiológicas) y luego se aspira a las superiores, como la autorrealización.',
+        },
+        {
+          id: 'tf-45-3',
+          q: 'Según la teoría de Vroom, si la expectativa, la instrumentalidad o la valencia es cero, la motivación será nula.',
+          a: true,
+          explain:
+            'Verdadero. La motivación es el producto de los tres factores; si alguno es cero, el producto (la motivación) es cero.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-45-1',
+          q: '¿Cuál es el orden correcto del ciclo de la motivación?',
+          options: [
+            'Satisfacción → acción → impulso → necesidad',
+            'Necesidad (privación) → impulso → acciones → satisfacción',
+            'Impulso → necesidad → satisfacción → acción',
+            'Acciones → satisfacción → necesidad → impulso',
+          ],
+          correctIndex: 1,
+          explain:
+            'El ciclo es: necesidad (privación) → impulso → acciones → satisfacción, que luego reinicia con una nueva necesidad.',
+        },
+        {
+          id: 'mc-45-2',
+          q: '¿Cuál es la necesidad de la cima de la pirámide de Maslow?',
+          options: [
+            'Necesidades fisiológicas',
+            'Necesidades de seguridad',
+            'Necesidades de autorrealización',
+            'Necesidades sociales',
+          ],
+          correctIndex: 2,
+          explain:
+            'La autorrealización (desarrollar el máximo potencial) está en la cima de la pirámide de Maslow.',
+        },
+        {
+          id: 'mc-45-3',
+          q: '¿Qué es una recompensa intrínseca?',
+          options: [
+            'Un aumento de sueldo otorgado por el jefe',
+            'La satisfacción personal que se deriva de realizar la tarea (logro, orgullo)',
+            'Un ascenso o bono',
+            'Una sanción por incumplimiento',
+          ],
+          correctIndex: 1,
+          explain:
+            'La recompensa intrínseca es la satisfacción personal de hacer la tarea (logro, orgullo); la extrínseca es tangible y la da un tercero (dinero, ascenso).',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-45-1',
+          q: '¿Cuáles son los tres factores de la teoría de las expectativas de Vroom?',
+          options: [
+            'Expectativa (¿lograré el objetivo si me esfuerzo?)',
+            'Instrumentalidad (¿recibiré una recompensa si lo logro?)',
+            'Valencia (¿valoro esa recompensa?)',
+            'Coerción (¿me castigarán?)',
+            'Jerarquía (¿qué cargo ocupo?)',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Los tres factores de Vroom son expectativa, instrumentalidad y valencia. Coerción y jerarquía no forman parte de esta teoría.',
+        },
+        {
+          id: 'ms-45-2',
+          q: '¿Cuáles son los cinco niveles de la pirámide de Maslow?',
+          options: [
+            'Fisiológicas',
+            'Seguridad',
+            'Sociales (afiliación)',
+            'Estima y autorrealización',
+            'Financieras',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cinco niveles son fisiológicas, seguridad, sociales, estima y autorrealización. No existe un nivel "financiero" en Maslow.',
+        },
+        {
+          id: 'ms-45-3',
+          q: '¿Qué afirma la teoría del reforzamiento de Skinner?',
+          options: [
+            'El comportamiento es función de sus consecuencias',
+            'La conducta seguida de consecuencias positivas tiende a repetirse',
+            'La conducta seguida de consecuencias negativas o nulas tiende a no repetirse',
+            'Es la base de la modificación de la conducta',
+            'La motivación no tiene relación con las consecuencias',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro describen la teoría del reforzamiento. Justamente sostiene que la conducta SÍ depende de sus consecuencias.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-45-1',
+        front: 'Motivación',
+        back:
+          'Conjunto de factores que ocasionan, canalizan y sostienen la conducta de una persona. Es el "por qué" de nuestras acciones.',
+      },
+      {
+        id: 'fc-45-2',
+        front: 'Ciclo de la motivación',
+        back:
+          'Necesidad (privación) → impulso → acciones → satisfacción. Al satisfacerse, el impulso baja hasta que surge una necesidad nueva.',
+      },
+      {
+        id: 'fc-45-3',
+        front: 'Pirámide de Maslow',
+        back:
+          'Necesidades jerarquizadas: fisiológicas, de seguridad, sociales, de estima y de autorrealización. Primero las básicas, después las superiores.',
+      },
+      {
+        id: 'fc-45-4',
+        front: 'Teoría de las expectativas (Vroom)',
+        back:
+          'Motivación = expectativa × instrumentalidad × valencia. Si alguno de los tres factores es cero, la motivación es nula.',
+      },
+      {
+        id: 'fc-45-5',
+        front: 'Teoría del reforzamiento (Skinner)',
+        back:
+          'El comportamiento es función de sus consecuencias. Las positivas refuerzan la conducta; las negativas o nulas la desalientan (modificación de la conducta).',
+      },
+      {
+        id: 'fc-45-6',
+        front: 'Recompensas intrínsecas vs. extrínsecas',
+        back:
+          'Intrínseca: satisfacción de la tarea misma (logro, orgullo). Extrínseca: tangible, dada por un tercero (dinero, ascenso). Un buen líder equilibra ambas.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 46 ----------
+  {
+    id: '46',
+    unit: '4',
+    title: 'Comunicación en la organización',
+    criollo:
+      'La comunicación es el sistema nervioso de la organización: compartir significados a través de mensajes. Necesita personas, significados compartidos y símbolos. Hay comunicación formal (canales oficiales) e informal (el radiopasillo), y un proceso clásico de emisor a receptor con retroalimentación.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'La comunicación es el proceso mediante el cual se comparten significados a través de mensajes simbólicos. Es vital para coordinar acciones, motivar y ejercer el liderazgo.',
+      },
+      {
+        type: 'p',
+        text:
+          'La comunicación se centra en tres puntos esenciales: (1) necesita la participación de personas; (2) significa compartir diversos significados; (3) necesita de símbolos (tipos de lenguaje). Dentro de la organización es el medio formal, normalmente respaldada y controlada por los gerentes.',
+      },
+      {
+        type: 'h3',
+        text: 'Tipos de comunicación',
+        criollo:
+          'La formal sigue la estructura jerárquica oficial; la informal surge sola de las relaciones sociales (charlas de pasillo, rumores). La informal a veces desinforma, pero también agiliza y une.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Comunicación formal</strong>: sigue la estructura jerárquica oficial (correos institucionales, informes, reuniones formales). Puede ser interna o externa (clientes, proveedores).',
+          '<strong>Comunicación informal</strong>: surge espontáneamente de las relaciones sociales, sin canales oficiales (conversaciones de pasillo, rumores). Puede desinformar, pero también agiliza la comunicación y fortalece las relaciones.',
+          '<strong>Comunicación vertical</strong>: la que sube o baja por la cadena de mando.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'El proceso de comunicación',
+        criollo:
+          'El modelo clásico: alguien (emisor) manda un mensaje por un medio a otro (receptor), y la retroalimentación cierra el círculo avisando si se entendió.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/proceso-comunicacion.png',
+        alt: 'Proceso de comunicación: emisor → mensaje → medio → receptor, con la retroalimentación que cierra el circuito de vuelta al emisor',
+        caption:
+          'El proceso de comunicación: el emisor envía un mensaje por un medio al receptor; la retroalimentación cierra el circuito y le indica al emisor si el mensaje se comprendió.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Emisor (quién)</strong>: la persona que origina el mensaje.',
+          '<strong>Mensaje (dice qué)</strong>: la información que se transmite.',
+          '<strong>Medio (en qué forma)</strong>: el canal utilizado (oral, escrito, digital).',
+          '<strong>Receptor (a quién)</strong>: la persona que recibe el mensaje.',
+          '<strong>Retroalimentación (con qué efecto)</strong>: la respuesta del receptor que le permite al emisor saber si el mensaje fue comprendido.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-46-1',
+          q: 'La comunicación es el proceso mediante el cual se comparten significados a través de mensajes simbólicos.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la definición del apunte; la comunicación es vital para coordinar, motivar y ejercer el liderazgo.',
+        },
+        {
+          id: 'tf-46-2',
+          q: 'La comunicación informal sigue siempre la estructura jerárquica oficial de la organización.',
+          a: false,
+          explain:
+            'Falso. La informal surge espontáneamente, sin canales oficiales (pasillo, rumores). La que sigue la estructura oficial es la formal.',
+        },
+        {
+          id: 'tf-46-3',
+          q: 'La retroalimentación le permite al emisor saber si el mensaje fue comprendido.',
+          a: true,
+          explain:
+            'Verdadero. La retroalimentación (con qué efecto) es la respuesta del receptor que cierra el circuito de comunicación.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-46-1',
+          q: '¿Cuáles son los tres puntos esenciales en los que se centra la comunicación?',
+          options: [
+            'Velocidad, costo y alcance',
+            'Personas, significados compartidos y símbolos',
+            'Emisor, ruido y canal',
+            'Formal, informal y vertical',
+          ],
+          correctIndex: 1,
+          explain:
+            'La comunicación necesita la participación de personas, compartir significados y usar símbolos (tipos de lenguaje).',
+        },
+        {
+          id: 'mc-46-2',
+          q: 'En el proceso de comunicación, ¿qué representa el "medio"?',
+          options: [
+            'La persona que origina el mensaje',
+            'El canal utilizado (oral, escrito, digital)',
+            'La respuesta del receptor',
+            'La información transmitida',
+          ],
+          correctIndex: 1,
+          explain:
+            'El medio (en qué forma) es el canal utilizado: oral, escrito o digital.',
+        },
+        {
+          id: 'mc-46-3',
+          q: '¿Qué es la comunicación vertical?',
+          options: [
+            'La que ocurre solo entre pares del mismo nivel',
+            'La que sube o baja por la cadena de mando',
+            'La que se da únicamente con clientes externos',
+            'La que no usa símbolos',
+          ],
+          correctIndex: 1,
+          explain:
+            'La comunicación vertical es la que sube o baja por la cadena de mando.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-46-1',
+          q: '¿Cuáles son los elementos del proceso de comunicación?',
+          options: [
+            'Emisor',
+            'Mensaje',
+            'Medio',
+            'Receptor y retroalimentación',
+            'Presupuesto',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los elementos son emisor, mensaje, medio, receptor y retroalimentación. El presupuesto no forma parte del modelo.',
+        },
+        {
+          id: 'ms-46-2',
+          q: '¿Qué afirmaciones sobre la comunicación informal son correctas?',
+          options: [
+            'Surge espontáneamente de las relaciones sociales',
+            'No sigue los canales oficiales',
+            'Puede ser fuente de desinformación',
+            'También agiliza la comunicación y fortalece las relaciones',
+            'Está siempre controlada por los gerentes',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro describen la informal. La que está respaldada y controlada por los gerentes es la formal.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-46-1',
+        front: 'Comunicación',
+        back:
+          'Proceso mediante el cual se comparten significados a través de mensajes simbólicos. Vital para coordinar, motivar y liderar.',
+      },
+      {
+        id: 'fc-46-2',
+        front: 'Tres puntos esenciales de la comunicación',
+        back:
+          'Necesita personas, significa compartir significados y requiere símbolos (tipos de lenguaje).',
+      },
+      {
+        id: 'fc-46-3',
+        front: 'Comunicación formal vs. informal',
+        back:
+          'Formal: sigue la estructura jerárquica oficial (informes, reuniones). Informal: espontánea, de las relaciones sociales (pasillo, rumores).',
+      },
+      {
+        id: 'fc-46-4',
+        front: 'Proceso de comunicación',
+        back:
+          'Emisor (quién) → mensaje (qué) → medio (en qué forma) → receptor (a quién) → retroalimentación (con qué efecto).',
+      },
+      {
+        id: 'fc-46-5',
+        front: 'Comunicación vertical',
+        back:
+          'La que sube o baja por la cadena de mando de la organización.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 47 ----------
+  {
+    id: '47',
+    unit: '4',
+    title: 'Negociación y toma de decisiones',
+    criollo:
+      'La negociación aparece cuando hay conflicto (desacuerdo por recursos, metas o valores) y se resuelve con comunicación y liderazgo. Hay enfoques duros, suaves y el de Harvard (ganar-ganar). Y tomar decisiones bien es un proceso racional con pasos claros.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Negociación',
+        criollo:
+          'Negociar es aplicar comunicación y liderazgo para resolver un conflicto de manera satisfactoria. Negociamos todo el tiempo: con la familia, en el laburo, en los trámites.',
+      },
+      {
+        type: 'p',
+        text:
+          'La negociación surge a raíz de un conflicto, entendido como un desacuerdo sobre recursos, metas o valores. Negociar es aplicar habilidades de comunicación y liderazgo para resolver estos conflictos de manera satisfactoria para las partes. Las buenas estrategias para negociar pueden reducir o eliminar los problemas que se derivan de la ruptura de la comunicación.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Enfoque duro</strong>: se adopta una posición rígida, se desconfía de la otra parte y el único objetivo es ganar.',
+          '<strong>Enfoque suave</strong>: se busca evitar el conflicto a toda costa, cediendo fácilmente para llegar a un acuerdo.',
+          '<strong>Enfoque basado en principios (Harvard)</strong>: busca soluciones mutuamente beneficiosas (ganar-ganar), centrándose en los intereses subyacentes de las partes y no en sus posiciones rígidas.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Proceso racional de toma de decisiones',
+        criollo:
+          'Decidir bien es una de las funciones más importantes de la dirección. Un proceso ordenado mejora la calidad de la decisión: primero entendés el problema, después generás y evaluás opciones, elegís y aplicás.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/ciclo-toma-decisiones.png',
+        alt: 'Ciclo de toma de decisiones de cinco etapas: definir el problema, analizar el problema, evaluar las alternativas, elegir las alternativas y aplicar la decisión',
+        caption:
+          'El proceso racional de toma de decisiones: definir el problema, analizarlo, evaluar las alternativas, elegir y aplicar la decisión.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Definir el problema</strong>: identificar clara y precisamente la situación a resolver.',
+          '<strong>Analizar el problema</strong>: recopilar información y comprender las causas y el alcance.',
+          '<strong>Evaluar las alternativas</strong>: generar distintos cursos de acción y valorar pros y contras.',
+          '<strong>Elegir la alternativa</strong>: seleccionar la opción más efectiva y eficiente.',
+          '<strong>Aplicar la decisión</strong>: poner en marcha el curso elegido y comunicarlo a los involucrados (con un monitoreo posterior de los resultados para ajustar si hace falta).',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-47-1',
+          q: 'La negociación surge a raíz de un conflicto, entendido como un desacuerdo sobre recursos, metas o valores.',
+          a: true,
+          explain:
+            'Verdadero. El conflicto (desacuerdo sobre recursos, metas o valores) es el origen de la negociación.',
+        },
+        {
+          id: 'tf-47-2',
+          q: 'El enfoque de negociación basado en principios (Harvard) busca soluciones de ganar-ganar centrándose en los intereses de las partes.',
+          a: true,
+          explain:
+            'Verdadero. El enfoque de Harvard busca soluciones mutuamente beneficiosas, centrándose en los intereses subyacentes y no en posiciones rígidas.',
+        },
+        {
+          id: 'tf-47-3',
+          q: 'El primer paso del proceso racional de toma de decisiones es aplicar la decisión.',
+          a: false,
+          explain:
+            'Falso. El primer paso es definir el problema. Aplicar la decisión es uno de los últimos pasos.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-47-1',
+          q: '¿Qué caracteriza al enfoque de negociación "duro"?',
+          options: [
+            'Ceder fácilmente para evitar el conflicto',
+            'Posición rígida, desconfianza de la otra parte y el único objetivo es ganar',
+            'Buscar soluciones de ganar-ganar',
+            'Centrarse en los intereses subyacentes',
+          ],
+          correctIndex: 1,
+          explain:
+            'El enfoque duro adopta una posición rígida, desconfía de la otra parte y su único objetivo es ganar.',
+        },
+        {
+          id: 'mc-47-2',
+          q: '¿Cuál es el orden correcto del proceso racional de toma de decisiones?',
+          options: [
+            'Aplicar → elegir → evaluar → analizar → definir',
+            'Definir → analizar → evaluar alternativas → elegir → aplicar',
+            'Evaluar → definir → aplicar → analizar → elegir',
+            'Elegir → aplicar → definir → analizar → evaluar',
+          ],
+          correctIndex: 1,
+          explain:
+            'El proceso es: definir el problema, analizarlo, evaluar las alternativas, elegir y aplicar la decisión.',
+        },
+        {
+          id: 'mc-47-3',
+          q: '¿Qué se hace en la etapa de "analizar el problema"?',
+          options: [
+            'Poner en marcha el curso de acción elegido',
+            'Recopilar información y comprender las causas y el alcance del problema',
+            'Seleccionar la mejor alternativa',
+            'Comunicar la decisión a los involucrados',
+          ],
+          correctIndex: 1,
+          explain:
+            'Analizar el problema implica recopilar información y comprender sus causas y alcance.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-47-1',
+          q: '¿Cuáles son los enfoques de negociación mencionados?',
+          options: [
+            'Duro (posición rígida, ganar)',
+            'Suave (ceder para evitar el conflicto)',
+            'Basado en principios (Harvard, ganar-ganar)',
+            'Coercitivo (basado en el castigo)',
+            'Aleatorio (sin estrategia)',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Los enfoques son duro, suave y el basado en principios (Harvard). Los otros dos no figuran como enfoques de negociación.',
+        },
+        {
+          id: 'ms-47-2',
+          q: '¿Cuáles son los pasos del proceso racional de toma de decisiones?',
+          options: [
+            'Definir el problema',
+            'Analizar el problema',
+            'Evaluar las alternativas',
+            'Elegir y aplicar la decisión',
+            'Ignorar el problema hasta que se resuelva solo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los pasos son definir, analizar, evaluar alternativas, elegir y aplicar. Ignorar el problema no es un paso del proceso.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-47-1',
+        front: 'Negociación',
+        back:
+          'Surge de un conflicto (desacuerdo sobre recursos, metas o valores). Es aplicar comunicación y liderazgo para resolverlo de forma satisfactoria para las partes.',
+      },
+      {
+        id: 'fc-47-2',
+        front: 'Enfoques de negociación',
+        back:
+          'Duro (posición rígida, solo ganar), suave (ceder para evitar el conflicto) y basado en principios (Harvard: ganar-ganar, foco en los intereses).',
+      },
+      {
+        id: 'fc-47-3',
+        front: 'Proceso racional de toma de decisiones',
+        back:
+          'Definir el problema → analizarlo → evaluar las alternativas → elegir la alternativa → aplicar la decisión (y monitorear los resultados).',
+      },
+      {
+        id: 'fc-47-4',
+        front: 'Conflicto',
+        back:
+          'Desacuerdo sobre recursos, metas o valores. Es el origen de la negociación.',
+      },
+    ],
+  },
+
+  // ====================================================================
+  // UNIDAD 5 — La organización: tipos de estructura y tipos de organización
+  // ====================================================================
+
+  // ---------- SECCIÓN 48 ----------
+  {
+    id: '48',
+    unit: '5',
+    title: 'La organización: concepto, eficiencia, entorno y las cinco fuerzas de Porter',
+    criollo:
+      'Una organización es un sistema social de gente que trabaja coordinada para lograr metas. Para medir cómo le va se usan dos varas: eficiencia (hacer las cosas bien, al menor costo) y eficacia (hacer las cosas correctas). Y ninguna organización vive aislada: la rodea un entorno que se analiza, entre otras formas, con las cinco fuerzas de Porter.',
+    blocks: [
+      {
+        type: 'h3',
+        text: '¿Qué es una organización?',
+        criollo:
+          'Dos o más personas trabajando coordinadas para una meta. Toda organización, sea o no con fines de lucro, comparte tres cosas: una meta, un plan para lograrla y recursos asignados.',
+      },
+      {
+        type: 'p',
+        text:
+          'Una organización es un sistema social, compuesto por dos o más personas que trabajan juntas, de manera coordinada y estructurada, para alcanzar una meta o un conjunto de metas específicas. Toda organización, sin importar su tamaño o fin (lucrativo o no), comparte tres características fundamentales: (A) tienen un propósito o meta definida; (B) tienen un plan o método para alcanzar esas metas; (C) adquieren y asignan recursos para lograr sus objetivos.',
+      },
+      {
+        type: 'p',
+        text:
+          'La administración es el proceso de darle forma a estas organizaciones, asegurando que cumplan sus metas de manera racional y eficiente. La persona responsable de dirigir estas actividades es el gerente.',
+      },
+      {
+        type: 'h3',
+        text: 'Eficiencia vs. eficacia',
+        criollo:
+          'Eficiencia = hacer las cosas bien (con menos recursos). Eficacia = hacer las cosas que se deben hacer (los objetivos correctos). El éxito es ser las dos a la vez: de nada sirve fabricar barato algo que nadie quiere.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Eficiencia</strong>: capacidad de usar la menor cantidad de recursos posibles para obtener un resultado. Es "hacer las cosas bien" o al menor costo. Ej.: producir 100 autos con 1000 horas-hombre es más eficiente que con 1200.',
+          '<strong>Eficacia</strong>: capacidad de definir y alcanzar los objetivos correctos. Es "hacer las cosas que se deben hacer". Ej.: una app muy avanzada (eficiente) que el mercado no necesita y no se vende: fue eficiente, pero no eficaz.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text:
+          'La clave del éxito es ser eficiente y eficaz a la vez. De nada sirve fabricar de forma muy económica un producto que nadie quiere, ni fabricar el producto deseado a un costo que lo haga invendible.',
+      },
+      {
+        type: 'h3',
+        text: 'La organización y su entorno',
+        criollo:
+          'Ninguna organización es una isla. El entorno se divide en microambiente (lo más cercano: clientes, proveedores, competencia, reguladores) y macroambiente (las fuerzas grandes: económicas, político-legales, socioculturales, tecnológicas, ecológicas).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Microambiente (ambiente específico)</strong>: los actores más cercanos que afectan la capacidad de servir a los clientes: clientes, proveedores, competencia y grupos reguladores.',
+          '<strong>Macroambiente (ambiente general)</strong>: las fuerzas más amplias: económicas, político-legales, socioculturales, tecnológicas y ecológicas.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Las cinco fuerzas de Porter',
+        criollo:
+          'Para analizar a fondo el microambiente, Porter identifica cinco fuerzas que definen qué tan intensa es la competencia y la rentabilidad de un sector.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Competidores tradicionales</strong>: la rivalidad entre las empresas existentes (ej.: Coca-Cola vs. Pepsi).',
+          '<strong>Nuevos participantes</strong>: la amenaza de nuevas empresas que ingresan al sector (ej.: aerolíneas low-cost).',
+          '<strong>Productos y servicios sustitutos</strong>: productos de otros sectores que satisfacen la misma necesidad (ej.: videoconferencia como sustituto de viajes de negocios).',
+          '<strong>Proveedores</strong>: su poder de negociación para imponer precios o condiciones (ej.: Microsoft con Windows frente a los fabricantes de PC).',
+          '<strong>Clientes</strong>: su poder de negociación para exigir precios más bajos o mayor calidad (ej.: grandes cadenas como Walmart frente a sus proveedores).',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-48-1',
+          q: 'Una organización es un sistema social de dos o más personas que trabajan coordinadamente para alcanzar metas.',
+          a: true,
+          explain:
+            'Verdadero. Esa es la definición del apunte; además, toda organización tiene un propósito, un plan y recursos asignados.',
+        },
+        {
+          id: 'tf-48-2',
+          q: 'La eficacia es usar la menor cantidad de recursos posibles para obtener un resultado.',
+          a: false,
+          explain:
+            'Falso. Eso es la eficiencia ("hacer las cosas bien"). La eficacia es definir y alcanzar los objetivos correctos ("hacer las cosas que se deben hacer").',
+        },
+        {
+          id: 'tf-48-3',
+          q: 'Las cinco fuerzas de Porter sirven para analizar el microambiente competitivo de un sector.',
+          a: true,
+          explain:
+            'Verdadero. Porter desarrolló las cinco fuerzas para analizar la intensidad de la competencia y la rentabilidad de un sector.',
+        },
+        {
+          id: 'tf-48-4',
+          q: 'Las fuerzas tecnológicas y económicas forman parte del microambiente de la organización.',
+          a: false,
+          explain:
+            'Falso. Las fuerzas económicas y tecnológicas son del macroambiente. El microambiente son clientes, proveedores, competencia y grupos reguladores.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-48-1',
+          q: '¿Cuál es la diferencia entre eficiencia y eficacia?',
+          options: [
+            'Eficiencia es hacer las cosas correctas; eficacia es hacerlas con menos recursos',
+            'Eficiencia es hacer las cosas bien (menor costo); eficacia es hacer las cosas correctas (objetivos correctos)',
+            'Son sinónimos',
+            'Eficiencia es externa y eficacia es interna',
+          ],
+          correctIndex: 1,
+          explain:
+            'Eficiencia es "hacer las cosas bien" (al menor costo); eficacia es "hacer las cosas que se deben hacer" (los objetivos correctos).',
+        },
+        {
+          id: 'mc-48-2',
+          q: '¿Cuáles son las tres características que comparte toda organización?',
+          options: [
+            'Tamaño, ubicación y antigüedad',
+            'Un propósito o meta, un plan para alcanzarla y recursos asignados',
+            'Clientes, proveedores y competencia',
+            'Eficiencia, eficacia y rentabilidad',
+          ],
+          correctIndex: 1,
+          explain:
+            'Toda organización tiene un propósito o meta definida, un plan o método para alcanzarla y recursos que adquiere y asigna.',
+        },
+        {
+          id: 'mc-48-3',
+          q: '¿Cuál NO es una de las cinco fuerzas de Porter?',
+          options: [
+            'La rivalidad entre competidores tradicionales',
+            'La amenaza de productos sustitutos',
+            'El poder de negociación de proveedores y clientes',
+            'La pirámide de necesidades de los empleados',
+          ],
+          correctIndex: 3,
+          explain:
+            'Las cinco fuerzas son competidores tradicionales, nuevos participantes, sustitutos, proveedores y clientes. La pirámide de necesidades pertenece a la motivación (Maslow).',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-48-1',
+          q: '¿Cuáles son las cinco fuerzas de Porter?',
+          options: [
+            'Competidores tradicionales (rivalidad)',
+            'Nuevos participantes en el mercado',
+            'Productos y servicios sustitutos',
+            'Poder de negociación de proveedores y de clientes',
+            'Fuerzas ecológicas y climáticas',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cinco fuerzas son competidores, nuevos participantes, sustitutos, proveedores y clientes. Las fuerzas ecológicas son parte del macroambiente, no de las cinco fuerzas.',
+        },
+        {
+          id: 'ms-48-2',
+          q: '¿Qué actores forman parte del microambiente de la organización?',
+          options: [
+            'Clientes',
+            'Proveedores',
+            'Competencia',
+            'Grupos reguladores',
+            'Las tasas de interés y la inflación',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'El microambiente lo integran clientes, proveedores, competencia y grupos reguladores. La inflación y las tasas son fuerzas del macroambiente.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-48-1',
+        front: 'Organización',
+        back:
+          'Sistema social de dos o más personas que trabajan coordinadas para alcanzar metas. Comparte tres rasgos: propósito, plan y recursos asignados.',
+      },
+      {
+        id: 'fc-48-2',
+        front: 'Eficiencia vs. eficacia',
+        back:
+          'Eficiencia: hacer las cosas bien, al menor costo. Eficacia: hacer las cosas correctas (los objetivos correctos). El éxito es ser ambas a la vez.',
+      },
+      {
+        id: 'fc-48-3',
+        front: 'Microambiente vs. macroambiente',
+        back:
+          'Micro: clientes, proveedores, competencia y reguladores. Macro: fuerzas económicas, político-legales, socioculturales, tecnológicas y ecológicas.',
+      },
+      {
+        id: 'fc-48-4',
+        front: 'Cinco fuerzas de Porter',
+        back:
+          'Competidores tradicionales, nuevos participantes, productos sustitutos, poder de los proveedores y poder de los clientes.',
+      },
+      {
+        id: 'fc-48-5',
+        front: 'Gerente',
+        back:
+          'La persona responsable de dirigir las actividades de la organización para que cumpla sus metas de manera racional y eficiente.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 49 ----------
+  {
+    id: '49',
+    unit: '5',
+    title: 'Diseño y estructura organizacional',
+    criollo:
+      'La estructura organizacional es cómo se divide, agrupa y coordina el trabajo. Sus elementos clave: división del trabajo (especializarse, como en la fábrica de alfileres de Adam Smith), departamentalización (agrupar tareas), jerarquía (quién reporta a quién) y coordinación (que todo funcione junto).',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'La estructura organizacional es la forma en que el trabajo de una organización se divide, agrupa y coordina formalmente. El diseño organizacional es el proceso de tomar decisiones para crear esa estructura.',
+      },
+      {
+        type: 'h3',
+        text: 'División del trabajo (especialización)',
+        criollo:
+          'Descomponer una tarea compleja en partes más simples para que cada uno se especialice. Adam Smith lo mostró con los alfileres: diez personas haciendo cada una una parte producen muchísimo más que diez haciendo el alfiler entero. De ahí salió también la línea de montaje del Ford T.',
+      },
+      {
+        type: 'p',
+        text:
+          'La división del trabajo consiste en descomponer una tarea compleja en subtareas más simples, de modo que cada persona se especialice en una actividad limitada. Adam Smith, en <em>La riqueza de las naciones</em>, fue pionero en describir cómo la especialización en una fábrica de alfileres aumentaba drásticamente la productividad: diez personas, cada una realizando una parte del proceso de forma coordinada, producían unos 48.000 alfileres por día, frente a los pocos que lograría cada una haciendo la tarea completa. Este principio le permitió a Henry Ford imaginar su línea de montaje para fabricar el "Ford T".',
+      },
+      {
+        type: 'h3',
+        text: 'Otros elementos de la estructura',
+        criollo:
+          'Una vez dividido el trabajo, hay que agruparlo (departamentalización), ordenar quién manda a quién (jerarquía) y hacer que las partes trabajen sincronizadas (coordinación).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Departamentalización</strong>: agrupar las tareas y puestos en departamentos lógicos. Las formas más comunes son por funciones, productos, clientes, área geográfica o procesos.',
+          '<strong>Jerarquía</strong>: la línea de autoridad y responsabilidad; define quién reporta a quién y establece los niveles de mando.',
+          '<strong>Coordinación</strong>: el proceso de integrar las actividades de los diferentes departamentos para que trabajen sincronizados hacia las metas de la organización.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'A medida que la organización se especializa y divide el trabajo (diferenciación), aumenta la necesidad de coordinación (integración). Dividir sin coordinar genera caos.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-49-1',
+          q: 'La estructura organizacional es la forma en que el trabajo se divide, agrupa y coordina formalmente.',
+          a: true,
+          explain:
+            'Verdadero. El diseño organizacional, en cambio, es el proceso de tomar decisiones para crear esa estructura.',
+        },
+        {
+          id: 'tf-49-2',
+          q: 'Adam Smith describió cómo la especialización en una fábrica de alfileres aumentaba la productividad.',
+          a: true,
+          explain:
+            'Verdadero. En La riqueza de las naciones, Smith mostró que la división del trabajo elevaba drásticamente la producción de alfileres.',
+        },
+        {
+          id: 'tf-49-3',
+          q: 'La departamentalización consiste en definir quién reporta a quién en la organización.',
+          a: false,
+          explain:
+            'Falso. Eso corresponde a la jerarquía. La departamentalización es agrupar tareas y puestos en departamentos lógicos.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-49-1',
+          q: '¿Qué es la división del trabajo?',
+          options: [
+            'Agrupar tareas en departamentos',
+            'Descomponer una tarea compleja en subtareas más simples para que cada persona se especialice',
+            'Definir los niveles de mando',
+            'Integrar las actividades de los departamentos',
+          ],
+          correctIndex: 1,
+          explain:
+            'La división del trabajo (especialización) descompone una tarea compleja en subtareas simples para que cada persona se especialice.',
+        },
+        {
+          id: 'mc-49-2',
+          q: '¿Cuáles son formas comunes de departamentalizar?',
+          options: [
+            'Por funciones, productos, clientes, área geográfica o procesos',
+            'Por antigüedad y sueldo',
+            'Por color de la marca',
+            'Por orden alfabético de los empleados',
+          ],
+          correctIndex: 0,
+          explain:
+            'Las formas más comunes de departamentalizar son por funciones, productos, clientes, área geográfica o procesos.',
+        },
+        {
+          id: 'mc-49-3',
+          q: '¿Qué relación hay entre diferenciación y coordinación?',
+          options: [
+            'A más diferenciación, menos necesidad de coordinación',
+            'A más diferenciación (especialización y división), mayor necesidad de coordinación (integración)',
+            'No tienen relación',
+            'La coordinación elimina la división del trabajo',
+          ],
+          correctIndex: 1,
+          explain:
+            'Cuanto más se especializa y divide el trabajo (diferenciación), mayor es la necesidad de coordinación (integración).',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-49-1',
+          q: '¿Cuáles son elementos clave de la estructura organizacional?',
+          options: [
+            'División del trabajo (especialización)',
+            'Departamentalización',
+            'Jerarquía',
+            'Coordinación',
+            'Inflación del país',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los elementos son división del trabajo, departamentalización, jerarquía y coordinación. La inflación es un factor del macroambiente, no un elemento de la estructura.',
+        },
+        {
+          id: 'ms-49-2',
+          q: '¿Qué afirmaciones sobre la división del trabajo son correctas?',
+          options: [
+            'Descompone tareas complejas en subtareas más simples',
+            'Permite que cada persona se especialice',
+            'Adam Smith la describió con la fábrica de alfileres',
+            'Inspiró la línea de montaje del Ford T',
+            'Reduce siempre la productividad',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son del apunte. La división del trabajo aumenta la productividad, no la reduce.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-49-1',
+        front: 'Estructura organizacional',
+        back:
+          'Forma en que el trabajo se divide, agrupa y coordina formalmente. El diseño organizacional es el proceso de decidir cómo crear esa estructura.',
+      },
+      {
+        id: 'fc-49-2',
+        front: 'División del trabajo',
+        back:
+          'Descomponer una tarea compleja en subtareas simples para especializarse. Adam Smith (alfileres) e inspiración de la línea de montaje del Ford T.',
+      },
+      {
+        id: 'fc-49-3',
+        front: 'Departamentalización',
+        back:
+          'Agrupar tareas y puestos en departamentos lógicos: por funciones, productos, clientes, área geográfica o procesos.',
+      },
+      {
+        id: 'fc-49-4',
+        front: 'Jerarquía',
+        back:
+          'Línea de autoridad y responsabilidad; define quién reporta a quién y los niveles de mando.',
+      },
+      {
+        id: 'fc-49-5',
+        front: 'Diferenciación vs. integración',
+        back:
+          'A más diferenciación (especialización y división del trabajo), mayor necesidad de integración (coordinación).',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 50 ----------
+  {
+    id: '50',
+    unit: '5',
+    title: 'Tipos de estructura y organización formal e informal',
+    criollo:
+      'Hay cuatro estructuras básicas: lineal (la pirámide simple), funcional (por especialidad), divisional (por producto/mercado) y matricial (doble jefe). Y en toda empresa conviven dos organizaciones: la formal (la del organigrama) y la informal (la red de relaciones que surge sola).',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Existen cuatro tipos básicos de estructuras que las organizaciones pueden adoptar.',
+      },
+      {
+        type: 'h3',
+        text: 'A. Estructura lineal (o piramidal)',
+        criollo:
+          'La más simple y antigua: la autoridad baja derecho desde la cima. Clara y rápida, pero rígida y puede sobrecargar a los jefes.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Líneas de autoridad y comunicación directas, sin tramos administrativos complejos.',
+          'Ventajas: simple de entender, asignación clara de autoridad y responsabilidad, toma de decisiones rápida.',
+          'Desventajas: rígida, puede sobrecargar a los directivos, no fomenta la especialización.',
+          'Ideal para: empresas muy pequeñas (una tienda familiar, un pequeño taller).',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'B. Estructura funcional',
+        criollo:
+          'Agrupa por especialidad: Finanzas, Marketing, RR. HH., Operaciones. Fomenta la especialización, pero puede generar "silos" que no se hablan entre sí.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/organigrama-funcional.png',
+        alt: 'Organigrama funcional: dirección general en la cima y debajo direcciones por función (industrial, comercial, financiera y de RR. HH.) con sus áreas',
+        caption:
+          'Estructura funcional: la dirección general encabeza varias direcciones agrupadas por función (industrial, comercial, financiera, RR. HH.), cada una con sus áreas.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Agrupa a los empleados según la función o especialidad (departamentos de Finanzas, Marketing, RR. HH., Operaciones).',
+          'Ventajas: fomenta la especialización y la eficiencia dentro de cada función; facilita la supervisión.',
+          'Desventajas: puede crear "silos" (departamentos que no se comunican bien); respuesta lenta a los cambios del mercado.',
+          'Ideal para: organizaciones medianas con un número limitado de productos.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'C. Estructura por producto/mercado (divisional)',
+        criollo:
+          'Divide la empresa en divisiones casi autónomas, cada una enfocada en un producto, mercado o región. Más enfoque, pero se duplican recursos.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/organigrama-divisional.png',
+        alt: 'Organigrama divisional: la presidencia en la cima y debajo divisiones organizadas por mercado o producto',
+        caption:
+          'Estructura divisional: la presidencia encabeza divisiones semiautónomas organizadas por producto, mercado o región (cada una casi como una empresa propia).',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Organiza la empresa en divisiones semiautónomas, cada una enfocada en un producto, mercado, cliente o región; cada división opera casi como una empresa independiente, con su propio gerente y departamentos.',
+          'Ventajas: mayor enfoque en resultados específicos, mayor adaptabilidad al entorno, libera a la alta dirección de la gestión diaria.',
+          'Desventajas: duplicación de recursos y costos (cada división tiene su propio marketing, por ejemplo); puede generar competencia destructiva entre divisiones.',
+          'Ideal para: grandes corporaciones con cartera diversificada (como Nestlé o General Electric).',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'D. Estructura matricial',
+        criollo:
+          'Híbrida: combina la funcional con la de producto/proyecto. El empleado tiene dos jefes (uno funcional y uno de proyecto). Muy flexible, pero rompe la unidad de mando y puede generar conflictos.',
+      },
+      {
+        type: 'figure',
+        src: 'images/diagrams/sistemas-y-metodos/organigrama-matricial.png',
+        alt: 'Organigrama matricial: jefes funcionales en columnas y gerentes de proyecto en filas, formando una grilla de doble mando',
+        caption:
+          'Estructura matricial: cruza las jefaturas funcionales (columnas) con los gerentes de proyecto (filas); cada empleado responde a dos mandos.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Combina dos formas de departamentalización (generalmente la funcional y la de producto/proyecto); los empleados tienen dos jefes: un gerente funcional (vertical) y un gerente de proyecto (horizontal). Es un sistema de mando múltiple.',
+          'Ventajas: muy flexible, responde rápido a los cambios, permite usar especialistas en distintos proyectos.',
+          'Desventajas: rompe el principio de unidad de mando, lo que puede generar confusión y conflictos de poder; requiere mucha comunicación y colaboración.',
+          'Ideal para: entornos complejos y dinámicos (agencias de publicidad, consultoras, compañías aeroespaciales como la NASA).',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Organización formal e informal',
+        criollo:
+          'La formal es la oficial, la del organigrama. La informal es la red de relaciones que surge sola entre la gente. Un buen gerente no pelea contra la informal: la entiende y la usa a favor.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Organización formal</strong>: estructura oficial y planificada por la dirección; se basa en la división del trabajo, la autoridad formal y reglas predefinidas, y se representa con el organigrama. Clarifica objetivos y responsabilidades, pero puede reprimir la iniciativa individual.',
+          '<strong>Organización informal</strong>: red de relaciones sociales que surge espontáneamente (amistad, intereses comunes); tiene líderes informales y se basa en valores de grupo. Satisface necesidades sociales y mejora la comunicación por el "radiopasillo", pero puede generar rumores y resistencia al cambio.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text:
+          'Un gerente inteligente no intenta eliminar la organización informal, sino que aprende a entenderla, alinearla con los objetivos formales y usar sus canales de comunicación para el beneficio de la organización.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-50-1',
+          q: 'La estructura lineal (o piramidal) se caracteriza por líneas de autoridad directas y toma de decisiones rápida.',
+          a: true,
+          explain:
+            'Verdadero. La lineal es la más simple: autoridad directa desde la cima, decisiones rápidas, aunque rígida y poco especializada.',
+        },
+        {
+          id: 'tf-50-2',
+          q: 'En la estructura matricial, cada empleado responde a un único jefe.',
+          a: false,
+          explain:
+            'Falso. La matricial es de mando múltiple: el empleado tiene dos jefes (uno funcional y uno de proyecto), lo que rompe la unidad de mando.',
+        },
+        {
+          id: 'tf-50-3',
+          q: 'La organización informal se representa mediante el organigrama oficial.',
+          a: false,
+          explain:
+            'Falso. El organigrama representa la organización formal. La informal es la red de relaciones espontáneas, que no figura en el organigrama.',
+        },
+        {
+          id: 'tf-50-4',
+          q: 'La estructura funcional puede generar "silos" donde los departamentos no se comunican bien entre sí.',
+          a: true,
+          explain:
+            'Verdadero. Es una de las desventajas de la estructura funcional: la especialización puede aislar a los departamentos.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-50-1',
+          q: '¿Qué estructura organiza la empresa en divisiones semiautónomas enfocadas en un producto, mercado o región?',
+          options: [
+            'Estructura lineal',
+            'Estructura funcional',
+            'Estructura divisional (por producto/mercado)',
+            'Estructura matricial',
+          ],
+          correctIndex: 2,
+          explain:
+            'La estructura divisional organiza la empresa en divisiones semiautónomas, cada una enfocada en un producto, mercado, cliente o región.',
+        },
+        {
+          id: 'mc-50-2',
+          q: '¿Cuál es la principal desventaja de la estructura matricial?',
+          options: [
+            'Es demasiado simple y rígida',
+            'Rompe el principio de unidad de mando, generando confusión y conflictos de poder',
+            'No permite usar especialistas',
+            'No se adapta a los cambios',
+          ],
+          correctIndex: 1,
+          explain:
+            'La matricial rompe la unidad de mando (dos jefes), lo que puede generar confusión y conflictos de poder.',
+        },
+        {
+          id: 'mc-50-3',
+          q: '¿Qué debería hacer un gerente inteligente con la organización informal?',
+          options: [
+            'Eliminarla por completo',
+            'Ignorarla totalmente',
+            'Entenderla, alinearla con los objetivos formales y usar sus canales de comunicación',
+            'Prohibir las relaciones sociales',
+          ],
+          correctIndex: 2,
+          explain:
+            'Un gerente inteligente no elimina la informal: la entiende, la alinea con los objetivos formales y aprovecha sus canales.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-50-1',
+          q: '¿Cuáles son los cuatro tipos básicos de estructura organizacional?',
+          options: [
+            'Lineal (o piramidal)',
+            'Funcional',
+            'Divisional (por producto/mercado)',
+            'Matricial',
+            'Circular aleatoria',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cuatro tipos son lineal, funcional, divisional y matricial. No existe una "estructura circular aleatoria".',
+        },
+        {
+          id: 'ms-50-2',
+          q: '¿Qué afirmaciones sobre la organización formal e informal son correctas?',
+          options: [
+            'La formal es oficial y planificada por la dirección',
+            'La formal se representa con el organigrama',
+            'La informal surge espontáneamente de las relaciones sociales',
+            'La informal tiene líderes informales y usa el "radiopasillo"',
+            'La informal está definida por la dirección en un manual',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son del apunte. La informal NO está definida por la dirección: surge sola.',
+        },
+        {
+          id: 'ms-50-3',
+          q: '¿Qué ventajas tiene la estructura divisional?',
+          options: [
+            'Mayor enfoque en resultados específicos',
+            'Mayor adaptabilidad al entorno',
+            'Libera a la alta dirección de la gestión diaria',
+            'Elimina por completo la duplicación de recursos',
+            'Garantiza que nunca haya competencia entre divisiones',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son ventajas. Justamente la divisional TIENE como desventaja la duplicación de recursos y la posible competencia entre divisiones.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-50-1',
+        front: 'Estructura lineal (piramidal)',
+        back:
+          'La más simple: autoridad directa desde la cima. Ventajas: clara y rápida. Desventajas: rígida, sobrecarga a los jefes. Ideal para empresas muy pequeñas.',
+      },
+      {
+        id: 'fc-50-2',
+        front: 'Estructura funcional',
+        back:
+          'Agrupa por especialidad (Finanzas, Marketing, RR. HH.). Fomenta la especialización, pero puede crear "silos". Ideal para empresas medianas.',
+      },
+      {
+        id: 'fc-50-3',
+        front: 'Estructura divisional',
+        back:
+          'Divisiones semiautónomas por producto, mercado o región. Más enfoque y adaptabilidad, pero duplica recursos. Ideal para grandes corporaciones (Nestlé, GE).',
+      },
+      {
+        id: 'fc-50-4',
+        front: 'Estructura matricial',
+        back:
+          'Combina funcional y por proyecto: doble jefe (mando múltiple). Muy flexible, pero rompe la unidad de mando. Ideal para entornos complejos (NASA, consultoras).',
+      },
+      {
+        id: 'fc-50-5',
+        front: 'Organización formal vs. informal',
+        back:
+          'Formal: oficial, planificada, representada en el organigrama. Informal: red de relaciones espontáneas, con líderes informales y el "radiopasillo".',
+      },
+    ],
+  },
+
+  // ====================================================================
+  // UNIDAD 6 — La organización: el poder y la autoridad
+  // ====================================================================
+
+  // ---------- SECCIÓN 51 ----------
+  {
+    id: '51',
+    unit: '6',
+    title: 'Poder, influencia y autoridad. Las fuentes del poder',
+    criollo:
+      'Tres conceptos que se mezclan pero no son lo mismo: el poder es la capacidad de cambiar la conducta de otros; la influencia es esa capacidad en acción; la autoridad es el poder legitimado por el cargo. Y el poder tiene cinco fuentes clásicas (French y Raven): recompensa, coerción, legítimo, experto y referente.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Poder, influencia y autoridad',
+        criollo:
+          'Poder = capacidad (la tenés aunque no la uses). Influencia = el poder en acción, que cambia algo de verdad. Autoridad = poder institucionalizado, el derecho a mandar que te da el cargo.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Poder</strong>: capacidad potencial de un individuo o grupo para modificar el comportamiento o las actitudes de otros. Es la habilidad de A para hacer que B haga algo que de otra manera no haría. No requiere un cargo formal y su mera existencia ya afecta a los demás.',
+          '<strong>Influencia</strong>: la manifestación activa del poder; es el "verbo" del poder. Si el poder es la capacidad, la influencia es su ejercicio, que resulta en un cambio real en el comportamiento o las actitudes de otra persona.',
+          '<strong>Autoridad</strong>: un tipo específico de poder legitimado por la estructura formal de la organización. Es el derecho a dar órdenes y esperar que se obedezcan, conferido por un cargo. Es poder institucionalizado, jerárquico, que fluye de arriba hacia abajo por la cadena de mando.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'La diferencia clave: el poder puede ser multidireccional y surgir de cualquier parte; la autoridad es jerárquica y deriva del cargo. Un empleado con un conocimiento técnico indispensable tiene poder aunque no sea el jefe; un gerente tiene autoridad sobre sus subordinados por el cargo que ocupa, no por sus cualidades personales.',
+      },
+      {
+        type: 'h3',
+        text: 'Las fuentes del poder (French y Raven)',
+        criollo:
+          'Los sociólogos French y Raven clasificaron de dónde sale el poder. Hay cinco fuentes: dos atadas al premio/castigo (recompensa y coercitivo), una al cargo (legítimo), una al conocimiento (experto) y una a la persona (referente).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Poder de recompensa</strong>: se basa en la capacidad de distribuir recompensas que otros valoran, tangibles (aumentos, bonos, ascensos) o intangibles (reconocimiento, proyectos interesantes). Ej.: un jefe de ventas que ofrece una bonificación a quien supere la cuota.',
+          '<strong>Poder coercitivo</strong>: la contracara; se basa en aplicar castigos o consecuencias negativas. Su motor es el miedo (amenazas de despido, tareas desagradables, sanciones). Efectivo a corto plazo, pero su abuso genera resentimiento y un ambiente tóxico.',
+          '<strong>Poder legítimo</strong>: deriva de la posición formal en la jerarquía; es sinónimo de autoridad. Ej.: el CEO tiene poder legítimo para fijar la dirección estratégica.',
+          '<strong>Poder de experto</strong>: proviene de conocimientos, habilidades o pericia especial. No depende del cargo: un programador junior puede tener más poder de experto en un lenguaje que su gerente.',
+          '<strong>Poder de referencia (referente)</strong>: se basa en las cualidades personales que inspiran admiración, respeto o lealtad (carisma, integridad). La gente sigue a esa persona porque la admira; está asociado al liderazgo transformacional.',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-51-1',
+          q: 'El poder es la capacidad potencial de modificar el comportamiento o las actitudes de otros, y no requiere necesariamente un cargo formal.',
+          a: true,
+          explain:
+            'Verdadero. El poder es una capacidad (la habilidad de A para hacer que B haga algo); puede surgir de diversas fuentes, no solo del cargo.',
+        },
+        {
+          id: 'tf-51-2',
+          q: 'La autoridad es un tipo de poder legitimado por la estructura formal de la organización.',
+          a: true,
+          explain:
+            'Verdadero. La autoridad es poder institucionalizado: el derecho a dar órdenes conferido por un cargo, que fluye por la cadena de mando.',
+        },
+        {
+          id: 'tf-51-3',
+          q: 'El poder de experto depende del cargo que ocupa la persona en la jerarquía.',
+          a: false,
+          explain:
+            'Falso. El poder de experto proviene del conocimiento o la pericia, no del cargo. El que depende del cargo es el poder legítimo.',
+        },
+        {
+          id: 'tf-51-4',
+          q: 'La influencia es la manifestación activa del poder: su ejercicio que genera un cambio real.',
+          a: true,
+          explain:
+            'Verdadero. Si el poder es la capacidad, la influencia es su ejercicio, que produce un cambio real en el comportamiento o las actitudes.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-51-1',
+          q: '¿Cuál es la diferencia entre poder y autoridad?',
+          options: [
+            'Son exactamente lo mismo',
+            'El poder puede surgir de cualquier parte y ser multidireccional; la autoridad es jerárquica y deriva del cargo',
+            'La autoridad puede surgir de cualquier parte; el poder solo del cargo',
+            'El poder solo lo tienen los gerentes',
+          ],
+          correctIndex: 1,
+          explain:
+            'El poder es multidireccional y puede surgir de varias fuentes; la autoridad es jerárquica, deriva del cargo y fluye de arriba hacia abajo.',
+        },
+        {
+          id: 'mc-51-2',
+          q: '¿En qué se basa el poder coercitivo?',
+          options: [
+            'En la capacidad de distribuir recompensas',
+            'En el conocimiento o la pericia',
+            'En la capacidad de aplicar castigos o consecuencias negativas (el miedo)',
+            'En el carisma y la admiración',
+          ],
+          correctIndex: 2,
+          explain:
+            'El poder coercitivo se basa en aplicar castigos o consecuencias negativas; su motor es el miedo.',
+        },
+        {
+          id: 'mc-51-3',
+          q: 'Un miembro del equipo respetado por su carisma e integridad, a quien los demás siguen por admiración, ejerce...',
+          options: [
+            'Poder legítimo',
+            'Poder de recompensa',
+            'Poder coercitivo',
+            'Poder de referencia (referente)',
+          ],
+          correctIndex: 3,
+          explain:
+            'El poder de referencia se basa en las cualidades personales (carisma, integridad) que inspiran admiración, respeto o lealtad.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-51-1',
+          q: '¿Cuáles son las cinco fuentes de poder de French y Raven?',
+          options: [
+            'Poder de recompensa',
+            'Poder coercitivo',
+            'Poder legítimo',
+            'Poder de experto y de referencia',
+            'Poder económico nacional',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las cinco fuentes son recompensa, coercitivo, legítimo, experto y referente. El "poder económico nacional" no es una de ellas.',
+        },
+        {
+          id: 'ms-51-2',
+          q: '¿Qué afirmaciones sobre poder, influencia y autoridad son correctas?',
+          options: [
+            'El poder es la capacidad de modificar el comportamiento de otros',
+            'La influencia es el poder en acción (un cambio real)',
+            'La autoridad es poder legitimado por la estructura formal',
+            'La autoridad fluye de arriba hacia abajo por la cadena de mando',
+            'El poder solo puede provenir de un cargo formal',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son del apunte. El poder NO requiere necesariamente un cargo formal: puede surgir de varias fuentes.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-51-1',
+        front: 'Poder',
+        back:
+          'Capacidad potencial de modificar el comportamiento o las actitudes de otros (que A haga que B haga algo). No requiere un cargo formal.',
+      },
+      {
+        id: 'fc-51-2',
+        front: 'Influencia',
+        back:
+          'La manifestación activa del poder; su ejercicio, que produce un cambio real en el comportamiento o las actitudes de otra persona.',
+      },
+      {
+        id: 'fc-51-3',
+        front: 'Autoridad',
+        back:
+          'Tipo de poder legitimado por la estructura formal: derecho a dar órdenes conferido por el cargo. Poder institucionalizado, jerárquico, de arriba hacia abajo.',
+      },
+      {
+        id: 'fc-51-4',
+        front: 'Poder de recompensa y coercitivo',
+        back:
+          'Recompensa: capacidad de dar premios (tangibles o intangibles). Coercitivo: capacidad de aplicar castigos; su motor es el miedo.',
+      },
+      {
+        id: 'fc-51-5',
+        front: 'Poder legítimo, de experto y referente',
+        back:
+          'Legítimo: deriva del cargo (= autoridad). Experto: del conocimiento/pericia. Referente: de las cualidades personales (carisma) que inspiran admiración.',
+      },
+      {
+        id: 'fc-51-6',
+        front: 'French y Raven',
+        back:
+          'Sociólogos que clasificaron las cinco fuentes del poder organizacional: recompensa, coercitivo, legítimo, experto y referente.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 52 ----------
+  {
+    id: '52',
+    unit: '6',
+    title: 'Tipos de autoridad, centralización y coordinación',
+    criollo:
+      'La autoridad formal viene en tres sabores: lineal (la cadena de mando), de staff (asesora, no manda) y funcional (un staff que sí controla un tema puntual en otras áreas). Además, las decisiones pueden estar concentradas (centralización) o repartidas (descentralización), y todo se integra con los mecanismos de coordinación de Mintzberg.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Tipos de autoridad',
+        criollo:
+          'Lineal: la que baja por la cadena de mando y toma decisiones directas. Staff: asesora y da servicios, pero no da órdenes. Funcional: un staff que, para un tema específico, sí puede exigir a otras áreas (rompe la unidad de mando).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Autoridad lineal</strong>: fluye directamente por la cadena de mando. Los gerentes de línea tienen la responsabilidad y el poder de tomar decisiones y dar órdenes directas para alcanzar los objetivos principales. Es la columna vertebral de la jerarquía (ej.: director de operaciones → gerentes de planta → supervisores).',
+          '<strong>Autoridad de staff</strong>: corresponde a individuos o departamentos que brindan asesoramiento, servicios y apoyo a los gerentes de línea. No dan órdenes directas: aconsejan y recomiendan (ej.: RR. HH., Jurídico, I+D). Su objetivo es aumentar la eficacia de la línea.',
+          '<strong>Autoridad funcional</strong>: forma especializada que rompe la unidad de mando; otorga a un miembro del staff el derecho de controlar actividades específicas en otros departamentos, para garantizar uniformidad y cumplimiento de políticas (ej.: el director de Finanzas exige que todos presenten sus informes de gastos en un formato y fecha determinados).',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Jerarquía, centralización y descentralización',
+        criollo:
+          'Jerarquía: ordenar a la gente en rangos. Centralización: las decisiones se concentran arriba. Descentralización: las decisiones bajan a niveles inferiores (vertical) o salen de la línea de mando hacia especialistas (horizontal).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Jerarquía</strong>: organización de personas en rangos o niveles, uno por encima del otro; establece quién reporta a quién (ej.: estructuras militares o eclesiásticas).',
+          '<strong>Centralización</strong>: grado en que la toma de decisiones está concentrada en un único punto, en los niveles más altos. Permite control estricto y uniformidad (útil en crisis), pero ralentiza las decisiones y puede desmotivar.',
+          '<strong>Descentralización</strong>: transferencia de la autoridad de decisión a los niveles más bajos. Puede ser vertical (el poder baja por la cadena de mando) u horizontal (el poder fluye hacia analistas o especialistas fuera de la línea). Agiliza decisiones y aumenta la motivación, pero puede hacer perder control.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Coordinación: los mecanismos de Mintzberg',
+        criollo:
+          'Coordinar es integrar las partes para alcanzar las metas. Henry Mintzberg describió cinco mecanismos para lograrlo, desde la charla informal hasta estandarizar el trabajo, los resultados o la formación de la gente.',
+      },
+      {
+        type: 'p',
+        text:
+          'La coordinación es el proceso de integrar las actividades de las diferentes partes de una organización para alcanzar sus metas de manera eficiente. Henry Mintzberg describió cinco mecanismos de coordinación:',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Ajuste mutuo</strong>: coordinación por comunicación informal. Típico en organizaciones muy simples (dos personas remando) o muy complejas (un equipo de científicos de alto nivel).',
+          '<strong>Supervisión directa</strong>: un gerente asume la responsabilidad del trabajo de otros, dando órdenes y supervisando. Es el mecanismo principal de las estructuras jerárquicas.',
+          '<strong>Estandarización de procesos de trabajo</strong>: se especifica el contenido del trabajo (manuales de procedimientos, protocolos; la línea de ensamblaje).',
+          '<strong>Estandarización de resultados (outputs)</strong>: se especifican los resultados, pero no cómo lograrlos (a un vendedor se le da una cuota, pero elige cómo alcanzarla).',
+          '<strong>Estandarización de habilidades (skills)</strong>: se especifica la formación y el conocimiento del trabajador (un cirujano y un anestesista saben qué esperar el uno del otro gracias a su formación, sin comunicación constante).',
+        ],
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-52-1',
+          q: 'La autoridad de staff brinda asesoramiento y servicios, pero no puede dar órdenes directas a los departamentos de línea.',
+          a: true,
+          explain:
+            'Verdadero. El staff aconseja y recomienda para aumentar la eficacia de la línea, pero no da órdenes directas.',
+        },
+        {
+          id: 'tf-52-2',
+          q: 'La autoridad funcional respeta estrictamente el principio de unidad de mando.',
+          a: false,
+          explain:
+            'Falso. La autoridad funcional rompe la unidad de mando: permite a un staff controlar actividades específicas en otros departamentos.',
+        },
+        {
+          id: 'tf-52-3',
+          q: 'La descentralización implica transferir la autoridad de decisión a los niveles más bajos de la organización.',
+          a: true,
+          explain:
+            'Verdadero. La descentralización transfiere la toma de decisiones hacia abajo (vertical) o hacia especialistas fuera de la línea (horizontal).',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-52-1',
+          q: '¿Qué autoridad es la columna vertebral de la jerarquía y fluye por la cadena de mando?',
+          options: [
+            'Autoridad de staff',
+            'Autoridad funcional',
+            'Autoridad lineal',
+            'Autoridad informal',
+          ],
+          correctIndex: 2,
+          explain:
+            'La autoridad lineal fluye por la cadena de mando, toma decisiones directas y es la columna vertebral de la jerarquía.',
+        },
+        {
+          id: 'mc-52-2',
+          q: '¿Qué caracteriza a la centralización?',
+          options: [
+            'La toma de decisiones se reparte en los niveles bajos',
+            'La toma de decisiones está concentrada en los niveles más altos',
+            'No hay ninguna jerarquía',
+            'Las decisiones las toman los especialistas de staff',
+          ],
+          correctIndex: 1,
+          explain:
+            'La centralización concentra la toma de decisiones en un único punto, en los niveles más altos de la organización.',
+        },
+        {
+          id: 'mc-52-3',
+          q: 'En los hospitales, los cirujanos y anestesistas se coordinan sin comunicación constante gracias a su formación. ¿Qué mecanismo de Mintzberg es?',
+          options: [
+            'Ajuste mutuo',
+            'Supervisión directa',
+            'Estandarización de procesos de trabajo',
+            'Estandarización de habilidades (skills)',
+          ],
+          correctIndex: 3,
+          explain:
+            'La estandarización de habilidades especifica la formación del trabajador; por eso el cirujano y el anestesista saben qué esperar uno del otro.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-52-1',
+          q: '¿Cuáles son los tres tipos de autoridad formal?',
+          options: [
+            'Autoridad lineal',
+            'Autoridad de staff',
+            'Autoridad funcional',
+            'Autoridad carismática',
+            'Autoridad coercitiva',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Los tres tipos de autoridad formal son lineal, de staff y funcional. Las otras dos no pertenecen a esta clasificación.',
+        },
+        {
+          id: 'ms-52-2',
+          q: '¿Cuáles son mecanismos de coordinación de Mintzberg?',
+          options: [
+            'Ajuste mutuo',
+            'Supervisión directa',
+            'Estandarización de procesos de trabajo',
+            'Estandarización de resultados y de habilidades',
+            'Eliminación de toda comunicación',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Los cinco mecanismos (agrupados en las cuatro primeras opciones) son ajuste mutuo, supervisión directa y estandarización de procesos, resultados y habilidades.',
+        },
+        {
+          id: 'ms-52-3',
+          q: '¿Qué ventajas tiene la descentralización?',
+          options: [
+            'Agiliza la toma de decisiones',
+            'Permite mayor adaptabilidad a las condiciones locales',
+            'Aumenta la motivación y el desarrollo de los empleados',
+            'Garantiza siempre un control central perfecto',
+            'Elimina la necesidad de coordinación',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Las primeras tres son ventajas de la descentralización. Justamente puede hacer PERDER control central, y no elimina la coordinación.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-52-1',
+        front: 'Autoridad lineal',
+        back:
+          'Fluye por la cadena de mando; toma decisiones y da órdenes directas para los objetivos principales. Es la columna vertebral de la jerarquía.',
+      },
+      {
+        id: 'fc-52-2',
+        front: 'Autoridad de staff',
+        back:
+          'Asesora, da servicios y apoya a la línea (RR. HH., Jurídico, I+D), pero no da órdenes directas. Aumenta la eficacia de la línea.',
+      },
+      {
+        id: 'fc-52-3',
+        front: 'Autoridad funcional',
+        back:
+          'Rompe la unidad de mando: un staff controla actividades específicas en otros departamentos para garantizar uniformidad (ej.: Finanzas exige un formato de informes a todos).',
+      },
+      {
+        id: 'fc-52-4',
+        front: 'Centralización vs. descentralización',
+        back:
+          'Centralización: decisiones concentradas arriba (control, uniformidad). Descentralización: decisiones repartidas abajo (vertical) o hacia especialistas (horizontal); agiliza y motiva.',
+      },
+      {
+        id: 'fc-52-5',
+        front: 'Mecanismos de coordinación (Mintzberg)',
+        back:
+          'Ajuste mutuo, supervisión directa, y estandarización de procesos de trabajo, de resultados (outputs) y de habilidades (skills).',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 53 ----------
+  {
+    id: '53',
+    unit: '6',
+    title: 'Caso resuelto: Presión en la sala de proyectos',
+    criollo:
+      'Un caso práctico para fijar las fuentes de poder. En una agencia, cinco personas presionan al equipo de formas distintas, y cada una representa un tipo de poder de French y Raven. La gracia es reconocer cuál usa cada uno y por qué.',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'El caso "Presión en la sala de proyectos" plantea una situación en una agencia donde cinco personas intentan influir sobre el equipo. La resolución consiste en identificar qué tipo de poder representa cada una y justificarlo.',
+      },
+      {
+        type: 'h3',
+        text: 'Sofía — Poder legítimo',
+        criollo:
+          'Manda porque es la jefa: su influencia viene del cargo, no de sus cualidades.',
+      },
+      {
+        type: 'p',
+        text:
+          'Su influencia proviene directamente de su posición formal en la jerarquía. Como Directora General de Cuentas, tiene la autoridad reconocida para dar órdenes y esperar que se cumplan. El equipo obedece no por sus cualidades personales, sino por el cargo que ocupa.',
+      },
+      {
+        type: 'h3',
+        text: 'Javier — Poder de recompensa',
+        criollo:
+          'Influye prometiendo algo bueno: un bono extra y días libres.',
+      },
+      {
+        type: 'p',
+        text:
+          'Basa su capacidad de influencia en la habilidad de ofrecer algo valioso. La promesa de un "bono extra" y "días libres" actúa como un incentivo positivo para motivar al equipo a cumplir con el objetivo.',
+      },
+      {
+        type: 'h3',
+        text: 'Ricardo — Poder coercitivo',
+        criollo:
+          'Influye amenazando: si no cumplen, informa a la dirección y se opone al bono. Mueve por el miedo.',
+      },
+      {
+        type: 'p',
+        text:
+          'Su influencia se fundamenta en la capacidad de aplicar castigos o consecuencias negativas. La amenaza de "informar a la dirección" y "oponerse al bono" genera presión a través del miedo, y fuerza al equipo a cumplir para evitar un resultado desfavorable.',
+      },
+      {
+        type: 'h3',
+        text: 'Elena — Poder de experto',
+        criollo:
+          'La escuchan por lo que sabe, no por su cargo: es una redactora galardonada con mucha experiencia.',
+      },
+      {
+        type: 'p',
+        text:
+          'Su poder no deriva de su cargo, sino de su conocimiento, habilidad y vasta experiencia. El respeto y la influencia que tiene sobre el resto del equipo —incluida la directora— se deben a su reconocida pericia como redactora publicitaria galardonada.',
+      },
+      {
+        type: 'h3',
+        text: 'Mateo — Poder de referencia (referente)',
+        criollo:
+          'Lo siguen porque lo admiran: carisma, buena actitud, respeto. No tiene cargo ni premia ni castiga.',
+      },
+      {
+        type: 'p',
+        text:
+          'Su influencia se basa en sus cualidades personales: su carisma, su actitud positiva y el respeto que inspira. Sus compañeros lo siguen y se sienten motivados por él debido a la admiración y la lealtad que sienten, no porque tenga autoridad formal ni capacidad de recompensar o castigar.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Truco para reconocerlos: si la influencia viene del cargo → legítimo; de premiar → recompensa; de castigar/amenazar → coercitivo; de lo que sabe → experto; de cómo es la persona (admiración) → referente.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-53-1',
+          q: 'En el caso, Sofía ejerce poder legítimo porque su influencia proviene de su cargo de Directora General de Cuentas.',
+          a: true,
+          explain:
+            'Verdadero. El equipo la obedece por el cargo que ocupa, no por sus cualidades personales: eso es poder legítimo.',
+        },
+        {
+          id: 'tf-53-2',
+          q: 'Ricardo, que amenaza con informar a la dirección y oponerse al bono, ejerce poder de recompensa.',
+          a: false,
+          explain:
+            'Falso. Ricardo ejerce poder coercitivo: influye mediante amenazas y el miedo a consecuencias negativas.',
+        },
+        {
+          id: 'tf-53-3',
+          q: 'Elena tiene poder de experto porque su influencia se basa en su conocimiento y experiencia, no en su cargo.',
+          a: true,
+          explain:
+            'Verdadero. Su influencia proviene de su reconocida pericia como redactora galardonada, no de su posición formal.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-53-1',
+          q: 'Javier promete un "bono extra" y "días libres" para motivar al equipo. ¿Qué poder ejerce?',
+          options: [
+            'Poder legítimo',
+            'Poder de recompensa',
+            'Poder coercitivo',
+            'Poder de experto',
+          ],
+          correctIndex: 1,
+          explain:
+            'Ofrecer incentivos valiosos (bono, días libres) es poder de recompensa.',
+        },
+        {
+          id: 'mc-53-2',
+          q: 'Mateo es seguido por su carisma, actitud positiva y el respeto que inspira. ¿Qué poder representa?',
+          options: [
+            'Poder coercitivo',
+            'Poder legítimo',
+            'Poder de referencia (referente)',
+            'Poder de recompensa',
+          ],
+          correctIndex: 2,
+          explain:
+            'El poder de referencia se basa en las cualidades personales (carisma, respeto) que inspiran admiración y lealtad.',
+        },
+        {
+          id: 'mc-53-3',
+          q: '¿Qué fuente de poder se reconoce cuando la influencia proviene de lo que la persona sabe y no de su cargo?',
+          options: [
+            'Poder legítimo',
+            'Poder de experto',
+            'Poder coercitivo',
+            'Poder de recompensa',
+          ],
+          correctIndex: 1,
+          explain:
+            'Cuando la influencia viene del conocimiento o la pericia (no del cargo), es poder de experto.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-53-1',
+          q: '¿Qué personaje del caso corresponde a cada fuente de poder?',
+          options: [
+            'Sofía: poder legítimo (cargo)',
+            'Javier: poder de recompensa (bono, días libres)',
+            'Ricardo: poder coercitivo (amenazas)',
+            'Elena: poder de experto (pericia)',
+            'Mateo: poder coercitivo (miedo)',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro asignaciones son correctas. Mateo representa el poder de referencia (referente), no el coercitivo.',
+        },
+        {
+          id: 'ms-53-2',
+          q: '¿Qué señales ayudan a identificar el tipo de poder?',
+          options: [
+            'La influencia viene del cargo → legítimo',
+            'La influencia viene de premiar → recompensa',
+            'La influencia viene de castigar o amenazar → coercitivo',
+            'La influencia viene del conocimiento → experto; de la admiración → referente',
+            'Todos los tipos de poder dependen del cargo',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son las claves para reconocer cada fuente. No todos dependen del cargo: el experto y el referente no.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-53-1',
+        front: 'Caso: Sofía',
+        back:
+          'Poder legítimo: su influencia viene del cargo (Directora General de Cuentas). El equipo obedece por la posición, no por sus cualidades.',
+      },
+      {
+        id: 'fc-53-2',
+        front: 'Caso: Javier',
+        back:
+          'Poder de recompensa: promete un bono extra y días libres como incentivo positivo.',
+      },
+      {
+        id: 'fc-53-3',
+        front: 'Caso: Ricardo',
+        back:
+          'Poder coercitivo: amenaza con informar a la dirección y oponerse al bono; influye por el miedo.',
+      },
+      {
+        id: 'fc-53-4',
+        front: 'Caso: Elena',
+        back:
+          'Poder de experto: su influencia viene de su conocimiento y experiencia (redactora galardonada), no del cargo.',
+      },
+      {
+        id: 'fc-53-5',
+        front: 'Caso: Mateo',
+        back:
+          'Poder de referencia (referente): lo siguen por su carisma, actitud y el respeto que inspira, sin cargo ni premios ni castigos.',
+      },
+    ],
+  },
+
+  // ====================================================================
+  // UNIDAD 7 — La organización: descripción de puestos y tipos de equipos
+  // ====================================================================
+
+  // ---------- SECCIÓN 54 ----------
+  {
+    id: '54',
+    unit: '7',
+    title: 'El puesto de trabajo: componentes y la diferencia con el rol',
+    criollo:
+      'El puesto de trabajo es la célula de la organización: una posición formal en el organigrama con tareas, responsabilidad y autoridad definidas. Ojo con la diferencia entre puesto (lo formal, lo que está escrito) y rol (cómo cada persona vive e interpreta ese puesto en el día a día).',
+    blocks: [
+      {
+        type: 'p',
+        text:
+          'Toda organización se fundamenta en unidades básicas que le dan forma. La unidad fundamental de esa estructura es el puesto de trabajo: una posición específica y formal dentro del organigrama, que implica un conjunto predefinido de tareas, deberes y responsabilidades asignadas a la persona que lo ocupa.',
+      },
+      {
+        type: 'h3',
+        text: 'Componentes del puesto',
+        criollo:
+          'Tres patas: tareas (qué hacés), responsabilidad (de qué rendís cuentas) y autoridad (qué podés decidir).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Tareas</strong>: el "qué se hace"; las acciones y actividades concretas que el ocupante ejecuta. Ej.: un analista de marketing digital gestiona redes, redacta copys, analiza métricas y genera reportes.',
+          '<strong>Responsabilidad</strong>: el "sobre qué se rinde cuentas"; la obligación de responder por los resultados de las tareas. Ej.: el analista responde por el objetivo de aumentar un 15 % la interacción en Instagram.',
+          '<strong>Autoridad</strong>: el "qué decisiones se pueden tomar"; el grado de autonomía para usar recursos, dar órdenes y decidir sin consultar a un superior. Ej.: el analista decide el contenido diario, pero necesita aprobación para una campaña de más de cierto presupuesto.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Puesto vs. rol',
+        criollo:
+          'El puesto es la descripción formal y estática (el "papel" que dice qué se espera). El rol es la parte dinámica: cómo cada persona interpreta y vive ese puesto, con comportamientos que no siempre están escritos.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Puesto</strong>: la descripción formal y estática; el documento que detalla lo que se espera de la posición.',
+          '<strong>Rol</strong>: la dimensión dinámica y conductual; la forma en que una persona vive e interpreta ese puesto en su interacción diaria, incluyendo comportamientos y expectativas que no siempre están escritos.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text:
+          'Ejemplo: dos personas ocupan el mismo puesto de "vendedor de salón". El Vendedor A cumple estrictamente (atiende, vende, ordena su sector). El Vendedor B desempeña un rol más proactivo: se acerca a indecisos, recuerda nombres, avisa de promociones, colabora con stock. Mismo puesto, distinto rol e impacto.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-54-1',
+          q: 'El puesto de trabajo es una posición específica y formal dentro del organigrama, con tareas y responsabilidades predefinidas.',
+          a: true,
+          explain:
+            'Verdadero. El puesto es la unidad fundamental de la estructura: una posición formal con tareas, deberes y responsabilidades asignadas.',
+        },
+        {
+          id: 'tf-54-2',
+          q: 'La "autoridad" de un puesto define las acciones concretas que el ocupante debe ejecutar.',
+          a: false,
+          explain:
+            'Falso. Eso son las "tareas" (el qué se hace). La autoridad es el grado de autonomía para tomar decisiones y usar recursos.',
+        },
+        {
+          id: 'tf-54-3',
+          q: 'El puesto es la descripción formal y estática, mientras que el rol es la dimensión dinámica y conductual.',
+          a: true,
+          explain:
+            'Verdadero. El puesto es lo escrito y formal; el rol es cómo la persona lo vive e interpreta en la interacción diaria.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-54-1',
+          q: '¿Cuáles son los tres componentes clave de un puesto de trabajo?',
+          options: [
+            'Sueldo, horario y vacaciones',
+            'Tareas, responsabilidad y autoridad',
+            'Misión, visión y valores',
+            'Eficiencia, eficacia y calidad',
+          ],
+          correctIndex: 1,
+          explain:
+            'Los componentes son tareas (qué se hace), responsabilidad (sobre qué se rinde cuentas) y autoridad (qué decisiones se pueden tomar).',
+        },
+        {
+          id: 'mc-54-2',
+          q: '¿Qué es la "responsabilidad" en un puesto de trabajo?',
+          options: [
+            'Las acciones concretas que se ejecutan',
+            'La obligación de responder por los resultados de las tareas asignadas',
+            'El grado de autonomía para decidir',
+            'La descripción dinámica del puesto',
+          ],
+          correctIndex: 1,
+          explain:
+            'La responsabilidad es el "sobre qué se rinde cuentas": la obligación de responder por los resultados de las tareas.',
+        },
+        {
+          id: 'mc-54-3',
+          q: 'Dos vendedores ocupan el mismo puesto, pero uno es mucho más proactivo. ¿Qué diferencia ilustra esto?',
+          options: [
+            'Tienen distinto puesto',
+            'Tienen el mismo puesto pero distinto rol',
+            'Tienen distinta autoridad formal',
+            'Pertenecen a equipos distintos',
+          ],
+          correctIndex: 1,
+          explain:
+            'Ambos ocupan el mismo puesto (lo formal), pero su rol (cómo lo viven e interpretan) y su impacto son diferentes.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-54-1',
+          q: '¿Qué afirmaciones sobre puesto y rol son correctas?',
+          options: [
+            'El puesto es la descripción formal y estática',
+            'El rol es la dimensión dinámica y conductual',
+            'El rol incluye comportamientos que no siempre están escritos',
+            'Dos personas en el mismo puesto pueden desempeñar roles distintos',
+            'Puesto y rol son siempre idénticos',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son del apunte. Puesto y rol no son idénticos: el ejemplo de los dos vendedores lo demuestra.',
+        },
+        {
+          id: 'ms-54-2',
+          q: '¿Qué describe cada componente del puesto?',
+          options: [
+            'Tareas: el qué se hace',
+            'Responsabilidad: sobre qué se rinde cuentas',
+            'Autoridad: qué decisiones se pueden tomar',
+            'Autoridad: el grado de autonomía para usar recursos y decidir',
+            'Tareas: el carisma personal del ocupante',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son correctas. Las tareas son acciones concretas, no el carisma personal.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-54-1',
+        front: 'Puesto de trabajo',
+        back:
+          'Unidad fundamental de la estructura: posición específica y formal en el organigrama, con un conjunto predefinido de tareas, deberes y responsabilidades.',
+      },
+      {
+        id: 'fc-54-2',
+        front: 'Componentes del puesto',
+        back:
+          'Tareas (qué se hace), responsabilidad (sobre qué se rinde cuentas) y autoridad (qué decisiones se pueden tomar).',
+      },
+      {
+        id: 'fc-54-3',
+        front: 'Puesto vs. rol',
+        back:
+          'Puesto: descripción formal y estática (lo escrito). Rol: dimensión dinámica y conductual (cómo la persona vive e interpreta el puesto en el día a día).',
+      },
+      {
+        id: 'fc-54-4',
+        front: 'Autoridad del puesto',
+        back:
+          'Grado de autonomía y poder conferido al puesto para usar recursos, dar órdenes y tomar decisiones sin consultar a un superior.',
+      },
+    ],
+  },
+
+  // ---------- SECCIÓN 55 ----------
+  {
+    id: '55',
+    unit: '7',
+    title: 'Grupo vs. equipo y tipos de equipos de trabajo',
+    criollo:
+      'No toda junta de personas es un equipo. En un grupo cada uno rema para su lado (suma de esfuerzos individuales); en un equipo hay sinergia (1 + 1 = 3), metas colectivas y responsabilidad mutua. Y hay tres tipos de equipos formales: grupos de trabajo, task force y comités.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Grupo vs. equipo',
+        criollo:
+          'Grupo: comparten info para que cada uno haga mejor SU laburo; el resultado es la suma de los esfuerzos individuales. Equipo: habilidades complementarias, meta común y responsabilidad mutua; el resultado es mayor que la suma (sinergia, "1 + 1 = 3").',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Grupo de trabajo</strong>: sus miembros interactúan principalmente para compartir información y tomar decisiones que ayuden a cada uno a desempeñar mejor su labor individual. Su rendimiento es la suma de los esfuerzos individuales. Metas individuales, responsabilidad individual, liderazgo único y fuerte.',
+          '<strong>Equipo de trabajo</strong>: conjunto de personas con habilidades complementarias, comprometidas con un propósito común y metas de rendimiento por las que se sienten mutuamente responsables. La clave es la sinergia: el esfuerzo colectivo genera un resultado mayor que la suma de los aportes ("1 + 1 = 3"). Meta colectiva, responsabilidad individual y mutua, liderazgo a menudo compartido.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'Ejemplo de grupo: representantes de ventas que se reúnen y comparten estrategias, pero cada uno tiene su propia meta (el resultado de Juan no afecta el de María). Ejemplo de equipo: un equipo de desarrollo de software (programadores, diseñadores UX/UI, testers) donde el éxito del proyecto depende de que todos trabajen coordinados: si el diseño es malo, la programación se resiente.',
+      },
+      {
+        type: 'h3',
+        text: 'Tipos de equipos formales',
+        criollo:
+          'Las organizaciones crean equipos formales a propósito. Tres clásicos: los grupos de trabajo (los del organigrama, permanentes), las task force (temporales, para un proyecto puntual) y los comités (de gobierno y asesoría, suelen ser duraderos).',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Grupos de trabajo (work groups)</strong>: un gerente y los empleados que le reportan directamente; forman una unidad en el organigrama. Propósito: operar una función específica y continua. Duración: permanente. Composición: unifuncional (todos de la misma área). Ej.: el Departamento de Contabilidad.',
+          '<strong>Task force (fuerzas de tarea)</strong>: equipos para un proyecto de alcance temporal, con el objetivo de resolver un problema específico. Duración: temporal (se disuelven al cumplir su misión). Composición: multifuncional (miembros de distintas áreas). No figuran en el organigrama. Ej.: un equipo para el lanzamiento de un nuevo producto.',
+          '<strong>Comités</strong>: equipos formales orientados al gobierno, la supervisión y el asesoramiento, para asuntos estratégicos, operativos o legales. Duración: pueden ser permanentes o temporales (suelen ser de largo plazo). Composición: multifuncional. Aunque no figuren en el organigrama, son importantes para la discusión y la toma de decisiones; suelen integrarlos la gerencia media y alta. Ej.: Comité de Seguridad e Higiene, de Ética o de Presupuesto.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text:
+          'La pertenencia a un comité representa para el participante un reconocimiento a sus aptitudes y experiencia. Las task force, conformadas por gerencia media y empleados con experiencia, son grupos multidisciplinarios asignados a proyectos de mediana o corta duración.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-55-1',
+          q: 'En un grupo de trabajo, el rendimiento es la suma de los esfuerzos individuales de cada miembro.',
+          a: true,
+          explain:
+            'Verdadero. El grupo comparte información para que cada uno mejore su labor individual; su rendimiento es la suma de los esfuerzos individuales.',
+        },
+        {
+          id: 'tf-55-2',
+          q: 'La sinergia de un equipo se expresa como "1 + 1 = 3": el resultado colectivo es mayor que la suma de los aportes.',
+          a: true,
+          explain:
+            'Verdadero. En el equipo, el esfuerzo colectivo genera un resultado mayor que la suma individual: eso es la sinergia.',
+        },
+        {
+          id: 'tf-55-3',
+          q: 'Las task force son equipos permanentes y unifuncionales que figuran en el organigrama.',
+          a: false,
+          explain:
+            'Falso. Las task force son temporales y multifuncionales, y no figuran en el organigrama. Los permanentes y unifuncionales son los grupos de trabajo.',
+        },
+        {
+          id: 'tf-55-4',
+          q: 'Los comités se orientan principalmente al gobierno, la supervisión y el asesoramiento.',
+          a: true,
+          explain:
+            'Verdadero. Los comités son equipos formales orientados a gobernar, supervisar, asesorar y coordinar sobre temas transversales.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-55-1',
+          q: '¿Cuál es la diferencia central entre un grupo y un equipo?',
+          options: [
+            'El grupo es más grande que el equipo',
+            'En el grupo el rendimiento es la suma de esfuerzos individuales; en el equipo hay sinergia y responsabilidad mutua',
+            'El equipo no tiene metas',
+            'El grupo siempre es multifuncional',
+          ],
+          correctIndex: 1,
+          explain:
+            'En el grupo el resultado es la suma de los esfuerzos individuales; en el equipo hay sinergia (resultado mayor que la suma) y responsabilidad mutua.',
+        },
+        {
+          id: 'mc-55-2',
+          q: '¿Qué tipo de equipo es temporal y multifuncional, creado para resolver un problema específico?',
+          options: [
+            'Grupo de trabajo (work group)',
+            'Task force (fuerza de tarea)',
+            'Comité permanente',
+            'Departamento funcional',
+          ],
+          correctIndex: 1,
+          explain:
+            'La task force es temporal y multifuncional; se disuelve al cumplir su misión (resolver un problema o ejecutar un proyecto).',
+        },
+        {
+          id: 'mc-55-3',
+          q: '¿Cómo es la composición de un grupo de trabajo (work group)?',
+          options: [
+            'Multifuncional (miembros de distintas áreas)',
+            'Unifuncional (todos de la misma área de especialización)',
+            'Sin ningún gerente a cargo',
+            'Temporal y sin lugar en el organigrama',
+          ],
+          correctIndex: 1,
+          explain:
+            'El grupo de trabajo es unifuncional: un gerente y los empleados de su misma área que le reportan, formando una unidad permanente del organigrama.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-55-1',
+          q: '¿Qué caracteriza a un equipo de trabajo (frente a un grupo)?',
+          options: [
+            'Habilidades complementarias',
+            'Un propósito común y metas colectivas',
+            'Responsabilidad mutua',
+            'Sinergia (1 + 1 = 3)',
+            'Que el resultado es solo la suma de esfuerzos individuales',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro caracterizan al equipo. La suma de esfuerzos individuales (sin sinergia) es propia del grupo, no del equipo.',
+        },
+        {
+          id: 'ms-55-2',
+          q: '¿Cuáles son los tres tipos de equipos formales?',
+          options: [
+            'Grupos de trabajo (work groups)',
+            'Task force (fuerzas de tarea)',
+            'Comités',
+            'Sindicatos',
+            'Clientes',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain:
+            'Los tres tipos formales son grupos de trabajo, task force y comités. Sindicatos y clientes no son tipos de equipos formales de la organización.',
+        },
+        {
+          id: 'ms-55-3',
+          q: '¿Qué afirmaciones sobre las task force y los comités son correctas?',
+          options: [
+            'Las task force son temporales y multifuncionales',
+            'Las task force se disuelven al cumplir su misión',
+            'Los comités se orientan al gobierno, la supervisión y el asesoramiento',
+            'La pertenencia a un comité es un reconocimiento a las aptitudes y experiencia',
+            'Las task force son permanentes y unifuncionales',
+          ],
+          correctIndexes: [0, 1, 2, 3],
+          explain:
+            'Las primeras cuatro son del apunte. Las task force son temporales y multifuncionales, no permanentes ni unifuncionales.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-55-1',
+        front: 'Grupo de trabajo',
+        back:
+          'Sus miembros comparten información para mejorar su labor individual. Rendimiento = suma de esfuerzos individuales. Metas y responsabilidad individuales.',
+      },
+      {
+        id: 'fc-55-2',
+        front: 'Equipo de trabajo',
+        back:
+          'Personas con habilidades complementarias, propósito común y responsabilidad mutua. Sinergia: el resultado es mayor que la suma (1 + 1 = 3).',
+      },
+      {
+        id: 'fc-55-3',
+        front: 'Sinergia en un equipo',
+        back:
+          'El esfuerzo colectivo genera un resultado mayor que la suma de los aportes individuales ("1 + 1 = 3").',
+      },
+      {
+        id: 'fc-55-4',
+        front: 'Grupos de trabajo (work groups)',
+        back:
+          'Un gerente y los empleados que le reportan; unidad del organigrama. Permanentes, unifuncionales (ej.: Departamento de Contabilidad).',
+      },
+      {
+        id: 'fc-55-5',
+        front: 'Task force (fuerzas de tarea)',
+        back:
+          'Equipos temporales y multifuncionales para resolver un problema o proyecto específico. Se disuelven al cumplir su misión. No figuran en el organigrama.',
+      },
+      {
+        id: 'fc-55-6',
+        front: 'Comités',
+        back:
+          'Equipos formales de gobierno, supervisión y asesoramiento; multifuncionales, suelen ser duraderos. Integrados por gerencia media y alta (ej.: Comité de Ética).',
+      },
+    ],
+  },
+
   // ---------- SECCIÓN 1 ----------
   {
     id: '1',
@@ -8610,6 +13495,30 @@ export default {
   },
   ],
   pdfs: [
+    { key: 'intro-sistemas-metodos-ppt', label: 'U1 · Introducción a Sistemas y Métodos (presentación)', path: 'pdfs/intro-sistemas-metodos-ppt.pdf' },
+    { key: 'definiciones-sym', label: 'U1 · Introducción: definiciones', path: 'pdfs/definiciones-sym.pdf' },
+    { key: 'tgs-apunte', label: 'U1 · Teoría General de los Sistemas (apunte)', path: 'pdfs/tgs-apunte.pdf' },
+    { key: 'tgs-introduccion', label: 'U1 · Introducción a la TGS y la tecnología', path: 'pdfs/tgs-introduccion.pdf' },
+    { key: 'tgs-presentacion', label: 'U1 · Teoría General de los Sistemas (presentación)', path: 'pdfs/tgs-presentacion.pdf' },
+    { key: 'proceso-admin-intro-definiciones', label: 'U2 · Proceso administrativo: introducción y definiciones', path: 'pdfs/proceso-admin-intro-definiciones.pdf' },
+    { key: 'proceso-admin-optimizacion', label: 'U2 · Proceso administrativo y optimización de operaciones', path: 'pdfs/proceso-admin-optimizacion.pdf' },
+    { key: 'proceso-admin', label: 'U2 · El proceso administrativo (presentación)', path: 'pdfs/proceso-admin.pdf' },
+    { key: 'planificacion-introduccion', label: 'U3 · Planificación: introducción', path: 'pdfs/planificacion-introduccion.pdf' },
+    { key: 'planificacion-control-gestion', label: 'U3 · La planificación y el control en la gestión organizacional', path: 'pdfs/planificacion-control-gestion.pdf' },
+    { key: 'planificacion-control', label: 'U3 · La planificación y el control (presentación)', path: 'pdfs/planificacion-control.pdf' },
+    { key: 'direccion-intro-definiciones', label: 'U4 · La dirección: introducción y definiciones', path: 'pdfs/direccion-intro-definiciones.pdf' },
+    { key: 'direccion-fundamentos', label: 'U4 · Fundamentos de la dirección y habilidades gerenciales', path: 'pdfs/direccion-fundamentos.pdf' },
+    { key: 'direccion-motivacion-liderazgo', label: 'U4 · La dirección: motivación, liderazgo, negociación (presentación)', path: 'pdfs/direccion-motivacion-liderazgo.pdf' },
+    { key: 'tipos-organizacion', label: 'U5 · Tipos de organización', path: 'pdfs/tipos-organizacion.pdf' },
+    { key: 'organizacion-tipos-estructura', label: 'U5 · La organización: tipos de estructura', path: 'pdfs/organizacion-tipos-estructura.pdf' },
+    { key: 'organizacion-presentacion', label: 'U5 · La organización (presentación)', path: 'pdfs/organizacion-presentacion.pdf' },
+    { key: 'poder-autoridad-apunte', label: 'U6 · Poder y autoridad en las organizaciones (apunte)', path: 'pdfs/poder-autoridad-apunte.pdf' },
+    { key: 'poder-autoridad', label: 'U6 · Poder y autoridad (presentación)', path: 'pdfs/poder-autoridad.pdf' },
+    { key: 'organizacion-poder-autoridad', label: 'U6 · La organización: el poder y la autoridad', path: 'pdfs/organizacion-poder-autoridad.pdf' },
+    { key: 'caso-presion-sala-proyectos', label: 'U6 · Caso resuelto: Presión en la sala de proyectos', path: 'pdfs/caso-presion-sala-proyectos.pdf' },
+    { key: 'tipos-puestos-equipos', label: 'U7 · Tipos de puestos y tipos de equipos', path: 'pdfs/tipos-puestos-equipos.pdf' },
+    { key: 'descripcion-puestos-equipos', label: 'U7 · Descripción de puestos y tipos de equipos (presentación)', path: 'pdfs/descripcion-puestos-equipos.pdf' },
+    { key: 'organizacion-descripcion', label: 'U7 · La organización: descripción de puestos y equipos', path: 'pdfs/organizacion-descripcion.pdf' },
     { key: 'fundamentos', label: 'Fundamentos', path: 'pdfs/fundamentos.pdf' },
     { key: 'consideraciones', label: 'Consideraciones', path: 'pdfs/consideraciones.pdf' },
     { key: 'presentacion', label: 'Presentación', path: 'pdfs/presentacion.pdf' },
