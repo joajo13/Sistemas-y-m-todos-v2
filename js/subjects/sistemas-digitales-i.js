@@ -2695,6 +2695,510 @@ export default {
     },
 
   ],
+  resumen: {
+    intro: "Repaso condensado de toda Sistemas Digitales I: del sistema de numeración y la aritmética binaria al álgebra de Boole y las compuertas, los mapas de Karnaugh, el hardware digital, los circuitos combinatorios (decodificadores, multiplexores, sumadores), los secuenciales (biestables, contadores, registros) y las máquinas de estado, más las guías de ejercicios. Cada tema enlaza a su sección completa con \"Leer completo →\".",
+    units: [
+      {
+        unit: "1",
+        sections: [
+          {
+            id: "1",
+            title: "Sistemas de numeración posicionales",
+            blocks: [
+              { type: "p", text: "Un <strong>sistema de numeración</strong> es un conjunto de símbolos y reglas para construir todos sus números. En los <strong>posicionales</strong>, el valor de un símbolo depende de su valor y de la posición que ocupa. El decimal es posicional: tiene 10 símbolos ($0$–$9$), base $10$." },
+              { type: "math", display: true, latex: "347 = 300 + 40 + 7 = 3 \\times 10^2 + 4 \\times 10^1 + 7 \\times 10^0" },
+              { type: "ul", items: [
+                "<strong>Base</strong>: cantidad de símbolos del sistema.",
+                "<strong>Peso</strong>: valor del dígito según su posición (la base indica el sistema y el exponente, la posición)."
+              ] },
+              { type: "table", caption: "Sistemas usados en sistemas digitales", headers: ["Sistema", "Base", "Símbolos"], rows: [
+                ["Decimal", "$10$", "$0$–$9$"],
+                ["Binario", "$2$", "$0, 1$"],
+                ["Octal", "$8$", "$0$–$7$"],
+                ["Hexadecimal", "$16$", "$0$–$9, A$–$F$"]
+              ] },
+              { type: "p", text: "La base se indica con subíndice: $25_{10}$ o $25_d$, binario $b$ o $2$, octal $o$ u $8$, hexa $H$ o $16$." },
+              { type: "callout", tone: "info", text: "En binario, el dígito es el <strong>bit</strong>; 4 bits son un <strong>nibble</strong> y 8 bits un <strong>byte</strong>. (Ver tabla de equivalencias entre bases en la sección completa.)" },
+              { type: "callout", tone: "criollo", text: "La combinación \"10\" en cualquier base, pasada a decimal, da justo el número de la base: en binario es 2, en octal 8, en hexa 16." }
+            ]
+          },
+          {
+            id: "2",
+            title: "Conversión entre bases",
+            blocks: [
+              { type: "p", text: "<strong>Decimal → binario (entero)</strong>: dividir sucesivamente por 2 y leer el último cociente y los restos de abajo hacia arriba. <strong>Binario → decimal</strong>: forma polinomial (cada dígito por la base elevada a su posición, sumando)." },
+              { type: "math", display: true, latex: "50_d = 110010_b" },
+              { type: "math", display: true, latex: "110010_b = 1 \\times 2^5 + 1 \\times 2^4 + 0 \\times 2^3 + 0 \\times 2^2 + 1 \\times 2^1 + 0 \\times 2^0 = 32 + 16 + 2 = 50_d" },
+              { type: "p", text: "<strong>Parte fraccionaria (decimal → binario)</strong>: multiplicar por 2 sucesivamente, guardando la parte entera de cada paso. Para volver, la posición a la derecha de la coma arranca en $-1$." },
+              { type: "math", display: true, latex: "50{,}375_d = 110010{,}011_b" },
+              { type: "math", display: true, latex: "0{,}011_b = 0 \\times 2^{-1} + 1 \\times 2^{-2} + 1 \\times 2^{-3} = 0{,}375_d" },
+              { type: "p", text: "<strong>Decimal → octal / hexa</strong>: igual pero dividiendo por 8 o por 16 (en hexa los restos 10–15 son $A$–$F$). Ejemplo: $29_d = 11101_b = 35_o = 1D_H$." },
+              { type: "p", text: "<strong>Binario ↔ octal / hexa directo</strong>: como $2^3 = 8$ y $2^4 = 16$, se agrupan los bits de a 3 (octal) o de a 4 (hexa) desde la coma, completando con ceros." },
+              { type: "math", display: true, latex: "\\underbrace{110}_{6}\\;\\underbrace{010}_{2}\\,,\\,\\underbrace{011}_{3} \\;\\Rightarrow\\; 110010{,}011_b = 62{,}3_o" },
+              { type: "math", display: true, latex: "\\underbrace{0011}_{3}\\;\\underbrace{0010}_{2}\\,,\\,\\underbrace{0110}_{6} \\;\\Rightarrow\\; 110010{,}011_b = 32{,}6_H" },
+              { type: "callout", tone: "criollo", text: "De octal a hexa no se puede en un paso: hay que pasar antes por binario o decimal." }
+            ]
+          },
+          {
+            id: "3",
+            title: "Operaciones aritméticas en binario",
+            blocks: [
+              { type: "p", text: "<strong>Suma</strong> (columna a columna). En $1 + 1 = 10$, el $1$ es el <strong>carry</strong> o acarreo que \"me llevo\" a la izquierda." },
+              { type: "math", display: true, latex: "0 + 0 = 0 \\qquad 1 + 0 = 1 \\qquad 0 + 1 = 1 \\qquad 1 + 1 = 10" },
+              { type: "p", text: "<strong>Resta</strong> (columna a columna). El \"le pido prestado\" a la izquierda es el <strong>borrow</strong>." },
+              { type: "math", display: true, latex: "0 - 0 = 0 \\qquad 1 - 0 = 1 \\qquad 1 - 1 = 0 \\qquad 10 - 1 = 1" },
+              { type: "callout", tone: "info", text: "Restar es lo mismo que sumar el opuesto: $A - B = (+A) + (-B)$. De ahí la utilidad de los números con signo (sección siguiente)." }
+            ]
+          },
+          {
+            id: "4",
+            title: "Números binarios con signo",
+            blocks: [
+              { type: "p", text: "Se agrega adelante un <strong>bit de signo</strong>: $0$ positivo, $1$ negativo. Los positivos se escriben igual en las tres representaciones; lo que cambia es el negativo." },
+              { type: "ul", items: [
+                "<strong>Signo y magnitud (SyM)</strong>: solo se agrega el bit de signo; la magnitud queda igual. El cero tiene dos representaciones ($+0$ y $-0$).",
+                "<strong>Complemento a 1 (Ca1)</strong>: para el negativo, se invierten todos los bits de la magnitud.",
+                "<strong>Complemento a 2 (Ca2)</strong>: para el negativo, se hace el Ca1 y se suma $1$."
+              ] },
+              { type: "math", display: true, latex: "C_1(N) = 2^n - N - 1 \\qquad C_2(N) = 2^n - N" },
+              { type: "table", caption: "$+10_d$ y $-10_d$ con bit de signo", headers: ["Número", "SyM", "Ca1", "Ca2"], rows: [
+                ["$+10_d$", "$01010$", "$01010$", "$01010$"],
+                ["$-10_d$", "$11010$", "$10101$", "$10110$"]
+              ] },
+              { type: "callout", tone: "info", text: "Para hacer cuentas con signo solo se usan las representaciones de complemento (Ca1 o Ca2), no SyM." }
+            ]
+          },
+          {
+            id: "5",
+            title: "Sumas y restas mediante complemento y overflow",
+            blocks: [
+              { type: "p", text: "Pasos generales: igualar la cantidad de bits (con el de signo), escribir ambos en complemento y sumar columna a columna. La diferencia está en el carry final: en <strong>Ca1</strong> se vuelve a sumar al resultado (end-around carry); en <strong>Ca2</strong> se descarta. Si el resultado es negativo (bit de signo $1$), se vuelve a complementar para leer la magnitud." },
+              { type: "callout", tone: "warning", text: "<strong>Overflow</strong>: al sumar dos números <strong>del mismo signo</strong>, si el resultado se sale del rango de los bits usados, el bit de signo indica un signo incorrecto. Solución: usar al menos un bit más." },
+              { type: "table", caption: "Rangos de representación con $n$ bits", headers: ["Representación", "Rango con 3 bits", "Rango genérico"], rows: [
+                ["Sin signo (VA)", "$[0; 7]$", "$[0; 2^n - 1]$"],
+                ["SyM", "$[-3; 3]$", "$[-(2^{n-1} - 1); (2^{n-1} - 1)]$"],
+                ["Ca1", "$[-3; 3]$", "$[-(2^{n-1} - 1); (2^{n-1} - 1)]$"],
+                ["Ca2", "$[-4; 3]$", "$[-(2^{n-1}); (2^{n-1} - 1)]$"]
+              ] },
+              { type: "callout", tone: "info", text: "Conviene <strong>Ca2</strong>: es el único donde el cero tiene un solo equivalente, por lo que aprovecha un valor más de rango." }
+            ]
+          }
+        ]
+      },
+      {
+        unit: "2",
+        sections: [
+          {
+            id: "6",
+            title: "Señales digitales binarias",
+            blocks: [
+              { type: "p", text: "Un <strong>sistema digital</strong> representa la información mediante cantidades físicas que toman una cantidad finita de valores (<strong>señales discretas</strong>). Las <strong>señales digitales binarias</strong> toman solo dos valores: $0$ y $1$ (por ejemplo, la tensión)." },
+              { type: "p", text: "En el circuito interruptor–lámpara: interruptor abierto $= 0$, cerrado $= 1$; lámpara apagada $= 0$, encendida $= 1$." },
+              { type: "p", text: "En la <strong>lógica positiva</strong>, el nivel <strong>Low</strong> (bajo, $V_L$) es $0$ y el nivel <strong>High</strong> (alto, $V_H$) es $1$." },
+              { type: "table", caption: "Lógica positiva", headers: ["Nivel de tensión", "Estado", "Valor lógico"], rows: [["Bajo ($V_L$)", "Low", "0"], ["Alto ($V_H$)", "High", "1"]] },
+              { type: "callout", tone: "info", text: "Estas señales son la base de las <strong>compuertas lógicas</strong>, los elementos básicos de los sistemas digitales." }
+            ]
+          },
+          {
+            id: "7",
+            title: "Compuertas lógicas: OR, AND y NOT",
+            blocks: [
+              { type: "p", text: "Las <strong>compuertas lógicas</strong> trabajan con señales binarias. Se usan $A$ y $B$ para las entradas y $S$ para la salida." },
+              { type: "p", text: "<strong>OR (suma lógica)</strong>: equivale a dos interruptores en <strong>paralelo</strong>. $S$ vale $0$ solo cuando $A$ y $B$ son $0$; en cualquier otro caso, $1$." },
+              { type: "math", display: true, latex: "S = A + B" },
+              { type: "p", text: "<strong>AND (producto lógico)</strong>: dos interruptores en <strong>serie</strong>. $S$ vale $1$ solo cuando $A$ y $B$ son $1$." },
+              { type: "math", display: true, latex: "S = A \\cdot B" },
+              { type: "p", text: "<strong>NOT (inversora / complemento lógico)</strong>: invierte la entrada." },
+              { type: "math", display: true, latex: "S = \\overline{A}" },
+              { type: "table", caption: "Tablas de verdad OR / AND / NOT", headers: ["$A$", "$B$", "OR", "AND"], rows: [
+                ["0", "0", "0", "0"],
+                ["0", "1", "1", "0"],
+                ["1", "0", "1", "0"],
+                ["1", "1", "1", "1"]
+              ] },
+              { type: "callout", tone: "warning", text: "No confundir la <strong>suma lógica</strong> ($1 + 1 = 1$) con la <strong>suma aritmética</strong> binaria ($1 + 1 = 10$)." }
+            ]
+          },
+          {
+            id: "8",
+            title: "Compuertas derivadas: NOR, NAND, XOR y XNOR",
+            blocks: [
+              { type: "callout", tone: "info", text: "Regla práctica: el <strong>círculo</strong> en la salida del símbolo indica una negación." },
+              { type: "p", text: "<strong>NOR</strong> = OR negada. $S$ vale $1$ solo cuando $A$ y $B$ son $0$." },
+              { type: "math", display: true, latex: "S = \\overline{A + B} = (A + B)^{\\prime}" },
+              { type: "p", text: "<strong>NAND</strong> = AND negada. $S$ vale $0$ solo cuando $A$ y $B$ son $1$." },
+              { type: "math", display: true, latex: "S = \\overline{A \\cdot B} = (A \\cdot B)^{\\prime}" },
+              { type: "p", text: "<strong>XOR (OR exclusiva)</strong>: $S = 1$ cuando las entradas son <strong>distintas</strong>." },
+              { type: "math", display: true, latex: "S = A \\oplus B = \\overline{A} \\cdot B + A \\cdot \\overline{B}" },
+              { type: "p", text: "<strong>XNOR (NOR exclusiva)</strong>: complemento de la XOR. $S = 1$ cuando las entradas son <strong>iguales</strong>." },
+              { type: "math", display: true, latex: "S = \\overline{A \\oplus B} = \\overline{A} \\cdot \\overline{B} + A \\cdot B" },
+              { type: "callout", tone: "criollo", text: "NOR y NAND son OR y AND con la negación pegada. XOR mira si son distintas; XNOR, si son iguales." }
+            ]
+          },
+          {
+            id: "9",
+            title: "Álgebra de Boole: postulados",
+            blocks: [
+              { type: "p", text: "El <strong>álgebra de Boole</strong> es el conjunto de reglas que relacionan las operaciones AND, OR y NOT. Sus <strong>postulados (axiomas)</strong> son premisas que se admiten sin demostración." },
+              { type: "math", display: true, latex: "\\begin{aligned} \\text{Conmutativa:}\\;& A + B = B + A & A \\cdot B = B \\cdot A \\\\ \\text{Distributiva:}\\;& A \\cdot (B + C) = A \\cdot B + A \\cdot C & A + (B \\cdot C) = (A + B) \\cdot (A + C) \\\\ \\text{Identidad:}\\;& A + 0 = A & A \\cdot 1 = A \\\\ \\text{Complemento:}\\;& A + \\overline{A} = 1 & A \\cdot \\overline{A} = 0 \\\\ \\text{Asociativa:}\\;& A + (B + C) = (A + B) + C & A \\cdot (B \\cdot C) = (A \\cdot B) \\cdot C \\end{aligned}" },
+              { type: "callout", tone: "info", text: "Para verificar que dos expresiones son equivalentes se arman sus tablas de verdad ($2^n$ filas): si las columnas de resultado coinciden, son equivalentes. A partir de los postulados se deducen los <strong>teoremas</strong> (sección siguiente)." }
+            ]
+          },
+          {
+            id: "10",
+            title: "Álgebra de Boole: teoremas",
+            blocks: [
+              { type: "p", text: "Los <strong>teoremas</strong> se deducen de los postulados. <strong>Principio de dualidad</strong>: en cualquier propiedad pueden invertirse sumas por productos (y viceversa) y unos por ceros, y sigue valiendo; por eso casi todas vienen en forma OR y forma AND." },
+              { type: "table", caption: "Postulados y teoremas en forma OR y forma AND", headers: ["Propiedad", "Forma OR", "Forma AND"], rows: [
+                ["Idempotencia", "$A + A = A$", "$A \\cdot A = A$"],
+                ["Elementos nulos", "$A + 1 = 1$", "$A \\cdot 0 = 0$"],
+                ["Involutiva", "$\\overline{\\overline{A}} = A$", "$\\overline{\\overline{A}} = A$"],
+                ["Absorción", "$A + (A \\cdot B) = A$", "$A \\cdot (A + B) = A$"],
+                ["De Morgan", "$\\overline{A + B} = \\overline{A} \\cdot \\overline{B}$", "$\\overline{A \\cdot B} = \\overline{A} + \\overline{B}$"],
+                ["Transposición", "$A B + \\overline{A} C = (A + C)(\\overline{A} + B)$", "$A B + \\overline{A} C = (A + C)(\\overline{A} + B)$"],
+                ["Consenso", "$A B + \\overline{A} C + B C = A B + \\overline{A} C$", "$(A + B)(\\overline{A} + C)(B + C) = (A + B)(\\overline{A} + C)$"]
+              ] },
+              { type: "callout", tone: "criollo", text: "El consenso es la joyita: el término del medio ($B C$ en forma OR) sobra y se borra sin cambiar nada." }
+            ]
+          },
+          {
+            id: "11",
+            title: "Funciones lógicas y circuitos",
+            blocks: [
+              { type: "p", text: "Una <strong>función lógica</strong> es una expresión booleana de variables binarias relacionadas por compuertas. El <strong>circuito lógico</strong> es su representación gráfica con los símbolos de las compuertas." },
+              { type: "math", display: true, latex: "f(A, B, C) = \\overline{(A + \\overline{B})} + A \\cdot (B + C) + B \\cdot (B + \\overline{C})" },
+              { type: "p", text: "<strong>Minimizar</strong> con álgebra de Boole busca una expresión equivalente con menos compuertas (menor costo lógico). Aplicando De Morgan, distributiva, idempotencia y absorción se llega a la expresión mínima:" },
+              { type: "math", display: true, latex: "f(A, B, C) = A \\cdot C + B" },
+              { type: "callout", tone: "info", text: "La expresión mínima <strong>puede no ser única</strong>. También se puede implementar la función con un solo tipo de compuerta: solo NAND (desde la SOP $A \\cdot C + B$) o solo NOR (desde la POS $(A + B) \\cdot (B + C)$), usando involutiva y De Morgan." }
+            ]
+          },
+          {
+            id: "12",
+            title: "Formas canónicas: SOP y POS",
+            blocks: [
+              { type: "p", text: "En la <strong>forma canónica</strong>, cada término tiene <strong>todas</strong> las variables. Hay dos: <strong>suma de productos (SOP)</strong> y <strong>producto de sumas (POS)</strong>. Para armarlas se agregan las variables faltantes con identidad, complemento y distributiva." },
+              { type: "p", text: "Un <strong>minitérmino ($m$)</strong> es un producto con todas las variables: $A = 1$ y $\\overline{A} = 0$. Cada minitérmino es un $1$ en la tabla de verdad." },
+              { type: "math", display: true, latex: "f(A,B,C) = m_2 + m_3 + m_5 + m_6 + m_7 = \\sum m(2, 3, 5, 6, 7)" },
+              { type: "p", text: "Un <strong>maxitérmino ($M$)</strong> es una suma con todas las variables; acá la regla se da vuelta: $A = 0$ y $\\overline{A} = 1$. Cada maxitérmino es un $0$ en la tabla." },
+              { type: "math", display: true, latex: "f(A,B,C) = M_0 \\cdot M_1 \\cdot M_4 = \\prod M(0, 1, 4)" },
+              { type: "callout", tone: "criollo", text: "Minitérmino mira los UNOS (variable normal = 1); maxitérmino mira los CEROS (variable normal = 0). Es la misma tabla leída desde lados opuestos." }
+            ]
+          }
+        ]
+      },
+      {
+        unit: "3",
+        sections: [
+          {
+            id: "13",
+            title: "Mapas de Karnaugh: de la tabla al mapa",
+            blocks: [
+              { type: "p", text: "El <strong>mapa de Karnaugh</strong> es un diagrama de celdas que ubica las filas de la tabla de verdad de forma estratégica para obtener la expresión mínima. Para $n$ variables tiene $2^n$ celdas y los bordes tienen valores fijos." },
+              { type: "p", text: "<strong>Por minitérminos (unos)</strong>: se agrupan los $1$ en bloques de $2^n$ lo más grandes y rectangulares posibles; quedan en el término las variables que <strong>no cambian</strong> ($A = 1$, $\\overline{A} = 0$), y los términos (productos) se suman." },
+              { type: "math", display: true, latex: "f(A, B, C) = A \\cdot C + B" },
+              { type: "p", text: "<strong>Por maxitérminos (ceros)</strong>: se agrupan los $0$; los términos son sumas ($A = 0$, $\\overline{A} = 1$) y se multiplican." },
+              { type: "math", display: true, latex: "f(A, B, C) = (A + B) \\cdot (B + C)" },
+              { type: "callout", tone: "info", text: "Ambas expresiones son equivalentes: por distributiva, $(A + B)(B + C) = A \\cdot C + B$." }
+            ]
+          },
+          {
+            id: "14",
+            title: "Generalización, adyacencia e implicantes",
+            blocks: [
+              { type: "p", text: "Se usan mapas de <strong>2, 3 y 4 variables</strong> (Karnaugh solo conviene hasta 4). La cantidad de celdas es $2^m$." },
+              { type: "ul", items: [
+                "<strong>Celdas adyacentes</strong>: de una a otra solo cambia una variable; comparten lado (incluso por <strong>envolvente</strong>: primera y última fila/columna son vecinas).",
+                "<strong>Agrupaciones</strong>: de $2^n$ celdas, forma rectangular o cuadrada, y siempre la <strong>más grande posible</strong> (cuanto mayor el grupo, menos variables en el término)."
+              ] },
+              { type: "ul", items: [
+                "<strong>Implicante</strong>: cualquier agrupación de $2^n$ celdas.",
+                "<strong>Implicante primo (IP)</strong>: una agrupación máxima.",
+                "<strong>Implicante primo esencial (IPE)</strong>: un IP que cubre al menos una celda que ningún otro IP cubre; siempre va en la expresión mínima."
+              ] },
+              { type: "callout", tone: "info", text: "La expresión mínima puede no ser única." }
+            ]
+          },
+          {
+            id: "15",
+            title: "Ejemplo 4×4 y funciones no totalmente definidas",
+            blocks: [
+              { type: "p", text: "Procedimiento (4 variables): 1) ubicar los minitérminos, 2) marcar todos los implicantes primos, 3) armar la tabla de implicantes primos contra minitérminos. Una columna con un solo tick indica un IPE." },
+              { type: "math", display: true, latex: "f(A, B, C, D) = \\sum m(3, 5, 7, 10, 11, 13) = B\\overline{C}D + A\\overline{B}C + \\overline{A}CD" },
+              { type: "callout", tone: "info", text: "El método de la tabla del paso 3 es el algoritmo de <strong>Quine-McCluskey</strong>, útil para funciones de muchas variables." },
+              { type: "p", text: "<strong>Funciones no totalmente definidas</strong>: tienen salidas sin valor asignado, marcadas con $X$ (<em>don't care</em>). Las $X$ pueden tomarse como $1$ o $0$ según convenga para agrandar agrupaciones, pero no se agrupan $X$ que no contengan algún $1$." },
+              { type: "math", display: true, latex: "f(A, B, C, D) = \\sum m(1, 5, 7, 9) + d(10, 11, 12, 13, 14, 15) = \\overline{C}D + BD" }
+            ]
+          }
+        ]
+      },
+      {
+        unit: "4",
+        sections: [
+          {
+            id: "16",
+            title: "Señales analógicas, digitales y niveles de tensión",
+            blocks: [
+              { type: "ul", items: [
+                "<strong>Señal analógica</strong>: toma infinitos valores; gráfica continua.",
+                "<strong>Señal digital</strong>: toma una cantidad finita de valores; gráfica discontinua.",
+                "<strong>Señal digital binaria</strong>: solo dos estados, $0$ y $1$."
+              ] },
+              { type: "p", text: "En <strong>lógica positiva</strong>, el nivel bajo ($V_L$, Low) es $0$ y el alto ($V_H$, High) es $1$. Cada nivel lógico no es un voltaje exacto sino un <strong>rango</strong> de tensiones (ej.: $0$ de $0$ a $1{,}5\\,V$; $1$ de $3{,}3$ a $5\\,V$)." },
+              { type: "callout", tone: "info", text: "Entre ambos rangos queda la <strong>zona de transición</strong> o rango indeterminado, donde el nivel lógico no está definido." }
+            ]
+          },
+          {
+            id: "17",
+            title: "Circuitos integrados, propagación y familias lógicas",
+            blocks: [
+              { type: "p", text: "Un <strong>circuito integrado (CI)</strong> es un chip que contiene las compuertas y demás elementos del sistema digital. Se clasifican según cuántas compuertas integran:" },
+              { type: "table", caption: "Escala de integración", headers: ["Nivel", "Compuertas"], rows: [
+                ["SSI (pequeña)", "Hasta 10"],
+                ["MSI (mediana)", "10 a 100"],
+                ["LSI (grande)", "100 a 10.000"],
+                ["VLSI (muy grande)", "10.000 a 100.000"],
+                ["ULSI (ultra grande)", "Más de 100.000"]
+              ] },
+              { type: "p", text: "El <strong>retardo de propagación</strong> es el tiempo que tardan las señales en cambiar a la salida respecto de la entrada (el cambio de nivel no es instantáneo). Las características del CI vienen en la <strong>hoja de datos (datasheet)</strong>." },
+              { type: "p", text: "Las <strong>familias lógicas</strong> comparten tecnología (a base de transistores) y son compatibles: <strong>TTL</strong> (transistores bipolares) y <strong>CMOS</strong> (unipolares, de efecto de campo)." }
+            ]
+          }
+        ]
+      },
+      {
+        unit: "5",
+        sections: [
+          {
+            id: "18",
+            title: "Decodificadores y codificadores",
+            blocks: [
+              { type: "p", text: "Los <strong>códigos</strong> representan datos para transmitirlos (BCD, Gray, ASCII…). El <strong>BCD</strong> codifica cada dígito decimal $0$–$9$ en binario con 4 bits (ej.: $15_d = 0001\\,0101$). Los <strong>circuitos combinacionales</strong> tienen salidas que dependen solo del estado actual de las entradas." },
+              { type: "p", text: "<strong>Decodificador</strong>: convierte $n$ entradas codificadas a hasta $2^n$ salidas, con <strong>una sola salida activa a la vez</strong>. Cumple $S \\leq 2^{E}$. Salidas del deco 2×4:" },
+              { type: "math", display: true, latex: "S_0 = H \\cdot \\overline{E_1} \\cdot \\overline{E_0} \\quad S_1 = H \\cdot \\overline{E_1} \\cdot E_0 \\quad S_2 = H \\cdot E_1 \\cdot \\overline{E_0} \\quad S_3 = H \\cdot E_1 \\cdot E_0" },
+              { type: "p", text: "Se pueden <strong>expandir</strong> (un 3×8 con dos 2×4, donde $E_2$ elige cuál se activa) e <strong>implementar funciones</strong>: el deco genera los minitérminos (AND internas), así que se agrega una <strong>OR</strong> que reciba las salidas de los minitérminos de la función. El <strong>deco BCD a 7 segmentos</strong> es un caso especial que puede activar más de una salida." },
+              { type: "p", text: "<strong>Codificador</strong>: hace lo opuesto, compacta la información. Cumple que las entradas son $2^s$, con $s$ salidas." }
+            ]
+          },
+          {
+            id: "19",
+            title: "Multiplexores y demultiplexores",
+            blocks: [
+              { type: "p", text: "Un <strong>multiplexor (MUX)</strong> selecciona cuál de sus entradas de datos pasa a su <strong>única salida</strong>, según las entradas de control. Cumple $D = 2^{C}$. Salida del mux 4×1:" },
+              { type: "math", display: true, latex: "S = H \\cdot \\overline{C_1} \\cdot \\overline{C_0} \\cdot D_0 + H \\cdot \\overline{C_1} \\cdot C_0 \\cdot D_1 + H \\cdot C_1 \\cdot \\overline{C_0} \\cdot D_2 + H \\cdot C_1 \\cdot C_0 \\cdot D_3" },
+              { type: "p", text: "<strong>Implementar funciones</strong>: las entradas de control son las variables y cada entrada de dato toma el valor de la función en esa fila. Con un mux de $k$ controles menores que las variables, se arma una <strong>tabla modificada</strong> expresando la salida en función de la variable restante (queda $0$, $1$, la variable o su complemento). También se puede <strong>expandir</strong> (un 8×1 con dos 4×1)." },
+              { type: "p", text: "El <strong>demultiplexor (DEMUX)</strong> es el opuesto: distribuye el dato de su única entrada hacia una de sus salidas según el control. Cumple salidas $= 2^{C}$. Salidas del demux 1×4:" },
+              { type: "math", display: true, latex: "S_0 = H \\overline{C_1}\\,\\overline{C_0}\\,D \\quad S_1 = H \\overline{C_1}\\,C_0\\,D \\quad S_2 = H C_1 \\overline{C_0}\\,D \\quad S_3 = H C_1 C_0 D" }
+            ]
+          },
+          {
+            id: "20",
+            title: "Comparador de magnitudes, semisumador y sumador completo",
+            blocks: [
+              { type: "p", text: "<strong>Comparador de magnitudes</strong> (dos números de 1 bit): indica igualdad, menor o mayor." },
+              { type: "math", display: true, latex: "S_{A=B} = \\overline{A \\oplus B} \\qquad S_{A \\lt B} = \\overline{A} \\cdot B \\qquad S_{A \\gt B} = A \\cdot \\overline{B}" },
+              { type: "p", text: "<strong>Semisumador (HA)</strong>: suma dos bits, con carry $C$ y suma $S$." },
+              { type: "math", display: true, latex: "C = A \\cdot B \\qquad S = A \\oplus B" },
+              { type: "p", text: "<strong>Sumador completo (FA)</strong>: suma tres bits ($A$, $B$ y el carry de entrada $C_{-1}$)." },
+              { type: "math", display: true, latex: "C = A \\cdot B + A \\cdot C_{-1} + B \\cdot C_{-1} \\qquad S = A \\oplus B \\oplus C_{-1}" },
+              { type: "p", text: "Forma alternativa del carry, que permite armar el FA con <strong>dos semisumadores y una OR</strong>:" },
+              { type: "math", display: true, latex: "C = C_{-1} \\cdot (A \\oplus B) + A \\cdot B" }
+            ]
+          },
+          {
+            id: "21",
+            title: "Sumadores y restadores de varios bits",
+            blocks: [
+              { type: "p", text: "Expresiones genéricas del FA ($C_{n-1}$ es el carry de entrada y $C_n$ el de salida):" },
+              { type: "math", display: true, latex: "C_n = C_{n-1} \\cdot (A_n \\oplus B_n) + A_n \\cdot B_n \\qquad S_n = A_n \\oplus B_n \\oplus C_{n-1}" },
+              { type: "p", text: "<strong>Sumador en paralelo con carry en serie</strong>: $n$ FA encadenados, pasando el carry de salida de cada uno al de entrada del siguiente (ripple carry). En una suma sin signo, el último carry forma parte del resultado." },
+              { type: "p", text: "<strong>Restador</strong> (con sumadores, en complemento a 2): se invierten los bits de $B$ con NOT y se entra con $C_{-1} = 1$ (el $+1$ del Ca2); el último carry se descarta." },
+              { type: "p", text: "<strong>Sumador–restador</strong>: una compuerta <strong>XOR</strong> en cada $B_n$, controlada por $C_{-1}$: con $C_{-1} = 0$ suma (deja pasar $B_n$) y con $C_{-1} = 1$ resta (invierte $B_n$)." },
+              { type: "callout", tone: "info", text: "El <strong>sumador con carry anticipado</strong> calcula los carry en paralelo, independiza el retardo de la cantidad de bits y es más veloz que el de carry en serie." }
+            ]
+          }
+        ]
+      },
+      {
+        unit: "6",
+        sections: [
+          {
+            id: "22",
+            title: "Biestables: el latch RS y el biestable D",
+            blocks: [
+              { type: "p", text: "Un circuito <strong>combinacional</strong> tiene salida $S = f(A, B)$ (sin memoria). Uno <strong>secuencial</strong> usa un lazo de retroalimentación y su salida depende también del estado anterior: $S_{n+1} = f(A, S_n)$. Los <strong>sincrónicos</strong> dependen de la señal de <strong>reloj (clock)</strong>; en ella se distinguen el flanco ascendente (0→1) y el descendente (1→0)." },
+              { type: "p", text: "Un <strong>biestable</strong> almacena un bit. El <strong>latch</strong> cambia por <strong>nivel</strong> (mientras la habilitación está alta); el <strong>flip-flop</strong> cambia por <strong>flanco</strong> del reloj." },
+              { type: "p", text: "<strong>Latch SR</strong> (dos NOR cruzadas): $S=0, R=0$ mantiene; $S=0, R=1$ resetea ($Q=0$); $S=1, R=0$ setea ($Q=1$); $S=1, R=1$ es el <strong>estado prohibido</strong> ($Q$ y $\\overline{Q}$ quedan en $0$)." },
+              { type: "math", display: true, latex: "Q_{n+1} = S + \\overline{R} \\cdot Q_n" },
+              { type: "p", text: "<strong>Latch D</strong>: es un SR con habilitación y una sola entrada de dato ($S = D$, $R = \\overline{D}$), por lo que <strong>evita el estado prohibido</strong> y la salida sigue a $D$." },
+              { type: "math", display: true, latex: "Q_{n+1} = D" },
+              { type: "callout", tone: "info", text: "El <strong>flip-flop D maestro–esclavo</strong> son dos latches D en cascada con el reloj invertido entre ellos; elimina condiciones transitorias inestables. En el símbolo, la burbuja en el CLK indica disparo por flanco descendente." }
+            ]
+          },
+          {
+            id: "23",
+            title: "Biestables JK y T, excitación y diagramas de estado",
+            blocks: [
+              { type: "p", text: "El <strong>flip-flop JK</strong> es un SR realimentado que elimina el estado prohibido: $J=0,K=0$ mantiene; $J=1,K=0$ setea; $J=0,K=1$ resetea; $J=1,K=1$ <strong>conmuta</strong> (toggle)." },
+              { type: "math", display: true, latex: "Q_{n+1} = J \\cdot \\overline{Q_n} + \\overline{K} \\cdot Q_n" },
+              { type: "p", text: "El <strong>flip-flop T</strong> se arma uniendo $J$ y $K$: con $T=0$ mantiene y con $T=1$ conmuta." },
+              { type: "math", display: true, latex: "Q_{n+1} = \\overline{T} \\cdot Q_n + T \\cdot \\overline{Q_n}" },
+              { type: "p", text: "Las <strong>tablas de excitación</strong> indican qué entradas producen cada transición de $Q_n$ a $Q_{n+1}$ (la X es indiferencia):" },
+              { type: "table", caption: "Tablas de excitación (T, D, JK)", headers: ["$Q_n$", "$Q_{n+1}$", "T", "D", "J", "K"], rows: [
+                ["0", "0", "0", "0", "0", "X"],
+                ["0", "1", "1", "1", "1", "X"],
+                ["1", "0", "1", "0", "X", "1"],
+                ["1", "1", "0", "1", "X", "0"]
+              ] },
+              { type: "callout", tone: "info", text: "Se puede armar un JK a partir de un flip-flop D con $D = J \\cdot \\overline{Q_n} + \\overline{K} \\cdot Q_n$ (la ecuación característica del JK)." }
+            ]
+          },
+          {
+            id: "24",
+            title: "Contadores síncronos",
+            blocks: [
+              { type: "p", text: "Un <strong>contador</strong> es una combinación de biestables que recorre una secuencia de estados; su <strong>módulo</strong> es la cantidad de estados de la secuencia. En el <strong>síncrono</strong>, todos los flip-flops comparten el mismo clock." },
+              { type: "p", text: "Método de diseño (4 pasos): 1) <strong>diagrama de estados</strong>, 2) <strong>tabla de transición/excitación</strong> (con la tabla del JK), 3) <strong>minimizar</strong> $J$ y $K$ con mapas de Karnaugh, 4) armar el <strong>circuito</strong>. Para el contador de 3 bits:" },
+              { type: "math", display: true, latex: "J_2 = Q_1 \\cdot Q_0 \\quad K_2 = Q_1 \\cdot Q_0 \\qquad J_1 = Q_0 \\quad K_1 = Q_0 \\qquad J_0 = 1 \\quad K_0 = 1" },
+              { type: "callout", tone: "info", text: "Los <strong>estados no permitidos</strong> se completan con X (don't care), lo que permite agrupaciones más grandes en Karnaugh. Conviene verificar que, si el contador cae en uno de esos estados, vuelva a la secuencia." }
+            ]
+          },
+          {
+            id: "25",
+            title: "Contadores asíncronos y registros de desplazamiento",
+            blocks: [
+              { type: "p", text: "En un <strong>contador asíncrono</strong> los flip-flops no comparten el clock: la salida de cada uno hace de reloj del siguiente, así que cambian en cadena. Por el retardo de propagación acumulado se los llama contadores <strong>con propagación (ripple)</strong>, y pueden producir <strong>glitches</strong> (picos de tensión no deseados)." },
+              { type: "p", text: "Como <strong>divisor de frecuencia</strong>, cada etapa divide la frecuencia a la mitad (de $100$ Hz: $50$, $25$, $12{,}5$ Hz)." },
+              { type: "math", display: true, latex: "f = \\frac{1}{2^{n}}" },
+              { type: "p", text: "Un <strong>registro de desplazamiento</strong> es un grupo de flip-flops (generalmente D) en cascada con clock común, que desplaza los bits una posición por pulso. Tipos según entrada/salida: serie/serie, serie/paralelo, paralelo/serie, paralelo/paralelo y de rotación." },
+              { type: "callout", tone: "info", text: "En la lectura de una memoria con decodificador de direcciones intervienen el registro de direcciones, el decodificador, la matriz de memoria y el registro de datos." }
+            ]
+          }
+        ]
+      },
+      {
+        unit: "7",
+        sections: [
+          {
+            id: "26",
+            title: "Máquinas de estados",
+            blocks: [
+              { type: "p", text: "Una <strong>máquina de estados finita (FSM)</strong> modela un circuito secuencial que avanza por un conjunto finito de estados, controlado por el clock y las entradas. Cada <strong>estado</strong> tiene nombre único (uno por vez); las <strong>transiciones</strong> definen cuándo se cambia de estado, y las <strong>salidas</strong> dependen del estado y/o de las entradas." },
+              { type: "ul", items: [
+                "<strong>Máquina de Moore</strong>: las salidas dependen <strong>solo del estado actual</strong> (constantes durante el estado; deterministas y estables).",
+                "<strong>Máquina de Mealy</strong>: las salidas dependen del estado <strong>y de las entradas</strong> (pueden cambiar sin cambiar de estado)."
+              ] },
+              { type: "p", text: "Se modelan con <strong>diagramas de estados</strong> (en Moore la salida va en el nodo; en Mealy, sobre la transición) o con el <strong>diagrama ASM</strong> (máquina de estados algorítmico). Se usan en sistemas de comunicación y de control." },
+              { type: "callout", tone: "criollo", text: "Un contador es una máquina de estados, pero al contador se lo piensa para contar eventos y a la FSM para controlarlos. No hay una mejor entre Moore y Mealy: son herramientas distintas." }
+            ]
+          }
+        ]
+      },
+      {
+        unit: "8",
+        sections: [
+          {
+            id: "27",
+            title: "Guía 1 — Sistemas de numeración y aritmética binaria",
+            blocks: [
+              { type: "callout", tone: "info", text: "La guía trae solo enunciados; las respuestas de la sección completa son una <strong>resolución propia</strong> con los métodos de la Unidad 1, no del PDF." },
+              { type: "ol", items: [
+                "<strong>Decimal → otra base</strong>: dividir la parte entera por la base destino (restos de abajo hacia arriba); la fraccionaria, multiplicar por la base.",
+                "<strong>Otra base → decimal</strong>: forma polinomial.",
+                "<strong>Binario ↔ octal</strong>: agrupar de a 3 bits; <strong>↔ hexa</strong>: de a 4.",
+                "<strong>Suma sin signo</strong>: sumar columna a columna; el carry final forma parte del resultado.",
+                "<strong>Resta con signo</strong>: $A - B = (+A) + (-B)$, en complemento. En <strong>Ca1</strong> el carry final se vuelve a sumar (end-around carry); en <strong>Ca2</strong> se descarta. Si el resultado es negativo, volver a complementar para leer la magnitud."
+              ] },
+              { type: "callout", tone: "criollo", text: "Con $n$ bits, en Ca2 el rango es $[-(2^{n-1}); (2^{n-1}-1)]$: si la cuenta se va de ese rango (overflow), agregá un bit más. (Todas las cuentas resueltas, en la sección completa.)" }
+            ]
+          },
+          {
+            id: "28",
+            title: "Guía 2 — Mapas de Karnaugh",
+            blocks: [
+              { type: "callout", tone: "info", text: "Guía con resolución propia (Unidad 3). Las expresiones mínimas <strong>pueden no ser únicas</strong>." },
+              { type: "ol", items: [
+                "<strong>SOP canónica</strong>: armar la tabla y tomar los minitérminos (filas con salida $1$).",
+                "<strong>Por unos</strong>: agrupar los $1$ en bloques de $2^n$ máximos y rectangulares; las variables que no cambian forman productos que se suman.",
+                "<strong>Por ceros</strong>: agrupar los $0$; los términos son sumas que se multiplican.",
+                "<strong>Implicantes</strong>: los primos son las agrupaciones máximas; un primo es esencial si cubre un $1$ que ningún otro cubre.",
+                "<strong>Don't cares ($X$)</strong>: se toman como $1$ o $0$ según convenga; no se agrupan $X$ sin algún $1$."
+              ] },
+              { type: "callout", tone: "criollo", text: "Joya de la guía: la paridad impar de 3 variables es directamente $f = A \\oplus B \\oplus C$, y \"número impar de 0 a 9\" colapsa a $f = D$ (el bit menos significativo) usando los don't care." }
+            ]
+          },
+          {
+            id: "29",
+            title: "Guía 3 — Circuitos combinatorios aritméticos",
+            blocks: [
+              { type: "callout", tone: "info", text: "Guía con resolución propia (Unidad 5), todas las cuentas en complemento a 2." },
+              { type: "ol", items: [
+                "Usar un <strong>sumador completo (FA) por bit</strong>, en paralelo, con el carry en serie. Tomar $A$ como positivo.",
+                "<strong>Suma</strong> de positivos: $B$ directo y $C_{-1} = 0$.",
+                "<strong>Resta</strong> (o número negativo): $B$ con NOT (complemento a 1) y $C_{-1} = 1$ (el $+1$ del Ca2).",
+                "El último carry se descarta; el bit más significativo es el signo. Si es negativo, volver a complementar para leer la magnitud."
+              ] },
+              { type: "callout", tone: "criollo", text: "Para sumar, $B$ va directo y $C_{-1}=0$; para restar, $B$ pasa por inversores y $C_{-1}=1$. Esa es la idea del sumador–restador con XOR." }
+            ]
+          },
+          {
+            id: "30",
+            title: "Guía 4 — Multiplexores",
+            blocks: [
+              { type: "callout", tone: "info", text: "Guía con resolución propia (Unidad 5)." },
+              { type: "ol", items: [
+                "<strong>Expansión</strong>: los bits de control más significativos eligen cuál sub-mux pasa (con lógica adicional habilitando, o con un mux máster en árbol sin lógica adicional).",
+                "<strong>Implementar una función</strong>: tomar $k$ variables como selección. Si $k$ es igual a la cantidad de variables, cada dato es el valor de la función de esa fila. Si se usan menos controles, armar una tabla reducida donde cada dato queda $0$, $1$, la variable restante o su complemento."
+              ] },
+              { type: "callout", tone: "criollo", text: "Las variables de selección son el \"índice\" y los datos son lo que vale la función para ese índice. Cuanto más chico el mux, más lógica te queda en los datos." }
+            ]
+          },
+          {
+            id: "31",
+            title: "Guía 5 — Decodificadores",
+            blocks: [
+              { type: "callout", tone: "info", text: "Guía con resolución propia (Unidad 5)." },
+              { type: "ol", items: [
+                "<strong>Expansión</strong>: los bits de entrada más significativos habilitan a uno u otro sub-decodificador (sin lógica adicional, un deco de nivel superior cuyas salidas hacen de habilitación de los inferiores).",
+                "<strong>Implementar una función</strong>: el deco genera todos los minitérminos en sus salidas; se conecta una <strong>OR</strong> que reciba las salidas correspondientes a los minitérminos de la función (las filas donde $f = 1$)."
+              ] },
+              { type: "callout", tone: "criollo", text: "Deco + OR es lo más directo: el deco te sirve todos los minitérminos y vos elegís cuáles sumar. La contra es usar un integrado grande aunque la función sea simple." }
+            ]
+          },
+          {
+            id: "32",
+            title: "Guía 6 — Circuitos secuenciales (parte 1)",
+            blocks: [
+              { type: "callout", tone: "info", text: "Guía con resolución propia (Unidad 6): convertir un tipo de flip-flop en otro y completar diagramas temporales." },
+              { type: "p", text: "Para convertir, se usa la tabla de excitación del flip-flop que se <strong>tiene</strong> y se minimizan sus entradas con Karnaugh. Resultados clave:" },
+              { type: "math", display: true, latex: "\\text{D con un JK:}\\quad J = D, \\; K = \\overline{D} \\qquad \\text{JK con un T:}\\quad T = J\\,\\overline{Q_n} + K\\,Q_n \\qquad \\text{T con un JK:}\\quad J = K = T" },
+              { type: "p", text: "Para completar cronogramas: con el <strong>latch D</strong>, $Q$ copia a $D$ mientras la habilitación está en $1$; con el <strong>T por flanco</strong>, en cada flanco $T=1$ conmuta y $T=0$ mantiene; con el <strong>JK por flanco</strong>, se aplica setear/resetear/mantener/conmutar según $J$ y $K$." }
+            ]
+          },
+          {
+            id: "33",
+            title: "Guía 7 — Circuitos secuenciales (parte 2)",
+            blocks: [
+              { type: "callout", tone: "info", text: "Guía con resolución propia (Unidad 6): análisis y diseño de contadores síncronos. Las expresiones pueden no ser únicas (los estados no usados son don't care)." },
+              { type: "ol", items: [
+                "<strong>Análisis (circuito → comportamiento)</strong>: escribir la entrada de cada flip-flop en función de las $Q$, aplicar su ecuación característica para hallar el estado siguiente, armar la tabla y los diagramas de estados y temporal.",
+                "<strong>Diseño (diagrama → circuito)</strong>: del diagrama de estados, armar la tabla y, con la tabla de excitación (JK o T), minimizar las entradas con Karnaugh (estados no usados como don't care) y dibujar el circuito."
+              ] },
+              { type: "p", text: "Contador binario ascendente de 3 bits con flip-flops T (cada bit conmuta cuando todos los menos significativos están en $1$):" },
+              { type: "math", display: true, latex: "T_{Q_0} = 1 \\qquad T_{Q_1} = Q_0 \\qquad T_{Q_2} = Q_1\\,Q_0" }
+            ]
+          },
+          {
+            id: "34",
+            title: "Guía 8 — Trabajo práctico de ejercitación (obligatorio)",
+            blocks: [
+              { type: "callout", tone: "warning", text: "TP <strong>individual y de entrega obligatoria</strong> (en PDF, con portada y procedimientos, semana 12). Las resoluciones de la sección completa son una guía propia para verificar, no la entrega oficial." },
+              { type: "p", text: "Es <strong>integrador</strong>: junta ejercicios de casi todas las unidades —decodificadores y multiplexores (guías 4 y 5), sumadores/restadores con full adders (guía 3), conversión y diagramas temporales de biestables (guía 6) y contadores—, cada punto como aplicación directa de un método ya visto." }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   pdfs: [
     { key: 'u1-numeracion', label: 'U1 · Sistemas de numeración y aritmética binaria', path: 'pdfs/sistemas-digitales-i/1-sistemas-numeracion.pdf' },
     { key: 'u2-compuertas', label: 'U2 · Compuertas lógicas y álgebra de Boole', path: 'pdfs/sistemas-digitales-i/2c-compuertas-logicas.pdf' },
