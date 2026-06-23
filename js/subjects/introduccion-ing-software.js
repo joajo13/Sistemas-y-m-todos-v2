@@ -1,9 +1,9 @@
 /**
  * Materia: Introducción a la Ingeniería de Software (UP).
- * Módulo 7 — Especificación de requerimientos (Unidad 7).
- * Módulos 8 — Modelado de requerimientos, 9 — Pruebas de los requerimientos,
- * 10 — Diagramas de secuencia, 12 — Tipos de sistemas (Unidad 11),
- * 11 — Reingeniería y métodos formales (Unidad 12).
+ * Módulos 1 a 6 — Conceptos, ciclo de vida, metodologías ágiles, modelado de
+ * procesos de negocio, extracción y fundamentos de ingeniería de requerimientos.
+ * Módulos 7 a 12 — Especificación, modelado y pruebas de requerimientos,
+ * diagramas de secuencia, tipos de sistemas, reingeniería y métodos formales.
  *
  * Tipos conceptuales (ver js/content.js para Subject/Section/ContentBlock).
  */
@@ -11,9 +11,15 @@
 export default {
   id: 'introduccion-ing-software',
   title: 'Introducción a la Ingeniería de Software',
-  subtitle: 'Módulos 7, 8, 9, 10, 11 y 12 — Apuntes',
-  tagline: 'Especificación de requerimientos · Modelado de requerimientos · Pruebas de requerimientos · Diagramas de secuencia · Tipos de sistemas · Reingeniería y métodos formales',
+  subtitle: 'Módulos 1 a 12 — Apuntes',
+  tagline: 'Conceptos y ciclo de vida · Metodologías ágiles · Modelado de procesos de negocio · Ingeniería de requerimientos · Especificación, modelado y pruebas · Diagramas de secuencia · Tipos de sistemas · Reingeniería',
   units: {
+    '1': 'Conceptos de ingeniería de software',
+    '2': 'El ciclo de vida del desarrollo de software',
+    '3': 'Metodologías ágiles',
+    '4': 'Modelado de los procesos de negocio',
+    '5': 'Extracción de requerimientos',
+    '6': 'Fundamentos de la ingeniería de requerimientos',
     '7': 'Especificación de requerimientos',
     '8': 'Modelado de requerimientos',
     '9': 'Pruebas de los requerimientos',
@@ -23,6 +29,3126 @@ export default {
     'tp': 'TP Integrador — Sistema para librería',
   },
   sections: [
+// ---------- UNIDAD 1 · SECCIÓN 1.1 ----------
+{
+  id: '1.1',
+  unit: '1',
+  title: '¿Qué es la ingeniería de software?',
+  criollo: 'Básicamente, la ingeniería de software nace en 1968 cuando se dieron cuenta de que los proyectos de software se iban a la mierda en tiempo y plata: la famosa "crisis del software". Acá vemos las definiciones clásicas, qué es el proceso, qué es el producto y qué tiene que saber un buen ingeniero.',
+  blocks: [
+    {
+      type: 'h3',
+      text: 'El origen: la crisis del software (1968)',
+    },
+    {
+      type: 'p',
+      text: 'En 1968, año en el que la <strong>OTAN</strong> (Organización del Tratado del Atlántico Norte) desarrolló la primera conferencia sobre desarrollo de software, se acuñaron los términos <strong>crisis del software</strong>, para definir los problemas que surgían en el desarrollo de sistemas de software, e <strong>ingeniería del software</strong>, para describir el conjunto de conocimientos que existían en aquel estado inicial.',
+    },
+    {
+      type: 'p',
+      text: 'La <strong>crisis del software</strong> fue el resultado de proyectos de desarrollo que se extendían más allá de los costos y los tiempos planificados (si es que se lograban concluir, ya que a veces se debía cancelar el proyecto). De los sistemas que lograban completarse, se detectó que tenían un <strong>alto costo de mantenimiento</strong>, en ocasiones equiparable al costo que había insumido su desarrollo. Esto motivó la necesidad de una disciplina que pudiera aportar mejoras a los procesos, incluyendo <strong>métodos, técnicas y herramientas</strong>. La ingeniería de software contempla todos los aspectos referentes a la producción de software.',
+    },
+    {
+      type: 'h3',
+      text: 'Las definiciones clásicas',
+      criollo: 'Tres autores, tres definiciones. La de Boehm es la que el apunte considera más completa.',
+    },
+    {
+      type: 'p',
+      text: '<strong>Fritz Bauer</strong> acuñó la definición original: "Establecimiento y uso de principios de ingeniería para obtener software económico que trabaje de forma eficiente en máquinas reales".',
+    },
+    {
+      type: 'p',
+      text: 'La <strong>IEEE</strong> (Institute of Electrical and Electronics Engineers), en 1993, la definió como: "La aplicación de métodos sistemáticos, disciplinados y cuantificables para el desarrollo, operación y mantenimiento de software; esto es, la aplicación de la ingeniería al software". Esta definición también contempla el estudio de la aplicación de estos métodos.',
+    },
+    {
+      type: 'p',
+      text: 'Una de las definiciones que parece más completas fue aportada por <strong>Barry W. Boehm</strong>: "la aplicación práctica del conocimiento científico al diseño y construcción de programas y la documentación asociada requerida para desarrollar, operar y mantenerlos".',
+    },
+    {
+      type: 'h3',
+      text: 'El producto de software',
+    },
+    {
+      type: 'p',
+      text: 'Cuando hablamos de un <strong>producto de software</strong> es común asociarlo a los programas ejecutables, aunque esto es erróneo. No solo es el código objeto y el manual del usuario que se entrega al cliente, sino también los <strong>documentos asociados</strong> producidos durante el proceso: la documentación de los requerimientos, el diseño, el código fuente, los datos de prueba, etc.',
+    },
+    {
+      type: 'h3',
+      text: 'El proceso de software',
+    },
+    {
+      type: 'p',
+      text: 'El <strong>proceso</strong> es el que se usa para generar un producto de software a partir de los requerimientos del usuario. <strong>Ian F. Sommerville</strong> define el proceso del software como "un conjunto de actividades cuya meta es el desarrollo o evolución del software".',
+    },
+    {
+      type: 'h3',
+      text: 'El rol del ingeniero de software',
+      criollo: 'No alcanza con saber programar: hay que traducir deseos vagos en specs, hablar varios idiomas (técnico y de negocio) y laburar en equipo.',
+    },
+    {
+      type: 'p',
+      text: 'Idealmente, un buen ingeniero de software debe prepararse para enfrentar varios desafíos. Para poder hacerlo debería:',
+    },
+    {
+      type: 'ul',
+      items: [
+        'Poseer <strong>experiencia en programación</strong>.',
+        'Conocer de <strong>estructuras de datos</strong>.',
+        'Contar con capacidad para <strong>traducir requerimientos y deseos vagos</strong> en una especificación clara y precisa de requerimientos.',
+        'Poder manejar <strong>diferente vocabulario</strong>: usar conceptos técnicos con el equipo de desarrollo, pero en términos de la aplicación al interactuar con un usuario.',
+        'Contar con habilidad para moverse en <strong>diferentes niveles de abstracción</strong> en las distintas etapas del proyecto.',
+        'Conocer acerca de <strong>modelado de procesos y de datos</strong> para poder construirlos, usarlos y comprenderlos.',
+        'Tener habilidad para la <strong>comunicación interpersonal y la administración del trabajo</strong>, ya que es una disciplina que se lleva a cabo en interacción con otros, no en forma individual.',
+      ],
+    },
+    {
+      type: 'callout',
+      tone: 'criollo',
+      text: 'Resumen: el producto NO es solo el ejecutable (incluye toda la documentación), el proceso es el conjunto de actividades que llevan de los requerimientos al producto, y el ingeniero es mucho más que un programador.',
+    },
+  ],
+  quiz: {
+    tf: [
+      {
+        id: 'tf-1.1-1',
+        q: 'El término "crisis del software" se acuñó en 1968 durante la primera conferencia de la OTAN sobre desarrollo de software.',
+        a: true,
+        explain: 'Verdadero. En 1968, en esa conferencia de la OTAN, se acuñaron los términos "crisis del software" e "ingeniería del software".',
+      },
+      {
+        id: 'tf-1.1-2',
+        q: 'El producto de software es únicamente el código ejecutable y el manual de usuario.',
+        a: false,
+        explain: 'Falso. Esa asociación es errónea: el producto incluye también los documentos asociados como requerimientos, diseño, código fuente, datos de prueba, etc.',
+      },
+      {
+        id: 'tf-1.1-3',
+        q: 'Según el apunte, la definición de Boehm es una de las más completas para comprender la disciplina.',
+        a: true,
+        explain: 'Verdadero. El apunte presenta la definición de Barry W. Boehm como una de las más completas.',
+      },
+      {
+        id: 'tf-1.1-4',
+        q: 'Sommerville define el proceso del software como un conjunto de actividades cuya meta es el desarrollo o evolución del software.',
+        a: true,
+        explain: 'Verdadero. Esa es exactamente la definición de proceso que aporta Ian F. Sommerville.',
+      },
+      {
+        id: 'tf-1.1-5',
+        q: 'La ingeniería de software es una disciplina que se lleva a cabo de forma individual.',
+        a: false,
+        explain: 'Falso. El apunte destaca que no se lleva a cabo en forma individual, sino en interacción con otros, por eso importa la comunicación interpersonal.',
+      },
+    ],
+    mc: [
+      {
+        id: 'mc-1.1-1',
+        q: '¿Qué organización desarrolló en 1968 la primera conferencia sobre desarrollo de software?',
+        options: [
+          'IEEE',
+          'OTAN',
+          'ISO',
+          'American Heritage',
+        ],
+        correctIndex: 1,
+        explain: 'Fue la OTAN (Organización del Tratado del Atlántico Norte) la que desarrolló esa primera conferencia en 1968.',
+      },
+      {
+        id: 'mc-1.1-2',
+        q: '¿Quién acuñó la definición original de ingeniería de software citada en el apunte?',
+        options: [
+          'Barry W. Boehm',
+          'Ian F. Sommerville',
+          'Fritz Bauer',
+          'Frederick Brooks',
+        ],
+        correctIndex: 2,
+        explain: 'Fritz Bauer acuñó la definición original: "Establecimiento y uso de principios de ingeniería para obtener software económico que trabaje de forma eficiente en máquinas reales".',
+      },
+      {
+        id: 'mc-1.1-3',
+        q: '¿Cuál de los siguientes NO forma parte del producto de software según el apunte?',
+        options: [
+          'El código fuente',
+          'Los datos de prueba',
+          'La documentación de requerimientos',
+          'El cronograma de costos del proyecto',
+        ],
+        correctIndex: 3,
+        explain: 'El apunte enumera código objeto, manual, requerimientos, diseño, código fuente y datos de prueba como parte del producto. El cronograma de costos no se menciona como parte del producto.',
+      },
+      {
+        id: 'mc-1.1-4',
+        q: 'Según Sommerville, el proceso del software es:',
+        options: [
+          'El código ejecutable entregado al cliente',
+          'Un conjunto de actividades cuya meta es el desarrollo o evolución del software',
+          'La aplicación de leyes matemáticas al desarrollo',
+          'Una colección de componentes organizados',
+        ],
+        correctIndex: 1,
+        explain: 'Sommerville define el proceso del software como un conjunto de actividades cuya meta es el desarrollo o evolución del software.',
+      },
+    ],
+    ms: [
+      {
+        id: 'ms-1.1-1',
+        q: '¿Cuáles de los siguientes forman parte del producto de software según el apunte?',
+        options: [
+          'El código objeto y el manual de usuario',
+          'La documentación de los requerimientos',
+          'El diseño y el código fuente',
+          'Los costos y tiempos planificados del proyecto',
+          'Los datos de prueba',
+        ],
+        correctIndexes: [
+          0,
+          1,
+          2,
+          4,
+        ],
+        explain: 'El producto incluye código objeto, manual, requerimientos, diseño, código fuente y datos de prueba. Los costos y tiempos planificados son parte de la gestión del proyecto, no del producto.',
+      },
+      {
+        id: 'ms-1.1-2',
+        q: '¿Qué habilidades o conocimientos debería tener idealmente un buen ingeniero de software?',
+        options: [
+          'Experiencia en programación',
+          'Conocer estructuras de datos',
+          'Capacidad de traducir requerimientos vagos en una especificación clara',
+          'Habilidad para la comunicación interpersonal y la administración del trabajo',
+          'Trabajar siempre de forma individual y aislada',
+        ],
+        correctIndexes: [
+          0,
+          1,
+          2,
+          3,
+        ],
+        explain: 'El apunte lista experiencia en programación, estructuras de datos, traducir requerimientos vagos y comunicación interpersonal. Lo contrario al trabajo aislado: la disciplina se da en interacción con otros.',
+      },
+    ],
+  },
+  flashcards: [
+    {
+      id: 'fc-1.1-1',
+      front: 'Crisis del software',
+      back: 'Término acuñado en 1968 para definir los problemas en el desarrollo de software: proyectos que se pasaban de costos y tiempos, a veces se cancelaban, y los terminados tenían alto costo de mantenimiento.',
+    },
+    {
+      id: 'fc-1.1-2',
+      front: 'Año y conferencia clave',
+      back: '1968, primera conferencia de la OTAN sobre desarrollo de software, donde se acuñaron los términos "crisis del software" e "ingeniería del software".',
+    },
+    {
+      id: 'fc-1.1-3',
+      front: 'Definición de Boehm',
+      back: 'La aplicación práctica del conocimiento científico al diseño y construcción de programas y la documentación asociada requerida para desarrollar, operar y mantenerlos. El apunte la considera una de las más completas.',
+    },
+    {
+      id: 'fc-1.1-4',
+      front: 'Definición de la IEEE (1993)',
+      back: 'La aplicación de métodos sistemáticos, disciplinados y cuantificables para el desarrollo, operación y mantenimiento de software; esto es, la aplicación de la ingeniería al software.',
+    },
+    {
+      id: 'fc-1.1-5',
+      front: 'Producto de software',
+      back: 'No es solo el ejecutable: incluye el código objeto, el manual de usuario y los documentos asociados (requerimientos, diseño, código fuente, datos de prueba, etc.).',
+    },
+    {
+      id: 'fc-1.1-6',
+      front: 'Proceso de software (Sommerville)',
+      back: 'Un conjunto de actividades cuya meta es el desarrollo o evolución del software. Es lo que lleva de los requerimientos del usuario al producto.',
+    },
+    {
+      id: 'fc-1.1-7',
+      front: 'Rol del ingeniero de software',
+      back: 'Más que programar: traducir requerimientos vagos en specs claras, manejar distintos niveles de abstracción y vocabularios, modelar procesos y datos, y comunicarse y trabajar en equipo.',
+    },
+  ],
+},
+// ---------- UNIDAD 1 · SECCIÓN 1.2 ----------
+{
+  id: '1.2',
+  unit: '1',
+  title: 'Sistemas vs. software',
+  criollo: 'Acá la idea es no confundir el todo con la parte. Un sistema basado en computadoras tiene un montón de componentes (hardware, gente, datos, procedimientos...) y el software es solo uno de ellos: el lógico, el que no podés tocar.',
+  blocks: [
+    {
+      type: 'h3',
+      text: '¿Qué es un sistema?',
+    },
+    {
+      type: 'p',
+      text: 'La definición de sistema indica que se trata de una "<strong>colección de componentes organizados para cumplir una función o conjunto de funciones específicas</strong>" (IEEE Standard 610.12-1990).',
+    },
+    {
+      type: 'p',
+      text: 'Los elementos componentes de un <strong>sistema basado en computadoras</strong> involucran no solo los programas (software), sino también:',
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>Software</strong>: los programas de computadora.',
+        '<strong>Hardware</strong>: los dispositivos electrónicos necesarios.',
+        '<strong>Gente</strong>: los usuarios y quienes operan el sistema.',
+        '<strong>Base de datos</strong>: donde está la información que maneja el software.',
+        '<strong>Documentación</strong>: los manuales para operar.',
+        '<strong>Procedimientos</strong>: indican el uso de cada elemento del sistema.',
+      ],
+    },
+    {
+      type: 'callout',
+      tone: 'info',
+      text: 'El apunte acompaña esto con un gráfico de un sistema que recibe entradas y produce salidas, mostrando todos sus componentes (software, hardware, gente, base de datos, documentos y procedimientos). El gráfico se nombra pero el texto no lo desarrolla en detalle.',
+    },
+    {
+      type: 'h3',
+      text: '¿Qué es el software?',
+      criollo: 'A diferencia del hardware (físico), el software es lógico: no lo tocás.',
+    },
+    {
+      type: 'p',
+      text: 'El software es un elemento componente de un sistema que, a diferencia del hardware (físico), es <strong>lógico</strong>. Es un sistema, o sub-sistema, formado por una <strong>colección de programas y documentación</strong> que de forma conjunta satisfacen unos determinados requisitos.',
+    },
+    {
+      type: 'h3',
+      text: 'Sistema independiente vs. sub-sistema de software',
+    },
+    {
+      type: 'p',
+      text: 'Un sistema de software puede ser en sí mismo un <strong>sistema independiente</strong> que, por ejemplo, realiza su objetivo en un ordenador independiente. También puede formar parte de un <strong>sistema mayor</strong>, en cuyo caso se trata en realidad de un <strong>sub-sistema de software</strong>.',
+    },
+    {
+      type: 'callout',
+      tone: 'info',
+      text: 'Ejemplo del apunte: el sistema de GPS del celular es, en realidad, un sub-sistema del software del celular.',
+    },
+    {
+      type: 'callout',
+      tone: 'criollo',
+      text: 'Moraleja: sistema es el todo (incluye gente, fierros, datos, etc.); el software es la parte lógica. Y un software puede ser autónomo o ser un sub-sistema dentro de algo más grande.',
+    },
+  ],
+  quiz: {
+    tf: [
+      {
+        id: 'tf-1.2-1',
+        q: 'Un sistema es una colección de componentes organizados para cumplir una función o conjunto de funciones específicas.',
+        a: true,
+        explain: 'Verdadero. Esa es la definición de sistema según el IEEE Standard 610.12-1990 que cita el apunte.',
+      },
+      {
+        id: 'tf-1.2-2',
+        q: 'El software es un componente físico de un sistema, igual que el hardware.',
+        a: false,
+        explain: 'Falso. A diferencia del hardware (físico), el software es lógico.',
+      },
+      {
+        id: 'tf-1.2-3',
+        q: 'La gente (usuarios y operadores) es uno de los componentes de un sistema basado en computadoras.',
+        a: true,
+        explain: 'Verdadero. La gente es uno de los componentes, junto con software, hardware, base de datos, documentación y procedimientos.',
+      },
+      {
+        id: 'tf-1.2-4',
+        q: 'Un sistema de software siempre es un sistema independiente y nunca puede ser parte de un sistema mayor.',
+        a: false,
+        explain: 'Falso. Puede ser independiente o formar parte de un sistema mayor, en cuyo caso es un sub-sistema de software.',
+      },
+    ],
+    mc: [
+      {
+        id: 'mc-1.2-1',
+        q: '¿Qué estándar define al sistema como "colección de componentes organizados para cumplir una función o conjunto de funciones específicas"?',
+        options: [
+          'IEEE Std. 830-1998',
+          'IEEE Standard 610.12-1990',
+          'ISO 9001',
+          'IEEE 802.11',
+        ],
+        correctIndex: 1,
+        explain: 'Esa definición corresponde al IEEE Standard 610.12-1990.',
+      },
+      {
+        id: 'mc-1.2-2',
+        q: 'Según el apunte, ¿qué ejemplifica un sub-sistema de software?',
+        options: [
+          'El sistema operativo de una PC de escritorio',
+          'El sistema de GPS del celular',
+          'Una base de datos relacional',
+          'El manual de usuario',
+        ],
+        correctIndex: 1,
+        explain: 'El apunte usa el sistema de GPS del celular como ejemplo de sub-sistema del software del celular.',
+      },
+      {
+        id: 'mc-1.2-3',
+        q: 'El componente "procedimientos" de un sistema basado en computadoras:',
+        options: [
+          'Contiene la información que maneja el software',
+          'Indica el uso de cada elemento del sistema',
+          'Son los dispositivos electrónicos necesarios',
+          'Son los usuarios que operan el sistema',
+        ],
+        correctIndex: 1,
+        explain: 'Los procedimientos indican el uso de cada elemento del sistema. La información va en la base de datos, los dispositivos son el hardware y los usuarios son la gente.',
+      },
+    ],
+    ms: [
+      {
+        id: 'ms-1.2-1',
+        q: '¿Cuáles de los siguientes son componentes de un sistema basado en computadoras según el apunte?',
+        options: [
+          'Software',
+          'Hardware',
+          'Gente',
+          'Base de datos',
+          'Procedimientos',
+        ],
+        correctIndexes: [
+          0,
+          1,
+          2,
+          3,
+          4,
+        ],
+        explain: 'Todos lo son. El apunte enumera software, hardware, gente, base de datos, documentación y procedimientos como componentes del sistema.',
+      },
+      {
+        id: 'ms-1.2-2',
+        q: '¿Qué afirmaciones sobre el software son correctas según el apunte?',
+        options: [
+          'Es un elemento lógico, a diferencia del hardware que es físico',
+          'Es una colección de programas y documentación que satisfacen ciertos requisitos',
+          'Puede ser un sistema independiente',
+          'Puede ser un sub-sistema de un sistema mayor',
+          'Es siempre un componente físico tangible',
+        ],
+        correctIndexes: [
+          0,
+          1,
+          2,
+          3,
+        ],
+        explain: 'El software es lógico (no físico), es una colección de programas y documentación, y puede ser tanto un sistema independiente como un sub-sistema. Lo de "componente físico tangible" es falso.',
+      },
+    ],
+  },
+  flashcards: [
+    {
+      id: 'fc-1.2-1',
+      front: 'Definición de sistema',
+      back: 'Colección de componentes organizados para cumplir una función o conjunto de funciones específicas (IEEE Standard 610.12-1990).',
+    },
+    {
+      id: 'fc-1.2-2',
+      front: 'Componentes de un sistema',
+      back: 'Software, hardware, gente (usuarios y operadores), base de datos, documentación y procedimientos.',
+    },
+    {
+      id: 'fc-1.2-3',
+      front: 'Software vs. hardware',
+      back: 'El hardware es físico; el software es lógico. El software es una colección de programas y documentación que en conjunto satisfacen ciertos requisitos.',
+    },
+    {
+      id: 'fc-1.2-4',
+      front: 'Sub-sistema de software',
+      back: 'Cuando un sistema de software forma parte de un sistema mayor. Ejemplo del apunte: el GPS del celular es un sub-sistema del software del celular.',
+    },
+    {
+      id: 'fc-1.2-5',
+      front: 'Procedimientos (componente)',
+      back: 'Indican el uso de cada elemento del sistema.',
+    },
+    {
+      id: 'fc-1.2-6',
+      front: 'Base de datos (componente)',
+      back: 'Es donde está la información que maneja el software dentro del sistema.',
+    },
+  ],
+},
+// ---------- UNIDAD 1 · SECCIÓN 1.3 ----------
+{
+  id: '1.3',
+  unit: '1',
+  title: 'Calidad, cualidades, principios y esencia/accidente',
+  criollo: 'Calidad no es "excelencia" a secas: es que el software tenga la combinación de atributos deseados y que el cliente sienta que cumple. Acá van las cualidades (correctitud, confiabilidad, robustez...), los principios que se aplican durante todo el proceso, y la idea de Brooks sobre dificultades esenciales y accidentales.',
+  blocks: [
+    {
+      type: 'h3',
+      text: 'Calidad del software y sus vistas',
+    },
+    {
+      type: 'p',
+      text: 'Calidad implica excelencia de algún tipo, pero ese no es el significado que le dan los profesionales de la ingeniería de software. El <strong>American Heritage Dictionary</strong> define la calidad como "una característica o atributo de algo". El software, como entidad intelectual, es más difícil de caracterizar que los objetos físicos.',
+    },
+    {
+      type: 'p',
+      text: 'Según la <strong>IEEE</strong>: "Es cuando el software posee una <strong>buena combinación de atributos deseados</strong> y el cliente o usuario percibe que el producto <strong>cumple con sus expectativas</strong>".',
+    },
+    {
+      type: 'p',
+      text: 'Cada involucrado tiene una <strong>vista diferente</strong> de la calidad: para el <strong>usuario</strong> puede ser que el producto sea confiable, eficiente y fácil de usar; para el <strong>desarrollador</strong>, que sea fácil de verificar o mantener; para el <strong>administrador del proyecto</strong>, un buen nivel de productividad y eficiencia en el proceso de desarrollo.',
+    },
+    {
+      type: 'callout',
+      tone: 'info',
+      text: 'Conclusión del apunte: la calidad es la totalidad de características de un producto o servicio que se refieren a su habilidad para satisfacer necesidades establecidas o implicadas.',
+    },
+    {
+      type: 'h3',
+      text: 'Calidad del proceso vs. calidad del producto',
+      criollo: 'El software no se fabrica como el hardware: es más creativo que mecánico, así que la relación proceso-producto es más enroscada.',
+    },
+    {
+      type: 'p',
+      text: 'La gestión de calidad propone que la <strong>calidad del proceso afecta directamente la calidad del producto</strong>. En el hardware el vínculo es claro: buen diseño y luego la producción casi no presenta problemas. Pero el software <strong>no se fabrica</strong>: es un proceso más creativo que mecánico, donde la experiencia y habilidades individuales son importantes, y la calidad se ve afectada por factores externos. Aun así, la experiencia demuestra que la calidad del proceso tiene una influencia significativa en la calidad del producto, minimizando los defectos.',
+    },
+    {
+      type: 'h3',
+      text: 'Cualidades del software',
+      criollo: 'Las cualidades son atributos de calidad. Internas (le importan a los devs) o externas (las ven los usuarios). Ojo: no todas se le piden a cada producto.',
+    },
+    {
+      type: 'p',
+      text: 'Las cualidades del software son características que se presentan en el producto o en su proceso de desarrollo. Según <strong>Ghezzi</strong> pueden clasificarse en <strong>internas</strong> (relevantes para los desarrolladores) y <strong>externas</strong> (visibles o relevantes para los usuarios). El producto de software se diferencia por su <strong>maleabilidad</strong>: puede modificarse con facilidad.',
+    },
+    {
+      type: 'table',
+      caption: 'Cualidades del producto y del proceso',
+      headers: ['Cualidad', 'Significado'],
+      rows: [
+        ['Correctitud', 'Es "funcionalmente correcto" si se comporta de acuerdo a la especificación de funciones que debería proveer.'],
+        ['Confiabilidad', 'El usuario puede depender de él. Formalmente, la probabilidad de que opere como se esperaba dentro de un intervalo de tiempo especificado.'],
+        ['Robustez', 'Se comporta razonablemente aun en circunstancias no anticipadas en la especificación (ej.: no falla irrecuperablemente al presionar una tecla errónea).'],
+        ['Performance', 'Eficiencia: utiliza los recursos en forma económica (tiempo, memoria).'],
+        ['Amigabilidad', 'El usuario lo encuentra fácil de usar. Es más que la interfaz; la correctitud y la performance también la afectan.'],
+        ['Verificabilidad', 'Facilidad de prueba: sus propiedades pueden comprobarse fácilmente. Aporta el diseño modular y la codificación disciplinada.'],
+        ['Mantenibilidad', 'Modificaciones hechas tras la entrega inicial: arreglar errores e incorporar mejoras o cambios.'],
+        ['Reusabilidad', 'Se aplica más a una parte que al producto entero. Difícil de lograr a posteriori; hay que pensarla al desarrollar los componentes.'],
+        ['Portabilidad', 'Puede "correr" en distintos ambientes (plataforma de hardware, ambiente de software o sistema operativo).'],
+        ['Interoperabilidad', 'Habilidad de coexistir y cooperar con otros sistemas (ej.: importar/exportar datos). Importa la estandarización de interfaces.'],
+        ['Productividad', 'Eficiencia del proceso de producción según los recursos requeridos. Las rutinas reusables la mejoran.'],
+        ['Oportunidad', 'Cualidad del proceso: habilidad de entregar un producto a tiempo. Requiere buena programación, estimación y metas claras.'],
+        ['Visibilidad', 'El proceso es visible si todos sus pasos y su estado actual están documentados y accesibles para examinación externa.'],
+        ['Integridad', 'Atributo que controla los accesos no autorizados a datos o software.'],
+      ],
+    },
+    {
+      type: 'callout',
+      tone: 'warning',
+      text: 'No todas las cualidades se le piden a cada producto o proceso: hay que identificar cuáles son relevantes al establecer los requisitos. Por ejemplo, no todos los productos necesitan ser portables; depende de quiénes sean sus clientes.',
+    },
+    {
+      type: 'h3',
+      text: 'Principios de la ingeniería de software',
+      criollo: 'A diferencia de las cualidades, los principios se aplican durante todo el proceso y la evolución del software. Son la piedra angular de la disciplina.',
+    },
+    {
+      type: 'p',
+      text: 'A diferencia de las cualidades, los principios se aplican <strong>a través de todo el proceso de desarrollo y la evolución del software</strong>. Por su aplicabilidad general, constituyen la piedra angular de la ingeniería del software, más que de una fase aislada del ciclo de vida.',
+    },
+    {
+      type: 'ul',
+      items: [
+        '<strong>Rigor y formalidad</strong>: el rigor complementa a la creatividad y permite productos más confiables y controlar costos. Su nivel más alto es la formalidad, que requiere conducir y evaluar el proceso mediante leyes matemáticas.',
+        '<strong>Separación de incumbencias o responsabilidades</strong>: tratar aspectos individuales de un problema por separado para concentrarse en cada uno (ej.: equipos de desarrollo, testing & QA, redes, etc.).',
+        '<strong>Modularidad</strong>: dividir un sistema complejo en partes más sencillas (módulos), reduciendo la complejidad y facilitando la modificación o corrección. Un buen diseño de módulos debe tener <strong>alta cohesión</strong> (interrelación entre componentes internos del módulo) y <strong>bajo acoplamiento</strong> (relación entre módulos).',
+        '<strong>Abstracción</strong>: identificar los aspectos importantes de un fenómeno e ignorar los no relevantes para su comprensión.',
+        '<strong>Anticipación al cambio</strong>: identificar necesidades de reparación o evolución a medida que surgen o se modifican requerimientos. De esto se ocupa la Administración de configuraciones (control de versiones y revisiones).',
+        '<strong>Generalización</strong>: descubrir un problema más general oculto detrás del que se trata.',
+        '<strong>Incrementalidad</strong>: identificar subconjuntos de la aplicación para hacer entregas al usuario y obtener pronta realimentación. Los productos intermedios pueden ser prototipos del final.',
+      ],
+    },
+    {
+      type: 'h3',
+      text: 'Esencia y accidente (Brooks, "No silver bullet")',
+      criollo: 'Brooks divide las dificultades en dos: las esenciales son inherentes al software y no se van; las accidentales son del momento y van cambiando con la tecnología.',
+    },
+    {
+      type: 'p',
+      text: 'Como indica <strong>Frederick Brooks</strong> en su artículo "<strong>No silver bullet</strong>", todo proceso de construcción de software involucra dificultades que pueden clasificarse en <strong>esenciales</strong> y <strong>accidentales</strong>.',
+    },
+    {
+      type: 'p',
+      text: 'Citando a Aristóteles, las <strong>dificultades esenciales</strong> son inherentes a la naturaleza del software: <strong>complejidad, conformidad, variabilidad o mutabilidad e invisibilidad</strong>; factores que pese al progreso tecnológico siguen presentes. Las <strong>dificultades accidentales</strong> asisten a la producción pero no son inherentes, por lo que con los avances tecnológicos pueden ir variando (por ejemplo, lenguajes de programación, limitaciones en espacio o velocidad de los dispositivos).',
+    },
+    {
+      type: 'callout',
+      tone: 'criollo',
+      text: 'Clave: cualidades = atributos del producto/proceso; principios = se aplican durante todo el proceso. Y de las dificultades de Brooks, las esenciales no se las saca nadie, las accidentales sí mejoran con la tecnología.',
+    },
+  ],
+  quiz: {
+    tf: [
+      {
+        id: 'tf-1.3-1',
+        q: 'Para la ingeniería de software, calidad significa simplemente "excelencia".',
+        a: false,
+        explain: 'Falso. El apunte aclara que ese no es el significado que le dan los profesionales: la calidad es una buena combinación de atributos deseados que cumple las expectativas del cliente.',
+      },
+      {
+        id: 'tf-1.3-2',
+        q: 'Según Ghezzi, las cualidades internas son relevantes para los desarrolladores y las externas para los usuarios.',
+        a: true,
+        explain: 'Verdadero. Esa es exactamente la clasificación de Ghezzi entre cualidades internas y externas.',
+      },
+      {
+        id: 'tf-1.3-3',
+        q: 'Un buen diseño de módulos debe tener alta cohesión y bajo acoplamiento.',
+        a: true,
+        explain: 'Verdadero. La cohesión mide la interrelación interna del módulo y el acoplamiento la relación entre módulos: se busca alta cohesión y bajo acoplamiento.',
+      },
+      {
+        id: 'tf-1.3-4',
+        q: 'Las dificultades accidentales de Brooks son inherentes a la naturaleza del software y no varían con la tecnología.',
+        a: false,
+        explain: 'Falso. Las inherentes son las esenciales. Las accidentales asisten a la producción pero no son inherentes y pueden variar con los avances tecnológicos.',
+      },
+      {
+        id: 'tf-1.3-5',
+        q: 'Todas las cualidades deben pedirse siempre a cada producto de software.',
+        a: false,
+        explain: 'Falso. No todas se le piden a cada producto; hay que identificar cuáles son relevantes (por ejemplo, no todo producto necesita ser portable).',
+      },
+    ],
+    mc: [
+      {
+        id: 'mc-1.3-1',
+        q: '¿Cuál de estas cualidades se refiere a que el software "se comporta razonablemente aun en circunstancias no anticipadas en la especificación"?',
+        options: [
+          'Correctitud',
+          'Robustez',
+          'Portabilidad',
+          'Verificabilidad',
+        ],
+        correctIndex: 1,
+        explain: 'Esa es la definición de robustez (ej.: que no falle irrecuperablemente al presionar una tecla errónea).',
+      },
+      {
+        id: 'mc-1.3-2',
+        q: 'El principio que consiste en "descubrir un problema más general oculto detrás del que se trata" es:',
+        options: [
+          'Abstracción',
+          'Modularidad',
+          'Generalización',
+          'Incrementalidad',
+        ],
+        correctIndex: 2,
+        explain: 'Esa es la definición del principio de generalización.',
+      },
+      {
+        id: 'mc-1.3-3',
+        q: '¿En qué artículo Frederick Brooks plantea las dificultades esenciales y accidentales?',
+        options: [
+          'The Mythical Man-Month',
+          'No silver bullet',
+          'Software Engineering Economics',
+          'The Cathedral and the Bazaar',
+        ],
+        correctIndex: 1,
+        explain: 'El apunte cita el artículo "No silver bullet" de Frederick Brooks.',
+      },
+      {
+        id: 'mc-1.3-4',
+        q: 'La cualidad que controla los accesos no autorizados a datos o software es:',
+        options: [
+          'Confiabilidad',
+          'Integridad',
+          'Visibilidad',
+          'Interoperabilidad',
+        ],
+        correctIndex: 1,
+        explain: 'La integridad es el atributo que controla los accesos no autorizados a datos o software.',
+      },
+    ],
+    ms: [
+      {
+        id: 'ms-1.3-1',
+        q: '¿Cuáles de las siguientes son dificultades ESENCIALES según Brooks?',
+        options: [
+          'Complejidad',
+          'Conformidad',
+          'Lenguajes de programación',
+          'Variabilidad o mutabilidad',
+          'Invisibilidad',
+        ],
+        correctIndexes: [
+          0,
+          1,
+          3,
+          4,
+        ],
+        explain: 'Las esenciales son complejidad, conformidad, variabilidad/mutabilidad e invisibilidad. Los lenguajes de programación son una dificultad accidental.',
+      },
+      {
+        id: 'ms-1.3-2',
+        q: '¿Cuáles de los siguientes son principios de la ingeniería de software según el apunte?',
+        options: [
+          'Rigor y formalidad',
+          'Separación de incumbencias',
+          'Modularidad',
+          'Abstracción',
+          'Confiabilidad',
+        ],
+        correctIndexes: [
+          0,
+          1,
+          2,
+          3,
+        ],
+        explain: 'Rigor y formalidad, separación de incumbencias, modularidad y abstracción son principios. La confiabilidad es una cualidad, no un principio.',
+      },
+      {
+        id: 'ms-1.3-3',
+        q: '¿Qué afirmaciones sobre la modularidad son correctas?',
+        options: [
+          'Divide un sistema complejo en partes más sencillas llamadas módulos',
+          'Busca alta cohesión',
+          'Busca bajo acoplamiento',
+          'Reduce la complejidad y facilita la modificación o corrección',
+          'Busca alto acoplamiento entre módulos',
+        ],
+        correctIndexes: [
+          0,
+          1,
+          2,
+          3,
+        ],
+        explain: 'La modularidad divide el sistema en módulos, busca alta cohesión y bajo acoplamiento, y reduce la complejidad. Lo del alto acoplamiento es falso: se busca lo contrario.',
+      },
+    ],
+  },
+  flashcards: [
+    {
+      id: 'fc-1.3-1',
+      front: 'Calidad (IEEE)',
+      back: 'Cuando el software posee una buena combinación de atributos deseados y el cliente o usuario percibe que el producto cumple con sus expectativas.',
+    },
+    {
+      id: 'fc-1.3-2',
+      front: 'Cualidades internas vs. externas (Ghezzi)',
+      back: 'Internas: relevantes para los desarrolladores. Externas: visibles o relevantes para los usuarios.',
+    },
+    {
+      id: 'fc-1.3-3',
+      front: 'Correctitud',
+      back: 'Un producto es funcionalmente correcto si se comporta de acuerdo a la especificación de funciones que debería proveer.',
+    },
+    {
+      id: 'fc-1.3-4',
+      front: 'Robustez',
+      back: 'El producto se comporta razonablemente aun en circunstancias no anticipadas en la especificación (ej.: no falla irrecuperablemente al presionar una tecla errónea).',
+    },
+    {
+      id: 'fc-1.3-5',
+      front: 'Cohesión y acoplamiento',
+      back: 'Cohesión: interrelación entre los componentes internos de un módulo. Acoplamiento: relación o comunicación entre módulos. Buen diseño = alta cohesión y bajo acoplamiento.',
+    },
+    {
+      id: 'fc-1.3-6',
+      front: 'Principios vs. cualidades',
+      back: 'Las cualidades son atributos del producto/proceso; los principios se aplican durante todo el proceso de desarrollo y la evolución del software, son la piedra angular de la disciplina.',
+    },
+    {
+      id: 'fc-1.3-7',
+      front: 'Anticipación al cambio',
+      back: 'Principio que identifica necesidades de reparación o evolución a medida que surgen o cambian requerimientos. De esto se ocupa la Administración de configuraciones (control de versiones y revisiones).',
+    },
+    {
+      id: 'fc-1.3-8',
+      front: 'Dificultades esenciales (Brooks)',
+      back: 'Inherentes a la naturaleza del software: complejidad, conformidad, variabilidad o mutabilidad e invisibilidad. Siguen presentes pese al progreso tecnológico.',
+    },
+    {
+      id: 'fc-1.3-9',
+      front: 'Dificultades accidentales (Brooks)',
+      back: 'Asisten a la producción pero no son inherentes; con los avances tecnológicos pueden variar (ej.: lenguajes de programación, limitaciones de espacio o velocidad de los dispositivos).',
+    },
+  ],
+},
+
+  // ---------- UNIDAD 2 · SECCIÓN 2.1 ----------
+  {
+    id: '2.1',
+    unit: '2',
+    title: 'El ciclo de vida y los modelos tradicionales',
+    criollo: 'El ciclo de vida es el orden en que hacés las cosas para fabricar un software, desde que aparece la necesidad hasta que el sistema deja de usarse. Acá ves los modelos más tradicionales: el clásico (cascada), el espiral, el incremental y el de prototipos. Elegir bien el modelo no es un detalle: te puede salvar o hundir el proyecto.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'El ciclo de vida del desarrollo de software',
+      },
+      {
+        type: 'p',
+        text: 'El proceso de desarrollo del software involucra llevar a cabo un conjunto de actividades para su producción. Este proceso se denomina <strong>ciclo de vida</strong> porque abarca <strong>desde que surge la necesidad inicial de un sistema hasta que el mismo sale de uso</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'Existen varios modelos de ciclos de vida, también llamados <strong>paradigmas de proceso</strong>, que tienen que ver con la forma específica en que se realizan las tareas y la secuencia de actividades que involucran. El ciclo de vida busca establecer el orden en que un proyecto se especifica, se prototipea, diseña, prueba e implementa.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Seleccionar el ciclo de vida correcto ayuda a cumplir objetivos como productividad en el desarrollo, calidad del producto, disminución de riesgos o un mejor acercamiento al cliente.',
+      },
+      {
+        type: 'p',
+        text: 'El apunte aborda <strong>cinco modelos</strong> de ciclos de vida: ciclo de vida clásico, modelo espiral, modelo incremental, prototipos y modelo evolutivo UP.',
+      },
+      {
+        type: 'h3',
+        text: 'Ciclo de vida clásico (cascada)',
+        criollo: 'El primero de todos y la base de los demás. Una etapa atrás de la otra, y no avanzás hasta terminar la anterior. Re rígido.',
+      },
+      {
+        type: 'p',
+        text: 'Es el <strong>primer modelo</strong> de ciclo de vida, pero se sigue empleando y fue la base para muchos de los modelos que le siguieron. También es llamado <strong>modelo de cascada o lineal</strong>, porque las actividades se dan en forma <strong>secuencial</strong> y cada etapa debe estar completamente finalizada para habilitar el inicio de la siguiente, lo que lo transforma en un <strong>modelo muy rígido</strong> de seguir.',
+      },
+      {
+        type: 'p',
+        text: 'Está conformado por las siguientes actividades: <strong>análisis y especificación de requerimientos, diseño, codificación, pruebas, integración, operación y mantenimiento</strong>. El nombre de las etapas puede variar según la bibliografía (por ejemplo, la prueba puede separarse en prueba unitaria y pruebas de integración).',
+      },
+      {
+        type: 'h3',
+        text: 'Las etapas del modelo clásico',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Análisis y especificación de requerimientos</strong>: relevar requerimientos, características, normas, políticas y procedimientos, y analizarlos para concluir en una especificación formal. Está asociada a determinar el "qué" se debe hacer.',
+          '<strong>Diseño</strong>: se ocupa del "cómo". El sistema se suele dividir en piezas más pequeñas (módulos); se describen algoritmos, estructura de datos, arquitectura del software, procedimientos e interfaces.',
+          '<strong>Codificación</strong>: se entrega al equipo de programación lo especificado en el diseño para que lo traduzcan al lenguaje de programación definido.',
+          '<strong>Pruebas</strong>: se constata que el código responda a los requerimientos, de modo que las entradas generen las salidas esperadas.',
+          '<strong>Integración</strong>: los módulos o componentes se combinan (integran) para conformar el sistema de información.',
+          '<strong>Operación y mantenimiento</strong>: la operación es la puesta en funcionamiento y uso por el cliente; el mantenimiento es cualquier modificación posterior a la entrega (corregir errores, adaptarse a cambios del entorno o incorporar nuevas funcionalidades).',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Según Gane y Sarson, "el diseño es el proceso (iterativo) de tomar un modelo lógico de un sistema con un conjunto de objetivos fuertemente establecidos para este sistema, y producir la especificación de un sistema físico que satisfaga dichos objetivos".',
+      },
+      {
+        type: 'p',
+        text: 'Como las etapas se suceden en forma escalonada, <strong>no habrá solapamiento de actividades</strong> y todo el grupo está en la misma etapa del desarrollo en un momento dado. Por eso no requiere personal muy experto en administración ni planificación.',
+      },
+      {
+        type: 'p',
+        text: 'Por ser un modelo <strong>extremadamente rígido</strong>, debería aplicarse a desarrollos donde los <strong>requisitos estén completamente definidos al inicio y no se esperen cambios</strong>. Permite armar un cronograma, pero <strong>no le deja ver al cliente los avances hasta etapas muy avanzadas</strong> (como las pruebas).',
+      },
+      {
+        type: 'p',
+        text: 'Con el tiempo se incluyó el <strong>retorno a etapas anteriores</strong> para corregir errores producidos previamente, lo que lo amolda más a la realidad de la práctica. Además, para dar por culminada una etapa y pasar a la siguiente es necesario <strong>completar toda la documentación</strong> de esa etapa, lo que ocasiona finalizar el proyecto con un gran volumen de documentación.',
+      },
+      {
+        type: 'h3',
+        text: 'Modelo espiral',
+        criollo: 'El gran aporte: meterle análisis de riesgos al ciclo de vida. El proyecto se piensa como un montón de mini proyectos, cada uno enfocado en uno o más riesgos.',
+      },
+      {
+        type: 'p',
+        text: 'El modelo en espiral surge en los <strong>años 80</strong>, propuesto originalmente por <strong>Barry Boehm</strong>. Plantea un cambio importante: incorpora el <strong>análisis de riesgos</strong> al ciclo de vida del proyecto, que hasta el momento no estaba contemplado. Se plantea al proyecto como una <strong>sumatoria de mini proyectos</strong>, cada uno centrado en uno o más riesgos.',
+      },
+      {
+        type: 'p',
+        text: 'Los <strong>cuatro cuadrantes</strong> representan cuatro actividades por las que pasa el desarrollo:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Planificación</strong>: definir objetivos específicos y alternativas, teniendo en cuenta las restricciones del proceso y del producto. Se decide qué parte del desarrollo se abordará en el ciclo.',
+          '<strong>Análisis de riesgos</strong>: análisis de alternativas, se selecciona la más ventajosa, y se identifican y previenen los posibles riesgos.',
+          '<strong>Ingeniería</strong>: desarrollo del producto basado en la planificación inicial y el análisis de riesgos. Se aplica algún modelo, como el de cascada.',
+          '<strong>Evaluación del cliente</strong>: el cliente valora lo realizado para determinar cómo se procede a continuación.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Se grafica como una <strong>espiral sobre ejes cartesianos</strong> que comienza cerca del cruce de los ejes y va creciendo con los giros que pasan por los distintos cuadrantes. En cada ciclo de la espiral se lleva a cabo una parte del desarrollo total atravesando las cuatro actividades.',
+      },
+      {
+        type: 'h3',
+        text: 'Modelo incremental',
+        criollo: 'Le agrega flexibilidad a la cascada: parte el sistema en pedazos y va entregando subsistemas que funcionan. Así el cliente ve avances de verdad.',
+      },
+      {
+        type: 'p',
+        text: 'El modelo incremental le <strong>suma flexibilidad al modelo de cascada</strong>, subsanando una de sus grandes desventajas: no permitirle al cliente tener signos visibles del avance. Parte de una especificación de requerimientos y <strong>descompone el desarrollo en una serie de partes</strong>, aplicándole un ciclo de desarrollo a cada una, generando <strong>subsistemas operativos</strong> que le permiten al cliente disponer del producto en forma incremental.',
+      },
+      {
+        type: 'p',
+        text: 'Las entregas parciales en períodos más cortos permiten que los <strong>requisitos puedan completarse o corregirse durante el desarrollo</strong>. La definición de los subsistemas requiere algo más de experiencia del grupo, ya que cada entrega debe ser una <strong>versión operativa</strong> usable por los usuarios.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Una modificación de este modelo se llama "Diseño por planificación": las entregas se fijan según la prioridad del cliente en orden decreciente, de modo que si el proyecto se cancela o demora, los requisitos más prioritarios ya estén implementados en los primeros subsistemas.',
+      },
+      {
+        type: 'p',
+        text: 'Es muy apropiado cuando el cliente necesita disponer al menos de una parte de la funcionalidad en poco tiempo, y ayuda a <strong>calmar la ansiedad del cliente</strong> que quiere ver resultados rápidos de su inversión.',
+      },
+      {
+        type: 'h3',
+        text: 'Modelo de prototipos',
+        criollo: 'Un prototipo simula cómo debería funcionar el sistema. Sirve cuando el cliente no sabe bien qué quiere o cuando el desarrollador no conoce el negocio.',
+      },
+      {
+        type: 'p',
+        text: 'Un <strong>prototipo</strong> es un modelo que trata de <strong>simular el funcionamiento que debería tener el sistema</strong>. Es de gran utilidad cuando el cliente no puede describir claramente qué desea, o cuando el desarrollador desconoce las actividades que lleva a cabo la organización.',
+      },
+      {
+        type: 'p',
+        text: 'Originalmente algunos desarrolladores generaban un software piloto o "borrador" centrado en la interfaz (a veces con mínima funcionalidad). Era un <strong>prototipo descartable</strong>: una vez definidos bien entradas, salidas y procesos, se descartaba y se desarrollaba el producto en la arquitectura definida.',
+      },
+      {
+        type: 'p',
+        text: 'Esto generaba conflictos: el cliente no entendía que se descartara el trabajo, o el desarrollador no quería rehacer la interfaz. Por eso el plan cambió para desarrollar el prototipo sobre la arquitectura elegida, y el prototipo pasó a ser <strong>evolutivo</strong> (no se descarta lo ya realizado).',
+      },
+      {
+        type: 'p',
+        text: 'Los prototipos pueden categorizarse en: <strong>Ligeros</strong> (bocetos de pantallas, simulando enlaces con dibujos de navegación) y <strong>Operativos</strong> (se crean módulos del software cubriendo partes de las funcionalidades requeridas).',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'No te olvides: el objetivo principal del modelo de prototipos es trabajar con el cliente y los usuarios para obtener retroalimentación que ayude a definir los requisitos.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-2.1-1',
+          q: 'El ciclo de vida abarca desde que surge la necesidad inicial de un sistema hasta que el mismo sale de uso.',
+          a: true,
+          explain: 'Tal cual lo define el apunte: el proceso se denomina ciclo de vida porque abarca desde la necesidad inicial hasta que el sistema sale de uso.',
+        },
+        {
+          id: 'tf-2.1-2',
+          q: 'En el ciclo de vida clásico las etapas se solapan y el grupo trabaja en varias etapas a la vez.',
+          a: false,
+          explain: 'Falso. En el modelo clásico no hay solapamiento de actividades: todo el grupo se encuentra en la misma etapa del desarrollo en un momento dado.',
+        },
+        {
+          id: 'tf-2.1-3',
+          q: 'El modelo espiral incorpora el análisis de riesgos al ciclo de vida del proyecto.',
+          a: true,
+          explain: 'Verdadero. Ese es justamente el cambio importante que plantea el modelo espiral de Barry Boehm.',
+        },
+        {
+          id: 'tf-2.1-4',
+          q: 'El modelo incremental no le permite al cliente ver signos visibles del avance del proyecto.',
+          a: false,
+          explain: 'Falso. Al revés: el modelo incremental subsana esa desventaja de la cascada generando subsistemas operativos que el cliente puede ir disponiendo.',
+        },
+        {
+          id: 'tf-2.1-5',
+          q: 'El prototipo es útil cuando el cliente no puede describir claramente qué desea del sistema.',
+          a: true,
+          explain: 'Verdadero. El modelo de prototipos es de gran utilidad cuando el cliente no puede describir claramente qué desea, o cuando el desarrollador desconoce las actividades de la organización.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-2.1-1',
+          q: '¿Por qué al ciclo de vida clásico también se lo llama modelo de cascada o lineal?',
+          options: [
+            'Porque incorpora el análisis de riesgos',
+            'Porque las actividades se dan en forma secuencial y cada etapa debe finalizar para iniciar la siguiente',
+            'Porque genera subsistemas operativos parciales',
+            'Porque permite descartar el trabajo ya hecho',
+          ],
+          correctIndex: 1,
+          explain: 'Se llama cascada o lineal porque las actividades son secuenciales y cada etapa debe estar completamente finalizada para habilitar el inicio de la siguiente.',
+        },
+        {
+          id: 'mc-2.1-2',
+          q: '¿Quién propuso originalmente el modelo espiral?',
+          options: [
+            'Ivar Jacobson',
+            'Gane y Sarson',
+            'Barry Boehm',
+            'Grady Booch',
+          ],
+          correctIndex: 2,
+          explain: 'El modelo en espiral surge en los 80 y fue propuesto originalmente por Barry Boehm.',
+        },
+        {
+          id: 'mc-2.1-3',
+          q: '¿Cuál de las siguientes NO es una de las cuatro actividades (cuadrantes) del modelo espiral?',
+          options: [
+            'Planificación',
+            'Análisis de riesgos',
+            'Codificación',
+            'Evaluación del cliente',
+          ],
+          correctIndex: 2,
+          explain: 'Los cuatro cuadrantes del espiral son Planificación, Análisis de riesgos, Ingeniería y Evaluación del cliente. La codificación no figura como cuadrante.',
+        },
+        {
+          id: 'mc-2.1-4',
+          q: 'Según el apunte, ¿en qué categorías pueden clasificarse los prototipos?',
+          options: [
+            'Funcionales y no funcionales',
+            'Ligeros y operativos',
+            'Internos y externos',
+            'Descartables e iterativos',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte categoriza los prototipos en Ligeros (bocetos de pantallas) y Operativos (módulos que cubren partes de la funcionalidad).',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-2.1-1',
+          q: '¿Cuáles de las siguientes son actividades del ciclo de vida clásico (cascada)?',
+          options: [
+            'Análisis y especificación de requerimientos',
+            'Análisis de riesgos',
+            'Diseño',
+            'Codificación',
+            'Evaluación del cliente',
+          ],
+          correctIndexes: [
+            0,
+            2,
+            3,
+          ],
+          explain: 'El modelo clásico incluye análisis y especificación de requerimientos, diseño, codificación, pruebas, integración, operación y mantenimiento. Análisis de riesgos y evaluación del cliente son cuadrantes del modelo espiral.',
+        },
+        {
+          id: 'ms-2.1-2',
+          q: '¿Cuáles de estas afirmaciones sobre el modelo incremental son correctas según el apunte?',
+          options: [
+            'Le suma flexibilidad al modelo de cascada',
+            'Genera subsistemas operativos que el cliente puede ir disponiendo',
+            'Incorpora el análisis de riesgos como cuadrante',
+            'Permite que los requisitos se completen o corrijan durante el desarrollo',
+            'Cada entrega debe ser una versión operativa usable por los usuarios',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Todas son correctas salvo la del análisis de riesgos como cuadrante, que corresponde al modelo espiral, no al incremental.',
+        },
+        {
+          id: 'ms-2.1-3',
+          q: '¿Cuáles son los cuatro cuadrantes (actividades) del modelo espiral?',
+          options: [
+            'Planificación',
+            'Análisis de riesgos',
+            'Ingeniería',
+            'Evaluación del cliente',
+            'Mantenimiento',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Los cuatro cuadrantes son Planificación, Análisis de riesgos, Ingeniería y Evaluación del cliente. El mantenimiento no es un cuadrante del espiral.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-2.1-1',
+        front: 'Ciclo de vida del software',
+        back: 'Conjunto de actividades para producir software. Abarca desde que surge la necesidad inicial del sistema hasta que sale de uso. También se llama paradigma de proceso.',
+      },
+      {
+        id: 'fc-2.1-2',
+        front: 'Ciclo de vida clásico (cascada)',
+        back: 'Primer modelo y base de los demás. Etapas secuenciales y rígidas: cada una debe finalizar antes de iniciar la siguiente. Sin solapamiento de actividades.',
+      },
+      {
+        id: 'fc-2.1-3',
+        front: 'Etapas del modelo clásico',
+        back: 'Análisis y especificación de requerimientos, diseño, codificación, pruebas, integración, operación y mantenimiento.',
+      },
+      {
+        id: 'fc-2.1-4',
+        front: 'Análisis vs. diseño',
+        back: 'El análisis está asociado a determinar el "qué" se debe hacer. El diseño se ocupa del "cómo", dividiendo el sistema en módulos.',
+      },
+      {
+        id: 'fc-2.1-5',
+        front: 'Modelo espiral',
+        back: 'Surge en los 80, propuesto por Barry Boehm. Incorpora el análisis de riesgos al ciclo de vida y plantea el proyecto como una sumatoria de mini proyectos.',
+      },
+      {
+        id: 'fc-2.1-6',
+        front: 'Cuadrantes del espiral',
+        back: 'Planificación, Análisis de riesgos, Ingeniería y Evaluación del cliente. En cada ciclo de la espiral se atraviesan las cuatro actividades.',
+      },
+      {
+        id: 'fc-2.1-7',
+        front: 'Modelo incremental',
+        back: 'Le suma flexibilidad a la cascada. Descompone el desarrollo en partes y genera subsistemas operativos que el cliente puede disponer en forma incremental.',
+      },
+      {
+        id: 'fc-2.1-8',
+        front: 'Diseño por planificación',
+        back: 'Variante del incremental donde las entregas se fijan por prioridad del cliente en orden decreciente, para que los requisitos más prioritarios se implementen primero.',
+      },
+      {
+        id: 'fc-2.1-9',
+        front: 'Tipos de prototipos',
+        back: 'Ligeros (bocetos de pantallas simulando navegación) y Operativos (módulos del software que cubren partes de la funcionalidad). El objetivo es obtener retroalimentación del cliente.',
+      },
+    ],
+  },
+  // ---------- UNIDAD 2 · SECCIÓN 2.2 ----------
+  {
+    id: '2.2',
+    unit: '2',
+    title: 'Modelo evolutivo y Proceso Unificado (UP)',
+    criollo: 'Acá cerramos con los dos modelos más flexibles: el evolutivo, que arranca con un sistema chico y lo va refinando con cada pedido del cliente, y el Proceso Unificado (UP/RUP), un modelo híbrido que organiza todo en fases, iteraciones y flujos de trabajo.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Modelo evolutivo',
+        criollo: 'Arrancás con un sistema rapidito y lo vas haciendo crecer con lo que el cliente te va pidiendo mientras lo usa. Ideal cuando ni vos ni el cliente saben bien qué se necesita.',
+      },
+      {
+        type: 'p',
+        text: 'El modelo evolutivo está conformado por <strong>varios ciclos de desarrollo</strong>, donde se enlazan las actividades de <strong>especificación, desarrollo y validación</strong>, y cada uno genera un <strong>sistema completo</strong> que el cliente puede operar.',
+      },
+      {
+        type: 'p',
+        text: 'Parte del desarrollo <strong>rápido de un sistema inicial</strong> a partir de una lista de especificaciones, que se irá <strong>refinando mediante las nuevas peticiones del cliente</strong> para generar un sistema que satisfaga todas sus necesidades. A medida que el cliente opera la versión entregada, surge la información para el nuevo desarrollo: se amplían los requisitos iniciales y se genera el diseño de la próxima versión.',
+      },
+      {
+        type: 'p',
+        text: 'En la práctica, es útil cuando hay <strong>desconocimiento sobre las necesidades</strong> que debe cubrir el nuevo sistema. Esto puede pasar cuando:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'No se posee experiencia previa en el área.',
+          'Se trata de un nuevo entorno para dicho sistema.',
+          'Se requiere un sistema con extremada urgencia y no hay tiempo suficiente para identificar detalladamente todos los requerimientos.',
+          'El sistema operará en un entorno cambiante (por ejemplo, sujeto a normas jurídicas aún en proceso de definición).',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Modelo UP (Proceso Unificado)',
+        criollo: 'El RUP: un modelo híbrido pegado a UML. Organiza el laburo en cuatro fases, y cada fase puede partirse en iteraciones (incrementos) que pasan por los flujos de trabajo de siempre.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>Proceso Unificado de Rational</strong>, también conocido como <strong>Rational Unified Process (RUP)</strong>, está asociado al <strong>Lenguaje Unificado de Modelado (UML)</strong> y surge del Proceso Unificado de Desarrollo de Software, propuesto por sus autores <strong>Ivar Jacobson, Grady Booch y James Rumbaugh</strong>. Se trata de un claro ejemplo de un <strong>modelo híbrido</strong>.',
+      },
+      {
+        type: 'p',
+        text: 'Este modelo define <strong>cuatro fases</strong> representadas en columnas. Cada una concluye con el cumplimiento de una serie de objetivos específicos: un <strong>entregable</strong>, que puede ser un modelo o documentación.',
+      },
+      {
+        type: 'table',
+        caption: 'Las cuatro fases del Proceso Unificado',
+        headers: ['Fase', 'En qué consiste'],
+        rows: [
+          ['Inicio', 'Se establecen los procesos de negocio, se identifica con quién interactuará el sistema y las interacciones.'],
+          ['Elaboración', 'Comprender el dominio del problema, generar el marco arquitectónico, establecer el plan de proyecto y los riesgos. Finaliza con un modelo de requerimientos (con casos de uso), la descripción de la arquitectura y el plan para el desarrollo.'],
+          ['Construcción', 'Abarca el diseño del sistema, su programación y pruebas. Finaliza con un sistema operativo y su documentación.'],
+          ['Transición', 'El sistema pasa del ámbito de desarrollo al entorno real. Finaliza cuando el software está operando correctamente en el entorno operativo con su documentación.'],
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Cada una de estas fases, según su complejidad, puede dividirse en <strong>iteraciones</strong>, cada una representando un <strong>incremento</strong>. A su vez, cada iteración pasa por una serie de <strong>flujos de trabajo</strong> (representados como filas en la gráfica), que se corresponden con las etapas del modelo de cascada: <strong>requisitos, análisis, diseño, implementación y pruebas</strong>.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'La clave del UP: es un modelo iterativo e incremental, integrado por fases, ciclos y flujos de trabajo.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-2.2-1',
+          q: 'En el modelo evolutivo cada ciclo de desarrollo genera un sistema completo que el cliente puede operar.',
+          a: true,
+          explain: 'Verdadero. El modelo evolutivo se conforma de varios ciclos y cada uno genera un sistema completo operable por el cliente.',
+        },
+        {
+          id: 'tf-2.2-2',
+          q: 'El modelo evolutivo es apropiado cuando hay desconocimiento sobre las necesidades que debe cubrir el sistema.',
+          a: true,
+          explain: 'Verdadero. Es útil cuando no se conocen bien las necesidades: sin experiencia previa, nuevo entorno, urgencia extrema o entorno cambiante.',
+        },
+        {
+          id: 'tf-2.2-3',
+          q: 'El Proceso Unificado (UP) es un modelo puramente secuencial, no iterativo.',
+          a: false,
+          explain: 'Falso. El proceso unificado es un modelo iterativo e incremental, integrado por fases, ciclos y flujos de trabajo.',
+        },
+        {
+          id: 'tf-2.2-4',
+          q: 'El RUP está asociado al Lenguaje Unificado de Modelado (UML).',
+          a: true,
+          explain: 'Verdadero. El Proceso Unificado de Rational está asociado a UML.',
+        },
+        {
+          id: 'tf-2.2-5',
+          q: 'La fase de Transición del UP consiste en establecer los procesos de negocio y las interacciones del sistema.',
+          a: false,
+          explain: 'Falso. Eso corresponde a la fase de Inicio. La Transición es cuando el sistema pasa del ámbito de desarrollo al entorno real.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-2.2-1',
+          q: '¿Qué actividades se enlazan en cada ciclo del modelo evolutivo?',
+          options: [
+            'Planificación, riesgos e ingeniería',
+            'Especificación, desarrollo y validación',
+            'Inicio, elaboración y construcción',
+            'Requisitos, integración y mantenimiento',
+          ],
+          correctIndex: 1,
+          explain: 'En el modelo evolutivo se enlazan las actividades de especificación, desarrollo y validación, y cada ciclo genera un sistema completo.',
+        },
+        {
+          id: 'mc-2.2-2',
+          q: '¿Quiénes son los autores del Proceso Unificado de Desarrollo de Software?',
+          options: [
+            'Barry Boehm, Gane y Sarson',
+            'Ivar Jacobson, Grady Booch y James Rumbaugh',
+            'Booch, Boehm y Sarson',
+            'Jacobson, Boehm y Rumbaugh',
+          ],
+          correctIndex: 1,
+          explain: 'Los autores son Ivar Jacobson, Grady Booch y James Rumbaugh.',
+        },
+        {
+          id: 'mc-2.2-3',
+          q: '¿Con qué finaliza la fase de Construcción del UP?',
+          options: [
+            'Con un modelo de requerimientos y la descripción de la arquitectura',
+            'Con el sistema operando en el entorno real',
+            'Con un sistema operativo y su documentación',
+            'Con la identificación de los procesos de negocio',
+          ],
+          correctIndex: 2,
+          explain: 'La Construcción abarca diseño, programación y pruebas, y finaliza con un sistema operativo y su documentación.',
+        },
+        {
+          id: 'mc-2.2-4',
+          q: 'Según el apunte, el UP (RUP) es un claro ejemplo de:',
+          options: [
+            'Un modelo secuencial puro',
+            'Un modelo híbrido',
+            'Un prototipo descartable',
+            'Un modelo de cascada modificado',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte indica que el RUP se trata de un claro ejemplo de un modelo híbrido.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-2.2-1',
+          q: '¿En qué situaciones resulta útil el modelo evolutivo según el apunte?',
+          options: [
+            'Cuando no se posee experiencia previa en el área',
+            'Cuando los requisitos están completamente definidos al inicio',
+            'Cuando se trata de un nuevo entorno para el sistema',
+            'Cuando se requiere el sistema con extremada urgencia',
+            'Cuando el sistema operará en un entorno cambiante',
+          ],
+          correctIndexes: [
+            0,
+            2,
+            3,
+            4,
+          ],
+          explain: 'El evolutivo sirve ante desconocimiento de necesidades: sin experiencia, nuevo entorno, urgencia o entorno cambiante. Tener los requisitos completamente definidos al inicio es propio del modelo clásico (cascada).',
+        },
+        {
+          id: 'ms-2.2-2',
+          q: '¿Cuáles son las cuatro fases del Proceso Unificado (UP)?',
+          options: [
+            'Inicio',
+            'Elaboración',
+            'Planificación',
+            'Construcción',
+            'Transición',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Las cuatro fases del UP son Inicio, Elaboración, Construcción y Transición. La Planificación es un cuadrante del modelo espiral, no una fase del UP.',
+        },
+        {
+          id: 'ms-2.2-3',
+          q: '¿Qué flujos de trabajo atraviesa cada iteración del UP (correspondientes a las etapas del modelo de cascada)?',
+          options: [
+            'Requisitos',
+            'Análisis',
+            'Diseño',
+            'Implementación',
+            'Pruebas',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+            4,
+          ],
+          explain: 'Cada iteración pasa por los flujos de trabajo que cubren requisitos, análisis, diseño, implementación y pruebas, correspondientes a las etapas del modelo de cascada.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-2.2-1',
+        front: 'Modelo evolutivo',
+        back: 'Varios ciclos de desarrollo que enlazan especificación, desarrollo y validación. Cada ciclo genera un sistema completo operable por el cliente.',
+      },
+      {
+        id: 'fc-2.2-2',
+        front: 'Cómo arranca el evolutivo',
+        back: 'Con el desarrollo rápido de un sistema inicial a partir de una lista de especificaciones, que se va refinando con las nuevas peticiones del cliente.',
+      },
+      {
+        id: 'fc-2.2-3',
+        front: 'Cuándo usar el evolutivo',
+        back: 'Cuando hay desconocimiento de las necesidades: sin experiencia previa, nuevo entorno, urgencia extrema o entorno cambiante (ej. normas jurídicas en definición).',
+      },
+      {
+        id: 'fc-2.2-4',
+        front: 'Proceso Unificado (UP / RUP)',
+        back: 'Proceso Unificado de Rational, asociado a UML. Propuesto por Ivar Jacobson, Grady Booch y James Rumbaugh. Es un claro ejemplo de modelo híbrido.',
+      },
+      {
+        id: 'fc-2.2-5',
+        front: 'Las cuatro fases del UP',
+        back: 'Inicio, Elaboración, Construcción y Transición. Cada una concluye con un entregable (modelo o documentación).',
+      },
+      {
+        id: 'fc-2.2-6',
+        front: 'Fase de Elaboración',
+        back: 'Comprende el dominio del problema, genera el marco arquitectónico, el plan y los riesgos. Finaliza con el modelo de requerimientos (casos de uso), la arquitectura y el plan de desarrollo.',
+      },
+      {
+        id: 'fc-2.2-7',
+        front: 'Fases de Construcción y Transición',
+        back: 'Construcción: diseño, programación y pruebas; finaliza con un sistema operativo y documentación. Transición: el sistema pasa al entorno real y opera correctamente.',
+      },
+      {
+        id: 'fc-2.2-8',
+        front: 'UP: iteraciones y flujos de trabajo',
+        back: 'Cada fase puede dividirse en iteraciones (incrementos). Cada iteración pasa por flujos de trabajo: requisitos, análisis, diseño, implementación y pruebas. Es iterativo e incremental.',
+      },
+    ],
+  },
+
+  // ---------- UNIDAD 3 · SECCIÓN 3.1 ----------
+  {
+    id: '3.1',
+    unit: '3',
+    title: 'Metodologías ágiles: XP y Scrum',
+    criollo: 'Los modelos rígidos (cascada, evolutivo) andaban bien para sistemas grandes, pero en proyectos chicos definir todo de antemano tardaba más que programar. Por eso en los 90 aparecieron los métodos ágiles: software funcional rápido, requisitos que cambian, y las personas por encima de los procesos. Acá vemos los principios, XP (de Kent Beck) y Scrum con sus tres roles.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Por qué surgieron los métodos ágiles',
+      },
+      {
+        type: 'p',
+        text: 'Los modelos de ciclo de vida tradicionales (como <strong>cascada</strong> o <strong>evolutivo</strong>) se presentaron como soluciones para planificar correctamente el proyecto y como un aseguramiento de la calidad. Esto tenía relación con el tipo de sistemas que se generaban: <strong>sistemas grandes</strong>, con muchos recursos, equipos numerosos, muchos programas, que permanecían mucho tiempo vigentes en las organizaciones.',
+      },
+      {
+        type: 'p',
+        text: 'El problema surgía al aplicarlos a <strong>pequeños proyectos</strong> y empresas más pequeñas: definir las acciones a tener en cuenta llevaba mucho más tiempo que la programación del sistema. Los <strong>modelos rígidos</strong>, donde una modificación era muy difícil de incorporar, no se adaptaban a esos entornos cambiantes. La incorporación del modelo <strong>iterativo e incremental</strong> mostró el avance hacia una nueva generación de modelos.',
+      },
+      {
+        type: 'p',
+        text: 'Así, para la década del 90, surgieron desarrollos que propusieron <strong>métodos ágiles</strong> basados en enfoques iterativos, centrados en generar <strong>software funcional de manera rápida</strong>, donde el diseño y la documentación acompañan ese proceso. <strong>Kent Beck</strong> fue uno de los precursores con su libro <em>Extreme Programming Explained</em>, donde se refiere al método ágil <strong>XP (Extreme Programming)</strong>.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Otros métodos ágiles populares: Scrum (Ken Schwaber y Mike Beedle, 2001), Crystal Clear (Alistair Cockburn y Jim Highsmith, 2001), Adaptative Software Development (ASD, Jennifer Stapleton, 1997) y Feature Driven Development (FDD, Jeff De Luca), entre otros.',
+      },
+      {
+        type: 'p',
+        text: 'Para el <strong>2001</strong>, varios críticos de los modelos tradicionales se reunieron para buscar la mejora en los procesos de desarrollo. De esa reunión surgió el <strong>Manifiesto Ágil</strong>, firmado por figuras como Kent Beck, Mike Beedle, Alistair Cockburn, Ward Cunningham, Martin Fowler, Robert C. Martin, Ken Schwaber y Jeff Sutherland, entre otros.',
+      },
+      {
+        type: 'h3',
+        text: 'Principios de los métodos ágiles',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Participación del cliente</strong> en el proceso de desarrollo.',
+          'Desarrollo de software en forma <strong>incremental</strong>.',
+          'Priorizar <strong>personas y no procesos</strong>, para que lleven a cabo sus propias formas de trabajo.',
+          'Aceptar que los <strong>requerimientos del sistema cambian</strong>.',
+          'Mantener la <strong>simplicidad</strong> en el producto y en el proceso de desarrollo.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Las metodologías ágiles surgieron de la experiencia de <strong>desarrollos rápidos</strong> y el uso de <strong>prototipados</strong>, tratando de alinearse a los entornos cambiantes provocados por el avance en las tecnologías de información y comunicaciones, con la programación resurgiendo más como un <strong>arte que una ciencia</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Programación Extrema (XP)',
+        criollo: 'Creada por Kent Beck. Cuatro prácticas básicas y trabajo a partir de historias de usuario.',
+      },
+      {
+        type: 'p',
+        text: 'Creada por <strong>Kent Beck</strong>, <strong>Extreme Programming (XP)</strong> plantea cuatro prácticas básicas:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Liberación limitada</strong>: entregar rápidamente desarrollos aun cuando no estén completos, porque el cliente lo requiere con urgencia; las mejoras o faltantes se incorporan luego.',
+          '<strong>Semana laboral de 40h</strong>: sin agregar tiempo extra de trabajo, para evitar el agotamiento de los programadores.',
+          '<strong>Cliente en el sitio</strong>: su presencia es fundamental para determinar los requerimientos del sistema. Debe estar involucrado en el proceso.',
+          '<strong>Programación en pares</strong>: dos programadores trabajan juntos para hacerlo de forma más eficiente y eficaz.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'En lugar de definir una lista de funciones requeridas, se describen <strong>escenarios (historias de usuario)</strong>: el cliente (muy involucrado) describe sus necesidades y determina cómo priorizarlas. El cliente y el equipo describen los escenarios para comprender las necesidades y definir las <strong>historias a implementar</strong> en la entrega.',
+      },
+      {
+        type: 'p',
+        text: 'Flujo de XP: esas historias se <strong>dividen en tareas</strong>, se planifica su entrega, se desarrolla, se prueba y se entrega el software. El cliente <strong>evalúa la entrega</strong> y allí se vuelve a repetir el proceso, seleccionando las historias de usuario para la siguiente entrega.',
+      },
+      {
+        type: 'h3',
+        text: 'Scrum',
+        criollo: 'Proceso ágil enfocado en agregar valor al negocio en el menor tiempo posible. Trabaja por sprints y define tres roles.',
+      },
+      {
+        type: 'p',
+        text: 'Scrum propone un proceso ágil <strong>focalizándose en agregarle valor al negocio en el menor tiempo posible</strong>, favoreciendo el desarrollo <strong>iterativo e incremental</strong> para la mejora de proyectos y productos.',
+      },
+      {
+        type: 'p',
+        text: 'El proyecto avanza a través de ciclos de trabajo llamados <strong>sprints</strong>, cuya duración varía entre <strong>una y cuatro semanas</strong>. Al iniciarse el sprint, cada equipo <strong>multidisciplinar y autogestionado</strong> selecciona una serie de requisitos del cliente de una <strong>lista priorizada</strong>, a los que se aboca y se compromete a concluir en el tiempo pautado. <strong>Equipo, calidad y alcance se mantienen inalterables</strong> durante el proceso. Se centra en la <strong>gestión</strong>, no en la "ingeniería".',
+      },
+      {
+        type: 'h3',
+        text: 'Los tres roles de Scrum',
+      },
+      {
+        type: 'table',
+        headers: ['Rol', 'Responsabilidad'],
+        rows: [
+          ['Product Owner (dueño del producto)', 'Única persona responsable de administrar el product Backlog y de asegurar que el equipo agregue valor a la compañía. Define las prioridades de las funcionalidades para la lista de sprints. Sus decisiones deben ser respetadas.'],
+          ['Equipo', 'Construye el producto a través de los sprints. Multidisciplinario (analistas, arquitectos, programadores, diseñadores de interfaz, testers, etc.) y autogestionado. No tiene líder ni jefe: no existen títulos ni jerarquías. Los roles pueden intercambiarse según las necesidades. Cantidad: siete personas, más o menos dos.'],
+          ['Scrum Master', 'Ayuda al equipo y a la organización a usar Scrum, comprenderlo y seguirlo, destacando la autogestión y la multidisciplinariedad. No es el jefe: es responsable de realizar coaching para lograr productividad y calidad, y de resolver impedimentos o amenazas que pongan en riesgo la efectividad del Product Owner y el equipo.'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'El Scrum Master y el Product Owner NUNCA pueden ser la misma persona.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Resumen: ágil = entregas rápidas, incrementales, cliente metido y requisitos que cambian. XP te da cuatro prácticas (liberación limitada, 40h, cliente en sitio, pares) y trabaja por historias de usuario. Scrum laburás por sprints de 1 a 4 semanas con tres roles: Product Owner manda prioridades, el Equipo construye sin jefe, y el Scrum Master hace de coach. PO y Scrum Master jamás son la misma persona.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-3.1-1',
+          q: 'Los métodos ágiles se centran en generar software funcional de manera rápida.',
+          a: true,
+          explain: 'Verdadero. Los métodos ágiles, basados en enfoques iterativos, se centran en generar software funcional de manera rápida, con el diseño y la documentación acompañando el proceso.',
+        },
+        {
+          id: 'tf-3.1-2',
+          q: 'Uno de los principios ágiles es priorizar los procesos por encima de las personas.',
+          a: false,
+          explain: 'Falso. Es exactamente al revés: hay que priorizar personas y no procesos, para que lleven a cabo sus propias formas de trabajo.',
+        },
+        {
+          id: 'tf-3.1-3',
+          q: 'En Scrum, el Scrum Master y el Product Owner pueden ser la misma persona.',
+          a: false,
+          explain: 'Falso. El apunte aclara que el Scrum Master y el Product Owner nunca pueden ser la misma persona.',
+        },
+        {
+          id: 'tf-3.1-4',
+          q: 'En XP, la práctica de programación en pares consiste en que dos programadores trabajan juntos.',
+          a: true,
+          explain: 'Verdadero. La programación en pares es que dos programadores trabajan juntos para hacerlo de forma más eficiente y eficaz.',
+        },
+        {
+          id: 'tf-3.1-5',
+          q: 'Los sprints de Scrum tienen una duración que varía entre una y cuatro semanas.',
+          a: true,
+          explain: 'Verdadero. El proyecto avanza a través de sprints, cuya duración varía entre una y cuatro semanas.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-3.1-1',
+          q: '¿Quién fue uno de los precursores de XP, con su libro Extreme Programming Explained?',
+          options: [
+            'Ken Schwaber',
+            'Kent Beck',
+            'Alistair Cockburn',
+            'Jeff De Luca',
+          ],
+          correctIndex: 1,
+          explain: 'Kent Beck fue precursor de XP y publicó Extreme Programming Explained. Schwaber se asocia a Scrum, Cockburn a Crystal Clear y De Luca a FDD.',
+        },
+        {
+          id: 'mc-3.1-2',
+          q: '¿Cuál de estas NO es una de las cuatro prácticas básicas de XP?',
+          options: [
+            'Liberación limitada',
+            'Semana laboral de 40h',
+            'Programación en pares',
+            'Administrar el product Backlog',
+          ],
+          correctIndex: 3,
+          explain: 'Administrar el product Backlog es responsabilidad del Product Owner en Scrum, no una práctica de XP. Las cuatro prácticas de XP son liberación limitada, semana de 40h, cliente en el sitio y programación en pares.',
+        },
+        {
+          id: 'mc-3.1-3',
+          q: '¿Quién es responsable de administrar el product Backlog y definir las prioridades de las funcionalidades?',
+          options: [
+            'El Scrum Master',
+            'El Equipo',
+            'El Product Owner',
+            'El cliente en el sitio',
+          ],
+          correctIndex: 2,
+          explain: 'El Product Owner es la única persona responsable de administrar el product Backlog y define las prioridades de las funcionalidades para la lista de sprints.',
+        },
+        {
+          id: 'mc-3.1-4',
+          q: 'Según el apunte, ¿de cuántos integrantes puede ser el equipo en Scrum?',
+          options: [
+            'De tres personas, más o menos dos',
+            'De siete personas, más o menos dos',
+            'De diez personas exactas',
+            'De cinco personas, más o menos cinco',
+          ],
+          correctIndex: 1,
+          explain: 'La cantidad de integrantes de cada equipo puede ser de siete personas, más o menos dos.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-3.1-1',
+          q: '¿Cuáles son principios de los métodos ágiles según el apunte?',
+          options: [
+            'Participación del cliente en el desarrollo',
+            'Desarrollo de software en forma incremental',
+            'Documentación exhaustiva antes de programar',
+            'Aceptar que los requerimientos cambian',
+            'Mantener la simplicidad en producto y proceso',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Los principios ágiles son: participación del cliente, desarrollo incremental, priorizar personas sobre procesos, aceptar que los requerimientos cambian y mantener la simplicidad. La documentación exhaustiva previa es justamente lo contrario al enfoque ágil.',
+        },
+        {
+          id: 'ms-3.1-2',
+          q: '¿Cuáles son las cuatro prácticas básicas de XP?',
+          options: [
+            'Liberación limitada',
+            'Semana laboral de 40h',
+            'Sprints de una a cuatro semanas',
+            'Cliente en el sitio',
+            'Programación en pares',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Las cuatro prácticas de XP son liberación limitada, semana laboral de 40h, cliente en el sitio y programación en pares. Los sprints de una a cuatro semanas pertenecen a Scrum.',
+        },
+        {
+          id: 'ms-3.1-3',
+          q: '¿Cuáles son los tres roles que se definen en Scrum?',
+          options: [
+            'Product Owner',
+            'Scrum Master',
+            'Project Manager',
+            'Equipo',
+            'Cliente en el sitio',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+          ],
+          explain: 'Los tres roles de Scrum son Product Owner, Equipo y Scrum Master. Project Manager no es un rol Scrum, y "cliente en el sitio" es una práctica de XP.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-3.1-1',
+        front: 'Métodos ágiles',
+        back: 'Métodos basados en enfoques iterativos, centrados en generar software funcional de manera rápida, con el diseño y la documentación acompañando el proceso. Surgieron en los 90.',
+      },
+      {
+        id: 'fc-3.1-2',
+        front: 'Manifiesto Ágil',
+        back: 'Documento surgido en 2001 de la reunión de críticos de los modelos tradicionales, firmado por figuras como Kent Beck, Ken Schwaber, Martin Fowler y Robert C. Martin, entre otros.',
+      },
+      {
+        id: 'fc-3.1-3',
+        front: 'Principios ágiles',
+        back: 'Participación del cliente, desarrollo incremental, priorizar personas sobre procesos, aceptar que los requerimientos cambian y mantener la simplicidad.',
+      },
+      {
+        id: 'fc-3.1-4',
+        front: 'XP (Extreme Programming)',
+        back: 'Método ágil creado por Kent Beck. Plantea cuatro prácticas básicas y trabaja con historias de usuario en lugar de listas de funciones.',
+      },
+      {
+        id: 'fc-3.1-5',
+        front: 'Cuatro prácticas de XP',
+        back: 'Liberación limitada, semana laboral de 40h, cliente en el sitio y programación en pares.',
+      },
+      {
+        id: 'fc-3.1-6',
+        front: 'Sprint (Scrum)',
+        back: 'Ciclo de trabajo de Scrum, con duración de una a cuatro semanas. El equipo selecciona requisitos de una lista priorizada y se compromete a concluirlos en ese tiempo.',
+      },
+      {
+        id: 'fc-3.1-7',
+        front: 'Product Owner',
+        back: 'Única persona responsable de administrar el product Backlog y de asegurar que el equipo agregue valor. Define las prioridades de las funcionalidades.',
+      },
+      {
+        id: 'fc-3.1-8',
+        front: 'Equipo (Scrum)',
+        back: 'Construye el producto a través de los sprints. Multidisciplinario y autogestionado, sin líder ni jerarquías. Cantidad: siete personas, más o menos dos.',
+      },
+      {
+        id: 'fc-3.1-9',
+        front: 'Scrum Master',
+        back: 'Ayuda al equipo y a la organización a usar Scrum. No es el jefe: hace coaching para lograr productividad y resolver impedimentos. Nunca puede ser la misma persona que el Product Owner.',
+      },
+    ],
+  },
+
+  // ---------- UNIDAD 4 · SECCIÓN 4.1 ----------
+  {
+    id: '4.1',
+    unit: '4',
+    title: 'Modelado de los procesos de negocio',
+    criollo: 'Antes de programar nada, conviene dibujar cómo funciona el negocio del cliente. Acá vemos qué es modelar y para qué sirve, cómo se arma un diagrama de actividad (con sus círculos, rombos y barritas) y dos siglas que aparecen siempre: BPM y BPMN.',
+    blocks: [
+      {
+        type: 'h3',
+        text: '¿Qué es modelado? ¿Por qué modelamos?',
+      },
+      {
+        type: 'p',
+        text: 'Un <strong>modelo</strong> es una <strong>representación de la realidad o una porción de ella</strong>, creado para tratar de representar la apariencia y el comportamiento de lo que queremos modelar. Se construyen utilizando <strong>mecanismos de abstracción</strong> que se enfocan en realzar los detalles importantes y minimizar los irrelevantes.',
+      },
+      {
+        type: 'p',
+        text: '<strong>Alan Davis</strong> dice que un modelo se emplea para responder a un <strong>conjunto bien definido de preguntas</strong> acerca de la realidad modelada, dentro de una <strong>tolerancia adecuada</strong> para el propósito establecido.',
+      },
+      {
+        type: 'h3',
+        text: 'Características de los modelos',
+      },
+      {
+        type: 'ul',
+        items: [
+          'No es la realidad modelada, sino que es la realidad que se está modelando.',
+          'Respeta una cierta "forma" de construcción.',
+          'Tiene que permitir mostrar o predecir características de la realidad que está modelando.',
+          'Su uso es más económico que el uso de la realidad misma.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Trabajar con modelos permite detectar errores en forma temprana y ajustar los aspectos del diseño que sean necesarios.',
+      },
+      {
+        type: 'h3',
+        text: 'Modelado del negocio',
+        criollo: 'Entender cómo labura el cliente para después poder recomendarle qué informatizar.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>modelo de negocio</strong> es una <strong>descripción de los procesos de una empresa</strong>; por ejemplo, en una entidad bancaria como podrían ser cuentas de clientes, inversiones, préstamos, etc. Su modelado ayuda a <strong>comprender los negocios del cliente</strong>, y con esto es más factible poder realizarle recomendaciones sobre lo que podría informatizar, o —en caso de querer incorporar nuevas funcionalidades— comprender mejor cómo acoplar eso nuevo a lo existente.',
+      },
+      {
+        type: 'h3',
+        text: 'Diagrama de actividad',
+        criollo: 'Parecido a un diagrama de flujo, pero con una gracia: puede mostrar cosas en paralelo.',
+      },
+      {
+        type: 'p',
+        text: 'Una forma de modelar el proceso de negocio es a través de un <strong>diagrama de actividad</strong>. Es útil para comprender el <strong>comportamiento de alto nivel</strong> de la ejecución de un sistema, sin profundizar en los detalles internos. Gráficamente es parecido a un diagrama de flujo, pero la <strong>diferencia fundamental</strong> es que los diagramas de actividad pueden mostrar <strong>procesamiento en paralelo</strong>. Permiten detallar cómo se ejecutan las acciones, cuándo (secuencia de acciones) y qué rol las realiza.',
+      },
+      {
+        type: 'h3',
+        text: 'Usos más comunes del diagrama de actividad',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Describir las acciones que serán realizadas en la implementación de una operación y cómo afectan a los objetos sobre los que actúan.',
+          'Mostrar cómo un caso de uso puede ser realizado en término de los pasos de ejecución de sus escenarios.',
+          'Representar cómo funciona un dominio en términos de roles, tareas, organización, etc.',
+          'Describir la dinámica de procesos concurrentes.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Elementos que lo componen',
+      },
+      {
+        type: 'p',
+        text: 'Una <strong>actividad</strong> produce alguna acción que genera algún cambio en el sistema o retorna un valor.',
+      },
+      {
+        type: 'table',
+        caption: 'Elementos del diagrama de actividad',
+        headers: ['Elemento', 'Descripción'],
+        rows: [
+          ['Estado inicial', 'Se indica con un círculo que se encuentra pintado de negro en su interior.'],
+          ['Estado final', 'Se indica con otro círculo, pero esta vez con un punto en el centro de su interior.'],
+          ['Actividad', 'Produce alguna acción que genera un cambio en el sistema o retorna un valor. Se representa como una caja con los extremos redondeados que contiene una descripción de la actividad.'],
+          ['Transición', 'Muestra la salida de una actividad e ingreso a otra. Se grafica como líneas con flechas. Pueden tener condición de guarda, que se coloca entre corchetes sobre ella.'],
+          ['Decisión', 'Permite visualizar flujos alternativos. Se representa con un rombo: una o más transiciones de entrada y dos o más salientes, cada una con una condición de guarda de exclusión mutua.'],
+          ['Barra de sincronización', 'División (split): una transición se divide en dos o más hilos paralelos. Unión (merge): espera que todos los hilos activos lleguen para generar las transiciones salientes.'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'Es muy útil dividir las actividades en grupos graficados en calles o carriles, donde cada carril indica quién es el responsable de las actividades que aparecen.',
+      },
+      {
+        type: 'h3',
+        text: 'Fortalezas y debilidades del diagrama de actividad',
+      },
+      {
+        type: 'p',
+        text: 'Su principal aporte es que permite <strong>modelar el comportamiento paralelo</strong>, lo que resulta adecuado para el modelado de flujo de trabajo (<em>workflow</em>) y programación multihilo (<em>multi-thread</em>). Su <strong>desventaja</strong> es que no permite visualizar en forma clara los enlaces entre las acciones y los objetos, siendo mucho más apropiado para esto el <strong>diagrama de secuencia</strong>. Por eso conviene usarlo en combinación con otras técnicas.',
+      },
+      {
+        type: 'h3',
+        text: 'BPM (Business Process Model)',
+        criollo: 'Un enfoque sistemático para gestionar los procesos del negocio de punta a punta.',
+      },
+      {
+        type: 'p',
+        text: 'Según la guía de referencia <strong>CBOK</strong> (Common Body of Knowledge) de la <strong>ABPMP</strong> (Association of BPM Professionals): «<strong>Business Process Management (BPM)</strong> es un enfoque sistemático para identificar, levantar, documentar, diseñar, ejecutar, medir y controlar tanto los procesos manuales como automatizados, con la finalidad de lograr en forma consistente los objetivos de negocio alineados con la estrategia de la organización». BPM abarca el apoyo creciente de TI con el objetivo de mejorar, innovar y gestionar los procesos de principio a fin.',
+      },
+      {
+        type: 'p',
+        text: 'El Business Process Model se origina en los <strong>workflows tradicionales</strong>, pero ha progresado mucho y muestra varias ventajas:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Permite acotar el ámbito a los requerimientos de negocio: los expertos de negocio modelan los procesos y luego el departamento de IT provee la infraestructura para ejecutarlos.',
+          'Incrementa la flexibilidad y agilidad corporativa separando la lógica del proceso de otras reglas de negocio, lo que absorbe mejor los cambios en los requerimientos.',
+          'Reduce los costos de desarrollo con lenguajes de programación gráfica de alto nivel.',
+          'Facilita definir, administrar y ejecutar procesos de negocio como un activo corporativo.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'BPMN (Business Process Model and Notation)',
+        criollo: 'La notación gráfica de BPM, pensada para que la entiendan tanto el del negocio como el ingeniero.',
+      },
+      {
+        type: 'p',
+        text: 'El <strong>Business Process Model and Notation</strong> fue una iniciativa del Grupo de Gestión de Procesos, que luego se integró al <strong>OMG</strong> (Object Management Group). Su primera versión fue liberada en <strong>mayo de 2004</strong>. El objetivo principal era lograr una notación <strong>comprensible para profesionales del negocio y para Ingenieros de Software</strong>. La versión surgida en <strong>2009</strong>, aún vigente, es <strong>BPMN 2.0</strong>, disponible en la mayoría de las herramientas de soporte a BPM.',
+      },
+      {
+        type: 'p',
+        text: 'BPMN sirve para tener un <strong>lenguaje común</strong> que mejora las dificultades de comunicación entre el diseño de procesos de negocio y su implementación. Una de sus grandes ventajas es que es <strong>simple de aprender y fácil de leer</strong>, aún para personal no experto.',
+      },
+      {
+        type: 'h3',
+        text: 'Categorías de elementos gráficos de BPMN',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Elementos de flujo</strong>: eventos, actividades, gateways (objetos de control de flujo).',
+          '<strong>Elementos de conexión</strong>: flujo de secuencia, flujo de mensaje, asociación.',
+          '<strong>Contenedores</strong> (swimlanes o andariveles): pool, lane.',
+          '<strong>Artefactos</strong>: objetos de datos, grupo, anotación.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Resumen rápido: modelás para entender el negocio antes de tocar código. El diagrama de actividad te muestra el flujo (y lo que va en paralelo). BPM es el enfoque para gestionar procesos, y BPMN es la notación gráfica estándar (versión vigente: 2.0) que entienden todos.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-4.1-1',
+          q: 'Un modelo es una representación de la realidad o una porción de ella.',
+          a: true,
+          explain: 'Verdadero. El apunte define el modelo exactamente así: una representación de la realidad o una porción de ella.',
+        },
+        {
+          id: 'tf-4.1-2',
+          q: 'El uso de un modelo es más costoso que el uso de la realidad misma.',
+          a: false,
+          explain: 'Falso. Una de las características de los modelos es que su uso es más económico que el uso de la realidad misma.',
+        },
+        {
+          id: 'tf-4.1-3',
+          q: 'La diferencia fundamental entre un diagrama de actividad y un diagrama de flujo es que el de actividad puede mostrar procesamiento en paralelo.',
+          a: true,
+          explain: 'Verdadero. Aunque gráficamente se parecen, la diferencia fundamental es que el diagrama de actividad puede mostrar procesamiento en paralelo.',
+        },
+        {
+          id: 'tf-4.1-4',
+          q: 'El estado inicial de un diagrama de actividad se indica con un círculo pintado de negro en su interior.',
+          a: true,
+          explain: 'Verdadero. El estado inicial es un círculo pintado de negro; el estado final es un círculo con un punto en el centro.',
+        },
+        {
+          id: 'tf-4.1-5',
+          q: 'La versión vigente de BPMN es la 1.0, liberada en 2004.',
+          a: false,
+          explain: 'Falso. La primera versión fue de mayo de 2004, pero la versión vigente es BPMN 2.0, surgida en 2009.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-4.1-1',
+          q: 'Según Alan Davis, ¿para qué se emplea un modelo?',
+          options: [
+            'Para reemplazar por completo a la realidad modelada',
+            'Para responder a un conjunto bien definido de preguntas acerca de la realidad modelada',
+            'Para documentar el plan de pruebas del software',
+            'Para detallar los costos del proyecto',
+          ],
+          correctIndex: 1,
+          explain: 'Davis dice que un modelo se emplea para responder a un conjunto bien definido de preguntas acerca de la realidad modelada, dentro de una tolerancia adecuada para el propósito establecido.',
+        },
+        {
+          id: 'mc-4.1-2',
+          q: '¿Cómo se representa gráficamente una actividad en un diagrama de actividad?',
+          options: [
+            'Con un rombo',
+            'Con un círculo pintado de negro',
+            'Con una caja de extremos redondeados que contiene su descripción',
+            'Con una línea recta con flecha',
+          ],
+          correctIndex: 2,
+          explain: 'La actividad se representa como una caja con los extremos redondeados que contiene una descripción de la actividad. El rombo es la decisión y el círculo negro es el estado inicial.',
+        },
+        {
+          id: 'mc-4.1-3',
+          q: '¿Cuál es el principal aporte del diagrama de actividad?',
+          options: [
+            'Visualizar claramente los enlaces entre acciones y objetos',
+            'Permitir modelar el comportamiento paralelo (workflow y multihilo)',
+            'Reemplazar al diagrama de secuencia',
+            'Calcular los costos de desarrollo',
+          ],
+          correctIndex: 1,
+          explain: 'Su principal aporte es modelar el comportamiento paralelo, adecuado para workflow y programación multihilo. Justamente NO permite visualizar bien los enlaces entre acciones y objetos (para eso sirve el diagrama de secuencia).',
+        },
+        {
+          id: 'mc-4.1-4',
+          q: '¿A qué organización se integró la iniciativa que dio origen a BPMN?',
+          options: [
+            'IEEE',
+            'OMG (Object Management Group)',
+            'ISO',
+            'ABPMP',
+          ],
+          correctIndex: 1,
+          explain: 'BPMN fue una iniciativa del Grupo de Gestión de Procesos que luego se integró al OMG (Object Management Group).',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-4.1-1',
+          q: '¿Cuáles de las siguientes son características de los modelos según el apunte?',
+          options: [
+            'No es la realidad modelada, sino la realidad que se está modelando',
+            'Respeta una cierta "forma" de construcción',
+            'Su uso es más caro que el de la realidad misma',
+            'Permite mostrar o predecir características de la realidad que modela',
+            'Siempre reemplaza a la realidad por completo',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+          ],
+          explain: 'Las características son: no es la realidad sino una representación, respeta una forma de construcción, permite mostrar/predecir características y su uso es más económico (no más caro) que la realidad misma.',
+        },
+        {
+          id: 'ms-4.1-2',
+          q: '¿Cuáles son elementos del diagrama de actividad?',
+          options: [
+            'Estado inicial y estado final',
+            'Decisión (rombo)',
+            'Barra de sincronización (split / merge)',
+            'Gateway de mensaje',
+            'Transición',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            4,
+          ],
+          explain: 'Estado inicial/final, decisión, barra de sincronización y transición son elementos del diagrama de actividad. El "gateway" pertenece a la notación BPMN, no al diagrama de actividad.',
+        },
+        {
+          id: 'ms-4.1-3',
+          q: '¿Cuáles son las cuatro categorías básicas de elementos gráficos de BPMN?',
+          options: [
+            'Elementos de flujo (eventos, actividades, gateways)',
+            'Elementos de conexión (flujo de secuencia, de mensaje, asociación)',
+            'Contenedores o swimlanes (pool, lane)',
+            'Artefactos (objetos de datos, grupo, anotación)',
+            'Estados de sincronización',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Las cuatro categorías de BPMN son: elementos de flujo, elementos de conexión, contenedores (swimlanes) y artefactos. "Estados de sincronización" no es una de ellas.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-4.1-1',
+        front: 'Modelo',
+        back: 'Representación de la realidad o una porción de ella, construida con mecanismos de abstracción que realzan lo importante y minimizan lo irrelevante.',
+      },
+      {
+        id: 'fc-4.1-2',
+        front: 'Modelo según Alan Davis',
+        back: 'Se emplea para responder a un conjunto bien definido de preguntas acerca de la realidad modelada, dentro de una tolerancia adecuada para el propósito establecido.',
+      },
+      {
+        id: 'fc-4.1-3',
+        front: 'Modelo de negocio',
+        back: 'Descripción de los procesos de una empresa. Ayuda a comprender el negocio del cliente y a recomendar qué informatizar o cómo acoplar nuevas funcionalidades.',
+      },
+      {
+        id: 'fc-4.1-4',
+        front: 'Diagrama de actividad',
+        back: 'Forma de modelar un proceso de negocio, parecida a un diagrama de flujo. Su diferencia clave es que puede mostrar procesamiento en paralelo.',
+      },
+      {
+        id: 'fc-4.1-5',
+        front: 'Estado inicial vs. final',
+        back: 'El inicial es un círculo pintado de negro; el final es un círculo con un punto en el centro de su interior.',
+      },
+      {
+        id: 'fc-4.1-6',
+        front: 'Barra de sincronización',
+        back: 'División (split): una transición se divide en varios hilos paralelos. Unión (merge): espera que todos los hilos activos lleguen para generar las salientes.',
+      },
+      {
+        id: 'fc-4.1-7',
+        front: 'Carriles (swimlanes)',
+        back: 'Calles donde se grafican grupos de actividades; cada carril indica quién es el responsable de las actividades que aparecen en él.',
+      },
+      {
+        id: 'fc-4.1-8',
+        front: 'BPM',
+        back: 'Business Process Management: enfoque sistemático para identificar, documentar, diseñar, ejecutar, medir y controlar procesos manuales y automatizados, alineados a la estrategia de la organización.',
+      },
+      {
+        id: 'fc-4.1-9',
+        front: 'BPMN 2.0',
+        back: 'Business Process Model and Notation. Notación gráfica estándar de BPM, integrada al OMG; primera versión en 2004 y versión vigente (2.0) desde 2009. Simple de aprender y leer.',
+      },
+    ],
+  },
+
+  // ---------- UNIDAD 5 · SECCIÓN 5.1 ----------
+  {
+    id: '5.1',
+    unit: '5',
+    title: 'La entrevista',
+    criollo: 'La extracción de requerimientos es el primer paso del desarrollo. Acá arrancamos con la técnica estrella: la entrevista, que es una charla con un objetivo claro. Vemos cómo prepararla, qué tipos de preguntas hacés y las tres estructuras (pirámide, embudo, diamante) según el perfil del que tenés enfrente.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Las tres técnicas básicas',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>extracción de requerimientos</strong> es el primer paso del proceso de desarrollo, y existen diversas técnicas para llevarlo a cabo. El apunte se enfoca en tres técnicas básicas.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Entrevista</strong>: conversación dirigida con un propósito específico.',
+          '<strong>Cuestionario</strong>: técnica compuesta de preguntas con un objetivo en particular.',
+          '<strong>Observación directa</strong>: refiere a llevar a cabo la visita presencial para ver cómo se ejecuta el trabajo en la organización.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Qué es la entrevista',
+      },
+      {
+        type: 'p',
+        text: 'La entrevista se emplea para la <strong>recopilación de información</strong>. Es una conversación dirigida con un propósito específico, en un formato de <strong>preguntas y respuestas</strong>. No solo se espera obtener información sobre las opiniones o sentimientos sobre el estado actual del sistema, sino también ahondar en las <strong>metas de la organización</strong>, los <strong>procedimientos formales e informales</strong> y la <strong>cultura de la organización</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Puntos a definir en la preparación',
+        criollo: 'Antes de sentarte a charlar, tenés que tener claras estas cuatro cosas.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Analizar cuál es el motivo de la entrevista.',
+          'Qué preguntas se realizarán.',
+          'Considerar a quién se entrevistará.',
+          'Prever que la entrevista sea exitosa tanto para el entrevistado como para el entrevistador.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Tipos de preguntas',
+        criollo: 'Se clasifican según cuánta libertad le das al otro para responder.',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Abiertas</strong>: el entrevistado puede explayarse al responder. Ejemplo: ¿podría explicarme cómo es el proceso de reposición de mercadería?',
+          '<strong>Cerradas</strong>: limitan o acotan la posible respuesta. Son preguntas concretas y específicas (sí/no o un dato puntual). Ejemplo: ¿solicitan presupuesto a los proveedores?',
+          '<strong>De sondeo o exploratorias</strong>: buscan ir más allá de la respuesta inicial, ampliar o clarificar algún punto. Ejemplo: ¿por qué? ¿Puede brindarme un ejemplo?',
+        ],
+      },
+      {
+        type: 'table',
+        caption: 'Ventajas y desventajas de preguntas abiertas y cerradas',
+        headers: ['Tipo', 'Ventajas', 'Desventajas'],
+        rows: [
+          ['Abiertas', 'Permiten ver el vocabulario del entrevistado, simplifican la entrevista al poder explayarse, ofrecen riqueza y detalle.', 'El entrevistador puede perder el control al generar información irrelevante.'],
+          ['Cerradas', 'Acortan el tiempo porque abordan el punto de interés rápidamente.', 'Se pierde la riqueza del detalle o ideas importantes, y pueden resultar aburridas para el entrevistado.'],
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Pasos de la planificación',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Lectura de antecedentes</strong>: buscar y comprender la mayor cantidad de antecedentes de la organización y de quien entrevistaremos (internet, informes recientes, boletines), y familiarizarse con el vocabulario del negocio para aprovechar el tiempo y no parecer un improvisado.',
+          '<strong>Determinar los objetivos de la entrevista</strong>: definir entre <strong>cuatro y seis puntos principales</strong> que se esperan cubrir.',
+          '<strong>Seleccionar a quién se entrevistará</strong>: incluir personas de todos los niveles involucrados; puede hacerse un muestreo de los integrantes de la organización.',
+          '<strong>Preparación del entrevistado</strong>: avisar con suficiente anticipación y acordar el momento. La duración debería rondar como máximo entre 45 minutos y una hora.',
+          '<strong>Determinar el tipo y estructura de las preguntas</strong>: cubrir los aspectos más relevantes del proceso y la toma de decisiones, teniendo en cuenta que la entrevista es un proceso dinámico que puede requerir un cambio de enfoque no planificado.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Estructuras de la entrevista',
+        criollo: 'Tres formas de ordenar las preguntas, cada una para un perfil distinto de entrevistado.',
+      },
+      {
+        type: 'table',
+        caption: 'Estructuras de la entrevista',
+        headers: ['Estructura', 'Enfoque', 'Cómo es'],
+        rows: [
+          ['Piramidal', 'Inductivo', 'Busca involucrar al entrevistado poco participativo. Inicia con preguntas cerradas (detalladas) y luego amplía con preguntas abiertas.'],
+          ['Embudo', 'Deductivo', 'Comienza con preguntas abiertas generales y luego reduce con preguntas cerradas. Se usa cuando el entrevistado necesita expresarse, plantear sus sentimientos.'],
+          ['Diamante', 'Combinada', 'Comienza con preguntas cerradas específicas, luego aborda aspectos generales (abiertas), y finalmente llega a una conclusión con preguntas cerradas específicas.'],
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Registro de la entrevista',
+      },
+      {
+        type: 'p',
+        text: 'El registro puede realizarse mediante <strong>grabación</strong> para tener un detalle más completo y preciso, lo que libera al entrevistador de tomar notas y le permite mantener mejor contacto visual. Ojo: esto puede poner nervioso al entrevistado, así que si lo notás nervioso o que cambia su actitud, quizás sea mejor no seguir grabando y empezar a tomar notas.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Regla rápida de estructuras: pirámide = arranca cerrado, abre (para el callado); embudo = arranca abierto, cierra (para el que se quiere desahogar); diamante = cierra, abre, cierra (lo mejor de las dos).',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-5.1-1',
+          q: 'La entrevista es una conversación dirigida con un propósito específico, en formato de preguntas y respuestas.',
+          a: true,
+          explain: 'Verdadero. El apunte la define exactamente así: una conversación dirigida con un propósito específico, en un formato de preguntas y respuestas.',
+        },
+        {
+          id: 'tf-5.1-2',
+          q: 'Los objetivos de la entrevista deberían definirse en entre cuatro y seis puntos principales.',
+          a: true,
+          explain: 'Verdadero. En el paso de determinar los objetivos se recomienda definir entre cuatro y seis puntos principales a cubrir.',
+        },
+        {
+          id: 'tf-5.1-3',
+          q: 'La estructura embudo comienza con preguntas cerradas y luego pasa a preguntas abiertas.',
+          a: false,
+          explain: 'Falso. El embudo es al revés: comienza con preguntas abiertas generales y luego reduce con preguntas cerradas. La que va de cerradas a abiertas es la piramidal.',
+        },
+        {
+          id: 'tf-5.1-4',
+          q: 'La duración de una entrevista debería rondar como máximo entre 45 minutos y una hora.',
+          a: true,
+          explain: 'Verdadero. El apunte indica que la duración debería rondar como máximo entre 45 minutos y una hora.',
+        },
+        {
+          id: 'tf-5.1-5',
+          q: 'Las preguntas abiertas acortan el tiempo de la entrevista porque abordan el punto de interés rápidamente.',
+          a: false,
+          explain: 'Falso. Esa es una ventaja de las preguntas cerradas. Las abiertas, en cambio, pueden hacer perder el control al generar información irrelevante.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-5.1-1',
+          q: '¿Cuál de estas NO es una de las tres técnicas básicas de extracción de requerimientos del apunte?',
+          options: [
+            'Entrevista',
+            'Cuestionario',
+            'Observación directa',
+            'Prototipado',
+          ],
+          correctIndex: 3,
+          explain: 'El apunte se enfoca en tres técnicas básicas: entrevista, cuestionario y observación directa. El prototipado no figura.',
+        },
+        {
+          id: 'mc-5.1-2',
+          q: 'La estructura piramidal de la entrevista se caracteriza por:',
+          options: [
+            'Ser un enfoque deductivo que va de abierto a cerrado',
+            'Ser un enfoque inductivo que inicia con preguntas cerradas y luego amplía con abiertas',
+            'Combinar cerrado, abierto y cerrado',
+            'Usar solo preguntas de sondeo',
+          ],
+          correctIndex: 1,
+          explain: 'La piramidal es un enfoque inductivo: inicia con preguntas cerradas detalladas y luego amplía con preguntas abiertas. Sirve para involucrar al entrevistado poco participativo.',
+        },
+        {
+          id: 'mc-5.1-3',
+          q: '¿Cuál es un ejemplo de pregunta de sondeo o exploratoria?',
+          options: [
+            '¿Solicitan presupuesto a los proveedores?',
+            '¿Podría explicarme cómo es el proceso de reposición?',
+            '¿Por qué? ¿Puede brindarme un ejemplo?',
+            '¿Qué cantidad de ejemplares emiten?',
+          ],
+          correctIndex: 2,
+          explain: 'Las de sondeo buscan ir más allá de la respuesta inicial, ampliar o clarificar. El ejemplo del apunte es: ¿por qué? ¿Puede brindarme un ejemplo?',
+        },
+        {
+          id: 'mc-5.1-4',
+          q: 'Sobre el registro por grabación, el apunte recomienda:',
+          options: [
+            'Grabar siempre sin avisar al entrevistado',
+            'Nunca grabar, solo tomar notas',
+            'Si el entrevistado se pone nervioso o cambia su actitud, dejar de grabar y tomar notas',
+            'Grabar únicamente las preguntas cerradas',
+          ],
+          correctIndex: 2,
+          explain: 'La grabación da más detalle y libera al entrevistador, pero si nota al entrevistado nervioso o con actitud cambiada, conviene no seguir grabando y empezar a tomar notas.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-5.1-1',
+          q: '¿Cuáles son pasos de la planificación de la entrevista según el apunte?',
+          options: [
+            'Lectura de antecedentes',
+            'Determinar los objetivos de la entrevista',
+            'Enviar el cuestionario por email',
+            'Preparación del entrevistado',
+            'Determinar el tipo y estructura de las preguntas',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Los pasos son: lectura de antecedentes, determinar objetivos, seleccionar a quién entrevistar, preparación del entrevistado y determinar el tipo y estructura de preguntas. Enviar el cuestionario por email es una alternativa de aplicación de cuestionarios, no de la entrevista.',
+        },
+        {
+          id: 'ms-5.1-2',
+          q: '¿Cuáles de las siguientes son estructuras de entrevista descritas en el apunte?',
+          options: [
+            'Piramidal',
+            'Embudo',
+            'Lineal',
+            'Diamante',
+            'Circular',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+          ],
+          explain: 'Las tres estructuras del apunte son piramidal, embudo y diamante. Lineal y circular no existen como tales.',
+        },
+        {
+          id: 'ms-5.1-3',
+          q: '¿Cuáles son ventajas de las preguntas abiertas?',
+          options: [
+            'Permiten ver el vocabulario del entrevistado',
+            'Acortan el tiempo de la entrevista',
+            'Ofrecen riqueza y detalle',
+            'El entrevistado puede explayarse',
+            'Evitan que se genere información irrelevante',
+          ],
+          correctIndexes: [
+            0,
+            2,
+            3,
+          ],
+          explain: 'Las abiertas dejan ver el vocabulario, ofrecen riqueza y detalle y permiten explayarse. Acortar el tiempo es ventaja de las cerradas, y las abiertas justamente pueden generar información irrelevante.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-5.1-1',
+        front: 'Entrevista',
+        back: 'Conversación dirigida con un propósito específico, en formato de preguntas y respuestas, usada para recopilar información.',
+      },
+      {
+        id: 'fc-5.1-2',
+        front: 'Tres técnicas básicas',
+        back: 'Entrevista, cuestionario y observación directa.',
+      },
+      {
+        id: 'fc-5.1-3',
+        front: 'Pregunta abierta',
+        back: 'El entrevistado puede explayarse al responder. Ofrece riqueza y detalle, pero puede generar información irrelevante.',
+      },
+      {
+        id: 'fc-5.1-4',
+        front: 'Pregunta cerrada',
+        back: 'Limita o acota la respuesta (sí/no o un dato puntual). Acorta el tiempo pero pierde riqueza de detalle.',
+      },
+      {
+        id: 'fc-5.1-5',
+        front: 'Pregunta de sondeo',
+        back: 'Busca ir más allá de la respuesta inicial para ampliar o clarificar. Ejemplo: ¿por qué? ¿Puede darme un ejemplo?',
+      },
+      {
+        id: 'fc-5.1-6',
+        front: 'Estructura piramidal',
+        back: 'Enfoque inductivo: inicia con preguntas cerradas y luego abre. Sirve para el entrevistado poco participativo.',
+      },
+      {
+        id: 'fc-5.1-7',
+        front: 'Estructura embudo',
+        back: 'Enfoque deductivo: comienza con preguntas abiertas y luego reduce con cerradas. Para el que necesita expresarse.',
+      },
+      {
+        id: 'fc-5.1-8',
+        front: 'Estructura diamante',
+        back: 'Combina las dos: cerradas específicas, luego abiertas generales, y cierra con cerradas específicas para concluir.',
+      },
+      {
+        id: 'fc-5.1-9',
+        front: 'Duración de la entrevista',
+        back: 'Debería rondar como máximo entre 45 minutos y una hora.',
+      },
+    ],
+  },
+  // ---------- UNIDAD 5 · SECCIÓN 5.2 ----------
+  {
+    id: '5.2',
+    unit: '5',
+    title: 'Cuestionarios, observación directa y recomendaciones',
+    criollo: 'Cerramos las técnicas: el cuestionario (cuando no podés entrevistar a todos), la observación directa (ir y ver cómo se laburua de verdad) y dos errores clásicos que tenés que evitar sí o sí: preguntas tendenciosas y preguntas dobles.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Qué son los cuestionarios',
+      },
+      {
+        type: 'p',
+        text: 'Los cuestionarios son una técnica de recopilación de información que permite a los analistas recoger <strong>opiniones, creencias, posturas, conductas y características</strong> de las personas claves de una organización involucradas en la operación de un sistema actual o en la implantación de uno nuevo.',
+      },
+      {
+        type: 'h3',
+        text: 'Para qué se emplean',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Entrevistar a personas que se encuentran en ubicaciones separadas (por ejemplo, en diferentes áreas).',
+          'Conocer la opinión sobre un proyecto donde hay muchas personas involucradas y sería imposible entrevistarlas a todas.',
+          'Emplearla como estudio exploratorio o preliminar antes de iniciar un proyecto.',
+          'Sondear problemas del sistema actual para identificarlos y luego darles solución.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Cómo redactar las preguntas',
+        criollo: 'El vocabulario y el orden importan un montón.',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>elección del vocabulario</strong> es muy importante: debe usarse el mismo que el de nuestro destinatario, ser específico y hacer preguntas <strong>cortas pero precisas</strong>. Las preguntas de importancia para quien contesta deberían ir <strong>primero</strong>, pero que no sean las de mayor controversia, ya que esas se dejan para el <strong>final</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Cómo aplicar el cuestionario',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Reunir a las personas en un espacio para que respondan todos allí.',
+          'Entregar personalmente el cuestionario a completar y recogerlo cuando esté completo.',
+          'Permitir que se realice durante las horas de trabajo y dejar un buzón para que lo entreguen luego.',
+          'Enviarlo por email a empleados de filiales más lejanas, fijando una fecha límite e instrucciones para el envío.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Observación directa',
+        criollo: 'A veces lo que te cuentan no es lo que pasa de verdad. Ir y mirar te muestra lo que las entrevistas no dicen.',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>observación directa</strong> consiste en recorrer la organización para observar cómo es el trabajo en los sectores afectados por el proyecto, sin limitarse solo a lo que se recibe en las respuestas de las entrevistas. Permite identificar relaciones entre quienes toman decisiones y otros miembros, entender por qué se hace de determinada manera, detectar <strong>procedimientos informales</strong> que pueden no estar documentados, y observar <strong>elementos físicos</strong> que se emplean en la operatoria y no fueron detectados previamente.',
+      },
+      {
+        type: 'h3',
+        text: 'Recomendaciones finales: errores a evitar',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Preguntas tendenciosas</strong>: cuando mostrás tu opinión sobre algún proceso o circunstancia. Ejemplo: "¿Qué opina de este obsoleto modo de trabajo?". Esto hace que el entrevistado se sienta limitado a exponer otro punto de vista.',
+          '<strong>Preguntas dobles</strong>: no poner dos preguntas juntas. El entrevistado puede concentrarse en responder una y omitir la otra, e incluso el entrevistador puede olvidar que falta parte de la respuesta.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Tanto para las entrevistas como para la confección de los cuestionarios, conviene ser <strong>prolijo</strong>, mantener un orden en las preguntas y que tengan una <strong>secuencia lógica</strong>, cubriendo cada tema sin ir y volver sobre diversos aspectos todo el tiempo.',
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Los dos pecados capitales: la tendenciosa (le metés tu opinión y lo condicionás) y la doble (dos preguntas pegadas y se te escapa media respuesta). Evitalas y ordená todo con secuencia lógica.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-5.2-1',
+          q: 'Los cuestionarios sirven para conocer la opinión de muchas personas cuando sería imposible entrevistarlas a todas.',
+          a: true,
+          explain: 'Verdadero. Es uno de los usos que menciona el apunte: proyectos donde hay muchas personas involucradas y no se puede entrevistar a todas.',
+        },
+        {
+          id: 'tf-5.2-2',
+          q: 'En un cuestionario, las preguntas de mayor controversia deberían ir primero.',
+          a: false,
+          explain: 'Falso. Las preguntas de importancia van primero, pero las de mayor controversia se dejan para el final.',
+        },
+        {
+          id: 'tf-5.2-3',
+          q: 'La observación directa permite detectar procedimientos informales que pueden no estar documentados en ningún lugar.',
+          a: true,
+          explain: 'Verdadero. Es justamente uno de los beneficios: detectar procedimientos informales no documentados y elementos físicos no detectados previamente.',
+        },
+        {
+          id: 'tf-5.2-4',
+          q: 'Una pregunta tendenciosa es aquella donde el entrevistador muestra su opinión sobre un proceso o circunstancia.',
+          a: true,
+          explain: 'Verdadero. La tendenciosa muestra la opinión del entrevistador, limitando al entrevistado a exponer otro punto de vista.',
+        },
+        {
+          id: 'tf-5.2-5',
+          q: 'Al redactar un cuestionario conviene usar un vocabulario técnico distinto al del destinatario.',
+          a: false,
+          explain: 'Falso. Debe usarse el mismo vocabulario que el del destinatario, ser específico y hacer preguntas cortas pero precisas.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-5.2-1',
+          q: '¿Cuál de las siguientes NO es una forma de aplicar un cuestionario según el apunte?',
+          options: [
+            'Reunir a las personas en un espacio para que respondan allí',
+            'Entregarlo personalmente y recogerlo al completarse',
+            'Grabar las respuestas en video',
+            'Enviarlo por email a filiales lejanas con fecha límite',
+          ],
+          correctIndex: 2,
+          explain: 'Grabar en video no figura. Las alternativas son: reunir a todos, entregar y recoger, dejar buzón durante horas de trabajo, o enviar por email con fecha límite.',
+        },
+        {
+          id: 'mc-5.2-2',
+          q: 'El error de "preguntas dobles" consiste en:',
+          options: [
+            'Repetir la misma pregunta dos veces',
+            'Poner dos preguntas juntas, lo que puede hacer que se omita responder una',
+            'Hacer preguntas demasiado largas',
+            'Mostrar la opinión del entrevistador',
+          ],
+          correctIndex: 1,
+          explain: 'Las preguntas dobles son dos preguntas juntas; el entrevistado puede concentrarse en una y omitir la otra. Mostrar la opinión es el error de preguntas tendenciosas.',
+        },
+        {
+          id: 'mc-5.2-3',
+          q: '¿Qué permite recoger un cuestionario sobre las personas claves de una organización?',
+          options: [
+            'Solo datos demográficos',
+            'Opiniones, creencias, posturas, conductas y características',
+            'Únicamente el organigrama',
+            'Solo el rendimiento del sistema',
+          ],
+          correctIndex: 1,
+          explain: 'El apunte indica que el cuestionario permite recoger opiniones, creencias, posturas, conductas y características de las personas claves.',
+        },
+        {
+          id: 'mc-5.2-4',
+          q: 'Una ventaja propia de la observación directa frente a la entrevista es que permite:',
+          options: [
+            'Acortar la duración del proyecto',
+            'Profundizar en cómo se hacen las cosas sin limitarse a las respuestas de las entrevistas',
+            'Evitar visitar la organización',
+            'Reemplazar por completo a los cuestionarios',
+          ],
+          correctIndex: 1,
+          explain: 'La observación directa permite profundizar en cómo se hacen las cosas sin limitarse solo a lo que se recibe en las respuestas de las entrevistas.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-5.2-1',
+          q: '¿Para qué se pueden emplear los cuestionarios según el apunte?',
+          options: [
+            'Entrevistar a personas en ubicaciones separadas',
+            'Conocer la opinión cuando hay muchas personas involucradas',
+            'Como estudio exploratorio o preliminar antes de un proyecto',
+            'Sondear problemas del sistema actual',
+            'Diseñar la arquitectura del software',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Los cuestionarios sirven para personas en ubicaciones separadas, opiniones de muchos involucrados, estudio exploratorio y sondear problemas del sistema actual. Diseñar la arquitectura no es un uso del cuestionario.',
+        },
+        {
+          id: 'ms-5.2-2',
+          q: '¿Qué permite descubrir la observación directa?',
+          options: [
+            'Relaciones entre quienes toman decisiones y otros miembros',
+            'Entender por qué se hace de determinada manera',
+            'Procedimientos informales no documentados',
+            'Elementos físicos de la operatoria no detectados antes',
+            'El presupuesto exacto del proyecto',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'La observación directa revela relaciones, el porqué de las cosas, procedimientos informales no documentados y elementos físicos no detectados. El presupuesto no es algo que detecte la observación.',
+        },
+        {
+          id: 'ms-5.2-3',
+          q: '¿Cuáles son recomendaciones finales / errores a tener en cuenta en entrevistas y cuestionarios?',
+          options: [
+            'Evitar preguntas tendenciosas',
+            'Evitar preguntas dobles',
+            'Ser prolijo y mantener un orden lógico',
+            'Cubrir cada tema sin ir y volver sobre los aspectos',
+            'Dejar las preguntas importantes para el final',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            2,
+            3,
+          ],
+          explain: 'Las recomendaciones son: evitar tendenciosas y dobles, ser prolijo con orden lógico y cubrir cada tema sin ir y volver. Las preguntas importantes en realidad van primero (no las controvertidas, esas al final).',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-5.2-1',
+        front: 'Cuestionario',
+        back: 'Técnica de recopilación que permite recoger opiniones, creencias, posturas, conductas y características de personas claves de una organización.',
+      },
+      {
+        id: 'fc-5.2-2',
+        front: 'Cuándo usar cuestionarios',
+        back: 'Personas en ubicaciones separadas, muchos involucrados imposibles de entrevistar, estudio exploratorio previo y sondeo de problemas del sistema actual.',
+      },
+      {
+        id: 'fc-5.2-3',
+        front: 'Vocabulario del cuestionario',
+        back: 'Usar el mismo vocabulario que el destinatario, ser específico y hacer preguntas cortas pero precisas.',
+      },
+      {
+        id: 'fc-5.2-4',
+        front: 'Orden de las preguntas',
+        back: 'Las importantes van primero (pero no las controvertidas); las de mayor controversia se dejan para el final.',
+      },
+      {
+        id: 'fc-5.2-5',
+        front: 'Observación directa',
+        back: 'Recorrer la organización para ver cómo se trabaja en los sectores afectados, sin limitarse a las respuestas de las entrevistas.',
+      },
+      {
+        id: 'fc-5.2-6',
+        front: 'Qué revela la observación directa',
+        back: 'Relaciones entre decisores y miembros, procedimientos informales no documentados y elementos físicos de la operatoria no detectados antes.',
+      },
+      {
+        id: 'fc-5.2-7',
+        front: 'Pregunta tendenciosa',
+        back: 'Error donde el entrevistador muestra su opinión, limitando al entrevistado a exponer otro punto de vista.',
+      },
+      {
+        id: 'fc-5.2-8',
+        front: 'Pregunta doble',
+        back: 'Error de poner dos preguntas juntas; el entrevistado puede omitir responder una de ellas.',
+      },
+    ],
+  },
+
+  // ---------- UNIDAD 6 · SECCIÓN 6.1 ----------
+  {
+    id: '6.1',
+    unit: '6',
+    title: 'Qué es la ingeniería de requerimientos y por qué hacerla',
+    criollo: 'Antes de programar una línea tenés que entender qué necesita el cliente. Eso es la ingeniería de requerimientos: sacar las ideas de la cabeza del usuario y ponerlas en un papel claro. Acá vemos qué es un requerimiento, las etapas, y por qué si te equivocás temprano sale barato pero si te das cuenta tarde te puede salir 5.000 veces más caro.',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Qué es un requerimiento',
+      },
+      {
+        type: 'p',
+        text: 'Según <strong>Shari Lawrence Pfleeger</strong> (<em>Ingeniería de Software. Teoría y práctica</em>), un requerimiento es una <strong>característica del sistema o una descripción de algo que el sistema es capaz de hacer</strong> con el objeto de satisfacer el propósito del sistema.',
+      },
+      {
+        type: 'p',
+        text: 'Según el estándar <strong>IEEE 610-1990</strong>, un requerimiento es:',
+      },
+      {
+        type: 'ol',
+        items: [
+          'Condición o capacidad que <strong>necesita el usuario</strong> para resolver un problema o alcanzar un objetivo.',
+          'Condición o capacidad que <strong>debe satisfacer o poseer un sistema</strong> o componente de un sistema para satisfacer un contrato, un estándar, una especificación u otro documento formalmente impuesto.',
+          'Representación <strong>documentada</strong> de una condición o capacidad como 1 o 2.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Qué es la ingeniería de requerimientos',
+      },
+      {
+        type: 'p',
+        text: 'La <strong>ingeniería de requerimientos</strong> es el proceso de elaborar las ideas y necesidades iniciales de los usuarios, expresándolas en una <strong>especificación de requerimientos de sistemas</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'Etapas de la ingeniería de requerimientos',
+        criollo: 'Cuatro pasos: sacás info, la analizás, la escribís formal y se la mostrás al cliente para que confirme.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '<strong>Extracción</strong> de requerimientos: se lleva a cabo con entrevistas, cuestionarios, etc.',
+          '<strong>Análisis</strong> de requerimientos: mediante el análisis de toda la información obtenida previamente.',
+          '<strong>Especificación</strong> en un documento formal.',
+          '<strong>Validación</strong> por parte del cliente, quien deberá indicar si lo especificado son los requerimientos que espera del nuevo sistema.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Por qué hacer ingeniería de requerimientos',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Muchos errores en los requerimientos son <strong>descubiertos en esta etapa</strong>.',
+          'Los errores detectados más adelante suelen ser <strong>más costosos de reparar</strong>.',
+          'De no llevar a cabo una especificación, podríamos obtener el <strong>producto incorrecto</strong>.',
+          'Si los requerimientos son <strong>ambiguos</strong>, pueden generar interpretaciones diferentes entre usuarios y desarrolladores, creando desacuerdo entre las partes.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'El costo de la detección de un error',
+        criollo: 'El estudio del Standish Group sobre 280.000 proyectos del año 2000 dejó números feos.',
+      },
+      {
+        type: 'p',
+        text: 'La empresa de investigación <strong>Standish Group</strong> analizó <strong>280.000 proyectos</strong> de desarrollo completados en el año 2000 y concluyó que:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Solo el <strong>28%</strong> de los proyectos de software se realizaron con éxito.',
+          'El <strong>23%</strong> se cancelaron antes de ser completados o nunca se implementaron.',
+          'El <strong>49%</strong> restante fue completado e instalado en el cliente, pero con demoras, por encima del presupuesto asignado o con funcionalidades faltantes.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'warning',
+        text: 'Cuanto más avanzado en el ciclo de desarrollo se detecta el error, mayor es el costo de corregirlo. Un error en el requerimiento detectado en la fase de requerimientos puede tener un costo apenas imperceptible; el mismo error detectado en la fase de prueba puede multiplicar ese costo hasta por 5.000.',
+      },
+      {
+        type: 'h3',
+        text: 'Causas de problemas en proyectos',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Requisitos deficientes</strong>, incompletos o cambiantes.',
+          'La planificación de agendas y estimaciones de costes <strong>no se realizaron en base a los requisitos</strong>.',
+          'Deficiencias en la aplicación de procesos y <strong>desconocimiento del ciclo de vida</strong> del proyecto.',
+          'Estimaciones <strong>poco realistas</strong>.',
+          'Falta de <strong>implicancia del usuario</strong> en el proceso.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Criterios de un proyecto terminado satisfactoriamente',
+      },
+      {
+        type: 'ul',
+        items: [
+          'No hubo desviaciones en las <strong>fechas previstas</strong>.',
+          'Se mantuvieron los <strong>costes estimados</strong>.',
+          'El producto final cubrió las <strong>expectativas y necesidades</strong> del cliente.',
+          'El producto <strong>funcionó correctamente</strong>.',
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Moraleja: invertí tiempo en entender bien qué te piden ANTES de arrancar. Equivocarte en un papel sale gratis; equivocarte cuando ya está todo programado sale una fortuna.',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-6.1-1',
+          q: 'Según Pfleeger, un requerimiento es una característica del sistema o una descripción de algo que el sistema es capaz de hacer para satisfacer su propósito.',
+          a: true,
+          explain: 'Verdadero, esa es exactamente la definición de Pfleeger en su libro Ingeniería de Software. Teoría y práctica.',
+        },
+        {
+          id: 'tf-6.1-2',
+          q: 'La validación de los requerimientos la realiza el equipo de desarrollo sin participación del cliente.',
+          a: false,
+          explain: 'Falso. La validación la hace el cliente, que debe indicar si lo especificado son los requerimientos que espera del nuevo sistema.',
+        },
+        {
+          id: 'tf-6.1-3',
+          q: 'Cuanto más avanzado en el ciclo de desarrollo se detecta un error, mayor es el costo de corregirlo.',
+          a: true,
+          explain: 'Verdadero. Un error detectado en la fase de prueba puede costar hasta 5.000 veces más que detectado en la fase de requerimientos.',
+        },
+        {
+          id: 'tf-6.1-4',
+          q: 'Según el estudio del Standish Group, el 28% de los proyectos de software se realizaron con éxito.',
+          a: true,
+          explain: 'Verdadero. El Standish Group analizó 280.000 proyectos del año 2000 y solo el 28% fue exitoso.',
+        },
+        {
+          id: 'tf-6.1-5',
+          q: 'La etapa de extracción de requerimientos se lleva a cabo mediante entrevistas y cuestionarios.',
+          a: true,
+          explain: 'Verdadero. La extracción se realiza con entrevistas, cuestionarios, etc.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-6.1-1',
+          q: '¿Cuál es la primera etapa de la ingeniería de requerimientos?',
+          options: [
+            'Validación',
+            'Especificación',
+            'Extracción',
+            'Análisis',
+          ],
+          correctIndex: 2,
+          explain: 'El orden es: extracción, análisis, especificación y validación. La extracción es la primera, con entrevistas y cuestionarios.',
+        },
+        {
+          id: 'mc-6.1-2',
+          q: 'Según el estándar IEEE 610-1990, ¿qué es un requerimiento?',
+          options: [
+            'Únicamente el código fuente que implementa una función',
+            'Una condición o capacidad que necesita el usuario para resolver un problema o alcanzar un objetivo',
+            'El cronograma de tiempos del proyecto',
+            'Una herramienta de testing automatizado',
+          ],
+          correctIndex: 1,
+          explain: 'El IEEE 610-1990 define el requerimiento como una condición o capacidad que necesita el usuario para resolver un problema o alcanzar un objetivo (entre otras acepciones).',
+        },
+        {
+          id: 'mc-6.1-3',
+          q: '¿Cuántos proyectos analizó el Standish Group en su estudio del año 2000?',
+          options: [
+            '28.000',
+            '280.000',
+            '2.800',
+            '2.800.000',
+          ],
+          correctIndex: 1,
+          explain: 'El Standish Group analizó 280.000 proyectos de desarrollo completados en el año 2000.',
+        },
+        {
+          id: 'mc-6.1-4',
+          q: '¿Cuál de las siguientes es una causa de problemas en proyectos según el apunte?',
+          options: [
+            'Exceso de documentación de requisitos',
+            'Falta de implicancia del usuario en el proceso',
+            'Demasiada participación del cliente',
+            'Estimaciones excesivamente conservadoras',
+          ],
+          correctIndex: 1,
+          explain: 'La falta de implicancia del usuario en el proceso es una de las principales causas de problemas en proyectos.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-6.1-1',
+          q: '¿Cuáles son las etapas de la ingeniería de requerimientos?',
+          options: [
+            'Extracción',
+            'Análisis',
+            'Compilación',
+            'Especificación',
+            'Validación',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Las etapas son extracción, análisis, especificación y validación. La compilación no es una etapa de la ingeniería de requerimientos.',
+        },
+        {
+          id: 'ms-6.1-2',
+          q: '¿Cuáles son causas de problemas en proyectos según el apunte?',
+          options: [
+            'Requisitos deficientes, incompletos o cambiantes',
+            'Estimaciones poco realistas',
+            'Uso de metodologías ágiles',
+            'Desconocimiento del ciclo de vida del proyecto',
+            'Falta de implicancia del usuario',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Las causas son requisitos deficientes, planificación no basada en requisitos, desconocimiento del ciclo de vida, estimaciones poco realistas y falta de implicancia del usuario. El uso de metodologías ágiles no figura como causa.',
+        },
+        {
+          id: 'ms-6.1-3',
+          q: '¿Qué criterios cumplió un proyecto considerado terminado satisfactoriamente?',
+          options: [
+            'No hubo desviaciones en las fechas previstas',
+            'Se mantuvieron los costes estimados',
+            'Se incluyeron funcionalidades extra no pedidas',
+            'El producto final cubrió las expectativas y necesidades del cliente',
+            'El producto funcionó correctamente',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Los criterios son: sin desviaciones en fechas, costes mantenidos, expectativas cubiertas y funcionamiento correcto. Incluir funcionalidades extra no pedidas no es un criterio de éxito.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-6.1-1',
+        front: 'Requerimiento (Pfleeger)',
+        back: 'Una característica del sistema o una descripción de algo que el sistema es capaz de hacer con el objeto de satisfacer su propósito.',
+      },
+      {
+        id: 'fc-6.1-2',
+        front: 'Ingeniería de requerimientos',
+        back: 'Proceso de elaborar las ideas y necesidades iniciales de los usuarios, expresándolas en una especificación de requerimientos de sistemas.',
+      },
+      {
+        id: 'fc-6.1-3',
+        front: 'Etapas de la ing. de requerimientos',
+        back: 'Extracción, análisis, especificación y validación.',
+      },
+      {
+        id: 'fc-6.1-4',
+        front: 'IEEE 610-1990 (requerimiento)',
+        back: 'Condición o capacidad que necesita el usuario, que debe poseer un sistema para satisfacer un contrato/estándar, o su representación documentada.',
+      },
+      {
+        id: 'fc-6.1-5',
+        front: 'Costo de detectar un error tarde',
+        back: 'Cuanto más avanzado el ciclo, más caro corregir. Un error detectado en prueba puede costar hasta 5.000 veces más que en la fase de requerimientos.',
+      },
+      {
+        id: 'fc-6.1-6',
+        front: 'Estudio Standish Group (2000)',
+        back: 'Sobre 280.000 proyectos: solo 28% exitosos, 23% cancelados y 49% con demoras, sobrecostos o funcionalidades faltantes.',
+      },
+      {
+        id: 'fc-6.1-7',
+        front: 'Causas de problemas en proyectos',
+        back: 'Requisitos deficientes o cambiantes, planificación no basada en requisitos, desconocimiento del ciclo de vida, estimaciones poco realistas y falta de implicancia del usuario.',
+      },
+    ],
+  },
+  // ---------- UNIDAD 6 · SECCIÓN 6.2 ----------
+  {
+    id: '6.2',
+    unit: '6',
+    title: 'Contexto y límites del sistema, defectos y tipos de requerimientos',
+    criollo: 'Acá la clave es decidir qué entra y qué no entra en el sistema (los límites), entender el problema en sus dos dominios, y conocer los errores típicos que arruinan un proyecto. Cerramos con la clasificación más usada: funcionales (qué hace) vs no funcionales (restricciones).',
+    blocks: [
+      {
+        type: 'h3',
+        text: 'Contexto, alcance y límite del sistema',
+        criollo: 'Lo más difícil al arrancar es decidir qué cosas son parte del sistema y qué cosas no.',
+      },
+      {
+        type: 'p',
+        text: 'Una de las cuestiones más difíciles al iniciar el desarrollo es determinar <strong>qué cosas son parte del sistema y qué cosas no</strong>: definir los <strong>límites del sistema</strong>. Hay que determinar cuáles de los eventos que ocurren en el entorno deben tener una respuesta. Para esto es importante trabajar con los <strong>stakeholders</strong> y establecer qué es el sistema y qué conforma su entorno.',
+      },
+      {
+        type: 'p',
+        text: 'Definir claramente los límites permite <strong>calcular los tiempos y costos</strong> que el proceso insumirá. Si el nuevo sistema reemplaza a uno existente, suele ser más sencillo porque podemos basarnos en lo existente; en otros casos hay más flexibilidad y la complejidad puede aumentar.',
+      },
+      {
+        type: 'callout',
+        tone: 'info',
+        text: 'La definición de los límites no es arbitraria: puede verse influenciada por factores técnicos que deban respetarse o por cuestiones económicas (por ejemplo, que ciertos requerimientos o interfaces no se incluyan por superar el presupuesto asignado).',
+      },
+      {
+        type: 'p',
+        text: 'Al determinar la frontera del sistema es habitual que existan <strong>áreas grises</strong>: cuestiones que no queda claro si están dentro de los límites y que suelen ser motivo de negociaciones. Se busca <strong>minimizarlas</strong> para evitar inconvenientes posteriores.',
+      },
+      {
+        type: 'h3',
+        text: 'Descripción del problema: dos dominios',
+        criollo: 'Todo problema tiene un "qué hay que hacer" y un "cómo se construye". Son mundos distintos.',
+      },
+      {
+        type: 'table',
+        caption: 'Dominios de la descripción del problema',
+        headers: ['Dominio', 'Qué representa'],
+        rows: [
+          ['Dominio de la aplicación', 'Donde existe el requerimiento del cliente. Representa <strong>qué</strong> hay que hacer. Permite comenzar a reconocer el problema.'],
+          ['Dominio del software', 'Provee una solución al problema, interactuando con el dominio de aplicación. Representa <strong>cómo</strong> va a ser construido el producto de software.'],
+        ],
+      },
+      {
+        type: 'p',
+        text: 'La identificación del dominio de aplicación y su separación del dominio del software <strong>no son absolutos sino relativos al problema</strong> a resolver. El primer paso es el análisis del problema y estructurar el dominio de la aplicación. El analista trata con distintos dominios, donde cada uno puede pensarse como un mundo separado; <strong>todo lo relevante para los requerimientos debe aparecer en alguna parte del dominio de la aplicación</strong>.',
+      },
+      {
+        type: 'h3',
+        text: 'El problema de la abstracción',
+        criollo: 'A diferencia de una casa, el software no se ve con un plano. Recién con el producto terminado el cliente puede darse cuenta de que no era lo que quería.',
+      },
+      {
+        type: 'p',
+        text: 'La ingeniería de software es una disciplina cuyos modelos <strong>no son tan tangibles o fáciles de visualizar</strong> como en la construcción de una casa. Aunque se desarrollen prototipos, no es extraño que el cliente, con el producto terminado, indique que no cumple con sus expectativas. Por eso la ingeniería de requerimientos es clave para el éxito.',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Evitar quedarse con <strong>descripciones genéricas</strong> sin ahondar en los detalles.',
+          'Evitar las <strong>ambigüedades</strong>.',
+          'Conocer el <strong>entorno del problema</strong>, no dar nada por supuesto.',
+          'Dedicar el <strong>tiempo necesario</strong> para obtener una especificación de los requerimientos.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Defectos comunes en los requisitos',
+      },
+      {
+        type: 'ul',
+        items: [
+          '<strong>Cliente/usuarios no se involucraron lo suficiente</strong> en la definición de las necesidades.',
+          '<strong>Cambios o crecimiento</strong> en los requerimientos sin gestionar el impacto en la planificación.',
+          'Definición de <strong>requisitos ambiguos</strong>: dos interpretaciones diferentes del mismo requerimiento.',
+          'Inclusión de <strong>requisitos innecesarios</strong>: funcionalidades que el usuario no pidió ni emplea, pero generan costo adicional.',
+          'Definición de <strong>requisitos insuficientes</strong>: solo una definición inicial sin más detalle.',
+          '<strong>Omisión de necesidades</strong> de algún grupo de usuarios con perfiles o requerimientos diferenciados.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Beneficios de los buenos requisitos',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Permite llegar a un <strong>acuerdo</strong> entre desarrolladores, usuarios y clientes sobre el trabajo a desarrollar.',
+          'Permite acordar los <strong>criterios para validar</strong> los requerimientos especificados.',
+          'Da una <strong>base objetiva para estimar recursos</strong> (personal, competencias, costos, equipamientos).',
+          'Permite cumplir con los <strong>atributos de calidad</strong>, incluyendo restricciones como eficiencia y seguridad.',
+          'Evita trabajar a <strong>prueba y error</strong>, reduciendo costos y modificaciones.',
+        ],
+      },
+      {
+        type: 'h3',
+        text: 'Tipos de requerimientos y restricciones',
+        criollo: 'La clasificación más usada: funcionales (qué hace) vs no funcionales (restricciones del cómo).',
+      },
+      {
+        type: 'table',
+        caption: 'Requerimientos funcionales vs no funcionales',
+        headers: ['Tipo', 'Descripción', 'Ejemplo'],
+        rows: [
+          ['Funcional (de comportamiento / behavioral)', 'Describe <strong>qué hace</strong> el sistema: entradas, salidas, interacción con el ambiente y cómo se comporta ante cada estímulo. Define la función de transformación.', 'Registrar pedidos de clientes especificando datos de entrada, proceso (controles, verificaciones, actualizaciones) y salida válida o inválida.'],
+          ['No funcional (de no comportamiento)', 'Describe una <strong>restricción</strong> sobre el sistema que limita la elección al construir la solución. Atributos como performance, plataforma, lenguaje, eficiencia, seguridad, portabilidad.', 'El sistema debe desarrollarse en arquitectura ARM, o las consultas deben responderse dentro de los cinco segundos.'],
+        ],
+      },
+      {
+        type: 'callout',
+        tone: 'criollo',
+        text: 'Trucazo para no olvidarte: funcional = QUÉ hace el sistema; no funcional = CÓMO de bien lo hace y bajo qué restricciones (rápido, seguro, en tal plataforma).',
+      },
+    ],
+    quiz: {
+      tf: [
+        {
+          id: 'tf-6.2-1',
+          q: 'El dominio de la aplicación representa cómo va a ser construido el producto de software.',
+          a: false,
+          explain: 'Falso. El dominio de la aplicación representa QUÉ hay que hacer. El que representa el CÓMO va a ser construido es el dominio del software.',
+        },
+        {
+          id: 'tf-6.2-2',
+          q: 'Un requerimiento no funcional describe una restricción sobre el sistema.',
+          a: true,
+          explain: 'Verdadero. El requerimiento no funcional describe una restricción que limita la elección al construir la solución (performance, plataforma, seguridad, etc.).',
+        },
+        {
+          id: 'tf-6.2-3',
+          q: 'Las áreas grises en la frontera del sistema deben maximizarse para dar más flexibilidad.',
+          a: false,
+          explain: 'Falso. Las áreas grises se buscan minimizar en la medida de lo posible para evitar inconvenientes posteriores.',
+        },
+        {
+          id: 'tf-6.2-4',
+          q: 'La definición de los límites del sistema puede verse influenciada por cuestiones económicas, como dejar fuera requerimientos por superar el presupuesto.',
+          a: true,
+          explain: 'Verdadero. La definición de los límites no es arbitraria y puede verse afectada por factores técnicos o económicos.',
+        },
+      ],
+      mc: [
+        {
+          id: 'mc-6.2-1',
+          q: '¿Qué describe un requerimiento funcional?',
+          options: [
+            'Una restricción de plataforma o lenguaje',
+            'Qué hace el sistema: entradas, salidas e interacción con el ambiente',
+            'El cronograma del proyecto',
+            'El nivel de seguridad requerido',
+          ],
+          correctIndex: 1,
+          explain: 'El requerimiento funcional (o de comportamiento) describe qué hace el sistema: entradas, salidas, interacción y comportamiento ante cada estímulo.',
+        },
+        {
+          id: 'mc-6.2-2',
+          q: '"Las consultas al sistema deben ser respondidas dentro de los cinco segundos" es un ejemplo de:',
+          options: [
+            'Requerimiento funcional',
+            'Requerimiento no funcional',
+            'Dominio de la aplicación',
+            'Área gris',
+          ],
+          correctIndex: 1,
+          explain: 'Es un requerimiento no funcional: impone una restricción de performance sobre el sistema.',
+        },
+        {
+          id: 'mc-6.2-3',
+          q: '¿Cuál es uno de los defectos comunes en los requisitos?',
+          options: [
+            'Documentar en exceso cada cambio',
+            'Inclusión de requisitos innecesarios que el usuario no pidió',
+            'Validar los requerimientos con el cliente',
+            'Trabajar con los stakeholders',
+          ],
+          correctIndex: 1,
+          explain: 'La inclusión de requisitos innecesarios (funcionalidades no pedidas que generan costo adicional) es un defecto común en los requisitos.',
+        },
+        {
+          id: 'mc-6.2-4',
+          q: 'En la descripción del problema, el dominio donde existe el requerimiento del cliente se llama:',
+          options: [
+            'Dominio del software',
+            'Dominio del hardware',
+            'Dominio de la aplicación',
+            'Dominio de validación',
+          ],
+          correctIndex: 2,
+          explain: 'El dominio de la aplicación es donde existe el requerimiento del cliente y representa qué hay que hacer.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms-6.2-1',
+          q: '¿Cuáles son defectos comunes en los requisitos según el apunte?',
+          options: [
+            'Cliente/usuarios poco involucrados',
+            'Requisitos ambiguos',
+            'Exceso de validación con el cliente',
+            'Requisitos innecesarios',
+            'Omisión de necesidades de algún grupo de usuarios',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Los defectos son: poca participación del cliente, cambios mal gestionados, ambigüedad, requisitos innecesarios, insuficientes y omisión de necesidades. El exceso de validación no es un defecto.',
+        },
+        {
+          id: 'ms-6.2-2',
+          q: '¿Cuáles son beneficios de los buenos requisitos?',
+          options: [
+            'Acuerdo entre desarrolladores, usuarios y clientes',
+            'Base objetiva para estimar recursos',
+            'Eliminar la necesidad de validación',
+            'Cumplir con los atributos de calidad',
+            'Evitar trabajar a prueba y error',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Los beneficios son: acuerdo entre las partes, criterios de validación, base para estimar recursos, cumplir atributos de calidad y evitar prueba y error. Eliminar la validación no es un beneficio.',
+        },
+        {
+          id: 'ms-6.2-3',
+          q: '¿Qué recomendaciones surgen para evitar el problema de la abstracción?',
+          options: [
+            'Evitar descripciones genéricas sin detalles',
+            'Evitar las ambigüedades',
+            'Dar por supuesto el entorno del problema',
+            'Conocer el entorno del problema',
+            'Dedicar el tiempo necesario a la especificación',
+          ],
+          correctIndexes: [
+            0,
+            1,
+            3,
+            4,
+          ],
+          explain: 'Las recomendaciones son: evitar descripciones genéricas, evitar ambigüedades, conocer el entorno (NO dar nada por supuesto) y dedicar el tiempo necesario a la especificación.',
+        },
+      ],
+    },
+    flashcards: [
+      {
+        id: 'fc-6.2-1',
+        front: 'Límites del sistema',
+        back: 'Definición de qué cosas son parte del sistema y qué cosas no. Permite calcular tiempos y costos; se trabaja con los stakeholders.',
+      },
+      {
+        id: 'fc-6.2-2',
+        front: 'Áreas grises',
+        back: 'Cuestiones que no queda claro si están dentro de los límites del sistema. Suelen ser motivo de negociación y se busca minimizarlas.',
+      },
+      {
+        id: 'fc-6.2-3',
+        front: 'Dominio de la aplicación',
+        back: 'Donde existe el requerimiento del cliente. Representa QUÉ hay que hacer y permite reconocer el problema.',
+      },
+      {
+        id: 'fc-6.2-4',
+        front: 'Dominio del software',
+        back: 'Provee la solución interactuando con el dominio de aplicación. Representa CÓMO va a construirse el producto de software.',
+      },
+      {
+        id: 'fc-6.2-5',
+        front: 'Problema de la abstracción',
+        back: 'Los modelos del software no son tan tangibles como un plano de una casa, por eso el cliente puede no darse cuenta hasta tener el producto terminado.',
+      },
+      {
+        id: 'fc-6.2-6',
+        front: 'Requerimiento funcional',
+        back: 'Describe qué hace el sistema: entradas, salidas, interacción y comportamiento ante cada estímulo. Define la función de transformación.',
+      },
+      {
+        id: 'fc-6.2-7',
+        front: 'Requerimiento no funcional',
+        back: 'Describe una restricción sobre el sistema: performance, plataforma, lenguaje, eficiencia, seguridad, portabilidad, etc.',
+      },
+      {
+        id: 'fc-6.2-8',
+        front: 'Requisitos innecesarios',
+        back: 'Defecto común: incluir funcionalidades que el usuario no pidió ni emplea, generando un costo adicional innecesario.',
+      },
+    ],
+  },
+
   // ---------- UNIDAD 7 · SECCIÓN 7.1 ----------
   {
     id: '7.1',
@@ -9647,6 +12773,36 @@ export default {
   },
   ],
   pdfs: [
+    {
+      key: 'modulo-1',
+      label: 'Módulo 1 — Conceptos de ingeniería de software',
+      path: 'pdfs/introduccion-ing-software/1-conceptos-ingenieria-software.pdf',
+    },
+    {
+      key: 'modulo-2',
+      label: 'Módulo 2 — El ciclo de vida del desarrollo de software',
+      path: 'pdfs/introduccion-ing-software/2-ciclo-de-vida.pdf',
+    },
+    {
+      key: 'modulo-3',
+      label: 'Módulo 3 — Metodologías ágiles',
+      path: 'pdfs/introduccion-ing-software/3-metodologias-agiles.pdf',
+    },
+    {
+      key: 'modulo-4',
+      label: 'Módulo 4 — Modelado de los procesos de negocio',
+      path: 'pdfs/introduccion-ing-software/4-modelado-procesos-negocio.pdf',
+    },
+    {
+      key: 'modulo-5',
+      label: 'Módulo 5 — Extracción de requerimientos',
+      path: 'pdfs/introduccion-ing-software/5-extraccion-requerimientos.pdf',
+    },
+    {
+      key: 'modulo-6',
+      label: 'Módulo 6 — Fundamentos de la ingeniería de requerimientos',
+      path: 'pdfs/introduccion-ing-software/6-fundamentos-ing-requerimientos.pdf',
+    },
     {
       key: 'modulo-7',
       label: 'Módulo 7 — Especificación de requerimientos',
