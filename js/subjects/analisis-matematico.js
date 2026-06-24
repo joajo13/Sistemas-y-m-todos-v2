@@ -22,6 +22,7 @@ export default {
   units: {
     'apuntes': 'Apuntes',
     'guias': 'Guías de ejercicios',
+    'oral': 'Preparación del oral',
   },
   sections: [
 {
@@ -5795,6 +5796,187 @@ export default {
             front: 'Dominio y asíntotas de $f(x) = \\dfrac{4-x}{\\ln(x-4)}$.',
             back: 'Dominio: $(4; +\\infty)$ — necesita $x - 4 > 0$ y $\\ln(x-4) \\neq 0$ (es decir $x \\neq 5$). La función no tiene asíntotas.',
           },
+        ],
+      },
+      {
+        id: '21',
+        unit: 'oral',
+        title: 'Oral — Límites e indeterminaciones',
+        criollo: 'Acá te preparás para la parte de límites del oral. Te van a tirar un límite y te preguntan: ¿hay indeterminación?, ¿de qué tipo?, ¿cómo se salva? Estos ejemplos son los de la guía de la evaluación sincrónica (van a cambiar los números en el examen real, pero el método es siempre el mismo). Repasá apuntes de Límite e indeterminaciones si algo no te cierra.',
+        blocks: [
+          { type: 'callout', tone: 'warning', text: '<strong>Condiciones del oral (evaluación sincrónica):</strong> para rendir hay que tener <strong>aprobados ambos exámenes</strong>. El día del oral necesitás <strong>DNI, cámara y micrófono (no auriculares)</strong>, y te van a pedir un <strong>paneo de 360°</strong> del lugar. Si no te presentás en la fecha o desaprobás, recursás la materia.' },
+          { type: 'callout', tone: 'info', text: 'Los ejemplos de abajo son los de la guía oficial. <strong>Son ilustrativos: en el examen los números van a estar cambiados</strong>, así que lo que tenés que dominar es el procedimiento, no el resultado puntual.' },
+
+          { type: 'h3', text: 'Cómo encarar la pregunta', criollo: 'El librito mental para cada límite' },
+          { type: 'ol', items: [
+            'Reemplazá mentalmente el valor al que tiende $x$ y mirá qué te queda.',
+            'Si te da un número, listo: no hay indeterminación, ese es el límite.',
+            'Si te da una de las formas raras ($\\frac{0}{0}$, $\\frac{\\infty}{\\infty}$, $\\infty - \\infty$, $0 \\cdot \\infty$, $1^{\\infty}$, etc.), <strong>hay indeterminación</strong> y tenés que salvarla con la técnica que corresponda.',
+            'Nombrá <strong>el tipo</strong> de indeterminación y <strong>cómo la salvás</strong> (racionalizar, sacar factor común, usar el número $e$, L\'Hôpital, equivalentes, etc.).',
+          ] },
+
+          { type: 'h3', text: 'Ejemplo a — con raíz (racionalizar)', criollo: 'Cuando aparece una resta con raíz, el conjugado es tu amigo' },
+          { type: 'math', latex: '\\lim_{x \\to +\\infty} \\dfrac{\\sqrt{4x^2 - x + 1} \\; - \\; 2x}{1 - x^2}', display: true },
+          { type: 'p', text: 'En el numerador, $\\sqrt{4x^2 - x + 1}$ crece como $2x$, así que $\\sqrt{4x^2 - x + 1} - 2x$ es una <strong>resta de dos infinitos</strong>: indeterminación $\\infty - \\infty$.' },
+          { type: 'p', text: 'Se salva <strong>racionalizando</strong> (multiplicando y dividiendo por el conjugado $\\sqrt{4x^2 - x + 1} + 2x$). El numerador queda $(4x^2 - x + 1) - 4x^2 = -x + 1$, y entonces:' },
+          { type: 'math', latex: '\\dfrac{-x + 1}{(1 - x^2)\\left(\\sqrt{4x^2 - x + 1} + 2x\\right)}', display: true },
+          { type: 'p', text: 'El numerador crece como $x$ y el denominador como $x^2 \\cdot x = x^3$, así que el cociente tiende a $0$.' },
+          { type: 'callout', tone: 'info', text: '<strong>Respuesta:</strong> sí hay indeterminación, del tipo $\\infty - \\infty$ en el numerador; se salva racionalizando con el conjugado, y el límite final es $0$.' },
+
+          { type: 'h3', text: 'Ejemplo b — base elevada a infinito', criollo: 'Ojo: el $1^\\infty$ es una trampa, fijate bien a cuánto tiende la base' },
+          { type: 'math', latex: '\\lim_{x \\to +\\infty} \\left( \\dfrac{3 + 2x}{3x + 1} \\right)^{4x}', display: true },
+          { type: 'p', text: 'Primero mirá <strong>la base</strong>: $\\dfrac{3 + 2x}{3x + 1}$ tiende a $\\dfrac{2}{3}$ cuando $x \\to +\\infty$ (mandan los términos de mayor grado, $\\frac{2x}{3x}$).' },
+          { type: 'p', text: 'Como la base tiende a $\\frac{2}{3}$ (un número <strong>menor que 1</strong>) y el exponente $4x \\to +\\infty$, queda $\\left(\\tfrac{2}{3}\\right)^{\\infty}$, que tiende a $0$.' },
+          { type: 'callout', tone: 'info', text: '<strong>Respuesta:</strong> NO es indeterminación del tipo $1^{\\infty}$, porque la base no tiende a 1 sino a $\\frac{2}{3}$. El límite es $0$. (La técnica del número $e$ se usa solo cuando la base tiende a 1.)' },
+
+          { type: 'h3', text: 'Ejemplo c — producto cero por infinito', criollo: 'Un factor se va a cero y el otro a infinito: hay que ver quién gana' },
+          { type: 'math', latex: '\\lim_{x \\to 1} \\operatorname{sen}(x - 1)\\,\\ln(x - 1)', display: true },
+          { type: 'p', text: 'Cuando $x \\to 1^{+}$: $\\operatorname{sen}(x - 1) \\to 0$ y $\\ln(x - 1) \\to -\\infty$. Es una indeterminación del tipo $0 \\cdot \\infty$.' },
+          { type: 'p', text: 'Cerca de $0$, $\\operatorname{sen}(x - 1)$ se comporta como $(x - 1)$ (seno equivalente a su argumento), así que el producto se parece a $(x - 1)\\ln(x - 1)$. Y como $t \\ln t \\to 0$ cuando $t \\to 0^{+}$, el límite es $0$.' },
+          { type: 'callout', tone: 'info', text: '<strong>Respuesta:</strong> indeterminación $0 \\cdot \\infty$; se salva usando el equivalente $\\operatorname{sen}(x-1) \\sim (x-1)$ (o L\'Hôpital reescribiendo como cociente). El límite es $0$. Notá que el dominio del $\\ln$ obliga a $x > 1$.' },
+
+          { type: 'h3', text: 'Ejemplo con función continua (despejar el límite)', criollo: 'Te dan un dato de un límite y tenés que deducir otro' },
+          { type: 'p', text: 'Sea $f$ una función <strong>continua en $x = 2$</strong>, sabiendo que:' },
+          { type: 'math', latex: '\\lim_{x \\to 2} \\dfrac{4}{f(x) - 4} = \\infty \\qquad \\Rightarrow \\qquad \\lim_{x \\to 2} \\dfrac{4}{f^{2}(x) - 4} = \\;?', display: true },
+          { type: 'p', text: 'Que $\\dfrac{4}{f(x) - 4} \\to \\infty$ significa que el denominador $f(x) - 4 \\to 0$, o sea $f(x) \\to 4$. Como $f$ es continua en $x = 2$, esto da $f(2) = 4$.' },
+          { type: 'p', text: 'Entonces $f^{2}(x) = \\big(f(x)\\big)^2 \\to 16$, y el nuevo denominador $f^{2}(x) - 4 \\to 16 - 4 = 12$. Por lo tanto:' },
+          { type: 'math', latex: '\\lim_{x \\to 2} \\dfrac{4}{f^{2}(x) - 4} = \\dfrac{4}{12} = \\dfrac{1}{3}', display: true },
+          { type: 'callout', tone: 'criollo', text: 'La clave es leer el dato al revés: si un cociente con constante arriba se va a infinito, es porque el de abajo se va a cero. De ahí sacás cuánto vale $f$ y reemplazás en lo que te piden.' },
+        ],
+        quiz: {
+          tf: [
+            { id: 'tf-21-1', q: 'En $\\lim\\limits_{x \\to +\\infty} \\sqrt{4x^2 - x + 1} - 2x$ hay una indeterminación del tipo $\\infty - \\infty$.', a: true, explain: 'Correcto. Ambos términos tienden a $+\\infty$, así que la resta es una indeterminación $\\infty - \\infty$, que se salva racionalizando.' },
+            { id: 'tf-21-2', q: 'En $\\lim\\limits_{x \\to +\\infty} \\left(\\frac{3+2x}{3x+1}\\right)^{4x}$ la indeterminación es del tipo $1^{\\infty}$.', a: false, explain: 'Falso. La base tiende a $\\frac{2}{3}$, no a 1, así que no hay indeterminación $1^{\\infty}$: el límite es directamente $0$.' },
+            { id: 'tf-21-3', q: 'El límite $\\lim\\limits_{x \\to 1} \\operatorname{sen}(x-1)\\,\\ln(x-1)$ presenta una indeterminación $0 \\cdot \\infty$.', a: true, explain: 'Correcto. $\\operatorname{sen}(x-1) \\to 0$ y $\\ln(x-1) \\to -\\infty$, dando $0 \\cdot \\infty$. Se salva con el equivalente $\\operatorname{sen}(x-1) \\sim (x-1)$.' },
+            { id: 'tf-21-4', q: 'Si $f$ es continua en $x=2$ y $\\lim\\limits_{x \\to 2} \\frac{4}{f(x)-4} = \\infty$, entonces $f(2) = 4$.', a: true, explain: 'Correcto. Para que ese cociente tienda a infinito, el denominador $f(x)-4$ debe tender a 0, o sea $f(x) \\to 4$; por continuidad $f(2)=4$.' },
+          ],
+          mc: [
+            { id: 'mc-21-1', q: '¿Cómo se salva la indeterminación $\\infty - \\infty$ en $\\sqrt{4x^2 - x + 1} - 2x$?', options: ['Aplicando directamente L\'Hôpital', 'Racionalizando con el conjugado', 'Usando el número $e$', 'Factorizando por Bhaskara'], correctIndex: 1, explain: 'Cuando hay una resta con raíz, se multiplica y divide por el conjugado para transformar la diferencia en un cociente manejable.' },
+            { id: 'mc-21-2', q: 'En $\\left(\\frac{3+2x}{3x+1}\\right)^{4x}$ con $x \\to +\\infty$, ¿cuánto vale el límite?', options: ['$1$', '$+\\infty$', '$0$', 'El número $e$'], correctIndex: 2, explain: 'La base tiende a $\\frac{2}{3} < 1$ y el exponente a $+\\infty$, así que $\\left(\\frac{2}{3}\\right)^{\\infty} = 0$.' },
+            { id: 'mc-21-3', q: 'Sabiendo que $f$ es continua en $2$ y $f(2)=4$, ¿cuánto da $\\lim\\limits_{x \\to 2} \\frac{4}{f^{2}(x)-4}$?', options: ['$\\frac{1}{3}$', '$\\infty$', '$0$', '$\\frac{1}{2}$'], correctIndex: 0, explain: '$f^{2}(x) \\to 16$, entonces el denominador $\\to 16 - 4 = 12$ y el límite es $\\frac{4}{12} = \\frac{1}{3}$.' },
+          ],
+          ms: [
+            { id: 'ms-21-1', q: '¿Cuáles de estas SÍ son formas indeterminadas?', options: ['$\\frac{0}{0}$', '$\\frac{2}{0}$', '$\\infty - \\infty$', '$0 \\cdot \\infty$', '$1^{\\infty}$'], correctIndexes: [0, 2, 3, 4], explain: '$\\frac{0}{0}$, $\\infty-\\infty$, $0\\cdot\\infty$ y $1^{\\infty}$ son indeterminaciones. $\\frac{2}{0}$ (constante distinta de 0 sobre 0) NO es indeterminada: tiende a $\\infty$.' },
+          ],
+        },
+        flashcards: [
+          { id: 'fc-21-1', front: 'Resta con raíz que da $\\infty - \\infty$', back: 'Se salva racionalizando: multiplicás y dividís por el conjugado para convertir la resta en un cociente.' },
+          { id: 'fc-21-2', front: '¿Cuándo se usa la técnica del número $e$?', back: 'Solo en indeterminaciones $1^{\\infty}$, es decir cuando la base tiende a 1 y el exponente a infinito.' },
+          { id: 'fc-21-3', front: '$\\left(\\frac{2}{3}\\right)^{\\infty}$', back: 'Tiende a $0$: una base menor que 1 elevada a infinito colapsa a cero. (No es indeterminación.)' },
+          { id: 'fc-21-4', front: 'Equivalente del seno cerca de 0', back: '$\\operatorname{sen}(t) \\sim t$ cuando $t \\to 0$. Sirve para salvar productos $0 \\cdot \\infty$.' },
+          { id: 'fc-21-5', front: '$\\frac{4}{f(x)-4} \\to \\infty$ implica…', back: 'Que $f(x) - 4 \\to 0$, o sea $f(x) \\to 4$. El denominador se va a cero.' },
+          { id: 'fc-21-6', front: 'Pasos para responder un límite en el oral', back: '1) Reemplazo y miro la forma. 2) ¿Hay indeterminación? ¿de qué tipo? 3) ¿Cómo la salvo? 4) Calculo el límite final.' },
+        ],
+      },
+      {
+        id: '22',
+        unit: 'oral',
+        title: 'Oral — Asíntotas y continuidad',
+        criollo: 'Te muestran una función (muchas veces partida) y te preguntan por las condiciones de continuidad y por las asíntotas: ¿tiene asíntota vertical?, ¿cuál?, ¿tiene horizontal?, ¿cuál? Acá repasamos el ejemplo de la guía paso a paso. Si flaquea algo, volvé a los apuntes de Asíntotas y de Continuidad.',
+        blocks: [
+          { type: 'callout', tone: 'info', text: 'Recordá las tres condiciones de <strong>continuidad en un punto $x = a$</strong>: (1) existe $f(a)$, (2) existe $\\lim\\limits_{x \\to a} f(x)$ (los dos límites laterales coinciden), y (3) ambos son iguales: $\\lim\\limits_{x \\to a} f(x) = f(a)$.' },
+
+          { type: 'h3', text: 'Función partida del ejemplo', criollo: 'La función de tres tramos de la guía' },
+          { type: 'math', latex: 'f(x) = \\begin{cases} 2 & \\text{si } x \\le -3 \\\\[4pt] \\dfrac{3}{x - 1} & \\text{si } -3 < x < 1 \\\\[4pt] 2^{-x} & \\text{si } x \\ge 1 \\end{cases}', display: true },
+
+          { type: 'h3', text: '¿Cuánto debe dar $\\lim_{x \\to -3^{+}} f(x)$ para que sea continua en $x = -3$?', criollo: 'Acá la respuesta es: lo que valga la función ahí' },
+          { type: 'p', text: 'En $x = -3$ la función vale $f(-3) = 2$ (cae en el tramo $x \\le -3$). El límite por izquierda también es $2$ (mismo tramo constante). Para que sea <strong>continua</strong> en $x = -3$, el límite por derecha tiene que coincidir con ese valor:' },
+          { type: 'math', latex: '\\lim_{x \\to -3^{+}} f(x) \\;\\text{debe valer}\\; 2', display: true },
+          { type: 'p', text: '¿Por qué? Porque la continuidad exige que los límites laterales y el valor de la función sean todos iguales. Si el límite por derecha diera otra cosa, habría un salto y la función sería discontinua en $x = -3$.' },
+          { type: 'callout', tone: 'info', text: 'Dato: con la fórmula real del tramo, $\\lim\\limits_{x \\to -3^{+}} \\frac{3}{x-1} = \\frac{3}{-4} = -\\frac{3}{4} \\neq 2$. O sea, tal como está, la función <strong>NO</strong> es continua en $x=-3$ (hay un salto). La pregunta apunta a que sepas <strong>qué valor haría falta</strong> para que lo fuera.' },
+
+          { type: 'h3', text: '¿Tiene asíntota vertical? ¿cuál?', criollo: 'Buscá dónde explota la función' },
+          { type: 'p', text: 'El tramo $\\dfrac{3}{x-1}$ se indefine en $x = 1$. Como ese tramo vale para $-3 < x < 1$, al acercarse por izquierda $\\lim\\limits_{x \\to 1^{-}} \\frac{3}{x-1} = \\frac{3}{0^{-}} = -\\infty$.' },
+          { type: 'callout', tone: 'info', text: '<strong>Respuesta:</strong> sí, hay asíntota vertical en $x = 1$ (la función tiende a $-\\infty$ al acercarse por izquierda).' },
+
+          { type: 'h3', text: '¿Tiene asíntota horizontal? ¿cuál?', criollo: 'Mirá los dos extremos: $-\\infty$ y $+\\infty$' },
+          { type: 'ul', items: [
+            'Cuando $x \\to -\\infty$: la función vale constantemente $2$, así que hay <strong>asíntota horizontal $y = 2$</strong>.',
+            'Cuando $x \\to +\\infty$: el tramo $2^{-x} = \\dfrac{1}{2^{x}} \\to 0$, así que hay <strong>asíntota horizontal $y = 0$</strong>.',
+          ] },
+          { type: 'callout', tone: 'info', text: '<strong>Respuesta:</strong> tiene dos asíntotas horizontales, $y = 2$ (hacia $-\\infty$) y $y = 0$ (hacia $+\\infty$). Una función puede tener una AH distinta en cada extremo.' },
+
+          { type: 'h3', text: 'Discontinuidad esencial', criollo: 'La pregunta de completar: ¿qué se verifica?' },
+          { type: 'p', text: 'Si una función $f(x)$ presenta una <strong>discontinuidad esencial</strong> en $x = a$, entonces se verifica que <strong>no existe el límite (finito) de $f$ en $a$</strong>: o algún límite lateral es infinito, o los límites laterales existen pero son distintos. Es decir, $\\lim\\limits_{x \\to a} f(x)$ no existe como número finito.' },
+          { type: 'callout', tone: 'criollo', text: 'Acordate de la diferencia: en la <strong>evitable</strong> el límite existe (es finito) pero no coincide con $f(a)$ o falta $f(a)$ — se "arregla" redefiniendo el punto. En la <strong>esencial</strong> el límite directamente no existe (salto o infinito), y no hay forma de arreglarla.' },
+        ],
+        quiz: {
+          tf: [
+            { id: 'tf-22-1', q: 'Para que $f$ sea continua en $x=-3$, el $\\lim\\limits_{x \\to -3^{+}} f(x)$ debe valer $2$.', a: true, explain: 'Correcto. $f(-3)=2$ y el límite por izquierda es 2, así que el límite por derecha debe valer 2 para que no haya salto.' },
+            { id: 'tf-22-2', q: 'La función del ejemplo tiene una asíntota vertical en $x = 1$.', a: true, explain: 'Correcto. El tramo $\\frac{3}{x-1}$ se indefine en $x=1$ y tiende a $-\\infty$ al acercarse por izquierda.' },
+            { id: 'tf-22-3', q: 'Una función no puede tener dos asíntotas horizontales distintas.', a: false, explain: 'Falso. Puede tener una AH hacia $-\\infty$ y otra distinta hacia $+\\infty$. En el ejemplo son $y=2$ y $y=0$.' },
+            { id: 'tf-22-4', q: 'En una discontinuidad esencial el límite de la función en el punto existe y es finito.', a: false, explain: 'Falso. En la esencial el límite NO existe (salto o infinito). El límite finito sí existe en la discontinuidad evitable.' },
+          ],
+          mc: [
+            { id: 'mc-22-1', q: '¿Cuáles son las tres condiciones de continuidad de $f$ en $x=a$?', options: ['Que $f$ sea creciente, acotada y derivable', 'Que exista $f(a)$, exista $\\lim\\limits_{x \\to a} f(x)$, y que sean iguales', 'Que $f(a)=0$ y la derivada exista', 'Que los límites laterales sean infinitos'], correctIndex: 1, explain: 'Continuidad: existe $f(a)$, existe el límite (laterales coinciden) y el límite es igual a $f(a)$.' },
+            { id: 'mc-22-2', q: 'Para $f(x)=2^{-x}$, ¿cuál es la asíntota horizontal cuando $x \\to +\\infty$?', options: ['$y = 2$', '$y = 1$', '$y = 0$', 'No tiene'], correctIndex: 2, explain: '$2^{-x} = \\frac{1}{2^x} \\to 0$ cuando $x \\to +\\infty$, así que la AH es $y=0$.' },
+            { id: 'mc-22-3', q: '¿Qué caracteriza a una discontinuidad esencial en $x=a$?', options: ['El límite existe pero $\\neq f(a)$', 'Falta $f(a)$ pero el límite existe', 'No existe el límite finito de $f$ en $a$', 'La función es continua por derecha'], correctIndex: 2, explain: 'En la esencial no existe el límite finito (salto o infinito). Las otras opciones describen discontinuidades evitables.' },
+          ],
+          ms: [
+            { id: 'ms-22-1', q: 'Sobre la función partida del ejemplo, ¿cuáles afirmaciones son correctas?', options: ['Tiene AV en $x=1$', 'Tiene AH en $y=2$ hacia $-\\infty$', 'Tiene AH en $y=0$ hacia $+\\infty$', 'Es continua en $x=-3$ tal como está definida', 'Vale $f(-3)=2$'], correctIndexes: [0, 1, 2, 4], explain: 'Tiene AV en $x=1$, AH $y=2$ (hacia $-\\infty$) e $y=0$ (hacia $+\\infty$), y $f(-3)=2$. NO es continua en $x=-3$, porque el límite por derecha da $-\\frac{3}{4} \\neq 2$.' },
+          ],
+        },
+        flashcards: [
+          { id: 'fc-22-1', front: 'Tres condiciones de continuidad en $x=a$', back: '1) Existe $f(a)$. 2) Existe $\\lim\\limits_{x \\to a} f(x)$ (laterales iguales). 3) $\\lim\\limits_{x \\to a} f(x) = f(a)$.' },
+          { id: 'fc-22-2', front: '¿Dónde buscar una asíntota vertical?', back: 'Donde la función se indefine (denominador cero, argumento de $\\ln$ en 0, etc.) y el límite tiende a $\\pm\\infty$.' },
+          { id: 'fc-22-3', front: '¿Cómo se busca una asíntota horizontal?', back: 'Calculando $\\lim\\limits_{x \\to +\\infty} f(x)$ y $\\lim\\limits_{x \\to -\\infty} f(x)$. Si dan un número finito $L$, hay AH $y = L$.' },
+          { id: 'fc-22-4', front: 'Asíntota horizontal de $2^{-x}$ en $+\\infty$', back: '$y = 0$, porque $2^{-x} = \\frac{1}{2^x} \\to 0$.' },
+          { id: 'fc-22-5', front: 'Discontinuidad evitable vs esencial', back: 'Evitable: el límite existe (finito) pero no coincide con $f(a)$ o falta $f(a)$. Esencial: el límite no existe (salto o infinito).' },
+          { id: 'fc-22-6', front: '¿Puede una función tener dos AH distintas?', back: 'Sí: una hacia $-\\infty$ y otra distinta hacia $+\\infty$. Ej.: $y=2$ y $y=0$.' },
+        ],
+      },
+      {
+        id: '23',
+        unit: 'oral',
+        title: 'Oral — Derivadas, recta tangente y normal',
+        criollo: 'Última parte del oral: te muestran una función y te piden explicar cómo se deriva (qué reglas aplicás, si hay regla de la cadena), y te preguntan por la recta tangente y la normal. Acá va el ejemplo de la guía bien desglosado. Repasá apuntes de Derivadas, Derivada de función compuesta y Recta tangente y normal.',
+        blocks: [
+          { type: 'h3', text: 'Función del ejemplo', criollo: 'Una raíz quinta de un coseno + una exponencial' },
+          { type: 'math', latex: 'g(x) = \\sqrt[5]{(3\\cos x - 5)^{3}} \\; - \\; 2\\,e^{6x} + 7', display: true },
+
+          { type: 'h3', text: '¿Cómo se deriva la raíz quinta? ¿hay regla de la cadena?', criollo: 'Sí, hay cadena por todos lados' },
+          { type: 'p', text: 'Conviene escribir la raíz como potencia: $\\sqrt[5]{(3\\cos x - 5)^{3}} = (3\\cos x - 5)^{3/5}$. Es una <strong>función compuesta</strong>, así que <strong>sí, hay que aplicar la regla de la cadena</strong>: derivás la potencia y multiplicás por la derivada de lo de adentro.' },
+          { type: 'p', text: 'Derivada de la potencia: $\\dfrac{3}{5}(3\\cos x - 5)^{-2/5}$. Derivada de lo de adentro ($3\\cos x - 5$): $-3\\operatorname{sen} x$. Multiplicando:' },
+          { type: 'math', latex: '\\dfrac{3}{5}(3\\cos x - 5)^{-2/5} \\cdot (-3\\operatorname{sen} x) = \\dfrac{-9\\operatorname{sen} x}{5\\,\\sqrt[5]{(3\\cos x - 5)^{2}}}', display: true },
+
+          { type: 'h3', text: '¿Cómo se deriva el 2do término? ¿qué regla aplica?', criollo: 'La exponencial también pide cadena' },
+          { type: 'p', text: 'El término $-2\\,e^{6x}$ se deriva con la regla de la <strong>exponencial compuesta</strong>: la derivada de $e^{u}$ es $e^{u} \\cdot u\\,\'$. Acá $u = 6x$, con $u\\,\' = 6$, así que la derivada es $-2 \\cdot 6\\,e^{6x} = -12\\,e^{6x}$. La constante $+7$ deriva a $0$.' },
+          { type: 'math', latex: "g\\,'(x) = \\dfrac{-9\\operatorname{sen} x}{5\\,\\sqrt[5]{(3\\cos x - 5)^{2}}} \\; - \\; 12\\,e^{6x}", display: true },
+          { type: 'callout', tone: 'criollo', text: 'En el oral lo importante no es solo el resultado: tenés que <strong>nombrar las reglas</strong>. Acá usaste regla de la cadena (en la raíz y en la exponencial), la regla de la potencia y la derivada de $e^{u}$. Y aclarar que la derivada de una suma es la suma de las derivadas.' },
+
+          { type: 'h3', text: 'Recta tangente con pendiente cero', criollo: 'Si la tangente es horizontal, la cosa se simplifica' },
+          { type: 'p', text: 'Si la recta tangente a $f(x)$ en el punto $(x_0; y_0)$ tiene <strong>pendiente cero</strong>, su ecuación es simplemente la recta horizontal:' },
+          { type: 'math', latex: 'y = y_0', display: true },
+          { type: 'p', text: 'En ese punto $f\\,\'(x_0) = 0$, <strong>porque la pendiente de la recta tangente es justamente $f\\,\'(x_0)$</strong> (ese es el significado geométrico de la derivada). Si la tangente es horizontal, su pendiente es 0, y por lo tanto la derivada vale 0.' },
+
+          { type: 'h3', text: '¿Existe la recta normal en ese punto?', criollo: 'La normal es la perpendicular a la tangente' },
+          { type: 'p', text: 'La recta normal es <strong>perpendicular</strong> a la tangente en el punto de contacto. Si la tangente es horizontal (pendiente 0), la normal es <strong>vertical</strong>. Sí existe, y su ecuación es:' },
+          { type: 'math', latex: 'x = x_0', display: true },
+          { type: 'callout', tone: 'info', text: 'Ojo con la regla general: la pendiente de la normal es $-\\dfrac{1}{f\\,\'(x_0)}$ (opuesta e inversa de la tangente). Cuando $f\\,\'(x_0) = 0$ esa fórmula no se puede aplicar (división por cero): la normal es directamente la <strong>vertical</strong> $x = x_0$.' },
+        ],
+        quiz: {
+          tf: [
+            { id: 'tf-23-1', q: 'Para derivar $\\sqrt[5]{(3\\cos x - 5)^{3}}$ hay que aplicar la regla de la cadena.', a: true, explain: 'Correcto. Es una función compuesta (potencia de un coseno), así que se deriva la potencia y se multiplica por la derivada de lo de adentro.' },
+            { id: 'tf-23-2', q: 'La derivada de $-2\\,e^{6x}$ es $-2\\,e^{6x}$.', a: false, explain: 'Falso. Por la cadena hay que multiplicar por la derivada del exponente ($6$): la derivada es $-12\\,e^{6x}$.' },
+            { id: 'tf-23-3', q: 'Si la recta tangente en $(x_0; y_0)$ tiene pendiente cero, entonces $f\\,\'(x_0) = 0$.', a: true, explain: 'Correcto. La pendiente de la tangente es $f\\,\'(x_0)$, así que pendiente cero significa derivada cero en ese punto.' },
+            { id: 'tf-23-4', q: 'Si la recta tangente es horizontal, la recta normal no existe.', a: false, explain: 'Falso. La normal sí existe: es la vertical $x = x_0$ (perpendicular a una tangente horizontal).' },
+          ],
+          mc: [
+            { id: 'mc-23-1', q: '¿Cuál es la derivada del término $-2\\,e^{6x}$?', options: ['$-2\\,e^{6x}$', '$-12\\,e^{6x}$', '$-2\\,e^{6}$', '$-6\\,e^{6x}$'], correctIndex: 1, explain: 'Regla de la exponencial compuesta: $(e^{u})\\,\' = e^{u} \\cdot u\\,\'$, con $u=6x$, $u\\,\'=6$. Da $-2 \\cdot 6\\,e^{6x} = -12\\,e^{6x}$.' },
+            { id: 'mc-23-2', q: 'Si la tangente en $(x_0; y_0)$ tiene pendiente 0, ¿cuál es su ecuación?', options: ['$x = x_0$', '$y = y_0$', '$y = x_0$', '$y = f\\,\'(x_0)\\,x$'], correctIndex: 1, explain: 'Pendiente 0 significa recta horizontal: $y = y_0$.' },
+            { id: 'mc-23-3', q: 'Si $f\\,\'(x_0) = 0$, ¿cuál es la ecuación de la recta normal en $(x_0; y_0)$?', options: ['$y = y_0$', 'No existe', '$x = x_0$', '$y = -\\frac{1}{0}$'], correctIndex: 2, explain: 'La normal es perpendicular a una tangente horizontal, o sea vertical: $x = x_0$. La fórmula $-\\frac{1}{f\\,\'(x_0)}$ no aplica porque sería dividir por cero.' },
+          ],
+          ms: [
+            { id: 'ms-23-1', q: '¿Qué reglas de derivación intervienen en $g(x) = \\sqrt[5]{(3\\cos x - 5)^{3}} - 2e^{6x} + 7$?', options: ['Regla de la cadena', 'Regla de la potencia', 'Derivada de la exponencial $e^{u}$', 'Derivada de una suma (término a término)', 'Regla de Bhaskara'], correctIndexes: [0, 1, 2, 3], explain: 'Intervienen la cadena, la potencia, la derivada de $e^{u}$ y la derivada de una suma. Bhaskara es para raíces de cuadráticas, no es una regla de derivación.' },
+          ],
+        },
+        flashcards: [
+          { id: 'fc-23-1', front: '¿Cómo escribís $\\sqrt[5]{a^{3}}$ para derivar?', back: 'Como potencia: $a^{3/5}$. Después aplicás la regla de la potencia y la cadena.' },
+          { id: 'fc-23-2', front: 'Derivada de $e^{u}$', back: '$e^{u} \\cdot u\\,\'$ (regla de la cadena). Ej.: $(e^{6x})\\,\' = 6\\,e^{6x}$.' },
+          { id: 'fc-23-3', front: '¿Qué representa $f\\,\'(x_0)$ geométricamente?', back: 'La pendiente de la recta tangente a la gráfica de $f$ en el punto de abscisa $x_0$.' },
+          { id: 'fc-23-4', front: 'Tangente con pendiente cero', back: 'Es horizontal: su ecuación es $y = y_0$, y se cumple $f\\,\'(x_0) = 0$.' },
+          { id: 'fc-23-5', front: 'Recta normal: ¿qué es y qué pendiente tiene?', back: 'Es la perpendicular a la tangente en el punto. Su pendiente es $-\\frac{1}{f\\,\'(x_0)}$ (opuesta e inversa).' },
+          { id: 'fc-23-6', front: 'Normal cuando la tangente es horizontal', back: 'Es la recta vertical $x = x_0$. La fórmula $-\\frac{1}{f\\,\'(x_0)}$ no aplica por división por cero.' },
         ],
       },
   ],
