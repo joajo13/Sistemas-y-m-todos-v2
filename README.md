@@ -10,8 +10,12 @@ App web estática para estudiar apuntes de varias materias de la Universidad de 
 - **Selector de materias** en la home raíz.
 - **Lectura interactiva** de las secciones con definiciones "en criollo", agrupadas por unidad.
 - **Visor integrado** de los PDFs originales (cuando la materia los tiene).
-- **Quizzes** de verdadero/falso y multiple choice por sección (cuando la sección los tiene).
+- **Quizzes** de verdadero/falso, multiple choice y multi-select (varias o ninguna correcta) por sección.
 - **Flashcards** por sección con flip + cola de repaso (cuando la sección las tiene).
+- **Banco nuevo anti-spoiler** (`?set=2`): un segundo set de quiz + flashcards por sección, generado
+  para autoevaluación real — las opciones son homogéneas, así que no se puede adivinar la respuesta
+  por su forma. Se accede con los botones "Quiz nuevo" / "Flashcards nuevas" en cada sección. Vive en
+  `js/quizzes2/<materia>.js` y no toca los apuntes de `js/subjects/`.
 - **Fórmulas matemáticas** renderizadas con KaTeX (LaTeX inline `$...$` y display `$$...$$`).
 - **Progreso** guardado en `localStorage` namespaced por materia (lectura, último score de quiz, flashcards sabidas).
 

@@ -200,7 +200,56 @@ Agregá los nuevos objetos al final del array `SECTIONS`, antes del `];` de cier
 - 5-9 flashcards.
 - 1 criollo del título + criollo por cada h3.
 
-**IDs únicos**: `tf-<sectionId>-<n>`, `mc-<sectionId>-<n>`, `fc-<sectionId>-<n>`.
+**IDs únicos**: `tf-<sectionId>-<n>`, `mc-<sectionId>-<n>`, `ms-<sectionId>-<n>`, `fc-<sectionId>-<n>`.
+
+El `quiz` de cada sección puede tener además **`ms`** (multi-select): preguntas de **5 opciones** con
+`correctIndexes: number[]`, donde puede haber varias correctas **o ninguna** (`correctIndexes: []`).
+Scoring all-or-nothing. Apuntá a 2-3 `ms` por sección.
+
+## Paso 6b — Generar el banco NUEVO anti-spoiler (`quiz2` / `flashcards2`)
+
+Además del quiz/flashcards de la sección, cada sección lleva un **segundo banco** de autoevaluación
+pensado para ponerse a prueba en serio. Vive **fuera** de `js/subjects/<materia>.js`, en
+`js/quizzes2/<materia>.js`, como un mapa:
+
+```js
+export default {
+  '<sectionId>': {
+    quiz2: { tf: [...], mc: [...], ms: [...] },
+    flashcards2: [...],
+  },
+  // ...
+};
+```
+
+`js/content.js` lo mergea sobre cada sección por `id` (`sec.quiz2` / `sec.flashcards2`). La app lo
+expone con `?set=2` (botones "Quiz nuevo" / "Flashcards nuevas" en la sección). **Para la unidad
+nueva, agregá las entradas correspondientes al mapa de `js/quizzes2/<materia>.js`** (no toques el
+archivo de la materia).
+
+**Cantidad por sección** en el banco nuevo: 4-5 V/F, 4-5 MC (4 opciones), 2-3 MS (5 opciones,
+incluyendo a veces el caso "ninguna correcta"), 6-8 flashcards. IDs con sufijo 2:
+`tf2-`, `mc2-`, `ms2-`, `fc2-`.
+
+### Reglas anti-spoiler (OBLIGATORIAS para el banco nuevo)
+
+La idea del banco nuevo es que **no se pueda adivinar la respuesta por su forma**, solo por el
+conocimiento. Al generarlo, respetá:
+
+1. **Opciones homogéneas**: mismo largo aproximado, misma forma gramatical y mismo nivel de detalle
+   en todas las opciones. Prohibido que la correcta sea la más larga / más técnica / más matizada.
+2. **Posición aleatoria** de la correcta (variá `correctIndex` entre 0–3 a lo largo de las preguntas;
+   nunca "la más larga").
+3. **Distractores plausibles** del mismo dominio (nada absurdo ni de otro tema).
+4. **Sin muletas** tipo "todas las anteriores" / "ninguna de las anteriores" como opción.
+5. **V/F balanceado** (~50/50); evitá tells de absolutos ("siempre/nunca").
+6. **MS con cantidad de correctas impredecible** (0 a 5); incluí ocasionalmente alguna con `[]`.
+7. El `explain` puede ser detallado (se muestra **después** de responder), nunca visible en las
+   opciones.
+8. Contenido **exclusivamente** del apunte de esa sección. Nada inventado.
+
+> Auditoría rápida: tras generar, el ratio "opción correcta = la más larga" en las MC del banco nuevo
+> debe acercarse a ~25% (azar), no quedar alto. Si queda alto, estás regalando la respuesta.
 
 ## Paso 7 — Verificación
 
@@ -218,6 +267,9 @@ sleep 1
 curl -s -o /dev/null -w "seccion <id>: %{http_code}\n" http://localhost:8000/seccion.html?id=<id>
 curl -s -o /dev/null -w "quiz <id>: %{http_code}\n" http://localhost:8000/quiz.html?id=<id>
 curl -s -o /dev/null -w "flashcards <id>: %{http_code}\n" http://localhost:8000/flashcards.html?id=<id>
+# Banco nuevo (anti-spoiler):
+curl -s -o /dev/null -w "quiz2 <id>: %{http_code}\n" "http://localhost:8000/quiz.html?id=<id>&set=2"
+curl -s -o /dev/null -w "flashcards2 <id>: %{http_code}\n" "http://localhost:8000/flashcards.html?id=<id>&set=2"
 kill $SERVER_PID 2>/dev/null || true
 ```
 
@@ -226,7 +278,7 @@ kill $SERVER_PID 2>/dev/null || true
 Un commit por unidad (no por sección — son muchos archivos en uno solo, no tiene sentido fragmentar):
 
 ```bash
-git add js/content.js images/diagrams/ pdfs/
+git add js/content.js js/quizzes2/ images/diagrams/ pdfs/
 git commit -m "$(cat <<'EOF'
 content: agregar Unidad {{UNIDAD}} — {{TITULO_UNIDAD}}
 

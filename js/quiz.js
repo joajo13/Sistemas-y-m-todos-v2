@@ -4,6 +4,10 @@ import { saveQuizScore } from './storage.js';
 
 let subject;
 let section;
+let quizData;
+let isV2 = false;
+let quizFeature = 'quiz';
+let setSuffix = '';
 let questions;
 let current = 0;
 let correct = 0;
@@ -15,9 +19,12 @@ function main() {
   const params = new URLSearchParams(location.search);
   const id = params.get('id');
   const subjectParam = params.get('subject');
+  isV2 = params.get('set') === '2';
+  quizFeature = isV2 ? 'quiz2' : 'quiz';
+  setSuffix = isV2 ? '&set=2' : '';
 
   if (id && !subjectParam) {
-    location.replace(`quiz.html?subject=sistemas-y-metodos&id=${encodeURIComponent(id)}`);
+    location.replace(`quiz.html?subject=sistemas-y-metodos&id=${encodeURIComponent(id)}${setSuffix}`);
     return;
   }
 
@@ -32,7 +39,8 @@ function main() {
     location.replace(`materia.html?subject=${subject.id}`);
     return;
   }
-  if (!section.quiz) {
+  quizData = section[quizFeature];
+  if (!quizData) {
     location.replace(`seccion.html?subject=${subject.id}&id=${section.id}`);
     return;
   }
@@ -40,9 +48,9 @@ function main() {
   renderNav({ active: 'home', subject });
 
   questions = [
-    ...((section.quiz.tf ?? []).map((q) => ({ ...q, kind: 'tf' }))),
-    ...((section.quiz.mc ?? []).map((q) => ({ ...q, kind: 'mc' }))),
-    ...((section.quiz.ms ?? []).map((q) => ({ ...q, kind: 'ms' }))),
+    ...((quizData.tf ?? []).map((q) => ({ ...q, kind: 'tf' }))),
+    ...((quizData.mc ?? []).map((q) => ({ ...q, kind: 'mc' }))),
+    ...((quizData.ms ?? []).map((q) => ({ ...q, kind: 'ms' }))),
   ];
 
   document.title = `Quiz: ${section.title}`;
@@ -51,7 +59,7 @@ function main() {
     <div class="section-header" style="margin-bottom:1.5rem;">
       <div class="section-header-eyebrow">
         <span class="num">${section.id}</span>
-        <span>Examinación</span>
+        <span>${isV2 ? 'Examinación · banco nuevo' : 'Examinación'}</span>
       </div>
       <h1 class="section-header-title" style="font-size:clamp(1.8rem,4.5vw,2.6rem);">${section.title}</h1>
       <div class="quiz-progress">
@@ -241,18 +249,18 @@ function advance() {
 }
 
 function renderSummary() {
-  saveQuizScore(subject.id, section.id, { correct, total: questions.length });
+  saveQuizScore(subject.id, isV2 ? `${section.id}::v2` : section.id, { correct, total: questions.length });
   document.getElementById('quiz-body').classList.add('hidden');
   document.getElementById('quiz-bottom').innerHTML = '';
   const summary = document.getElementById('quiz-summary');
   summary.classList.remove('hidden');
   const pct = Math.round((correct / questions.length) * 100);
   const seccionLink = `seccion.html?subject=${subject.id}&id=${section.id}`;
-  const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}`;
-  const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}`;
-  const nextSection = getNextSectionWith(subject.id, section.id, 'quiz');
+  const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}${setSuffix}`;
+  const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}${setSuffix}`;
+  const nextSection = getNextSectionWith(subject.id, section.id, quizFeature);
   const nextLink = nextSection
-    ? `quiz.html?subject=${subject.id}&id=${nextSection.id}`
+    ? `quiz.html?subject=${subject.id}&id=${nextSection.id}${setSuffix}`
     : null;
 
   let verdict = '';

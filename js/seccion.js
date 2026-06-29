@@ -109,6 +109,22 @@ function renderSection(subject, s) {
       </a>
     `);
   }
+  if (s.quiz2) {
+    buttons.push(`
+      <a href="quiz.html?subject=${subject.id}&id=${s.id}&set=2"
+         class="btn btn-accent touch-target">
+        Quiz nuevo
+      </a>
+    `);
+  }
+  if (s.flashcards2) {
+    buttons.push(`
+      <a href="flashcards.html?subject=${subject.id}&id=${s.id}&set=2"
+         class="btn-ghost touch-target">
+        Flashcards nuevas
+      </a>
+    `);
+  }
   if (buttons.length === 0) {
     bottomBar.remove();
     document.body.classList.remove('has-bottom-bar');

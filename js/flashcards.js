@@ -4,6 +4,11 @@ import { markFlashcard } from './storage.js';
 
 let subject;
 let section;
+let cards;
+let isV2 = false;
+let fcFeature = 'flashcards';
+let setSuffix = '';
+let storageSectionId;
 let queue;
 let total = 0;
 let knownThisSession = 0;
@@ -15,9 +20,12 @@ function main() {
   const params = new URLSearchParams(location.search);
   const id = params.get('id');
   const subjectParam = params.get('subject');
+  isV2 = params.get('set') === '2';
+  fcFeature = isV2 ? 'flashcards2' : 'flashcards';
+  setSuffix = isV2 ? '&set=2' : '';
 
   if (id && !subjectParam) {
-    location.replace(`flashcards.html?subject=sistemas-y-metodos&id=${encodeURIComponent(id)}`);
+    location.replace(`flashcards.html?subject=sistemas-y-metodos&id=${encodeURIComponent(id)}${setSuffix}`);
     return;
   }
 
@@ -32,10 +40,12 @@ function main() {
     location.replace(`materia.html?subject=${subject.id}`);
     return;
   }
-  if (!section.flashcards) {
+  cards = section[fcFeature];
+  if (!cards) {
     location.replace(`seccion.html?subject=${subject.id}&id=${section.id}`);
     return;
   }
+  storageSectionId = isV2 ? `${section.id}::v2` : section.id;
 
   renderNav({ active: 'home', subject });
 
@@ -45,14 +55,14 @@ function main() {
     <div class="section-header" style="margin-bottom:0;">
       <div class="section-header-eyebrow">
         <span class="num">${section.id}</span>
-        <span>Tarjetas de repaso</span>
+        <span>${isV2 ? 'Tarjetas de repaso · banco nuevo' : 'Tarjetas de repaso'}</span>
       </div>
       <h1 class="section-header-title" style="font-size:clamp(1.8rem,4.5vw,2.6rem);">${section.title}</h1>
       <p id="fc-progress" class="meta" style="margin-top:1rem;letter-spacing:0.06em;text-transform:uppercase;font-size:0.74rem;"></p>
     </div>
   `;
 
-  queue = [...section.flashcards];
+  queue = [...cards];
   total = queue.length;
 
   if (total === 0) {
@@ -114,7 +124,7 @@ function answer(known) {
   const card = queue.shift();
   if (known) {
     knownThisSession++;
-    markFlashcard(subject.id, section.id, card.id, true);
+    markFlashcard(subject.id, storageSectionId, card.id, true);
   } else {
     queue.push(card);
   }
@@ -131,11 +141,11 @@ function renderSummary() {
   const s = document.getElementById('fc-summary');
   s.classList.remove('hidden');
   const seccionLink = `seccion.html?subject=${subject.id}&id=${section.id}`;
-  const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}`;
-  const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}`;
-  const nextSection = getNextSectionWith(subject.id, section.id, 'flashcards');
+  const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}${setSuffix}`;
+  const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}${setSuffix}`;
+  const nextSection = getNextSectionWith(subject.id, section.id, fcFeature);
   const nextLink = nextSection
-    ? `flashcards.html?subject=${subject.id}&id=${nextSection.id}`
+    ? `flashcards.html?subject=${subject.id}&id=${nextSection.id}${setSuffix}`
     : null;
   const pct = Math.round((knownThisSession / total) * 100);
   s.innerHTML = `
