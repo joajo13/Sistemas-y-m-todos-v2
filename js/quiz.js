@@ -1,13 +1,15 @@
 import { renderNav } from './nav.js';
-import { getCurrentSubject, getSection, getNextSectionWith } from './content.js';
+import { getCurrentSubject, getSection, getNextSectionWith, getAggregateSection } from './content.js';
 import { saveQuizScore } from './storage.js';
 
 let subject;
 let section;
 let quizData;
 let isV2 = false;
+let isAggregate = false;
 let quizFeature = 'quiz';
 let setSuffix = '';
+let backLink = '';
 let questions;
 let current = 0;
 let correct = 0;
@@ -34,7 +36,10 @@ function main() {
     return;
   }
 
-  section = getSection(subject.id, id);
+  isAggregate = id === '__all__';
+  section = isAggregate
+    ? getAggregateSection(subject.id, params.get('set'))
+    : getSection(subject.id, id);
   if (!section) {
     location.replace(`materia.html?subject=${subject.id}`);
     return;
@@ -45,6 +50,10 @@ function main() {
     return;
   }
 
+  backLink = isAggregate
+    ? `${subject.resumen ? 'resumen' : 'materia'}.html?subject=${subject.id}`
+    : `seccion.html?subject=${subject.id}&id=${section.id}`;
+
   renderNav({ active: 'home', subject });
 
   questions = [
@@ -54,12 +63,15 @@ function main() {
   ];
 
   document.title = `Quiz: ${section.title}`;
+  const eyebrowLabel = isAggregate
+    ? (isV2 ? 'Examinación integral · banco nuevo' : 'Examinación integral')
+    : (isV2 ? 'Examinación · banco nuevo' : 'Examinación');
   document.getElementById('quiz-header').innerHTML = `
-    <a href="seccion.html?subject=${subject.id}&id=${section.id}" class="masthead-back">← Volver a la sección</a>
+    <a href="${backLink}" class="masthead-back">← ${isAggregate ? 'Volver' : 'Volver a la sección'}</a>
     <div class="section-header" style="margin-bottom:1.5rem;">
       <div class="section-header-eyebrow">
-        <span class="num">${section.id}</span>
-        <span>${isV2 ? 'Examinación · banco nuevo' : 'Examinación'}</span>
+        <span class="num">${isAggregate ? '∑' : section.id}</span>
+        <span>${eyebrowLabel}</span>
       </div>
       <h1 class="section-header-title" style="font-size:clamp(1.8rem,4.5vw,2.6rem);">${section.title}</h1>
       <div class="quiz-progress">
@@ -255,10 +267,12 @@ function renderSummary() {
   const summary = document.getElementById('quiz-summary');
   summary.classList.remove('hidden');
   const pct = Math.round((correct / questions.length) * 100);
-  const seccionLink = `seccion.html?subject=${subject.id}&id=${section.id}`;
+  const seccionLink = backLink;
   const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}${setSuffix}`;
   const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}${setSuffix}`;
-  const nextSection = getNextSectionWith(subject.id, section.id, quizFeature);
+  const nextSection = isAggregate
+    ? null
+    : getNextSectionWith(subject.id, section.id, quizFeature);
   const nextLink = nextSection
     ? `quiz.html?subject=${subject.id}&id=${nextSection.id}${setSuffix}`
     : null;
@@ -302,7 +316,7 @@ function renderSummary() {
     <div class="flex flex-col md:flex-row gap-3 ${nextSection ? 'mt-3' : 'mt-10'}">
       <a href="${quizLink}" class="${nextSection ? 'btn-ghost' : 'btn btn-accent'} touch-target md:flex-1">Reintentar</a>
       <a href="${fcLink}" class="btn-ghost touch-target md:flex-1">Flashcards</a>
-      <a href="${seccionLink}" class="btn-ghost touch-target md:flex-1">Volver a la sección</a>
+      <a href="${seccionLink}" class="btn-ghost touch-target md:flex-1">${isAggregate ? 'Volver' : 'Volver a la sección'}</a>
     </div>
   `;
 }

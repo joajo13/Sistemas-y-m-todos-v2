@@ -1,5 +1,5 @@
 import { renderNav } from './nav.js';
-import { getCurrentSubject } from './content.js';
+import { getCurrentSubject, getAggregateSection } from './content.js';
 import { getSectionState } from './storage.js';
 
 const subject = getCurrentSubject();
@@ -27,6 +27,34 @@ if (!subject) {
   renderPartialsEntry();
   renderSections();
   renderResumenEntry();
+  renderAutoevalEntry();
+}
+
+function renderAutoevalEntry() {
+  const host = document.getElementById('materia-autoeval');
+  if (!host) return;
+  const agg = getAggregateSection(subject.id, '2');
+  const q = agg && agg.quiz2;
+  const nQ = q ? (q.tf?.length || 0) + (q.mc?.length || 0) + (q.ms?.length || 0) : 0;
+  const nF = agg ? (agg.flashcards2 || []).length : 0;
+  if (nQ === 0 && nF === 0) { host.remove(); return; }
+  const quizLink = `quiz.html?subject=${subject.id}&id=__all__&set=2`;
+  const fcLink = `flashcards.html?subject=${subject.id}&id=__all__&set=2`;
+  host.innerHTML = `
+    <div class="folio-card" style="display:block;">
+      <div class="folio-card-body">
+        <div class="folio-card-meta" style="margin-bottom:0.5rem;">
+          <span class="quiz">Autoevaluación integral · sin pistas</span>
+        </div>
+        <h3 class="folio-card-title">Ponete a prueba con toda la materia</h3>
+        <p class="folio-card-dek">El quiz y las flashcards nuevas de todas las secciones, juntas en una sola tanda. Opciones parejas: no se adivina por la forma.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1rem;">
+          ${nQ > 0 ? `<a href="${quizLink}" class="btn btn-accent touch-target">Quiz integral · ${nQ}</a>` : ''}
+          ${nF > 0 ? `<a href="${fcLink}" class="btn-ghost touch-target">Flashcards · ${nF}</a>` : ''}
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function renderResumenEntry() {

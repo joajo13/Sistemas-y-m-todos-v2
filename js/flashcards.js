@@ -1,13 +1,15 @@
 import { renderNav } from './nav.js';
-import { getCurrentSubject, getSection, getNextSectionWith } from './content.js';
+import { getCurrentSubject, getSection, getNextSectionWith, getAggregateSection } from './content.js';
 import { markFlashcard } from './storage.js';
 
 let subject;
 let section;
 let cards;
 let isV2 = false;
+let isAggregate = false;
 let fcFeature = 'flashcards';
 let setSuffix = '';
+let backLink = '';
 let storageSectionId;
 let queue;
 let total = 0;
@@ -35,7 +37,10 @@ function main() {
     return;
   }
 
-  section = getSection(subject.id, id);
+  isAggregate = id === '__all__';
+  section = isAggregate
+    ? getAggregateSection(subject.id, params.get('set'))
+    : getSection(subject.id, id);
   if (!section) {
     location.replace(`materia.html?subject=${subject.id}`);
     return;
@@ -46,16 +51,21 @@ function main() {
     return;
   }
   storageSectionId = isV2 ? `${section.id}::v2` : section.id;
+  backLink = isAggregate
+    ? `${subject.resumen ? 'resumen' : 'materia'}.html?subject=${subject.id}`
+    : `seccion.html?subject=${subject.id}&id=${section.id}`;
 
   renderNav({ active: 'home', subject });
 
   document.title = `Flashcards: ${section.title}`;
   document.getElementById('fc-header').innerHTML = `
-    <a href="seccion.html?subject=${subject.id}&id=${section.id}" class="masthead-back">← Volver a la sección</a>
+    <a href="${backLink}" class="masthead-back">← ${isAggregate ? 'Volver' : 'Volver a la sección'}</a>
     <div class="section-header" style="margin-bottom:0;">
       <div class="section-header-eyebrow">
-        <span class="num">${section.id}</span>
-        <span>${isV2 ? 'Tarjetas de repaso · banco nuevo' : 'Tarjetas de repaso'}</span>
+        <span class="num">${isAggregate ? '∑' : section.id}</span>
+        <span>${isAggregate
+          ? (isV2 ? 'Repaso integral · banco nuevo' : 'Repaso integral')
+          : (isV2 ? 'Tarjetas de repaso · banco nuevo' : 'Tarjetas de repaso')}</span>
       </div>
       <h1 class="section-header-title" style="font-size:clamp(1.8rem,4.5vw,2.6rem);">${section.title}</h1>
       <p id="fc-progress" class="meta" style="margin-top:1rem;letter-spacing:0.06em;text-transform:uppercase;font-size:0.74rem;"></p>
@@ -140,10 +150,12 @@ function renderSummary() {
   document.getElementById('fc-bottom').innerHTML = '';
   const s = document.getElementById('fc-summary');
   s.classList.remove('hidden');
-  const seccionLink = `seccion.html?subject=${subject.id}&id=${section.id}`;
+  const seccionLink = backLink;
   const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}${setSuffix}`;
   const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}${setSuffix}`;
-  const nextSection = getNextSectionWith(subject.id, section.id, fcFeature);
+  const nextSection = isAggregate
+    ? null
+    : getNextSectionWith(subject.id, section.id, fcFeature);
   const nextLink = nextSection
     ? `flashcards.html?subject=${subject.id}&id=${nextSection.id}${setSuffix}`
     : null;
@@ -162,7 +174,7 @@ function renderSummary() {
     <div class="flex flex-col md:flex-row gap-3 ${nextSection ? 'mt-3' : 'mt-10'}">
       <a href="${fcLink}" class="${nextSection ? 'btn-ghost' : 'btn btn-accent'} touch-target md:flex-1">Reiniciar</a>
       <a href="${quizLink}" class="btn-ghost touch-target md:flex-1">Hacer quiz</a>
-      <a href="${seccionLink}" class="btn-ghost touch-target md:flex-1">Volver a la sección</a>
+      <a href="${seccionLink}" class="btn-ghost touch-target md:flex-1">${isAggregate ? 'Volver' : 'Volver a la sección'}</a>
     </div>
   `;
 }

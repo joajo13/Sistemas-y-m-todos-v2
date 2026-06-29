@@ -16,6 +16,9 @@ App web estática para estudiar apuntes de varias materias de la Universidad de 
   para autoevaluación real — las opciones son homogéneas, así que no se puede adivinar la respuesta
   por su forma. Se accede con los botones "Quiz nuevo" / "Flashcards nuevas" en cada sección. Vive en
   `js/quizzes2/<materia>.js` y no toca los apuntes de `js/subjects/`.
+- **Autoevaluación integral** (`?id=__all__&set=2`): junta el quiz y las flashcards nuevas de **todas
+  las secciones** en una sola tanda, para medirte en la materia completa. Aparece al final del
+  resumen final y como tarjeta en la home de la materia.
 - **Fórmulas matemáticas** renderizadas con KaTeX (LaTeX inline `$...$` y display `$$...$$`).
 - **Progreso** guardado en `localStorage` namespaced por materia (lectura, último score de quiz, flashcards sabidas).
 

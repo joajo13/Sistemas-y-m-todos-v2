@@ -141,6 +141,39 @@ export function getPartial(subjectId, partialId) {
 }
 
 /**
+ * Construye una "sección" sintética que agrega el quiz + flashcards de TODAS
+ * las secciones del subject, para una autoevaluación integral al final del
+ * resumen. `set` === '2' agrega el banco nuevo (quiz2/flashcards2); cualquier
+ * otro valor agrega el banco original (quiz/flashcards).
+ *
+ * Devuelve un objeto con la misma forma que una Section (id '__all__',
+ * aggregate: true) con el campo de feature correspondiente poblado, o null si
+ * el subject no existe. Si no hay ninguna pregunta/tarjeta, los arrays quedan
+ * vacíos (el consumidor decide qué mostrar).
+ */
+export function getAggregateSection(subjectId, set) {
+  const subject = getSubject(subjectId);
+  if (!subject) return null;
+  const isV2 = set === '2';
+  const qKey = isV2 ? 'quiz2' : 'quiz';
+  const fKey = isV2 ? 'flashcards2' : 'flashcards';
+  const tf = [], mc = [], ms = [], fc = [];
+  for (const s of subject.sections) {
+    const q = s[qKey];
+    if (q) {
+      if (q.tf) tf.push(...q.tf);
+      if (q.mc) mc.push(...q.mc);
+      if (q.ms) ms.push(...q.ms);
+    }
+    if (s[fKey]) fc.push(...s[fKey]);
+  }
+  const section = { id: '__all__', title: 'Toda la materia', aggregate: true };
+  section[qKey] = { tf, mc, ms };
+  section[fKey] = fc;
+  return section;
+}
+
+/**
  * Lee ?subject=<id> de location.search y devuelve el Subject correspondiente.
  * Devuelve null si falta o no existe.
  *

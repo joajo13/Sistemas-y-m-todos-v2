@@ -1,5 +1,5 @@
 import { renderNav } from './nav.js';
-import { getCurrentSubject } from './content.js';
+import { getCurrentSubject, getAggregateSection } from './content.js';
 import { renderBlock, hydrateBlocks } from './blocks.js';
 import { renderMath } from './katex-init.js';
 
@@ -33,12 +33,50 @@ function main() {
     : '';
 
   const host = document.getElementById('resumen-content');
-  host.innerHTML = subject.resumen.units.map(renderUnit).join('');
+  host.innerHTML = subject.resumen.units.map(renderUnit).join('') + renderAutoevaluacion();
   hydrateBlocks(host);
 
   const renderAll = () => renderMath(host);
   if (typeof window.renderMathInElement === 'function') renderAll();
   else window.addEventListener('load', renderAll, { once: true });
+}
+
+function renderAutoevaluacion() {
+  const agg = getAggregateSection(subject.id, '2');
+  if (!agg) return '';
+  const q = agg.quiz2 || { tf: [], mc: [], ms: [] };
+  const nQ = (q.tf?.length || 0) + (q.mc?.length || 0) + (q.ms?.length || 0);
+  const nF = (agg.flashcards2 || []).length;
+  if (nQ === 0 && nF === 0) return '';
+
+  const quizLink = `quiz.html?subject=${subject.id}&id=__all__&set=2`;
+  const fcLink = `flashcards.html?subject=${subject.id}&id=__all__&set=2`;
+  const buttons = [];
+  if (nQ > 0) {
+    buttons.push(`<a href="${quizLink}" class="btn btn-accent touch-target" style="flex:1;">Quiz integral · ${nQ} preguntas</a>`);
+  }
+  if (nF > 0) {
+    buttons.push(`<a href="${fcLink}" class="btn-ghost touch-target" style="flex:1;">Flashcards integrales · ${nF}</a>`);
+  }
+
+  return `
+    <section style="margin-top:3.5rem;">
+      <div class="unit-header">
+        <span class="unit-header-num">∑</span>
+        <span class="unit-header-title">Autoevaluación de toda la materia</span>
+        <span class="unit-header-meta">banco nuevo · sin pistas</span>
+      </div>
+      <div class="criollo-callout" style="margin-top:1rem;">
+        <span class="eyebrow no-rule" style="display:block;margin-bottom:0.35em;">Para medirte de una</span>
+        <p>Esto junta el quiz y las flashcards nuevas de <strong>todas las secciones</strong> en una sola
+        tanda. Las opciones están parejas a propósito: no se puede adivinar por la forma, solo sabiendo.
+        Es largo (es toda la materia), pero podés cortar cuando quieras.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1.25rem;">
+        ${buttons.join('')}
+      </div>
+    </section>
+  `;
 }
 
 function renderUnit(u) {
