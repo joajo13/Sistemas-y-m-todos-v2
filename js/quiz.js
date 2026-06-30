@@ -9,6 +9,8 @@ let isV2 = false;
 let isAggregate = false;
 let quizFeature = 'quiz';
 let setSuffix = '';
+let typeFilter = null;
+let typeSuffix = '';
 let backLink = '';
 let questions;
 let current = 0;
@@ -24,9 +26,12 @@ function main() {
   isV2 = params.get('set') === '2';
   quizFeature = isV2 ? 'quiz2' : 'quiz';
   setSuffix = isV2 ? '&set=2' : '';
+  const typeParam = params.get('type');
+  typeFilter = ['tf', 'mc', 'ms'].includes(typeParam) ? typeParam : null;
+  typeSuffix = typeFilter ? `&type=${typeFilter}` : '';
 
   if (id && !subjectParam) {
-    location.replace(`quiz.html?subject=sistemas-y-metodos&id=${encodeURIComponent(id)}${setSuffix}`);
+    location.replace(`quiz.html?subject=sistemas-y-metodos&id=${encodeURIComponent(id)}${setSuffix}${typeSuffix}`);
     return;
   }
 
@@ -60,12 +65,15 @@ function main() {
     ...((quizData.tf ?? []).map((q) => ({ ...q, kind: 'tf' }))),
     ...((quizData.mc ?? []).map((q) => ({ ...q, kind: 'mc' }))),
     ...((quizData.ms ?? []).map((q) => ({ ...q, kind: 'ms' }))),
-  ];
+  ].filter((q) => !typeFilter || q.kind === typeFilter);
 
   document.title = `Quiz: ${section.title}`;
-  const eyebrowLabel = isAggregate
+  const typeLabel = typeFilter === 'mc' ? ' · solo multiple choice'
+    : typeFilter === 'ms' ? ' · solo multi-select'
+    : typeFilter === 'tf' ? ' · solo V/F' : '';
+  const eyebrowLabel = (isAggregate
     ? (isV2 ? 'Examinación integral · banco nuevo' : 'Examinación integral')
-    : (isV2 ? 'Examinación · banco nuevo' : 'Examinación');
+    : (isV2 ? 'Examinación · banco nuevo' : 'Examinación')) + typeLabel;
   document.getElementById('quiz-header').innerHTML = `
     <a href="${backLink}" class="masthead-back">← ${isAggregate ? 'Volver' : 'Volver a la sección'}</a>
     <div class="section-header" style="margin-bottom:1.5rem;">
@@ -268,13 +276,13 @@ function renderSummary() {
   summary.classList.remove('hidden');
   const pct = Math.round((correct / questions.length) * 100);
   const seccionLink = backLink;
-  const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}${setSuffix}`;
+  const quizLink = `quiz.html?subject=${subject.id}&id=${section.id}${setSuffix}${typeSuffix}`;
   const fcLink = `flashcards.html?subject=${subject.id}&id=${section.id}${setSuffix}`;
   const nextSection = isAggregate
     ? null
     : getNextSectionWith(subject.id, section.id, quizFeature);
   const nextLink = nextSection
-    ? `quiz.html?subject=${subject.id}&id=${nextSection.id}${setSuffix}`
+    ? `quiz.html?subject=${subject.id}&id=${nextSection.id}${setSuffix}${typeSuffix}`
     : null;
 
   let verdict = '';

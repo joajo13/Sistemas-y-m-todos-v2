@@ -45,7 +45,9 @@ function renderAutoevaluacion() {
   const agg = getAggregateSection(subject.id, '2');
   if (!agg) return '';
   const q = agg.quiz2 || { tf: [], mc: [], ms: [] };
-  const nQ = (q.tf?.length || 0) + (q.mc?.length || 0) + (q.ms?.length || 0);
+  const nMc = q.mc?.length || 0;
+  const nMs = q.ms?.length || 0;
+  const nQ = (q.tf?.length || 0) + nMc + nMs;
   const nF = (agg.flashcards2 || []).length;
   if (nQ === 0 && nF === 0) return '';
 
@@ -54,6 +56,12 @@ function renderAutoevaluacion() {
   const buttons = [];
   if (nQ > 0) {
     buttons.push(`<a href="${quizLink}" class="btn btn-accent touch-target" style="flex:1;">Quiz integral · ${nQ} preguntas</a>`);
+  }
+  if (nMc > 0) {
+    buttons.push(`<a href="${quizLink}&type=mc" class="btn-ghost touch-target" style="flex:1;">Solo multiple choice · ${nMc}</a>`);
+  }
+  if (nMs > 0) {
+    buttons.push(`<a href="${quizLink}&type=ms" class="btn-ghost touch-target" style="flex:1;">Solo multi-select · ${nMs}</a>`);
   }
   if (nF > 0) {
     buttons.push(`<a href="${fcLink}" class="btn-ghost touch-target" style="flex:1;">Flashcards integrales · ${nF}</a>`);

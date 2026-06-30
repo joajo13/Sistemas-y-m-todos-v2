@@ -35,7 +35,9 @@ function renderAutoevalEntry() {
   if (!host) return;
   const agg = getAggregateSection(subject.id, '2');
   const q = agg && agg.quiz2;
-  const nQ = q ? (q.tf?.length || 0) + (q.mc?.length || 0) + (q.ms?.length || 0) : 0;
+  const nMc = q ? (q.mc?.length || 0) : 0;
+  const nMs = q ? (q.ms?.length || 0) : 0;
+  const nQ = q ? (q.tf?.length || 0) + nMc + nMs : 0;
   const nF = agg ? (agg.flashcards2 || []).length : 0;
   if (nQ === 0 && nF === 0) { host.remove(); return; }
   const quizLink = `quiz.html?subject=${subject.id}&id=__all__&set=2`;
@@ -47,9 +49,11 @@ function renderAutoevalEntry() {
           <span class="quiz">Autoevaluación integral · sin pistas</span>
         </div>
         <h3 class="folio-card-title">Ponete a prueba con toda la materia</h3>
-        <p class="folio-card-dek">El quiz y las flashcards nuevas de todas las secciones, juntas en una sola tanda. Opciones parejas: no se adivina por la forma.</p>
+        <p class="folio-card-dek">El quiz y las flashcards nuevas de todas las secciones, juntas en una sola tanda. Opciones parejas: no se adivina por la forma. Podés ir directo a un tipo de pregunta.</p>
         <div style="display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:1rem;">
           ${nQ > 0 ? `<a href="${quizLink}" class="btn btn-accent touch-target">Quiz integral · ${nQ}</a>` : ''}
+          ${nMc > 0 ? `<a href="${quizLink}&type=mc" class="btn-ghost touch-target">Solo multiple choice · ${nMc}</a>` : ''}
+          ${nMs > 0 ? `<a href="${quizLink}&type=ms" class="btn-ghost touch-target">Solo multi-select · ${nMs}</a>` : ''}
           ${nF > 0 ? `<a href="${fcLink}" class="btn-ghost touch-target">Flashcards · ${nF}</a>` : ''}
         </div>
       </div>
