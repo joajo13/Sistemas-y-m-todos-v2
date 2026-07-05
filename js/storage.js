@@ -108,6 +108,44 @@ export function saveQuizScore(subjectId, sectionId, { correct, total }) {
   setState(state);
 }
 
+/**
+ * Progreso de un examen integral (id=__all__), guardado aparte de las secciones
+ * en state.examProgress[subjectId][examKey]. Permite reanudar exámenes largos
+ * (cientos de preguntas) y alimentar las cards de resumen intermedio.
+ *
+ * ExamProgress = {
+ *   current: number,          // índice de la próxima pregunta a mostrar
+ *   correct: number,          // correctas acumuladas
+ *   lastMilestone: number,    // índice del último checkpoint mostrado (-1 si ninguno)
+ *   wrong: [ { idx, q, chosenText, explain, secTitle } ],  // erradas, con su tema
+ *   total: number,            // total de preguntas del examen (para validar reanudación)
+ *   updatedAt: string
+ * }
+ */
+export function getExamProgress(subjectId, examKey) {
+  const state = getState();
+  return state.examProgress?.[subjectId]?.[examKey] ?? null;
+}
+
+export function saveExamProgress(subjectId, examKey, progress) {
+  const state = getState();
+  if (!state.examProgress) state.examProgress = {};
+  if (!state.examProgress[subjectId]) state.examProgress[subjectId] = {};
+  state.examProgress[subjectId][examKey] = {
+    ...progress,
+    updatedAt: new Date().toISOString(),
+  };
+  setState(state);
+}
+
+export function clearExamProgress(subjectId, examKey) {
+  const state = getState();
+  if (state.examProgress?.[subjectId]?.[examKey]) {
+    delete state.examProgress[subjectId][examKey];
+    setState(state);
+  }
+}
+
 export function markFlashcard(subjectId, sectionId, fcId, known) {
   const state = getState();
   const section = ensureSection(state, subjectId, sectionId);

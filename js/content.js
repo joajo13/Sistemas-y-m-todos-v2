@@ -159,11 +159,15 @@ export function getAggregateSection(subjectId, set) {
   const fKey = isV2 ? 'flashcards2' : 'flashcards';
   const tf = [], mc = [], ms = [], fc = [];
   for (const s of subject.sections) {
+    // Etiqueta cada pregunta con su sección de origen (_sec) para que la
+    // autoevaluación integral pueda reportar "los temas que deberías tocar".
+    const sec = { id: s.id, title: s.title };
+    const tag = (arr) => arr.map((q) => ({ ...q, _sec: sec }));
     const q = s[qKey];
     if (q) {
-      if (q.tf) tf.push(...q.tf);
-      if (q.mc) mc.push(...q.mc);
-      if (q.ms) ms.push(...q.ms);
+      if (q.tf) tf.push(...tag(q.tf));
+      if (q.mc) mc.push(...tag(q.mc));
+      if (q.ms) ms.push(...tag(q.ms));
     }
     if (s[fKey]) fc.push(...s[fKey]);
   }

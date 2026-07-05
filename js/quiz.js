@@ -1,6 +1,15 @@
 import { renderNav } from './nav.js';
 import { getCurrentSubject, getSection, getNextSectionWith, getAggregateSection } from './content.js';
-import { saveQuizScore } from './storage.js';
+import {
+  saveQuizScore,
+  getExamProgress,
+  saveExamProgress,
+  clearExamProgress,
+} from './storage.js';
+
+// Cada cuántas preguntas se muestra una card de resumen intermedio en los
+// exámenes integrales. Solo aplica a id=__all__ (cientos de preguntas).
+const MILESTONE = 25;
 
 let subject;
 let section;
@@ -12,10 +21,12 @@ let setSuffix = '';
 let typeFilter = null;
 let typeSuffix = '';
 let backLink = '';
+let progressKey = '';
 let questions;
 let current = 0;
 let correct = 0;
-const wrongAnswers = [];
+let lastMilestone = -1;
+let wrongAnswers = [];
 
 main();
 
@@ -89,13 +100,84 @@ function main() {
     </div>
   `;
 
+  progressKey = ['__all__', quizFeature, typeFilter].filter(Boolean).join('::');
+
   if (questions.length === 0) {
     document.getElementById('quiz-body').innerHTML = `
       <div class="info-callout mt-6"><p>Esta sección aún no tiene preguntas cargadas.</p></div>
     `;
+    return;
+  }
+
+  // Solo los exámenes integrales guardan progreso y ofrecen reanudar.
+  const saved = isAggregate ? getExamProgress(subject.id, progressKey) : null;
+  const resumable = saved
+    && saved.total === questions.length
+    && saved.current > 0
+    && saved.current < questions.length;
+
+  if (resumable) {
+    renderResumePrompt(saved);
   } else {
+    if (isAggregate && saved) clearExamProgress(subject.id, progressKey);
     renderQuestion();
   }
+}
+
+// Vuelca el estado en curso a localStorage (solo exámenes integrales).
+function persist() {
+  if (!isAggregate) return;
+  saveExamProgress(subject.id, progressKey, {
+    current,
+    correct,
+    lastMilestone,
+    wrong: wrongAnswers,
+    total: questions.length,
+  });
+}
+
+// Card de reanudación: continuar donde se dejó o empezar de nuevo.
+function renderResumePrompt(saved) {
+  const answered = saved.current;
+  const wrong = (saved.wrong || []).length;
+  const done = saved.correct;
+  const pct = answered > 0 ? Math.round((done / answered) * 100) : 0;
+  document.getElementById('quiz-bottom').innerHTML = '';
+  document.getElementById('quiz-body').innerHTML = `
+    <div class="question-card fade-in">
+      <p class="eyebrow no-rule" style="margin-bottom:0.85rem;">
+        <span style="background:none;width:0;height:0;"></span>
+        Examen en curso
+      </p>
+      <p class="question-stem" style="margin-bottom:0.4rem;">Dejaste este examen a medias.</p>
+      <p class="meta" style="margin-bottom:1.2rem;color:var(--ink-2);font-family:var(--font-reading);font-style:italic;">
+        Ibas por la pregunta ${answered + 1} de ${questions.length} · ${done} correctas y ${wrong} incorrectas hasta acá (${pct}%).
+      </p>
+      <div class="flex flex-col md:flex-row gap-3">
+        <button id="resume-continue" class="btn btn-accent touch-target md:flex-1">
+          Continuar desde la ${answered + 1}
+        </button>
+        <button id="resume-restart" class="btn-ghost touch-target md:flex-1">
+          Empezar de nuevo
+        </button>
+      </div>
+    </div>
+  `;
+  document.getElementById('resume-continue').addEventListener('click', () => {
+    current = saved.current;
+    correct = saved.correct;
+    lastMilestone = typeof saved.lastMilestone === 'number' ? saved.lastMilestone : -1;
+    wrongAnswers = Array.isArray(saved.wrong) ? saved.wrong : [];
+    renderQuestion();
+  });
+  document.getElementById('resume-restart').addEventListener('click', () => {
+    clearExamProgress(subject.id, progressKey);
+    current = 0;
+    correct = 0;
+    lastMilestone = -1;
+    wrongAnswers = [];
+    renderQuestion();
+  });
 }
 
 function renderQuestion() {
@@ -191,7 +273,7 @@ function handleAnswer(btn, opts, q) {
   if (!isCorrect) {
     const correctIdx = opts.findIndex((o) => o.value === correctValue);
     document.querySelector(`#options button[data-idx="${correctIdx}"]`).classList.add('option-correct');
-    wrongAnswers.push({ question: q, chosenText: opts[Number(btn.dataset.idx)].text });
+    recordWrong(q, opts[Number(btn.dataset.idx)].text);
   } else {
     correct++;
   }
@@ -239,7 +321,7 @@ function handleMultiAnswer(optsContainer, opts, q) {
     const chosenText = chosenIdx.length === 0
       ? '(no marcaste ninguna)'
       : chosenIdx.map((i) => opts[i].text).join(' · ');
-    wrongAnswers.push({ question: q, chosenText });
+    recordWrong(q, chosenText);
   }
 
   const exp = document.getElementById('explanation');
@@ -259,17 +341,118 @@ function handleMultiAnswer(optsContainer, opts, q) {
   nextBtn.classList.remove('hidden');
 }
 
+// Nombre legible del tema (sección de origen) de una pregunta del examen integral.
+function secTitleOf(q) {
+  return q._sec ? `${q._sec.id}. ${q._sec.title}` : 'General';
+}
+
+// Guarda una pregunta errada con su índice y su tema para las cards de resumen.
+function recordWrong(q, chosenText) {
+  wrongAnswers.push({
+    idx: current,
+    q: q.q,
+    chosenText,
+    explain: q.explain,
+    secTitle: secTitleOf(q),
+  });
+}
+
 function advance() {
   current++;
-  if (current < questions.length) {
-    renderQuestion();
-  } else {
+  persist();
+  if (current >= questions.length) {
     renderSummary();
+  } else if (isAggregate && current % MILESTONE === 0 && current !== lastMilestone) {
+    renderMilestone();
+  } else {
+    renderQuestion();
   }
+}
+
+// Card de checkpoint cada MILESTONE preguntas: aciertos/errores del tramo y
+// acumulados, y los temas con más errores para repasar.
+function renderMilestone() {
+  const prev = lastMilestone < 0 ? 0 : lastMilestone;
+  lastMilestone = current;
+  persist();
+
+  const blockWrong = wrongAnswers.filter((w) => w.idx >= prev && w.idx < current);
+  const blockTotal = current - prev;
+  const blockCorrect = blockTotal - blockWrong.length;
+  const blockPct = Math.round((blockCorrect / blockTotal) * 100);
+
+  const totalWrong = wrongAnswers.length;
+  const totalCorrect = correct;
+  const totalPct = Math.round((totalCorrect / current) * 100);
+
+  // Temas a repasar: acumulado de errores por sección, de mayor a menor.
+  const byTopic = new Map();
+  for (const w of wrongAnswers) {
+    byTopic.set(w.secTitle, (byTopic.get(w.secTitle) || 0) + 1);
+  }
+  const topics = [...byTopic.entries()].sort((a, b) => b[1] - a[1]).slice(0, 6);
+
+  let verdict;
+  if (blockPct >= 85) verdict = 'Vas muy bien';
+  else if (blockPct >= 65) verdict = 'Buen ritmo';
+  else if (blockPct >= 45) verdict = 'A afinar';
+  else verdict = 'Conviene frenar y repasar';
+
+  document.getElementById('progress-text').textContent =
+    `Pregunta ${current + 1} de ${questions.length}`;
+  document.getElementById('progress-bar').style
+    .setProperty('--progress', `${(current / questions.length) * 100}%`);
+
+  const topicsBlock = topics.length > 0 ? `
+    <section class="mt-8">
+      <div class="unit-header">
+        <span class="unit-header-num">↻</span>
+        <span class="unit-header-title">Temas para repasar</span>
+        <span class="unit-header-meta">por errores acumulados</span>
+      </div>
+      <div class="grid grid-cols-1 gap-2">
+        ${topics.map(([title, n]) => `
+          <div class="surface-card" style="padding:0.8rem 1.1rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+            <span style="font-family:var(--font-reading);color:var(--ink);">${title}</span>
+            <span class="meta" style="color:var(--error);white-space:nowrap;">${n} ${n === 1 ? 'error' : 'errores'}</span>
+          </div>
+        `).join('')}
+      </div>
+    </section>
+  ` : `
+    <div class="info-callout mt-8"><p>Sin errores hasta acá. Impecable — seguí así.</p></div>
+  `;
+
+  document.getElementById('quiz-body').innerHTML = `
+    <div class="result-card fade-in">
+      <p class="result-card-label">Checkpoint · llevás ${current} de ${questions.length}</p>
+      <p class="result-card-score">${blockCorrect}<span style="color:var(--muted);font-style:normal;font-size:0.55em;letter-spacing:-0.02em;"> ⁄ </span>${blockTotal}</p>
+      <p class="result-card-meta">en las últimas ${blockTotal} · ${blockPct}% · <em>${verdict}</em></p>
+    </div>
+    <div class="grid grid-cols-2 gap-3 mt-4">
+      <div class="surface-card" style="padding:1rem 1.2rem;text-align:center;">
+        <p class="meta" style="text-transform:uppercase;letter-spacing:.06em;font-size:.7rem;margin-bottom:0.3rem;">Correctas totales</p>
+        <p style="font-family:var(--font-display,serif);font-size:1.8rem;color:var(--ink);">${totalCorrect}</p>
+      </div>
+      <div class="surface-card" style="padding:1rem 1.2rem;text-align:center;">
+        <p class="meta" style="text-transform:uppercase;letter-spacing:.06em;font-size:.7rem;margin-bottom:0.3rem;">Incorrectas totales</p>
+        <p style="font-family:var(--font-display,serif);font-size:1.8rem;color:var(--error);">${totalWrong}</p>
+      </div>
+    </div>
+    <p class="meta text-center mt-3" style="color:var(--ink-2);">Acumulado: ${totalPct}% correctas</p>
+    ${topicsBlock}
+  `;
+
+  document.getElementById('quiz-bottom').innerHTML = `
+    <button id="milestone-continue" class="btn btn-accent touch-target">Seguir · pregunta ${current + 1}</button>
+  `;
+  document.getElementById('milestone-continue').addEventListener('click', renderQuestion);
 }
 
 function renderSummary() {
   saveQuizScore(subject.id, isV2 ? `${section.id}::v2` : section.id, { correct, total: questions.length });
+  // El examen terminó: se limpia el progreso para que "Reintentar" arranque limpio.
+  if (isAggregate) clearExamProgress(subject.id, progressKey);
   document.getElementById('quiz-body').classList.add('hidden');
   document.getElementById('quiz-bottom').innerHTML = '';
   const summary = document.getElementById('quiz-summary');
@@ -292,12 +475,40 @@ function renderSummary() {
   else if (pct >= 40) verdict = 'A revisar';
   else verdict = 'A leer otra vez';
 
+  // Temas a repasar (solo examen integral): errores agrupados por sección.
+  let topicsSummary = '';
+  if (isAggregate && wrongAnswers.length > 0) {
+    const byTopic = new Map();
+    for (const w of wrongAnswers) {
+      byTopic.set(w.secTitle, (byTopic.get(w.secTitle) || 0) + 1);
+    }
+    const topics = [...byTopic.entries()].sort((a, b) => b[1] - a[1]);
+    topicsSummary = `
+      <section class="mt-12">
+        <div class="unit-header">
+          <span class="unit-header-num">↻</span>
+          <span class="unit-header-title">Temas que deberías tocar</span>
+          <span class="unit-header-meta">${topics.length} ${topics.length === 1 ? 'tema' : 'temas'}</span>
+        </div>
+        <div class="grid grid-cols-1 gap-2">
+          ${topics.map(([title, n]) => `
+            <div class="surface-card" style="padding:0.85rem 1.15rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+              <span style="font-family:var(--font-reading);color:var(--ink);">${title}</span>
+              <span class="meta" style="color:var(--error);white-space:nowrap;">${n} ${n === 1 ? 'error' : 'errores'}</span>
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    `;
+  }
+
   summary.innerHTML = `
     <div class="result-card fade-in">
       <p class="result-card-label">Resultado</p>
       <p class="result-card-score">${correct}<span style="color:var(--muted);font-style:normal;font-size:0.55em;letter-spacing:-0.02em;"> ⁄ </span>${questions.length}</p>
       <p class="result-card-meta">${pct}% correctas · <em>${verdict}</em></p>
     </div>
+    ${topicsSummary}
     ${wrongAnswers.length > 0 ? `
       <section class="mt-12">
         <div class="unit-header">
@@ -308,9 +519,10 @@ function renderSummary() {
         <div class="grid grid-cols-1 gap-4 stagger-rise">
           ${wrongAnswers.map((w) => `
             <div class="surface-card" style="padding:1.25rem 1.4rem;">
-              <p class="font-medium mb-2" style="font-family:var(--font-reading);font-size:1.05rem;color:var(--ink);">${w.question.q}</p>
+              ${isAggregate && w.secTitle ? `<p class="eyebrow no-rule" style="margin-bottom:0.5rem;font-size:.68rem;"><span style="background:none;width:0;height:0;"></span>${w.secTitle}</p>` : ''}
+              <p class="font-medium mb-2" style="font-family:var(--font-reading);font-size:1.05rem;color:var(--ink);">${w.q}</p>
               <p class="meta" style="color:var(--error);">Elegiste: ${w.chosenText}</p>
-              <p class="meta" style="margin-top:0.55em;color:var(--ink-2);font-style:italic;font-family:var(--font-reading);">${w.question.explain}</p>
+              <p class="meta" style="margin-top:0.55em;color:var(--ink-2);font-style:italic;font-family:var(--font-reading);">${w.explain}</p>
             </div>
           `).join('')}
         </div>
