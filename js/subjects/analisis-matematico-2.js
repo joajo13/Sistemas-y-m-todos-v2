@@ -618,6 +618,50 @@ export default {
           ],
           tangent: { curve: 0, at: -0.5, min: -1.45, max: 1.45, readout: ['f', 'd1', 'd2'] },
         },
+
+        { type: 'h3', text: 'En resumen: qué determina cada derivada', criollo: 'La chuleta de toda la unidad. Si te olvidás de todo lo demás, con esto zafás: cada derivada te contesta una pregunta distinta.' },
+        { type: 'p', text: 'Cada derivada responde una pregunta distinta sobre la función:' },
+        {
+          type: 'ul',
+          items: [
+            '<strong>Derivada primera $f\'(x)$</strong>: te da la <strong>pendiente de la recta tangente</strong> en cada punto, y con eso determinás si la función <strong>crece o decrece</strong>.',
+            '<strong>Derivada segunda $f\'\'(x)$</strong>: te da la <strong>concavidad</strong>; y donde se anula (o no existe), tenés un <strong>posible punto de inflexión</strong>. Además, evaluada en un punto crítico, te dice si es máximo o mínimo.',
+            '<strong>Derivada tercera $f\'\'\'(x)$</strong>: si en ese punto es <strong>distinta de cero</strong>, te confirma que el <strong>punto de inflexión existe</strong>.',
+          ],
+        },
+        {
+          type: 'table',
+          caption: 'Qué determina cada herramienta, según los criterios del apunte',
+          headers: ['Herramienta', 'Qué determina'],
+          rows: [
+            ['$f\'(x)$', 'La <strong>pendiente de la recta tangente</strong>, y con ella el crecimiento: $f\'(x) > 0 \\Rightarrow$ creciente; $f\'(x) < 0 \\Rightarrow$ decreciente'],
+            ['$f\'(x_0) = 0$ o $\\nexists\\, f\'(x_0)$', 'Que $(x_0;\\, f(x_0))$ sea <strong>punto crítico</strong>: posible máximo o mínimo. Es la condición <strong>necesaria</strong> de valor extremo'],
+            ['Cambio de signo de $f\'$ en $x_0$', 'Si el punto crítico es máximo o mínimo (<strong>primer criterio</strong>): de negativa a positiva $\\Rightarrow$ mínimo; de positiva a negativa $\\Rightarrow$ máximo; si no cambia $\\Rightarrow$ no hay extremo'],
+            ['$f\'\'(x_0)$ en un punto crítico', 'La naturaleza de ese punto crítico (<strong>segundo criterio</strong>): $> 0 \\Rightarrow$ mínimo; $< 0 \\Rightarrow$ máximo; $= 0 \\Rightarrow$ el criterio no sirve'],
+            ['Signo de $f\'\'(x)$ en un intervalo', 'La <strong>concavidad</strong>: $f\'\'(x) > 0 \\Rightarrow$ cóncava hacia arriba (positiva); $f\'\'(x) < 0 \\Rightarrow$ cóncava hacia abajo (negativa o convexa)'],
+            ['$f\'\'(x_0) = 0$ o $\\nexists\\, f\'\'(x_0)$', 'Que $x_0$ sea un <strong>posible punto de inflexión</strong>. Es la condición <strong>necesaria</strong> de inflexión'],
+            ['Cambio de signo de $f\'\'$ en $x_0$', 'Que el punto de inflexión <strong>exista</strong> (<strong>primer criterio</strong>, suficiente): basta con que el signo a izquierda y derecha sea distinto'],
+            ['$f\'\'\'(x_0) \\neq 0$', 'Que el punto de inflexión <strong>exista</strong> (<strong>segundo criterio</strong>, suficiente)'],
+          ],
+        },
+        {
+          type: 'table',
+          caption: 'Los términos definidos en el apunte, en una línea',
+          headers: ['Término', 'Definición'],
+          rows: [
+            ['Estrictamente creciente', 'Dados $x_1, x_2 \\in (a;b)$: si $x_2 > x_1 \\Rightarrow f(x_2) > f(x_1)$'],
+            ['Estrictamente decreciente', 'Dados $x_1, x_2 \\in (a;b)$: si $x_2 > x_1 \\Rightarrow f(x_2) < f(x_1)$'],
+            ['Máximo relativo o local', 'Existe un entorno $E(b) \\subseteq \\mathrm{Dom}\\, f$ tal que para todo $x \\in E(b)$ vale $f(b) > f(x)$'],
+            ['Mínimo relativo o local', 'Existe un entorno $E(a) \\subseteq \\mathrm{Dom}\\, f$ tal que para todo $x \\in E(a)$ vale $f(a) < f(x)$'],
+            ['Punto crítico', 'Punto donde $f\'(x_0) = 0$ o no existe $f\'(x_0)$: posible máximo o mínimo'],
+            ['Cóncava hacia arriba', 'Concavidad positiva: la curva queda <strong>por encima</strong> de sus rectas tangentes'],
+            ['Cóncava hacia abajo', 'Concavidad negativa o convexa: la curva queda <strong>por debajo</strong> de sus rectas tangentes'],
+            ['Punto de inflexión', 'Punto en el que la curva <strong>cambia el sentido de su concavidad</strong>'],
+            ['Condición necesaria', 'Lo que tiene que cumplirse sí o sí, pero que por sí solo no alcanza para concluir'],
+            ['Condición suficiente', 'Lo que, si se cumple, permite afirmar que el extremo o la inflexión existe'],
+          ],
+        },
+        { type: 'callout', tone: 'criollo', text: 'El orden en que se usa esto en un ejercicio: derivás una vez y buscás dónde $f\' = 0$ (esos son los <strong>candidatos a extremo</strong>). Derivás otra vez y buscás dónde $f\'\' = 0$ (esos son los <strong>candidatos a inflexión</strong>). Después confirmás cada candidato con el criterio que te quede más cómodo. Nunca te quedes en la condición necesaria: eso te da candidatos, no respuestas.' },
       ],
       quiz: {
         tf: [
