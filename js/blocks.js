@@ -1,7 +1,9 @@
 // Render compartido de ContentBlock[] entre seccion.js y resumen.js.
 // renderBlock devuelve el HTML de un block; hydrateBlocks engancha los
-// comportamientos interactivos (criollo toggles, lightbox, Mermaid) sobre
-// el contenedor ya inyectado.
+// comportamientos interactivos (criollo toggles, lightbox, Mermaid, gráficos
+// interactivos) sobre el contenedor ya inyectado.
+
+import { renderPlot, hydratePlots } from './plot.js';
 
 export function renderBlock(b, i) {
   switch (b.type) {
@@ -74,6 +76,12 @@ export function renderBlock(b, i) {
         </figure>
       `;
     }
+    case 'plot': {
+      // Gráfico matemático interactivo (canvas). El spec lleva funciones JS de
+      // verdad, así que plot.js lo guarda en un registro y acá sólo va el
+      // placeholder con el id; la hidratación lo levanta después.
+      return renderPlot(b);
+    }
     case 'table': {
       const caption = b.caption ? `<caption>${b.caption}</caption>` : '';
       const headers = b.headers.map((h) => `<th>${h}</th>`).join('');
@@ -112,6 +120,10 @@ export function hydrateBlocks(container) {
   // diagramas Mermaid (solo si hay)
   if (container.querySelector('.mermaid')) {
     renderMermaid(container);
+  }
+  // gráficos interactivos (solo si hay)
+  if (container.querySelector('[data-plot-id]')) {
+    hydratePlots(container);
   }
 }
 

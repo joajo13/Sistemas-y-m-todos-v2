@@ -1364,3 +1364,125 @@ body.has-bottom-bar { padding-bottom: 74px; }
 ::-webkit-scrollbar-track { background: var(--paper-2); }
 ::-webkit-scrollbar-thumb { background: var(--rule-strong); border: 2px solid var(--paper-2); }
 ::-webkit-scrollbar-thumb:hover { background: var(--ink-2); }
+
+/* === Gráficos matemáticos interactivos (block type 'plot') ===
+   Aditivo: no modifica nada del sistema editorial, sólo suma el namespace
+   .plot-*. El render vive en js/plot.js. */
+figure.plot-figure {
+  margin: 2rem 0;
+}
+.plot-stage {
+  position: relative;
+  background: var(--ivory);
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+canvas.plot-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y;
+}
+canvas.plot-canvas.is-draggable { cursor: grab; }
+canvas.plot-canvas.is-dragging { cursor: grabbing; }
+
+.plot-ui {
+  border: 1px solid var(--rule);
+  border-top: none;
+  background: var(--ivory-warm);
+  padding: 0.6rem 0.85rem;
+  font-family: var(--font-ui);
+}
+.plot-ui:empty { display: none; }
+
+.plot-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+}
+.plot-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+}
+.plot-legend-item input { accent-color: var(--accent); cursor: pointer; }
+.plot-swatch {
+  width: 14px;
+  height: 3px;
+  border-radius: 2px;
+  flex: none;
+}
+
+.plot-tangent-ui { margin-top: 0.55rem; }
+.plot-legend + .plot-tangent-ui {
+  border-top: 1px dashed var(--rule);
+  padding-top: 0.55rem;
+}
+.plot-slider-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.plot-slider-caption {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  flex: none;
+}
+input.plot-slider {
+  flex: 1 1 auto;
+  min-width: 0;
+  accent-color: var(--ochre);
+  cursor: grab;
+}
+input.plot-slider:active { cursor: grabbing; }
+
+.plot-readout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  margin-top: 0.5rem;
+}
+.plot-chip {
+  font-size: 0.78rem;
+  padding: 0.16rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-sm);
+  background: var(--ivory);
+  color: var(--ink);
+  white-space: nowrap;
+}
+.plot-chip em { font-family: var(--font-reading); font-style: italic; }
+.plot-chip small { color: var(--muted); font-size: 0.92em; }
+.plot-chip.is-pos { border-color: #9DB394; background: #EEF2E8; }
+.plot-chip.is-neg { border-color: #D0A79C; background: var(--error-bg); }
+.plot-chip.is-zero { border-color: var(--rule-strong); background: var(--warn-bg); }
+
+figure.plot-figure figcaption {
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-top: 0.7rem;
+  text-align: center;
+}
+figure.plot-figure figcaption::before {
+  content: 'Fig. — ';
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.05em;
+  font-variation-settings: 'opsz' 24, 'SOFT' 50;
+  color: var(--accent);
+  letter-spacing: 0;
+}
+
+@media (max-width: 640px) {
+  .plot-slider-row { flex-wrap: wrap; gap: 0.35rem; }
+  .plot-slider-caption { flex-basis: 100%; }
+  .plot-chip { white-space: normal; }
+}
