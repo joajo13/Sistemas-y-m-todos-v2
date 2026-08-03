@@ -22,6 +22,7 @@ export default {
   tagline: 'Crecimiento y decrecimiento · Extremos relativos · Puntos críticos · Concavidad y convexidad · Puntos de inflexión',
   units: {
     'derivadas': 'Aplicación de las derivadas',
+    'tps': 'Trabajos prácticos',
   },
   sections: [
     {
@@ -774,8 +775,209 @@ export default {
         { id: 'fc-4-8', front: '¿Por qué no se analiza dónde no existe $f\'\'$ en el ejemplo?', back: 'Porque $f(x) = 2x^4 - 3x^2 + 5$ es una función polinómica: su derivada segunda existe en todo el dominio.' },
       ],
     },
+
+    {
+      id: '5',
+      unit: 'tps',
+      title: 'TP 1 — Extremos relativos. Concavidad y convexidad',
+      criollo: 'El primer trabajo práctico de la materia: 8 ejercicios que usan todo lo de las secciones anteriores. Los primeros seis son de extremos y crecimiento (incluidos dos problemas de optimización, el del gimnasio y el del tanque), y los dos últimos son de concavidad y puntos de inflexión. Los ejercicios 5 y 8 te dan el gráfico de la derivada y tenés que deducir cómo es la función.',
+      blocks: [
+        { type: 'h3', text: 'Consignas · Extremos relativos. Intervalos de crecimiento y decrecimiento', criollo: 'Primer bloque del TP: los ejercicios 1 a 6, todos de crecimiento, decrecimiento y extremos. Los enunciados van tal cual vienen en el PDF, y los gráficos de los ejercicios 5 y 8 son los originales de la cátedra, así que los valores que leas ahí son los que valen.' },
+
+        { type: 'h3', text: 'Ejercicio 1' },
+        { type: 'p', text: 'Determinar para las siguientes funciones los intervalos de crecimiento y decrecimiento y los extremos relativos, si es que existen:' },
+        {
+          type: 'ul',
+          items: [
+            '$a)\\; f(x) = 3x^4 - 4x^3 - 12x^2 + 3$',
+            '$b)\\; f(x) = (x-2)^{2/3}$',
+            '$c)\\; f(x) = x \\cdot \\sqrt{1 - x^2}$',
+            '$d)\\; f(x) = x.ex$',
+            '$e)\\; f(x) = \\dfrac{2x^2 + 8}{x}$',
+            '$f)\\; f(x) = \\ln(x^2 + 4)$',
+            '$g)\\; f(x) = e^{-x^2}$',
+            '$h)\\; f(x) = \\dfrac{3x - 2}{x - 1}$',
+          ],
+        },
+        { type: 'callout', tone: 'warning', text: 'El ítem <strong>d)</strong> está transcripto tal cual figura en el PDF de la cátedra: <strong>$f(x) = x.ex$</strong>, sin exponente. En el original se perdió el superíndice al generar el archivo. Por el contexto (está entre funciones exponenciales y logarítmicas) casi con seguridad se trata de $f(x) = x \\cdot e^x$, pero conviene que lo confirmes con la cátedra antes de resolverlo.' },
+
+        { type: 'h3', text: 'Ejercicio 2' },
+        { type: 'p', text: 'Para la función $f(x) = \\dfrac{x-3}{(x-2)^2}$, hallar el dominio, los puntos de intersección con los ejes, los intervalos de crecimiento y de decrecimiento, los extremos relativos.' },
+
+        { type: 'h3', text: 'Ejercicio 3' },
+        { type: 'p', text: 'Calcular el valor de $a \\in \\Re$ para que $f(x) = x^3 + ax$ tenga un extremo en $x = 1$. Justificar. ¿Es un máximo o un mínimo?' },
+
+        { type: 'h3', text: 'Ejercicio 4' },
+        { type: 'p', text: 'Un gimnasio tiene la cuota mensual en $\\$200$. Quiere subir los precios, pero sabe que al hacerlo pierde socios. El gimnasio sabe que su función "beneficio" está dada por $B = -\\dfrac{2}{3}x^3 + 9x^2 + 720x + 4200$, donde $x$ representa el aumento en $\\$$, ¿cuál será el precio de <strong>la cuota</strong> para que el gimnasio obtenga el máximo beneficio?' },
+
+        { type: 'h3', text: 'Ejercicio 5' },
+        { type: 'p', text: 'El siguiente grafico corresponde a la derivada de una función $f$:' },
+        {
+          type: 'ul',
+          items: [
+            'a) Analizar los intervalos de crecimiento y decrecimiento de $f$.',
+            'b) Dar las abscisas de los extremos relativos y clasificarlos.',
+          ],
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/analisis-matematico-2/tp1-ej5-grafico-derivada.png',
+          alt: 'Gráfico de la derivada de f: curva que corta al eje x en tres puntos, con un máximo cerca de x = -0,3 y un mínimo cerca de x = 2',
+          caption: 'Ejercicio 5 — gráfico de $f\'(x)$ (figura original del TP). Tocá la imagen para ampliarla.',
+        },
+
+        { type: 'h3', text: 'Ejercicio 6' },
+        { type: 'p', text: 'Se desea construir un tanque rectangular sin tapa y con una capacidad de $60\\ \\mathrm{m}^3$, de modo que el largo de la base sea el doble de su ancho. Determinar las dimensiones del tanque más económico sabiendo que el material de la base cuesta $\\$10$ el $\\mathrm{m}^2$ y el material de los laterales cuesta $\\$6$ el $\\mathrm{m}^2$.' },
+
+        { type: 'h3', text: 'Concavidad y puntos de inflexión', criollo: 'Segundo bloque del TP: los ejercicios 7 y 8, ya con la derivada segunda en juego.' },
+
+        { type: 'h3', text: 'Ejercicio 7' },
+        { type: 'p', text: 'Analizar la concavidad y los puntos de inflexión de las siguientes funciones:' },
+        {
+          type: 'ul',
+          items: [
+            '$a)\\; f(x) = x \\cdot (x^2 - 4)$',
+            '$b)\\; f(x) = 3^{1/x}$',
+            '$c)\\; f(x) = \\dfrac{e^x}{x}$',
+            '$d)\\; f(x) = \\dfrac{x}{x^2 + 1}$',
+            '$e)\\; f(x) = x \\cdot \\ln(x)$',
+            '$f)\\; f(x) = x \\cdot \\sqrt{x^2 - 4}$',
+          ],
+        },
+
+        { type: 'h3', text: 'Ejercicio 8' },
+        { type: 'p', text: 'El gráfico de la derivada de una función definida en $\\mathbb{R}$ es el siguiente:' },
+        {
+          type: 'figure',
+          src: 'images/diagrams/analisis-matematico-2/tp1-ej8-grafico-derivada.png',
+          alt: 'Gráfico de la derivada de una función definida en R: curva que corta al eje x cerca de -2,9, 0,9 y 2,4, con un máximo cerca de x = -1,3 y un mínimo cerca de x = 1,7',
+          caption: 'Ejercicio 8 — gráfico de $f\'(x)$ (figura original del TP). Tocá la imagen para ampliarla.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Analizar el crecimiento de la función en los siguientes intervalos: $(-6; -4) \\rightarrow \\;\\ldots\\;$ &nbsp; $(-2; -1) \\rightarrow \\;\\ldots\\;$ &nbsp; $(4; 6) \\rightarrow \\;\\ldots$',
+            'Escribir un intervalo que contenga a un máximo relativo de la función y otro intervalo que contenga a un mínimo relativo.',
+          ],
+        },
+        { type: 'p', text: 'Determinar los intervalos de concavidad positiva y negativa de la función y las abscisas de los puntos de inflexión' },
+
+        { type: 'callout', tone: 'criollo', text: 'Un par de avisos para no tropezar. En los ejercicios 5 y 8 el gráfico es de <strong>$f\'$, no de $f$</strong>: donde la curva está por encima del eje, $f$ crece; donde corta el eje, $f$ tiene un candidato a extremo; y donde $f\'$ tiene sus propios máximos y mínimos, $f$ tiene los puntos de inflexión. En los problemas 4 y 6 (gimnasio y tanque) primero armás la función a optimizar y recién después derivás. Y ojo con el 4: te piden el <strong>precio de la cuota</strong>, no el aumento $x$.' },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-5-1', q: 'En los ejercicios 5 y 8 el gráfico que se da es el de la función $f$.', a: false, explain: 'En ambos el gráfico corresponde a la <strong>derivada</strong> de la función: el enunciado 5 dice "corresponde a la derivada de una función $f$" y el 8, "el gráfico de la derivada de una función definida en $\\mathbb{R}$".' },
+          { id: 'tf-5-2', q: 'En el ejercicio 3 hay que hallar el valor de $a$ para que $f(x) = x^3 + ax$ tenga un extremo en $x = 1$.', a: true, explain: 'Es el enunciado textual, que además pide justificar y decidir si se trata de un máximo o un mínimo.' },
+          { id: 'tf-5-3', q: 'En el ejercicio 4 la variable $x$ de la función beneficio representa el precio final de la cuota.', a: false, explain: 'El enunciado aclara que $x$ representa el <strong>aumento</strong> en pesos. La cuota parte de $\\$200$, así que el precio pedido es $200 + x$.' },
+          { id: 'tf-5-4', q: 'El ejercicio 6 pide construir un tanque rectangular sin tapa con capacidad de $60\\ \\mathrm{m}^3$ y con el largo de la base igual al doble del ancho.', a: true, explain: 'Son las dos restricciones del enunciado: volumen $60\\ \\mathrm{m}^3$ y largo $=$ doble del ancho. El costo es $\\$10$ el $\\mathrm{m}^2$ de base y $\\$6$ el de los laterales.' },
+          { id: 'tf-5-5', q: 'El ejercicio 2 pide únicamente los extremos relativos de la función.', a: false, explain: 'Pide el dominio, los puntos de intersección con los ejes, los intervalos de crecimiento y decrecimiento <strong>y</strong> los extremos relativos.' },
+        ],
+        mc: [
+          {
+            id: 'mc-5-1',
+            q: 'Si el gráfico dado es el de $f\'$ y la curva está por encima del eje $x$ en un intervalo, ¿qué se concluye sobre $f$ ahí?',
+            options: [
+              'Que $f$ es creciente en ese intervalo',
+              'Que $f$ es positiva en ese intervalo',
+              'Que $f$ es cóncava hacia arriba en ese intervalo',
+              'Que $f$ tiene un máximo en ese intervalo',
+            ],
+            correctIndex: 0,
+            explain: 'Que $f\'(x) > 0$ significa que $f$ crece. El signo de $f$ y su concavidad son otra cosa: la concavidad se lee del crecimiento de $f\'$, no de su signo.',
+          },
+          {
+            id: 'mc-5-2',
+            q: 'Para resolver el ejercicio 3, ¿qué condición hay que plantear primero?',
+            options: [
+              '$f\'(1) = 0$, porque en un extremo la derivada se anula',
+              '$f(1) = 0$, porque el extremo está en $x = 1$',
+              '$f\'\'(1) = 0$, porque es la condición de extremo',
+              '$f\'\'\'(1) \\neq 0$, para confirmar el extremo',
+            ],
+            correctIndex: 0,
+            explain: 'La condición necesaria de extremo es que la derivada primera se anule. Después, el signo de $f\'\'(1)$ decide si es máximo o mínimo, que es lo que pide la segunda parte del enunciado.',
+          },
+          {
+            id: 'mc-5-3',
+            q: 'En el gráfico de $f\'$ del ejercicio 5, ¿qué representan los puntos donde la curva corta al eje $x$?',
+            options: [
+              'Las abscisas de los puntos críticos de $f$: candidatos a extremo relativo',
+              'Los puntos de inflexión de $f$',
+              'Las raíces de $f$',
+              'Las asíntotas verticales de $f$',
+            ],
+            correctIndex: 0,
+            explain: 'Donde $f\'$ vale cero se cumple la condición necesaria de extremo. Por eso el ítem b) pide dar esas abscisas y clasificarlas.',
+          },
+          {
+            id: 'mc-5-4',
+            q: 'El bloque final del ejercicio 8 pide determinar:',
+            options: [
+              'Los intervalos de concavidad positiva y negativa y las abscisas de los puntos de inflexión',
+              'Sólo los extremos relativos de la función',
+              'El dominio y la imagen de la función',
+              'Las asíntotas de la función',
+            ],
+            correctIndex: 0,
+            explain: 'Es la consigna textual con la que cierra el trabajo práctico.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-5-1',
+            q: '¿Qué se pide para la función $f(x) = \\dfrac{x-3}{(x-2)^2}$ en el ejercicio 2?',
+            options: [
+              'El dominio',
+              'Los puntos de intersección con los ejes',
+              'Los intervalos de crecimiento y de decrecimiento',
+              'Los extremos relativos',
+              'Los puntos de inflexión',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'El ejercicio 2 pertenece al bloque de extremos y crecimiento: no pide puntos de inflexión. Esos aparecen recién en los ejercicios 7 y 8.',
+          },
+          {
+            id: 'ms-5-2',
+            q: '¿Cuáles de estas funciones aparecen en el ejercicio 7 (concavidad y puntos de inflexión)?',
+            options: [
+              '$f(x) = x \\cdot (x^2 - 4)$',
+              '$f(x) = 3^{1/x}$',
+              '$f(x) = \\dfrac{x}{x^2 + 1}$',
+              '$f(x) = x \\cdot \\ln(x)$',
+              '$f(x) = 3x^4 - 4x^3 - 12x^2 + 3$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'La última pertenece al ejercicio 1, que es de crecimiento y extremos. El ejercicio 7 tiene seis ítems: $x(x^2-4)$, $3^{1/x}$, $e^x/x$, $x/(x^2+1)$, $x\\ln(x)$ y $x\\sqrt{x^2-4}$.',
+          },
+          {
+            id: 'ms-5-3',
+            q: 'Teniendo el gráfico de $f\'$, ¿qué información sobre $f$ se puede deducir directamente?',
+            options: [
+              'Los intervalos donde $f$ crece y donde decrece, según el signo de $f\'$',
+              'Las abscisas de los extremos relativos, donde $f\'$ corta al eje',
+              'Los intervalos de concavidad, según dónde $f\'$ crece o decrece',
+              'Las abscisas de los puntos de inflexión, donde $f\'$ tiene sus extremos',
+              'El valor exacto de $f$ en cada punto',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'Del gráfico de la derivada no se puede recuperar el valor de $f$: falta la constante. Todo lo demás sí se lee, y es justamente lo que piden los ejercicios 5 y 8.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-5-1', front: 'TP 1 — ¿qué cubre?', back: 'Ocho ejercicios: los seis primeros de extremos relativos e intervalos de crecimiento y decrecimiento; los ejercicios 7 y 8, de concavidad y puntos de inflexión.' },
+        { id: 'fc-5-2', front: 'Ejercicio 2 — qué pide', back: 'Para $f(x) = \\dfrac{x-3}{(x-2)^2}$: el dominio, los puntos de intersección con los ejes, los intervalos de crecimiento y de decrecimiento, y los extremos relativos.' },
+        { id: 'fc-5-3', front: 'Ejercicio 3 — qué pide', back: 'Calcular $a \\in \\Re$ para que $f(x) = x^3 + ax$ tenga un extremo en $x = 1$, justificarlo y decidir si es máximo o mínimo.' },
+        { id: 'fc-5-4', front: 'Ejercicio 4 — la función beneficio', back: '$B = -\\dfrac{2}{3}x^3 + 9x^2 + 720x + 4200$, donde $x$ es el aumento en pesos sobre una cuota de $\\$200$. Se pide el precio de la cuota que maximiza el beneficio.' },
+        { id: 'fc-5-5', front: 'Ejercicio 6 — datos del tanque', back: 'Tanque rectangular sin tapa, capacidad $60\\ \\mathrm{m}^3$, largo de la base igual al doble del ancho. Base a $\\$10$ el $\\mathrm{m}^2$ y laterales a $\\$6$ el $\\mathrm{m}^2$. Se buscan las dimensiones más económicas.' },
+        { id: 'fc-5-6', front: 'Ejercicios 5 y 8 — qué muestran', back: 'El gráfico de la <strong>derivada</strong> de la función, no el de la función. Hay que deducir el comportamiento de $f$ leyendo $f\'$.' },
+        { id: 'fc-5-7', front: 'Leer $f\'$ para saber de $f$', back: 'Signo de $f\'$ ⇒ crecimiento de $f$. Ceros de $f\'$ ⇒ candidatos a extremo. Crecimiento de $f\'$ ⇒ concavidad de $f$. Extremos de $f\'$ ⇒ puntos de inflexión de $f$.' },
+        { id: 'fc-5-8', front: 'Ejercicio 8 — consigna final', back: 'Determinar los intervalos de concavidad positiva y negativa de la función y las abscisas de los puntos de inflexión.' },
+      ],
+    },
   ],
   pdfs: [
     { key: 'aplicacion-derivadas', label: 'Apunte · Aplicación de las derivadas', path: 'pdfs/analisis-matematico-2/1-aplicacion-de-las-derivadas.pdf' },
+    { key: 'tp1-extremos-concavidad', label: 'TP 1 · Extremos relativos. Concavidad y convexidad', path: 'pdfs/analisis-matematico-2/2-tp1-extremos-concavidad.pdf' },
   ],
 };
