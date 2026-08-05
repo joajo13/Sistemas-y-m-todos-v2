@@ -75,6 +75,7 @@ import analisisMatematico2 from './subjects/analisis-matematico-2.js';
 import computacionAplicada from './subjects/computacion-aplicada.js';
 import introduccionIngSoftware from './subjects/introduccion-ing-software.js';
 import sistemasDigitalesI from './subjects/sistemas-digitales-i.js';
+import laboratorio1 from './subjects/laboratorio-1.js';
 
 import quizzes2SistemasYMetodos from './quizzes2/sistemas-y-metodos.js';
 import quizzes2AnalisisMatematico from './quizzes2/analisis-matematico.js';
@@ -82,7 +83,7 @@ import quizzes2ComputacionAplicada from './quizzes2/computacion-aplicada.js';
 import quizzes2IntroduccionIngSoftware from './quizzes2/introduccion-ing-software.js';
 import quizzes2SistemasDigitalesI from './quizzes2/sistemas-digitales-i.js';
 
-export const SUBJECTS = [sistemasYMetodos, analisisMatematico, analisisMatematico2, computacionAplicada, introduccionIngSoftware, sistemasDigitalesI];
+export const SUBJECTS = [sistemasYMetodos, analisisMatematico, analisisMatematico2, computacionAplicada, introduccionIngSoftware, sistemasDigitalesI, laboratorio1];
 
 // Banco NUEVO (anti-spoiler): mapa por subject id -> { [sectionId]: { quiz2, flashcards2 } }.
 // Se mergea sobre las secciones por id, sin tocar los archivos de js/subjects/.
