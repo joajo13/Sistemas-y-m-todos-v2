@@ -8,7 +8,7 @@ Este es el prompt que pegás en una **nueva sesión de Claude Code** cuando quer
 
 1. **Asegurate de estar en el directorio del proyecto** al abrir Claude Code:
    ```
-   C:\Users\Juan\Desktop\projects\Sistemas y metodos - P2
+   C:\Users\Juan\Desktop\projects\apuntes
    ```
 
 2. **Soltá los PDFs de la unidad nueva** en `C:\Users\Juan\Downloads\`. Pueden ser 1, 2 o más PDFs por unidad (igual que la primera unidad).
@@ -28,9 +28,9 @@ Este es el prompt que pegás en una **nueva sesión de Claude Code** cuando quer
 
 Quiero agregar la unidad **{{UNIDAD}}** ({{TITULO_UNIDAD}}) a la app de estudio existente. Es la misma materia (Sistemas y Métodos) y la misma app — solo extiendo el contenido.
 
-**Project root**: `C:\Users\Juan\Desktop\projects\Sistemas y metodos - P2`
-**Live deploy**: https://joajo13.github.io/Sistemas-y-m-todos-v2/
-**Repo**: https://github.com/joajo13/Sistemas-y-m-todos-v2
+**Project root**: `C:\Users\Juan\Desktop\projects\apuntes`
+**Live deploy**: https://joajo13.github.io/apuntes/
+**Repo**: https://github.com/joajo13/apuntes
 
 **PDFs fuente de la unidad nueva** (en `C:\Users\Juan\Downloads\`):
 - {{PDFS}}
@@ -125,9 +125,9 @@ EOF
 ## Paso 3 — Copiar PDFs al proyecto y extraer texto
 
 ```bash
-mkdir -p "C:/Users/Juan/Desktop/projects/Sistemas y metodos - P2/pdfs"
+mkdir -p "C:/Users/Juan/Desktop/projects/apuntes/pdfs"
 # Para cada PDF de la unidad nueva, copialo con nombre limpio:
-cp "C:/Users/Juan/Downloads/<pdf-original>.pdf" "C:/Users/Juan/Desktop/projects/Sistemas y metodos - P2/pdfs/<unidad>-<slug>.pdf"
+cp "C:/Users/Juan/Downloads/<pdf-original>.pdf" "C:/Users/Juan/Desktop/projects/apuntes/pdfs/<unidad>-<slug>.pdf"
 ```
 
 Convención de nombres: `<unidad>-<slug>.pdf` (ej: `8-2-fundamentos.pdf`, `8-2-presentacion.pdf`, `9-cambio.pdf`).
@@ -254,7 +254,7 @@ conocimiento. Al generarlo, respetá:
 ## Paso 7 — Verificación
 
 ```bash
-cd "C:/Users/Juan/Desktop/projects/Sistemas y metodos - P2"
+cd "C:/Users/Juan/Desktop/projects/apuntes"
 node --check js/content.js && echo "PARSED OK"
 grep -c "TBD" js/content.js   # debe dar 0
 ```
@@ -301,7 +301,7 @@ Al final, mostrá:
 - Cantidad de V/F, MC y flashcards totales agregadas.
 - Imágenes incluidas (si las hay).
 - SHA del commit + confirmación del push.
-- URL para verificar: https://joajo13.github.io/Sistemas-y-m-todos-v2/
+- URL para verificar: https://joajo13.github.io/apuntes/
 
 ## Constraints adicionales
 
