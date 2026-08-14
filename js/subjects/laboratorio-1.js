@@ -1,26 +1,31 @@
 /**
  * Materia: Laboratorio 1 (UP, 0114).
  *
- * Cuatro apuntes de cátedra transcriptos, agrupados en cuatro unidades:
- *   'poo'     Origen de la POO (PPT "Origen de la POO. Filosofía clásica y teoría de objetos")
- *   'ides'    Introducción a los IDEs. Eclipse. IntelliJ IDEA. Otros
- *   'eclipse' Tutorial de Eclipse (con las capturas del apunte como figures)
- *   'java'    Tutorial de código Java
+ * Seis apuntes de cátedra transcriptos, agrupados en seis unidades:
+ *   'poo'         Origen de la POO (PPT "Origen de la POO. Filosofía clásica y teoría de objetos")
+ *   'ides'        Introducción a los IDEs. Eclipse. IntelliJ IDEA. Otros
+ *   'eclipse'     Tutorial de Eclipse (con las capturas del apunte como figures)
+ *   'java'        Tutorial de código Java
+ *   'relaciones'  Relaciones entre objetos (PPT: cardinalidad, direccionalidad, ordinalidad)
+ *   'paradigmas'  Lenguajes imperativos y declarativos y sus derivaciones
  *
  * Quiz (V/F + MC + MS) y flashcards por sección. Las capturas del tutorial de
- * Eclipse viven en images/diagrams/laboratorio-1/. Tipos: ver js/content.js.
+ * Eclipse y los diagramas UML de cardinalidad viven en
+ * images/diagrams/laboratorio-1/. Tipos: ver js/content.js.
  */
 
 export default {
   id: 'laboratorio-1',
   title: 'Laboratorio 1',
   subtitle: 'POO, IDEs y Java — Apuntes',
-  tagline: 'Origen de la POO · Qué es un IDE · Eclipse, NetBeans e IntelliJ IDEA · Tutorial de Eclipse · Fundamentos de código Java',
+  tagline: 'Origen de la POO · Qué es un IDE · Eclipse, NetBeans e IntelliJ IDEA · Tutorial de Eclipse · Fundamentos de código Java · Relaciones entre objetos · Paradigmas imperativo y declarativo',
   units: {
     'poo': 'Origen de la POO',
     'ides': 'Introducción a los IDEs',
     'eclipse': 'Tutorial de Eclipse',
     'java': 'Tutorial de código Java',
+    'relaciones': 'Relaciones entre objetos',
+    'paradigmas': 'Lenguajes imperativos y declarativos',
   },
   sections: [
     {
@@ -2679,11 +2684,1225 @@ export default {
         { id: 'fc-14-7', front: 'Operador if ternario', back: 'Sustituye un if...else en una sola línea: condición ? salidaPorVerdadero : salidaPorFalso. Ej: x % 2 == 0 ? "numero par" : "numero impar";' },
       ],
     },
+    {
+      id: '15',
+      unit: 'relaciones',
+      title: 'Cardinalidad: cuántos objetos hay de cada lado',
+      criollo: 'Los objetos no viven solos: se mandan mensajes y de ahí salen relaciones. La primera forma de clasificarlas es contando: cuántos hay de un lado, cuántos del otro. Uno a uno, uno a muchos, muchos a uno, muchos a muchos. En el código eso se traduce en si guardás un atributo suelto o un arreglo.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Cómo se relacionan los objetos',
+          criollo: 'Uno manda un mensaje, el otro contesta con el resultado. De ese ida y vuelta salen las relaciones.',
+        },
+        {
+          type: 'p',
+          text: 'Los objetos se comunican, se relacionan entre sí, <strong>enviándose mensajes</strong>. Cuando los objetos se envían mensajes entre sí para ejecutar una operación, el objeto receptor responde con otro mensaje: el resultado de esa operación que se ejecutó.',
+        },
+        {
+          type: 'p',
+          text: 'En este intercambio de mensajes se generan relaciones, y las relaciones entre objetos se clasifican de acuerdo a diferentes criterios, basados en las siguientes <strong>3 formas fundamentales</strong>:',
+        },
+        {
+          type: 'ol',
+          items: [
+            'Cardinalidad.',
+            'Direccionalidad.',
+            'Ordinalidad.',
+          ],
+        },
+        {
+          type: 'h3',
+          text: 'Cardinalidad: concepto',
+          criollo: 'Contar, nada más. Cuántos de cada lado.',
+        },
+        {
+          type: 'p',
+          text: 'Da cuenta de <strong>cuántos objetos existen de cada lado de la relación</strong>. Considerando una relación binaria entre el juego de entidades A y el B, la cardinalidad puede ser:',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Uno a uno.',
+            'Uno a muchos o muchos a uno.',
+            'Muchos a muchos.',
+          ],
+        },
+        {
+          type: 'h3',
+          text: 'Uno a uno',
+          criollo: 'Un Auto, un Motor. Del lado del código: un atributo suelto, sin arreglo.',
+        },
+        {
+          type: 'p',
+          text: 'Una entidad en A está asociada con cualquier número (0 o más) de entidades en B.',
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/laboratorio-1/cardinalidad-uno-a-uno.png',
+          alt: 'Diagrama UML con dos cajas, Auto (con el atributo motor : Motor) y Motor, unidas por un rombo y una flecha, con un 1 de cada lado de la relación.',
+          caption: 'Relación uno a uno: un 1 de cada lado de la línea que une Auto con Motor.',
+        },
+        {
+          type: 'p',
+          text: '<strong>Ejemplo de código:</strong> un Auto tiene un solo Motor.',
+        },
+        {
+          type: 'code',
+          code: 'package edu.up.online.relaciones.unoAuno;\n\n/**\n * Relacion 1-a-1 de Auto con Motor\n */\npublic class Auto {\n\n    Motor motor;\n\n    int velocidadMaxima;\n    String marca;\n}',
+        },
+        {
+          type: 'code',
+          code: 'package edu.up.online.relaciones.unoAuno;\n\npublic class Motor {\n\n    private String fabricante;\n    private String potencia;\n\n}',
+        },
+        {
+          type: 'h3',
+          text: 'Uno a muchos',
+          criollo: 'Acá aparece el arreglo. Un vehículo, muchas ruedas — y el comentario del apunte se toma el trabajo de listar cuántas van según el bicho.',
+        },
+        {
+          type: 'p',
+          text: 'Una entidad en A está asociada con cualquier número (0 o más) de entidades en B.',
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/laboratorio-1/cardinalidad-uno-a-muchos.png',
+          alt: 'Diagrama UML con la caja Vehículo (atributo rueda : Ruedas[]) unida por un rombo y una flecha a otra caja, con un 1 del lado del vehículo y una N del otro lado.',
+          caption: 'Relación uno a muchos: 1 de un lado, N del otro.',
+        },
+        {
+          type: 'p',
+          text: '<strong>Ejemplo de código:</strong> un vehículo puede tener uno o más ruedas.',
+        },
+        {
+          type: 'code',
+          code: 'package edu.up.online.relaciones.unoAmuchos;\n\n/**\n * Relacion 1-a-N\n * Ruedas puede ser un arreglo de longitud:\n * - 0 (un vehículo sin ruedas, ej. un aerodeslizador)\n * - 1 un monociclo\n * - 2 una bicilceta, una moto\n * - 3 un triciclo\n * - 4 un auto\n * - 6 un camión\n * - etc.....\n */\npublic class Vehiculo {\n\n    Rueda[] ruedas;\n\n    String fabricante;\n    float precio;\n}',
+        },
+        {
+          type: 'h3',
+          text: 'Muchos a uno',
+          criollo: 'Es la misma relación mirada al revés: muchos empleados caen en un solo departamento.',
+        },
+        {
+          type: 'p',
+          text: 'Una entidad en A está asociada con cualquier número (0 o más) de entidades en B.',
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/laboratorio-1/cardinalidad-muchos-a-uno.png',
+          alt: 'Diagrama UML con la caja Empleado (atributo departamento : Departamento) unida a la caja Departamento, con una N del lado del empleado y un 1 del lado del departamento.',
+          caption: 'Relación muchos a uno: N empleados apuntan a 1 departamento.',
+        },
+        {
+          type: 'p',
+          text: '<strong>Ejemplo de código:</strong> se supone que un empleado trabaja en un departamento (si se es responsable del área de sueldos, no se puede ser responsable del área de seguridad informática).',
+        },
+        {
+          type: 'code',
+          code: 'package edu.up.online.relaciones.muchosAUno;\n\npublic class Empleado {\n\n    String nombre;\n    Departamento departamentoActual;\n}',
+        },
+        {
+          type: 'h3',
+          text: 'Muchos a muchos',
+          criollo: 'Arreglo de los dos lados. Cada uno se guarda una lista del otro.',
+        },
+        {
+          type: 'p',
+          text: 'Una entidad en A está asociada con cualquier número de entidades en B (0 o más) <strong>y viceversa</strong>.',
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/laboratorio-1/cardinalidad-muchos-a-muchos.png',
+          alt: 'Diagrama UML con las cajas Vendedor (atributo sucursales : Sucursal[]) y Sucursal (atributo vendedores : Vendedor[]) unidas por dos flechas con rombos, marcadas N y M en ambos sentidos.',
+          caption: 'Relación muchos a muchos: N y M en los dos sentidos, con un arreglo de cada lado.',
+        },
+        {
+          type: 'p',
+          text: '<strong>Ejemplo de código I:</strong> los vendedores deben rotar por una serie de sucursales, una vez por mes.',
+        },
+        {
+          type: 'code',
+          code: 'package edu.up.online.relaciones.muchosAmuchos;\n\npublic class Vendedor {\n\n    String nombre;\n    Sucursal[] sucursalesAsignadas;\n\n}',
+        },
+        {
+          type: 'p',
+          text: '<strong>Ejemplo de código II:</strong> una sucursal tiene un equipo de vendedores. Cada uno de ellos puede tener una serie de sucursales asignadas por las que debe rotar.',
+        },
+        {
+          type: 'code',
+          code: 'package edu.up.online.relaciones.muchosAmuchos;\n\npublic class Sucursal {\n\n    Vendedor[] equipoVendedores;\n\n}',
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Ojo con la letra chica del apunte: usa la misma frase ("Una entidad en A está asociada con cualquier número (0 o más) de entidades en B") como definición de uno a uno, uno a muchos y muchos a uno. La diferencia real entre los tres casos se ve en los diagramas (1-1, 1-N, N-1) y en el código, no en esa oración.',
+        },
+      ],
+      quiz: {
+        tf: [
+          {
+            id: 'tf-15-1',
+            q: 'Cuando un objeto recibe un mensaje para ejecutar una operación, responde con otro mensaje que contiene el resultado de esa operación.',
+            a: true,
+            explain: 'Es textual del apunte: el objeto receptor responde con otro mensaje, que es el resultado de la operación que se ejecutó.',
+          },
+          {
+            id: 'tf-15-2',
+            q: 'Las relaciones entre objetos se clasifican en base a cuatro formas fundamentales.',
+            a: false,
+            explain: 'Son tres: cardinalidad, direccionalidad y ordinalidad.',
+          },
+          {
+            id: 'tf-15-3',
+            q: 'La cardinalidad da cuenta de cuántos objetos existen de cada lado de la relación.',
+            a: true,
+            explain: 'Esa es la definición del apunte. Es la forma "de contar" la relación.',
+          },
+          {
+            id: 'tf-15-4',
+            q: 'En el ejemplo uno a muchos, la clase Vehiculo guarda las ruedas en un arreglo Rueda[].',
+            a: true,
+            explain: 'El código declara <code>Rueda[] ruedas;</code>, y el comentario aclara que el arreglo puede tener longitud 0, 1, 2, 3, 4, 6, etc.',
+          },
+          {
+            id: 'tf-15-5',
+            q: 'En la relación muchos a muchos del apunte, solo la clase Vendedor guarda una referencia al otro lado de la relación.',
+            a: false,
+            explain: 'Las dos guardan un arreglo: Vendedor tiene <code>Sucursal[] sucursalesAsignadas</code> y Sucursal tiene <code>Vendedor[] equipoVendedores</code>.',
+          },
+        ],
+        mc: [
+          {
+            id: 'mc-15-1',
+            q: '¿Cuáles son las tres formas fundamentales en las que se basan los criterios de clasificación de las relaciones entre objetos?',
+            options: [
+              'Herencia, polimorfismo y encapsulamiento',
+              'Cardinalidad, direccionalidad y ordinalidad',
+              'Agregación, composición y asociación',
+              'Clase, objeto y atributo',
+            ],
+            correctIndex: 1,
+            explain: 'El apunte las enumera así: 1. Cardinalidad. 2. Direccionalidad. 3. Ordinalidad.',
+          },
+          {
+            id: 'mc-15-2',
+            q: 'En el ejemplo de código uno a uno, ¿qué atributo tiene la clase Auto para relacionarse con Motor?',
+            options: [
+              'Motor[] motores;',
+              'private Motor motor;',
+              'Motor motor;',
+              'String motor;',
+            ],
+            correctIndex: 2,
+            explain: 'La clase Auto declara <code>Motor motor;</code> (sin modificador de visibilidad y sin arreglo, porque es uno solo).',
+          },
+          {
+            id: 'mc-15-3',
+            q: 'Según el comentario del código de Vehiculo, un arreglo de ruedas de longitud 0 corresponde a...',
+            options: [
+              'Un monociclo',
+              'Un aerodeslizador',
+              'Un triciclo',
+              'Un camión',
+            ],
+            correctIndex: 1,
+            explain: 'El comentario dice: "0 (un vehículo sin ruedas, ej. un aerodeslizador)". El monociclo es 1, el triciclo 3 y el camión 6.',
+          },
+          {
+            id: 'mc-15-4',
+            q: '¿Cuál es el ejemplo que da el apunte para la cardinalidad muchos a uno?',
+            options: [
+              'Un auto tiene un solo motor',
+              'Un vehículo puede tener una o más ruedas',
+              'Se supone que un empleado trabaja en un departamento',
+              'Una sucursal tiene un equipo de vendedores',
+            ],
+            correctIndex: 2,
+            explain: 'Muchos empleados apuntan a un mismo departamento: si sos responsable del área de sueldos, no podés ser responsable del área de seguridad informática.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-15-1',
+            q: 'Según el apunte, ¿qué cardinalidades puede tener una relación binaria entre las entidades A y B?',
+            options: [
+              'Uno a uno',
+              'Uno a muchos',
+              'Muchos a uno',
+              'Muchos a muchos',
+              'Ninguno a ninguno',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'El apunte lista uno a uno, uno a muchos o muchos a uno, y muchos a muchos. "Ninguno a ninguno" no existe como cardinalidad.',
+          },
+          {
+            id: 'ms-15-2',
+            q: '¿Qué atributos declara la clase Motor en el ejemplo de código uno a uno?',
+            options: [
+              'private String fabricante;',
+              'private String potencia;',
+              'Auto auto;',
+              'int velocidadMaxima;',
+              'String marca;',
+            ],
+            correctIndexes: [0, 1],
+            explain: 'Motor solo tiene fabricante y potencia, los dos private String. velocidadMaxima y marca son de Auto, y Motor no guarda referencia al Auto.',
+          },
+          {
+            id: 'ms-15-3',
+            q: '¿Qué clases del apunte declaran un arreglo como atributo de la relación?',
+            options: [
+              'Auto',
+              'Vehiculo',
+              'Empleado',
+              'Vendedor',
+              'Sucursal',
+            ],
+            correctIndexes: [1, 3, 4],
+            explain: 'Vehiculo tiene <code>Rueda[] ruedas</code>, Vendedor tiene <code>Sucursal[] sucursalesAsignadas</code> y Sucursal tiene <code>Vendedor[] equipoVendedores</code>. Auto y Empleado guardan un objeto suelto.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-15-1', front: 'Cómo se relacionan los objetos', back: 'Comunicándose: se envían mensajes. El objeto receptor responde con otro mensaje, que es el resultado de la operación ejecutada.' },
+        { id: 'fc-15-2', front: 'Las 3 formas fundamentales', back: 'Cardinalidad, direccionalidad y ordinalidad. Sobre ellas se basan los criterios que clasifican las relaciones entre objetos.' },
+        { id: 'fc-15-3', front: 'Cardinalidad', back: 'Da cuenta de cuántos objetos existen de cada lado de la relación. En una relación binaria entre A y B puede ser uno a uno, uno a muchos o muchos a uno, y muchos a muchos.' },
+        { id: 'fc-15-4', front: 'Uno a uno (ejemplo)', back: 'Un Auto tiene un solo Motor. En código: la clase Auto declara el atributo Motor motor;' },
+        { id: 'fc-15-5', front: 'Uno a muchos (ejemplo)', back: 'Un vehículo puede tener una o más ruedas. En código: Rueda[] ruedas; el arreglo puede tener 0 (aerodeslizador), 1 (monociclo), 2 (bici o moto), 3 (triciclo), 4 (auto), 6 (camión), etc.' },
+        { id: 'fc-15-6', front: 'Muchos a uno (ejemplo)', back: 'Se supone que un empleado trabaja en un departamento. En código: Empleado declara Departamento departamentoActual;' },
+        { id: 'fc-15-7', front: 'Muchos a muchos (ejemplo)', back: 'Los vendedores rotan por varias sucursales y cada sucursal tiene su equipo. En código: Vendedor tiene Sucursal[] sucursalesAsignadas y Sucursal tiene Vendedor[] equipoVendedores.' },
+        { id: 'fc-15-8', front: 'Muchos a muchos (definición)', back: 'Una entidad en A está asociada con cualquier número de entidades en B (0 o más) y viceversa.' },
+      ],
+    },
+    {
+      id: '16',
+      unit: 'relaciones',
+      title: 'Direccionalidad: unidireccional y bidireccional',
+      criollo: 'Acá la pregunta es desde dónde podés navegar la relación. Si desde el empleado llegás al vehículo pero no al revés, es unidireccional. Si vas y volvés, es bidireccional. Y sí: si el negocio no necesita la vuelta, no la modelás.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Concepto',
+          criollo: 'Una flecha o dos. Eso es todo el asunto.',
+        },
+        {
+          type: 'p',
+          text: '<strong>Relación unidireccional:</strong> para cada objeto de un lado de la relación le corresponden uno o más objetos del otro lado de la relación.',
+        },
+        {
+          type: 'p',
+          text: '<strong>Relación bidireccional:</strong> para cada objeto de un lado de la relación le corresponden muchos objetos del otro lado y viceversa.',
+        },
+        {
+          type: 'h3',
+          text: 'Ejemplos de relación unidireccional',
+          criollo: 'Los dos ejemplos son la misma empresa con los mismos vehículos; lo que cambia es qué necesita saber el negocio.',
+        },
+        {
+          type: 'p',
+          text: '<strong>Ejemplo 1:</strong> en una empresa, un empleado puede tener asignado una serie de vehículos que puede manejar. Se quiere saber qué vehículos tiene asignados en un determinado momento.',
+        },
+        {
+          type: 'p',
+          text: '<strong>Ejemplo 2:</strong> en una empresa, un empleado puede tener asignado una serie de vehículos que una persona puede manejar; pero el negocio puede no necesitar esa información. En cambio, únicamente, que a partir de un empleado se pueda saber qué vehículo tiene asignado en un determinado momento.',
+        },
+        {
+          type: 'h3',
+          text: 'Ejemplo de relación bidireccional',
+          criollo: 'Ahora sí necesitás las dos puntas: de la persona al auto y del auto a la persona.',
+        },
+        {
+          type: 'p',
+          text: '<strong>Ejemplo:</strong> disponemos de un listado que contiene la nómina completa de una empresa y, por el otro lado, tenemos un listado de vehículos de esa misma empresa. En función de lo anterior, precisamos conocer, por un lado, qué vehículo maneja una persona "X" de esa empresa y, a su vez, quién tiene asignado un determinado vehículo.',
+        },
+        {
+          type: 'callout',
+          tone: 'criollo',
+          text: 'La diferencia práctica es qué preguntas te tiene que poder contestar el modelo. Si solo preguntás "¿qué vehículos maneja este empleado?", una dirección alcanza. Si también preguntás "¿quién maneja este vehículo?", necesitás la ida y la vuelta.',
+        },
+      ],
+      quiz: {
+        tf: [
+          {
+            id: 'tf-16-1',
+            q: 'La direccionalidad es una de las tres formas fundamentales para clasificar las relaciones entre objetos.',
+            a: true,
+            explain: 'Sí: cardinalidad, direccionalidad y ordinalidad.',
+          },
+          {
+            id: 'tf-16-2',
+            q: 'En una relación bidireccional, para cada objeto de un lado le corresponden muchos objetos del otro lado y viceversa.',
+            a: true,
+            explain: 'Es la definición textual de relación bidireccional del apunte.',
+          },
+          {
+            id: 'tf-16-3',
+            q: 'En el ejemplo 2 de relación unidireccional, el negocio necesita saber qué empleado maneja un vehículo determinado.',
+            a: false,
+            explain: 'Justamente al revés: el negocio puede no necesitar esa información, y únicamente pide que a partir de un empleado se pueda saber qué vehículo tiene asignado.',
+          },
+          {
+            id: 'tf-16-4',
+            q: 'El ejemplo de relación bidireccional del apunte usa la nómina de empleados y el listado de vehículos de una misma empresa.',
+            a: true,
+            explain: 'Y precisa conocer las dos puntas: qué vehículo maneja una persona "X" y quién tiene asignado un determinado vehículo.',
+          },
+        ],
+        mc: [
+          {
+            id: 'mc-16-1',
+            q: '¿Qué define la direccionalidad de una relación?',
+            options: [
+              'Cuántos objetos hay de cada lado de la relación',
+              'Desde qué lados de la relación se corresponden los objetos con el otro lado',
+              'El peso o la importancia de la relación entre los objetos',
+              'Si los objetos pertenecen a la misma clase',
+            ],
+            correctIndex: 1,
+            explain: 'Contar es cardinalidad; el peso o la importancia es ordinalidad. La direccionalidad distingue entre unidireccional y bidireccional.',
+          },
+          {
+            id: 'mc-16-2',
+            q: 'En el ejemplo 1 de relación unidireccional, ¿qué se quiere saber?',
+            options: [
+              'Qué vehículos tiene asignados un empleado en un determinado momento',
+              'Quién tiene asignado un determinado vehículo',
+              'Cuántos vehículos tiene la empresa en total',
+              'Qué empleados están habilitados para manejar cada modelo',
+            ],
+            correctIndex: 0,
+            explain: 'Se navega del empleado hacia los vehículos, en un solo sentido.',
+          },
+          {
+            id: 'mc-16-3',
+            q: '¿Cuál de estas necesidades exige una relación bidireccional según el apunte?',
+            options: [
+              'Saber solamente qué vehículo tiene asignado un empleado',
+              'Saber solamente cuántas ruedas tiene un vehículo',
+              'Saber qué vehículo maneja una persona y también quién tiene asignado un vehículo',
+              'Saber qué empleados trabajan en un mismo departamento',
+            ],
+            correctIndex: 2,
+            explain: 'Cuando hay que responder desde las dos puntas, la relación tiene que ser bidireccional.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-16-1',
+            q: '¿Qué afirmaciones sobre la direccionalidad están en el apunte?',
+            options: [
+              'En la unidireccional, a cada objeto de un lado le corresponden uno o más objetos del otro lado',
+              'En la bidireccional, a cada objeto de un lado le corresponden muchos objetos del otro lado y viceversa',
+              'La direccionalidad es una de las 3 formas fundamentales de las relaciones',
+              'La direccionalidad indica el peso o la importancia de la relación',
+              'Una relación unidireccional no puede existir si el negocio no la necesita',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain: 'El peso o la importancia corresponde a la ordinalidad. Y el ejemplo 2 muestra lo contrario de la última opción: es el negocio el que decide qué información hace falta modelar.',
+          },
+          {
+            id: 'ms-16-2',
+            q: '¿Qué elementos aparecen en los ejemplos de direccionalidad del apunte?',
+            options: [
+              'Empleados de una empresa',
+              'Vehículos asignados',
+              'La nómina completa de la empresa',
+              'Sucursales por las que rotar',
+              'Televisores con su pantalla',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain: 'Las sucursales son el ejemplo de muchos a muchos (cardinalidad) y el televisor con su pantalla es el de composición (ordinalidad).',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-16-1', front: 'Direccionalidad', back: 'Segunda forma fundamental de las relaciones entre objetos. Distingue relaciones unidireccionales de bidireccionales.' },
+        { id: 'fc-16-2', front: 'Relación unidireccional', back: 'Para cada objeto de un lado de la relación le corresponden uno o más objetos del otro lado de la relación.' },
+        { id: 'fc-16-3', front: 'Relación bidireccional', back: 'Para cada objeto de un lado de la relación le corresponden muchos objetos del otro lado y viceversa.' },
+        { id: 'fc-16-4', front: 'Unidireccional — ejemplo 1', back: 'Un empleado puede tener asignada una serie de vehículos que puede manejar y se quiere saber qué vehículos tiene asignados en un determinado momento.' },
+        { id: 'fc-16-5', front: 'Unidireccional — ejemplo 2', back: 'Existe la información de qué vehículos puede manejar una persona, pero el negocio puede no necesitarla: únicamente pide que a partir de un empleado se sepa qué vehículo tiene asignado.' },
+        { id: 'fc-16-6', front: 'Bidireccional — ejemplo', back: 'Con la nómina completa y el listado de vehículos de una empresa, se precisa conocer qué vehículo maneja una persona "X" y, a su vez, quién tiene asignado un determinado vehículo.' },
+      ],
+    },
+    {
+      id: '17',
+      unit: 'relaciones',
+      title: 'Ordinalidad: agregación y composición',
+      criollo: 'Última forma fundamental: cuán fuerte es la relación. Si A usa a B es agregación (el auto usa el motor). Si A es dueño de B y B no tiene sentido sin A, es composición (el engranaje y sus dientes, el televisor y su pantalla). La composición es la relación más brava de las dos.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Concepto',
+          criollo: 'Cuánto pesa la relación. De ahí salen dos sabores: agregación y composición.',
+        },
+        {
+          type: 'p',
+          text: 'Es un indicador del <strong>orden, el peso y/o la importancia</strong> de la relación entre objetos. De acuerdo a esa importancia, podemos estar frente a una relación de agregación o de composición.',
+        },
+        {
+          type: 'ul',
+          items: [
+            '<strong>Agregación</strong>: es el caso en el que un objeto A "usa" a un objeto B para funcionar.',
+            '<strong>Composición</strong>: es el caso en el que un objeto A "es dueño de" un objeto B, y B no tiene razón de existir sin A. Esta relación es mucho más fuerte que la de agregación, ya que en este caso la parte no tiene sentido sin el todo.',
+          ],
+        },
+        {
+          type: 'h3',
+          text: 'Ejemplo de agregación',
+          criollo: 'El auto usa el motor, pero un motor solo, en un estante del taller, sigue siendo un motor.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Un Auto tiene un Motor que le permite funcionar.',
+            'Una computadora tiene un Mouse.',
+          ],
+        },
+        {
+          type: 'p',
+          text: '<strong>Ejemplo de código de agregación:</strong> es la misma clase Auto de la relación uno a uno, que declara el Motor como atributo.',
+        },
+        {
+          type: 'code',
+          code: 'package edu.up.online.relaciones.unoAuno;\n\n/**\n * Relacion 1-a-1 de Auto con Motor\n */\npublic class Auto {\n\n    Motor motor;\n\n    int velocidadMaxima;\n    String marca;\n}',
+        },
+        {
+          type: 'h3',
+          text: 'Ejemplo de composición',
+          criollo: 'Un diente suelto no es nada. Y no existe la tienda que te venda un televisor sin pantalla.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Un engranaje tiene dientes, los dientes por sí solos no tienen sentido, por ende, un engranaje sin dientes no tiene razón de existir.',
+          ],
+        },
+        {
+          type: 'p',
+          text: '<strong>Ejemplo de código de composición:</strong> suponer una cadena de venta de electrodomésticos. Para ingresar el stock de televisores puedo definir esta clase televisor. De la forma en que está definida, desde el momento que existe un televisor, tiene su pantalla. Nunca puede haber un televisor SIN su pantalla (no hay ninguna tienda que venda televisores sin pantalla).',
+        },
+        {
+          type: 'code',
+          code: 'package edu.up.online.relaciones.composicion;\n\npublic class Pantalla {\n\n    int amperaje;\n    int resolucion;\n\n}',
+        },
+        {
+          type: 'code',
+          code: 'package edu.up.online.relaciones.composicion;\n\npublic class Televisor {\n\n    int marca;\n    float precio;\n    int mesesGarantia;\n    Pantalla pantalla;\n\n    public Televisor() {\n        this.pantalla = new Pantalla();\n    }\n\n    public static void main(String[] args) {\n        // aqui el objeto guardado en "t", desde el momento que existe ya tiene su pantalla\n        Televisor t = new Televisor();\n    }\n}',
+        },
+        {
+          type: 'callout',
+          tone: 'criollo',
+          text: 'La clave del código de composición está en el constructor: <code>this.pantalla = new Pantalla();</code>. Como la pantalla se crea junto con el televisor, no existe un televisor sin pantalla ni un ratito. En la agregación, en cambio, el atributo queda ahí declarado esperando que alguien le asigne un motor.',
+        },
+      ],
+      quiz: {
+        tf: [
+          {
+            id: 'tf-17-1',
+            q: 'La ordinalidad es un indicador del orden, el peso y/o la importancia de la relación entre objetos.',
+            a: true,
+            explain: 'Es la definición textual del apunte, y de esa importancia salen la agregación y la composición.',
+          },
+          {
+            id: 'tf-17-2',
+            q: 'En la agregación, un objeto A "es dueño de" un objeto B y B no tiene razón de existir sin A.',
+            a: false,
+            explain: 'Eso es la composición. En la agregación, A simplemente "usa" a B para funcionar.',
+          },
+          {
+            id: 'tf-17-3',
+            q: 'La composición es una relación mucho más fuerte que la agregación.',
+            a: true,
+            explain: 'Porque en la composición la parte no tiene sentido sin el todo.',
+          },
+          {
+            id: 'tf-17-4',
+            q: 'El apunte usa "una computadora tiene un Mouse" como ejemplo de composición.',
+            a: false,
+            explain: 'Es un ejemplo de agregación, junto con el Auto que tiene un Motor que le permite funcionar.',
+          },
+          {
+            id: 'tf-17-5',
+            q: 'En el código de composición, el constructor de Televisor crea la Pantalla con this.pantalla = new Pantalla();',
+            a: true,
+            explain: 'Por eso, desde el momento en que existe un televisor, ya tiene su pantalla.',
+          },
+        ],
+        mc: [
+          {
+            id: 'mc-17-1',
+            q: '¿Cuáles son los dos tipos de relación que se desprenden de la ordinalidad?',
+            options: [
+              'Unidireccional y bidireccional',
+              'Agregación y composición',
+              'Uno a uno y muchos a muchos',
+              'Clase y objeto',
+            ],
+            correctIndex: 1,
+            explain: 'Unidireccional/bidireccional es direccionalidad; uno a uno / muchos a muchos es cardinalidad.',
+          },
+          {
+            id: 'mc-17-2',
+            q: '¿Cuál es el ejemplo de composición que da el apunte además del televisor?',
+            options: [
+              'Un vehículo y sus ruedas',
+              'Un empleado y su departamento',
+              'Un engranaje y sus dientes',
+              'Una computadora y su mouse',
+            ],
+            correctIndex: 2,
+            explain: 'Los dientes por sí solos no tienen sentido y un engranaje sin dientes no tiene razón de existir: la parte no tiene sentido sin el todo.',
+          },
+          {
+            id: 'mc-17-3',
+            q: 'En el ejemplo de código de composición, ¿qué atributos declara la clase Pantalla?',
+            options: [
+              'int amperaje; int resolucion;',
+              'int marca; float precio;',
+              'String fabricante; String potencia;',
+              'int mesesGarantia; Pantalla pantalla;',
+            ],
+            correctIndex: 0,
+            explain: 'marca, precio, mesesGarantia y pantalla son de Televisor; fabricante y potencia son del Motor del ejemplo uno a uno.',
+          },
+          {
+            id: 'mc-17-4',
+            q: 'Según el apunte, ¿por qué el ejemplo del televisor es composición y no agregación?',
+            options: [
+              'Porque el televisor tiene más de un atributo de tipo objeto',
+              'Porque la pantalla se guarda en un arreglo',
+              'Porque desde el momento en que existe un televisor, tiene su pantalla, y nunca puede haber un televisor sin ella',
+              'Porque la clase Televisor tiene un método main',
+            ],
+            correctIndex: 2,
+            explain: 'No hay ninguna tienda que venda televisores sin pantalla: la parte no tiene sentido sin el todo.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-17-1',
+            q: '¿Qué ejemplos usa el apunte para la agregación?',
+            options: [
+              'Un Auto tiene un Motor que le permite funcionar',
+              'Una computadora tiene un Mouse',
+              'Un engranaje tiene dientes',
+              'Un televisor tiene su pantalla',
+              'Una sucursal tiene un equipo de vendedores',
+            ],
+            correctIndexes: [0, 1],
+            explain: 'El engranaje con sus dientes y el televisor con su pantalla son ejemplos de composición; la sucursal con su equipo es el ejemplo de cardinalidad muchos a muchos.',
+          },
+          {
+            id: 'ms-17-2',
+            q: '¿Qué atributos declara la clase Televisor del ejemplo de composición?',
+            options: [
+              'int marca;',
+              'float precio;',
+              'int mesesGarantia;',
+              'Pantalla pantalla;',
+              'int resolucion;',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'resolucion (junto con amperaje) es atributo de Pantalla, no de Televisor. Ojo con marca: acá está declarada como <code>int</code>.',
+          },
+          {
+            id: 'ms-17-3',
+            q: '¿Cuáles de estas afirmaciones sobre la ordinalidad son correctas según el apunte?',
+            options: [
+              'La agregación es más fuerte que la composición',
+              'La ordinalidad cuenta cuántos objetos hay de cada lado',
+              'En la composición la parte no tiene sentido sin el todo',
+              'La ordinalidad indica el orden, el peso y/o la importancia de la relación',
+              'En la agregación un objeto A usa a un objeto B para funcionar',
+            ],
+            correctIndexes: [2, 3, 4],
+            explain: 'Es al revés: la composición es mucho más fuerte que la agregación. Y contar objetos de cada lado es cardinalidad, no ordinalidad.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-17-1', front: 'Ordinalidad', back: 'Indicador del orden, el peso y/o la importancia de la relación entre objetos. Según esa importancia, la relación es de agregación o de composición.' },
+        { id: 'fc-17-2', front: 'Agregación', back: 'Un objeto A "usa" a un objeto B para funcionar. Ejemplos: un Auto tiene un Motor que le permite funcionar; una computadora tiene un Mouse.' },
+        { id: 'fc-17-3', front: 'Composición', back: 'Un objeto A "es dueño de" un objeto B, y B no tiene razón de existir sin A. Es mucho más fuerte que la agregación: la parte no tiene sentido sin el todo.' },
+        { id: 'fc-17-4', front: 'Engranaje y dientes', back: 'Ejemplo de composición: los dientes por sí solos no tienen sentido, por ende un engranaje sin dientes no tiene razón de existir.' },
+        { id: 'fc-17-5', front: 'Televisor y Pantalla', back: 'Ejemplo de código de composición: el constructor hace this.pantalla = new Pantalla(), así que desde el momento en que existe un televisor ya tiene su pantalla.' },
+        { id: 'fc-17-6', front: 'Clase Pantalla', back: 'Del ejemplo de composición: declara int amperaje; e int resolucion; en el paquete edu.up.online.relaciones.composicion.' },
+        { id: 'fc-17-7', front: 'Agregación vs composición', back: 'Agregación = "usa" (el auto usa el motor). Composición = "es dueño de" y la parte no existe sin el todo (el televisor y su pantalla).' },
+      ],
+    },
+    {
+      id: '18',
+      unit: 'paradigmas',
+      title: 'Lenguajes imperativos y declarativos',
+      criollo: 'Dos formas de pedirle cosas a la máquina. En la imperativa le dictás los pasos uno por uno; en la declarativa le decís qué querés y que se arregle. El ejemplo de la pizza del apunte lo explica mejor que cualquier definición.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Lenguajes de programación imperativos',
+          criollo: 'Es la forma más "natural" porque es como funciona el fierro: instrucciones, una atrás de la otra, cambiando el estado.',
+        },
+        {
+          type: 'p',
+          text: 'Los lenguajes imperativos definen al <strong>paradigma imperativo</strong> de programación. En este paradigma se usa el lenguaje para describir <strong>cómo cambia el estado del sistema</strong>. Típicamente, hay instrucciones (imposiciones) ordenadas en forma de líneas de texto, una debajo de la otra, que se ejecutan de forma secuencial. El lenguaje imperativo describe cómo opera el sistema.',
+        },
+        {
+          type: 'p',
+          text: 'La programación imperativa es la más "natural", dado que surge desde el mismísimo <strong>hardware</strong>, donde se ejecutan instrucciones de máquina. Estas instrucciones, en su más bajo nivel, mueven registros de datos de un lugar a otro, alteran valores, etc. Es decir, cambian el estado de los integrados de la memoria, del procesador, en fin, de nuestra computadora. A medida que subimos de nivel, los lenguajes siguen haciendo lo mismo, solo que con estructuras más complejas como variables, instrucciones complejas (como bucles, modificadores de visibilidad, e incluso cosas más complejas como las anotaciones).',
+        },
+        {
+          type: 'h3',
+          text: 'Lenguajes de programación declarativos',
+          criollo: 'Describís el qué y el cómo lo resuelve el motor del lenguaje. Se define casi por descarte: es todo lo que la imperativa no es.',
+        },
+        {
+          type: 'p',
+          text: 'Los lenguajes declarativos, en el <strong>paradigma declarativo</strong> de programación, se utilizan para describir la estructura del sistema y describir <strong>qué hace</strong> el sistema. Una vez descripta "la misión" del programa, el cómo se llega al resultado depende de la implementación interna del propio lenguaje.',
+        },
+        {
+          type: 'p',
+          text: 'Generalmente, se define a la programación declarativa como "<strong>no-imperativa</strong>": es todo lo que la imperativa no es. En este sentido, la programación declarativa dice qué debe hacer el sistema, en donde la ejecución no afecte otras partes del sistema y pueda representarse como una serie de premisas matemáticas (funciones/transformaciones).',
+        },
+        {
+          type: 'p',
+          text: 'En un lenguaje imperativo, entonces, el sistema pasará de un estado a otro ejecutando una serie de pasos, un <strong>algoritmo</strong>. En un lenguaje declarativo se debe describir el <strong>estado inicial</strong>, el <strong>estado final</strong> y luego el propio motor del lenguaje hará todo lo necesario para ir de un estado al otro.',
+        },
+        {
+          type: 'h3',
+          text: 'Ejemplos de cada uno',
+          criollo: 'SQL y HTML son los declarativos de manual: describís qué querés ver, no cómo se consigue.',
+        },
+        {
+          type: 'p',
+          text: 'Ejemplos de lenguajes imperativos hay muchos: <strong>C, C++, Java, Perl</strong> y un infinito etcétera. En todos estos lenguajes se escriben líneas de código que describen los pasos de un algoritmo para lograr un resultado.',
+        },
+        {
+          type: 'p',
+          text: 'El ejemplo más claro de un lenguaje declarativo es <strong>SQL</strong>. En SQL se describe qué información debe extraerse de una o más tablas, sin control sobre la forma de obtenerlo: cómo se obtiene lo maneja el motor de la base. Otro ejemplo ubicuo es <strong>HTML</strong>. En HTML se describe, por ejemplo, que debe existir cierto texto, centrado y en negrita, sin especificar ningún tipo de lógica ni control de flujo. Cómo es que veremos el texto centrado y en negrita dependerá de cada navegador.',
+        },
+        {
+          type: 'h3',
+          text: 'Cómo sería pedir una pizza según uno y otro paradigma',
+          criollo: 'El mejor resumen de toda la unidad: seis pasos contra una sola frase.',
+        },
+        {
+          type: 'table',
+          caption: 'Pedir una pizza: imperativo vs declarativo',
+          headers: ['Imperativo', 'Declarativo'],
+          rows: [
+            ['1. Entrar a la pizzería.<br>2. Esperar a quien atiende.<br>3. Pedir pizza.<br>4. Seleccionar gusto.<br>5. Pagar.<br>6. Tomar la pizza y salir del local.', '1. Quiero una pizza grande de mozzarella para llevar.'],
+            ['Digo paso a paso qué hacer.', 'Digo qué quiero y dejo que el lenguaje o plataforma llegue al resultado.'],
+          ],
+        },
+      ],
+      quiz: {
+        tf: [
+          {
+            id: 'tf-18-1',
+            q: 'En el paradigma imperativo se usa el lenguaje para describir cómo cambia el estado del sistema.',
+            a: true,
+            explain: 'Instrucciones ordenadas una debajo de la otra que se ejecutan de forma secuencial y van cambiando el estado.',
+          },
+          {
+            id: 'tf-18-2',
+            q: 'Según el apunte, la programación declarativa es la más "natural" porque surge desde el mismísimo hardware.',
+            a: false,
+            explain: 'Esa es la imperativa: nace de las instrucciones de máquina que mueven registros y alteran valores.',
+          },
+          {
+            id: 'tf-18-3',
+            q: 'En un lenguaje declarativo se describe el estado inicial y el estado final, y el motor del lenguaje hace lo necesario para ir de uno al otro.',
+            a: true,
+            explain: 'En el imperativo, en cambio, vos escribís el algoritmo que lleva de un estado al otro.',
+          },
+          {
+            id: 'tf-18-4',
+            q: 'HTML es un ejemplo de lenguaje imperativo porque describe cómo se dibuja el texto en pantalla.',
+            a: false,
+            explain: 'HTML es declarativo: describís que exista cierto texto centrado y en negrita, sin lógica ni control de flujo. Cómo se ve depende de cada navegador.',
+          },
+          {
+            id: 'tf-18-5',
+            q: 'La programación declarativa se define generalmente como "no-imperativa".',
+            a: true,
+            explain: 'Textual del apunte: es todo lo que la imperativa no es.',
+          },
+        ],
+        mc: [
+          {
+            id: 'mc-18-1',
+            q: '¿Qué describe un lenguaje declarativo?',
+            options: [
+              'Cómo opera el sistema, paso por paso',
+              'La estructura del sistema y qué hace el sistema',
+              'El orden en que se mueven los registros de memoria',
+              'La forma exacta en que el motor resuelve la consulta',
+            ],
+            correctIndex: 1,
+            explain: 'El cómo se llega al resultado depende de la implementación interna del propio lenguaje.',
+          },
+          {
+            id: 'mc-18-2',
+            q: '¿Cuál de estos grupos son todos lenguajes imperativos según el apunte?',
+            options: [
+              'SQL, HTML y Prolog',
+              'C, C++, Java y Perl',
+              'Java, SQL y HTML',
+              'Prolog, HTML y C',
+            ],
+            correctIndex: 1,
+            explain: 'SQL y HTML son los ejemplos declarativos, y Prolog aparece como lenguaje lógico.',
+          },
+          {
+            id: 'mc-18-3',
+            q: 'En el ejemplo de la pizza, ¿qué corresponde al paradigma declarativo?',
+            options: [
+              'Entrar a la pizzería, esperar a quien atiende, pedir pizza, seleccionar gusto, pagar y salir',
+              'Quiero una pizza grande de mozzarella para llevar',
+              'Elegir el gusto antes de pagar',
+              'Describir cómo se amasa la pizza',
+            ],
+            correctIndex: 1,
+            explain: 'Decís qué querés y dejás que el lenguaje o plataforma llegue al resultado. Los seis pasos son el lado imperativo.',
+          },
+          {
+            id: 'mc-18-4',
+            q: 'Según el apunte, ¿por qué SQL es el ejemplo más claro de lenguaje declarativo?',
+            options: [
+              'Porque se escribe en mayúsculas y es fácil de leer',
+              'Porque describe qué información extraer sin control sobre la forma de obtenerla',
+              'Porque no tiene estructuras de control de flujo de ningún tipo',
+              'Porque se ejecuta más rápido que un lenguaje imperativo',
+            ],
+            correctIndex: 1,
+            explain: 'Cómo se obtiene la información lo maneja el motor de la base de datos.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-18-1',
+            q: '¿Qué afirmaciones sobre la programación imperativa están en el apunte?',
+            options: [
+              'Describe cómo cambia el estado del sistema',
+              'Sus instrucciones se ejecutan de forma secuencial',
+              'Surge desde el mismísimo hardware',
+              'A mayor nivel aparecen variables, bucles y modificadores de visibilidad',
+              'Describe el estado inicial y el final y deja que el motor resuelva',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'La última es la descripción de la programación declarativa.',
+          },
+          {
+            id: 'ms-18-2',
+            q: '¿Cuáles de estos lenguajes aparecen en el apunte como ejemplos de lenguajes declarativos?',
+            options: [
+              'SQL',
+              'HTML',
+              'Java',
+              'C++',
+              'Perl',
+            ],
+            correctIndexes: [0, 1],
+            explain: 'Java, C++ y Perl están en la lista de imperativos junto con C.',
+          },
+          {
+            id: 'ms-18-3',
+            q: '¿Qué pasos figuran en la columna imperativa del ejemplo de la pizza?',
+            options: [
+              'Entrar a la pizzería',
+              'Esperar a quien atiende',
+              'Seleccionar gusto',
+              'Pagar',
+              'Llamar por teléfono al delivery',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'Los pasos son: entrar, esperar a quien atiende, pedir pizza, seleccionar gusto, pagar, y tomar la pizza y salir del local. El delivery no aparece.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-18-1', front: 'Paradigma imperativo', back: 'Usa el lenguaje para describir cómo cambia el estado del sistema: instrucciones ordenadas una debajo de la otra que se ejecutan secuencialmente. Describe cómo opera el sistema.' },
+        { id: 'fc-18-2', front: 'Por qué la imperativa es la más "natural"', back: 'Porque surge desde el mismísimo hardware: las instrucciones de máquina mueven registros de datos, alteran valores y cambian el estado de la memoria y el procesador.' },
+        { id: 'fc-18-3', front: 'Paradigma declarativo', back: 'Describe la estructura del sistema y qué hace el sistema. Una vez descripta "la misión", el cómo se llega al resultado depende de la implementación interna del lenguaje.' },
+        { id: 'fc-18-4', front: 'Declarativa = "no-imperativa"', back: 'Se la define como todo lo que la imperativa no es: dice qué debe hacer el sistema, la ejecución no afecta otras partes y puede representarse como premisas matemáticas (funciones/transformaciones).' },
+        { id: 'fc-18-5', front: 'Imperativo vs declarativo (estados)', back: 'Imperativo: el sistema pasa de un estado a otro ejecutando una serie de pasos, un algoritmo. Declarativo: describís estado inicial y final, y el motor del lenguaje hace el resto.' },
+        { id: 'fc-18-6', front: 'Ejemplos de lenguajes imperativos', back: 'C, C++, Java, Perl y un infinito etcétera: se escriben líneas de código que describen los pasos de un algoritmo.' },
+        { id: 'fc-18-7', front: 'Ejemplos de lenguajes declarativos', back: 'SQL (describís qué información extraer, el motor de la base decide cómo) y HTML (describís que exista cierto texto centrado y en negrita, sin lógica ni control de flujo).' },
+        { id: 'fc-18-8', front: 'La pizza de los paradigmas', back: 'Imperativo: entrar, esperar, pedir, elegir gusto, pagar, salir. Declarativo: "quiero una pizza grande de mozzarella para llevar".' },
+      ],
+    },
+    {
+      id: '19',
+      unit: 'paradigmas',
+      title: 'Derivaciones de la programación imperativa',
+      criollo: 'Del tronco imperativo salen tres ramas grandes: estructurada, procedural y orientada a objetos. No son excluyentes — Java es imperativo, orientado a objetos, usa bloques y agrupa cosas en métodos, todo al mismo tiempo.',
+      blocks: [
+        {
+          type: 'p',
+          text: 'El paradigma imperativo da lugar a, al menos, <strong>tres tipos</strong> de programación imperativa (a veces llamados paradigmas, dada la extensión de su uso o su popularidad).',
+        },
+        {
+          type: 'h3',
+          text: 'Programación estructurada',
+          criollo: 'Todo lo que sea if, for, while y bloques entre llaves. Estructuras, básicamente.',
+        },
+        {
+          type: 'p',
+          text: 'En ella las imposiciones se ven divididas en <strong>estructuras</strong>. Pueden ser estructura de control de flujo (if/else), de repeticiones (for/while) o pueden ser estructuras de ordenamiento (bloques de código, generalmente delimitados por TABs o por llaves o corchetes).',
+        },
+        {
+          type: 'h3',
+          text: 'Programación procedural',
+          criollo: 'Agrupar instrucciones en procedimientos. Sí, son las funciones de toda la vida.',
+        },
+        {
+          type: 'p',
+          text: 'En ella las imposiciones o instrucciones se pueden agrupar en "<strong>procedimientos</strong>". Cada procedimiento es un bloque (la programación procedural es una forma de programación estructurada) que se dedica a un cambio de una parte específica del estado del sistema. Estos bloques son conocidos típicamente como "<strong>funciones</strong>" o "<strong>subrutinas</strong>".',
+        },
+        {
+          type: 'h3',
+          text: 'Programación orientada a objetos',
+          criollo: 'Modelar la realidad. Pero abajo de todo siguen siendo bloques de código con sus if y sus for.',
+        },
+        {
+          type: 'p',
+          text: 'En ella las instrucciones tratan de <strong>modelar un sistema en base a la realidad</strong>, haciendo más cercanos los conceptos que vemos en ella. Es por eso que en la programación orientada a objetos aparecen conceptos de clase, objeto, atributo, método, etc., que en el fondo no dejan de ser bloques de código. Asimismo, cabe notar que también hacen uso de estructuras de control y repetición.',
+        },
+        {
+          type: 'h3',
+          text: 'Otras',
+          criollo: 'La reactiva viene creciendo, pero según el lenguaje termina cayendo en procedural o en objetos.',
+        },
+        {
+          type: 'p',
+          text: 'Hay otras derivaciones, como la <strong>programación reactiva</strong>, que está ganando terreno, pero dependiendo el lenguaje que se use cae dentro de la categoría procedural u orientada a objetos. En todos los casos, un lenguaje imperativo puede hacer uso de todas las formas (Java o C++, por ejemplo, son lenguajes imperativos orientados a objetos, pero usan bloques, control de flujo y agrupan operaciones en procedimientos llamados "métodos").',
+        },
+      ],
+      quiz: {
+        tf: [
+          {
+            id: 'tf-19-1',
+            q: 'El paradigma imperativo da lugar a, al menos, tres tipos de programación imperativa.',
+            a: true,
+            explain: 'Estructurada, procedural y orientada a objetos, más otras derivaciones como la reactiva.',
+          },
+          {
+            id: 'tf-19-2',
+            q: 'La programación procedural es una forma de programación estructurada.',
+            a: true,
+            explain: 'Lo aclara el apunte entre paréntesis: cada procedimiento es un bloque, y los bloques son estructuras.',
+          },
+          {
+            id: 'tf-19-3',
+            q: 'En la programación orientada a objetos ya no se usan estructuras de control ni de repetición.',
+            a: false,
+            explain: 'El apunte lo aclara expresamente: también hacen uso de estructuras de control y repetición.',
+          },
+          {
+            id: 'tf-19-4',
+            q: 'Los bloques de la programación procedural se conocen típicamente como funciones o subrutinas.',
+            a: true,
+            explain: 'Cada uno se dedica a un cambio de una parte específica del estado del sistema.',
+          },
+          {
+            id: 'tf-19-5',
+            q: 'Según el apunte, la programación reactiva es una derivación de la programación declarativa.',
+            a: false,
+            explain: 'Aparece como "otra" derivación de la imperativa y, según el lenguaje, cae dentro de procedural u orientada a objetos.',
+          },
+        ],
+        mc: [
+          {
+            id: 'mc-19-1',
+            q: '¿Qué caracteriza a la programación estructurada?',
+            options: [
+              'Las imposiciones se agrupan en procedimientos dedicados a una parte del estado',
+              'Las imposiciones se dividen en estructuras de control, de repeticiones y de ordenamiento',
+              'Las instrucciones modelan un sistema en base a la realidad',
+              'Se declaran reglas, hechos e interrogantes',
+            ],
+            correctIndex: 1,
+            explain: 'Control de flujo (if/else), repeticiones (for/while) y ordenamiento (bloques delimitados por TABs, llaves o corchetes).',
+          },
+          {
+            id: 'mc-19-2',
+            q: 'Según el apunte, ¿por qué en la POO aparecen los conceptos de clase, objeto, atributo y método?',
+            options: [
+              'Porque el hardware trabaja con esas estructuras',
+              'Porque las instrucciones tratan de modelar un sistema en base a la realidad',
+              'Porque son la única forma de agrupar bloques de código',
+              'Porque los lenguajes declarativos los exigen',
+            ],
+            correctIndex: 1,
+            explain: 'La idea es hacer más cercanos los conceptos que vemos en la realidad, aunque en el fondo no dejen de ser bloques de código.',
+          },
+          {
+            id: 'mc-19-3',
+            q: 'Según el apunte, ¿qué son Java y C++?',
+            options: [
+              'Lenguajes declarativos con soporte de objetos',
+              'Lenguajes imperativos orientados a objetos que usan bloques, control de flujo y métodos',
+              'Lenguajes puramente procedurales, sin estructuras de control',
+              'Lenguajes lógicos derivados de Prolog',
+            ],
+            correctIndex: 1,
+            explain: 'El apunte los usa para mostrar que un lenguaje imperativo puede hacer uso de todas las formas a la vez.',
+          },
+          {
+            id: 'mc-19-4',
+            q: '¿Por qué a estos tres tipos a veces se los llama directamente "paradigmas"?',
+            options: [
+              'Porque cada uno tiene su propio compilador',
+              'Por la extensión de su uso o su popularidad',
+              'Porque son incompatibles entre sí',
+              'Porque no derivan de la programación imperativa',
+            ],
+            correctIndex: 1,
+            explain: 'Es la misma razón que el apunte da después para las derivaciones de la programación declarativa.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-19-1',
+            q: '¿Cuáles son derivaciones de la programación imperativa según el apunte?',
+            options: [
+              'Programación estructurada',
+              'Programación procedural',
+              'Programación orientada a objetos',
+              'Programación reactiva',
+              'Programación lógica',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'La programación lógica es una derivación de la declarativa, no de la imperativa.',
+          },
+          {
+            id: 'ms-19-2',
+            q: '¿Qué tipos de estructuras menciona el apunte en la programación estructurada?',
+            options: [
+              'De control de flujo (if/else)',
+              'De repeticiones (for/while)',
+              'De ordenamiento (bloques de código)',
+              'De herencia (extends/implements)',
+              'De persistencia (tablas y consultas)',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain: 'Herencia y persistencia no aparecen en esa clasificación del apunte.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-19-1', front: 'Derivaciones de la imperativa', back: 'Al menos tres: programación estructurada, procedural y orientada a objetos. Se las llama paradigmas por la extensión de su uso o su popularidad. Hay otras, como la reactiva.' },
+        { id: 'fc-19-2', front: 'Programación estructurada', back: 'Las imposiciones se dividen en estructuras: de control de flujo (if/else), de repeticiones (for/while) y de ordenamiento (bloques delimitados por TABs, llaves o corchetes).' },
+        { id: 'fc-19-3', front: 'Programación procedural', back: 'Las instrucciones se agrupan en "procedimientos": bloques dedicados a un cambio de una parte específica del estado del sistema, conocidos como funciones o subrutinas. Es una forma de programación estructurada.' },
+        { id: 'fc-19-4', front: 'Programación orientada a objetos', back: 'Las instrucciones modelan un sistema en base a la realidad. Aparecen clase, objeto, atributo, método, etc., que en el fondo son bloques de código, y también usa estructuras de control y repetición.' },
+        { id: 'fc-19-5', front: 'Programación reactiva', back: 'Otra derivación de la imperativa que está ganando terreno; según el lenguaje que se use cae dentro de la categoría procedural u orientada a objetos.' },
+        { id: 'fc-19-6', front: 'Java y C++ según el apunte', back: 'Son lenguajes imperativos orientados a objetos, pero usan bloques, control de flujo y agrupan operaciones en procedimientos llamados "métodos".' },
+      ],
+    },
+    {
+      id: '20',
+      unit: 'paradigmas',
+      title: 'Derivaciones de la programación declarativa',
+      criollo: 'Del lado declarativo las dos ramas grandes son la lógica (Prolog: hechos, reglas y preguntas) y la funcional (misma entrada, misma salida, siempre). Y el apunte suma el Domain Driven Design con sus DSLs.',
+      blocks: [
+        {
+          type: 'p',
+          text: 'La programación declarativa, al igual que la imperativa, es más que nada un <strong>término general</strong>. Por eso, tiene varias derivaciones, llamados paradigmas o sub-paradigmas. Al igual que en la programación imperativa, el término "paradigma" surge de la popularidad o extensión en el uso. Las dos más importantes, aunque no las únicas, son la programación lógica y la funcional.',
+        },
+        {
+          type: 'h3',
+          text: 'Programación lógica',
+          criollo: 'Cargás hechos y reglas, y después preguntás. El motor deduce solo.',
+        },
+        {
+          type: 'p',
+          text: 'En la programación lógica <strong>se definen reglas</strong>. Se basa en el uso de la lógica formal, en la que se ponen premisas, condiciones y resultados. Se expresa mediante formulaciones o transformaciones, declaración de hechos, e interrogantes. Expresiones de tipo:',
+        },
+        {
+          type: 'ul',
+          items: [
+            '<strong>Hecho</strong>: "El profesor es un humano".',
+            '<strong>Regla</strong>: "Todos los humanos son mortales".',
+            '<strong>Interrogante</strong>: "¿Es el profesor mortal?".',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Formalmente, si $p$ y $q$, entonces ¿$u$?:',
+        },
+        {
+          type: 'math',
+          latex: '(p \\land q) \\rightarrow u',
+          display: true,
+        },
+        {
+          type: 'p',
+          text: 'Ejemplo en <strong>Prolog</strong> (uno de los lenguajes lógicos más populares):',
+        },
+        {
+          type: 'code',
+          code: 'humano(profesor).\nmortal(X) :- humano(X).\n?- mortal(profesor).',
+        },
+        {
+          type: 'h3',
+          text: 'Programación funcional',
+          criollo: 'Funciones matemáticas de verdad: mismos argumentos, mismo resultado, siempre. Nada de andar tocando el estado de al lado.',
+        },
+        {
+          type: 'p',
+          text: 'Es también considerado un paradigma, en el cual se definen <strong>funciones matemáticas</strong> que trabajan como expresiones o declaraciones; no son imposiciones, no son pasos que van alterando el estado. En el código funcional, el resultado depende siempre de los valores de entrada o argumentos, cumpliendo con la premisa de que en la programación declarativa la ejecución de una parte del código no afecte a otras. Es decir, siempre que se llame a una misma función, con los mismos argumentos, <strong>arrojará el mismo resultado</strong>.',
+        },
+        {
+          type: 'h3',
+          text: 'Domain Driven Design',
+          criollo: 'Lenguajes hechos a medida de un dominio. Las expresiones regulares y SQL son DSLs que usás todos los días sin pensarlo.',
+        },
+        {
+          type: 'p',
+          text: 'También es muy importante el <strong>Domain Driven Design</strong>, que es una programación fuertemente orientada a dominios particulares. En el diseño orientado a dominios (según su nombre correcto en castellano) se usan los lenguajes específicos de dominios o <strong>DSLs</strong>. Los DSLs son lenguajes creados específicamente para cubrir una necesidad específica, como son las <strong>expresiones regulares</strong>. Otro ejemplo típico sería <strong>SQL</strong>. Aquí ocurre algo similar que con la programación orientada a objetos, donde si bien suele considerarse un paradigma por sí mismo, toma elementos de otros.',
+        },
+      ],
+      quiz: {
+        tf: [
+          {
+            id: 'tf-20-1',
+            q: 'Según el apunte, las dos derivaciones más importantes de la programación declarativa son la lógica y la funcional.',
+            a: true,
+            explain: 'Aclara que son las dos más importantes, aunque no las únicas.',
+          },
+          {
+            id: 'tf-20-2',
+            q: 'En la programación funcional, una misma función con los mismos argumentos puede arrojar resultados distintos según el estado del sistema.',
+            a: false,
+            explain: 'Al contrario: siempre que se llame a la misma función con los mismos argumentos, arrojará el mismo resultado.',
+          },
+          {
+            id: 'tf-20-3',
+            q: 'La programación lógica se expresa mediante formulaciones o transformaciones, declaración de hechos e interrogantes.',
+            a: true,
+            explain: 'Hecho ("El profesor es un humano"), regla ("Todos los humanos son mortales") e interrogante ("¿Es el profesor mortal?").',
+          },
+          {
+            id: 'tf-20-4',
+            q: 'Las expresiones regulares son un ejemplo de DSL según el apunte.',
+            a: true,
+            explain: 'Los DSLs son lenguajes creados específicamente para cubrir una necesidad específica; el otro ejemplo típico es SQL.',
+          },
+          {
+            id: 'tf-20-5',
+            q: 'En la programación funcional las funciones son imposiciones, es decir, pasos que van alterando el estado.',
+            a: false,
+            explain: 'Textualmente el apunte dice lo contrario: no son imposiciones ni pasos que alteran el estado, son expresiones o declaraciones.',
+          },
+        ],
+        mc: [
+          {
+            id: 'mc-20-1',
+            q: '¿En qué se basa la programación lógica?',
+            options: [
+              'En el uso de la lógica formal, con premisas, condiciones y resultados',
+              'En funciones matemáticas que dependen solo de sus argumentos',
+              'En bloques de código agrupados en procedimientos',
+              'En modelar el sistema en base a la realidad',
+            ],
+            correctIndex: 0,
+            explain: 'Las funciones matemáticas son la programación funcional; los procedimientos y el modelado de la realidad son derivaciones de la imperativa.',
+          },
+          {
+            id: 'mc-20-2',
+            q: 'En el ejemplo de Prolog del apunte, ¿qué línea representa el interrogante?',
+            options: [
+              'humano(profesor).',
+              'mortal(X) :- humano(X).',
+              '?- mortal(profesor).',
+              '(p ∧ q) → u',
+            ],
+            correctIndex: 2,
+            explain: 'La primera línea es el hecho, la segunda es la regla y la tercera es la pregunta. La fórmula es la expresión formal del razonamiento.',
+          },
+          {
+            id: 'mc-20-3',
+            q: '¿Qué es el Domain Driven Design según el apunte?',
+            options: [
+              'Un lenguaje declarativo derivado de SQL',
+              'Una programación fuertemente orientada a dominios particulares',
+              'Una técnica para agrupar instrucciones en subrutinas',
+              'Un motor que traduce reglas lógicas a código imperativo',
+            ],
+            correctIndex: 1,
+            explain: 'En castellano se llama diseño orientado a dominios y usa lenguajes específicos de dominio (DSLs).',
+          },
+          {
+            id: 'mc-20-4',
+            q: '¿Por qué el término "paradigma" se aplica a estas derivaciones?',
+            options: [
+              'Porque cada una tiene su propia sintaxis formal',
+              'Porque surge de la popularidad o extensión en el uso',
+              'Porque son las únicas formas válidas de programar',
+              'Porque están definidas por un estándar internacional',
+            ],
+            correctIndex: 1,
+            explain: 'El apunte lo dice tanto para las derivaciones de la imperativa como para las de la declarativa.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-20-1',
+            q: '¿Qué tipos de expresiones usa la programación lógica según el apunte?',
+            options: [
+              'Hechos',
+              'Reglas',
+              'Interrogantes',
+              'Subrutinas',
+              'Bucles',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain: 'Subrutinas y bucles pertenecen al mundo imperativo (procedural y estructurada).',
+          },
+          {
+            id: 'ms-20-2',
+            q: '¿Qué ejemplos de DSL menciona el apunte?',
+            options: [
+              'Las expresiones regulares',
+              'SQL',
+              'Prolog',
+              'Java',
+              'HTML',
+            ],
+            correctIndexes: [0, 1],
+            explain: 'Prolog aparece como lenguaje lógico y HTML como ejemplo de lenguaje declarativo, pero ninguno de los dos se nombra como DSL. Java es imperativo.',
+          },
+          {
+            id: 'ms-20-3',
+            q: '¿Qué afirmaciones sobre la programación funcional son correctas según el apunte?',
+            options: [
+              'Define funciones matemáticas que trabajan como expresiones o declaraciones',
+              'El resultado depende siempre de los valores de entrada o argumentos',
+              'La ejecución de una parte del código no afecta a otras',
+              'Sus funciones son imposiciones que alteran el estado paso a paso',
+              'Se apoya en la declaración de hechos y reglas',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain: 'Las imposiciones que alteran el estado son de la programación imperativa, y los hechos y reglas son de la programación lógica.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-20-1', front: 'Derivaciones de la declarativa', back: 'La declarativa es un término general con varias derivaciones. Las dos más importantes, aunque no las únicas, son la programación lógica y la funcional. El apunte suma también el Domain Driven Design.' },
+        { id: 'fc-20-2', front: 'Programación lógica', back: 'Se definen reglas. Se basa en la lógica formal, con premisas, condiciones y resultados, y se expresa mediante formulaciones o transformaciones, declaración de hechos e interrogantes.' },
+        { id: 'fc-20-3', front: 'Hecho, regla e interrogante', back: 'Hecho: "El profesor es un humano". Regla: "Todos los humanos son mortales". Interrogante: "¿Es el profesor mortal?". Formalmente: si p y q, entonces ¿u?' },
+        { id: 'fc-20-4', front: 'Prolog', back: 'Uno de los lenguajes lógicos más populares. Ejemplo: humano(profesor). / mortal(X) :- humano(X). / ?- mortal(profesor).' },
+        { id: 'fc-20-5', front: 'Programación funcional', back: 'Se definen funciones matemáticas que trabajan como expresiones o declaraciones; no son imposiciones ni pasos que alteran el estado. Misma función con los mismos argumentos, mismo resultado.' },
+        { id: 'fc-20-6', front: 'Domain Driven Design', back: 'Programación fuertemente orientada a dominios particulares. En castellano, diseño orientado a dominios; usa lenguajes específicos de dominio (DSLs).' },
+        { id: 'fc-20-7', front: 'DSL', back: 'Lenguaje específico de dominio: creado para cubrir una necesidad específica. Ejemplos del apunte: las expresiones regulares y SQL.' },
+      ],
+    },
   ],
   pdfs: [
     { key: 'origen-poo', label: 'PPT · Origen de la POO', path: 'pdfs/laboratorio-1/1-origen-poo.pdf' },
     { key: 'intro-ides', label: 'Apunte · Introducción a los IDEs', path: 'pdfs/laboratorio-1/2-intro-ides.pdf' },
     { key: 'tutorial-eclipse', label: 'Apunte · Tutorial de Eclipse', path: 'pdfs/laboratorio-1/3-tutorial-eclipse.pdf' },
     { key: 'tutorial-java', label: 'Apunte · Tutorial de código Java', path: 'pdfs/laboratorio-1/4-tutorial-codificacion-java.pdf' },
+    { key: 'relaciones-objetos', label: 'PPT · Relaciones entre objetos', path: 'pdfs/laboratorio-1/5-relaciones-entre-objetos.pdf' },
+    { key: 'imperativos-declarativos', label: 'Apunte · Lenguajes imperativos y declarativos', path: 'pdfs/laboratorio-1/6-lenguajes-imperativos-declarativos.pdf' },
   ],
 };
