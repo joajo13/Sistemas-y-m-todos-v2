@@ -5,6 +5,14 @@
  * derivadas" (UP), transcripto en forma literal, con criollo, quizzes y
  * flashcards.
  *
+ * Unidad 'estudio-completo' (secciones 6-7): el apunte "Estudio completo de
+ * funciones. Extremos condicionados" (UP). La sección 6 son los siete pasos
+ * del estudio completo más el ejemplo resuelto f(x) = x/(x²+1); la 7, extremos
+ * absolutos y condicionados con las cuatro gráficas originales del apunte.
+ *
+ * Unidad 'tps' (secciones 5 y 8): los trabajos prácticos de la cátedra, con las
+ * consignas transcriptas y las figuras originales.
+ *
  * Los ocho gráficos del apunte están reconstruidos como blocks de tipo 'plot':
  * gráficos interactivos en canvas (js/plot.js) con recta tangente arrastrable,
  * lectura en vivo de la pendiente y toggles de curvas. Las funciones elegidas
@@ -18,10 +26,11 @@
 export default {
   id: 'analisis-matematico-2',
   title: 'Análisis Matemático 2',
-  subtitle: 'Aplicación de las derivadas — Apuntes',
-  tagline: 'Crecimiento y decrecimiento · Extremos relativos · Puntos críticos · Concavidad y convexidad · Puntos de inflexión',
+  subtitle: 'Aplicación de las derivadas · Estudio completo de funciones — Apuntes',
+  tagline: 'Crecimiento y decrecimiento · Extremos relativos · Puntos críticos · Concavidad y convexidad · Puntos de inflexión · Asíntotas · Extremos absolutos y condicionados',
   units: {
     'derivadas': 'Aplicación de las derivadas',
+    'estudio-completo': 'Estudio completo de funciones. Extremos condicionados',
     'tps': 'Trabajos prácticos',
   },
   sections: [
@@ -777,6 +786,468 @@ export default {
     },
 
     {
+      id: '6',
+      unit: 'estudio-completo',
+      title: 'Estudio completo de funciones',
+      criollo: 'Acá se junta todo. En vez de mirar una cosa por vez (dominio por un lado, derivada por el otro), el apunte te da una receta de siete pasos para radiografiar una función de punta a punta: dominio, cortes con los ejes, asíntotas, crecimiento, concavidad, gráfico y conjunto imagen. Después lo aplica entero sobre $f(x) = \\dfrac{x}{x^2+1}$, que es el ejemplo que conviene que te sepas de memoria.',
+      blocks: [
+        { type: 'p', text: 'Integrando los conceptos vistos hasta el momento con los estudiados en Análisis Matemático I, podemos realizar el <strong>estudio completo de una función</strong>, teniendo en cuenta los siguientes pasos:' },
+
+        { type: 'h3', text: '1. Dominio', criollo: 'El paso cero de todo: dónde vive la función. Tres cosas te lo recortan — denominadores, raíces y logaritmos.' },
+        { type: 'p', text: 'Tener en cuenta para las restricciones que los denominadores deben ser distintos de cero, los radicandos mayores o iguales a cero y los argumentos de los logaritmos positivos.' },
+
+        { type: 'h3', text: '2. Intersecciones con los ejes' },
+        {
+          type: 'ul',
+          items: [
+            'Con el eje $x$: determinar los ceros o raíces de la función ($f(x) = 0$).',
+            'Con el eje $y$: calcular la ordenada de $x = 0$.',
+          ],
+        },
+
+        { type: 'h3', text: '3. Asíntotas', criollo: 'Las tres asíntotas se buscan con límites, siempre. Y ojo con el detalle que aparece en el ejemplo: si ya tenés horizontal, no vas a tener oblicua.' },
+        { type: 'p', text: '<strong>Vertical:</strong> $x = a$ es asíntota vertical de $f \\leftrightarrow \\lim\\limits_{x \\to a} f(x) = \\infty$' },
+        { type: 'p', text: '<strong>Horizontal:</strong> $y = b$ es asíntota horizontal de $f \\leftrightarrow \\lim\\limits_{x \\to \\infty} f(x) = b$' },
+        { type: 'p', text: '<strong>Oblicua:</strong> $y = mx + b$ es asíntota oblicua de $f$ si existen y son finitos los límites' },
+        { type: 'math', latex: 'm = \\lim_{x \\to \\infty} \\frac{f(x)}{x} \\quad y \\quad b = \\lim_{x \\to \\infty}\\big(f(x) - mx\\big)', display: true },
+
+        { type: 'h3', text: '4. Crecimiento y extremos' },
+        {
+          type: 'ul',
+          items: [
+            'Si $f\'(x) > 0$ en $(a;b) \\rightarrow f$ es estrictamente creciente en $(a;b)$.',
+            'Si $f\'(x) < 0$ en $(c;d) \\rightarrow f$ es estrictamente decreciente en $(c;d)$.',
+          ],
+        },
+        { type: 'p', text: '$(x_0; f(x_0))$ es <strong>MÁXIMO RELATIVO</strong> de $f \\leftrightarrow f\'(x_0) = 0$ o $\\nexists f\'(x_0)$ y en este punto cambia el signo de la derivada de positivo a negativo.' },
+        { type: 'p', text: '$(x_0; f(x_0))$ es <strong>mínimo relativo</strong> de $f \\leftrightarrow f\'(x_0) = 0$ o $\\nexists f\'(x_0)$ y en este punto cambia el signo de la derivada de negativo a positivo.' },
+
+        { type: 'h3', text: '5. Concavidad y puntos de inflexión' },
+        {
+          type: 'ul',
+          items: [
+            'Si $f\'\'(x) > 0$ en $(a;b) \\rightarrow f$ es cóncava hacia arriba en $(a;b)$.',
+            'Si $f\'\'(x) < 0$ en $(c;d) \\rightarrow f$ es cóncava hacia abajo en $(c;d)$.',
+          ],
+        },
+        { type: 'p', text: '$(x_0; f(x_0))$ es <strong>punto de inflexión</strong> de $f \\leftrightarrow f\'\'(x_0) = 0$ o $\\nexists f\'(x_0)$ y en este punto cambia el signo de la derivada segunda.' },
+
+        { type: 'h3', text: '6. Gráfico aproximado' },
+        { type: 'p', text: 'Utilizando todos los puntos obtenidos en el análisis anterior, podemos realizar el gráfico aproximado de la función.' },
+
+        { type: 'h3', text: '7. Conjunto imagen y extremos absolutos' },
+        { type: 'p', text: 'Una vez realizado el gráfico podemos determinar el conjunto imagen de la función y si tiene extremos absolutos.' },
+
+        { type: 'callout', tone: 'criollo', text: 'Fijate que el orden de los pasos no es caprichoso: cada uno usa lo del anterior. Sin dominio no sabés dónde buscar asíntotas; sin crecimiento y concavidad no podés dibujar; y sin el dibujo no leés el conjunto imagen. Si en un parcial te piden "estudio completo", seguí los siete pasos en fila y no te vas a colgar ninguno.' },
+
+        { type: 'h3', text: 'Ejemplo resuelto: f(x) = x / (x² + 1)', criollo: 'El ejemplo estrella del apunte. Es una función racional con numerador de grado 1 y denominador de grado 2, así que se aplana en el infinito. Seguilo paso por paso que después el TP te pide exactamente esto para ocho funciones más.' },
+        { type: 'p', text: 'Realizar un gráfico aproximado de la función $f: D \\to \\mathbb{R} / f(x) = \\dfrac{x}{x^2+1}$, analizando previamente dominio, intersecciones con los ejes, asíntotas, crecimiento, extremos relativos, concavidad y puntos de inflexión.' },
+
+        { type: 'p', text: '<strong>1. Dominio:</strong> $\\mathbb{R}$' },
+
+        { type: 'p', text: '<strong>2. Intersecciones con los ejes.</strong> Eje $x$:' },
+        { type: 'math', latex: '\\frac{x}{x^2+1} = 0 \\rightarrow x = 0 \\rightarrow (0;0)\\ \\text{punto de interseccion con } x', display: true },
+        { type: 'p', text: 'Eje $y$: coincide con el punto de intersección con el eje $x$.' },
+
+        { type: 'p', text: '<strong>3. Asíntotas.</strong> Vertical: no tiene. Horizontal:' },
+        { type: 'math', latex: '\\lim_{x \\to \\infty} \\frac{x}{x^2+1} = 0 \\rightarrow y = 0 \\ \\text{es asíntota horizontal}', display: true },
+        { type: 'p', text: 'Oblicua: no tiene, ya que tiene asíntota horizontal.' },
+
+        { type: 'p', text: '<strong>4. Crecimiento.</strong>' },
+        { type: 'math', latex: 'f\'(x) = \\frac{-x^2+1}{(x^2+1)^2}', display: true },
+        { type: 'p', text: 'Condición necesaria:' },
+        { type: 'math', latex: 'f\'(x) = 0 \\rightarrow \\frac{-x^2+1}{(x^2+1)^2} = 0 \\rightarrow -x^2 + 1 = 0 \\rightarrow x = 1 \\ o \\ x = -1 \\ \\text{puntos críticos}', display: true },
+        { type: 'p', text: 'Condición suficiente:' },
+        {
+          type: 'table',
+          headers: ['$x$', '$(-\\infty;-1)$', '$-1$', '$(-1;1)$', '$1$', '$(1;+\\infty)$'],
+          rows: [
+            ['$f\'(x)$', '$-$', '$0$', '$+$', '$0$', '$-$'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            '$f$ es estrictamente creciente en $(-1;1)$.',
+            '$f$ es estrictamente decreciente en $(-\\infty;-1)$ y $(1;+\\infty)$.',
+            '$\\left(1; \\dfrac{1}{2}\\right)$ es MÁXIMO RELATIVO.',
+            '$\\left(-1; -\\dfrac{1}{2}\\right)$ es mínimo relativo.',
+          ],
+        },
+
+        { type: 'p', text: '<strong>5. Concavidad.</strong>' },
+        { type: 'math', latex: 'f\'\'(x) = \\frac{-2x \\cdot (-x^2+3)}{(x^2+1)^3}', display: true },
+        { type: 'p', text: 'Condición necesaria:' },
+        { type: 'math', latex: 'f\'\'(x) = 0 \\rightarrow \\frac{-2x \\cdot (-x^2+3)}{(x^2+1)^3} = 0 \\rightarrow -2x \\cdot (-x^2+3) = 0', display: true },
+        { type: 'math', latex: '\\rightarrow x = 0 \\ o \\ x = -\\sqrt{3} \\ o \\ x = \\sqrt{3} \\ \\text{posibles puntos de inflexión}', display: true },
+        { type: 'p', text: 'Condición suficiente:' },
+        {
+          type: 'table',
+          headers: ['$x$', '$(-\\infty;-\\sqrt{3})$', '$-\\sqrt{3}$', '$(-\\sqrt{3};0)$', '$0$', '$(0;\\sqrt{3})$', '$\\sqrt{3}$', '$(\\sqrt{3};+\\infty)$'],
+          rows: [
+            ['$f\'\'(x)$', '$-$', '$0$', '$+$', '$0$', '$-$', '$0$', '$+$'],
+          ],
+        },
+        {
+          type: 'ul',
+          items: [
+            '$f$ es cóncava hacia arriba en $\\left(-\\sqrt{3};0\\right)$ y $\\left(\\sqrt{3};+\\infty\\right)$.',
+            '$f$ es cóncava hacia abajo en $\\left(-\\infty;-\\sqrt{3}\\right)$ y $\\left(0;\\sqrt{3}\\right)$.',
+            'Los puntos de inflexión son $\\left(-\\sqrt{3}; -\\dfrac{\\sqrt{3}}{4}\\right)$, $(0;0)$ y $\\left(\\sqrt{3}; \\dfrac{\\sqrt{3}}{4}\\right)$.',
+          ],
+        },
+        { type: 'callout', tone: 'warning', text: 'Dos erratas del PDF que conviene que sepas: en la tabla de la condición suficiente de concavidad la fila está rotulada <strong>$f\'(x)$</strong> cuando en realidad son los signos de <strong>$f\'\'(x)$</strong>, y el intervalo de concavidad hacia abajo aparece escrito como $(0;+\\sqrt{3})$ (el $+$ está de más, es simplemente $(0;\\sqrt{3})$). Acá quedó transcripto como corresponde.' },
+
+        { type: 'p', text: '<strong>6. Gráfico aproximado.</strong>' },
+        {
+          type: 'plot',
+          caption: 'Gráfico aproximado de $f(x) = \\dfrac{x}{x^2+1}$: mínimo relativo en $\\left(-1;-\\frac{1}{2}\\right)$, máximo relativo en $\\left(1;\\frac{1}{2}\\right)$, puntos de inflexión en $x = -\\sqrt{3}$, $x = 0$ y $x = \\sqrt{3}$, y asíntota horizontal $y = 0$. Arrastrá la tangente: se aplana justo en los extremos.',
+          height: 380,
+          domain: [-4, 4],
+          range: [-0.85, 0.85],
+          curves: [
+            { fn: (x) => x / (x * x + 1), d1: (x) => (1 - x * x) / Math.pow(x * x + 1, 2), label: 'f(x)', color: 'violet', width: 2.4 },
+            { fn: (x) => (1 - x * x) / Math.pow(x * x + 1, 2), label: "f '(x)", color: 'ochre', width: 1.8, dash: true, hidden: true },
+          ],
+          hlines: [
+            { y: 0, label: 'y = 0 (asíntota horizontal)', color: 'muted' },
+          ],
+          points: [
+            { x: -1, on: 0, label: 'mínimo', color: 'steel' },
+            { x: 1, on: 0, label: 'MÁXIMO', color: 'accent' },
+            { x: 0, on: 0, label: 'PI', color: 'forest' },
+            { x: -Math.sqrt(3), on: 0, label: 'PI₂', color: 'forest' },
+            { x: Math.sqrt(3), on: 0, label: 'PI₁', color: 'forest' },
+          ],
+          tangent: { curve: 0, at: 1, min: -3.8, max: 3.8, readout: ['f', 'd1'] },
+        },
+
+        { type: 'p', text: '<strong>7. Conjunto imagen y extremos absolutos.</strong>' },
+        { type: 'math', latex: '\\text{Conjunto imagen: } \\left[-\\frac{1}{2}; \\frac{1}{2}\\right]', display: true },
+        {
+          type: 'ul',
+          items: [
+            '$\\left(-1; -\\dfrac{1}{2}\\right)$ es mínimo absoluto.',
+            '$\\left(1; \\dfrac{1}{2}\\right)$ es MÁXIMO ABSOLUTO.',
+          ],
+        },
+        { type: 'callout', tone: 'criollo', text: 'Acá pasa algo lindo: el mínimo y el máximo <em>relativos</em> terminan siendo también los <em>absolutos</em>. No siempre es así — pasa porque la función se aplana contra la asíntota $y = 0$ y nunca vuelve a superar esos valores. Por eso el paso 7 va después del gráfico: el conjunto imagen lo leés del dibujo, no lo adivinás.' },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-6-1', q: 'Para el dominio hay que pedir que los radicandos sean mayores o iguales a cero y los argumentos de los logaritmos positivos.', a: true, explain: 'Son dos de las tres restricciones que enumera el apunte; la tercera es que los denominadores sean distintos de cero.' },
+          { id: 'tf-6-2', q: 'La intersección con el eje $y$ se obtiene resolviendo $f(x) = 0$.', a: false, explain: 'Eso da la intersección con el eje $x$. Para el eje $y$ hay que calcular la ordenada de $x = 0$, o sea $f(0)$.' },
+          { id: 'tf-6-3', q: 'En el ejemplo, $f(x) = \\dfrac{x}{x^2+1}$ no tiene asíntota oblicua porque tiene asíntota horizontal.', a: true, explain: 'Es la justificación textual del apunte: "Oblicua: no tiene, ya que tiene asíntota horizontal".' },
+          { id: 'tf-6-4', q: 'Los puntos críticos del ejemplo son $x = 0$, $x = -\\sqrt{3}$ y $x = \\sqrt{3}$.', a: false, explain: 'Esos son los <strong>posibles puntos de inflexión</strong>, que salen de $f\'\'(x) = 0$. Los puntos críticos salen de $f\'(x) = 0$ y son $x = 1$ y $x = -1$.' },
+          { id: 'tf-6-5', q: 'El conjunto imagen del ejemplo es $\\left[-\\dfrac{1}{2}; \\dfrac{1}{2}\\right]$.', a: true, explain: 'Se lee del gráfico: la función nunca baja de $-\\frac{1}{2}$ ni sube de $\\frac{1}{2}$, y alcanza ambos valores.' },
+        ],
+        mc: [
+          {
+            id: 'mc-6-1',
+            q: 'Según el apunte, ¿cuándo $x = a$ es asíntota vertical de $f$?',
+            options: [
+              'Cuando $\\lim\\limits_{x \\to a} f(x) = \\infty$',
+              'Cuando $\\lim\\limits_{x \\to \\infty} f(x) = a$',
+              'Cuando $f(a) = 0$',
+              'Cuando $f$ no está definida en $a$',
+            ],
+            correctIndex: 0,
+            explain: 'La condición del apunte es que el límite de la función cuando $x$ tiende a $a$ dé infinito. Que la función no esté definida en $a$ es necesario pero no alcanza.',
+          },
+          {
+            id: 'mc-6-2',
+            q: 'Para la asíntota oblicua $y = mx + b$, ¿cómo se calcula $b$?',
+            options: [
+              '$b = \\lim\\limits_{x \\to \\infty} \\dfrac{f(x)}{x}$',
+              '$b = \\lim\\limits_{x \\to \\infty}\\big(f(x) - mx\\big)$',
+              '$b = f(0)$',
+              '$b = \\lim\\limits_{x \\to 0} f(x)$',
+            ],
+            correctIndex: 1,
+            explain: 'Primero se calcula $m = \\lim\\limits_{x \\to \\infty} \\frac{f(x)}{x}$ y con ese $m$ se obtiene $b = \\lim\\limits_{x \\to \\infty}(f(x) - mx)$. Ambos límites tienen que existir y ser finitos.',
+          },
+          {
+            id: 'mc-6-3',
+            q: 'En el ejemplo, ¿en qué intervalo es estrictamente creciente $f(x) = \\dfrac{x}{x^2+1}$?',
+            options: [
+              'En $(-\\infty;-1)$',
+              'En $(1;+\\infty)$',
+              'En $(-1;1)$',
+              'En todo $\\mathbb{R}$',
+            ],
+            correctIndex: 2,
+            explain: 'La tabla de signos muestra $f\'(x) > 0$ solamente entre $-1$ y $1$. En $(-\\infty;-1)$ y en $(1;+\\infty)$ la derivada es negativa.',
+          },
+          {
+            id: 'mc-6-4',
+            q: '¿Cuál es la derivada segunda de $f(x) = \\dfrac{x}{x^2+1}$ según el apunte?',
+            options: [
+              '$f\'\'(x) = \\dfrac{-x^2+1}{(x^2+1)^2}$',
+              '$f\'\'(x) = \\dfrac{-2x \\cdot (-x^2+3)}{(x^2+1)^3}$',
+              '$f\'\'(x) = \\dfrac{2x}{(x^2+1)^2}$',
+              '$f\'\'(x) = \\dfrac{-x^2+3}{(x^2+1)^2}$',
+            ],
+            correctIndex: 1,
+            explain: 'La primera opción es la derivada <strong>primera</strong>. La segunda es $\\frac{-2x(-x^2+3)}{(x^2+1)^3}$, y de igualarla a cero salen los tres posibles puntos de inflexión.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-6-1',
+            q: 'De los siete pasos del estudio completo, ¿cuáles necesitan derivar la función?',
+            options: [
+              'Crecimiento y extremos',
+              'Concavidad y puntos de inflexión',
+              'Dominio',
+              'Intersecciones con los ejes',
+              'Asíntotas',
+            ],
+            correctIndexes: [0, 1],
+            explain: 'El crecimiento sale del signo de $f\'$ y la concavidad del signo de $f\'\'$. Dominio, intersecciones y asíntotas se resuelven sin derivar (las asíntotas, con límites).',
+          },
+          {
+            id: 'ms-6-2',
+            q: '¿Qué se verifica en el ejemplo $f(x) = \\dfrac{x}{x^2+1}$?',
+            options: [
+              'El dominio es $\\mathbb{R}$',
+              'Tiene asíntota horizontal $y = 0$',
+              'La intersección con el eje $y$ coincide con la del eje $x$',
+              'Tiene tres puntos de inflexión',
+              'Tiene asíntota vertical en $x = -1$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'Todo eso figura en el desarrollo. Asíntota vertical no tiene: el denominador $x^2+1$ nunca se anula en los reales.',
+          },
+          {
+            id: 'ms-6-3',
+            q: 'Según el paso 4, $(x_0; f(x_0))$ es máximo relativo de $f$ cuando…',
+            options: [
+              '$f\'(x_0) = 0$ o no existe $f\'(x_0)$',
+              'La derivada cambia de signo positivo a negativo en ese punto',
+              '$f\'\'(x_0) = 0$',
+              'La derivada cambia de signo negativo a positivo en ese punto',
+              '$f(x_0) = 0$',
+            ],
+            correctIndexes: [0, 1],
+            explain: 'Las dos condiciones van juntas: se anula (o no existe) la derivada primera <strong>y</strong> el signo pasa de positivo a negativo. El cambio de negativo a positivo corresponde al mínimo relativo, y $f\'\'(x_0) = 0$ es la condición de punto de inflexión.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-6-1', front: 'Los 7 pasos del estudio completo', back: '1) Dominio. 2) Intersecciones con los ejes. 3) Asíntotas. 4) Crecimiento y extremos. 5) Concavidad y puntos de inflexión. 6) Gráfico aproximado. 7) Conjunto imagen y extremos absolutos.' },
+        { id: 'fc-6-2', front: 'Restricciones a mirar para el dominio', back: 'Denominadores distintos de cero, radicandos mayores o iguales a cero y argumentos de los logaritmos positivos.' },
+        { id: 'fc-6-3', front: 'Asíntota vertical — condición', back: '$x = a$ es asíntota vertical de $f \\leftrightarrow \\lim\\limits_{x \\to a} f(x) = \\infty$.' },
+        { id: 'fc-6-4', front: 'Asíntota horizontal — condición', back: '$y = b$ es asíntota horizontal de $f \\leftrightarrow \\lim\\limits_{x \\to \\infty} f(x) = b$.' },
+        { id: 'fc-6-5', front: 'Asíntota oblicua — cómo se calcula', back: '$y = mx + b$ es oblicua si existen y son finitos $m = \\lim\\limits_{x \\to \\infty} \\dfrac{f(x)}{x}$ y $b = \\lim\\limits_{x \\to \\infty}(f(x) - mx)$.' },
+        { id: 'fc-6-6', front: 'Ejemplo — derivadas de $f(x) = \\dfrac{x}{x^2+1}$', back: '$f\'(x) = \\dfrac{-x^2+1}{(x^2+1)^2}$ y $f\'\'(x) = \\dfrac{-2x(-x^2+3)}{(x^2+1)^3}$.' },
+        { id: 'fc-6-7', front: 'Ejemplo — extremos de $f(x) = \\dfrac{x}{x^2+1}$', back: '$\\left(1;\\dfrac{1}{2}\\right)$ es MÁXIMO RELATIVO y $\\left(-1;-\\dfrac{1}{2}\\right)$ es mínimo relativo. Crece en $(-1;1)$ y decrece en $(-\\infty;-1)$ y $(1;+\\infty)$.' },
+        { id: 'fc-6-8', front: 'Ejemplo — puntos de inflexión', back: '$\\left(-\\sqrt{3};-\\dfrac{\\sqrt{3}}{4}\\right)$, $(0;0)$ y $\\left(\\sqrt{3};\\dfrac{\\sqrt{3}}{4}\\right)$. Cóncava hacia arriba en $(-\\sqrt{3};0)$ y $(\\sqrt{3};+\\infty)$; hacia abajo en $(-\\infty;-\\sqrt{3})$ y $(0;\\sqrt{3})$.' },
+        { id: 'fc-6-9', front: 'Ejemplo — conjunto imagen y extremos absolutos', back: 'Imagen $\\left[-\\dfrac{1}{2};\\dfrac{1}{2}\\right]$. $\\left(-1;-\\dfrac{1}{2}\\right)$ es mínimo absoluto y $\\left(1;\\dfrac{1}{2}\\right)$ es MÁXIMO ABSOLUTO.' },
+      ],
+    },
+
+    {
+      id: '7',
+      unit: 'estudio-completo',
+      title: 'Extremos absolutos y extremos condicionados',
+      criollo: 'Los extremos relativos son "el más alto del barrio"; los absolutos son "el más alto de todo el país". Y los condicionados son "el más alto dentro de este intervalo que te doy". La gracia del tema es que, cuando te encierran en un intervalo cerrado, el máximo y el mínimo pueden estar en los extremos relativos de adentro o directamente en las puntas del intervalo — así que hay que comparar imágenes y quedarse con la más grande y la más chica.',
+      blocks: [
+        { type: 'h3', text: 'Extremos absolutos', criollo: 'Definición corta: los puntos donde la función alcanza la mayor y la menor imagen de todo su dominio.' },
+        { type: 'p', text: 'Se denomina así a los puntos del dominio en los que la función tiene la mayor y la menor imagen.' },
+        { type: 'math', latex: '(a; f(a)) \\text{ es máximo absoluto de } f \\iff \\forall x \\in Df : f(a) \\geq f(x)', display: true },
+        { type: 'math', latex: '(b; f(b)) \\text{ es mínimo absoluto de } f \\iff \\forall x \\in Df : f(b) \\leq f(x)', display: true },
+        { type: 'p', text: 'Para determinar los extremos absolutos de una función, primero se determina el conjunto imagen y a partir de allí se analiza, si existe, el mayor y/o el menor valor.' },
+
+        { type: 'h3', text: 'Extremos condicionados', criollo: 'Acá te cambian la regla: ya no mirás todo el dominio sino solo un intervalo. Y el teorema te garantiza que, si la función es continua en un intervalo cerrado, sí o sí hay máximo y mínimo adentro.' },
+        { type: 'p', text: 'Se denomina así a los puntos en los que una función continua toma su mayor y menor valor dentro de un intervalo.' },
+        { type: 'callout', tone: 'info', text: '<strong>Teorema:</strong> toda función continua en un intervalo $[a;b]$ alcanza al menos una vez en él su valor máximo y su valor mínimo.' },
+        { type: 'p', text: 'Observemos los siguientes gráficos:' },
+        {
+          type: 'figure',
+          src: 'images/diagrams/analisis-matematico-2/extremos-cond-grafica-1.png',
+          alt: 'Gráfica 1: curva con dos máximos relativos y dos mínimos relativos, sin extremos absolutos, definida en todos los reales',
+          caption: 'Gráfica 1 — dominio: todos los reales. Tocá la imagen para ampliarla.',
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/analisis-matematico-2/extremos-cond-grafica-2.png',
+          alt: 'Gráfica 2: la misma curva restringida al intervalo [a;b], con los extremos absolutos coincidiendo con los extremos del intervalo',
+          caption: 'Gráfica 2 — dominio: el intervalo $[a;b]$.',
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/analisis-matematico-2/extremos-cond-grafica-3.png',
+          alt: 'Gráfica 3: la misma curva restringida a otro intervalo [a;b], con los extremos absolutos también en los extremos del intervalo',
+          caption: 'Gráfica 3 — dominio: el intervalo $[a;b]$.',
+        },
+        {
+          type: 'figure',
+          src: 'images/diagrams/analisis-matematico-2/extremos-cond-grafica-4.png',
+          alt: 'Gráfica 4: la misma curva restringida a un intervalo [a;b] donde el máximo absoluto está en b y el mínimo absoluto es un mínimo relativo interior',
+          caption: 'Gráfica 4 — el máximo absoluto coincide con $b$ y el mínimo absoluto con un mínimo relativo interior.',
+        },
+        { type: 'p', text: 'En la gráfica 1, si consideramos como dominio de $f(x)$ todos los reales, podemos ver que la función tiene dos máximos relativos y dos mínimos relativos, pero <strong>no tiene ni máximo ni mínimo absoluto</strong>. En las gráficas siguientes consideramos como dominio de $f(x)$ el intervalo $[a;b]$. En las gráficas 2 y 3 vemos que los extremos absolutos de $f(x)$ coinciden con los extremos del intervalo. Por último, en la gráfica 4, el máximo absoluto coincide con el extremo $b$ del intervalo y el mínimo absoluto con el mínimo relativo de $f$ que pertenece al intervalo.' },
+        { type: 'p', text: 'De las observaciones anteriores podemos concluir que los extremos condicionados de una función continua en un intervalo <strong>pueden encontrarse en los extremos del intervalo o en los extremos relativos de la función que pertenecen al mismo</strong>. Por lo tanto, para determinar los extremos condicionados de una función primero determinamos los extremos relativos pertenecientes al intervalo y luego comparamos sus imágenes con las imágenes de los extremos del intervalo. La mayor de todas las imágenes corresponde al máximo condicionado y la menor, al mínimo condicionado.' },
+        { type: 'callout', tone: 'criollo', text: 'La receta es de tres pasos y no falla: 1) derivás e igualás a cero para sacar los puntos críticos; 2) tirás a la basura los que caen fuera del intervalo; 3) evaluás $f$ en los críticos que quedaron <strong>y también en $a$ y en $b$</strong>. Comparás todas las imágenes: la más grande es el máximo condicionado, la más chica el mínimo. Ese paso 3 es donde todo el mundo se olvida de evaluar las puntas del intervalo.' },
+
+        { type: 'h3', text: 'Ejemplo resuelto: f(x) = x³ – 3x + 3 en [–3; 0]' },
+        { type: 'p', text: 'Determinar los valores máximo y mínimo de $f(x) = x^3 - 3x + 3$ en el intervalo $[-3;0]$.' },
+        { type: 'p', text: '<strong>Solución.</strong> Primero hallamos la derivada de $f(x)$:' },
+        { type: 'math', latex: 'f\'(x) = 3x^2 - 3', display: true },
+        { type: 'p', text: 'Igualamos a cero para buscar los puntos críticos: $3x^2 - 3 = 0 \\rightarrow x = 1 \\lor x = -1$.' },
+        { type: 'p', text: '$x = 1$ no pertenece al intervalo $[-3;0]$, por lo que para dicho valor no evaluamos $f(x)$.' },
+        { type: 'p', text: 'Calculamos la imagen para los extremos del intervalo y para el punto crítico que sí pertenece al intervalo:' },
+        {
+          type: 'ul',
+          items: [
+            '$f(-3) = -15 \\rightarrow$ mínimo de $f(x)$ en el intervalo.',
+            '$f(0) = 3$.',
+            '$f(-1) = 5 \\rightarrow$ máximo de $f(x)$ en el intervalo.',
+          ],
+        },
+        {
+          type: 'plot',
+          caption: 'La función $f(x) = x^3 - 3x + 3$ sobre el intervalo $[-3;0]$. El punto crítico $x = -1$ queda adentro (y da el máximo condicionado); $x = 1$ queda afuera y se descarta. Arrastrá la tangente y mirá que se aplana en $x = -1$ y en $x = 1$.',
+          height: 380,
+          domain: [-3.6, 2],
+          range: [-16, 8],
+          curves: [
+            { fn: (x) => x ** 3 - 3 * x + 3, d1: (x) => 3 * x * x - 3, label: 'f(x)', color: 'ink', width: 2.2 },
+          ],
+          vlines: [
+            { x: -3, label: 'a = -3', color: 'steel' },
+            { x: 0, label: 'b = 0', color: 'steel' },
+          ],
+          points: [
+            { x: -3, on: 0, label: 'MÍNIMO cond. (-3;-15)', color: 'accent', guides: true },
+            { x: -1, on: 0, label: 'MÁXIMO cond. (-1;5)', color: 'forest', guides: true },
+            { x: 1, on: 0, label: 'x = 1 (fuera del intervalo)', color: 'muted' },
+          ],
+          tangent: { curve: 0, at: -1, min: -3.4, max: 1.8, readout: ['f', 'd1'] },
+        },
+        { type: 'p', text: 'Luego decimos que los extremos condicionados de $f(x)$ son:' },
+        {
+          type: 'ul',
+          items: [
+            'MÍNIMO CONDICIONADO: $P = (-3;-15)$.',
+            'MÁXIMO CONDICIONADO: $Q = (-1;5)$.',
+          ],
+        },
+        { type: 'callout', tone: 'criollo', text: 'Mirá el detalle fino del ejemplo: el máximo condicionado ($x = -1$) es un máximo relativo de la función, pero el mínimo condicionado ($x = -3$) <strong>no es un mínimo relativo de nada</strong> — es simplemente la punta izquierda del intervalo. Ese es exactamente el caso de la gráfica 4 del apunte. Si solo hubieras buscado extremos relativos, el mínimo se te escapaba.' },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-7-1', q: 'Toda función continua en un intervalo $[a;b]$ alcanza al menos una vez su valor máximo y su valor mínimo en él.', a: true, explain: 'Es el teorema textual que enuncia el apunte, y es lo que garantiza que los extremos condicionados existan.' },
+          { id: 'tf-7-2', q: 'En la gráfica 1, con dominio todos los reales, la función tiene máximo y mínimo absolutos.', a: false, explain: 'El apunte aclara que tiene dos máximos relativos y dos mínimos relativos, pero <strong>no</strong> tiene ni máximo ni mínimo absoluto.' },
+          { id: 'tf-7-3', q: 'Los extremos condicionados pueden estar en los extremos del intervalo o en los extremos relativos que pertenecen a él.', a: true, explain: 'Es la conclusión que el apunte saca de comparar las gráficas 1 a 4.' },
+          { id: 'tf-7-4', q: 'En el ejemplo, el punto crítico $x = 1$ se descarta porque no anula la derivada.', a: false, explain: 'Sí anula la derivada ($3 \\cdot 1^2 - 3 = 0$). Se descarta porque <strong>no pertenece al intervalo</strong> $[-3;0]$.' },
+          { id: 'tf-7-5', q: 'Para hallar extremos absolutos, el apunte propone primero determinar el conjunto imagen y de ahí analizar el mayor y/o el menor valor.', a: true, explain: 'Es el procedimiento textual, y por eso el paso 7 del estudio completo va después del gráfico aproximado.' },
+        ],
+        mc: [
+          {
+            id: 'mc-7-1',
+            q: '¿Cómo se define formalmente que $(a; f(a))$ sea máximo absoluto de $f$?',
+            options: [
+              '$\\forall x \\in Df : f(a) \\geq f(x)$',
+              '$\\forall x \\in Df : f(a) \\leq f(x)$',
+              '$f\'(a) = 0$ y $f\'\'(a) < 0$',
+              '$\\exists x \\in Df : f(a) > f(x)$',
+            ],
+            correctIndex: 0,
+            explain: 'El máximo absoluto es aquel cuya imagen es mayor o igual que la de <strong>cualquier</strong> punto del dominio. La segunda opción es la definición de mínimo absoluto.',
+          },
+          {
+            id: 'mc-7-2',
+            q: 'En el ejemplo $f(x) = x^3 - 3x + 3$ en $[-3;0]$, ¿cuál es el máximo condicionado?',
+            options: [
+              '$(0;3)$',
+              '$(-3;-15)$',
+              '$(-1;5)$',
+              '$(1;1)$',
+            ],
+            correctIndex: 2,
+            explain: 'Comparando $f(-3) = -15$, $f(0) = 3$ y $f(-1) = 5$, la mayor imagen es $5$, así que $Q = (-1;5)$ es el máximo condicionado.',
+          },
+          {
+            id: 'mc-7-3',
+            q: '¿Qué muestra la gráfica 4 del apunte?',
+            options: [
+              'Que los dos extremos absolutos coinciden con los extremos del intervalo',
+              'Que el máximo absoluto coincide con $b$ y el mínimo absoluto con un mínimo relativo interior',
+              'Que la función no tiene extremos absolutos en el intervalo',
+              'Que el mínimo absoluto coincide con $a$ y el máximo con un máximo relativo interior',
+            ],
+            correctIndex: 1,
+            explain: 'Ese es el caso mixto: una punta del intervalo y un extremo relativo de adentro. En las gráficas 2 y 3 los dos extremos absolutos caen en las puntas del intervalo.',
+          },
+          {
+            id: 'mc-7-4',
+            q: 'Después de descartar los puntos críticos que quedan fuera del intervalo, ¿en qué valores hay que evaluar $f$?',
+            options: [
+              'Solo en los puntos críticos que quedaron adentro',
+              'Solo en los extremos $a$ y $b$ del intervalo',
+              'En los puntos críticos de adentro y también en $a$ y en $b$',
+              'En el punto medio del intervalo',
+            ],
+            correctIndex: 2,
+            explain: 'El apunte compara las imágenes de los extremos relativos que pertenecen al intervalo con las imágenes de los extremos del intervalo. La mayor da el máximo condicionado y la menor el mínimo.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-7-1',
+            q: 'En el ejemplo $f(x) = x^3 - 3x + 3$ en $[-3;0]$, ¿qué valores se evalúan?',
+            options: [
+              '$f(-3)$',
+              '$f(0)$',
+              '$f(-1)$',
+              '$f(1)$',
+              '$f(3)$',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain: 'Se evalúan las dos puntas del intervalo ($-3$ y $0$) y el único punto crítico que pertenece a él ($-1$). $x = 1$ está fuera del intervalo y $x = 3$ ni siquiera es punto crítico.',
+          },
+          {
+            id: 'ms-7-2',
+            q: '¿Qué afirmaciones sobre la gráfica 1 son correctas según el apunte?',
+            options: [
+              'Tiene dos máximos relativos',
+              'Tiene dos mínimos relativos',
+              'No tiene máximo absoluto',
+              'No tiene mínimo absoluto',
+              'Su dominio es el intervalo $[a;b]$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'En la gráfica 1 el dominio son todos los reales; el intervalo $[a;b]$ aparece recién en las gráficas 2, 3 y 4.',
+          },
+          {
+            id: 'ms-7-3',
+            q: '¿Cuáles de estos puntos son extremos condicionados de $f(x) = x^3 - 3x + 3$ en $[-3;0]$?',
+            options: [
+              '$(-3;-15)$',
+              '$(-1;5)$',
+              '$(0;3)$',
+              '$(1;1)$',
+              '$(3;21)$',
+            ],
+            correctIndexes: [0, 1],
+            explain: '$P = (-3;-15)$ es el mínimo condicionado y $Q = (-1;5)$ el máximo. $f(0) = 3$ se evalúa pero no es ni el mayor ni el menor valor.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-7-1', front: 'Extremos absolutos — definición', back: 'Los puntos del dominio en los que la función tiene la mayor y la menor imagen. $(a;f(a))$ es máximo absoluto $\\iff \\forall x \\in Df: f(a) \\geq f(x)$; $(b;f(b))$ es mínimo absoluto $\\iff \\forall x \\in Df: f(b) \\leq f(x)$.' },
+        { id: 'fc-7-2', front: 'Extremos condicionados — definición', back: 'Los puntos en los que una función continua toma su mayor y menor valor <strong>dentro de un intervalo</strong>.' },
+        { id: 'fc-7-3', front: 'Teorema de los extremos condicionados', back: 'Toda función continua en un intervalo $[a;b]$ alcanza al menos una vez en él su valor máximo y su valor mínimo.' },
+        { id: 'fc-7-4', front: '¿Dónde pueden estar los extremos condicionados?', back: 'En los extremos del intervalo o en los extremos relativos de la función que pertenecen al mismo.' },
+        { id: 'fc-7-5', front: 'Receta para hallar extremos condicionados', back: 'Determinar los extremos relativos que pertenecen al intervalo, comparar sus imágenes con las imágenes de los extremos del intervalo. La mayor es el máximo condicionado y la menor, el mínimo condicionado.' },
+        { id: 'fc-7-6', front: 'Cómo se hallan los extremos absolutos', back: 'Primero se determina el conjunto imagen de la función y a partir de allí se analiza, si existe, el mayor y/o el menor valor.' },
+        { id: 'fc-7-7', front: 'Gráficas 2 y 3 vs. gráfica 4', back: 'En las gráficas 2 y 3 los extremos absolutos coinciden con los extremos del intervalo. En la 4, el máximo absoluto coincide con $b$ y el mínimo absoluto con el mínimo relativo de $f$ que pertenece al intervalo.' },
+        { id: 'fc-7-8', front: 'Ejemplo — $f(x) = x^3 - 3x + 3$ en $[-3;0]$', back: '$f\'(x) = 3x^2 - 3 = 0 \\rightarrow x = 1 \\lor x = -1$; $x = 1$ queda fuera. $f(-3) = -15$, $f(0) = 3$, $f(-1) = 5$. MÍNIMO CONDICIONADO $P = (-3;-15)$; MÁXIMO CONDICIONADO $Q = (-1;5)$.' },
+      ],
+    },
+
+    {
       id: '5',
       unit: 'tps',
       title: 'TP 1 — Extremos relativos. Concavidad y convexidad',
@@ -975,9 +1446,227 @@ export default {
         { id: 'fc-5-8', front: 'Ejercicio 8 — consigna final', back: 'Determinar los intervalos de concavidad positiva y negativa de la función y las abscisas de los puntos de inflexión.' },
       ],
     },
+
+    {
+      id: '8',
+      unit: 'tps',
+      title: 'TP 2 — Estudio completo de funciones. Extremos condicionados',
+      criollo: 'El segundo trabajo práctico: siete consignas que te hacen aplicar la receta de los siete pasos hasta que salga sola. El ejercicio 1 es un estudio completo guiado de una racional, el 2 son ocho funciones para hacer el estudio completo entero, el 3 y el 4 son de leer gráficos, y del 5 al 7 son extremos condicionados (incluido el problema del tiempo de reacción según la edad).',
+      blocks: [
+        { type: 'h3', text: 'Consignas', criollo: 'Los enunciados van tal cual vienen en el PDF de la cátedra, y los gráficos de los ejercicios 3 y 4 son las figuras originales, así que los valores que leas ahí son los que valen.' },
+
+        { type: 'h3', text: 'Ejercicio 1' },
+        { type: 'p', text: 'Dada la función $f(x) = \\dfrac{2x^2+3}{4x-1}$:' },
+        {
+          type: 'ul',
+          items: [
+            'a) Hallar el dominio, intersección con los ejes y las asíntotas.',
+            'b) Analizar la continuidad y clasificar, si existen, los puntos de discontinuidad.',
+            'c) Hallar intervalos de crecimiento, decrecimiento y extremos, si existen.',
+            'd) Hallar intervalos de concavidad, convexidad y puntos de inflexión, si existen.',
+            'e) Realizar la gráfica aproximada.',
+            'f) Hallar los extremos de $f(x)$ en el intervalo $[-2;0]$.',
+            'g) Hallar las ecuaciones de la recta tangente y normal al gráfico de $f(x)$ en $x = 0$.',
+          ],
+        },
+
+        { type: 'h3', text: 'Ejercicio 2' },
+        { type: 'p', text: 'Realizar el estudio completo y el gráfico aproximado de las siguientes funciones:' },
+        {
+          type: 'ul',
+          items: [
+            '$a)\\; f(x) = \\dfrac{e^x}{x}$',
+            '$b)\\; g(x) = \\dfrac{2x}{x^2+1}$',
+            '$c)\\; h(x) = \\dfrac{x}{\\ln x}$',
+            '$d)\\; i(x) = x^3 - 3x^2$',
+            '$e)\\; j(x) = x + \\dfrac{1}{x}$',
+            '$f)\\; k(x) = x\\sqrt{1-x^2}$',
+            '$g)\\; l(x) = 2x^2 - x^4$',
+            '$h)\\; m(x) = 2^{\\frac{1}{x-1}}$',
+          ],
+        },
+
+        { type: 'h3', text: 'Ejercicio 3' },
+        { type: 'p', text: 'Teniendo en cuenta el siguiente gráfico de la derivada de una función $f(x)$ definida en reales, complete para que las afirmaciones sean verdaderas.' },
+        {
+          type: 'figure',
+          src: 'images/diagrams/analisis-matematico-2/tp2-ej3-grafico-derivada.png',
+          alt: 'Gráfico de la derivada de f: parábola que corta al eje x en x = -5 y en x = 3, con vértice cerca de (-1; -2)',
+          caption: 'Ejercicio 3 — gráfico de $f\'(x)$ (figura original del TP). Tocá la imagen para ampliarla.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'La función $f(x)$ es creciente en los intervalos …………… y decreciente en ……………',
+            '$f\'(-5) = \\ldots$ y $f\'(3) = \\ldots$',
+            'Por lo tanto, podemos concluir que en $x = 3$ la función tiene un …………… y en $x = -5$ tiene un ……………',
+            'La función $f\'(x)$ es creciente en el intervalo …………… y decreciente en ……………',
+            'Y, entonces, $f(x)$ es cóncava en el intervalo …………… y convexa en ……………',
+            'Además, $f\'\'(-1) = \\ldots$ Por lo tanto, en $x = \\ldots$ la función tiene un punto de inflexión.',
+          ],
+        },
+
+        { type: 'h3', text: 'Ejercicio 4' },
+        { type: 'p', text: 'Dado el siguiente gráfico de una función $f(x)$ determine:' },
+        {
+          type: 'figure',
+          src: 'images/diagrams/analisis-matematico-2/tp2-ej4-grafico-funcion.png',
+          alt: 'Gráfico de una función f(x) con un máximo relativo cerca de x = -1,7, un mínimo relativo cerca de x = -1, un máximo relativo cerca de x = 0,5 y un mínimo relativo cerca de x = 1,6',
+          caption: 'Ejercicio 4 — gráfico de $f(x)$ (figura original del TP). Tocá la imagen para ampliarla.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'a) Un intervalo para que el máximo de $f(x)$ coincida con un máximo relativo.',
+            'b) Un intervalo para que el mínimo de $f(x)$ sea uno de los extremos del intervalo.',
+            'c) Un intervalo donde los extremos sean ambos extremos de los intervalos.',
+          ],
+        },
+
+        { type: 'h3', text: 'Ejercicio 5' },
+        { type: 'p', text: 'Hallar los extremos de las siguientes funciones restringidas a los correspondientes intervalos.' },
+        {
+          type: 'ul',
+          items: [
+            '$a)\\; f(x) = 3x^2 + 2x - 1$ &nbsp;&nbsp; con $-1 \\leq x \\leq 4$',
+            '$b)\\; g(x) = x - \\ln(2+x)$ &nbsp;&nbsp; con $0 \\leq x \\leq 3$',
+            '$c)\\; h(x) = 2x^3 - 3x^2 - 12x + 2$ &nbsp;&nbsp; con $-2 \\leq x \\leq 3$',
+          ],
+        },
+
+        { type: 'h3', text: 'Ejercicio 6' },
+        { type: 'p', text: 'Para la siguiente función $f(x) = x^3 + 3x^2 - 9x$, se pide:' },
+        {
+          type: 'ul',
+          items: [
+            'a) Hallar intervalos de crecimiento, decrecimiento y extremos, si es que existen.',
+            'b) Hallar los extremos de $f(x)$, sujeto a la restricción $0 \\leq x \\leq 4$.',
+          ],
+        },
+
+        { type: 'h3', text: 'Ejercicio 7' },
+        { type: 'p', text: 'En una empresa el departamento de recursos humanos, se encontró que el tiempo de reacción para solucionar un obstáculo varía acorde la edad del personal según la función:' },
+        { type: 'math', latex: 'R(x) = 0{,}02\\sqrt{1850 - 40x + \\tfrac{1}{2}x^2}', display: true },
+        { type: 'p', text: 'donde $R(x)$ representa el tiempo de reacción medido en minutos. La edad del personal se encuentra entre: 25 y 60 años. Determine la edad en la que el tiempo de reacción es mínimo y cuál es dicho tiempo.' },
+
+        { type: 'callout', tone: 'criollo', text: 'Un par de avisos para no tropezar. En el ejercicio 3 el gráfico es de <strong>$f\'$, no de $f$</strong>: donde la parábola está por debajo del eje, $f$ decrece; donde corta el eje, $f$ tiene candidatos a extremo; y el vértice de la parábola (el mínimo de $f\'$) es el punto de inflexión de $f$. En el ejercicio 4, en cambio, el gráfico <strong>sí</strong> es el de $f$, y lo que tenés que hacer es inventar vos los intervalos que cumplan cada condición — hay muchas respuestas válidas. Y en el 7, la edad está restringida a $[25;60]$: es un extremo condicionado de manual, así que evaluá también las puntas.' },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-8-1', q: 'En el ejercicio 1 la función a estudiar es $f(x) = \\dfrac{2x^2+3}{4x-1}$.', a: true, explain: 'Es el enunciado textual, y sobre ella se piden los siete ítems (dominio, continuidad, crecimiento, concavidad, gráfica, extremos en $[-2;0]$ y rectas tangente y normal en $x = 0$).' },
+          { id: 'tf-8-2', q: 'En el ejercicio 3 el gráfico dado corresponde a la función $f(x)$.', a: false, explain: 'Corresponde a la <strong>derivada</strong> de $f(x)$. Por eso las consignas te hacen deducir crecimiento, extremos, concavidad y punto de inflexión de $f$ a partir de la parábola.' },
+          { id: 'tf-8-3', q: 'El ejercicio 7 restringe la edad del personal al intervalo de 25 a 60 años.', a: true, explain: 'El enunciado aclara que "la edad del personal se encuentra entre: 25 y 60 años", así que se trata de un problema de extremos condicionados.' },
+          { id: 'tf-8-4', q: 'El ejercicio 6 pide los extremos de $f(x) = x^3 + 3x^2 - 9x$ sujetos a la restricción $-2 \\leq x \\leq 3$.', a: false, explain: 'La restricción del ítem b) es $0 \\leq x \\leq 4$. El intervalo $[-2;3]$ es el del ítem c) del ejercicio 5.' },
+          { id: 'tf-8-5', q: 'En el ejercicio 4 se pide, entre otras cosas, un intervalo donde los extremos de $f(x)$ sean ambos extremos del intervalo.', a: true, explain: 'Es el ítem c). Los otros dos piden un intervalo donde el máximo coincida con un máximo relativo y otro donde el mínimo sea una de las puntas.' },
+        ],
+        mc: [
+          {
+            id: 'mc-8-1',
+            q: '¿Qué se pide en el ítem g) del ejercicio 1?',
+            options: [
+              'La gráfica aproximada de $f(x)$',
+              'Los extremos de $f(x)$ en $[-2;0]$',
+              'Las ecuaciones de la recta tangente y normal en $x = 0$',
+              'Los puntos de inflexión de $f(x)$',
+            ],
+            correctIndex: 2,
+            explain: 'El ítem g) pide las rectas tangente y normal al gráfico en $x = 0$. La gráfica aproximada es el e) y los extremos en $[-2;0]$, el f).',
+          },
+          {
+            id: 'mc-8-2',
+            q: 'En el ejercicio 5, ¿a qué intervalo está restringida $g(x) = x - \\ln(2+x)$?',
+            options: [
+              '$-1 \\leq x \\leq 4$',
+              '$0 \\leq x \\leq 3$',
+              '$-2 \\leq x \\leq 3$',
+              '$0 \\leq x \\leq 4$',
+            ],
+            correctIndex: 1,
+            explain: 'El ítem b) del ejercicio 5 lleva $0 \\leq x \\leq 3$. El $[-1;4]$ es del ítem a), el $[-2;3]$ del c) y el $[0;4]$ es del ejercicio 6.',
+          },
+          {
+            id: 'mc-8-3',
+            q: 'Del gráfico de $f\'(x)$ del ejercicio 3, ¿qué se concluye para los valores de $x$ donde la parábola queda por debajo del eje?',
+            options: [
+              'Que $f$ es decreciente ahí',
+              'Que $f$ es negativa ahí',
+              'Que $f$ es convexa ahí',
+              'Que $f$ tiene un mínimo ahí',
+            ],
+            correctIndex: 0,
+            explain: 'Que $f\'(x) < 0$ significa que $f$ decrece. El signo de $f$ y su concavidad son otra cosa: la concavidad se lee del <strong>crecimiento</strong> de $f\'$, no de su signo.',
+          },
+          {
+            id: 'mc-8-4',
+            q: '¿Qué función aparece en el ítem h) del ejercicio 2?',
+            options: [
+              '$m(x) = 2^{\\frac{1}{x-1}}$',
+              '$m(x) = \\dfrac{2}{x-1}$',
+              '$m(x) = 2x^2 - x^4$',
+              '$m(x) = x + \\dfrac{1}{x}$',
+            ],
+            correctIndex: 0,
+            explain: 'Es una exponencial de base 2 con exponente $\\frac{1}{x-1}$. La tercera opción es el ítem g) y la cuarta el e).',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-8-1',
+            q: '¿Qué ejercicios del TP 2 son de extremos condicionados (función restringida a un intervalo)?',
+            options: [
+              'El ítem f) del ejercicio 1',
+              'El ejercicio 5',
+              'El ítem b) del ejercicio 6',
+              'El ejercicio 7',
+              'El ejercicio 2',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'El ejercicio 2 pide el estudio completo de ocho funciones sobre todo su dominio, sin restricción a un intervalo. Todos los demás acotan la variable a un intervalo cerrado.',
+          },
+          {
+            id: 'ms-8-2',
+            q: 'Según el enunciado del ejercicio 1, ¿qué hay que hallar?',
+            options: [
+              'El dominio y las asíntotas',
+              'Los puntos de discontinuidad, clasificados',
+              'Los intervalos de concavidad y convexidad',
+              'Los extremos en el intervalo $[-2;0]$',
+              'El conjunto imagen y los extremos absolutos',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'El ejercicio 1 tiene siete ítems (a–g) y ninguno pide explícitamente el conjunto imagen ni los extremos absolutos; sí pide la gráfica aproximada y las rectas tangente y normal en $x = 0$.',
+          },
+          {
+            id: 'ms-8-3',
+            q: 'Sobre el ejercicio 7 (tiempo de reacción), ¿qué afirmaciones son correctas?',
+            options: [
+              '$R(x)$ mide el tiempo de reacción en minutos',
+              'La edad está acotada entre 25 y 60 años',
+              'Se pide la edad de mínimo tiempo de reacción y ese tiempo',
+              'La función lleva un factor $0{,}02$ multiplicando a la raíz',
+              'Se pide además el gráfico aproximado de $R(x)$',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'El enunciado no pide graficar: pide determinar la edad en la que el tiempo de reacción es mínimo y cuál es dicho tiempo.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-8-1', front: 'TP 2 — ¿qué cubre?', back: 'Siete consignas: estudio completo guiado de una racional (1), estudio completo de ocho funciones (2), lectura del gráfico de $f\'$ (3), lectura del gráfico de $f$ para armar intervalos (4) y extremos condicionados (5, 6 y 7).' },
+        { id: 'fc-8-2', front: 'Ejercicio 1 — la función y los ítems', back: '$f(x) = \\dfrac{2x^2+3}{4x-1}$. Se pide: dominio, intersecciones y asíntotas; continuidad y clasificación de discontinuidades; crecimiento y extremos; concavidad, convexidad y puntos de inflexión; gráfica aproximada; extremos en $[-2;0]$; rectas tangente y normal en $x = 0$.' },
+        { id: 'fc-8-3', front: 'Ejercicio 2 — las ocho funciones', back: '$\\dfrac{e^x}{x}$, $\\dfrac{2x}{x^2+1}$, $\\dfrac{x}{\\ln x}$, $x^3-3x^2$, $x+\\dfrac{1}{x}$, $x\\sqrt{1-x^2}$, $2x^2-x^4$ y $2^{\\frac{1}{x-1}}$.' },
+        { id: 'fc-8-4', front: 'Ejercicio 3 — qué se da y qué se pide', back: 'Se da el gráfico de $f\'(x)$ (una parábola) y hay que completar afirmaciones sobre crecimiento y decrecimiento de $f$, extremos en $x = 3$ y $x = -5$, crecimiento de $f\'$, concavidad y convexidad de $f$, y el punto de inflexión.' },
+        { id: 'fc-8-5', front: 'Ejercicio 4 — qué se pide', back: 'A partir del gráfico de $f(x)$: a) un intervalo donde el máximo coincida con un máximo relativo; b) uno donde el mínimo sea una de las puntas del intervalo; c) uno donde ambos extremos sean las puntas del intervalo.' },
+        { id: 'fc-8-6', front: 'Ejercicio 5 — funciones e intervalos', back: '$f(x) = 3x^2+2x-1$ en $[-1;4]$; $g(x) = x - \\ln(2+x)$ en $[0;3]$; $h(x) = 2x^3-3x^2-12x+2$ en $[-2;3]$.' },
+        { id: 'fc-8-7', front: 'Ejercicio 6 — qué pide', back: 'Para $f(x) = x^3+3x^2-9x$: a) intervalos de crecimiento, decrecimiento y extremos; b) los extremos sujetos a la restricción $0 \\leq x \\leq 4$.' },
+        { id: 'fc-8-8', front: 'Ejercicio 7 — el problema de RR. HH.', back: '$R(x) = 0{,}02\\sqrt{1850 - 40x + \\frac{1}{2}x^2}$ da el tiempo de reacción en minutos según la edad $x$, con $25 \\leq x \\leq 60$. Se pide la edad de mínimo tiempo de reacción y ese tiempo.' },
+      ],
+    },
   ],
   pdfs: [
     { key: 'aplicacion-derivadas', label: 'Apunte · Aplicación de las derivadas', path: 'pdfs/analisis-matematico-2/1-aplicacion-de-las-derivadas.pdf' },
     { key: 'tp1-extremos-concavidad', label: 'TP 1 · Extremos relativos. Concavidad y convexidad', path: 'pdfs/analisis-matematico-2/2-tp1-extremos-concavidad.pdf' },
+    { key: 'estudio-completo-funciones', label: 'Apunte · Estudio completo de funciones. Extremos condicionados', path: 'pdfs/analisis-matematico-2/3-estudio-completo-de-funciones.pdf' },
+    { key: 'tp2-estudio-completo', label: 'TP 2 · Estudio completo de funciones. Extremos condicionados', path: 'pdfs/analisis-matematico-2/4-tp2-estudio-completo-extremos-condicionados.pdf' },
   ],
 };
