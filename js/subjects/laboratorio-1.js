@@ -1,13 +1,16 @@
 /**
  * Materia: Laboratorio 1 (UP, 0114).
  *
- * Seis apuntes de cátedra transcriptos, agrupados en seis unidades:
+ * Apuntes de cátedra transcriptos, agrupados en nueve unidades:
  *   'poo'         Origen de la POO (PPT "Origen de la POO. Filosofía clásica y teoría de objetos")
  *   'ides'        Introducción a los IDEs. Eclipse. IntelliJ IDEA. Otros
  *   'eclipse'     Tutorial de Eclipse (con las capturas del apunte como figures)
  *   'java'        Tutorial de código Java
  *   'relaciones'  Relaciones entre objetos (PPT: cardinalidad, direccionalidad, ordinalidad)
  *   'paradigmas'  Lenguajes imperativos y declarativos y sus derivaciones
+ *   'jvm'         Funcionamiento de la JVM y el JRE
+ *   'jdk'         Herramientas de la Java Development Kit (javac, java, javadoc, jar, JConsole)
+ *   'actividades' Actividades prácticas (programar un auto y sus partes; modelar y hacer funcionar una PC)
  *
  * Quiz (V/F + MC + MS) y flashcards por sección. Las capturas del tutorial de
  * Eclipse y los diagramas UML de cardinalidad viven en
@@ -26,6 +29,9 @@ export default {
     'java': 'Tutorial de código Java',
     'relaciones': 'Relaciones entre objetos',
     'paradigmas': 'Lenguajes imperativos y declarativos',
+    'jvm': 'Funcionamiento de la JVM y el JRE',
+    'jdk': 'Herramientas del JDK',
+    'actividades': 'Actividades prácticas',
   },
   sections: [
     {
@@ -3896,6 +3902,1148 @@ export default {
         { id: 'fc-20-7', front: 'DSL', back: 'Lenguaje específico de dominio: creado para cubrir una necesidad específica. Ejemplos del apunte: las expresiones regulares y SQL.' },
       ],
     },
+    {
+      id: '21',
+      unit: 'jvm',
+      title: 'JDK, JRE y JVM: qué es cada cosa',
+      criollo: 'Tres siglas que todo el mundo mezcla. El JDK es la caja de herramientas completa para desarrollar, el JRE es lo mínimo para correr programas, y la JVM es la máquina virtual que se mete entre tu código y el sistema operativo. La gracia de todo esto es que compilás una sola vez y corrés donde quieras, porque lo que cambia según la plataforma es la máquina virtual, no tu código.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'El kit de desarrollo',
+          criollo: 'Para instalar Java no instalás "Java" a secas: instalás el kit, que trae todo adentro.',
+        },
+        {
+          type: 'p',
+          text: 'Para instalar Java se necesita instalar el <strong>"kit de desarrollo"</strong>. El entorno de desarrollo se denomina <strong>JDK</strong> (<em>Java Development Kit</em>), que involucra tanto la <strong>JVM</strong> (<em>Java Virtual Machine</em>) como también el <strong>JRE</strong> (<em>Java Runtime Environment</em>).',
+        },
+        {
+          type: 'ul',
+          items: [
+            '<strong>JRE</strong>: sirve para ejecutar código Java, para correr programas Java.',
+            '<strong>JDK</strong>: tiene muchas herramientas de desarrollo, como ser el compilador, el motor para hacer documentación, etc.',
+            '<strong>JVM</strong>: una máquina virtual corre entre el lenguaje y el SO. Cuando se escribe código Java <strong>no se compila a código de máquina</strong>.',
+          ],
+        },
+        {
+          type: 'h3',
+          text: 'Compilar sin máquina virtual: el caso de C',
+          criollo: 'En C compilás para un sistema operativo concreto. Cambiás de sistema, volvés a compilar.',
+        },
+        {
+          type: 'p',
+          text: 'En C, cuando se compila, se hace en <strong>lenguaje de máquina</strong>. Por ejemplo: si tengo Linux, debo compilar en C para Linux (lo mismo sucedería en caso de Windows o Mac).',
+        },
+        {
+          type: 'h3',
+          text: 'Compilar con máquina virtual: el caso de Java',
+          criollo: 'Acá está el truco: el que se instala distinto en cada plataforma es el JRE con su máquina virtual. Tu .class es siempre el mismo.',
+        },
+        {
+          type: 'p',
+          text: 'Con una máquina virtual, como es en el caso de Java (o .Net para el caso), cuando se compila, se hace <strong>para el lenguaje de la máquina virtual</strong> y no para lenguaje de máquina. Lo que se instala para diferentes plataformas es <strong>la máquina virtual</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Cuando se instala Java, se instala el JRE (y la JVM). El JRE sí se instala para Linux, Windows, Mac: <strong>la máquina virtual es lo que cambia en cada plataforma</strong>. En cambio, el código se compila una vez en cualquier plataforma y luego puede correr en cualquier máquina virtual de cualquier otra. Ejemplo: escribo y compilo con un JDK en Windows, pero puedo correr el programa en un JRE para Linux.',
+        },
+        {
+          type: 'table',
+          caption: 'Las tres siglas',
+          headers: ['Sigla', 'Nombre', 'Para qué sirve'],
+          rows: [
+            ['JDK', 'Java Development Kit', 'Entorno de desarrollo: involucra la JVM y el JRE, y suma herramientas de desarrollo (compilador, motor de documentación, etc.)'],
+            ['JRE', 'Java Runtime Environment', 'Ejecutar código Java, correr programas Java. Se instala para Linux, Windows o Mac'],
+            ['JVM', 'Java Virtual Machine', 'Máquina virtual que corre entre el lenguaje y el SO. Es lo que cambia en cada plataforma'],
+          ],
+        },
+        {
+          type: 'callout',
+          tone: 'criollo',
+          text: 'Regla nemotécnica: si solo querés <strong>correr</strong> programas Java, te alcanza el JRE. Si querés <strong>escribirlos</strong>, necesitás el JDK, que ya te trae el JRE y la JVM adentro.',
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-21-1', q: 'El JDK involucra tanto a la JVM como al JRE.', a: true, explain: 'El apunte lo dice textual: el entorno de desarrollo se denomina JDK, que involucra tanto la JVM como también el JRE.' },
+          { id: 'tf-21-2', q: 'Cuando se escribe código Java, se compila directamente a código de máquina.', a: false, explain: 'Justamente no: con una máquina virtual se compila para el lenguaje de la máquina virtual y no para lenguaje de máquina.' },
+          { id: 'tf-21-3', q: 'El JRE se instala igual en Linux, Windows y Mac, sin cambios entre plataformas.', a: false, explain: 'El JRE sí se instala para Linux, Windows y Mac, pero la máquina virtual es lo que cambia en cada plataforma.' },
+          { id: 'tf-21-4', q: 'Se puede compilar un programa con un JDK en Windows y correrlo en un JRE para Linux.', a: true, explain: 'Es el ejemplo literal del apunte: el código se compila una vez en cualquier plataforma y luego puede correr en cualquier máquina virtual de cualquier otra.' },
+          { id: 'tf-21-5', q: 'En C, cuando se compila, se hace en lenguaje de máquina y para un sistema operativo determinado.', a: true, explain: 'El apunte lo usa como contraste: si tengo Linux, debo compilar en C para Linux; lo mismo sucedería con Windows o Mac.' },
+          { id: 'tf-21-6', q: '.Net también usa una máquina virtual, según el apunte.', a: true, explain: 'El apunte lo menciona expresamente: "como es en el caso de Java (o .Net para el caso)".' },
+        ],
+        mc: [
+          {
+            id: 'mc-21-1',
+            q: '¿Qué significan las siglas JDK, JRE y JVM?',
+            options: [
+              'Java Development Kit, Java Runtime Environment, Java Virtual Machine',
+              'Java Deploy Kernel, Java Reference Engine, Java Verified Machine',
+              'Java Debug Kit, Java Resource Environment, Java Virtual Manager',
+              'Java Default Kit, Java Running Executable, Java Value Machine',
+            ],
+            correctIndex: 0,
+            explain: 'JDK es Java Development Kit, JRE es Java Runtime Environment y JVM es Java Virtual Machine.',
+          },
+          {
+            id: 'mc-21-2',
+            q: 'Según el apunte, ¿qué trae el JDK que no trae el JRE?',
+            options: [
+              'Herramientas de desarrollo como el compilador y el motor para hacer documentación',
+              'Solamente la máquina virtual, que el JRE no incluye',
+              'El sistema operativo sobre el que corre la máquina virtual',
+              'La memoria física que reserva el programa al ejecutarse',
+            ],
+            correctIndex: 0,
+            explain: 'El JDK tiene muchas herramientas de desarrollo, como ser el compilador, el motor para hacer documentación, etc. El JRE sirve para ejecutar código Java.',
+          },
+          {
+            id: 'mc-21-3',
+            q: '¿Dónde corre la máquina virtual, según el apunte?',
+            options: [
+              'Entre el lenguaje y el sistema operativo',
+              'Entre el sistema operativo y el hardware de red',
+              'Dentro del compilador, como un módulo suyo',
+              'Entre el usuario y la interfaz gráfica',
+            ],
+            correctIndex: 0,
+            explain: 'El apunte define la JVM así: "una máquina virtual corre entre el lenguaje y el SO".',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-21-1',
+            q: '¿Cuáles de estas afirmaciones sobre el modelo de compilación de Java son correctas según el apunte?',
+            options: [
+              'Se compila para el lenguaje de la máquina virtual, no para lenguaje de máquina',
+              'Lo que se instala para diferentes plataformas es la máquina virtual',
+              'El código se compila una vez y puede correr en cualquier máquina virtual de otra plataforma',
+              'Cuando se instala Java, se instala el JRE (y la JVM)',
+              'Hay que recompilar el código en cada sistema operativo donde se quiera correr',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'Recompilar en cada plataforma es lo que pasa en C, justamente el contraejemplo que usa el apunte. En Java se compila una vez y corre en cualquier JVM.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-21-1', front: 'JDK', back: 'Java Development Kit. El entorno de desarrollo: involucra tanto la JVM como el JRE, y suma herramientas de desarrollo como el compilador y el motor para hacer documentación.' },
+        { id: 'fc-21-2', front: 'JRE', back: 'Java Runtime Environment. Sirve para ejecutar código Java, para correr programas Java. Se instala para Linux, Windows o Mac.' },
+        { id: 'fc-21-3', front: 'JVM', back: 'Java Virtual Machine. Una máquina virtual que corre entre el lenguaje y el SO. Cuando se escribe código Java no se compila a código de máquina.' },
+        { id: 'fc-21-4', front: '¿Cómo compila C?', back: 'En lenguaje de máquina y para un SO determinado: si tengo Linux, debo compilar en C para Linux (lo mismo con Windows o Mac).' },
+        { id: 'fc-21-5', front: '¿Qué cambia en cada plataforma en Java?', back: 'La máquina virtual. El JRE se instala para Linux, Windows o Mac, y la VM es lo que cambia. El código se compila una vez y corre en cualquier VM de cualquier otra plataforma.' },
+        { id: 'fc-21-6', front: 'Ejemplo de portabilidad del apunte', back: 'Escribo y compilo con un JDK en Windows, pero puedo correr el programa en un JRE para Linux.' },
+      ],
+    },
+    {
+      id: '22',
+      unit: 'jvm',
+      title: 'Del código fuente al Bytecode: el recorrido de la ejecución',
+      criollo: 'Acá se responde la pregunta trampa: ¿Java es compilado o interpretado? Ninguna de las dos. Escribís fuente, javac te lo pasa a Bytecode binario, y recién en tiempo de ejecución el JIT lo traduce a lo que la JVM entiende. Después entran en escena el ClassLoader, el Memory Manager, el Garbage Collector y el Exception Handler, que son los que hacen el laburo sucio por vos.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Primera parte: fuente, compilador y Bytecode',
+          criollo: 'De lo que escribís a un binario que todavía nadie ejecuta directo.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Lo primero que se hace es <strong>escribir el archivo de código fuente</strong>. El código fuente consiste en instrucciones en lenguaje natural, en inglés.',
+            'El código fuente se debe <strong>compilar</strong>. El compilador es una de las herramientas que tiene el JDK, con el cual se logra un código en <strong>Bytecode</strong>. El producto del compilador <strong>no es lo que la JVM ejecuta en forma directa</strong>. Tampoco es código de máquina.',
+            'El archivo compilado que está en Bytecode es un <strong>archivo binario</strong>. La JVM <strong>no interpreta Bytecode directamente</strong>.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Hay lenguajes que son <strong>interpretados</strong> (por ejemplo: PHP, Pearl) y otros que son <strong>compilados</strong> (por ejemplo: C). <strong>Java no es un lenguaje interpretado ni compilado.</strong>',
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'Esta es de las que caen seguro en el parcial: Java <strong>no</strong> es interpretado ni compilado. El producto de javac no es código de máquina ni es algo que la JVM ejecute en forma directa.',
+        },
+        {
+          type: 'h3',
+          text: 'Segunda parte: el JIT y los módulos del JRE',
+          criollo: 'El JIT es el traductor de último momento, y detrás vienen los cuatro módulos que administran todo.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Cuando el programa corre, el <strong>JRE</strong> toma esos archivos en Bytecode y los pasa por el <strong>JIT</strong> (<em>Just In Time compiler</em>), para entonces procesarlo y enviarlo al lenguaje que entiende la <strong>JVM</strong>.',
+            'Una vez procesado se utiliza el módulo <strong>ClassLoader</strong>, el cual levanta a memoria todo lo necesario para poder correr el programa. El ClassLoader levanta a memoria clases, objetos, etc., mediante el módulo de <strong>Memory Manager</strong>; este módulo habla tanto con la memoria física de la máquina como con la plataforma si es que necesita paginar, etc.',
+            'El <strong>Garbage Collector</strong>, a diferencia de C, administra la memoria: cuando una variable o referencia ya no se usa más, la elimina automáticamente de la memoria.',
+            'Por último está el <strong>Exception Handler</strong>, un módulo que lo que hace es manejar los posibles errores que puedan llegar a lanzarse durante la ejecución del programa.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Al haber una <strong>liberación automática de la memoria</strong> no hay que hacer una reserva previa: en Java no necesitamos <code>malloc</code> ni tampoco necesitamos liberar la memoria una vez utilizada.',
+        },
+        {
+          type: 'table',
+          caption: 'Los módulos que intervienen en la ejecución',
+          headers: ['Módulo', 'Qué hace'],
+          rows: [
+            ['JIT (Just In Time compiler)', 'Procesa el Bytecode que le pasa el JRE y lo envía al lenguaje que entiende la JVM'],
+            ['ClassLoader', 'Levanta a memoria todo lo necesario para correr el programa: clases, objetos, etc.'],
+            ['Memory Manager', 'Habla con la memoria física de la máquina y con la plataforma si necesita paginar'],
+            ['Garbage Collector', 'Administra la memoria: elimina automáticamente lo que ya no se usa. Por eso no hace falta malloc ni liberar memoria'],
+            ['Exception Handler', 'Maneja los posibles errores que puedan lanzarse durante la ejecución'],
+          ],
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-22-1', q: 'Java es un lenguaje interpretado, como PHP.', a: false, explain: 'El apunte es taxativo: Java no es un lenguaje interpretado ni compilado. PHP y Pearl son los ejemplos de interpretados; C, de compilado.' },
+          { id: 'tf-22-2', q: 'El producto del compilador es lo que la JVM ejecuta en forma directa.', a: false, explain: 'El producto del compilador no es lo que la JVM ejecuta en forma directa, ni tampoco es código de máquina. La JVM no interpreta Bytecode directamente.' },
+          { id: 'tf-22-3', q: 'El archivo compilado que está en Bytecode es un archivo binario.', a: true, explain: 'Así lo describe el apunte en la primera parte del procedimiento.' },
+          { id: 'tf-22-4', q: 'En Java hay que reservar la memoria con malloc antes de usarla.', a: false, explain: 'Al haber liberación automática de la memoria por el Garbage Collector, no hay que hacer reserva previa: no necesitamos malloc ni liberar la memoria una vez utilizada.' },
+          { id: 'tf-22-5', q: 'El ClassLoader levanta a memoria clases y objetos mediante el módulo de Memory Manager.', a: true, explain: 'Exactamente: el ClassLoader levanta a memoria todo lo necesario para correr el programa, valiéndose del Memory Manager.' },
+          { id: 'tf-22-6', q: 'El código fuente consiste en instrucciones en lenguaje natural, en inglés.', a: true, explain: 'Es la definición que da el apunte en el primer punto del procedimiento.' },
+        ],
+        mc: [
+          {
+            id: 'mc-22-1',
+            q: '¿Qué hace el JIT?',
+            options: [
+              'Toma el Bytecode y lo procesa para enviarlo al lenguaje que entiende la JVM',
+              'Traduce el código fuente en inglés a Bytecode binario',
+              'Libera de la memoria las referencias que ya no se usan',
+              'Maneja los errores que se lanzan durante la ejecución',
+            ],
+            correctIndex: 0,
+            explain: 'JIT es Just In Time compiler. El JRE toma los archivos en Bytecode y los pasa por el JIT para procesarlos y enviarlos al lenguaje que entiende la JVM. Pasar de fuente a Bytecode es tarea del compilador; liberar memoria, del Garbage Collector; los errores, del Exception Handler.',
+          },
+          {
+            id: 'mc-22-2',
+            q: '¿Cuál es la diferencia que marca el apunte entre Java y C respecto de la memoria?',
+            options: [
+              'En Java el Garbage Collector elimina automáticamente lo que ya no se usa',
+              'En Java hay que reservar el heap antes de crear cada objeto',
+              'En C la memoria la administra la máquina virtual del sistema',
+              'En C no existe la posibilidad de liberar memoria manualmente',
+            ],
+            correctIndex: 0,
+            explain: 'El Garbage Collector, a diferencia de C, administra la memoria: cuando una variable o referencia ya no se usa más, la elimina automáticamente.',
+          },
+          {
+            id: 'mc-22-3',
+            q: 'Según el apunte, ¿qué lenguajes se dan como ejemplo de interpretados?',
+            options: [
+              'PHP y Pearl',
+              'C y C++',
+              'Java y .Net',
+              'Prolog y Lisp',
+            ],
+            correctIndex: 0,
+            explain: 'El apunte menciona PHP y Pearl como interpretados y C como compilado, para concluir que Java no es ni una cosa ni la otra.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-22-1',
+            q: '¿Cuáles de estos módulos intervienen en la segunda parte del procedimiento de ejecución?',
+            options: [
+              'JIT (Just In Time compiler)',
+              'ClassLoader',
+              'Memory Manager',
+              'Garbage Collector',
+              'Exception Handler',
+            ],
+            correctIndexes: [0, 1, 2, 3, 4],
+            explain: 'Los cinco aparecen en la segunda parte del procedimiento: el JRE pasa el Bytecode por el JIT, el ClassLoader levanta a memoria con el Memory Manager, el Garbage Collector administra la memoria y el Exception Handler maneja los errores.',
+          },
+          {
+            id: 'ms-22-2',
+            q: '¿Cuáles de estas afirmaciones sobre el Bytecode son correctas?',
+            options: [
+              'Es el producto del compilador del JDK',
+              'Es un archivo binario',
+              'La JVM no lo interpreta directamente',
+              'No es código de máquina',
+              'Es texto plano legible en cualquier editor',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'El Bytecode es binario, no es código de máquina y la JVM no lo interpreta directamente. Lo que es texto plano en lenguaje natural es el código fuente, no el Bytecode.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-22-1', front: '¿Java es compilado o interpretado?', back: 'Ninguno de los dos. Hay lenguajes interpretados (PHP, Pearl) y compilados (C). Java no es un lenguaje interpretado ni compilado.' },
+        { id: 'fc-22-2', front: 'Bytecode', back: 'El código que produce el compilador del JDK. Es un archivo binario, no es código de máquina, y la JVM no lo interpreta ni lo ejecuta en forma directa.' },
+        { id: 'fc-22-3', front: 'JIT', back: 'Just In Time compiler. El JRE toma los archivos en Bytecode y los pasa por el JIT para procesarlos y enviarlos al lenguaje que entiende la JVM.' },
+        { id: 'fc-22-4', front: 'ClassLoader', back: 'Módulo que levanta a memoria todo lo necesario para correr el programa (clases, objetos, etc.), mediante el módulo de Memory Manager.' },
+        { id: 'fc-22-5', front: 'Memory Manager', back: 'Módulo que habla tanto con la memoria física de la máquina como con la plataforma si es que necesita paginar, etc.' },
+        { id: 'fc-22-6', front: 'Garbage Collector', back: 'Administra la memoria: cuando una variable o referencia ya no se usa más, la elimina automáticamente. Por eso en Java no necesitamos malloc ni liberar la memoria.' },
+        { id: 'fc-22-7', front: 'Exception Handler', back: 'Módulo que maneja los posibles errores que puedan llegar a lanzarse durante la ejecución del programa.' },
+      ],
+    },
+    {
+      id: '23',
+      unit: 'jvm',
+      title: 'La memoria de la JVM y el Classpath',
+      criollo: 'Tu programa nunca toca la memoria física: toca un área que la VM le administra. Esa área viene partida en tres (HEAP, STACK y CLASS) y cada una guarda algo distinto. Y el CLASSPATH es la variable de entorno que le dice al JRE dónde buscar las librerías; por suerte el IDE te la maneja solo.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Tercera parte: la memoria',
+          criollo: 'El programa le pide a la VM y la VM le pide al sistema. Nunca al revés.',
+        },
+        {
+          type: 'p',
+          text: 'El ClassLoader usa el Memory Manager para acceder a la memoria RAM de la computadora. Java es un lenguaje que utiliza una <em>Virtual Machine</em>: es esta la que usa la memoria física, pero <strong>nuestro programa no usa memoria física</strong>, sino que usa un <strong>área de memoria que la VM administra</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'La JVM reserva una cantidad física de memoria para poder funcionar. Esa memoria está dividida en <strong>3 partes fundamentales</strong>:',
+        },
+        {
+          type: 'ol',
+          items: [
+            '<strong>HEAP</strong>: como la palabra lo dice, es el "montón" de objetos y demás datos que están ejecutándose en un momento determinado.',
+            '<strong>STACK</strong>: el área que maneja la <strong>pila de llamadas</strong>. Cuando una función llama a otra y le pasa argumentos (y llama a otra que le pasa otros argumentos y así sucesivamente), no solo se va almacenando qué función llama a qué otra función, sino también los argumentos que se van pasando entre funciones y los valores retornados por cada una.',
+            '<strong>CLASS</strong>: el área que maneja los valores de variables que son "de Clase", también llamados <strong>"estáticos"</strong>.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'El JRE junto con la JVM interactúan con el disco rígido (u otros recursos) o con el SO con la plataforma. <strong>El programa nunca interactuará con los recursos directamente, siempre mediante la VM.</strong>',
+        },
+        {
+          type: 'h3',
+          text: 'Classpath',
+          criollo: 'El lugar donde el JRE va a buscar las librerías. Si no está bien seteado, tu programa no encuentra nada.',
+        },
+        {
+          type: 'p',
+          text: 'Es el espacio definido en el SO, accedido por el JRE, donde se encontrarán <strong>todas las librerías del lenguaje</strong> para que pueda correr la JVM, funcionar el JRE y ejecutarse nuestros programas. También cualquier librería de utilidades que necesitemos agregar a nuestras aplicaciones: frameworks web, utilidades de audio, librerías de estadísticas, frameworks de persistencia, controladores de bases de datos, etc.',
+        },
+        {
+          type: 'p',
+          text: '<code>CLASSPATH</code> es una <strong>variable de entorno del SO</strong> que tenemos que establecer para correr nuestros programas Java. Por defecto, el valor de esta variable es el <strong>"directorio actual"</strong>. Por lo tanto, podríamos hacerla apuntar a un directorio donde tenemos todas las librerías y listo. Normalmente esto no es muy práctico y existen un montón de herramientas para solucionar este problema. <strong>Los IDE, por lo general, manejan el CLASSPATH por nosotros.</strong>',
+        },
+        {
+          type: 'table',
+          caption: 'Las 3 áreas de memoria de la JVM',
+          headers: ['Área', 'Qué guarda'],
+          rows: [
+            ['HEAP', 'El "montón" de objetos y demás datos que están ejecutándose en un momento determinado'],
+            ['STACK', 'La pila de llamadas: qué función llama a qué otra, los argumentos que se pasan y los valores retornados por cada una'],
+            ['CLASS', 'Los valores de las variables "de Clase", también llamados "estáticos"'],
+          ],
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-23-1', q: 'El programa Java usa directamente la memoria física de la máquina.', a: false, explain: 'La que usa la memoria física es la VM. Nuestro programa usa un área de memoria que la VM administra.' },
+          { id: 'tf-23-2', q: 'El área de STACK maneja la pila de llamadas, incluyendo los argumentos pasados y los valores retornados.', a: true, explain: 'Es la definición exacta del apunte para el área de STACK.' },
+          { id: 'tf-23-3', q: 'El área de CLASS maneja los objetos que están ejecutándose en un momento determinado.', a: false, explain: 'Eso es el HEAP. El área de CLASS maneja los valores de variables que son "de Clase" o "estáticos".' },
+          { id: 'tf-23-4', q: 'Por defecto, el valor de la variable CLASSPATH es el "directorio actual".', a: true, explain: 'Así lo dice el apunte; por eso podríamos hacerla apuntar a un directorio con todas las librerías, aunque no sea muy práctico.' },
+          { id: 'tf-23-5', q: 'Los IDE, por lo general, manejan el CLASSPATH por nosotros.', a: true, explain: 'Es el cierre del apunte sobre el tema: existen un montón de herramientas para solucionar el problema y los IDE suelen encargarse.' },
+          { id: 'tf-23-6', q: 'El programa puede interactuar directamente con el disco rígido sin pasar por la VM.', a: false, explain: 'El apunte lo remarca: el programa nunca interactuará con los recursos directamente, siempre mediante la VM.' },
+        ],
+        mc: [
+          {
+            id: 'mc-23-1',
+            q: '¿Cuáles son las 3 partes fundamentales en las que se divide la memoria que reserva la JVM?',
+            options: [
+              'HEAP, STACK y CLASS',
+              'HEAP, STACK y CACHE',
+              'CLASS, POOL y STACK',
+              'HEAP, BUFFER y CLASS',
+            ],
+            correctIndex: 0,
+            explain: 'El apunte las enumera así: 1. HEAP, 2. el área de STACK, 3. el área de CLASS.',
+          },
+          {
+            id: 'mc-23-2',
+            q: '¿Qué es el HEAP según el apunte?',
+            options: [
+              'El "montón" de objetos y demás datos que están ejecutándose en un momento determinado',
+              'La pila donde se apilan las llamadas entre funciones',
+              'El área donde viven las variables estáticas o de clase',
+              'El espacio del SO donde se guardan las librerías del lenguaje',
+            ],
+            correctIndex: 0,
+            explain: 'El apunte lo dice casi literal: "como la palabra lo dice, es el montón de objetos y demás datos que están ejecutándose en un momento determinado".',
+          },
+          {
+            id: 'mc-23-3',
+            q: '¿Qué es el CLASSPATH?',
+            options: [
+              'Una variable de entorno del SO que indica dónde están las librerías',
+              'Un área de memoria que reserva la JVM para las clases',
+              'El directorio donde el compilador deja los archivos .class',
+              'Un módulo del JRE que carga las clases a memoria',
+            ],
+            correctIndex: 0,
+            explain: 'CLASSPATH es una variable de entorno del SO que hay que establecer para correr nuestros programas Java; define el espacio donde el JRE encuentra las librerías. El que carga clases a memoria es el ClassLoader.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-23-1',
+            q: '¿Qué tipos de librerías menciona el apunte como ejemplos de lo que puede vivir en el classpath?',
+            options: [
+              'Frameworks web',
+              'Utilidades de audio',
+              'Librerías de estadísticas',
+              'Frameworks de persistencia',
+              'Controladores de bases de datos',
+            ],
+            correctIndexes: [0, 1, 2, 3, 4],
+            explain: 'El apunte enumera los cinco: frameworks web, utilidades de audio, librerías de estadísticas, frameworks de persistencia, controladores de bases de datos, etc.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-23-1', front: 'HEAP', back: 'El "montón" de objetos y demás datos que están ejecutándose en un momento determinado.' },
+        { id: 'fc-23-2', front: 'STACK', back: 'Área que maneja la pila de llamadas: qué función llama a qué otra función, los argumentos que se van pasando entre funciones y los valores retornados por cada una.' },
+        { id: 'fc-23-3', front: 'Área de CLASS', back: 'Maneja los valores de variables que son "de Clase", también llamados "estáticos".' },
+        { id: 'fc-23-4', front: '¿El programa usa memoria física?', back: 'No. La que usa la memoria física es la Virtual Machine; nuestro programa usa un área de memoria que la VM administra.' },
+        { id: 'fc-23-5', front: 'Acceso a recursos', back: 'El JRE junto con la JVM interactúan con el disco rígido, otros recursos, el SO y la plataforma. El programa nunca interactuará con los recursos directamente, siempre mediante la VM.' },
+        { id: 'fc-23-6', front: 'Classpath', back: 'Espacio definido en el SO, accedido por el JRE, donde están todas las librerías del lenguaje y las de utilidades que agreguemos, para que corra la JVM, funcione el JRE y se ejecuten nuestros programas.' },
+        { id: 'fc-23-7', front: 'Valor por defecto de CLASSPATH', back: 'El "directorio actual". Se puede hacer apuntar a un directorio con todas las librerías, aunque no suele ser práctico. Los IDE por lo general manejan el CLASSPATH por nosotros.' },
+      ],
+    },
+    {
+      id: '24',
+      unit: 'jdk',
+      title: 'El compilador javac y el entorno de ejecución java',
+      criollo: 'Las dos herramientas que usás sí o sí, aunque el IDE te las esconda. javac toma el .java y escupe el .class, resolviendo las dependencias solo. java corre el programa, pero ojo: le pasás el nombre de la clase, no el del archivo. Y si te quedás sin memoria, los culpables se llaman Xms y Xmx.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Herramientas Java',
+          criollo: 'El compilador es solo la punta del iceberg del kit.',
+        },
+        {
+          type: 'p',
+          text: 'Ya se ha abordado una de las herramientas fundamentales del kit de desarrollo incluido con Java: el compilador. Pero este, como es de esperarse, <strong>no es la única herramienta que ofrece el kit</strong>.',
+        },
+        {
+          type: 'h3',
+          text: 'Compilador: javac',
+          criollo: 'javac analiza sintaxis y traduce. Lo que no hace es arreglarte el código feo.',
+        },
+        {
+          type: 'p',
+          text: 'El compilador toma los archivos de código fuente y los pasa a código que la máquina virtual puede utilizar. El <strong><code>javac</code></strong> (<em>java compiler</em>) hace lo que hacen todos los compiladores: <strong>analizar la sintaxis</strong> del código fuente y, si es correcta, pasar el código a un estado <strong>"ejecutable"</strong>. De lo contrario, muestra los errores en la sintaxis.',
+        },
+        {
+          type: 'p',
+          text: 'A diferencia de otros compiladores (siendo <strong>"jikes"</strong>, el compilador de Java creado por IBM, el mejor ejemplo), <strong>javac no hace optimizaciones sobre el código</strong>. Es decir, si repetimos variables, organizamos mal las sentencias de control, en fin, si nuestro código es ineficiente, el resultado compilado será ineficiente. Por fortuna, la máquina virtual, antes de ejecutar el código (mediante el JIT visto en el módulo anterior) <strong>sí hace optimizaciones de todo tipo</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Sin contar con un IDE, la forma de utilizar <code>javac</code> es muy sencilla. Teniendo acceso al ejecutable del compilador, se debe llamar a <code>javac</code> seguido del archivo de código fuente a compilar. Por ejemplo:',
+        },
+        {
+          type: 'code',
+          code: '>javac Auto.java',
+        },
+        {
+          type: 'p',
+          text: 'Si la clase <code>Auto</code> tiene una agregación con la clase <code>Motor</code>, por ejemplo, <code>javac</code> compilará la clase <code>Motor</code> de forma correspondiente. Es decir, <strong>javac compila las dependencias de cada clase según sea necesario</strong>. El archivo compilado resultante será <code>Auto.class</code>.',
+        },
+        {
+          type: 'p',
+          text: 'Por defecto, el compilador arroja los archivos compilados <strong>en el lugar donde se ejecuta</strong>. Alternativamente, se le puede pasar como argumentos desde dónde tomar las fuentes y dónde dejar los compilados, que es lo que generalmente hacen los IDE cuando usan el <code>javac</code>. En caso de usar librerías, es necesario pasarle al compilador la ubicación de estas para evitar errores.',
+        },
+        {
+          type: 'p',
+          text: 'El compilador <code>javac</code> tiene variedad de opciones, que pueden consultarse con:',
+        },
+        {
+          type: 'code',
+          code: '>javac -help\n\n>javac -X',
+        },
+        {
+          type: 'p',
+          text: 'La segunda, <code>-X</code>, brinda una serie <strong>"extendida"</strong> de configuraciones disponibles.',
+        },
+        {
+          type: 'h3',
+          text: 'El entorno de ejecución: java',
+          criollo: 'Acá está el error clásico del principiante: escribir "java Auto.class". No. Es "java Auto".',
+        },
+        {
+          type: 'p',
+          text: 'Una vez compiladas las fuentes, vamos a querer correr el programa. Para eso se utiliza el comando <strong><code>java</code></strong>, que llama al entorno de ejecución. Contrario a lo que se puede pensar a priori, <strong>no debemos indicarle el archivo a ejecutar, sino el nombre de la clase</strong>. Por ejemplo, si tomamos el caso anterior, donde compilamos <code>Auto.java</code> y obtuvimos <code>Auto.class</code>, para "correr" el programa del auto debemos hacer:',
+        },
+        {
+          type: 'code',
+          code: '>java Auto',
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'Nótese cómo le pasamos el <strong>nombre de la clase</strong> a correr y <strong>no el nombre del archivo compilado</strong>. Nada de <code>java Auto.class</code>.',
+        },
+        {
+          type: 'h3',
+          text: 'Parámetros del comando java',
+          criollo: 'Todos opcionales, pero classpath, Xms y Xmx son los que te van a salvar cuando algo explote.',
+        },
+        {
+          type: 'p',
+          text: 'Al igual que el compilador, el comando <code>java</code> acepta una serie de parámetros de configuración, <strong>todos opcionales</strong>, pero que sirven para tener un control más fino sobre la ejecución del programa. Los más importantes son:',
+        },
+        {
+          type: 'ul',
+          items: [
+            'El parámetro <strong><code>classpath</code></strong>: mediante el cual le indicaremos dónde encontrar librerías, si el programa las necesita.',
+            'Los parámetros <strong><code>Xms</code> y <code>Xmx</code></strong>: ambos controlan los límites de la memoria física que utilizará el programa al momento de ejecutarse. <code>Xms</code> indica cuánta memoria física dispondrá el <strong>"heap"</strong> y <code>Xmx</code> hasta cuánto podrá crecer (extenderse) para acomodar los objetos de los cuales necesite el programa.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Si la ejecución, por la razón que sea, excede el valor de <code>Xmx</code>, se lanza un error (<code>java.lang.OutOfMemoryError</code>). Si no se especifican estos parámetros, se establecen unos valores por defecto, de acuerdo con un algoritmo denominado <strong>"ergonómico"</strong>.',
+        },
+        {
+          type: 'table',
+          caption: 'javac vs. java',
+          headers: ['Comando', 'Qué hace', 'Qué se le pasa'],
+          rows: [
+            ['javac', 'Analiza la sintaxis del código fuente y, si es correcta, lo pasa a un estado "ejecutable". Compila también las dependencias', 'El archivo de código fuente: <code>javac Auto.java</code>'],
+            ['java', 'Llama al entorno de ejecución para correr el programa', 'El nombre de la clase, no el del archivo: <code>java Auto</code>'],
+          ],
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-24-1', q: 'javac hace optimizaciones sobre el código que compila.', a: false, explain: 'A diferencia de otros compiladores (jikes, de IBM, es el mejor ejemplo), javac no hace optimizaciones. Si el código es ineficiente, el compilado será ineficiente. Quien sí optimiza es la máquina virtual mediante el JIT.' },
+          { id: 'tf-24-2', q: 'Para ejecutar un programa hay que escribir "java Auto.class".', a: false, explain: 'Al comando java no se le indica el archivo sino el nombre de la clase: "java Auto".' },
+          { id: 'tf-24-3', q: 'Si la clase Auto tiene una agregación con Motor, javac compilará también la clase Motor.', a: true, explain: 'javac compila las dependencias de cada clase según sea necesario. Es el ejemplo literal del apunte.' },
+          { id: 'tf-24-4', q: 'Por defecto, el compilador deja los archivos compilados en el lugar donde se ejecuta.', a: true, explain: 'Así es. Alternativamente se le pueden pasar como argumentos desde dónde tomar las fuentes y dónde dejar los compilados, que es lo que suelen hacer los IDE.' },
+          { id: 'tf-24-5', q: 'Los parámetros de configuración del comando java son obligatorios.', a: false, explain: 'El apunte aclara que son todos opcionales, pero sirven para tener un control más fino sobre la ejecución del programa.' },
+          { id: 'tf-24-6', q: 'Si la ejecución excede el valor de Xmx se lanza un java.lang.OutOfMemoryError.', a: true, explain: 'Es exactamente el error que menciona el apunte.' },
+        ],
+        mc: [
+          {
+            id: 'mc-24-1',
+            q: '¿Qué diferencia hay entre Xms y Xmx?',
+            options: [
+              'Xms indica cuánta memoria física dispondrá el heap y Xmx hasta cuánto podrá crecer',
+              'Xms limita el stack y Xmx limita el heap del programa',
+              'Xms fija la memoria mínima del sistema y Xmx la del compilador',
+              'Xms configura el classpath de origen y Xmx el de destino',
+            ],
+            correctIndex: 0,
+            explain: 'Ambos controlan los límites de la memoria física del programa: Xms es de cuánto dispone el heap y Xmx hasta cuánto puede extenderse para acomodar los objetos que el programa necesite.',
+          },
+          {
+            id: 'mc-24-2',
+            q: '¿Cómo se llama el compilador de Java creado por IBM que el apunte menciona como ejemplo de compilador que sí optimiza?',
+            options: [
+              'jikes',
+              'javac',
+              'jconsole',
+              'javadoc',
+            ],
+            correctIndex: 0,
+            explain: 'El apunte cita a "jikes", el compilador de Java creado por IBM, como el mejor ejemplo de compilador que hace optimizaciones, a diferencia de javac.',
+          },
+          {
+            id: 'mc-24-3',
+            q: '¿Con qué comando se consultan las configuraciones "extendidas" del compilador?',
+            options: [
+              'javac -X',
+              'javac -help',
+              'java -classpath',
+              'javac -Xmx',
+            ],
+            correctIndex: 0,
+            explain: 'javac -help muestra la variedad de opciones; javac -X brinda la serie "extendida" de configuraciones disponibles.',
+          },
+          {
+            id: 'mc-24-4',
+            q: 'Si el código fuente es ineficiente, ¿qué pasa con el resultado compilado por javac?',
+            options: [
+              'Será ineficiente, porque javac no optimiza; la optimización la hace la VM con el JIT',
+              'Será eficiente, porque javac reordena las sentencias de control',
+              'No compilará, porque javac rechaza el código ineficiente',
+              'Será eficiente solo si se pasa el parámetro -X al compilar',
+            ],
+            correctIndex: 0,
+            explain: 'javac no hace optimizaciones: si repetimos variables u organizamos mal las sentencias de control, el resultado compilado será ineficiente. Por fortuna la máquina virtual, mediante el JIT, sí hace optimizaciones de todo tipo antes de ejecutar.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-24-1',
+            q: '¿Cuáles de estas afirmaciones sobre javac son correctas?',
+            options: [
+              'Analiza la sintaxis y, si es correcta, pasa el código a un estado "ejecutable"',
+              'Si la sintaxis no es correcta, muestra los errores',
+              'Compila las dependencias de cada clase según sea necesario',
+              'Por defecto arroja los compilados en el lugar donde se ejecuta',
+              'Optimiza el código para que el resultado sea más eficiente',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'javac no optimiza; ese es el punto en el que se lo contrasta con jikes. Todo lo demás es correcto.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-24-1', front: 'javac', back: 'Java compiler. Toma los archivos de código fuente y los pasa a código que la máquina virtual puede utilizar: analiza la sintaxis y, si es correcta, pasa el código a un estado "ejecutable"; si no, muestra los errores.' },
+        { id: 'fc-24-2', front: '¿javac optimiza?', back: 'No. A diferencia de jikes (el compilador de Java de IBM), javac no hace optimizaciones: si el código es ineficiente, el compilado será ineficiente. La VM sí optimiza, mediante el JIT, antes de ejecutar.' },
+        { id: 'fc-24-3', front: 'Compilar y ejecutar por línea de comandos', back: '>javac Auto.java produce Auto.class. >java Auto corre el programa. Al comando java se le pasa el nombre de la clase, no el del archivo compilado.' },
+        { id: 'fc-24-4', front: 'Dependencias al compilar', back: 'javac compila las dependencias de cada clase según sea necesario: si Auto tiene una agregación con Motor, compila también Motor.' },
+        { id: 'fc-24-5', front: 'Opciones de javac', back: '>javac -help lista la variedad de opciones; >javac -X brinda una serie "extendida" de configuraciones disponibles.' },
+        { id: 'fc-24-6', front: 'Parámetro classpath del comando java', back: 'Le indica dónde encontrar librerías, si el programa las necesita.' },
+        { id: 'fc-24-7', front: 'Xms y Xmx', back: 'Controlan los límites de la memoria física del programa. Xms: cuánta memoria dispondrá el heap. Xmx: hasta cuánto podrá crecer. Si se excede Xmx se lanza java.lang.OutOfMemoryError. Sin especificarlos, se usan valores por defecto de un algoritmo "ergonómico".' },
+      ],
+    },
+    {
+      id: '25',
+      unit: 'jdk',
+      title: 'Javadoc, jar y JConsole',
+      criollo: 'Tres herramientas más del kit. Javadoc te arma un sitio HTML de documentación a partir de comentarios que empiezan con barra-asterisco-asterisco. Jar empaqueta clases en un archivo que en el fondo es un zip disfrazado y puede funcionar como un ejecutable. Y JConsole es la lupa para espiar cómo se está portando tu programa mientras corre.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Documentación de código: Javadoc',
+          criollo: 'Comentás bien una vez y te queda un sitio web de documentación gratis.',
+        },
+        {
+          type: 'p',
+          text: 'Otra herramienta muy común es la llamada <strong><code>javadoc</code></strong>. Javadoc <strong>analiza información incrustada en el código y genera documentación a partir de comentarios en el código fuente</strong>. Es una herramienta muy útil, ya que genera documentación en <strong>formato HTML</strong> y genera también un <strong>"sitio"</strong> con la misma, dividida en <code>&lt;frames&gt;</code> para facilitar la navegación de esta.',
+        },
+        {
+          type: 'p',
+          text: 'Como vimos en el módulo de sintaxis, los comentarios en Java pueden hacerse con la doble barra <code>//</code> o, si era un comentario de múltiples líneas, se podía encerrar entre <code>/*</code> y <code>*/</code>. Para poder disparar la generación de "javadoc", es necesario incluir <strong>"comentarios especiales"</strong>. Estos no son más que comentarios regulares, pero <strong>comienzan siempre con <code>/**</code></strong>.',
+        },
+        {
+          type: 'code',
+          code: '// comentario de código\n\n/*\n   comentario de código\n   de varias líneas\n*/\n\n/**\n * comentario especial: este SÍ lo toma javadoc\n */',
+        },
+        {
+          type: 'p',
+          text: 'El IDE "pinta" los <strong>"comentarios de javadoc"</strong> con un <strong>color distinto</strong> de los "comentarios de código".',
+        },
+        {
+          type: 'p',
+          text: 'Para poder generar la documentación, utilizaremos el comando <code>javadoc</code>. Este funciona de manera similar a <code>javac</code>, en el sentido de que le debemos pasar la clase con los comentarios y este irá recorriendo las otras clases que esta primera utiliza según sea necesario. Durante el recorrido, irá generando la documentación.',
+        },
+        {
+          type: 'p',
+          text: 'Por supuesto, generar la documentación manualmente de todo un sistema (como compilar) puede ser muy complejo o tedioso. <strong>Lo mejor, hoy en día, es utilizar un IDE para estas tareas.</strong>',
+        },
+        {
+          type: 'p',
+          text: 'En el sitio generado, en el punto marcado como <strong>"1"</strong> se puede ver cómo podemos navegar entre los <strong>paquetes</strong> (o, si se selecciona <em>All Classes</em>, se muestran todas, sin filtrar) y en el punto <strong>"2"</strong> están las <strong>clases de cada paquete</strong> (o todas las clases en su defecto). Luego, al seleccionar una clase, podemos ver cómo están todos los "comentarios especiales" que pusimos en el código.',
+        },
+        {
+          type: 'h3',
+          text: 'Herramienta de empaquetado: Jar',
+          criollo: 'Un .jar es un .zip con otro nombre. Y si le decís cuál es la clase principal, te queda algo parecido a un .exe.',
+        },
+        {
+          type: 'p',
+          text: 'El comando <strong><code>jar</code></strong> sirve para <strong>empaquetar clases compiladas en forma de librerías</strong>. El archivo generado es un archivo con extensión <code>.jar</code>. El formato de empaquetado (y compresión, si se configura) es <strong>"zip" estándar</strong>, solo que cambia la extensión: de hecho, podemos abrir un jar con el "WinZip" o cualquier herramienta similar.',
+        },
+        {
+          type: 'p',
+          text: 'Asimismo, se puede utilizar el comando <code>jar</code> para <strong>empaquetar todo un programa</strong>, incluso junto con la clase principal de este, la que se utiliza para iniciar el programa. Entonces, podríamos generar un <strong>entregable</strong> con todo el programa para que pueda ejecutarse. Para hacer una analogía con Windows, sería como generar un <code>.exe</code> con todo nuestro programa. De hecho, con la herramienta <code>jar</code> se puede armar el paquete y al mismo tiempo indicar cuál es la clase para ejecutar. Con esto, y usando la misma herramienta <code>jar</code>, podemos mandar a ejecutar el paquete:',
+        },
+        {
+          type: 'code',
+          code: '// Compilar la clase\n>javac Auto.java\n\n// Empaquetar el programa Auto, generando un "ejecutable" llamado MiProgramaAuto\n>jar -cvf MiProgramaAuto.jar Auto.class\n\n// Ejecutar el programa, utilizando la herramienta "jar"\n>jar MiProgramaAuto',
+        },
+        {
+          type: 'h3',
+          text: 'Herramienta de análisis: JConsole',
+          criollo: 'Se engancha a un programa Java que ya está corriendo y te muestra cómo va de memoria, procesador e hilos.',
+        },
+        {
+          type: 'p',
+          text: '<strong>JConsole</strong> es una herramienta de <strong><em>profiling</em></strong>. Con ella podemos analizar aspectos básicos de la <strong>performance</strong> de nuestro programa. Es una <strong>herramienta gráfica</strong> que se conecta a un <strong>proceso java</strong> (un programa Java en ejecución) y muestra información sobre el <strong>uso de memoria (heap)</strong>, de <strong>procesador</strong>, de <strong>hilos de ejecución</strong>, etc.',
+        },
+        {
+          type: 'p',
+          text: 'Si bien es una herramienta básica, puede ser muy útil para <strong>diagnosticar problemas</strong> con nuestra aplicación, analizando los síntomas y la información reportada. El apunte muestra la pantalla principal de JConsole analizando la ejecución de sí mismo: como es de esperarse, <strong>JConsole está programado en Java</strong>.',
+        },
+        {
+          type: 'h3',
+          text: 'Otras herramientas',
+          criollo: 'La lista sigue, pero se va del alcance de la materia.',
+        },
+        {
+          type: 'p',
+          text: 'La lista de herramientas es extensa, hay varias herramientas más, aunque <strong>escapan al scope de la materia</strong>. Podemos mencionar herramientas para <strong>generar pares de claves pública/privada</strong>, <strong>firmar clases</strong>, <strong>firmar paquetes</strong> (jars generados), <strong>generar web services</strong>, etc.',
+        },
+        {
+          type: 'table',
+          caption: 'Herramientas del JDK vistas en el apunte',
+          headers: ['Herramienta', 'Tipo', 'Para qué sirve'],
+          rows: [
+            ['javac', 'Compilador', 'Analiza la sintaxis del fuente y lo pasa a un estado "ejecutable"'],
+            ['java', 'Entorno de ejecución', 'Corre el programa; se le pasa el nombre de la clase'],
+            ['javadoc', 'Documentación', 'Genera documentación HTML (un sitio dividido en frames) a partir de comentarios que empiezan con /**'],
+            ['jar', 'Empaquetado', 'Empaqueta clases compiladas como librerías o como programa entregable; el formato es zip estándar'],
+            ['JConsole', 'Análisis (profiling)', 'Herramienta gráfica que se conecta a un proceso java y muestra uso de memoria (heap), procesador e hilos'],
+          ],
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-25-1', q: 'Los comentarios especiales que dispara javadoc comienzan con "/**".', a: true, explain: 'Son comentarios regulares pero comienzan siempre con "/**". El IDE incluso los pinta de un color distinto de los comentarios de código.' },
+          { id: 'tf-25-2', q: 'Javadoc genera documentación en formato PDF.', a: false, explain: 'Genera documentación en formato HTML, y también un "sitio" con la misma, dividida en frames para facilitar la navegación.' },
+          { id: 'tf-25-3', q: 'El formato de empaquetado de un archivo .jar es "zip" estándar, solo que cambia la extensión.', a: true, explain: 'De hecho el apunte aclara que podemos abrir un jar con el "WinZip" o cualquier herramienta similar.' },
+          { id: 'tf-25-4', q: 'JConsole es una herramienta de línea de comandos sin interfaz gráfica.', a: false, explain: 'Es una herramienta gráfica que se conecta a un proceso java en ejecución. El apunte muestra su pantalla principal analizándose a sí misma.' },
+          { id: 'tf-25-5', q: 'Con la herramienta jar se puede armar el paquete e indicar al mismo tiempo cuál es la clase para ejecutar.', a: true, explain: 'Por eso el apunte lo compara con generar un ".exe" con todo nuestro programa en Windows.' },
+          { id: 'tf-25-6', q: 'El comando javadoc solo documenta la clase que se le pasa y ninguna otra.', a: false, explain: 'Funciona de manera similar a javac: le pasamos la clase con los comentarios y va recorriendo las otras clases que esta utiliza según sea necesario, generando documentación durante el recorrido.' },
+        ],
+        mc: [
+          {
+            id: 'mc-25-1',
+            q: '¿Qué tipo de herramienta es JConsole?',
+            options: [
+              'Una herramienta de profiling',
+              'Una herramienta de empaquetado',
+              'Una herramienta de documentación',
+              'Un compilador alternativo a javac',
+            ],
+            correctIndex: 0,
+            explain: 'Es una herramienta de profiling: analiza aspectos básicos de la performance del programa (memoria heap, procesador, hilos de ejecución).',
+          },
+          {
+            id: 'mc-25-2',
+            q: '¿Qué información muestra JConsole?',
+            options: [
+              'Uso de memoria (heap), de procesador y de hilos de ejecución',
+              'Los errores de sintaxis del código fuente',
+              'La estructura de paquetes y clases documentadas',
+              'El contenido comprimido de los archivos .jar',
+            ],
+            correctIndex: 0,
+            explain: 'Se conecta a un proceso java en ejecución y muestra información sobre el uso de memoria (heap), de procesador, de hilos de ejecución, etc.',
+          },
+          {
+            id: 'mc-25-3',
+            q: 'En el sitio generado por javadoc, ¿qué se ve en el punto marcado como "1"?',
+            options: [
+              'La navegación entre paquetes, o "All Classes" para verlas todas sin filtrar',
+              'Las clases de cada paquete o todas las clases en su defecto',
+              'Los comentarios especiales de la clase seleccionada',
+              'La lista de errores de sintaxis encontrados al documentar',
+            ],
+            correctIndex: 0,
+            explain: 'En el punto "1" se navega entre los paquetes (o All Classes muestra todas sin filtrar). En el punto "2" están las clases de cada paquete.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-25-1',
+            q: '¿Qué otras herramientas menciona el apunte, aunque escapen al scope de la materia?',
+            options: [
+              'Generar pares de claves pública/privada',
+              'Firmar clases',
+              'Firmar paquetes (jars generados)',
+              'Generar web services',
+              'Reemplazar al Garbage Collector de la JVM',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'El apunte enumera las cuatro primeras. Nada dice sobre reemplazar el Garbage Collector.',
+          },
+          {
+            id: 'ms-25-2',
+            q: '¿Cuáles de estas afirmaciones sobre javadoc son correctas?',
+            options: [
+              'Analiza información incrustada en el código y genera documentación a partir de comentarios',
+              'Genera documentación en formato HTML',
+              'Genera un "sitio" dividido en frames para facilitar la navegación',
+              'Requiere comentarios especiales que comienzan con "/**"',
+              'Solo funciona si el proyecto fue empaquetado previamente con jar',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'Nada en el apunte condiciona javadoc a empaquetar previamente con jar; de hecho javadoc funciona de manera similar a javac, partiendo del código fuente.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-25-1', front: 'javadoc', back: 'Analiza información incrustada en el código y genera documentación a partir de comentarios del código fuente. Produce documentación en formato HTML y un "sitio" dividido en frames para facilitar la navegación.' },
+        { id: 'fc-25-2', front: 'Comentarios especiales de javadoc', back: 'Son comentarios regulares pero comienzan siempre con "/**". El IDE los pinta con un color distinto de los comentarios de código.' },
+        { id: 'fc-25-3', front: '¿Cómo recorre javadoc el proyecto?', back: 'Similar a javac: se le pasa la clase con los comentarios y va recorriendo las otras clases que esta utiliza según sea necesario, generando la documentación durante el recorrido.' },
+        { id: 'fc-25-4', front: 'jar', back: 'Comando para empaquetar clases compiladas en forma de librerías. El archivo generado tiene extensión .jar y el formato es zip estándar, así que se puede abrir con WinZip o similar.' },
+        { id: 'fc-25-5', front: 'Jar como "ejecutable"', back: 'Se puede empaquetar todo un programa junto con su clase principal, generando un entregable ejecutable (análogo a un .exe en Windows). Ejemplo: >jar -cvf MiProgramaAuto.jar Auto.class y luego >jar MiProgramaAuto.' },
+        { id: 'fc-25-6', front: 'JConsole', back: 'Herramienta gráfica de profiling. Se conecta a un proceso java en ejecución y muestra uso de memoria (heap), de procesador, de hilos de ejecución, etc. Útil para diagnosticar problemas.' },
+        { id: 'fc-25-7', front: 'Otras herramientas del JDK', back: 'Escapan al scope de la materia: generar pares de claves pública/privada, firmar clases, firmar paquetes (jars generados), generar web services, etc.' },
+      ],
+    },
+    {
+      id: '26',
+      unit: 'actividades',
+      title: 'Actividad: Programar un auto y sus partes',
+      criollo: 'La actividad práctica de la unidad 02. Cuatro ejercicios que van de menor a mayor: rueda, caja de velocidades, motor y por último el auto que compone todo lo anterior. Ojo con los reglamentos: si no compila, no está entregada; si no respetás las convenciones de código de los módulos teóricos, tampoco. Y cada ejercicio va en su propio Java Project, copiando y pegando las clases del anterior.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Reglamentos generales para la actividad',
+          criollo: 'Leelos antes de escribir una línea, porque varios de estos puntos te tumban la entrega.',
+        },
+        {
+          type: 'ol',
+          items: [
+            'La actividad consta de una serie de ejercicios prácticos de código Java. Se espera que la entrega contenga <strong>uno o más programas que compilen y corran correctamente</strong>. De lo contrario no se considerará "entregada".',
+            'La entrega consiste en un ítem paquete <strong>exportado desde Eclipse</strong>, según se explica en el tutorial. De usar otro IDE, la entrega deberá estar empaquetada según los procedimientos del IDE.',
+            'Cada ejercicio debe tener su propio <strong>"Java Project"</strong> en Eclipse. Si algún ejercicio utiliza las clases del ejercicio anterior, <strong>copiarlas y pegarlas</strong>. No vimos referencias entre proyectos en Eclipse: no utilizarlos.',
+            'El objetivo del ejercicio es <strong>la práctica de código</strong>. No es necesario, ni recomendado, realizar operaciones complejas ni validaciones de valores.',
+            '<strong>No acoplar la salida de los métodos a la consola.</strong> No usar la salida por consola dentro de un método sin una justificación. De haberla, incluir el comentario en el código.',
+            'El código debe <strong>documentarse por sí mismo</strong>: no usar nombres de métodos o variables como "x", "nom", "val", etc. Usar, en cambio, "incógnita", "nombre", "valorDeRetorno", etc.',
+            'No se considerará como "entregada" la actividad si se <strong>ignoran las convenciones de código</strong> descriptas en los módulos teóricos.',
+            'La actividad <strong>no estará calificada numéricamente</strong>.',
+            'La actividad tendrá una valoración de <strong>"entregada" o "no entregada"</strong>.',
+            'La actividad <strong>no podrá ser evaluada y reevaluada</strong> por el docente: se admitirá una sola entrega.',
+            'Se dará una <strong>devolución global</strong> a los alumnos haciendo hincapié en los puntos flojos comunes mediante la plataforma de la materia y remarcando los puntos correctos.',
+          ],
+        },
+        {
+          type: 'h3',
+          text: 'Ejercicio 1: la rueda',
+          criollo: 'Arrancás con la clase más simple del auto.',
+        },
+        {
+          type: 'p',
+          text: 'Implementar la clase rueda para un auto. Las características de una son el <strong>radio</strong>, el <strong>color</strong> y el <strong>tipo de material</strong> que la compone (acero, aleación, etc.). Un comportamiento típico de cualquier rueda es <strong>"girar"</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Realizar una clase de prueba con un método <code>main</code> para poder construir dos o tres ruedas. Hacerlas girar. Mostrar sus datos en la consola (no hace falta todos, elijan un par).',
+        },
+        {
+          type: 'h3',
+          text: 'Ejercicio 2: la caja de velocidades',
+          criollo: 'Misma idea, pero ahora con un atributo que cambia de estado cuando llamás al comportamiento.',
+        },
+        {
+          type: 'p',
+          text: 'Implementar la clase caja de velocidades. Las características de una caja de velocidades de un vehículo típico son el <strong>fabricante</strong>, la <strong>cantidad de marchas</strong> y el <strong>tipo de relación</strong> (larga-mediana-corta o L-M-C). Típicamente, a la caja de velocidades se le <strong>"cambian" las marchas</strong>: representar un comportamiento para cambiar de marcha.',
+        },
+        {
+          type: 'p',
+          text: 'Realizar un <code>main</code> que construya diferentes tipos de cajas, con diferentes características. Imprimir un par de los valores más significativos de sus componentes (fabricante y marcha actual, etc.).',
+        },
+        {
+          type: 'h3',
+          text: 'Ejercicio 3: el motor',
+          criollo: 'Dos comportamientos esta vez: arrancar y detener.',
+        },
+        {
+          type: 'p',
+          text: 'Implementar la clase Motor. Cualquier motor cuenta entre sus características la <strong>marca</strong>, los <strong>hp</strong> (o caballos de fuerza) y la <strong>cilindrada</strong> (1600 o 1.6). A cualquier motor se lo debe poder hacer <strong>arrancar</strong> y <strong>detener</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Realizar un <code>main</code> que construya diferentes tipos de motores, con diferentes valores en sus características. Imprimir un par de los más significativos de sus componentes (fabricante y cilindrada, etc.).',
+        },
+        {
+          type: 'h3',
+          text: 'Ejercicio 4: el auto',
+          criollo: 'Acá se junta todo: el auto se compone de las clases que ya hiciste.',
+        },
+        {
+          type: 'p',
+          text: 'Implementar la clase Auto. El auto siempre tiene una <strong>marca</strong> y un <strong>modelo</strong>. Además, un auto se encuentra <strong>compuesto por un motor, una caja de velocidades y una o varias ruedas</strong>. Posee también características como la <strong>cantidad de puertas</strong> y el opcional de <strong>aire acondicionado</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Realizar otro <code>main</code> donde podamos construir las diferentes partes de un auto, y armar autos con esas partes. Imprimir algunos de sus valores.',
+        },
+        {
+          type: 'table',
+          caption: 'Resumen de las clases pedidas',
+          headers: ['Clase', 'Características', 'Comportamientos'],
+          rows: [
+            ['Rueda', 'Radio, color, tipo de material (acero, aleación, etc.)', 'Girar'],
+            ['Caja de velocidades', 'Fabricante, cantidad de marchas, tipo de relación (larga-mediana-corta o L-M-C)', 'Cambiar de marcha'],
+            ['Motor', 'Marca, hp (caballos de fuerza), cilindrada (1600 o 1.6)', 'Arrancar, detener'],
+            ['Auto', 'Marca, modelo, cantidad de puertas, aire acondicionado (opcional); compuesto por un motor, una caja de velocidades y una o varias ruedas', 'Se arma con las partes'],
+          ],
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'Los dos puntos del reglamento que más entregas tumban: <strong>si no compila y corre, no está entregada</strong>, y <strong>si ignorás las convenciones de código de los módulos teóricos, tampoco</strong>. Sumale que se admite una sola entrega, sin reevaluación.',
+        },
+        {
+          type: 'p',
+          text: '<strong>Bibliografía de la unidad:</strong> Eckel, B. (2002). <em>Piensa en Java</em> (2da. ed.). Madrid: Pearson Educación (pp. 1-7).',
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-26-1', q: 'Si la entrega no compila y corre correctamente, no se considera "entregada".', a: true, explain: 'Es el punto 1 del reglamento general de la actividad.' },
+          { id: 'tf-26-2', q: 'Todos los ejercicios pueden vivir en un mismo Java Project de Eclipse.', a: false, explain: 'Cada ejercicio debe tener su propio "Java Project". Si un ejercicio usa clases del anterior, hay que copiarlas y pegarlas: no se vieron referencias entre proyectos.' },
+          { id: 'tf-26-3', q: 'La actividad se califica numéricamente.', a: false, explain: 'No estará calificada numéricamente: tendrá una valoración de "entregada" o "no entregada".' },
+          { id: 'tf-26-4', q: 'Se admite una sola entrega, sin posibilidad de reevaluación.', a: true, explain: 'El punto 10 del reglamento lo dice expresamente: la actividad no podrá ser evaluada y reevaluada por el docente.' },
+          { id: 'tf-26-5', q: 'Se recomienda hacer validaciones de valores complejas en cada clase.', a: false, explain: 'El objetivo es la práctica de código: no es necesario, ni recomendado, realizar operaciones complejas ni validaciones de valores.' },
+          { id: 'tf-26-6', q: 'Está permitido usar la salida por consola dentro de un método sin justificación.', a: false, explain: 'El reglamento pide no acoplar la salida de los métodos a la consola. De haber una justificación, hay que incluir el comentario en el código.' },
+        ],
+        mc: [
+          {
+            id: 'mc-26-1',
+            q: '¿Cuáles son las características de la clase rueda del ejercicio 1?',
+            options: [
+              'Radio, color y tipo de material',
+              'Radio, marca y presión de inflado',
+              'Diámetro, color y cantidad de tornillos',
+              'Radio, color y velocidad de giro',
+            ],
+            correctIndex: 0,
+            explain: 'El enunciado pide radio, color y tipo de material que la compone (acero, aleación, etc.). El comportamiento típico es "girar".',
+          },
+          {
+            id: 'mc-26-2',
+            q: '¿Qué características tiene la caja de velocidades del ejercicio 2?',
+            options: [
+              'Fabricante, cantidad de marchas y tipo de relación',
+              'Marca, cilindrada y cantidad de marchas',
+              'Fabricante, modelo y año de fabricación',
+              'Cantidad de marchas, color y material',
+            ],
+            correctIndex: 0,
+            explain: 'Fabricante, cantidad de marchas y tipo de relación (larga-mediana-corta o L-M-C). El comportamiento es cambiar de marcha.',
+          },
+          {
+            id: 'mc-26-3',
+            q: 'Según el reglamento, ¿cómo deben nombrarse las variables y los métodos?',
+            options: [
+              'Con nombres que documenten por sí mismos, como "nombre" o "valorDeRetorno"',
+              'Con nombres cortos como "x", "nom" o "val" para no ensuciar el código',
+              'Con el prefijo del ejercicio al que pertenecen',
+              'Todos en mayúsculas, separando palabras con guion bajo',
+            ],
+            correctIndex: 0,
+            explain: 'El reglamento pide que el código se documente por sí mismo: nada de "x", "nom" o "val"; usar "incógnita", "nombre", "valorDeRetorno", etc.',
+          },
+          {
+            id: 'mc-26-4',
+            q: '¿De qué se encuentra compuesto el Auto del ejercicio 4?',
+            options: [
+              'Un motor, una caja de velocidades y una o varias ruedas',
+              'Un motor, cuatro ruedas y un tablero',
+              'Una caja de velocidades y una o varias ruedas solamente',
+              'Un motor y un chasis con puertas',
+            ],
+            correctIndex: 0,
+            explain: 'El auto tiene marca y modelo, está compuesto por un motor, una caja de velocidades y una o varias ruedas, y posee cantidad de puertas y el opcional de aire acondicionado.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-26-1',
+            q: '¿Cuáles son características del Motor del ejercicio 3?',
+            options: [
+              'La marca',
+              'Los hp (caballos de fuerza)',
+              'La cilindrada (1600 o 1.6)',
+              'El color del block',
+              'La cantidad de marchas',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain: 'El motor tiene marca, hp y cilindrada, y se lo debe poder hacer arrancar y detener. La cantidad de marchas es de la caja de velocidades.',
+          },
+          {
+            id: 'ms-26-2',
+            q: '¿Cuáles de estas condiciones figuran en el reglamento general de la actividad?',
+            options: [
+              'La entrega consiste en un paquete exportado desde Eclipse (o del IDE que se use)',
+              'Cada ejercicio debe tener su propio "Java Project"',
+              'No se considerará entregada si se ignoran las convenciones de código de los módulos teóricos',
+              'Se dará una devolución global mediante la plataforma de la materia',
+              'La nota final se promedia con la del parcial',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'La actividad no está calificada numéricamente, así que no hay nota que promediar: la valoración es "entregada" o "no entregada".',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-26-1', front: 'Clase Rueda', back: 'Características: radio, color y tipo de material que la compone (acero, aleación, etc.). Comportamiento típico: girar.' },
+        { id: 'fc-26-2', front: 'Clase Caja de velocidades', back: 'Características: fabricante, cantidad de marchas y tipo de relación (larga-mediana-corta o L-M-C). Comportamiento: cambiar de marcha.' },
+        { id: 'fc-26-3', front: 'Clase Motor', back: 'Características: marca, hp (caballos de fuerza) y cilindrada (1600 o 1.6). Comportamientos: arrancar y detener.' },
+        { id: 'fc-26-4', front: 'Clase Auto', back: 'Tiene marca y modelo, cantidad de puertas y el opcional de aire acondicionado. Está compuesto por un motor, una caja de velocidades y una o varias ruedas.' },
+        { id: 'fc-26-5', front: 'Organización de la entrega', back: 'Un paquete exportado desde Eclipse (o del IDE usado). Cada ejercicio en su propio "Java Project"; si usa clases del anterior, copiarlas y pegarlas (no se usan referencias entre proyectos).' },
+        { id: 'fc-26-6', front: 'Regla sobre la salida por consola', back: 'No acoplar la salida de los métodos a la consola. No usar salida por consola dentro de un método sin justificación; de haberla, incluir el comentario en el código.' },
+        { id: 'fc-26-7', front: 'Criterio de aprobación de la actividad', back: 'No está calificada numéricamente: la valoración es "entregada" o "no entregada". Se admite una sola entrega, sin reevaluación, y se da una devolución global por la plataforma.' },
+      ],
+    },
+    {
+      id: '27',
+      unit: 'actividades',
+      title: 'Actividad: Modelar y hacer funcionar una PC',
+      criollo: 'La actividad de la unidad 03, hermana de la del auto pero con computadoras. Tres ejercicios: modelar la PC con sus componentes, después compartir un mismo componente entre dos PCs para ver qué pasa cuando lo modificás (spoiler: referencias), y por último implementar encender y apagar en cascada. El ejercicio 2 es el más importante conceptualmente.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Ejercicio 1: modelar la computadora',
+          criollo: 'Una PC con tres componentes básicos y un tipo que la distingue.',
+        },
+        {
+          type: 'p',
+          text: 'Una computadora consta de una <strong>marca</strong>, un <strong>modelo</strong> y un <strong>año de fabricación</strong>. Para distinguir entre las computadoras, se les ha asignado un <strong>tipo</strong>: <strong>Tipo D</strong> para desktop, <strong>tipo A</strong> para All-in-one y <strong>tipo L</strong> para Laptop.',
+        },
+        {
+          type: 'p',
+          text: 'Cada computadora posee <strong>3 características básicas</strong>, independiente de su tipo. Todas poseen un <strong>disco rígido</strong>, un <strong>procesador</strong> y una cierta cantidad de <strong>memoria</strong>. El disco rígido tiene <strong>marca</strong>, <strong>capacidad en gigabytes</strong> y una <strong>velocidad de operación en RPM</strong>. Por su lado, los procesadores tienen <strong>marca</strong>, <strong>modelo</strong> y <strong>velocidad en gigahertz</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Cada computadora debe tener la posibilidad de <strong>mostrar los valores suyos y de sus componentes</strong>. Por ejemplo, si quiero imprimir los valores de una computadora, puedo imprimir:',
+        },
+        {
+          type: 'code',
+          code: 'Toshiba G480 -- Procesador: AMD -- Disco: 500gb -- Ram:4gb',
+        },
+        {
+          type: 'p',
+          text: 'Para completar el ejercicio se debe modelar un sistema que permita <strong>construir computadoras y armarlas con sus diferentes características</strong>. Por ejemplo, debe ser capaz de construir una Laptop Toshiba, G480, modelo 2013, con Procesador Intel de 1,5 GHz, con 4 gb de RAM y un disco de 500gb.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Realizar un <code>main</code> que construya diferentes tipos de computadoras, con diferentes características. Imprimir un par de los valores más significativos de sus componentes (marca y modelo; o modelo y velocidad, etc.).',
+          ],
+        },
+        {
+          type: 'h3',
+          text: 'Ejercicio 2: componentes compartidos',
+          criollo: 'Acá está la posta del ejercicio: dos PCs apuntando al mismo disco. Le tocás los valores al disco y ambas computadoras "ven" el cambio. Anotá qué pasó, que es parte de la consigna.',
+        },
+        {
+          type: 'p',
+          text: 'Copiando las clases del ejercicio anterior:',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Hacer <strong>OTRO main</strong> para hacer que <strong>dos o más computadoras compartan un mismo componente</strong>. Es decir, si tengo un Samsung de 500gb, tanto una Laptop como una Desktop tengan el mismo disco. Luego <strong>alterarle los valores al componente</strong> en cuestión. Volver a imprimir los valores de la computadora. <strong>Anotar los resultados como comentarios en el código.</strong>',
+          ],
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Recordatorio de la consigna: los comentarios, tal cual en C, son con <code>//</code> o <code>/* ....... */</code>.',
+        },
+        {
+          type: 'h3',
+          text: 'Ejercicio 3: encender y apagar',
+          criollo: 'Comportamiento en cascada: la PC enciende y arrastra a sus componentes. Y después hay que poder preguntarle a cada uno si está prendido.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Implementar el comportamiento <strong>"encender"</strong> de la computadora. Cuando una computadora enciende, <strong>se enciende su procesador y su disco rígido</strong>.',
+            'Agregar los <strong>atributos y comportamientos</strong> que consideres necesarios para poder <strong>"preguntarle"</strong> a la computadora y a sus componentes <strong>si están "encendidos"</strong>.',
+            'Por otro lado, y de forma similar, implementar el comportamiento <strong>"apagar"</strong>.',
+            'Realizar <strong>OTRO main</strong> donde podamos preguntarle a una computadora si está encendida y si sus componentes están encendidos.',
+          ],
+        },
+        {
+          type: 'table',
+          caption: 'Modelo pedido en el ejercicio 1',
+          headers: ['Clase', 'Características'],
+          rows: [
+            ['Computadora', 'Marca, modelo, año de fabricación y tipo (D = desktop, A = All-in-one, L = Laptop). Posee un disco rígido, un procesador y una cierta cantidad de memoria'],
+            ['Disco rígido', 'Marca, capacidad en gigabytes, velocidad de operación en RPM'],
+            ['Procesador', 'Marca, modelo, velocidad en gigahertz'],
+          ],
+        },
+        {
+          type: 'p',
+          text: '<strong>Bibliografía de la unidad:</strong> Horstmann, C. S. y Cornell, G. (2001). <em>Core Java 2</em> (4ta. ed.). New Jersey: Upper Saddle River (pp. 140-149).',
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-27-1', q: 'El tipo "A" corresponde a una computadora All-in-one.', a: true, explain: 'Los tipos asignados son: D para desktop, A para All-in-one y L para Laptop.' },
+          { id: 'tf-27-2', q: 'El disco rígido tiene marca, capacidad en gigabytes y velocidad de operación en RPM.', a: true, explain: 'Son exactamente las tres características que pide el enunciado para el disco.' },
+          { id: 'tf-27-3', q: 'El procesador tiene marca, modelo y capacidad en gigabytes.', a: false, explain: 'El procesador tiene marca, modelo y velocidad en gigahertz. La capacidad en gigabytes es del disco rígido.' },
+          { id: 'tf-27-4', q: 'En el ejercicio 2 hay que usar el mismo main del ejercicio 1.', a: false, explain: 'La consigna pide hacer OTRO main, copiando las clases del ejercicio anterior.' },
+          { id: 'tf-27-5', q: 'Cuando la computadora enciende, se encienden su procesador y su disco rígido.', a: true, explain: 'Es lo que pide el ejercicio 3 al implementar el comportamiento "encender".' },
+          { id: 'tf-27-6', q: 'Los resultados del ejercicio 2 se entregan en un documento aparte.', a: false, explain: 'La consigna pide anotar los resultados como comentarios en el código, con "//" o "/* ....... */".' },
+        ],
+        mc: [
+          {
+            id: 'mc-27-1',
+            q: '¿Cuáles son las 3 características básicas que posee toda computadora, independiente de su tipo?',
+            options: [
+              'Un disco rígido, un procesador y una cierta cantidad de memoria',
+              'Una marca, un modelo y un año de fabricación',
+              'Un procesador, una memoria y un tipo asignado',
+              'Un disco rígido, una placa de video y un procesador',
+            ],
+            correctIndex: 0,
+            explain: 'Marca, modelo y año de fabricación son datos de la computadora, pero las 3 características básicas que enumera el enunciado son disco rígido, procesador y memoria.',
+          },
+          {
+            id: 'mc-27-2',
+            q: '¿Qué se pide hacer en el ejercicio 2?',
+            options: [
+              'Que dos o más computadoras compartan un mismo componente, alterarle los valores y volver a imprimir',
+              'Implementar los comportamientos encender y apagar en cascada',
+              'Construir computadoras de los tres tipos con distintas características',
+              'Documentar todas las clases con comentarios especiales de javadoc',
+            ],
+            correctIndex: 0,
+            explain: 'El ejercicio 2 pide otro main donde una Laptop y una Desktop compartan, por ejemplo, un mismo Samsung de 500gb; luego alterar los valores del componente, volver a imprimir y anotar los resultados como comentarios.',
+          },
+          {
+            id: 'mc-27-3',
+            q: 'Según el ejemplo del enunciado, ¿qué configuración debe poder construir el sistema?',
+            options: [
+              'Una Laptop Toshiba G480, modelo 2013, con Procesador Intel de 1,5 GHz, 4 gb de RAM y un disco de 500gb',
+              'Una Desktop Samsung G480, modelo 2013, con Procesador AMD de 4 GHz y un disco de 1 tb',
+              'Una All-in-one Toshiba, modelo 2015, con Procesador Intel de 500 RPM y 4 gb de disco',
+              'Una Laptop Intel G480, modelo 2013, con Procesador Toshiba de 1,5 gb y 4 GHz de RAM',
+            ],
+            correctIndex: 0,
+            explain: 'Es el ejemplo textual del enunciado del ejercicio 1.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-27-1',
+            q: '¿Qué se pide en el ejercicio 3?',
+            options: [
+              'Implementar el comportamiento "encender" de la computadora',
+              'Que al encender la computadora se enciendan su procesador y su disco rígido',
+              'Agregar atributos y comportamientos para poder preguntar si están encendidos',
+              'Implementar de forma similar el comportamiento "apagar"',
+              'Implementar un comportamiento "reiniciar" que apague y encienda en secuencia',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'El enunciado pide encender, la cascada a procesador y disco, poder preguntar si están encendidos, y apagar. No menciona ningún comportamiento de reinicio.',
+          },
+          {
+            id: 'ms-27-2',
+            q: '¿Qué datos tiene la clase Computadora según el enunciado?',
+            options: [
+              'Marca',
+              'Modelo',
+              'Año de fabricación',
+              'Tipo (D, A o L)',
+              'Velocidad de operación en RPM',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'La velocidad de operación en RPM es una característica del disco rígido, no de la computadora.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-27-1', front: 'Tipos de computadora del ejercicio', back: 'Tipo D para desktop, tipo A para All-in-one y tipo L para Laptop.' },
+        { id: 'fc-27-2', front: 'Características básicas de toda computadora', back: 'Independiente de su tipo: un disco rígido, un procesador y una cierta cantidad de memoria. Además tiene marca, modelo y año de fabricación.' },
+        { id: 'fc-27-3', front: 'Clase Disco rígido', back: 'Marca, capacidad en gigabytes y velocidad de operación en RPM.' },
+        { id: 'fc-27-4', front: 'Clase Procesador', back: 'Marca, modelo y velocidad en gigahertz.' },
+        { id: 'fc-27-5', front: 'Salida esperada al imprimir una computadora', back: 'Por ejemplo: "Toshiba G480 -- Procesador: AMD -- Disco: 500gb -- Ram:4gb".' },
+        { id: 'fc-27-6', front: 'Ejercicio 2: componente compartido', back: 'Otro main donde dos o más computadoras compartan un mismo componente (un Samsung de 500gb en una Laptop y en una Desktop). Alterarle los valores al componente, volver a imprimir y anotar los resultados como comentarios en el código.' },
+        { id: 'fc-27-7', front: 'Ejercicio 3: encender y apagar', back: 'Al encender la computadora se encienden su procesador y su disco rígido. Hay que agregar los atributos y comportamientos necesarios para preguntarle a la computadora y a sus componentes si están encendidos, e implementar de forma similar "apagar".' },
+      ],
+    },
   ],
   pdfs: [
     { key: 'origen-poo', label: 'PPT · Origen de la POO', path: 'pdfs/laboratorio-1/1-origen-poo.pdf' },
@@ -3904,5 +5052,8 @@ export default {
     { key: 'tutorial-java', label: 'Apunte · Tutorial de código Java', path: 'pdfs/laboratorio-1/4-tutorial-codificacion-java.pdf' },
     { key: 'relaciones-objetos', label: 'PPT · Relaciones entre objetos', path: 'pdfs/laboratorio-1/5-relaciones-entre-objetos.pdf' },
     { key: 'imperativos-declarativos', label: 'Apunte · Lenguajes imperativos y declarativos', path: 'pdfs/laboratorio-1/6-lenguajes-imperativos-declarativos.pdf' },
+    { key: 'jvm-jre', label: 'Apunte · Funcionamiento de la JVM y JRE', path: 'pdfs/laboratorio-1/7-funcionamiento-jvm-jre.pdf' },
+    { key: 'herramientas-jdk', label: 'Apunte · Herramientas de la Java Development Kit', path: 'pdfs/laboratorio-1/8-herramientas-jdk.pdf' },
+    { key: 'actividad-auto', label: 'Actividad · Programar un auto y sus partes', path: 'pdfs/laboratorio-1/2-actividad-programar-auto.pdf' },
   ],
 };

@@ -80,10 +80,12 @@ import algebraLineal from './subjects/algebra-lineal.js';
 
 import quizzes2SistemasYMetodos from './quizzes2/sistemas-y-metodos.js';
 import quizzes2AnalisisMatematico from './quizzes2/analisis-matematico.js';
+import quizzes2AnalisisMatematico2 from './quizzes2/analisis-matematico-2.js';
 import quizzes2ComputacionAplicada from './quizzes2/computacion-aplicada.js';
 import quizzes2IntroduccionIngSoftware from './quizzes2/introduccion-ing-software.js';
 import quizzes2SistemasDigitalesI from './quizzes2/sistemas-digitales-i.js';
 import quizzes2AlgebraLineal from './quizzes2/algebra-lineal.js';
+import quizzes2Laboratorio1 from './quizzes2/laboratorio-1.js';
 
 export const SUBJECTS = [sistemasYMetodos, analisisMatematico, analisisMatematico2, computacionAplicada, introduccionIngSoftware, sistemasDigitalesI, laboratorio1, algebraLineal];
 
@@ -92,10 +94,12 @@ export const SUBJECTS = [sistemasYMetodos, analisisMatematico, analisisMatematic
 const QUIZZES2 = {
   'sistemas-y-metodos': quizzes2SistemasYMetodos,
   'analisis-matematico': quizzes2AnalisisMatematico,
+  'analisis-matematico-2': quizzes2AnalisisMatematico2,
   'computacion-aplicada': quizzes2ComputacionAplicada,
   'introduccion-ing-software': quizzes2IntroduccionIngSoftware,
   'sistemas-digitales-i': quizzes2SistemasDigitalesI,
   'algebra-lineal': quizzes2AlgebraLineal,
+  'laboratorio-1': quizzes2Laboratorio1,
 };
 
 for (const subject of SUBJECTS) {
