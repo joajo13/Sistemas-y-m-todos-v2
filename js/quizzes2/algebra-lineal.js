@@ -3457,4 +3457,101 @@ export default {
       { id: 'fc2-35-7', front: 'Por qué conviene rehacer las cuentas de esta guía', back: 'La clave publicada tiene erratas en varias preguntas, casi todas de signo. El apunte transcribe lo publicado y marca al lado la cuenta verificada.' },
     ],
   },
+  '36': {
+    quiz2: {
+      tf: [
+        { id: 'tf2-36-1', q: 'La suma de los cuadrados de las razones directoras de cualquier vector no nulo vale 1.', a: true, explain: 'Son las componentes del vector unitario asociado, así que cumplen la identidad pitagórica. Sirve como control de la cuenta.' },
+        { id: 'tf2-36-2', q: 'Si el determinante formado por las componentes de dos vectores se anula, los vectores son paralelos.', a: true, explain: 'Anular $u_1 v_2 - u_2 v_1$ equivale a que uno sea múltiplo del otro.' },
+        { id: 'tf2-36-3', q: 'Proyectar un vector sobre otro que apoya en el eje horizontal devuelve su primera componente.', a: true, explain: 'La sombra sobre ese eje es exactamente la componente horizontal, con la segunda anulada.' },
+        { id: 'tf2-36-4', q: 'Las dos proyecciones de un par de vectores comparten el denominador de la fórmula.', a: false, explain: 'Comparten el numerador (el producto escalar); el denominador es la norma al cuadrado del vector sobre el que se proyecta, y por eso cambia.' },
+        { id: 'tf2-36-5', q: 'Un vector del primer cuadrante tiene las dos razones directoras positivas.', a: true, explain: 'Las dos componentes son positivas y la norma también, así que los dos cocientes salen positivos.' },
+      ],
+      mc: [
+        {
+          id: 'mc2-36-1',
+          q: 'La norma del vector $(3,4)$ vale:',
+          options: [
+            '$5$',
+            '$7$',
+            '$\\sqrt{7}$',
+            '$12$',
+          ],
+          correctIndex: 0,
+          explain: '$\\sqrt{9+16} = \\sqrt{25} = 5$: es el triángulo pitagórico más conocido.',
+        },
+        {
+          id: 'mc2-36-2',
+          q: 'Para que $(1,1)$ y $(1,b)$ resulten paralelos, la proporcionalidad exige que:',
+          options: [
+            'Las segundas componentes coincidan, porque las primeras ya son iguales',
+            'La segunda componente sea la opuesta de la primera',
+            'El producto escalar entre ambos se anule',
+            'La suma de las componentes de cada uno sea la misma',
+          ],
+          correctIndex: 0,
+          explain: 'Si la razón entre las primeras componentes es 1, la razón entre las segundas también tiene que valer 1.',
+        },
+        {
+          id: 'mc2-36-3',
+          q: 'La proyección de un vector sobre otro es siempre:',
+          options: [
+            'Un múltiplo escalar del vector sobre el que se proyecta',
+            'Un vector unitario',
+            'Un vector perpendicular al que se proyecta',
+            'Un número real, no un vector',
+          ],
+          correctIndex: 0,
+          explain: 'La fórmula multiplica un escalar por ese vector; su norma no tiene por qué valer 1.',
+        },
+        {
+          id: 'mc2-36-4',
+          q: 'En una entrega de esta materia, el desarrollo de los procedimientos debe ir:',
+          options: [
+            'En un único archivo PDF adicional, identificado con nombre y apellido',
+            'Escrito completo dentro del box de respuesta de cada pregunta',
+            'Repartido en un archivo por ejercicio',
+            'En un enlace público a una aplicación interactiva',
+          ],
+          correctIndex: 0,
+          explain: 'En el box va sólo la respuesta; el procedimiento entero viaja en un PDF aparte.',
+        },
+      ],
+      ms: [
+        {
+          id: 'ms2-36-1',
+          q: '¿Qué datos hay que calcular antes de poder escribir las dos proyecciones de un par de vectores?',
+          options: [
+            'El producto escalar entre ambos',
+            'El cuadrado de la norma del primero',
+            'El cuadrado de la norma del segundo',
+            'El ángulo exacto entre ambos',
+            'Los vectores unitarios de cada uno',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain: 'Con el producto escalar y las dos normas al cuadrado alcanza: ni el ángulo ni los unitarios hacen falta.',
+        },
+        {
+          id: 'ms2-36-2',
+          q: '¿Qué controles rápidos convienen antes de entregar una actividad de vectores?',
+          options: [
+            'Que las razones directoras cumplan la identidad pitagórica',
+            'Que cada proyección resulte múltiplo del vector sobre el que se proyecta',
+            'Que los signos de las razones sean los del cuadrante del vector',
+            'Que las dos proyecciones del par den el mismo vector',
+            'Que todas las normas sean números enteros',
+          ],
+          correctIndexes: [0, 1, 2],
+          explain: 'Las dos proyecciones casi nunca coinciden, y las normas suelen ser irracionales.',
+        },
+      ],
+    },
+    flashcards2: [
+      { id: 'fc2-36-1', front: 'Qué son las razones directoras', back: 'El coseno y el seno del ángulo que forma el vector con el semieje positivo $x$: cada componente dividida por la norma. Son las componentes del vector unitario asociado.' },
+      { id: 'fc2-36-2', front: 'Control pitagórico de las razones directoras', back: '$\\cos^{2}\\theta + \\operatorname{sen}^{2}\\theta = 1$. Si no da 1, dividiste por el número equivocado.' },
+      { id: 'fc2-36-3', front: 'Paralelismo por determinante', back: 'Dos vectores del plano son paralelos exactamente cuando $u_1 v_2 - u_2 v_1 = 0$. Es más rápido que comparar cocientes y no falla si alguna componente es cero.' },
+      { id: 'fc2-36-4', front: 'Qué comparten y qué no las dos proyecciones', back: 'Comparten el numerador $\\mathbf{u}\\cdot\\mathbf{v}$. Cambian el denominador (la norma al cuadrado del vector sobre el que se proyecta) y el vector que multiplica.' },
+      { id: 'fc2-36-5', front: 'Lectura geométrica de una proyección', back: 'Es la sombra de un vector sobre la recta que determina el otro. Si esa recta es un eje coordenado, la sombra es directamente la componente correspondiente.' },
+      { id: 'fc2-36-6', front: 'Regla de entrega de la materia', back: 'Sólo la respuesta en el box de cada pregunta, y el procedimiento completo en un único PDF adicional con nombre y apellido.' },
+    ],
+  },
 };
