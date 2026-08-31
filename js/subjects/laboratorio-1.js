@@ -1,11 +1,12 @@
 /**
  * Materia: Laboratorio 1 (UP, 0114).
  *
- * Apuntes de cátedra transcriptos, agrupados en nueve unidades:
+ * Apuntes de cátedra transcriptos, agrupados en diez unidades:
  *   'poo'         Origen de la POO (PPT "Origen de la POO. Filosofía clásica y teoría de objetos")
  *   'ides'        Introducción a los IDEs. Eclipse. IntelliJ IDEA. Otros
  *   'eclipse'     Tutorial de Eclipse (con las capturas del apunte como figures)
  *   'java'        Tutorial de código Java
+ *   'diseno-clases' Diseño de clases en Java (herencia, arreglos y conversión de tipos)
  *   'relaciones'  Relaciones entre objetos (PPT: cardinalidad, direccionalidad, ordinalidad)
  *   'paradigmas'  Lenguajes imperativos y declarativos y sus derivaciones
  *   'jvm'         Funcionamiento de la JVM y el JRE
@@ -21,12 +22,13 @@ export default {
   id: 'laboratorio-1',
   title: 'Laboratorio 1',
   subtitle: 'POO, IDEs y Java — Apuntes',
-  tagline: 'Origen de la POO · Qué es un IDE · Eclipse, NetBeans e IntelliJ IDEA · Tutorial de Eclipse · Fundamentos de código Java · Relaciones entre objetos · Paradigmas imperativo y declarativo',
+  tagline: 'Origen de la POO · Qué es un IDE · Eclipse, NetBeans e IntelliJ IDEA · Tutorial de Eclipse · Fundamentos de código Java · Herencia, arreglos y conversión de tipos · Relaciones entre objetos · Paradigmas imperativo y declarativo',
   units: {
     'poo': 'Origen de la POO',
     'ides': 'Introducción a los IDEs',
     'eclipse': 'Tutorial de Eclipse',
     'java': 'Tutorial de código Java',
+    'diseno-clases': 'Diseño de clases en Java',
     'relaciones': 'Relaciones entre objetos',
     'paradigmas': 'Lenguajes imperativos y declarativos',
     'jvm': 'Funcionamiento de la JVM y el JRE',
@@ -2691,6 +2693,1428 @@ export default {
       ],
     },
     {
+      id: '28',
+      unit: 'diseno-clases',
+      title: 'Responsabilidades, orden jerárquico y relación ES-UN',
+      criollo: 'Cuando modelás un problema con objetos te salen mil clases y varias se parecen sospechosamente entre sí. La movida es ordenarlas: lo común arriba, lo distinto abajo. Y el criterio para saber si algo va colgado de otra clase no es qué tiene, sino qué hace: si un caniche hace todo lo que hace un perro, entonces un caniche ES UN perro. Ojo que arriba/abajo no es mejor/peor, es solo un ordenamiento.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Responsabilidades de clases',
+          criollo: 'Antes de escribir una línea de código pasás por la abstracción: qué partes hay, cómo interactúan y qué le toca hacer a cada una. Eso último son las responsabilidades.',
+        },
+        {
+          type: 'p',
+          text: 'Para empezar a resolver un problema usando el paradigma de objetos, debemos pasar por el denominado <strong>proceso de abstracción</strong>. Durante este proceso no solo identificamos las partes que integran nuestro "universo" o "dominio", sino <strong>cómo interactúan</strong> esas partes. Es así como llegamos a definir clases, con sus atributos y operaciones.',
+        },
+        {
+          type: 'p',
+          text: 'Además, definimos qué debe hacer cada parte para contribuir a la solución del problema, es decir, establecimos las <strong>responsabilidades de las clases</strong>.',
+        },
+        {
+          type: 'h3',
+          text: 'Orden jerárquico entre clases',
+          criollo: 'Agrupás lo común en un lugar y dejás las diferencias separadas. Así nace la jerarquía: superior e inferior.',
+        },
+        {
+          type: 'p',
+          text: 'Cada vez que intentamos resolver un problema con el paradigma de objetos debemos modelarlo, definiendo una multitud de clases, cada una con sus atributos y operaciones. Cada clase deberá tener sus responsabilidades bien definidas, pero aun así llegaremos a detectar que <strong>algunas son demasiado parecidas entre sí</strong>, o que tienen algunas pocas similitudes pero marcadas diferencias.',
+        },
+        {
+          type: 'p',
+          text: 'Es importante dar a esta multiplicidad de partes algún tipo de orden. Según estas similitudes y diferencias podemos <strong>agrupar todos aquellos atributos y operaciones en común en un lugar</strong> y dejar separadas las diferencias. Es así como nace un <strong>orden jerárquico superior e inferior</strong>: dejaremos en la parte superior a aquellas partes comunes y en el inferior a las diferentes.',
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'No se trata de agrupar según mejor o peor: es <strong>solo un ordenamiento</strong>. Que una clase esté "arriba" no la hace superior en calidad, la hace más genérica.',
+        },
+        {
+          type: 'h3',
+          text: 'Relación ES-UN',
+          criollo: 'Si tiene y hace todo lo que hace un perro, es un perro. Y lo que importa de verdad no es lo que tiene, es lo que hace.',
+        },
+        {
+          type: 'p',
+          text: 'Si decimos que todos los perros tienen un nombre y una edad, y todos ladran y juegan, es así como podemos decir que un perro es un perro <strong>porque tiene edad y nombre, y ladra y juega</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Si analizamos un caniche, veremos cómo juega y cómo ladra; si analizamos un Pug Carlino, también veremos cómo juega y ladra, aunque lo hace muy distinto al caniche. Entonces, tanto el caniche como el Pug ladran y juegan, y ambos tienen nombre y edad: sería razonable asumir que <strong>si tienen y hacen todo lo que hace un perro, entonces es un perro</strong>. El mismo análisis podría hacerse con cualquier otra raza.',
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'En este punto es importante notar que <strong>lo que las clases tienen es irrelevante</strong>: lo fundamental es <strong>lo que las clases hacen</strong>. Los atributos deberían ser siempre privados y tener operaciones para obtener o establecer sus valores. Si un perro tiene un nombre, entonces no importa el atributo nombre, sino las operaciones para nombrarlo y para obtener su nombre.',
+        },
+        {
+          type: 'p',
+          text: 'El conjunto de las cosas que la clase hace, es decir, el <strong>conjunto de operaciones públicas</strong>, se conoce con el nombre de <strong>"interfaz pública"</strong> de la clase.',
+        },
+        {
+          type: 'p',
+          text: 'Por todo esto podemos decir que un caniche ES UN perro. De la misma manera que podríamos decir que profesor ES UN empleado, y más aún: un empleado ES UNA persona, por lo tanto (por transitividad) un <strong>profesor ES UNA persona</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Nuevamente: al observar la realidad y pasar por el proceso de abstracción obtuvimos una serie de entidades que <strong>se ordenan naturalmente</strong>, y la herencia responde a ello. Podemos decir entonces que la <strong>herencia es un ordenamiento entre clases que define una relación "es un"</strong>.',
+        },
+        {
+          type: 'table',
+          caption: 'La jerarquía de perros del apunte',
+          headers: ['Nivel', 'Clase', 'Qué aporta'],
+          rows: [
+            ['Superior', 'Perro', 'Lo común: nombre, edad, ladrar() y jugar()'],
+            ['Inferior', 'Caniche', 'Es un perro: tiene y hace todo lo del perro, pero ladra distinto'],
+            ['Inferior', 'Pug Carlino', 'Es un perro: ladra y juega, aunque muy distinto al caniche'],
+            ['Inferior', 'Dóberman', 'Es un perro: hace lo mismo que el perro'],
+          ],
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-28-1', q: 'El proceso de abstracción identifica las partes del dominio y también cómo interactúan entre sí.', a: true, explain: 'El apunte lo dice textual: no solo identificamos las partes que integran nuestro "universo" o "dominio", sino cómo interactúan esas partes.' },
+          { id: 'tf-28-2', q: 'En el orden jerárquico entre clases, lo común va abajo y las diferencias arriba.', a: false, explain: 'Es al revés: se deja en la parte superior a aquellas partes comunes y en el inferior a las diferentes.' },
+          { id: 'tf-28-3', q: 'Ordenar clases jerárquicamente implica decidir cuál es mejor y cuál es peor.', a: false, explain: 'No se trata de agrupar según mejor o peor: es solo un ordenamiento.' },
+          { id: 'tf-28-4', q: 'Para la relación ES-UN, lo fundamental es lo que las clases hacen, no lo que tienen.', a: true, explain: 'Lo que las clases tienen es irrelevante; los atributos deberían ser siempre privados y accederse por operaciones. Por eso se habla del comportamiento.' },
+          { id: 'tf-28-5', q: 'La interfaz pública de una clase es el conjunto de sus atributos privados.', a: false, explain: 'La interfaz pública es el conjunto de operaciones públicas: el conjunto de las cosas que la clase hace.' },
+        ],
+        mc: [
+          {
+            id: 'mc-28-1',
+            q: '¿Qué son las "responsabilidades de las clases"?',
+            options: [
+              'Los atributos privados que cada clase declara',
+              'Lo que debe hacer cada parte para contribuir a la solución del problema',
+              'El orden en que se instancian los objetos en el main',
+              'La cantidad de operaciones públicas que expone una clase',
+            ],
+            correctIndex: 1,
+            explain: 'Durante la abstracción definimos qué debe hacer cada parte para contribuir a la solución del problema: eso son las responsabilidades.',
+          },
+          {
+            id: 'mc-28-2',
+            q: 'Según el apunte, ¿por qué un caniche ES UN perro?',
+            options: [
+              'Porque tiene los mismos atributos privados declarados',
+              'Porque fue creado con la palabra clave new',
+              'Porque tiene y hace todo lo que hace un perro',
+              'Porque su nombre aparece en la misma jerarquía de archivos',
+            ],
+            correctIndex: 2,
+            explain: 'Si tienen y hacen todo lo que hace un perro, entonces es un perro. La herencia es un ordenamiento entre clases que define una relación "es un".',
+          },
+          {
+            id: 'mc-28-3',
+            q: 'La interfaz pública de una clase es...',
+            options: [
+              'El conjunto de operaciones públicas, es decir, el conjunto de cosas que la clase hace',
+              'El archivo .java donde se declara la clase',
+              'La lista de clases de las que hereda',
+              'El conjunto de getters y setters únicamente',
+            ],
+            correctIndex: 0,
+            explain: 'El apunte lo define así: el conjunto de las cosas que la clase hace, es decir, el conjunto de operaciones públicas.',
+          },
+          {
+            id: 'mc-28-4',
+            q: 'Si un profesor ES UN empleado y un empleado ES UNA persona, entonces...',
+            options: [
+              'Un profesor no puede ser una persona porque solo se hereda un nivel',
+              'Una persona ES UN profesor por simetría',
+              'Un profesor ES UNA persona, por transitividad',
+              'Empleado y profesor son la misma clase',
+            ],
+            correctIndex: 2,
+            explain: 'El apunte encadena: profesor ES UN empleado, empleado ES UNA persona, por lo tanto un profesor ES UNA persona.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-28-1',
+            q: '¿Cuáles de estas afirmaciones sobre el orden jerárquico entre clases están en el apunte?',
+            options: [
+              'Lo común va en la parte superior',
+              'Lo diferente va en la parte inferior',
+              'El ordenamiento indica cuál clase es mejor',
+              'Se agrupa según similitudes y diferencias',
+              'Cada clase debe tener sus responsabilidades bien definidas',
+            ],
+            correctIndexes: [0, 1, 3, 4],
+            explain: 'Lo único falso es que el orden indique calidad: no se trata de agrupar según mejor o peor, es solo un ordenamiento.',
+          },
+          {
+            id: 'ms-28-2',
+            q: 'Según el apunte, ¿qué define a un perro como perro?',
+            options: [
+              'Tener nombre',
+              'Tener edad',
+              'Ladrar',
+              'Jugar',
+              'Tener un dueño registrado',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'El apunte dice: todos los perros tienen un nombre y una edad, y todos ladran y juegan. El dueño no aparece.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-28-1', front: 'Proceso de abstracción', back: 'Paso previo para resolver un problema con objetos: identificar las partes del universo o dominio y cómo interactúan, para definir clases con sus atributos y operaciones.' },
+        { id: 'fc-28-2', front: 'Responsabilidades de una clase', back: 'Qué debe hacer cada parte para contribuir a la solución del problema.' },
+        { id: 'fc-28-3', front: 'Orden jerárquico entre clases', back: 'Se agrupan atributos y operaciones en común en un lugar (parte superior) y se dejan separadas las diferencias (parte inferior). No es mejor/peor, es solo ordenamiento.' },
+        { id: 'fc-28-4', front: 'Relación ES-UN', back: 'Si una clase tiene y hace todo lo que hace otra, entonces "es una" de esas. Ej: un caniche ES UN perro.' },
+        { id: 'fc-28-5', front: '¿Qué importa para el ES-UN: lo que la clase tiene o lo que hace?', back: 'Lo que hace. Lo que las clases tienen es irrelevante; los atributos deberían ser siempre privados y accederse mediante operaciones.' },
+        { id: 'fc-28-6', front: 'Interfaz pública', back: 'El conjunto de las cosas que la clase hace, es decir, el conjunto de sus operaciones públicas.' },
+        { id: 'fc-28-7', front: 'Definición de herencia', back: 'Un ordenamiento entre clases que define una relación "es un".' },
+        { id: 'fc-28-8', front: 'Transitividad del ES-UN', back: 'Profesor ES UN empleado y empleado ES UNA persona, por lo tanto profesor ES UNA persona.' },
+      ],
+    },
+    {
+      id: '29',
+      unit: 'diseno-clases',
+      title: 'Utilidad de la herencia: extends y reutilización de código',
+      criollo: 'Si Caniche, Pug y Dóberman hacen lo mismo que Perro, ¿para qué escribir tres veces el mismo código? Ponés el ladrar() una sola vez en Perro, escribís "extends Perro" y listo: heredaste todo. La herencia apunta fundamentalmente a la reutilización de código.',
+      blocks: [
+        {
+          type: 'h3',
+          text: '¿Para qué sirve la herencia?',
+          criollo: 'Escribir el comportamiento una vez arriba y que los de abajo lo "obtengan" gratis.',
+        },
+        {
+          type: 'p',
+          text: 'La herencia es uno de los <strong>pilares de la orientación a objetos</strong>. Si tanto Caniche como Pug como Dóberman hacen lo mismo que hace el perro: ¿si hacen lo mismo que el perro, para qué escribir el código de lo que hacen? ¿No sería más conveniente <strong>escribirlo una sola vez en la clase Perro</strong> y que Dóberman, Caniche, etc. "obtengan" este comportamiento desde Perro?',
+        },
+        {
+          type: 'p',
+          text: 'De hacer esto, decimos que Caniche, Pug, etc. <strong>"heredan" el comportamiento</strong> de un perro; es decir, la clase Dóberman hereda de la clase Perro todas sus operaciones.',
+        },
+        {
+          type: 'p',
+          text: 'Supongamos la clase Perro:',
+        },
+        {
+          type: 'code',
+          code: 'public class Perro {\n    \n    private int edad;\n    private String nombre;\n    \n    public String ladrar() {\n        return "GUAU";\n    }\n    public String jugar() {\n        return "JUGANDO";\n    }\n    //getters y setters de edad y nombre    \n}',
+        },
+        {
+          type: 'p',
+          text: 'Y yo quiero crear mi clase Caniche y mostrar que caniche es un perro, entonces tenemos que hacer:',
+        },
+        {
+          type: 'code',
+          code: 'public class Caniche extends Perro {\n    \n}',
+        },
+        {
+          type: 'p',
+          text: 'Con la palabra <code>extends</code> indico, en código, que un caniche es un perro, y por tanto <strong>hereda todo su comportamiento</strong>. Es por eso que a partir de este punto podemos hacer:',
+        },
+        {
+          type: 'code',
+          code: 'Perro p = new Perro();\nSystem.out.println(p.ladrar()); // < GUAU\n\nCaniche c = new Caniche(); \nSystem.out.println(c.ladrar());// < GUAU',
+        },
+        {
+          type: 'h3',
+          text: 'Cómo resuelve el compilador (y el runtime) una llamada heredada',
+          criollo: 'Va escalando la jerarquía escalón por escalón hasta encontrar un método que matchee cantidad, tipo y orden de parámetros. Si no lo encuentra en ningún lado, no compila.',
+        },
+        {
+          type: 'p',
+          text: 'En la clase Caniche no se definió un método "ladrar". Para que esto compile, y luego funcione, lo que el <strong>compilador</strong> hace es pensar:',
+        },
+        {
+          type: 'ol',
+          items: [
+            'La operación <code>ladrar</code> sin parámetros, ¿está definida en Caniche?',
+            'Sí → entonces se compila correctamente y se puede ejecutar luego (no es el caso de este ejemplo).',
+            'No → intento ir a buscarla a la clase de la que extiende Caniche, es decir, en Perro. ¿Está la operación (método) <code>ladrar</code>, que no recibe parámetros, en Perro? Sí → la sintaxis es correcta. No → intento buscarla en la clase de la que extiende Perro... y repetir hasta encontrar el método.',
+          ],
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'Si el método <strong>no se encuentra en ninguna parte de la cadena</strong> (de la jerarquía), entonces el código <strong>no puede compilarse correctamente</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Al momento de la ejecución ocurre algo similar: el <strong>runtime</strong> piensa "ladrar sin parámetros, ¿está definida en Caniche? No, pero sí está en Perro, voy a ejecutar el código que corresponde a la operación ladrar que se hereda de Perro".',
+        },
+        {
+          type: 'p',
+          text: 'Es importante que este proceso se repite <strong>en cada escalón de la jerarquía</strong>, y se va "escalando" hasta encontrar la operación que "matchea" con la <strong>cantidad, tipo y orden de parámetros</strong> de la llamada.',
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Acá tenemos la <strong>primera consecuencia importante de la herencia</strong>: en la clase Caniche no repetimos nada del código para hacer que un Caniche ladre ni juegue. La herencia es un mecanismo que apunta fundamentalmente a la <strong>reutilización de código</strong>.',
+        },
+        {
+          type: 'h3',
+          text: 'Operaciones. Interfaz pública',
+          criollo: 'Heredar no te obliga a hacer exactamente lo mismo: podés agregar. El Labrador cuida niños y el Dóberman cuida la casa, y siguen siendo perros porque hacen al menos lo que hace un perro.',
+        },
+        {
+          type: 'p',
+          text: 'Todos sabemos que los caniches ladran, también lo hacen los labradores, los siberianos, los dóberman, etc. Con lo que hicimos hasta acá <strong>ahorramos código</strong>: para cualquiera de estas clases no deberíamos escribir nuevamente el ladrar, jugar, etc.',
+        },
+        {
+          type: 'p',
+          text: 'Lo que sí podríamos hacer es <strong>agregar operaciones</strong>: como ya heredamos ladrar y jugar, podemos agregarle al Labrador, por ejemplo, una operación <code>cuidarNiños()</code>, o al Dóberman <code>cuidarCasa()</code>. Entonces el Labrador o el Dóberman <strong>son perros, pero hacen algo más</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Es decir: Labrador es un perro porque <strong>hace al menos lo que hace un perro</strong>. También se dice que Labrador es un perro porque <strong>"cumple con la interfaz pública"</strong> de perro. Es importante esta distinción, porque la relación "es un" no se da por respetar exactamente lo que hace otra clase, sino que además puede <strong>agregar comportamiento</strong>. Por todo esto es que podemos hacer:',
+        },
+        {
+          type: 'code',
+          code: 'Perro p = new Perro();\np.ladrar();\n\nPerro x = new Doberman();// Doberman ES UN Perro\nx.ladrar();',
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-29-1', q: 'La palabra clave extends indica en código que una clase hereda el comportamiento de otra.', a: true, explain: '"public class Caniche extends Perro" indica que un caniche es un perro y por tanto hereda todo su comportamiento.' },
+          { id: 'tf-29-2', q: 'Si el compilador no encuentra el método en ninguna clase de la jerarquía, el código igual compila y falla recién en ejecución.', a: false, explain: 'Si no se encuentra en ninguna parte de la cadena de la jerarquía, el código no puede compilarse correctamente.' },
+          { id: 'tf-29-3', q: 'La búsqueda del método se hace de un escalón por vez, hasta encontrar el que matchee cantidad, tipo y orden de parámetros.', a: true, explain: 'El proceso se repite en cada escalón de la jerarquía, "escalando" hasta encontrar la operación que matchea.' },
+          { id: 'tf-29-4', q: 'Una subclase solo puede tener exactamente las mismas operaciones que su superclase.', a: false, explain: 'La relación "es un" no se da por respetar exactamente lo que hace otra clase: además puede agregar comportamiento (cuidarNiños(), cuidarCasa()).' },
+          { id: 'tf-29-5', q: 'Escribir "Perro x = new Doberman();" es válido porque Doberman ES UN Perro.', a: true, explain: 'Es el ejemplo textual del apunte: Doberman cumple con la interfaz pública de Perro.' },
+        ],
+        mc: [
+          {
+            id: 'mc-29-1',
+            q: 'Según el apunte, ¿a qué apunta fundamentalmente la herencia?',
+            options: [
+              'A ocultar los atributos de las clases',
+              'A la reutilización de código',
+              'A acelerar la compilación',
+              'A reducir la cantidad de objetos en memoria',
+            ],
+            correctIndex: 1,
+            explain: 'En la clase Caniche no se repite nada del código: la herencia es un mecanismo que apunta fundamentalmente a la reutilización de código.',
+          },
+          {
+            id: 'mc-29-2',
+            q: 'Si Caniche no define ladrar() y Perro sí, ¿qué imprime "System.out.println(c.ladrar());"?',
+            options: [
+              'null, porque Caniche no lo define',
+              'Un error de compilación',
+              'GUAU, el heredado de Perro',
+              'Una cadena vacía',
+            ],
+            correctIndex: 2,
+            explain: 'El runtime busca ladrar en Caniche, no lo encuentra, lo encuentra en Perro y ejecuta el código heredado: GUAU.',
+          },
+          {
+            id: 'mc-29-3',
+            q: '¿Qué significa que Labrador "cumple con la interfaz pública" de Perro?',
+            options: [
+              'Que declara los mismos atributos privados',
+              'Que tiene exactamente la misma cantidad de métodos',
+              'Que implementa una interface de Java llamada Perro',
+              'Que hace al menos lo que hace un perro, pudiendo agregar más',
+            ],
+            correctIndex: 3,
+            explain: 'Labrador es un perro porque hace al menos lo que hace un perro; además puede agregar comportamiento.',
+          },
+          {
+            id: 'mc-29-4',
+            q: '¿Con qué criterio se elige la operación que "matchea" al escalar la jerarquía?',
+            options: [
+              'Cantidad, tipo y orden de los parámetros',
+              'El nombre del archivo donde está la clase',
+              'El nivel de la jerarquía en el que está definida',
+              'El tipo de retorno declarado',
+            ],
+            correctIndex: 0,
+            explain: 'Se va escalando hasta encontrar la operación que matchea con la cantidad, tipo y orden de parámetros de la llamada.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-29-1',
+            q: '¿Qué pasos hace el compilador al ver "c.ladrar()" con Caniche extends Perro?',
+            options: [
+              'Pregunta si ladrar sin parámetros está definida en Caniche',
+              'Si no está, la busca en la clase de la que extiende Caniche',
+              'Si tampoco está, sigue subiendo por la jerarquía',
+              'Si no la encuentra en ninguna parte, no compila',
+              'Ejecuta el método para comprobar el resultado',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'El compilador analiza sintaxis, no ejecuta. El resto son los pasos que describe el apunte.',
+          },
+          {
+            id: 'ms-29-2',
+            q: '¿Cuáles de estas operaciones aparecen en la clase Perro del apunte?',
+            options: [
+              'ladrar()',
+              'jugar()',
+              'cuidarCasa()',
+              'getters y setters de edad y nombre',
+              'cuidarNiños()',
+            ],
+            correctIndexes: [0, 1, 3],
+            explain: 'cuidarCasa() es la operación que se le agrega al Dóberman y cuidarNiños() la que se le agrega al Labrador; no están en Perro.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-29-1', front: 'extends', back: 'Palabra clave que indica en código que una clase es otra (Caniche extends Perro) y por tanto hereda todo su comportamiento.' },
+        { id: 'fc-29-2', front: '¿Para qué sirve la herencia?', back: 'Para escribir el comportamiento una sola vez en la clase superior y que las inferiores lo "obtengan": es un mecanismo de reutilización de código.' },
+        { id: 'fc-29-3', front: 'Cómo resuelve el compilador un método heredado', back: '¿Está definido en la clase? Sí → compila. No → lo busca en la clase de la que extiende, y así hasta encontrarlo. Si no está en ninguna parte de la cadena, no compila.' },
+        { id: 'fc-29-4', front: 'Criterio de "matcheo" del método', back: 'Cantidad, tipo y orden de los parámetros de la llamada.' },
+        { id: 'fc-29-5', front: 'Qué hace el runtime con un método heredado', back: 'Si no está definido en la clase del objeto, ejecuta el código de la operación que se hereda de la superclase.' },
+        { id: 'fc-29-6', front: 'Agregar operaciones en la subclase', back: 'Además de heredar ladrar y jugar, se le puede agregar cuidarNiños() al Labrador o cuidarCasa() al Dóberman: son perros, pero hacen algo más.' },
+        { id: 'fc-29-7', front: '"Cumple con la interfaz pública"', back: 'Labrador es un perro porque hace al menos lo que hace un perro. La relación "es un" no obliga a hacer exactamente lo mismo: se puede agregar comportamiento.' },
+        { id: 'fc-29-8', front: 'Perro x = new Doberman();', back: 'Es válido porque Doberman ES UN Perro. Después se le puede pedir x.ladrar().' },
+      ],
+    },
+    {
+      id: '30',
+      unit: 'diseno-clases',
+      title: 'Sobreescritura y la keyword super',
+      criollo: 'El caniche ladra distinto al labrador, así que le "pisás" el ladrar heredado reescribiéndolo con el mismo tipo, orden y cantidad de parámetros. Y si querés pisar pero además reusar lo de arriba, llamás a super.ladrar(). Sin el super te comés un loop infinito. El super también sirve para llamar al constructor del padre, y ahí aparece la trampa del constructor por default.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Sobreescritura: alterando el comportamiento heredado',
+          criollo: 'Reescribís el método respetando la firma y le pisás el comportamiento al padre.',
+        },
+        {
+          type: 'p',
+          text: 'Analizando nuevamente al caniche: cuando lo oímos ladrar, claramente ladra de forma muy distinta a un labrador. ¿Cómo se puede mostrar esa diferencia dentro de la jerarquía de perros armada hasta aquí? Se utiliza un mecanismo que se llama <strong>sobreescritura de métodos</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Para aplicar sobreescritura se debe <strong>reescribir el método respetando el tipo, orden y cantidad de parámetros</strong> suministrados. De esta forma "pisamos" el comportamiento heredado y lo reemplazamos por otro:',
+        },
+        {
+          type: 'code',
+          code: 'public class Caniche extends Perro {\n   public String ladrar() {\n      return "WIF WIF";// caniche tiene un ladrido mas agudo \n   }   \n}',
+        },
+        {
+          type: 'p',
+          text: 'Entonces, si hiciéramos en un main:',
+        },
+        {
+          type: 'code',
+          code: 'Caniche c = new Caniche(); \nSystem.out.println(c.ladrar());// < WIF WIF',
+        },
+        {
+          type: 'p',
+          text: 'Aquí la clase Caniche <strong>sí</strong> define un método "ladrar". El compilador analiza: "¿ladrar, sin parámetros, está definida en Caniche? Sí, entonces la sintaxis es correcta". Al momento de la ejecución el runtime analiza: "¿ladrar sin parámetros está definida en Caniche? <strong>Sí</strong> → la ejecuto. <strong>No</strong> → voy a ejecutar el código que corresponde a la operación ladrar que se hereda de Perro".',
+        },
+        {
+          type: 'h3',
+          text: 'Pisar pero reutilizar: super',
+          criollo: 'El Dóberman ladra como perro pero le suma un gruñido. Escribís el GUAU una sola vez, en Perro.',
+        },
+        {
+          type: 'p',
+          text: 'Incluso podemos ir más allá: podemos "pisar" el método heredado pero a la vez <strong>reutilizar aquello que heredamos</strong>. Dóberman suena algo más agresivo, así que cuando ladre podemos hacer que gruña un poco también:',
+        },
+        {
+          type: 'code',
+          code: 'public class Doberman extends Perro {\n   public String ladrar() {\n      return super.ladrar() + " GRRRR"\n   }   \n}',
+        },
+        {
+          type: 'p',
+          text: 'Entonces, si hiciéramos un main:',
+        },
+        {
+          type: 'code',
+          code: 'Doberman d = new Doberman(); \nSystem.out.println(d.ladrar());// < GUAU GRRRR',
+        },
+        {
+          type: 'p',
+          text: 'Vimos aquí que podemos acceder al comportamiento de la <strong>clase padre, también llamada superclase</strong>, mediante la palabra clave <code>super</code>. De no contar con la palabra super, si hiciéramos:',
+        },
+        {
+          type: 'code',
+          code: 'public class Doberman extends Perro {\n   public String ladrar() {\n      return ladrar() + " GRRRR" // loop infinito!\n   }   \n}',
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'El método <code>ladrar()</code> se llamaría a sí mismo <strong>infinitamente</strong>. En cambio, con el <code>super</code> explicitamos que queremos llamar al <code>ladrar()</code> de la superclase.',
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Si tenemos una jerarquía de <strong>3 o más niveles</strong>, no se pueden encadenar las llamadas a super (es decir, no se puede hacer <code>super.super.super.unMetodo()</code>): siempre se hace de <strong>a un nivel por clase</strong>.',
+        },
+        {
+          type: 'p',
+          text: '¿Qué ocurrió aquí? <strong>Reutilizamos código</strong>. El Dóberman retorna "GUAU GRRRR" cuando ladra, pero el código del ladrido que devuelve "GUAU" lo escribimos <strong>solo una vez, en un solo lugar</strong>: en la clase Perro.',
+        },
+        {
+          type: 'h3',
+          text: 'super en los constructores',
+          criollo: 'Antes de darle agresividad al Dóberman tiene que existir su "parte Perro". Por eso Java mete un super() implícito, y si vos definiste otros constructores en el padre, el default se perdió y explota.',
+        },
+        {
+          type: 'p',
+          text: 'La palabra clave super no solo se utiliza en las llamadas a métodos. También se utiliza super para hacer <strong>llamadas a los constructores de la clase padre</strong>, por ejemplo:',
+        },
+        {
+          type: 'code',
+          code: 'public class Perro {\n   private Sting nombre;\n   \n   public Perro(String nombre) {\n      this.nombre = nombre;\n   }\n   public String ladrar() {\n      return super.ladrar() + " GRRRR"\n   }   \n}\n\npublic class Doberman extends Perro {\n   private int agresividad;\n\n   public Doberman(int agresividad) {\n      this.agresividad = agresividad;\n   }\n\n   // quiero un constructor que le pase el nombre\n   public Doberman(String nombre) {\n      //this.nombre = nombre;< este código ya lo escribí en Perro!\n      super(nombre);//RE-utilizo lo que ya escribi\n   }\n\n   public String ladrar() {\n      return ladrar() + " GRRRR" // loop infinito!\n   }   \n}',
+        },
+        {
+          type: 'p',
+          text: 'Aun así como está, Doberman arrojaría un <strong>error de compilación</strong>. El constructor que recibe el nivel de agresividad hace uso de la palabra <code>this</code>. Esa línea de código asume que <strong>ya existe una instancia</strong> de Doberman para darle la agresividad. Doberman es un perro, y para el momento de darle la agresividad al Doberman su <strong>"parte Perro"</strong> (aquello que hace que un dóberman sea un perro) ya debería existir, para luego asignarle la agresividad.',
+        },
+        {
+          type: 'p',
+          text: 'Para ello se agrega <strong>"implícitamente" una llamada a <code>super()</code></strong>, sin parámetros (el constructor por default). De esta manera tengo la parte de Perro de un Doberman para luego asignarle la agresividad. Como vimos en el apunte de constructores, <strong>si se definen constructores adicionales al constructor por default, este se pierde</strong>. Entonces, en este caso, es importante declararlo explícitamente.',
+        },
+        {
+          type: 'p',
+          text: 'El ejemplo con el código correcto sería:',
+        },
+        {
+          type: 'code',
+          code: 'public class Perro {\n   private Sting nombre;\n\n   public Perro() {\n      \n   }\n   \n   public Perro(String nombre) {\n      this.nombre = nombre;\n   }\n   public String ladrar() {\n      return super.ladrar() + " GRRRR"\n   }   \n}\n\npublic class Doberman extends Perro {\n   private int agresividad;\n\n   public Doberman(int agresividad) {\n      //aquí la llamada implícita a super() no tiene problemas\n      this.agresividad = agresividad;\n   }\n\n   // quiero un constructor que le pase el nombre\n   public Doberman(String nombre) {\n      //this.nombre = nombre;< este código ya lo escribí en Perro!\n      super(nombre);//RE-utilizo lo que ya escribi\n   }\n\n   public String ladrar() {\n      return ladrar() + " GRRRR" // loop infinito!\n   }   \n}',
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-30-1', q: 'Para sobreescribir un método hay que respetar el tipo, orden y cantidad de parámetros.', a: true, explain: 'Es la condición para "pisar" el comportamiento heredado. Si no se respeta, se cae en una sobrecarga.' },
+          { id: 'tf-30-2', q: 'Escribir "return ladrar() + \\" GRRRR\\"" dentro del propio ladrar() de Doberman produce un loop infinito.', a: true, explain: 'El método se llamaría a sí mismo infinitamente. Con super explicitamos que queremos el ladrar() de la superclase.' },
+          { id: 'tf-30-3', q: 'En una jerarquía de tres niveles se puede escribir super.super.unMetodo() para saltar dos escalones.', a: false, explain: 'No se pueden encadenar las llamadas a super: siempre se hace de a un nivel por clase.' },
+          { id: 'tf-30-4', q: 'La palabra super solo sirve para llamar métodos de la superclase.', a: false, explain: 'También se usa para hacer llamadas a los constructores de la clase padre, como super(nombre).' },
+          { id: 'tf-30-5', q: 'Si una clase define constructores adicionales al constructor por default, este último se pierde.', a: true, explain: 'Por eso hay que declararlo explícitamente cuando la subclase depende de la llamada implícita a super().' },
+        ],
+        mc: [
+          {
+            id: 'mc-30-1',
+            q: 'Con "public String ladrar() { return super.ladrar() + \\" GRRRR\\"; }" en Doberman, ¿qué imprime d.ladrar()?',
+            options: [
+              'GRRRR',
+              'GUAU GRRRR',
+              'WIF WIF GRRRR',
+              'Un error de compilación',
+            ],
+            correctIndex: 1,
+            explain: 'super.ladrar() devuelve el GUAU heredado de Perro y se le concatena " GRRRR".',
+          },
+          {
+            id: 'mc-30-2',
+            q: '¿Por qué el constructor "public Doberman(int agresividad) { this.agresividad = agresividad; }" puede fallar en compilación?',
+            options: [
+              'Porque el atributo agresividad es privado',
+              'Porque int no puede usarse en constructores',
+              'Porque falta el constructor por default en Perro para la llamada implícita a super()',
+              'Porque el nombre del constructor debe coincidir con el del archivo',
+            ],
+            correctIndex: 2,
+            explain: 'Se agrega implícitamente una llamada a super() sin parámetros; si Perro definió otros constructores, el default se perdió y hay error de compilación.',
+          },
+          {
+            id: 'mc-30-3',
+            q: '¿Qué se gana escribiendo super.ladrar() en lugar de repetir el "GUAU"?',
+            options: [
+              'Se acelera la ejecución del método',
+              'Se evita declarar el atributo nombre',
+              'Se elimina la necesidad de usar extends',
+              'Se reutiliza código: el "GUAU" se escribe una sola vez, en Perro',
+            ],
+            correctIndex: 3,
+            explain: 'El apunte lo remarca: el código del ladrido que devuelve "GUAU" se escribió solo una vez, en un solo lugar.',
+          },
+          {
+            id: 'mc-30-4',
+            q: 'Antes de asignarle la agresividad al Doberman, ¿qué debe existir?',
+            options: [
+              'Su "parte Perro", aquello que hace que un dóberman sea un perro',
+              'El método ladrar() sobreescrito',
+              'Una instancia previa de Caniche',
+              'El getter del atributo agresividad',
+            ],
+            correctIndex: 0,
+            explain: 'Doberman es un perro; para el momento de darle la agresividad su parte Perro ya debería existir, de ahí la llamada implícita a super().',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-30-1',
+            q: '¿Cuáles son usos válidos de la keyword super según el apunte?',
+            options: [
+              'Llamar a un método de la superclase',
+              'Llamar a un constructor de la clase padre',
+              'Encadenar varios niveles con super.super',
+              'Reutilizar el código heredado dentro de un método sobreescrito',
+              'Declarar atributos privados en la subclase',
+            ],
+            correctIndexes: [0, 1, 3],
+            explain: 'No se pueden encadenar llamadas a super, y super no declara atributos.',
+          },
+          {
+            id: 'ms-30-2',
+            q: 'Sobre la sobreescritura de métodos, ¿qué es cierto?',
+            options: [
+              'Reemplaza ("pisa") el comportamiento heredado',
+              'Exige respetar tipo, orden y cantidad de parámetros',
+              'Impide reutilizar el código de la superclase',
+              'Permite mostrar que el caniche ladra distinto al labrador',
+              'Solo puede aplicarse al constructor',
+            ],
+            correctIndexes: [0, 1, 3],
+            explain: 'Se puede reutilizar el código heredado con super, y la sobreescritura aplica a métodos en general.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-30-1', front: 'Sobreescritura de métodos', back: 'Mecanismo para alterar el comportamiento heredado: se reescribe el método respetando tipo, orden y cantidad de parámetros, "pisando" el de la superclase.' },
+        { id: 'fc-30-2', front: 'Ladrido del Caniche', back: 'public class Caniche extends Perro { public String ladrar() { return "WIF WIF"; } } → c.ladrar() imprime WIF WIF.' },
+        { id: 'fc-30-3', front: 'super (en métodos)', back: 'Palabra clave para acceder al comportamiento de la clase padre (superclase). Ej: super.ladrar() + " GRRRR" da "GUAU GRRRR".' },
+        { id: 'fc-30-4', front: '¿Qué pasa si llamo a ladrar() sin super dentro del propio ladrar()?', back: 'El método se llama a sí mismo infinitamente: loop infinito.' },
+        { id: 'fc-30-5', front: 'Encadenar super', back: 'No se puede: en jerarquías de 3 o más niveles no existe super.super.super.unMetodo(). Siempre de a un nivel por clase.' },
+        { id: 'fc-30-6', front: 'super en constructores', back: 'super(nombre) llama al constructor de la clase padre y reutiliza el código ya escrito ahí.' },
+        { id: 'fc-30-7', front: 'Llamada implícita a super()', back: 'Java agrega implícitamente super() sin parámetros para que exista la "parte Perro" antes de asignar los atributos propios con this.' },
+        { id: 'fc-30-8', front: 'Trampa del constructor por default', back: 'Si se definen constructores adicionales al constructor por default, este se pierde. Hay que declararlo explícitamente o el super() implícito no compila.' },
+      ],
+    },
+    {
+      id: '31',
+      unit: 'diseno-clases',
+      title: 'Sobrecarga de métodos',
+      criollo: 'Otra forma de reutilizar código, pero que no necesita jerarquía. En vez de inventar "ladrarConVolumen", definís otro ladrar que recibe un int. Misma semántica, distinta firma. Y ojo: si querías sobreescribir pero cambiaste el tipo de un parámetro, "caíste" en una sobrecarga sin darte cuenta.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Reutilizar sin jerarquía',
+          criollo: 'La sobrecarga usa el código de métodos que ya tenés en tu clase, o los que tenés gracias a que los heredás.',
+        },
+        {
+          type: 'p',
+          text: 'Existe otra forma de reutilizar código, pero en este caso <strong>no necesariamente se da dentro de una jerarquía</strong>. Se la denomina <strong>sobrecarga de métodos</strong>. Aquí se trata de utilizar el código de métodos que ya tenemos dentro de nuestra clase, o métodos que tenemos en nuestra clase gracias a que los estamos heredando.',
+        },
+        {
+          type: 'p',
+          text: 'Supongamos que tenemos la clase <strong>PerroRobot</strong>: por más que sea una máquina, si hace al menos lo que hace un perro (respeta su interfaz pública), entonces <strong>es un Perro</strong>. En código lo haríamos de la siguiente manera:',
+        },
+        {
+          type: 'code',
+          code: 'public class PerroRobot extends Perro {\n   public String ladrar() {\n      return super.ladrar() + " BIP BIP"; // loop infinito!\n   }   \n}',
+        },
+        {
+          type: 'h3',
+          text: 'Una nueva variante del mismo método',
+          criollo: 'Un perro ladra y ya: no inventes "ladrarConVolumen". Definís otro ladrar, con un argumento de más.',
+        },
+        {
+          type: 'p',
+          text: 'Supongamos ahora que la ventaja de un perro robótico fuera <strong>controlar el volumen</strong> al que ladra. Entonces podríamos definir una operación que se llame "ladrarConVolumen". Conceptualmente un perro ladra: controlar a distancia el volumen del ladrido del perro no es algo que pueda lograrse fácilmente. Los perros ladran y ya.',
+        },
+        {
+          type: 'p',
+          text: 'Lo que se puede hacer es <strong>definir una nueva operación ladrar</strong> que, conceptual e incluso semánticamente, concuerda con las acciones de un perro, aunque tendrá una variante: <strong>un argumento adicional</strong>.',
+        },
+        {
+          type: 'code',
+          code: 'public class PerroRobot extends Perro {\n   public String ladrar() {\n      return super.ladrar() + " BIP BIP";\n   }\n   public String ladrar(int volumen) {\n      return this.ladrar() + " VOL:"+volumen;\n   }   \n}',
+        },
+        {
+          type: 'p',
+          text: 'Entonces podríamos hacer:',
+        },
+        {
+          type: 'code',
+          code: 'PerroRobot pr = new PerroRobot();\nSystem.out.println(pr.ladrar()); //ladra\n//pero está muy fuerte….\nSystem.out.println(pr.ladrar(5)); //ladra y deja dormir…',
+        },
+        {
+          type: 'h3',
+          text: 'Sobrecarga vs. sobreescritura',
+          criollo: 'La regla es una sola y se usa al revés en cada caso: para sobrecargar tenés que cambiar tipo, orden o cantidad de parámetros; para sobreescribir tenés que respetarlos.',
+        },
+        {
+          type: 'p',
+          text: 'Anteriormente vimos la <strong>sobrecarga de constructores</strong>, sus restricciones y cómo se decide la ejecución de uno u otro según el tipo, orden y cantidad de parámetros. Eso es solo un <strong>caso particular de la sobrecarga en general</strong>, que es la que define esas reglas. Por lo tanto, en la sobrecarga de métodos aplican las mismas reglas: <strong>para sobrecargar un método se debe alterar tipo, orden y cantidad de parámetros</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'En la <strong>sobreescritura</strong> tengo que <strong>respetar</strong> tipo, orden y cantidad de parámetros para poder lograr "pisar" el método heredado. De lo contrario estaría haciendo una <strong>simple sobrecarga</strong> entre el método que estoy escribiendo y el que estoy heredando. Por ejemplo:',
+        },
+        {
+          type: 'code',
+          code: 'public class PerroRobotV2 extends PerroRobot {\n\n   public String ladrar(int volumen) {\n      return this.ladrar() + " DECIBELES:"+volumen;//estoy pisando\n   }\n\n   public String ladrar(long volumen) {\n      //aca no piso el ladrar porque el tipo del parámetro es otro\n      //"caigo" es una sobrecarga\n      return "this.ladrar()" + " MAX:" + (volumen*100);\n   }\n}',
+        },
+        {
+          type: 'table',
+          caption: 'Sobrecarga vs. sobreescritura',
+          headers: ['', 'Sobrecarga', 'Sobreescritura'],
+          rows: [
+            ['Parámetros', 'Se debe alterar tipo, orden y cantidad', 'Se debe respetar tipo, orden y cantidad'],
+            ['¿Necesita jerarquía?', 'No necesariamente', 'Sí: hay un método heredado que se pisa'],
+            ['Efecto', 'Convive otra variante del método', '"Pisa" el comportamiento heredado'],
+            ['Ejemplo del apunte', 'ladrar() y ladrar(int volumen) en PerroRobot', 'ladrar() de Caniche devolviendo "WIF WIF"'],
+          ],
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-31-1', q: 'La sobrecarga de métodos solo puede darse dentro de una jerarquía de herencia.', a: false, explain: 'La sobrecarga no necesariamente se da dentro de una jerarquía: usa métodos que ya tenemos en nuestra clase o que heredamos.' },
+          { id: 'tf-31-2', q: 'Para sobrecargar un método se debe alterar tipo, orden y cantidad de parámetros.', a: true, explain: 'Son las mismas reglas que ya se vieron para la sobrecarga de constructores, que es un caso particular de la sobrecarga en general.' },
+          { id: 'tf-31-3', q: 'Si al querer sobreescribir cambio el tipo de un parámetro, igual piso el método heredado.', a: false, explain: 'No: "caigo" en una sobrecarga. Para pisar hay que respetar tipo, orden y cantidad de parámetros.' },
+          { id: 'tf-31-4', q: 'PerroRobot es un Perro porque respeta su interfaz pública, aunque sea una máquina.', a: true, explain: 'Por más que sea una máquina, si hace al menos lo que hace un perro entonces es un Perro.' },
+          { id: 'tf-31-5', q: 'El apunte recomienda llamar "ladrarConVolumen" a la operación que controla el volumen.', a: false, explain: 'Al contrario: lo que se puede hacer es definir una nueva operación ladrar con un argumento adicional, porque semánticamente concuerda con las acciones de un perro.' },
+        ],
+        mc: [
+          {
+            id: 'mc-31-1',
+            q: 'En PerroRobot, ¿qué relación tienen ladrar() y ladrar(int volumen)?',
+            options: [
+              'Son el mismo método con distinto tipo de retorno',
+              'Son una sobrecarga: misma operación, distinta cantidad de parámetros',
+              'Son una sobreescritura del ladrar de Perro',
+              'El segundo anula al primero',
+            ],
+            correctIndex: 1,
+            explain: 'Es una nueva operación ladrar con una variante: un argumento adicional. Eso es sobrecarga.',
+          },
+          {
+            id: 'mc-31-2',
+            q: 'En PerroRobotV2, ladrar(long volumen) respecto de ladrar(int volumen)...',
+            options: [
+              'Lo pisa, porque el nombre coincide',
+              'Provoca un error de compilación',
+              'Es una sobrecarga, porque el tipo del parámetro es otro',
+              'Es ignorado por el compilador',
+            ],
+            correctIndex: 2,
+            explain: 'El comentario del apunte lo dice: acá no piso el ladrar porque el tipo del parámetro es otro, "caigo" en una sobrecarga.',
+          },
+          {
+            id: 'mc-31-3',
+            q: 'La sobrecarga de constructores, según el apunte, es...',
+            options: [
+              'Una regla independiente de la sobrecarga de métodos',
+              'Un caso particular de la sobrecarga en general',
+              'Una forma de sobreescritura',
+              'Algo que solo aplica a la clase Object',
+            ],
+            correctIndex: 1,
+            explain: 'Es solo un caso particular de la sobrecarga en general, que es la que define esas reglas.',
+          },
+          {
+            id: 'mc-31-4',
+            q: '¿Qué devuelve pr.ladrar(5) con "return this.ladrar() + \\" VOL:\\"+volumen;"?',
+            options: [
+              'Solo " VOL:5"',
+              'El resultado de ladrar() concatenado con " VOL:5"',
+              'GUAU, ignorando el parámetro',
+              'Un ClassCastException',
+            ],
+            correctIndex: 1,
+            explain: 'La variante con parámetro reutiliza this.ladrar() y le concatena " VOL:" más el volumen.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-31-1',
+            q: '¿Qué caracteriza a la sobrecarga de métodos?',
+            options: [
+              'Es otra forma de reutilizar código',
+              'No necesariamente se da dentro de una jerarquía',
+              'Se debe alterar tipo, orden y cantidad de parámetros',
+              'Puede usar métodos heredados dentro de la clase',
+              'Obliga a respetar exactamente la firma del método heredado',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'Respetar exactamente la firma es la condición de la sobreescritura, no de la sobrecarga.',
+          },
+          {
+            id: 'ms-31-2',
+            q: '¿Cuáles de estas clases aparecen en el apunte de sobrecarga?',
+            options: [
+              'PerroRobot',
+              'PerroRobotV2',
+              'Perro',
+              'PerroDron',
+              'PerroRobotV3',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain: 'PerroRobot extiende Perro y PerroRobotV2 extiende PerroRobot. Las otras dos no existen en el apunte.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-31-1', front: 'Sobrecarga de métodos', back: 'Otra forma de reutilizar código que no necesariamente se da dentro de una jerarquía: usar el código de métodos que ya tenemos en la clase o que heredamos.' },
+        { id: 'fc-31-2', front: 'Regla para sobrecargar', back: 'Se debe alterar tipo, orden y cantidad de parámetros.' },
+        { id: 'fc-31-3', front: 'Regla para sobreescribir', back: 'Se debe respetar tipo, orden y cantidad de parámetros. Si no, se "cae" en una simple sobrecarga.' },
+        { id: 'fc-31-4', front: 'PerroRobot', back: 'Por más que sea una máquina, si hace al menos lo que hace un perro (respeta su interfaz pública), entonces es un Perro: extends Perro.' },
+        { id: 'fc-31-5', front: '¿Por qué ladrar(int volumen) y no ladrarConVolumen()?', back: 'Porque conceptual y semánticamente un perro ladra y ya. Se define una nueva operación ladrar con una variante: un argumento adicional.' },
+        { id: 'fc-31-6', front: 'Sobrecarga de constructores', back: 'Es solo un caso particular de la sobrecarga en general, que es la que define las reglas de tipo, orden y cantidad de parámetros.' },
+        { id: 'fc-31-7', front: 'ladrar(long volumen) vs ladrar(int volumen)', back: 'No pisa al de int porque el tipo del parámetro es otro: "caigo" en una sobrecarga.' },
+      ],
+    },
+    {
+      id: '32',
+      unit: 'diseno-clases',
+      title: 'Arreglos: uso, recorridos y utilidades',
+      criollo: 'Un arreglo de primitivos arranca lleno de los valores por default (0, false, 0.0); uno de objetos arranca lleno de null, porque guarda referencias, no los objetos en sí. Accedés por posición, recorrés con un for de 0 a length-1, y el length es un atributo, no un método (nada de length()).',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'Qué hay adentro de un arreglo recién creado',
+          criollo: 'Depende de si es de primitivos o de referencias. Primitivos: valor por default. Referencias: null.',
+        },
+        {
+          type: 'p',
+          text: 'Los arreglos de tipos de dato <strong>primitivos</strong>, como ser <code>int[]</code>, guardan en cada una de sus posiciones los <strong>valores por default</strong> de los valores primitivos. Por ejemplo, para los enteros es un 0, para los boolean son false, para los float es 0.0, etc.',
+        },
+        {
+          type: 'ul',
+          items: [
+            'Cuando definimos un <strong>arreglo de enteros</strong>, cada posición se va a llenar con <strong>0</strong>, porque el valor por default de un entero es 0.',
+            'Cuando se genere un arreglo con tipo de dato <strong>Referencia</strong>, como el caso del Auto, en cada posición <strong>no va a haber nada</strong>, es decir, habrá un <strong>null</strong>.',
+          ],
+        },
+        {
+          type: 'h3',
+          text: '¿Cómo se llenan las posiciones de un arreglo?',
+          criollo: 'Por posición, con corchetes. Y acordate que la numeración arranca en 0.',
+        },
+        {
+          type: 'p',
+          text: 'Se tiene <strong>acceso por posición</strong>. Si queremos poner un valor entero en alguna posición en un arreglo de enteros tenemos que hacer:',
+        },
+        {
+          type: 'code',
+          code: 'enteros[3] = 158;',
+        },
+        {
+          type: 'p',
+          text: 'Si el arreglo fuera de 10, el 158 quedaría ubicado en la posición 3 (las posiciones van de 0 a 9).',
+        },
+        {
+          type: 'p',
+          text: '¿Y cómo se puede hacer para <strong>ver</strong> lo que hay en una posición?',
+        },
+        {
+          type: 'code',
+          code: 'int valor = enteros[4]; // valor es 31;',
+        },
+        {
+          type: 'p',
+          text: 'Esa expresión arrojará el valor guardado en esa posición (la quinta del arreglo, porque se cuenta desde 0). Si se necesita poner un valor en un arreglo cuyo tipo de dato es una <strong>Referencia</strong>:',
+        },
+        {
+          type: 'code',
+          code: 'Autos[0] = new Auto[];',
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'En cada posición, cuando usamos arreglos que son de objetos, <strong>no se guarda el valor dentro de la posición</strong>, sino que se guarda una <strong>referencia al objeto</strong>.',
+        },
+        {
+          type: 'h3',
+          text: '¿Cómo se recorre un arreglo?',
+          criollo: 'Dos sintaxis válidas para declararlo, pero la recomendada es la que pone los corchetes pegados al tipo.',
+        },
+        {
+          type: 'p',
+          text: 'Hay dos formas válidas de declarar un arreglo:',
+        },
+        {
+          type: 'code',
+          code: '1. int enteros[] = new int[10];\n\n       o\n\n2. int[] enteros = new int[10];',
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Ambas sintaxis son válidas, pero la <strong>forma recomendada es la nro. 2</strong>: <code>int[] enteros</code>.',
+        },
+        {
+          type: 'p',
+          text: 'En un arreglo de 10 posiciones, estas se enumerarán <strong>del 0 al 9</strong>. Para recorrer un arreglo hay que <strong>iterar posición por posición</strong>:',
+        },
+        {
+          type: 'code',
+          code: 'for(int pos = 0; pos < tamanio; pos++) { … }',
+        },
+        {
+          type: 'p',
+          text: 'Esto da la posibilidad de recorrer de 0 hasta 9. Cuando exista una <strong>posición vacía</strong>, el valor a imprimir será el valor por default: 0 en caso de que sea un entero, y <strong>null</strong> en el caso de un arreglo con tipo de dato de referencia.',
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Recorrer un arreglo de tipo <strong>escalar o primitivo es igual</strong> que uno de referencia: no cambia en nada. Existen otras formas de recorrer un arreglo usando <code>while(…) {…}</code> o <code>do {…} while(…)</code>.',
+        },
+        {
+          type: 'h3',
+          text: '¿Cómo saber el tamaño de un arreglo?',
+          criollo: 'length, y es un atributo — sin paréntesis. Devuelve un int porque el tamaño máximo de un arreglo entra en un entero.',
+        },
+        {
+          type: 'p',
+          text: 'Existe un <strong>atributo (no es un método)</strong> que se llama <code>length</code>. El length arroja un valor que es <strong>del tipo entero</strong>, porque el valor máximo del tamaño de un arreglo es un entero. Entonces:',
+        },
+        {
+          type: 'code',
+          code: 'int tamanio = enteros.length;//el tamanio es 10, de 0 a 9',
+        },
+        {
+          type: 'p',
+          text: 'Para imprimir:',
+        },
+        {
+          type: 'code',
+          code: 'for(int pos = 0; pos < tamanio; pos++) {\n       System.out.println(enteros[pos]);\n}',
+        },
+        {
+          type: 'p',
+          text: 'Por ejemplo: la primera vez que se ejecuta este código nos va a imprimir el valor de la posición 0, la segunda vez la 1, la tercera vez la 2, y así sucesivamente.',
+        },
+        {
+          type: 'table',
+          caption: 'Valores iniciales de un arreglo recién creado',
+          headers: ['Tipo del arreglo', 'Contenido de cada posición'],
+          rows: [
+            ['int[]', '0'],
+            ['boolean[]', 'false'],
+            ['float[]', '0.0'],
+            ['De referencia (ej: Auto[])', 'null (no hay nada; se guardarían referencias a objetos)'],
+          ],
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-32-1', q: 'Un arreglo de boolean recién creado tiene false en todas sus posiciones.', a: true, explain: 'Los arreglos de tipos primitivos guardan en cada posición el valor por default del tipo: 0 para int, false para boolean, 0.0 para float.' },
+          { id: 'tf-32-2', q: 'Un arreglo de tipo de dato Referencia arranca con 0 en cada posición.', a: false, explain: 'Arranca con null: en cada posición no va a haber nada.' },
+          { id: 'tf-32-3', q: 'length es un método que hay que invocar con paréntesis.', a: false, explain: 'El apunte lo aclara expresamente: length es un atributo, no es un método.' },
+          { id: 'tf-32-4', q: 'En un arreglo de 10 posiciones, estas se enumeran del 0 al 9.', a: true, explain: 'Por eso el for va de 0 mientras pos < tamanio.' },
+          { id: 'tf-32-5', q: 'Recorrer un arreglo de primitivos es distinto a recorrer uno de referencias.', a: false, explain: 'Recorrer un arreglo de tipo escalar o primitivo es igual que uno de referencia: no cambia en nada.' },
+        ],
+        mc: [
+          {
+            id: 'mc-32-1',
+            q: '¿Qué guarda cada posición de un arreglo de objetos?',
+            options: [
+              'Una copia del objeto',
+              'Una referencia al objeto',
+              'El valor por default del tipo primitivo asociado',
+              'El índice del objeto en memoria',
+            ],
+            correctIndex: 1,
+            explain: 'En arreglos de objetos no se guarda el valor dentro de la posición, sino una referencia al objeto.',
+          },
+          {
+            id: 'mc-32-2',
+            q: '¿Cuál es la forma recomendada de declarar un arreglo de enteros?',
+            options: [
+              'int enteros[] = new int[10];',
+              'int[] enteros = new int[10];',
+              'new int enteros[10];',
+              'Array<int> enteros = new Array(10);',
+            ],
+            correctIndex: 1,
+            explain: 'Ambas sintaxis (1 y 2) son válidas, pero la forma recomendada es la nro. 2.',
+          },
+          {
+            id: 'mc-32-3',
+            q: '¿Por qué length devuelve un valor de tipo entero?',
+            options: [
+              'Porque los arreglos solo pueden ser de enteros',
+              'Porque siempre devuelve 10',
+              'Porque el valor máximo del tamaño de un arreglo es un entero',
+              'Porque es un método heredado de Object',
+            ],
+            correctIndex: 2,
+            explain: 'El apunte lo dice textual: el length arroja un valor del tipo entero porque el valor máximo del tamaño de un arreglo es un entero.',
+          },
+          {
+            id: 'mc-32-4',
+            q: 'Si recorremos un arreglo de referencias y una posición está vacía, ¿qué se imprime?',
+            options: [
+              'null',
+              '0',
+              'false',
+              'Una cadena vacía',
+            ],
+            correctIndex: 0,
+            explain: 'Cuando exista una posición vacía el valor a imprimir será el default: 0 si es entero, null si es un arreglo de tipo de dato de referencia.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-32-1',
+            q: '¿Qué formas de recorrer un arreglo menciona el apunte?',
+            options: [
+              'for',
+              'while',
+              'do...while',
+              'switch',
+              'goto',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain: 'El ejemplo principal usa for, y el apunte agrega que existen otras formas usando while(…) {…} o do {…} while(…).',
+          },
+          {
+            id: 'ms-32-2',
+            q: '¿Cuáles son valores por default correctos en un arreglo de primitivos recién creado?',
+            options: [
+              'int → 0',
+              'boolean → false',
+              'float → 0.0',
+              'int → null',
+              'boolean → 0',
+            ],
+            correctIndexes: [0, 1, 2],
+            explain: 'null es el valor de las posiciones de un arreglo de tipo de dato de referencia, no de primitivos.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-32-1', front: 'Contenido inicial de un arreglo de primitivos', back: 'Los valores por default del tipo: 0 para int, false para boolean, 0.0 para float, etc.' },
+        { id: 'fc-32-2', front: 'Contenido inicial de un arreglo de referencias', back: 'null en cada posición: no hay nada guardado.' },
+        { id: 'fc-32-3', front: '¿Qué guarda una posición de un arreglo de objetos?', back: 'No guarda el valor dentro de la posición: guarda una referencia al objeto.' },
+        { id: 'fc-32-4', front: 'Acceso por posición', back: 'Para escribir: enteros[3] = 158; Para leer: int valor = enteros[4];' },
+        { id: 'fc-32-5', front: 'Dos sintaxis de declaración', back: 'int enteros[] = new int[10]; o int[] enteros = new int[10]; Ambas válidas, pero la recomendada es la segunda.' },
+        { id: 'fc-32-6', front: 'Recorrido de un arreglo', back: 'for(int pos = 0; pos < tamanio; pos++) { … } — en un arreglo de 10 posiciones, se recorren de 0 a 9.' },
+        { id: 'fc-32-7', front: 'length', back: 'Atributo (NO método) que devuelve el tamaño del arreglo como entero, porque el tamaño máximo de un arreglo es un entero. Ej: int tamanio = enteros.length;' },
+        { id: 'fc-32-8', front: '¿Cambia el recorrido según el tipo del arreglo?', back: 'No: recorrer un arreglo de tipo escalar o primitivo es igual que uno de referencia.' },
+      ],
+    },
+    {
+      id: '33',
+      unit: 'diseno-clases',
+      title: 'Conversión de tipos primitivos y promoción numérica',
+      criollo: 'Meter un int en un long es gratis: el contenedor es más grande y no perdés nada. Al revés hay que castear y podés perder información feo (un long gigante puede terminar valiendo cualquier cosa como int). Los chars son el capítulo raro: para ir de byte a char pasá primero por int. Y en las operaciones aritméticas Java "promueve" todo a un tipo común antes de operar.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'De un contenedor chico a uno grande (y al revés)',
+          criollo: 'Para arriba es trivial y sin pérdida. Para abajo hay que castear explícitamente y agarrate.',
+        },
+        {
+          type: 'p',
+          text: 'La conversión entre tipos primitivos es relativamente sencilla, siempre que se tengan en cuenta ciertos conceptos. Convertir desde un tipo <strong>"más chico" a uno "más grande"</strong> es la operación de conversión más sencilla:',
+        },
+        {
+          type: 'code',
+          code: 'int entero = 478;\nlong numero = entero;',
+        },
+        {
+          type: 'p',
+          text: 'Este es un caso trivial, ya que no debería haber problema en acomodar un número de <strong>32 bits (int)</strong> en un espacio de <strong>64 bits (long)</strong>. Ocurre lo mismo con los números de punto flotante. Siempre que me mueva hacia un "contenedor más grande" <strong>no habrá pérdida de información</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'A su vez, es posible pasar desde un tipo entero a uno de punto flotante: la parte decimal se llenará con ceros para completar el valor.',
+        },
+        {
+          type: 'code',
+          code: 'int entero = 241;\ndouble numeroConComa = entero; // numero con coma será 241.0',
+        },
+        {
+          type: 'p',
+          text: 'El <strong>caso inverso</strong> sería pasar de un contenedor más grande a uno más pequeño. En estos casos <strong>puede haber pérdida de información</strong> de acuerdo al tamaño del valor de origen. Por ejemplo:',
+        },
+        {
+          type: 'code',
+          code: 'long entero64 = 8223372036854775807l;\nint entero32 = (int)entero64; //entero32 vale ahora: 1486618623',
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'Hay que tener cuidado al momento de este tipo de conversiones, dado que puede causar <strong>efectos secundarios indeseados</strong> en nuestro sistema.',
+        },
+        {
+          type: 'h3',
+          text: 'El caso de los caracteres',
+          criollo: 'byte → char es un quilombo con los bits de signo. La receta del apunte: pasá primero por int.',
+        },
+        {
+          type: 'p',
+          text: 'En el caso especial de que se quiera convertir de un tipo <strong>byte</strong> a un tipo <strong>char</strong>, hay que tener en cuenta lo siguiente:',
+        },
+        {
+          type: 'code',
+          code: '// el entero 165, al pasarlo a byte vale: -91 -> 0b10100101\nbyte caracterComoByte = (byte)165; \n\n// esto da el caracter que es: 0b11111111 10100101 sin signo\nchar caracterComoChar = (char) caracterComoByte; \n\n// si voy a un "contenedor mas grande" entonces obtengo:\n// 0b11111111 10100101 que es el numero entero: 65445\nint caracterComoEntero = caracterComoChar; \n\n//y al volver 65445 a byte, se pierden los bits más significativos\n//(porque me voy a un contenedor mas chico)\n//entonces obtenemos: -91 -> 0b10100101\nbyte caracterComoByteNuevo = (byte)caracterComoEntero;',
+        },
+        {
+          type: 'p',
+          text: 'La representación binaria del número 165 es la misma que para el -91, excepto por la <strong>interpretación del bit que indica el signo</strong>. El valor en tipo char resulta en un valor de carácter <strong>UNICODE</strong>. A su vez, al pasarlo a un tipo int quedaron los 8 bits menos significativos iguales, resultando en el mismo -91.',
+        },
+        {
+          type: 'p',
+          text: 'Es importante notar que, si todo esto hubiera arrancado <strong>desde un tipo char</strong>, los resultados no hubieran sido consistentes:',
+        },
+        {
+          type: 'code',
+          code: '//aca 165 se toma como entero, no como char\n// al ponerlo en un tipo char, solo pierdo los bits de signo:\nchar caracterComoChar2 = 165; \n\n//entonces obtengo: 0b00000000 10100101, que es el mismo 165\n// si me paso a un "contenedor mas grande"\n// no pierdo ni gano información, solo se rellenan con ceros \n// los bits mas significativos => 0b00000000 10100101 \nint caracterComoEntero2 = caracterComoChar2; // este entero es 165\n\n//pero al convertirlo a byte SI pierdo información\n//porque byte es un contenedor "mas chico" que int\nbyte caracterComoByte2 = (byte)caracterComoEntero; //-91',
+        },
+        {
+          type: 'callout',
+          tone: 'info',
+          text: 'Es importante entender que para convertir de tipo <strong>byte a char</strong> conviene <strong>pasar primero por un int</strong> y luego convertir a char, para no perder información en el camino.',
+        },
+        {
+          type: 'h3',
+          text: 'Promoción numérica',
+          criollo: 'Antes de operar, Java lleva los dos operandos a un tipo común. Por eso sumar dos bytes te da un int y tenés que castear el resultado.',
+        },
+        {
+          type: 'p',
+          text: 'Hay una serie de reglas que se aplican al momento de hacer <strong>operaciones</strong>. Se trata de utilizar un <strong>tipo en común</strong> para realizar la operación. Según la especificación del lenguaje para Java en su última versión (Java 13), Cap. 5, sección 6, punto 2, las conversiones se toman en el siguiente orden:',
+        },
+        {
+          type: 'ol',
+          items: [
+            'Si alguno de los operandos es <strong>double</strong>, el otro se convierte a double.',
+            'Si alguno de los operandos es <strong>float</strong>, el otro se convierte a float.',
+            'Si alguno de los operandos es <strong>long</strong>, el otro se convierte a long.',
+            'De lo contrario, ambos operadores son considerados <strong>int</strong>.',
+          ],
+        },
+        {
+          type: 'p',
+          text: 'Para más información se puede consultar la especificación en <code>https://docs.oracle.com/javase/specs/jls/se13/html/index.html</code> o descargarla desde <code>https://docs.oracle.com/javase/specs/jls/se13/jls13.pdf</code>.',
+        },
+        {
+          type: 'p',
+          text: 'Ejemplo:',
+        },
+        {
+          type: 'code',
+          code: 'byte unByte = 7;\nbyte otroByte = 9;\n//el resultado deberá ser casteado, porque según las reglas\n//ambos se consideran int\nbyte resultado = (byte) (unByte + otroByte);',
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-33-1', q: 'Pasar de int a long no requiere cast explícito y no pierde información.', a: true, explain: 'No debería haber problema en acomodar un número de 32 bits (int) en un espacio de 64 bits (long): siempre que se vaya a un contenedor más grande no hay pérdida.' },
+          { id: 'tf-33-2', q: 'Convertir un long grande a int nunca causa pérdida de información.', a: false, explain: 'Puede haber pérdida de acuerdo al tamaño del valor de origen: el ejemplo pasa de 8223372036854775807l a 1486618623.' },
+          { id: 'tf-33-3', q: 'Al pasar un int a double, la parte decimal se llena con ceros.', a: true, explain: 'int entero = 241; double numeroConComa = entero; da 241.0.' },
+          { id: 'tf-33-4', q: 'Si uno de los operandos de una operación es float y el otro int, ambos se consideran int.', a: false, explain: 'Si alguno de los operandos es float, el otro se convierte a float. Solo si no hay double, float ni long ambos se consideran int.' },
+          { id: 'tf-33-5', q: 'Para convertir de byte a char conviene pasar primero por int.', a: true, explain: 'Es la recomendación explícita del apunte, para no perder información en el camino.' },
+        ],
+        mc: [
+          {
+            id: 'mc-33-1',
+            q: '¿Por qué "byte resultado = unByte + otroByte;" no compila sin cast?',
+            options: [
+              'Porque byte no admite el operador +',
+              'Porque el resultado excede el rango del byte siempre',
+              'Porque los bytes deben inicializarse en 0',
+              'Porque por promoción numérica ambos operandos se consideran int',
+            ],
+            correctIndex: 3,
+            explain: 'De lo contrario (si no hay double, float ni long) ambos operadores son considerados int, así que el resultado debe castearse a byte.',
+          },
+          {
+            id: 'mc-33-2',
+            q: 'Según las reglas de promoción numérica, ¿cuál se evalúa primero?',
+            options: [
+              'Si alguno de los operandos es double',
+              'Si alguno de los operandos es long',
+              'Si alguno de los operandos es float',
+              'Si ambos son int',
+            ],
+            correctIndex: 0,
+            explain: 'El orden es: double, float, long y, de lo contrario, int.',
+          },
+          {
+            id: 'mc-33-3',
+            q: 'En el ejemplo del apunte, "byte caracterComoByte = (byte)165;" vale...',
+            options: [
+              '165',
+              '-91',
+              '65445',
+              '0',
+            ],
+            correctIndex: 1,
+            explain: 'El entero 165 al pasarlo a byte vale -91 (0b10100101): misma representación binaria, distinta interpretación del bit de signo.',
+          },
+          {
+            id: 'mc-33-4',
+            q: 'El valor de un tipo char resulta en...',
+            options: [
+              'Un valor de carácter UNICODE',
+              'Un valor booleano',
+              'Un número de punto flotante',
+              'Una cadena de un solo carácter',
+            ],
+            correctIndex: 0,
+            explain: 'El apunte lo dice textual al explicar el caso de los caracteres.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-33-1',
+            q: '¿Cuáles son conversiones "hacia un contenedor más grande" sin pérdida de información?',
+            options: [
+              'int a long',
+              'int a double',
+              'long a int',
+              'char a int',
+              'int a byte',
+            ],
+            correctIndexes: [0, 1, 3],
+            explain: 'long a int e int a byte van hacia contenedores más chicos y pueden perder información.',
+          },
+          {
+            id: 'ms-33-2',
+            q: '¿Qué reglas de promoción numérica enumera el apunte?',
+            options: [
+              'Si alguno es double, el otro se convierte a double',
+              'Si alguno es float, el otro se convierte a float',
+              'Si alguno es long, el otro se convierte a long',
+              'Si alguno es char, el otro se convierte a char',
+              'De lo contrario, ambos se consideran int',
+            ],
+            correctIndexes: [0, 1, 2, 4],
+            explain: 'La regla del char no existe: las cuatro reglas son double, float, long y por defecto int.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-33-1', front: 'Conversión hacia un contenedor más grande', back: 'Es la más sencilla y no hay pérdida de información. Ej: int entero = 478; long numero = entero;' },
+        { id: 'fc-33-2', front: 'int a double', back: 'Es posible pasar de entero a punto flotante: la parte decimal se llena con ceros. int 241 → double 241.0.' },
+        { id: 'fc-33-3', front: 'Conversión hacia un contenedor más chico', back: 'Requiere cast explícito y puede haber pérdida de información según el tamaño del valor de origen. Ej: (int) de un long enorme da 1486618623.' },
+        { id: 'fc-33-4', front: '165 pasado a byte', back: 'Vale -91 (0b10100101): la representación binaria es la misma, cambia la interpretación del bit de signo.' },
+        { id: 'fc-33-5', front: 'Valor de un char', back: 'Resulta en un valor de carácter UNICODE.' },
+        { id: 'fc-33-6', front: 'Receta byte → char', back: 'Pasar primero por un int y después convertir a char, para no perder información en el camino.' },
+        { id: 'fc-33-7', front: 'Promoción numérica', back: 'Reglas para usar un tipo común al operar: 1) si alguno es double → double; 2) si alguno es float → float; 3) si alguno es long → long; 4) de lo contrario, ambos son int.' },
+        { id: 'fc-33-8', front: 'byte + byte', back: 'Ambos se consideran int por promoción numérica, así que el resultado debe castearse: byte resultado = (byte)(unByte + otroByte);' },
+      ],
+    },
+    {
+      id: '34',
+      unit: 'diseno-clases',
+      title: 'Conversión de tipos de referencia: upcasting, downcasting e instanceof',
+      criollo: 'Ir para arriba (Empleado → Persona) es implícito y siempre seguro, pero perdés acceso a lo que es propio de la subclase. Ir para abajo hay que pedirlo con un cast explícito: le "prometés" al compilador que ahí adentro hay un Ejecutivo. Si le mentís no falla al compilar, te explota en ejecución con un ClassCastException. La red de seguridad es instanceof.',
+      blocks: [
+        {
+          type: 'h3',
+          text: 'La jerarquía de ejemplo',
+          criollo: 'Ejecutivo → Empleado → Persona. Por transitividad, un Ejecutivo es una Persona.',
+        },
+        {
+          type: 'p',
+          text: 'El concepto de herencia en su más básica expresión es sencillo: una <strong>sub-clase hereda de otra super-clase</strong> sus atributos y operaciones. Por ejemplo, una clase <strong>Ejecutivo</strong> heredaría todos los atributos y operaciones de una clase <strong>Empleado</strong>, que a su vez heredaría todo de una clase <strong>Persona</strong>.',
+        },
+        {
+          type: 'p',
+          text: 'Entonces, a un Ejecutivo se lo puede considerar un Empleado (de hecho, en la realidad lo es), y a un Empleado se lo puede considerar una Persona. <strong>Por carácter transitivo</strong>, entonces, un Ejecutivo es una Persona.',
+        },
+        {
+          type: 'h3',
+          text: 'Upcasting',
+          criollo: 'Hacia arriba: implícito, sin drama. Pero la variable es del tipo de arriba, así que solo ves lo que hace la superclase.',
+        },
+        {
+          type: 'p',
+          text: 'La conversión de tipos <strong>"hacia arriba"</strong> se hace de manera <strong>implícita</strong>:',
+        },
+        {
+          type: 'code',
+          code: "Empleado e = new Empleado();//'e' aquí guarda un objeto Empleado\nEmpleado e2 = new Empleado();//'e2' aquí guarda un objeto Empleado\n\nPersona p = new Persona();//'p' aquí guarda un objeto Persona\n\n//entonces, según lo dicho es razonable poder hacer:\nPersona x = e; //porque todo Empleado es Persona.\n\n//podemos hacerlo explícitamente también:\nPersona y = (Persona)e2;",
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'Es importante notar que, por más que "x" e "y" sean empleados, <strong>el tipo de la variable es Persona</strong>, por lo cual solo tendremos acceso a las <strong>características y operaciones de Persona</strong>.',
+        },
+        {
+          type: 'h3',
+          text: 'Downcasting',
+          criollo: 'Hacia abajo: el compilador no te lo regala, porque no toda Persona es un Ejecutivo. Se lo tenés que prometer con un cast explícito.',
+        },
+        {
+          type: 'p',
+          text: 'Se trata de la conversión de tipos <strong>"hacia abajo"</strong>: de la superclase hacia la subclase.',
+        },
+        {
+          type: 'code',
+          code: 'Persona p = new Persona(); //(*)',
+        },
+        {
+          type: 'p',
+          text: 'Esto no tiene nada de nuevo, pero si escribo:',
+        },
+        {
+          type: 'code',
+          code: 'Persona p2 = new Ejecutivo()',
+        },
+        {
+          type: 'p',
+          text: 'Esto está bien: por la estructura jerárquica descripta, el compilador es capaz de interpretarlo como correcto. Pero <strong>el camino inverso no necesariamente es cierto</strong>. Por ejemplo, si tenemos:',
+        },
+        {
+          type: 'code',
+          code: 'Ejecutivo ej = new Persona();',
+        },
+        {
+          type: 'p',
+          text: 'Todo Ejecutivo es una Persona, pero <strong>no toda Persona es necesariamente un Ejecutivo</strong>. Ahora bien, supongamos que hacemos lo siguiente:',
+        },
+        {
+          type: 'code',
+          code: 'Persona p3 = new Ejecutivo();//(**)',
+        },
+        {
+          type: 'p',
+          text: 'Que no tiene nada de malo, ya que el compilador lo entiende como correcto. Acá hay una <strong>conversión de tipos implícita</strong>, es decir, hay un <strong>cast implícito</strong>. Por otro lado, si hago:',
+        },
+        {
+          type: 'code',
+          code: 'Ejecutivo eje = p;',
+        },
+        {
+          type: 'p',
+          text: 'El compilador sabe que no necesariamente toda persona es un ejecutivo (alguna puede serlo), por lo que arrojará un <strong>error de compilación</strong>. Pero podemos decirle al compilador, <strong>"prometerle"</strong>, que efectivamente en p almacenamos una instancia de Ejecutivo mediante un <strong>downcast explícito</strong>:',
+        },
+        {
+          type: 'code',
+          code: 'Ejecutivo eje2 = (Ejecutivo)p3;',
+        },
+        {
+          type: 'h3',
+          text: 'Instanceof',
+          criollo: 'Si le mentís al compilador, la promesa se cobra en ejecución: ClassCastException. instanceof es el chequeo previo para no comerte ese misil.',
+        },
+        {
+          type: 'p',
+          text: '¿Qué pasa si con esto le estoy <strong>"mintiendo"</strong> al compilador?',
+        },
+        {
+          type: 'code',
+          code: '//aca le prometo al compilador, y le estoy cumpliendo\nEjecutivo eje2 = (Ejecutivo)p3; //(ver **)\n//aca estoy "mintiendo" porque en p (ver *) guardé una persona\nEjecutivo eje = (Ejecutivo)p;',
+        },
+        {
+          type: 'callout',
+          tone: 'warning',
+          text: 'En este caso <strong>no obtendremos un error en momento de compilación</strong>, sino que en momento de ejecución obtendremos un error de casteo: una <strong>ClassCastException</strong>. El compilador analiza la sintaxis del código, <strong>no lo ejecuta</strong>. Lo que ocurre durante la ejecución es distinto.',
+        },
+        {
+          type: 'p',
+          text: '¿Y si fue un error involuntario? Antes de castear podemos asegurarnos de que puede hacerse correctamente. Para eso existe el operador <strong>instanceof</strong>. El operador instanceof <strong>no es un método, es un operador</strong> (como el + o el *): sirve para averiguar si una variable efectivamente está almacenando una instancia de una clase u otra. El uso de instanceof es el siguiente:',
+        },
+        {
+          type: 'code',
+          code: 'miVarible instanceof MiClase;',
+        },
+        {
+          type: 'p',
+          text: 'Si <code>miVariable</code> está almacenando un objeto de tipo <code>MiClase</code>, entonces la operación devolverá un <strong>true</strong>. De lo contrario, un <strong>false</strong>. Ejemplo:',
+        },
+        {
+          type: 'code',
+          code: 'if(p instanceof Ejecutivo) {\n//siempre puedo castear, pero aca evito un error durante la ejecucion\nEjecutivo eje = (Ejecutivo)p; \n}',
+        },
+        {
+          type: 'table',
+          caption: 'Upcasting vs. downcasting',
+          headers: ['', 'Upcasting', 'Downcasting'],
+          rows: [
+            ['Dirección', 'De la subclase hacia la superclase', 'De la superclase hacia la subclase'],
+            ['Cast', 'Implícito (puede escribirse explícito igual)', 'Explícito y obligatorio'],
+            ['Riesgo', 'Ninguno, pero se pierde acceso a lo propio de la subclase', 'ClassCastException en ejecución si el objeto no era de esa clase'],
+            ['Chequeo previo', 'No hace falta', 'instanceof'],
+          ],
+        },
+      ],
+      quiz: {
+        tf: [
+          { id: 'tf-34-1', q: 'El upcasting se hace de manera implícita.', a: true, explain: 'La conversión "hacia arriba" es implícita: Persona x = e; funciona porque todo Empleado es Persona. También puede escribirse explícitamente.' },
+          { id: 'tf-34-2', q: 'Con "Persona x = e;" donde e es un Empleado, se puede acceder a las operaciones propias de Empleado.', a: false, explain: 'El tipo de la variable es Persona, por lo cual solo tendremos acceso a las características y operaciones de Persona.' },
+          { id: 'tf-34-3', q: '"Ejecutivo ej = new Persona();" es válido porque toda Persona es un Ejecutivo.', a: false, explain: 'Todo Ejecutivo es una Persona, pero no toda Persona es necesariamente un Ejecutivo.' },
+          { id: 'tf-34-4', q: 'Un downcast que "miente" produce un error de compilación.', a: false, explain: 'No hay error de compilación: el error aparece en ejecución como ClassCastException. El compilador analiza la sintaxis, no ejecuta.' },
+          { id: 'tf-34-5', q: 'instanceof es un operador, no un método.', a: true, explain: 'El apunte lo remarca: es un operador como el + o el *.' },
+        ],
+        mc: [
+          {
+            id: 'mc-34-1',
+            q: '¿Qué error se produce al castear a Ejecutivo una variable que guarda una Persona común?',
+            options: [
+              'NullPointerException',
+              'ClassCastException, en tiempo de ejecución',
+              'Un error de compilación',
+              'ArrayIndexOutOfBoundsException',
+            ],
+            correctIndex: 1,
+            explain: 'No obtendremos un error en momento de compilación, sino en ejecución: un error de casteo, una ClassCastException.',
+          },
+          {
+            id: 'mc-34-2',
+            q: '¿Para qué sirve el operador instanceof?',
+            options: [
+              'Para crear una instancia de una clase',
+              'Para convertir automáticamente entre tipos',
+              'Para averiguar si una variable está almacenando una instancia de una clase u otra',
+              'Para comparar el contenido de dos objetos',
+            ],
+            correctIndex: 2,
+            explain: 'Devuelve true si miVariable está almacenando un objeto de tipo MiClase; de lo contrario, false.',
+          },
+          {
+            id: 'mc-34-3',
+            q: 'En la jerarquía Ejecutivo → Empleado → Persona, un Ejecutivo es una Persona...',
+            options: [
+              'Solo si se hace un cast explícito',
+              'Por carácter transitivo',
+              'Solo dentro de un bloque instanceof',
+              'Nunca, porque son niveles distintos',
+            ],
+            correctIndex: 1,
+            explain: 'Ejecutivo es Empleado y Empleado es Persona; por carácter transitivo, Ejecutivo es Persona.',
+          },
+          {
+            id: 'mc-34-4',
+            q: '"Persona p3 = new Ejecutivo();" es un ejemplo de...',
+            options: [
+              'Un cast implícito hacia arriba',
+              'Un downcast explícito',
+              'Una sobrecarga de constructores',
+              'Un error de compilación',
+            ],
+            correctIndex: 0,
+            explain: 'El compilador lo entiende como correcto: hay una conversión de tipos implícita, un cast implícito.',
+          },
+        ],
+        ms: [
+          {
+            id: 'ms-34-1',
+            q: '¿Qué afirmaciones sobre el downcasting son correctas?',
+            options: [
+              'Va de la superclase hacia la subclase',
+              'Requiere un cast explícito para que compile',
+              'Puede fallar en ejecución con ClassCastException',
+              'instanceof permite chequear antes de castear',
+              'Nunca compila, en ningún caso',
+            ],
+            correctIndexes: [0, 1, 2, 3],
+            explain: 'Compila perfectamente cuando se hace el cast explícito: el problema aparece recién en ejecución si el objeto no era de esa clase.',
+          },
+          {
+            id: 'ms-34-2',
+            q: '¿Cuáles de estas líneas provocan un error de compilación según el apunte?',
+            options: [
+              'Persona x = e; (e es Empleado)',
+              'Ejecutivo eje = p; (p es Persona, sin cast)',
+              'Persona p2 = new Ejecutivo();',
+              'Ejecutivo eje2 = (Ejecutivo)p3;',
+              'Persona y = (Persona)e2;',
+            ],
+            correctIndexes: [1],
+            explain: 'Solo la asignación sin cast de una Persona a una variable Ejecutivo falla en compilación. Las demás son upcasts o downcasts explícitos válidos sintácticamente.',
+          },
+        ],
+      },
+      flashcards: [
+        { id: 'fc-34-1', front: 'Jerarquía de ejemplo del apunte', back: 'Ejecutivo hereda de Empleado, que hereda de Persona. Por carácter transitivo, un Ejecutivo es una Persona.' },
+        { id: 'fc-34-2', front: 'Upcasting', back: 'Conversión "hacia arriba" (subclase → superclase). Se hace de manera implícita: Persona x = e; También puede escribirse explícito: Persona y = (Persona)e2;' },
+        { id: 'fc-34-3', front: 'Limitación del upcasting', back: 'Por más que la variable guarde un Empleado, si su tipo es Persona solo tendremos acceso a las características y operaciones de Persona.' },
+        { id: 'fc-34-4', front: 'Downcasting', back: 'Conversión "hacia abajo" (superclase → subclase). Requiere un cast explícito: Ejecutivo eje2 = (Ejecutivo)p3;' },
+        { id: 'fc-34-5', front: '¿Por qué "Ejecutivo eje = p;" no compila?', back: 'Porque el compilador sabe que no necesariamente toda persona es un ejecutivo. Hay que "prometérselo" con un downcast explícito.' },
+        { id: 'fc-34-6', front: 'ClassCastException', back: 'Error de casteo que ocurre en tiempo de ejecución cuando el downcast explícito "mintió": el objeto no era realmente de esa clase. El compilador analiza sintaxis, no ejecuta.' },
+        { id: 'fc-34-7', front: 'instanceof', back: 'Operador (no método, como el + o el *) que devuelve true si la variable está almacenando un objeto de esa clase, y false en caso contrario. Uso: miVariable instanceof MiClase;' },
+        { id: 'fc-34-8', front: 'Patrón seguro de downcast', back: 'if(p instanceof Ejecutivo) { Ejecutivo eje = (Ejecutivo)p; } — siempre se puede castear, pero así se evita un error durante la ejecución.' },
+      ],
+    },
+    {
       id: '15',
       unit: 'relaciones',
       title: 'Cardinalidad: cuántos objetos hay de cada lado',
@@ -5050,6 +6474,9 @@ export default {
     { key: 'intro-ides', label: 'Apunte · Introducción a los IDEs', path: 'pdfs/laboratorio-1/2-intro-ides.pdf' },
     { key: 'tutorial-eclipse', label: 'Apunte · Tutorial de Eclipse', path: 'pdfs/laboratorio-1/3-tutorial-eclipse.pdf' },
     { key: 'tutorial-java', label: 'Apunte · Tutorial de código Java', path: 'pdfs/laboratorio-1/4-tutorial-codificacion-java.pdf' },
+    { key: 'herencia-basica', label: 'Apunte · Conceptos básicos de herencia y sus aplicaciones', path: 'pdfs/laboratorio-1/4-conceptos-basicos-de-herencia-y-sus-aplicaciones.pdf' },
+    { key: 'arreglos', label: 'PPT · Arreglos: uso, recorridos, utilidades', path: 'pdfs/laboratorio-1/4-arreglos-usos-recorrido-utilizacion.pdf' },
+    { key: 'conversion-tipos', label: 'Apunte · Conversión de tipos', path: 'pdfs/laboratorio-1/4-conversion-de-tipos.pdf' },
     { key: 'relaciones-objetos', label: 'PPT · Relaciones entre objetos', path: 'pdfs/laboratorio-1/5-relaciones-entre-objetos.pdf' },
     { key: 'imperativos-declarativos', label: 'Apunte · Lenguajes imperativos y declarativos', path: 'pdfs/laboratorio-1/6-lenguajes-imperativos-declarativos.pdf' },
     { key: 'jvm-jre', label: 'Apunte · Funcionamiento de la JVM y JRE', path: 'pdfs/laboratorio-1/7-funcionamiento-jvm-jre.pdf' },
